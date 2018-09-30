@@ -143,7 +143,7 @@
 \newcommand{\solution}{\textbf{\large Solution}}
 
 % Probability commands: Expectation, Variance, Covariance, Bias
-\newcommand{\E}{\mathrm{E}}
+\newcommand{\E}{\mathbb{E}}
 \newcommand{\Var}{\mathrm{Var}}
 \newcommand{\Cov}{\mathrm{Cov}}
 \newcommand{\Bias}{\mathrm{Bias}}
@@ -498,33 +498,232 @@ D_v f(x, y) = \text{comp}_v \nabla f(x, y) = \frac{\nabla f(x, y) \cdot \boldsym
 
 \subsubsection{Definitions}
 
-A \textbf{probability mass function} of a discrete random variable
+The \textbf{probability mass function} of a discrete random variable \(X\) is the function \(f: \mathbb{R} \to [0,1]\) given by \(f(x) = \Pr(X = x)\).
 
-A \textbf{cumulative distribution function} or \textbf{distribution} of a discrete random variable
+The \textbf{(cumulative) distribution function} of a discrete random variable \(F\) is given by \[F(x) = \sum_{i:x_i \leq x} f(x_i)\]
 
-Two random variables are \textbf{uncorrelated} if and only if
+The \textbf{joint probability mass function} \(f: \mathbb{R}^2 \to [0, 1]\) of two discrete random variables \(X\) and \(Y\) is given by
 
-Two random variables are \textbf{independent} if and only if
+\[
+f(x, y) = \Pr(X = x \cap Y = y)
+\]
+
+The \textbf{joint distribution function} \(F: \mathbb{R}^2 \to [0, 1]\) is given by
+
+\[
+F(x, y) = \Pr(X \leq x \cap Y \leq y)
+\]
+
+If \(\Pr(B) > 0\) then the \textbf{conditional probability} that \(A\) occurs given that \(B\) occurs is defined to be
+
+\[
+\Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}
+\]
+
+If \(X\) is a random variable and \(Y\) is a discrete random variable taking on values \(y_1, y_2, \ldots, y_n\), then \(\Pr(X) = \sum_i \Pr(X \mid Y = y_i) \cdot \Pr(Y = y_i)\). (Can be used to prove independence.)
+
+Two random variables \(X\) and \(Y\) are \textbf{uncorrelated} if \(\E(XY) = \E(X) \E(Y)\). Two random variables are uncorrelated if and only if their covariance \(\Cov(X, Y) = \E \big[(X - \E(X))(Y - \E(Y))\big] = \E(XY) - \E(X)\E(Y)\)  equals 0. If \(X\) and \(Y\) are independent then the are uncorrelated.
+
+Two random variables \(X\) and \(Y\) are \textbf{independent} if and only if \(\Pr(X \cap Y) = \Pr(X) \Pr(Y)\).
+
+\textbf{Thereom.} If \(X\) and \(Y\) are independent and \(g, h: \mathbb{R} \to \mathbb{R}\), then \(g(X)\) and \(h(Y)\) are also independent.
+
+\subsubsection{Conditioning}
+
+The \textbf{conditional distribution function} of \(Y\) given \(X = x\), written \(F_{Y\mid X}( \cdot \mid x)\), is defined by
+
+\[
+F_{Y\mid X}( y \mid x) = \Pr(Y \leq y \mid X = x)
+\]
+
+The \textbf{conditional probability mass function} of \(Y\) given \(X = x\), written \(f_{Y\mid X}( \cdot \mid x)\), is defined by
+
+\[
+f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
+\]
+
+\textbf{Iterated expecations:} 
+
+\begin{itemize}
+
+\item \(\E\big[ \E(Y \mid X) \big] = \E(Y)\)
+
+\item \(\E \big[ (X \mid Y) \mid Z \big] = \E(X \mid Y)\)
+
+\end{itemize}
+
+\textbf{Conditional Variance:} \(\Var(X \mid Y) = \E\big[ (X - \E(X \mid Y))^2   \mid Y\big]\)
+
+\subsubsection{Odds and Ends}
+
+\textbf{Sums of random variables.} If \(X\) and \(Y\) are independent then
+
+\[
+\Pr(X + Y = z) = f_{X +Y}(z) = \sum_x f_X(x) f_Y(z-x) = \sum_y f_X(z - y) f_Y(y)
+\]
+
+\textbf{Variance-Covariance Expansion.} Let \(X_1, \ldots, X_n\) be random variables. If \(\E \left|X_k \right|^2 < \infty\), then 
+
+\[
+\Var(X_1 + \ldots + X_n) = \sum_k \Var(X_k) + \sum_{k \neq m} \sum_m \Cov(X_k, X_m)
+\]
+
+\subsubsection{Methods for Calculating Quantities}
+
+\begin{itemize}
+
+\item Expectation
+
+\begin{itemize}
+
+\item Definition: \(\E(X) = \sum_x x \Pr(X = x)\)\
+
+\item Useful theorems: \(\E(aX + bY) = a \E(X) + b \E(Y)\); if \(X \geq 0\) then \(\E(X) \geq 0\).
+
+\item \textbf{Law of the Unconscious Statistician:} If \(X\) has mass function \(f\), and \(g: \mathbb{R} \to \mathbb{R}\), then 
+
+\[
+\E(g(X)) = \sum_x g(x) f(x)
+\]
+
+\item Expectation is a linear operator: \( \E \big(\sum_i X_i \big) = \sum_i \E(X_i)\)
+
+
+
+\end{itemize}
+
+\item Variance
+
+\begin{itemize}
+
+\item Definition: \( \Var(X) = \E(X - \E(X))^2\)
+
+\item Useful reformulation: \(\Var(X) = \E(X^2) - \E(X)^2\)
+
+\item Useful theorems: \(\Var(aX) = a^2 \Var(X)\), \(\Var(X + Y) = \Var(X) + \Var(Y) + 2 \Cov(X, Y)\), \(\Var(aX \pm bY) = a^2\Var(X) + b^2\Var(Y) \pm 2ab \Cov(X, Y)\)
+
+\item \textbf{Total variance:} \( \Var(X) = \Var \big( \E(X \mid Y) \big) + \E \big( \Var(X \mid Y) \big) \)
+
+\end{itemize}
+
+\item Covariance
+
+\begin{itemize}
+
+\item Definition: \( \Cov(X, Y ) = \E \big[ (X - \E(X))(Y - \E(Y))\big] \)
+
+\item Useful reformulation: \(\Cov(X) = \E(XY) - \E(X)\E(Y)\)
+
+\end{itemize}
+
+\end{itemize}
 
 \subsubsection{Discrete Random Variable Distributions}
 
-\textbf{Binomial}: mass function, distribution, expectation, variance, how to derive
+\textbf{Binomial}: \(\operatorname{Binomial}(n, p)\) (sum of \(n\) Bernoulli random variables)
 
-\textbf{Poisson}: mass function, distribution, expectation, variance, how to derive
+\begin{itemize}
 
-\textbf{Geometric}: mass function, expectation, variance; maybe: distribution, how to derive
+\item Mass function: \(\Pr(X = k) = \binom{n}{k}p^k(1-p)^{n-k}  \)
 
-\textbf{Negative binomial}: mass function, expectation; maybe: variance, distribution, how to derive
+\item Distribution: \(\Pr(X \leq k) = \sum_{i=0}^k \binom{n}{i}p^i(1-p)^{n-i} \)
 
-\textbf{Hypergeometric}: mass function, expectation; maybe: variance, distribution, how to derive
+\item Expectation: \(\E(X) = np \)
+
+\item Variance: \(\Var(X) = np(1-p) \)
+
+\end{itemize}
+
+\textbf{Poisson}:  \(\operatorname{Poisson}(\lambda)\): an approximation of the binomial distribution for n very large, p very small, \(np \to \lambda \in (0, \infty)\).
+
+\begin{itemize}
+
+\item Mass function: \[\Pr(X = k) =  \frac{e^{-\lambda}\lambda^k}{k!} \]
+
+\item Distribution: \(\Pr(X \leq k) = \sum{i=0}^k  \frac{e^{-\lambda}\lambda^i}{i!}  \)
+
+\item Expectation: \(\E(X) = \lambda \) (derive from basic definitions)
+
+\item Variance: \(\Var(X) = \lambda\)
+
+\end{itemize}
+
+\textbf{Geometric}:  \(\operatorname{G}_1(p)\): the number of Bernoulli trials before the first success.
+
+\begin{itemize}
+
+\item Mass function: \(\Pr(X = k) = p(1-p)^{k-1} \)
+
+\item Distribution: \(\Pr(X \leq k) = \sum_{i=1}^k p(1-p)^{k-1}  \)
+
+\item Expectation: \(\E(X) = 1/p \)
+
+\item Variance: \(\Var(X) = (1-p)/p^2\)
+
+\end{itemize}
+
+
+\textbf{Negative binomial}: \( \operatorname{NB}(r, p)\): The number of Bernoulli trials required for \(r\) successes. (Can be derived as the sum of \(r\) identically distributed geometric random variables.)
+
+\begin{itemize}
+
+\item Mass function: \(\Pr(X = k) =  \binom{k-1}{r-1} p^r (1-p)^{k-r}\)
+
+\item Distribution: \(\Pr(X \leq k) = \sum_{i=r}^k \binom{i-1}{r-1} p^r (1-p)^{i-r} \)
+
+\item Expectation: \(\E(X) = \)
+
+\item Variance: \(\Var(X) = \)
+
+\end{itemize}
+
+
+\textbf{Hypergeometric}: \( \operatorname{Hypergeometric}(N, M, K)\): When drawing a sample of size \(K\) from a group of \(N\) items, \(M\) of which are special, the number of special items retrieved.
+
+\begin{itemize}
+
+\item Mass function: \[\Pr(X = k) = \frac{\binom{M}{k} \binom{N-M}{K-k}}{\binom{N}{K}} \]
+
+\item Distribution: \[\Pr(X \leq k) = \sum_{i=0}^k \frac{\binom{M}{i} \binom{N-M}{K-i}}{\binom{N}{K}}  \]
+
+\item Expectation: \(\E(X) = \) (find by indicator method)
+
+\item Variance: \(\Var(X) = \) (find by indicator method)
+
+\end{itemize}
+
 
 \subsubsection{Indicator Method}
 
+If \(\boldsymbol{1}_{A_k}\) is an indicator then
+
+\[
+\Cov(\boldsymbol{1}_{A_k}, \boldsymbol{1}_{A_m}) = \E(\boldsymbol{1}_{A_k} \boldsymbol{1}_{A_m}) - \E(\boldsymbol{1}_{A_k}) \E(\boldsymbol{1}_{A_m}) = \Pr(A_k \cap A_m) - \Pr(A_k) \Pr(A_m)
+\]
+
+\[
+\Var(\boldsymbol{1}_{A_k} ) = \E(\boldsymbol{1}_{A_k} ^2) = \E(\boldsymbol{1}_{A_k} )^2 = \Pr(A_k) - (\Pr(A_k))^2
+\]
+
 Example problems: 505A Homework 3 problem 9(a)
+
+Worked examples in p. 56 - 59 of Grimmet and Stirkazer 3rd edition.
 
 \subsubsection{Linear transformations of random variables}
 
 \subsubsection{Poisson Paradigm (Poisson approximation for indicator method)}
+
+(Theorem 9, p. 129.) Let \(A_i\) be an event. If \(X = \sum_{i=1}^m \boldsymbol{1}_{A_i}\) where \(\boldsymbol{1}_{A_i}\) is an indicator variable for \(A_i\), and the \(A_i\) are only weakly dependent on each other, then 
+
+\[
+\text{As } m \to \infty, \ \ X \sim \operatorname{Poisson}(\E(X))
+\]
+
+More specifically, let \(B_i\) be \(n\) independent Bernoulli random variables with probabilities \(p_i\). If \(Y = \sum_{i=1}^n B_i\) then 
+
+\[
+\text{As } n \to \infty, \ \ Y \sim \operatorname{Poisson} \bigg(\E \bigg(\sum_i B_i \bigg) \bigg) = \operatorname{Poisson}\bigg(\sum_i \E B_i \bigg) = \operatorname{Poisson}\bigg(\sum_i p_i \bigg) 
+\]
 
 \subsubsection{Asymptotic Distributions}
 
@@ -532,11 +731,176 @@ Example problems: 505A Homework 3 problem 9(a)
 e^x = \lim_{n \to \infty} \bigg( 1 + \frac{x}{n}\bigg)^n
 \]
 
-\textbf{Stirling's Formula (double check)}: 
+\textbf{Stirling's Formula}: 
 
 \[
-\lim_{n \to \infty} n! \approx n^ne^{-n} \sqrt{2\pi n}
+n! \approx n^ne^{-n} \sqrt{2\pi n}
 \]
+
+\subsubsection{Example Problems That Will Likely Appear on Midterm}
+
+\textbf{Fall 2014 Problem 1 (likely to be question 2 on the midterm).} Let \(A\) and \(B\) be two events with \(0 < \Pr(A) < 1, \ 0 < \Pr(B) < 1\). Define the random variables \(\xi = \xi(\omega)\) and \(\eta = \eta(\omega)\) by
+
+\[
+\xi(\omega) = \begin{cases} 
+      5 & \text{ if } \omega \in A \\
+      -7 &  \text{ if } \omega \notin A 
+   \end{cases}, \ \ \ \ \eta(\omega) = \begin{cases} 
+      2 & \text{ if } \omega \in B \\
+      3 &  \text{ if } \omega \notin B 
+   \end{cases}
+\]
+
+True or false: the events \(A\) and \(B\) are independent if and only if the random variables \(\xi\) and \(\eta\) are uncorrelated?
+
+\textbf{Solution.} (\(\implies\)) Suppose \(A\) and \(B\) are independent. Then \(\xi\) and \(\eta\) are uncorrelated if and only if \(\E(\xi \eta ) = \E(\xi) \E(\eta)\). We can write \(\xi = 5 \cdot \boldsymbol{1}_A - 7 \cdot \boldsymbol{1}_{A^c}\) and \(\eta = 2 \cdot \boldsymbol{1}_B + 3 \cdot \boldsymbol{1}_{B^c}\). So we have
+
+\[
+\xi \eta = (5 \cdot \boldsymbol{1}_A - 7 \cdot \boldsymbol{1}_{A^c})(2 \cdot \boldsymbol{1}_B + 3 \cdot \boldsymbol{1}_{B^c}) = 10 \cdot \boldsymbol{1}_{A \cap B} +15 \cdot \boldsymbol{1}_{A \cap B^c} - 14 \cdot \boldsymbol{1}_{A^c \cap B} - 21 \cdot \boldsymbol{1}_{A^c \cap B^c}
+\]
+
+\[
+\implies \E(\xi \eta ) = 10 \Pr(A \cap B) +15\Pr(A \cap B^c) - 14 \Pr(A^c \cap B) - 21\Pr(A^c \cap B^c)
+\]
+
+Then
+
+\[
+\E(\xi) \E(\eta) = (5 \Pr(A) - 7 \Pr(A^c))(2 \Pr(B) + 3 \Pr(B^c)) 
+\]
+
+\[
+= 10\Pr(A \cap B) + 15 \Pr(A \cap B^c) - 14 \Pr(A^c \cap B) - 21 \Pr(A^c \cap B^c) = \E(\xi \eta )
+\]
+
+where the second-to-last step follows from the independence of \(A\) and \(B\). Therefore \(\eta\) and \(\xi\) are uncorrelated.
+
+(\(\impliedby\)) Now suppose \(\eta\) and \(\xi\) are uncorrelated. Then \(\xi\) and \(\eta\) are independent if and only if \(\Pr(\xi \cap \eta) = \Pr(\xi) \Pr(\eta)\). Define
+
+\[
+\alpha(\omega) =  \xi(\omega) + 7 = \begin{cases} 
+      12 & \text{ if } \omega \in A \\
+      0 &  \text{ if } \omega \notin A 
+   \end{cases}, \ \ \ \ \beta(\omega) =  \eta(\omega) - 3 = \begin{cases} 
+      -1 & \text{ if } \omega \in B \\
+      0 &  \text{ if } \omega \notin B 
+   \end{cases}
+\]
+
+Then we have
+
+\[
+(\alpha \beta)(\omega) = \begin{cases} 
+      -12 & \text{ if } \omega \in A \cap B \\
+      0 &  \text{ otherwise} 
+   \end{cases}
+\]
+
+Then
+
+\[
+\E(\xi \eta) = \E\big[ (\alpha - 7)(\beta + 3)\big] = \E(\alpha \beta) + 3 \E(\alpha) - 7 \E(\beta) - 21
+\]
+
+\[
+\E(\xi) \E(\eta) = (\E(\alpha) - 7) (\E(\beta) + 3) = \E(\alpha) \E(\beta) - 7 \E(\beta) + 3 \E(\alpha) - 21
+\]
+
+Since by assumption \( \E(\xi \eta)  = \E(\xi) \E(\eta) \), this yields \(\E(\alpha \beta) = \E(\alpha) \E(\beta) \). But
+
+\[
+\E(\alpha \beta) = -12 \Pr(A \cap B), \ \ \ \ \ \E(\alpha) \E(\beta) = 12 \Pr(A) (-1) \Pr(B) = -12\Pr(A)\Pr(B)
+\]
+
+Therefore \(\Pr(\xi \cap \eta) = \Pr(\xi) \Pr(\eta)\) and \(\xi\) and \(\eta\) are independent.
+
+\textbf{Fall 2009 Problem 4 (Very similar).} Let \(X\) and \(Y\) be two random variables, both taking only two values. Show that if they are uncorrelated, then they are independent.
+
+\textbf{Solution.} Let \(X\) and \(Y\) have the following pmfs: \(\Pr(X = a) = p, \Pr(X = b) = 1-p; \ \ \ \Pr(Y = c) = q, \Pr(Y = d) = 1  -q \). Suppose \(X\) and \(Y\) are uncorrelated; that is, \(\E(XY) = \E(X)\E(Y)\). Then \(X\) and \(Y\) are independent if \(\Pr(X \cap Y) = \Pr(X) \Pr(Y)\). Since these random variables take on only two values each, this can also be expressed as \( \Pr(X = a \cap Y = c) = \Pr(X = a) \Pr(Y = c)\). 
+
+Begin by defining new variables \(\alpha = X - b\) and \(\beta = Y - d\). Then we have
+
+\[
+\E(\alpha \beta) = \E( (X - b)(Y - d)) = \E(XY) - b \E(Y) -d \E(X) + bd
+\]
+
+\[
+\E(\alpha) \E(\beta) = \E(X-b) \E(Y - d) = \E(X)\E(Y) -b \E(Y) -d \E(X) + bd
+\]
+
+Since by assumption \(\E(XY) = \E(X)\E(Y)\), this yields \(\E(\alpha \beta)  = \E(\alpha) \E(\beta) \). But \(\E(\alpha) = p(a-b) = (a - b) \Pr(X = a)\), \(\E(\beta) = q(c-d) = (c -d) \Pr(Y = c)\), \(\E(\alpha \beta) = (a-b)(c-d)pq = (a - b)(c - d) \Pr(X = a \cap Y = c)\). Therefore
+
+\[
+\E(\alpha \beta)  = \E(\alpha) \E(\beta)  \iff  (a - b)(c - d) \Pr(X = a \cap Y = c) = (a - b) \Pr(X = a) (c -d) \Pr(Y = c)
+\]
+
+\[
+\iff \Pr(X = a \cap Y = c) = \Pr(X = a)  \Pr(Y = c)
+\]
+
+which proves the independence of \(X\) and \(Y\).
+
+\textbf{Fall 2011 Problem 1 (same as HW1 problem 5; similar to HW3 problem 2(5); likely to be question 1 on the midterm.)} True or false: if \(A\) and \(B\) are events such that \( 0 < \Pr(A) < 1\) and \(\Pr(B \mid A) = \Pr(B \mid A^c)\), then \(A\) and \(B\) are independent.
+
+\textbf{Solution.} \(A\) and \(B\) are independent if and only if 
+
+\[
+\Pr(A \cap B) = \Pr(A)\cdot\Pr(B)
+\]
+
+We know that \[ \Pr(B) = \Pr(B|A)\cdot \Pr(A) + \Pr(B|A^c)\cdot\Pr(A^c)  \]
+
+\[
+= \Pr(B|A)\cdot \Pr(A) + \Pr(B|A)\cdot (1 - \Pr(A)) = \Pr(B|A)\cdot \Pr(A) + \Pr(B|A) - \Pr(B|A)\cdot \Pr(A) 
+\]
+
+\[
+= \Pr(B|A)
+\]
+
+Also, we know that since \(\Pr(A) \neq 0\),
+
+\[
+\Pr(B|A) = \frac{\Pr(A \cap B)}{\Pr(A)} 
+\]
+
+Per above \(\Pr(B|A) = \Pr(B)\), so we have
+
+\[
+\Pr(B) = \frac{\Pr(A \cap B)}{\Pr(A)} 
+\]
+
+\[
+\Pr(A \cap B)= \Pr(A) \cdot \Pr(B)
+\]
+
+which is what we were trying to prove. So the answer is \(\boxed{\text{true.}}\)
+
+\textbf{Similar problem: HW3 Problem 2(5).}
+
+\textbf{Fall 2008 Problem 2 (HW1 Problem 10)}
+
+\textbf{HW1 Problem 8}
+
+\subsubsection{Problems we did in class that professor mentioned}
+
+\textbf{Spring 2018 Problem 2}
+
+\textbf{Variance Problem 09/21}
+
+\textbf{Independence Problem 09/24}
+
+\subsubsection{Problems we did on homework}
+
+\textbf{Fall 2017 Problem 2/Fall 2009 Problem 1 (HW3 Problem 6)}
+
+\textbf{Fall 2017 Problem 3 (HW3 Problem 8)}
+
+\textbf{Spring 2016 Problem 3 (HW3 Problem 5)}
+
+\textbf{Fall 2013 Problem 3/Spring 2011 Problem 2 (HW3 Problem 9; coupon collector problem)}
+
+\textbf{Fall 2012 Problem 1 (HW2 Problem 10/HW 1 Problem 9)}
 
 \subsection{To Know for Math 505A Midterm 2}
 
