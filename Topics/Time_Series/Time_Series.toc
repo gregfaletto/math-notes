@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Time Series}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Chapter 6: ARDL Models}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Some time series and their properties}{4}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}White noise process:}{4}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}MA(1) process:}{5}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}MA(\(\infty \)) process:}{6}{subsubsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.4}AR(1) process:}{6}{subsubsection.1.3.4}
+\contentsline {subsubsection}{\numberline {1.3.5}AR(2) process:}{7}{subsubsection.1.3.5}
+\contentsline {subsubsection}{\numberline {1.3.6}AR(\(p\)) process:}{7}{subsubsection.1.3.6}
+\contentsline {subsubsection}{\numberline {1.3.7}ARMA(1, 1) process:}{8}{subsubsection.1.3.7}
+\contentsline {subsection}{\numberline {1.4}Chapter 14: Estimation of Stationary Time Series Processes}{9}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Sufficient conditions for ergodicity of mean. (Book section 14.2.1)}{9}{subsubsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.2}Estimation of autocovariances (Book section 14.2.2).}{10}{subsubsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.3}Worked examples}{11}{subsubsection.1.4.3}
+\contentsline {subsection}{\numberline {1.5}Chapter 17: Introduction to Forecasting}{15}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}17.7: Iterated and direct multi-step AR methods}{15}{subsubsection.1.5.1}

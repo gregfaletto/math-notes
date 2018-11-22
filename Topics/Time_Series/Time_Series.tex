@@ -1,0 +1,992 @@
+%\documentclass{article}
+%
+%\usepackage{fancyhdr}
+%\usepackage{extramarks}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{tikz}
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\graphicspath{ {images/} }
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[document]{ragged2e}
+%\usepackage{textcomp}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{import}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=black,  %choose some color if you want links to stand out
+%}
+%
+%\usetikzlibrary{automata,positioning}
+%
+%%
+%% Basic Document Settings
+%%
+%
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%\setlength{\parskip}{1em}
+%
+%\linespread{1.1}
+%
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+%
+%\renewcommand\headrulewidth{0.4pt}
+%\renewcommand\footrulewidth{0.4pt}
+%
+%\setlength\parindent{0pt}
+%
+%
+%\newcommand{\hmwkTitle}{Math Review Notes---Time Series}
+%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+%
+%%
+%% Title Page
+%%
+%
+%\title{
+%    \vspace{2in}
+%    \textmd{\textbf{ \hmwkTitle}}\\
+%}
+%
+%\author{Gregory Faletto}
+%\date{}
+%
+%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%%
+%% Various Helper Commands
+%%
+%
+%% Useful for algorithms
+%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+%
+%% For derivatives
+%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%
+%% For partial derivatives
+%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+%
+%% Integral dx
+%\newcommand{\dx}{\mathrm{d}x}
+%
+%% Alias for the Solution section header
+%\newcommand{\solution}{\textbf{\large Solution}}
+%
+%% Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\Var}{\mathrm{Var}}
+%\newcommand{\Cov}{\mathrm{Cov}}
+%\newcommand{\Bias}{\mathrm{Bias}}
+%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+%\DeclareMathOperator{\Tr}{Tr}
+%
+%% Tilde
+%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+%
+%\begin{document}
+%
+%\maketitle
+%
+%\pagebreak
+%
+%\tableofcontents
+%
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+%
+%
+%
+%\newpage
+%
+
+%
+%
+%
+%
+%
+%
+%
+
+\section{Time Series}
+
+These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran as well as coursework for Economics 613: Economic and Financial Time Series I at USC.
+
+%%% Chapter 6
+\subsection{Chapter 6: ARDL Models}
+
+In an ARDL model, if the error are serially correlated, then the coefficient estimates are biased (even as \(T \to \infty\)).
+
+
+%%% Chapters 12 and 13
+\subsection{Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}
+
+\textbf{Stationarity conditions:} \( \{X_t\} \) is \textbf{strictly stationary} if the joint distribution functions of \( \{ X_{t_1}, X_{t_2}, \ldots, X_{t_k}\} \) and \( \{ X_{t_1+h}, X_{t_2+h}, \ldots, X_{t_k+h}\} \) are identical for all values of \(t_1,  t_2, \ldots, t_k\) and h and all positive integers \(k\). 
+
+\(X_t\) is \textbf{weakly (or covariance) stationary} if it has a constant mean and variance and its covariance function \(\gamma(t_1, t_2)\) depends only on the absolute difference \(| t_1 - t_2|\), namely \(\gamma(t_1, t_2) = \gamma(|t_1 - t_2|)\).
+
+\(X_t\) is said to be \textbf{trend stationary} if \(y_t = X_t - d_t\) is covariance stationary, where \(d_t\) is the perfectly predictable component of \(X_t\).
+
+The process \(\{\epsilon_t\} \) is said to be a \textbf{white noise process} if it has mean zero, a constant variance, and \(\epsilon_t\) and \(\epsilon_s\) are uncorrelated for all \(s \neq t\).
+
+\textbf{Autocovariance generating function:} The autocovariance generating function for the general linear stationary process \(y_t = \sum_{i=0}^\infty a_i \epsilon_{t-i}\) is given by:
+
+\[
+G(z) = \sigma^2 a(z)a(z^{-1})
+\]
+
+where \(a(z) = \sum_{i=0}^\infty a_i z^i\). 
+
+\textbf{Wold's Decomposition} (Theorem 42, p. 275, Section 12.5) Any trend-stationary process \(\{y_t\}\) can be represented in the form of \(y_t = d_t + \sum_{i=0}^\infty \alpha_i \epsilon_{t-i}\) where \(\alpha_0 = 1\) and \(\sum_{i=0}^\infty \alpha_i^2 < K < \infty\). The term \(d_t\) is a deterministic component, while \(\{\epsilon_t\}\) is a serially uncorrelated process: \(\epsilon_t = y_t - \E(y_t \mid y_{t-1}, y_{t-2}, \ldots) \).
+
+\textbf{Stationarity conditions for an ARMA(\(p,q\)) process:} Consider the ARMA(\(p, q\)) process 
+
+\[
+y_t = \sum_{i=1}^p \phi_i y_{t-i} + \sum_{i=0}^q \theta_i \epsilon_{t-i}, \ \ \ \theta_0 = 1
+\]
+
+The MA part is stationary for any finite \(q\). The AR part is stationary if the roots of the characteristic equation
+
+\[
+\lambda^t = \sum_{i=1}^p \phi_i \lambda^{t-i}
+\]
+
+lie strictly inside the unit circle. Alternatively, in terms of \(z = \lambda^{-1}\), the process is stationary if the roots of 
+
+\[
+1 - \sum_{i=1}^p \phi_i z^i = 0
+\]
+
+lie outside the unit circle. The ARMA process is \textbf{invertible} (so that \(y_t\) can be solved uniquely in terms of its past values) if all the roots of 
+
+\[
+1 - \sum_{i=1}^p \theta_i z^i = 0
+\]
+
+fall outside the unit circle.
+
+\textbf{Spectral Density Function:} Definition (Equation 13.3):
+
+\[
+f(\omega) = \frac{1}{2 \pi} \sum_{h = - \infty}^\infty \gamma(h) e^{i h \omega}, \omega \in (-\pi, \pi)
+\]
+
+Equation (13.5):
+
+\[
+f(\omega) = \frac{1}{2\pi} \bigg[ \gamma(0) + 2 \sum_{h=1}^\infty \gamma(h) \cos(h \omega) \bigg], \ \ \ \omega \in [0, \pi]
+\]
+
+Can also be found using the autocovariance generating function. We have (Equation 13.6, section 13.3.1)
+
+\[
+f(\omega) = \frac{1}{2\pi}G(e^{i \omega}) = \frac{\sigma^2}{2 \pi} a(e^{i \omega}) a(e^{- i \omega})
+\]
+
+\textbf{Properties of spectral density function:}
+
+\begin{enumerate}[(1)]
+
+\item \(f(\omega)\) always exists and is bounded if \(\gamma(h)\) is absolutely summable.
+
+\item \(f(\omega)\) is symmetric.
+
+\item The spectrum of a stationary process is finite at zero frequency; that is, \(f(0) < \infty\).
+
+\end{enumerate}
+
+Linear (time-domain) processes don't have to be stationary, but to write something as a frequency-domain process, it must be stationary.
+
+\subsection{Some time series and their properties}
+
+%%%%%%%%% White Noise Process %%%%%%%%%%%%
+
+\subsubsection{White noise process:}  \(x_t = \epsilon_t\), \(\epsilon_t \sim IID(0, \sigma^2)\)
+
+\begin{itemize}
+
+\item Autocovariances: 
+
+\[
+\gamma(0) = \sigma^2
+\]
+
+\[
+\gamma(h) =0, \ \ \forall h \neq 0
+\]
+
+\item Spectral density function:
+
+\[
+f_x(\omega) = \frac{1}{2\pi} \cdot \sigma^2 = \frac{\sigma^2}{2 \pi} \text{ (flat spectrum)}
+\]
+
+\end{itemize}
+
+%%%%%%%%% MA(1) Process %%%%%%%%%%%%
+
+\subsubsection{MA(1) process:} \(x_t = \epsilon_t + \theta \epsilon_{t-1}\) with \(\epsilon_t \sim iid(0, \sigma^2)\), \(|\rho| < 1\). 
+
+\begin{itemize}
+
+\item Autocovariances: By Equation (12.2), the autocovariance function is
+
+\[
+\Cov(u_t, u_{t-h})  = \gamma(h) = \sigma^2 \sum_{i=0}^{1 - |h|} a_i a_{i + |h|} \text{ if } 0 \leq |h| \leq 1
+\]
+
+\[
+\implies \E(x_t^2) = \gamma(0) = (1 + \theta^2)\sigma^2
+\]
+
+\[
+ \E(x_t x_{t-1}) =  \gamma(1) = \theta \sigma^2
+\]
+
+\[
+\gamma(h) = 0 \ \ \forall \ |h| > 1
+\]
+So the covariance matrix is
+
+\[
+\begin{pmatrix} 
+\sigma^2(1+\theta^2) & \sigma^2\theta & 0 & 0 & \cdots & 0 \\
+\sigma^2\theta & \sigma^2(1+\theta^2) & \sigma^2\theta & 0 & \cdots & 0 \\
+0 & \sigma^2\theta & \sigma^2(1+\theta^2) & \sigma^2\theta & \cdots & 0 \\
+\vdots & \vdots & \vdots & \vdots & \cdots & \vdots \\
+ 0 & 0& \cdots & \sigma^2\theta  & \sigma^2(1+\theta^2)   & \sigma^2\theta  \\
+0 & 0 &  \cdots & 0  & \sigma^2\theta  & \sigma^2(1+\theta^2) 
+\end{pmatrix} 
+\]
+
+\[
+= \sigma^2(1 + \theta^2)I_T + \sigma^2 \theta A
+\]
+
+where \(A\) is defined as in section 14.3.2 (p. 304).
+
+\item Spectral density function:
+
+\[
+f(\omega) = \frac{\sigma^2}{2\pi} \big[ 1+ 2  \theta \cos( \omega)  + \rho^2  \big] , \ \ \ \omega \in [0, \pi]
+ \]
+
+\end{itemize}
+
+
+
+%where \(a_0 = 1\) and \(a_1 = \theta\). Therefore we have
+%
+%\[
+% \Var(u_t) = \gamma_0  = \sigma^2 \sum_{i=0}^{1} a_i a_{i} = \sigma^2(1\cdot1 + \theta \cdot \theta) = \sigma^2(1+\theta^2) \ \forall t \in \{1, 2, \ldots, T\}
+%\]
+%
+%\[
+%\Cov(u_t, u_{t-1}) = \gamma(1)  = \sigma^2 \sum_{i=0}^{0} a_i a_{i + 1} = \sigma^2\theta \ \forall t \in \{1, 2, \ldots, T\}
+%\]
+%
+%\[
+%\Cov(u_t, u_{t-h}) = 0 \ \text{ if } |h| > 1 \ \forall t \in \{1, 2, \ldots, T\}
+%\]
+
+%%%%%%%%% MA(\(\infty\)) process %%%%%%%%%%%%
+
+\subsubsection{MA(\(\infty\)) process:} 
+
+This process is covariance stationary.
+
+\begin{itemize}
+
+\item Autocovariances:
+
+\end{itemize}
+
+%%%%%%%%% AR(1) Process %%%%%%%%%%%%
+
+\subsubsection{AR(1) process:} \(x_t = \phi x_{t-1} + \epsilon_t\), \(|\phi| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
+
+\begin{itemize}
+
+\item Yule-Walker Equations: 
+
+\[
+\E[x_t x_{t-h} ]= \E[ \phi x_{t-1}x_{t-h}] + \E[ \epsilon x_{t-h}]
+\]
+
+\[
+\gamma_h = \phi \gamma_{h-1} + \E[ \epsilon x_{t-h}]
+\]
+
+\[
+\implies \gamma_0 = \phi \gamma_1+\sigma^2,  \  \ \gamma_h = \phi \gamma_{h-1} \ \forall h \geq 1 
+\]
+
+\item Autocovariances:
+
+\[
+\gamma(0) = \frac{\sigma^2}{1 - \phi^2}
+\]
+
+%\[
+%\gamma(1) = \frac{\sigma^2\rho}{1 - \rho^2}
+%\]
+
+\[
+\gamma_h = \frac{\sigma^2 \phi^h}{1 - \rho^2} \ \ \forall \ h \geq 1
+\]
+
+\[
+\implies \Cov(x) = 
+\]
+
+\[
+\begin{pmatrix} 
+\sigma^2/(1 - \phi^2) &  \sigma^2\phi/(1 - \phi^2) & \sigma^2\phi^2/(1 - \phi^2)  &  \sigma^2\phi^3/(1 - \phi^2) & \cdots &  \sigma^2\phi^{T - 1} /(1 - \phi^) \\
+\sigma^2\phi^/(1 - \phi)& \sigma^2/(1 - \phi^2) & \sigma^2\phi/(1 - \phi^2) & \sigma^2\phi^2/(1 - \phi^2) & \cdots & \sigma^2\phi^{T - 2}/(1 - \phi^2) \\
+\sigma^2\phi^2/(1 - \phi^2) & \sigma^2\phi/(1 - \phi^2) & \sigma^2/(1 - \phi^2) & \sigma^2\phi/(1 - \phi^2) & \cdots & \sigma^2\phi^{T - 3}/(1 - \phi^2)  \\
+\vdots & \vdots & \vdots & \vdots & \cdots & \vdots \\
+\sigma^2\phi^{T-2}/(1 - \phi^2) & \sigma^2\phi^{T-3}/(1 - \phi^2) & \cdots &\sigma^2\phi/(1 - \phi^2)  & \sigma^2/(1 - \phi^2) &\sigma^2\phi/(1 - \phi^2) \\
+\sigma^2\phi^{T-1} /(1 - \phi^2) & \sigma^2\phi^{T-2}/(1 - \phi^2) &  \cdots & \sigma^2\phi^2/(1 - \phi^2)  & \sigma^2\phi/(1 - \phi^2)  & \sigma^2/(1 - \phi^2)
+\end{pmatrix} 
+\]
+
+\item If stationary, can be written as an infinite MA process with absolutely summable coefficients
+
+\[
+x_t = \sum_{i=0}^ \infty \phi^i \epsilon_{t-i} = \bigg( \frac{1}{1 - \phi L} \bigg) \epsilon_t
+\]
+
+\item Autocovariance generating function:
+
+\[
+G(z) = \bigg( \frac{\sigma^2}{1 - \phi ^2} \bigg) \bigg( 1 + \sum_{h=1}^\infty \phi^h(z^h + z^{-h}) \bigg)
+\]
+
+%\[
+%= \sigma^2 \bigg(\frac{1}{1 - \phi^2}\bigg)I_T + \sigma^2 \bigg(\frac{\phi}{1 - \phi^2}\bigg) A = \frac{\sigma^2}{1 - \phi^2} ( I_T + \phi A)
+%\]
+
+\item Spectral density function: 
+
+\[
+f(\omega) = \frac{1}{2\pi} \sum_{h=-\infty}^\infty \frac{\sigma^2 \phi^{|h|}}{(1 - \phi^2)} (e^{i \omega})^h = \frac{1}{2\pi} \frac{\sigma^2}{(1 - \phi e^{i \omega})(1 - \phi e^{- i \omega})} = \frac{1}{2 \pi} \frac{\sigma^2}{1 - 2 \phi \cos(\omega) + \phi^2}
+\]
+
+
+\end{itemize}
+
+%%%%%%%%% AR(2) Process %%%%%%%%%%%%
+
+\subsubsection{AR(2) process:} \(x_t = \phi_1x_{t-1} + \phi_2x_{t-2} + \epsilon\), \(|\phi_1| < 1\), \(|\phi_2| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
+
+Can be written as 
+
+\[
+x_t = \frac{1}{1 - \phi L} \epsilon_t = \epsilon_t + \phi \epsilon_{t-1} + \phi^2 \epsilon_{t-2} + \ldots
+\]
+
+\begin{itemize}
+
+\item Yule-Walker equations:
+
+\[
+\E[x_tx_{t-h} ]= \E[ \phi_1x_{t-1}x_{t-h}] +\E[ \phi_2x_{t-2}x_{t-h}] + \E[ \epsilon x_{t-h}]
+\]
+
+\[
+\gamma_h = \phi_1 \gamma_{h-1} + \phi_2 \gamma_{h-2} + \E[ \epsilon x_{t-h}]
+\]
+
+\[
+\implies \boxed{ \gamma_0 = \phi_1 \gamma_1 + \phi_2 \gamma_2 +\sigma^2,  \ \ \gamma_1 = \phi_1 \gamma_{0} + \phi_2 \gamma_{1}, \ \ \gamma_2 = \phi_1 \gamma_{1} + \phi_2 \gamma_{0}  }
+\]
+
+\item Autocovariances:
+
+\end{itemize}
+
+%%%%%%%%% AR(p) Process %%%%%%%%%%%%
+
+\subsubsection{AR(\(p\)) process:} \(x_t = \phi_1x_{t-1} + \phi_2x_{t-2} + \ldots + \phi_p x_{t-p} + \epsilon\), \(|\phi_i| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
+
+\begin{itemize}
+
+\item Stationary if the eigenvalues of \(\boldsymbol{\Phi}\) lie inside the unit circle, which is equivalent to all the roots of
+
+\[
+\phi(z) = 1 - \phi_1 z - \phi_2 z^2 - \ldots - \phi_p z^p = 0
+\]
+
+being strictly larger than unity. Under this condition the AR process has the infinite-order MA representation'
+
+\[
+x_t = \sum_{i=0}^\infty \alpha_i \epsilon_{t-i}
+\]
+
+where \(\alpha_i = \phi_1 \alpha_{i-1} + \ldots + \phi_p \alpha_{i - p}\).
+
+\item Autocovariance generating function:
+
+\[
+G(z) = \frac{\sigma^2}{\phi(z) \phi(z^{-1})}
+\]
+
+\end{itemize}
+
+%%%%%%%%% ARMA(1, 1) Process %%%%%%%%%%%%
+
+\subsubsection{ARMA(1, 1) process:} \(x_t = \phi x_{t-1} + \epsilon_t + \theta \epsilon_{t-1}\), with \(|\phi| < 1\) (implying stationarity), \(\E(\epsilon_t^2) = \sigma^2\), \(\E(\epsilon_t \epsilon_s ) = 0 \) for \(t \neq s\).
+
+\begin{itemize}
+
+\item Yule-Walker Equations:
+
+\[
+\gamma(0) = \phi \gamma(1) + \sigma^2(1 + \theta^2)
+\]
+
+\[
+\gamma(1) = \phi \gamma(0) + \sigma^2 \phi^2
+\]
+
+\[
+\gamma(h) = \phi \gamma(h-1) \ \ \forall \ h \geq 2
+\]
+
+\item Autocovariances:
+
+\[
+\gamma(0) = \sigma^2 \bigg( 1 _ \frac{(\phi + \theta)^2}{1 - \phi^2} \bigg) 
+\]
+
+\[
+\gamma(1) = \sigma^2 \bigg( \phi + \theta + \frac{(\phi + \theta)^2 \phi}{1 - \phi^2} \bigg)
+\]
+
+\[
+\gamma(2) = \phi^{h-1} \gamma(1) \ \forall \ h \geq 2
+\]
+
+\item Autocorrelation function:
+
+\[
+\rho(h) = \begin{cases} 
+      1 & h = 0 \\
+      \frac{(\phi + \theta)(1 + \phi \theta)}{1 + 2 \phi\theta + \theta^2} & h = 1 \\
+      \phi^{h-1} \rho(1) & h \geq 2
+   \end{cases}
+\]
+
+\item Autocovariance generating function: the autocovariance function of an ARMA(\(p, q\)) process \(\phi(L)y_t = \theta(L) \epsilon_t\) is given by
+
+\[
+f(\omega) = \sigma^2 \frac{\theta(z) \theta(z^{- 1}) }{\phi(z) \phi(z^{-1})}
+\]
+
+Plugging in for the ARMA(1,1) case yields (\textbf{double-check})
+
+\[
+f(\omega) = \sigma^2 \frac{ (1+ \theta)^2 }{(1 - \rho)^2}
+\]
+
+\item Spectral Density Function: the spectral density function of an ARMA(\(p, q\)) process \(\phi(L)y_t = \theta(L) \epsilon_t\) is given by
+
+\[
+f(\omega) = \frac{\sigma^2}{2\pi} \frac{\theta(e^{i \omega}) \theta(e^{- i \omega}) }{\phi(e^{i \omega}) \phi(e^{- i \omega})}, \ \ \omega \in [0, 2\pi]
+\]
+
+Plugging in for the ARMA(1,1) case yields
+
+\[
+f_x(\omega)= \frac{\sigma^2}{2\pi} \frac{(e^{i \omega} - \theta e^{i \omega} )(e^{-i \omega} - \theta e^{-i \omega})}{(e^{i \omega} - \phi e^{i \omega} )(e^{- i \omega} - \phi e^{- i \omega} )} = \frac{\sigma^2}{2\pi} \frac{1 - 2\theta + \theta^2}{1 -2\phi + \phi^2}
+\]
+
+\item If \(\phi = \theta\), the ARMA(1,1) process becomes a white noise process. We can see this two ways. The ARMA(1, 1) process can be represented in the following way:
+
+\[
+(1 - \phi L)y_t = (1 - \theta L) \epsilon_t
+\]
+
+Therefore \(\phi(L) = \theta(L)\) yields \(y_t = \epsilon_t\). 
+
+
+We can also see that when \(\phi = \theta\), an ARMA(1,1) process is equivalent to a white noise process as follows. Plugging in \(\phi = \theta\) to the spectral density function, we have
+
+\[
+f_x(\omega) = \frac{\sigma^2}{2\pi} \frac{1 - 2\theta + \theta^2}{1 -2\theta + \theta^2} = \frac{\sigma^2}{2\pi}
+\]
+
+showing that if \(\theta = \phi\), the spectral density function is constant and independent of \(\theta\) and \(\phi \). We can see that it in fact is a white noise process. Since a white noise process has the following covariances:
+
+\[
+\gamma(0) = \sigma^2
+\]
+
+\[
+\gamma(h) =0, \ \ \forall h \neq 0
+\]
+
+for a white noise process we have
+
+\[
+f_x(\omega) = \frac{1}{2\pi} \cdot \sigma^2 = \frac{\sigma^2}{2 \pi}
+\]
+
+
+\end{itemize}
+
+\subsection{Chapter 14: Estimation of Stationary Time Series Processes}
+
+\subsubsection{Sufficient conditions for ergodicity of mean. (Book section 14.2.1)} By Chebyshev's Inequality (see section~\ref{sec:tsch8.6}), \(\overline{y}_T\) is a consistent estimator of \(\mu\) as \(T \to \infty\) if \(\lim_{T \to \infty} \E(\overline{y}_T) = \E(y_T) = \mu\) and \(\lim_{T \to \infty} \Var(\overline{y}_T) = 0\). We have
+
+\[
+\E(\overline{y}_T) = \frac{1}{T} \E \bigg( \sum_{t=1}^T y_t \bigg) = \frac{1}{T}  \sum_{t=1}^T \E (y_t) = \mu
+\]
+
+\[
+\Var(\overline{y}_T) = \frac{1}{T^2} \Var \bigg( \sum_{t=1}^T y_t \bigg) = \frac{1}{T^2} \bigg(\sum_{t=1}^T  \Var(y_t) + 2 \sum_{0 \leq i < j \leq T } \Cov(y_i, y_j)   \bigg)
+\]
+
+\[
+= \frac{1}{T^2} \bigg(\sum_{t=1}^T  \gamma(0) + 2 \sum_{0 \leq i < j \leq T } \gamma(j-i)  \bigg) = \frac{1}{T^2} \bigg( T  \gamma(0) + 2 \sum_{h = 1 }^{T-1} (T - h )\gamma(h)  \bigg)
+\]
+
+\[
+= \frac{1}{T} \bigg[ \gamma(0) + 2 \sum_{h=1}^{T-1} \bigg(1 - \frac{h}{T} \bigg) \gamma(h) \bigg] = \frac{1}{T^2} \boldsymbol{1} \Var(\boldsymbol{y}) \boldsymbol{1}'
+\]
+
+where \(\boldsymbol{1}\) is a vector of ones and
+
+\[
+\Var(\boldsymbol{y}) = \begin{pmatrix} 
+\gamma(0) &  \gamma(1) & \cdots  &  \gamma(T-2) & \gamma(T-1) \\
+\gamma(1) &  \gamma(0) & \cdots  &  \gamma(T-3) & \gamma(T-2) \\
+\vdots &  \vdots & \ddots  &  \vdots & \vdots \\
+\gamma(T - 2) &  \gamma(T - 3) & \cdots  &  \gamma(0) & \gamma(1) \\
+\gamma(T - 1) &  \gamma(T - 2) & \cdots  &  \gamma(1) & \gamma(0) 
+\end{pmatrix} 
+\]
+
+Notice that
+
+\[
+\left| \gamma(0) + 2 \sum_{h=1}^{T-1} \bigg(1 - \frac{h}{T} \bigg) \gamma(h)  \right| < \left| 2 \sum_{h=0}^{T-1}\gamma(h) \right| \leq 2 \sum_{h=0}^{T-1} \left|  \gamma(h) \right| 
+\]
+
+Therefore
+\[
+\sum_{h=0}^{T-1} \left|  \gamma(h) \right| < \infty
+\]
+
+is a sufficient condition for 
+
+\[
+\lim_{T \to \infty} \Var(\overline{y}_T) = \lim_{T \to \infty}  \frac{1}{T} \bigg[ \gamma(0) + 2 \sum_{h=1}^{T-1} \bigg(1 - \frac{h}{T} \bigg) \gamma(h) \bigg]  = 0
+\]
+
+\subsubsection{Estimation of autocovariances (Book section 14.2.2).}
+\label{sec:tsch14.2.2}
+
+A moment estimator of \(\gamma(h) =  \E[(y_t - \mu)(y_{t-h} - \mu)]\) is
+
+\[
+\hat{\gamma}(h) = \frac{1}{T} \sum_{t=h+1}^T(y_t - \overline{y}_T)(y_{t-h} - \overline{y}_T)
+\]
+
+By Chebyshev's Inequality (see section~\ref{sec:tsch8.6}), \(\hat{\gamma}(h) \) is a consistent estimator of \(\gamma(h)\) as \(T \to \infty\) if \\ \(\lim_{T \to \infty} \E(\hat{\gamma}(h)) = \gamma(h)\) and \(\lim_{T \to \infty} \Var(\hat{\gamma}(h)) = 0\).
+
+\[
+\hat{\gamma}(h) = \frac{1}{T} \sum_{t=h+1}^T(y_t - \overline{y}_T)(y_{t-h} - \overline{y}_T) = \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu + \mu - \overline{y}_T)(y_{t-h} - \mu + \mu -  \overline{y}_T)
+\]
+
+\[
+= \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu)(y_{t-h} - \mu) + (y_t - \mu)(\mu -  \overline{y}_T) + (\mu - \overline{y}_T)(y_{t-h} - \mu) + (\mu - \overline{y}_T)^2
+\]
+
+\[
+= \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu)(y_{t-h} - \mu) + (\mu -  \overline{y}_T)  \frac{1}{T} \sum_{t=h+1}^T (y_t - \mu)+ (\mu - \overline{y}_T) \frac{1}{T} \sum_{t=h+1}^T(y_{t-h} - \mu) + \frac{1}{T}(T - h)(\mu - \overline{y}_T)^2
+\]
+
+
+
+\[
+\vdots
+\]
+
+Because \textbf{where does this line come from? on page 300 of book/331 of pdf.}
+
+\[
+\overline{y}_T = \mu + \mathcal{O}_p(T^{-1/2})
+\]
+
+and for any fixed \(h\)
+
+\[
+T^{-1/2} \sum_{t=h+1}^T (y_t - \mu) = \mathcal{O}_p(1)
+\]
+
+it follows that 
+
+\[
+ (\mu -  \overline{y}_T)  \frac{1}{T} \sum_{t=h+1}^T (y_t - \mu) =  \frac{\mu}{T} \sum_{t=h+1}^T (y_t - \mu) -  \frac{\overline{y}_T}{\sqrt{T}} \cdot \frac{1}{\sqrt{T}} \sum_{t=h+1}^T (y_t - \mu) =\mathcal{O}_p(T^{-1})
+\]
+
+\[
+ (\mu - \overline{y}_T) \frac{1}{T} \sum_{t=h+1}^T(y_{t-h} - \mu)  =\mathcal{O}_p(T^{-1})
+\]
+
+\[
+\frac{1}{T}(T - h)(\mu - \overline{y}_T)^2 = (\mu - \overline{y}_T)^2 - \frac{h}{T}(\mu - \overline{y}_T)^2 = \mathcal{O}_p(T^{-1})
+\]
+
+\[
+\implies \hat{\gamma}(h)  = \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu)(y_{t-h} - \mu) + \mathcal{O}_p(T^{-1}) 
+\]
+
+which implies that \(\lim_{T \to \infty} \E(\hat{\gamma}(h)) = \gamma(h)\). Also using results in Bartlett (1946) \textbf{where? do we need to know how to do this?} we have
+
+\[
+\lim_{T \to \infty} \Var(\hat{\gamma}_T(h) - \gamma(h)) = 0
+\]
+
+under the assumption that 
+
+\[
+\lim_{H \to \infty} H^{-1} \sum_{h=1}^H \gamma_h^2 \to 0
+\]
+
+%\[
+%\Var(\hat{\gamma}(h)) = 
+%\]
+
+\subsubsection{Worked examples}
+
+% Midterm problem 2 part (2)
+\textbf{Midterm Problem 2 part (2) (similar to exercise 1 in chapter 14.} Suppose \(\{y_t\}\) has the following general linear process
+
+\[
+y_t = \mu + \alpha(L)\epsilon_t, \ \ \ \ \epsilon_t \sim i.i.d. \ (0, \sigma^2)
+\]
+
+where \(\alpha(L) = \alpha_0 + \alpha_1 L + \alpha_2 L^2 + \ldots; \ \alpha_0 = 1\). Let 
+
+\[
+\overline{y}_T = \frac{1}{T} \sum_{t=1}^T y_t
+\]
+
+\[
+\gamma(h) = \E[(y_t - \mu)(y_{t-h} - \mu)]
+\]
+
+\[
+\hat{\gamma}(h) = \frac{1}{T} \sum_{t=h+1}^T(y_t - \overline{y}_T)(y_{t-h} - \overline{y}_T)
+\]
+
+Derive the conditions under which
+
+\begin{enumerate}[(a)]
+
+\item \(\overline{y}_T\) is a consistent estimator of \(\mu\) as \(T \to \infty\)
+
+\item For fixed \(h\), \(\hat{\gamma}(h)\) is a consistent estimator of \(\gamma(h)\) as \(T \to \infty\).
+
+\end{enumerate}
+
+\textbf{Solution.}
+
+% 2(2)(a) solution
+\begin{enumerate}[(a)]
+
+\item 
+This is an MA(\(\infty\)) process. By Chebyshev's Inequality, \(\overline{y}_T\) is a consistent estimator of \(\mu\) as \(T \to \infty\) if \(\lim_{T \to \infty} \E(\overline{y}_T) = \E(y_T) = \mu\) and \(\lim_{T \to \infty} \Var(\overline{y}_T) = 0\). In this case in particular (MA(\(\infty\)) process), we can write
+
+\[
+\overline{y}_T = \frac{1}{T} \sum_{t=1}^T \big( \mu + \alpha(L)\epsilon_t \big) = \frac{1}{T}\cdot T \mu + \frac{1}{T} \sum_{t=1}^T \alpha(L)\epsilon_t = \mu + \frac{1}{T}\sum_{t=1}^T \alpha(L)\epsilon_t 
+\]
+
+Then we have
+
+\[
+\E(\overline{y}_T) = \mu + \frac{1}{T}\E \bigg( \sum_{t=1}^T \alpha(L)\epsilon_t  \bigg)  = \mu + \frac{1}{T} \sum_{t=1}^T  \E ( \alpha(L)\epsilon_t  ) = \mu
+\]
+
+\[
+\Var(\overline{y}_T) = 0 + \frac{1}{T^2} \Var \bigg( \sum_{t=1}^T \alpha(L)\epsilon_t  \bigg) = \frac{1}{T^2} \sum_{t=1}^T \Var[ \alpha(L)\epsilon_t ] = \frac{1}{T^2} \sum_{t=1}^T \E[ \alpha(L)\epsilon_t ] ^2 = \frac{1}{T} \alpha(1)^2 \E[\epsilon_t ] ^2
+\]
+
+\[
+= \frac{\sigma^2}{T} \alpha(1)^2
+\]
+
+Therefore a sufficient condition for consistency is 
+
+\[
+\lim_{T \to \infty}  \frac{\sigma^2}{T} \alpha(1)^2 = 0 \iff \alpha(1)^2 < \infty \impliedby \boxed{\sum_{i=0}^\infty \alpha_i = 0}
+\]
+
+% 2(2)(b) solution
+\item 
+
+%By Chebyshev's Inequality, \(\hat{\gamma}(h) \) is a consistent estimator of \(\gamma(h)\) as \(T \to \infty\) if \(\lim_{T \to \infty} \E(\hat{\gamma}(h) ) = \gamma(h) \) and \(\lim_{T \to \infty} \Var(\hat{\gamma}(h) ) = 0\).
+
+ \textbf{ask about the derivation}  Per the derivation in section~\ref{sec:tsch14.2.2}, we have that
+
+%\[
+%\hat{\gamma}(h) = \frac{1}{T} \sum_{t=h+1}^T(y_t - \overline{y}_T)(y_{t-h} - \overline{y}_T)
+%\]
+%
+%\[
+%= \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu + \mu - \overline{y}_T)(y_{t-h} - \mu + \mu - \overline{y}_T)
+%\]
+
+\[
+\hat{\gamma}(h)  = \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu)(y_{t-h} - \mu) + \mathcal{O}_p(T^{-1})
+\]
+
+For \(\hat{\gamma}(h)\) to be consistent, we need
+
+\[
+\frac{1}{T}\sum_{t=h_1}^T (y_t - \mu)(y_{t-h} - \mu) \xrightarrow{p} \gamma(h) \iff \lim_{T \to \infty} \Pr(|\hat{\gamma}(h)-\gamma(h)| < \epsilon) = 1, \text{ for every } \epsilon > 0
+\]
+
+First we show that \((y_t - \mu)(y_{t-h} - \mu)\) is a martingale difference process:
+
+\[
+\E[(y_t - \mu)(y_{t-h} - \mu) \mid F_{t-h}] =(y_{t-h} - \mu)  \E[y_t - \mu \mid F_{t-h}] = 0
+\]
+
+\textbf{why? which theorem is being used to prove this result? ask} We need to show that
+
+\[
+\E[(y_t - \mu)^2(y_{t-h} - \mu)^2 ] = \E \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2 \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2 \bigg] < \infty
+\]
+
+By the Cauchy-Schwarz Inequality, we have
+
+\[
+\E \left| \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2 \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2 \bigg] \right| ^2 \leq \E \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2\bigg]^2 \E \bigg[ \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2\bigg]^2
+\]
+
+\[
+< \infty \iff \E \bigg[ \sum_{i=0}^\infty \alpha_i \epsilon_{t-i}\bigg]^4 < \infty, \ \ \  \E \bigg[ \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg]^4 < \infty
+\]
+
+These conditions hold if \(\E(\epsilon_t^4) < \infty\) and \(\sum_{i=0}^\infty |\alpha_i| < \infty\). Then \(\E[(y_t - \mu)^2(y_{t-h} - \mu)^2 ] < \infty\) holds and
+\[
+\hat{\gamma} \xrightarrow{p} \gamma(h)
+\]
+
+\end{enumerate}
+
+% Midterm problem 3 parts (3) and (4)
+\textbf{Midterm Problem 3 parts (3) and (4) (similar to 14.7 and 14.8 material.} Consider the following ARMA(1, 1) model
+
+\[
+y_t = \phi y_{t-1} + u_t + \theta u_{t-1}, \text{ for } t = - \infty, \ldots, -1, 0 , 1, \ldots
+\]
+
+where \(|\theta| < 1\), \(|\phi| < 1\), and \(u_t\) is i.i.d. with mean zero and variance \(\sigma_u^2\), \(\E(u_t^4) < \infty\).
+
+\begin{enumerate}[(1)]
+
+\item Suppose that we have the data \(\{y_t : t = 0, 1, \ldots, T\} \). Consider the following estimator of \(\phi\):
+
+\[
+\hat{\phi}_T = \frac{\sum_{t=2}^T y_t y_{t-2}}{\sum_{t=2}^T y_{t-1} y_{t-2}}
+\]
+
+Show that \(\hat{\phi}\) is a consistent estimator of \(\phi\) and derive the asymptotic distribution of \(\sqrt{T}(\hat{\phi}_T - \phi)\). Comment on the case where \(\theta = \phi\).
+
+\item Suppose that \(\sigma_u^2 = 1\) is known. Show that \(\theta\) can be consistently estimated by 
+
+\[
+\hat{\theta}_T = \frac{1}{T} \sum_{t=1}^T y_t y_{t-1} - \frac{\hat{\phi}_T}{T}\sum_{t=1}^T y_{t-1}^2
+\]
+
+\end{enumerate}
+
+\textbf{Solution.}
+
+\begin{enumerate}[(1)]
+
+% Question 3 part 3
+\item From the results in Question 2 part 2(b), since \(\E(y_t) = \E(y_{t-1}) = \E(y_{t-2}) = 0\), we know that
+
+\[
+\hat{\phi}_T = \frac{\sum_{t=2}^T y_t y_{t-2}}{\sum_{t=2}^T y_{t-1} y_{t-2}} = \frac{T^{-1}\sum_{t=2}^T y_t y_{t-2}}{T^{-1}\sum_{t=2}^T y_{t-1} y_{t-2}} \xrightarrow{p} \frac{\gamma(2)}{\gamma(1)} 
+\]
+
+By the result from Question 3 part (2), we have \(\gamma(h) = \phi \gamma(h-1)\) for \(h \geq 2\). Therefore \(\gamma(2)/\gamma(1) = \phi\), so \(\hat{\phi}_T\) is a consistent estimator for \(\phi\). To obtain the asymptotic distribution, note that
+
+%\[
+%\sqrt{T}(\hat{\phi}_T - \phi) = \sqrt{T} \bigg(\frac{T^{-1}\sum_{t=2}^T y_t y_{t-2}}{T^{-1}\sum_{t=2}^T y_{t-1} y_{t-2}}  - \frac{y_t - u_t - \theta u_{t-1}}{y_{t-1}}\bigg)
+%\]
+
+\[
+\sqrt{T}(\hat{\phi}_T - \phi) = \sqrt{T} \bigg(\frac{T^{-1}\sum_{t=2}^T y_t y_{t-2}}{T^{-1}\sum_{t=2}^T y_{t-1} y_{t-2}}  - \phi \bigg) 
+\]
+
+\[
+= \frac{T^{-1/2}\sum_{t=2}^T (\phi y_{t-1} + u_t + \theta u_{t-1}) y_{t-2}}{T^{-1}\sum_{t=2}^T y_{t-1}y_{t-2}} -  \frac{\phi T^{-1/2}\sum_{t=2}^T y_{t-1} y_{t-2}}{T^{-1}\sum_{t=2}^T y_{t-1} y_{t-2}}
+\]
+
+\[
+= \frac{T^{-1/2}\sum_{t=2}^T (u_t + \theta u_{t-1}) y_{t-2}}{T^{-1}\sum_{t=2}^T y_{t-1}y_{t-2}} 
+\]
+
+In Question 2 part 2(b), we showed that 
+
+\[
+\frac{1}{T}\sum_{t=h_1}^T (y_t - \mu)(y_{t-h} - \mu) \xrightarrow{p} \gamma(h)
+\]
+
+Therefore in the denominator, since \(\E(y_{t-1}) = \E(y_{t-h} )_= 0\), we have
+
+\[
+T^{-1}\sum_{t=2}^T y_{t-1}y_{t-2} \xrightarrow{p} \gamma(1)
+\]
+
+In the numerator, 
+
+\[
+T^{-1/2}\sum_{t=2}^T (u_t + \theta u_{t-1}) y_{t-2} = \frac{1}{\sqrt{T}}\sum_{t=2}^T \big[u_t y_{t-2} + \theta u_{t-1} y_{t-2} \big] 
+\]
+
+\[
+= \frac{1}{\sqrt{T}}\sum_{t=2}^T u_t y_{t-2} +  \frac{1}{\sqrt{T}}\sum_{t=2}^T  \theta  u_{t-1} y_{t-2}  = \frac{1}{\sqrt{T}}\bigg(\sum_{t=2}^{T-1} u_t y_{t-2} + u_T y_{T-2} \bigg) +  \frac{1}{\sqrt{T}}\sum_{t'=1}^{T-1}  \theta  u_{t'} y_{t'-1} 
+\]
+
+\[
+= \frac{1}{\sqrt{T}} \bigg(\sum_{t=2}^{T-1} u_t y_{t-2} + u_T y_{T-2}\bigg)  + \frac{1}{\sqrt{T}} \bigg( \theta u_1 y_0 + \sum_{t=2}^{T-1}  \theta  u_{t} y_{t-1} \bigg)  = \frac{1}{\sqrt{T}} \bigg( \sum_{t=2}^{T-1} u_t(y_{t-2} + \theta y_{t-1}) + \theta u_1 y_0 + u_T y_{T-2} \bigg)
+\] 
+
+Since \(\E( u_t(y_{t-2} + \theta y_{t-1}) \mid F_{t-1} ) = 0\). Further, \(T^{-1/2} (\theta u_1 y_0 + u_{T-1}y_{T-2}) = o_p(1)\). Then by the Central Limit Theorem in martingale difference processes (see section~\ref{sec:tsch8.8}):
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\textbf{Theorem 28 (Central limit theorem for martingale difference sequences).} Let \(\{x_t\}\) be a martingale difference sequence with respect to the information set \(\Omega_t\). Let \(\overline{\sigma}_T^2 = \Var( \sqrt{T} \overline{x}_T) = T^{-1} \sum_{t=1}^T \sigma_t^2\). If \(\E(|x_t|^r) < K < \infty\), \(r > 2\) and for all \(t\), and
+
+\[
+\frac{1}{T} \sum_{t=1}^T x_t^2 - \overline{\sigma}_t^2 \xrightarrow{p} 0
+\]
+
+then 
+
+\[
+\sqrt{T} \cdot \frac{\overline{x}_T }{ \overline{\sigma}_T} \xrightarrow{d} \mathcal{N}(0, 1)
+\]
+}
+}
+
+we have
+
+\[
+\sqrt{T} \cdot \frac{\overline{x}_T }{ T^{-1/2}\sqrt{ \sum_{t=1}^T \sigma_t^2}} \xrightarrow{d} \mathcal{N}(0, 1)
+\]
+
+\[
+\vdots
+\]
+
+\[
+\frac{1}{ \sigma^2} \frac{\gamma(1)^2}{(1+\theta)^2) \gamma(0) + 2 \theta \gamma(1)} \sqrt{T}(\hat{\phi}_T - \phi) \xrightarrow{d} \mathcal{N} (0, 1)
+\]
+
+\[
+\iff \sqrt{T}(\hat{\phi}_T - \phi) \xrightarrow{d} \mathcal{N} \bigg( 0, \sigma^2 \frac{(1+\theta)^2) \gamma(0) + 2 \theta \gamma(1)}{\gamma(1)^2} \bigg)
+\]
+
+
+% Question 3 part 4
+\item From the results of Question 2 part 2(b), where we showed that 
+
+\[
+\frac{1}{T}\sum_{t=h_1}^T (y_t - \mu)(y_{t-h} - \mu) \xrightarrow{p} \gamma(h)
+\]
+
+(and since \(\E(y_{t-1}) = \E(y_{t-h} )_= 0\),)
+
+\[
+T^{-1}\sum_{t=2}^T y_{t}y_{t-1} \xrightarrow{p} \gamma(1), \ \ \ T^{-1}\sum_{t=2}^T y_{t-1}^2\xrightarrow{p} \gamma(0)
+\]
+
+
+and by the law of large numbers  (see section~\ref{sec:tsch8.6}) \textbf{(why?)}, we have
+
+\[
+\hat{\theta}_T = \frac{1}{T} \sum_{t=1}^T y_ty_{t-1} - \frac{\hat{\phi}_T}{T} \sum_{t=1}^T y_{t-1}^2 \xrightarrow{p} \gamma(1) - \phi \gamma(0) = \phi \gamma(0) + \theta \sigma^2 - \phi \gamma(0) =  \theta
+\]
+
+\end{enumerate}
+
+%%%%% Chapter 17
+
+\subsection{Chapter 17: Introduction to Forecasting}
+
+% 17.7: Iterated and direct multi-step AR methods
+\subsubsection{17.7: Iterated and direct multi-step AR methods}
+
+Suppose \(y_t\) follows the AR(1) model: 
+
+\begin{equation} \label{eqn:17.7ar}
+y_t = a + \phi y_{t-1} + \epsilon_t, \ \ \ \ |\phi| < 1, \epsilon_t \sim iid(0, \sigma_\epsilon^2)
+\end{equation}
+
+\[
+\iff y_t =  \frac{a}{1 - \phi} + \sum_{i=0}^\infty \phi^i \epsilon_{t-i}
+\]
+
+\begin{equation} \label{eqn:17.7ar.it}
+\iff y_t = a \bigg( \frac{1 - \phi^h}{1 - \phi} \bigg) + \phi^h y_{t-h} + \sum_{j=0}^{h-1} \phi^j \epsilon_{t-j}
+\end{equation}
+
+We have two methods for forecasting \(y_{t+h}\) \(h >1\) steps ahead.
+
+\begin{enumerate}[(1)]
+
+\item \textbf{Iterated method:} In this method, we first calculate the OLS estimates of \(\hat{a}_T\) and \(\hat{\phi}_T\) in Equation (\ref{eqn:17.7ar}) using all available data \(\Omega_T\). Then we use the form of Equation (\ref{eqn:17.7ar.it}):
+
+\[
+\hat{y}_{T+h \mid T}^* = \hat{a}_T \bigg( \frac{1 - \hat{\phi}_T^h}{1 - \hat{\phi}_T} \bigg) + \hat{\phi}_T^h y_{T} 
+\] 
+
+\item \textbf{Direct method:} We directly calculate OLS estimates of the parameters in Equation (\ref{eqn:17.7ar.it}) using all available data \(\Omega_T\):
+
+\[
+\tilde{y}_{T+h \mid T}^* = \tilde{a}_{h,T} + \tilde{\phi}_{h,T} y_{T} 
+\] 
+
+\end{enumerate}
+
+\textbf{Proposition 45.} Suppose data is generated by Equation (\ref{eqn:17.7ar}). If \(u_t = \sum_{i=0}^\infty \phi^i \epsilon_{t-i}\) and \(v_t = \sum_{j=0}^{h-1} \phi^j \epsilon_{t-j}\) are symmetrically distributed around zero and have finite second moments, and if \(\E(\hat{\phi}_T\) and \(\E(\tilde{\phi}_{h,T} )\) exist, then for any finite \(T\) and \(h\) we have
+
+\[
+\E(\hat{y}_{T+h \mid T}^* - y_{T +h}) = \E (\tilde{y}_{T+h \mid T}^* - y_{T+h}) = 0
+\]
+
+%
+%
+%
+%
+%
+%
+
+%\end{document}

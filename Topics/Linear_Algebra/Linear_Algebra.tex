@@ -1,0 +1,317 @@
+%\documentclass{article}
+%
+%\usepackage{fancyhdr}
+%\usepackage{extramarks}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{tikz}
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\graphicspath{ {images/} }
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[document]{ragged2e}
+%\usepackage{textcomp}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{import}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=black,  %choose some color if you want links to stand out
+%}
+%
+%\usetikzlibrary{automata,positioning}
+%
+%%
+%% Basic Document Settings
+%%
+%
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%\setlength{\parskip}{1em}
+%
+%\linespread{1.1}
+%
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+%
+%\renewcommand\headrulewidth{0.4pt}
+%\renewcommand\footrulewidth{0.4pt}
+%
+%\setlength\parindent{0pt}
+%
+%
+%\newcommand{\hmwkTitle}{Math Review Notes---Linear Algebra}
+%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+%
+%%
+%% Title Page
+%%
+%
+%\title{
+%    \vspace{2in}
+%    \textmd{\textbf{ \hmwkTitle}}\\
+%}
+%
+%\author{Gregory Faletto}
+%\date{}
+%
+%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%%
+%% Various Helper Commands
+%%
+%
+%% Useful for algorithms
+%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+%
+%% For derivatives
+%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%
+%% For partial derivatives
+%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+%
+%% Integral dx
+%\newcommand{\dx}{\mathrm{d}x}
+%
+%% Alias for the Solution section header
+%\newcommand{\solution}{\textbf{\large Solution}}
+%
+%% Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\Var}{\mathrm{Var}}
+%\newcommand{\Cov}{\mathrm{Cov}}
+%\newcommand{\Bias}{\mathrm{Bias}}
+%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+%\DeclareMathOperator{\Tr}{Tr}
+%
+%% Tilde
+%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+%
+%\begin{document}
+%
+%\maketitle
+%
+%\pagebreak
+%
+%\tableofcontents
+%
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+%
+%\newpage
+
+%
+%
+%
+%
+%
+%
+%
+
+\section{Linear Algebra}
+\subsection{Properties of Projection Matrices}
+
+\begin{enumerate}[i.]
+
+\item Formula:
+
+\[
+P = A(A^TA)^{-1}A^T
+\]
+
+(Note that if \(A\) is an invertible (square) matrix, then \(P = A(A^TA)^{-1}A^T = AA^{-1}(A^T)^{-1}A^T = I\).)
+
+\textbf{The projection matrix projects any vector \(b\) into the column space of \(A\).} In other words, \(p = Pb\) is the component of \(b\) in the column space, and the error \(e = b - Pb\) is the component in the orthogonal complement. (\(I - P\) is also a projection matrix. It projects \(b\) onto the orthogonal complement, and the projection is \(b - Pb = e\)).
+
+(Note that if \(A\) is an invertible (square) matrix, then its column space is all of \(\mathbb{R}^n\), so \(b\) is already in the column space of \(A\).)
+
+\item The projection matrix is \textbf{idempotent}: it equals its square--\(P^2 = P\).
+
+\item The projection matrix is \textbf{symmetric}: it equals its transpose--\(P^T = P\).
+
+\item Conversely, \textbf{any symmetric idempotent matrix represents a projection}. \(P\) is unique for a given subspace.
+
+\item If \(A\) is an \(m \times n\) matrix with rank \(n\), then \(\text{rank} (P) = n\). The eigenvalues of \(P\) consist of \(n\) ones and \(m - n\) zeroes. \(P\) always contains \(n\) independent eigenvectors and is thus diagonalizable. 
+
+\end{enumerate}
+
+Suppose \(A\) is a square nonsingular matrix and \(\lambda\) is an eigenvalue of \(A\). Then \(\lambda^{-1}\) is an eigenvalue of the matrix \(A^{-1}\).
+
+The trace of an idempotent matrix with rank \(r\) is \(r\).
+
+\subsection{Eigenvalues, Eigenvectors, Diagonalization, Symmetric Matrices}
+
+\textbf{Notes on Diagonalization}
+
+Suppose the \(n \times n\) matrix \(A\) has \(n\) linearly independent eigenvectors. If these eigenvectors are the columns of a matrix \(S\), then \(S^{-1}AS\) is a diagonal matrix \(\Lambda\). The eigenvalues of \(A\) are on the diagonal of \(\Lambda\):
+
+\[
+S^{-1}AS = \Lambda = \begin{bmatrix}
+   \lambda_1       & 0  & \cdots  & 0  \\
+  0  & \lambda_2 & \cdots  & 0 \\
+  \vdots  & \vdots  & \ddots & \vdots \\
+   0  & 0 & \cdots & \lambda_n
+\end{bmatrix}
+\]
+
+We call \(S\) the \textbf{eigenvector matrix} and \(\Lambda\) the \textbf{eigenvalue matrix}.
+
+\begin{enumerate}[1.]
+
+\item If the matrix \(A\) has no repeated eigenvalues, then its \(n\) eigenvectors are automatically independent. Therefore \textbf{any matrix with \(n\) distinct eigenvalues can be diagonalized}.
+
+\item \textbf{The diagonalizing matrix \(S\) is not unique}. An eigenvector \(x\) can be multiplied by a constant and remains an eigenvector. We can multiply the columns of \(S\) by any nonzero constants and produce a new diagonalizing \(S\). Repeated eigenvalues leave even more freedom in \(S\) (columns with identical eigenvalues can be interchanged). 
+
+(Note that for the trivial example \(A = I\), any invertible \(S\) will do. \(S^{-1}IS\) is always diagonal, and \(\Lambda\) is just \(I\). \textbf{All vectors are eigenvectors of the identity.})
+
+\item \textbf{Other matrices \(S\) will not produce a diagonal \(\Lambda\)}. Since \(\Lambda = S^{-1}AS\), \(S\) must satisfy \(S \Lambda = AS\). Suppose the first column of \(S\) is \(y\). Then the first column of \(S \Lambda\) is \(\lambda_1y\). If this is to agree with the first column of \(AS\), which by matrix multiplication is \(Ay\), then \(y\) must be an eigenvector: \(Ay = \lambda_1y\). 
+
+(Note that the \textit{order} of the eigenvectors in \(S\) and the eigenvalues in \(\Lambda\) must match.)
+
+\item Not all matrices posses \(n\) linearly independent eigenvectors, so \textbf{not all matrices are diagonalizable}. 
+
+\textbf{Diagonalizability of \(A\) depends on having enough (\(n\)) independent eigenvectors. Invertibility of \(A\) depends on having nonzero eigenvalues.}
+
+There is no connection between diagonalizability (\(n\) independent eigenvectors) and invertibility (no zero eigenvalues). The only indication given by the eigenvalues is that diagonalization can fail only if there are repeated eigenvalues. (But even then, it does not always fail--e.g. \(I\).)
+
+The test is to check, for an eigenvalue that is repeated \(p\) times, whether there are \(p\) independent eigenvectors--in other words, whether \(A - \lambda\) has rank \(n - p\).
+
+%If eigenvectors \(x_1, x_2, \ldots, x_k\) correspond to different eigenvalues \(\lambda_1, \lambda_2, \ldots, \lambda_k\), then those eigenvectors are linearly independent.
+
+\item \textbf{Projection matrices always contain \(n\) independent eigenvectors and thus are always diagonalizable}.
+
+\end{enumerate}
+
+\textbf{Eigenvalues of Symmetric Matrices:} If \(A\) is symmetric, then it has the following properties:
+
+\begin{enumerate}[1.]
+
+\item \(A\) has exactly \(n\) (not necessarily distinct) eigenvalues
+
+\item There exists a set of \(n\) eigenvectors, one for each eigenvalue, that are mutually orthogonal (even if the eigenvalues are not distinct).
+
+\end{enumerate}
+
+\textbf{Eigenvalues of the Inverse of a Matrix:} Suppose \(A\) is a square nonsingular matrix and \(\lambda\) is an eigenvalue of \(A\). Then \(\lambda^{-1}\) is an eigenvalue of the matrix \(A^{-1}\). Proof: Note that since \(A\) is nonsingular, \(A^{-1}\) exists and \(\lambda\) is nonnegative for all eigenvalues of \(A\). Let \(\lambda\) be an eigenvalue of \(A\) and let \(x \neq 0\) be an eigenvector of \(A\) for \(\lambda\). Suppose \(A\) is \(n\) by \(n\). Then we have
+
+\[
+A^{-1}x = A^{-1}\lambda^{-1} \lambda x = \lambda^{-1} A^{-1} \lambda x = \lambda^{-1} A^{-1} A x = \lambda^{-1}x
+\]
+
+\textbf{The inverse of a symmetric matrix is symmetric.} Proof: Let \(A\) be a symmetric matrix.
+
+\[
+I = I'
+\]
+
+\[
+A A^{-1} = (A A^{-1})'
+\]
+
+\[
+A^{-1} A = (A^{-1})'A'
+\]
+
+\[
+A^{-1} A A^{-1} = (A^{-1})'A A^{-1}
+\]
+
+\[
+A^{-1} = (A^{-1})'
+\]
+
+\subsection{Positive Definite Matrices}
+
+For any real invertible matrix \(A\), the product \(A' A\) is a positive definite matrix. (Proof: Let \(z\) be a non-zero vector. We want \(z' A' A z >0 \forall z\). Note that \(z' A' A z = (Az)'(Az)\). Because \(A\) is invertible and \(z \neq 0\), \(Az \neq 0 \), so \((Az)'(Az) > 0\).)
+
+Let \(A \in \mathbb{R}^{m \times n}\) with \(m \geq n\) and let \(\text{rank}(A) = n\) (that is, \(A\) has full column rank). Then \(A' A\) is a positive definite matrix. (Proof: Let \(z\) be a non-zero vector. We want \(z' A' A z >0 \forall z\). Note that \(z' A' A z = (Az)'(Az)\). Because \(A\) has full column rank (and \(n\) linearly independent columns) and \(z \neq 0\), \(Az \neq 0 \), so \((Az)'(Az) > 0\).)
+
+Every positive definite matrix is invertible and its inverse is also positive definite.
+
+\subsection{Other}
+
+\textbf{Frobenius norm}
+
+\textbf{QR decompositon}
+
+From appendix of Convex Optimization:
+
+\textbf{Orthogonal Decomposition}
+
+\textbf{Spectral Decomposition (eigenvalue decomposition}
+
+\textbf{Generalized eigenvalue decomposition}
+
+\textbf{Singular value decomposition}
+
+\textbf{Pseudo-inverse (Moore-Penrose inverse)}
+
+\textbf{Schur complement, Schur decomposition}
+
+From appendix of Time Series:
+
+\textbf{Quadratic forms}
+
+\textbf{Special matrices}
+
+\textbf{Jordan decomposition}
+
+\textbf{Cholesky decomposition}
+
+\textbf{Difference Equations}
+
+\subsection{Practice Problems}
+
+\includegraphics[scale=0.5]{0568_12}
+
+\includegraphics[scale=0.5]{0568_12s}
+
+\includegraphics[scale=0.65]{1268_24}
+
+\includegraphics[scale=0.65]{1268_24s}
+
+\includegraphics[scale=0.65]{1268_34}
+
+\includegraphics[scale=0.65]{1268_34s}
+
+\includegraphics[scale=0.65]{1268_37}
+
+\includegraphics[scale=0.65]{1268_37s}
+
+\includegraphics[scale=0.5]{0568_50}
+
+\includegraphics[scale=0.5]{0568_50s}
+
+\includegraphics[scale=0.65]{1268_51}
+
+\includegraphics[scale=0.65]{1268_51s}
+
+%%\includegraphics[scale=0.65]{1268_59}
+%
+%%\includegraphics[scale=0.65]{1268_59s}
+
+%
+%
+%
+%
+%
+
+%\end{document}
+
+
+
