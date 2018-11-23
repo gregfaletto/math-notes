@@ -468,7 +468,7 @@ so \(\lim_{m \to \infty} \Pr(B_m(\epsilon)) = 0\) whenever \(\sum_n \Pr(A_n(\eps
 %%% Section 7.2
 \subsection{More on convergence (7.2 of Grimmet and Strikazer)}
 
-\textbf{Other theorems to include:} Fatou's Lemma, Fubini's Theorem, Kolmogorov's Maximal Inequality, Kolmogorov Three-Series Test, Linberg Feller Central Limit Theorem, \textbf{this and more at beginning of Mike's 505A qual solutions.}
+\textbf{Other theorems to include:} Fatou's Lemma, Fubini's Theorem, Kolmogorov's Maximal Inequality, Kolmogorov Three-Series Test, Lindeberg Feller Central Limit Theorem, \textbf{this and more at beginning of Mike's 505A qual solutions.}
 
 \begin{definition} \textbf{Cauchy Convergence.} We say that the sequence \(\{X_n: n \geq 1\}\) of random variables on the probability space \((\Omega, \mathcal{F}, \mathbb{P})\) is \textbf{almost surely Cauchy convergent} if
 
@@ -638,7 +638,7 @@ Therefore, although \(X_n\) may fail to converge to \(X\) in any mode other than
 \end{theorem}
 
 %%% Borel-Cantelli lemmas 
-\begin{theorem}\textbf{Borel-Cantelli lemmas (Grimmett and Stirzaker Theorem 7.3.10.)} Let \(\{A_n\}\) be an infinite sequence of events from some probability space \((\Omega, \mathcal{F}, \mathbb{P})\). Let \(A = \bigcap_n \bigcup_{m=n}^\infty A_m\ = \limsup_{n \to \infty} A_n = \{A_n \text{ i.o.}\}\) be the event that infinitely many of the \(A_n\) occur. Then:
+\begin{theorem}\textbf{Borel-Cantelli lemmas (Grimmett and Stirzaker Theorem 7.3.10.)} \label{asym.borel} Let \(\{A_n\}\) be an infinite sequence of events from some probability space \((\Omega, \mathcal{F}, \mathbb{P})\). Let \(A = \bigcap_n \bigcup_{m=n}^\infty A_m\ = \limsup_{n \to \infty} A_n = \{A_n \text{ i.o.}\}\) be the event that infinitely many of the \(A_n\) occur. Then:
 
 \begin{enumerate}[(a)]
 
@@ -711,9 +711,9 @@ so \(\Pr(A) = 1\).
 
 \begin{theorem} \textbf{on p.318 (section 7.3) of Grimmett and Stirzaker.} Suppose that \(X_n \xrightarrow{d} 0\) and \(Y_n \xrightarrow{p} Y\), and let \(g: \mathbb{R}^2 \to \mathbb{R}\) be such that \(g(x,y)\) is a continuous function of \(y\) for all \(x\), and \(g(x, y)\) is continuous at \(x=0\) for all \(y\). Then \(g(X_n, Y_n) \xrightarrow{p} g(0, Y)\). \end{theorem}
 
- \textbf{Theorem 8.} (Grimmett and Stirzaker Section 8.4.1, p. 175) 
+% \textbf{Theorem 8.} (Pesaran Section 8.4.1, p. 175) 
 
-\begin{theorem} \textbf{Theorem 9 of Pesaran, Section 8.4.1, p. 176: convergence properties of transformed sequences.} Suppose \(\{\boldsymbol{x}_t\}\), \(\{\boldsymbol{y}_t\}\), \(\boldsymbol{x}\), and \(\boldsymbol{y}\) are \(m \times 1\) vectors of random variables on a probability space, and let \(\boldsymbol{g}(\cdot)\) be a continuous vector-valued function. Then
+\begin{theorem} \label{asym.contmappthm} \textbf{Continuous Mapping Theorem (Theorem 9 of Pesaran, Section 8.4.1, p. 176: convergence properties of transformed sequences.)} Suppose \(\{\boldsymbol{x}_t\}\), \(\{\boldsymbol{y}_t\}\), \(\boldsymbol{x}\), and \(\boldsymbol{y}\) are \(m \times 1\) vectors of random variables on a probability space, and let \(\boldsymbol{g}(\cdot)\) be a continuous vector-valued function. (Alternatively, suppose \(g\) has the set of discontinuity points \(D_g\) such that \(\Pr(X \in D_g) = 0\).) Then
 
 \begin{enumerate}[(i)]
 
@@ -730,7 +730,6 @@ so \(\Pr(A) = 1\).
 \end{theorem}
 
 \begin{proof}See Serfling (1980) or Rao (1973).\end{proof}
-
 
 %%% Section 8.5
 \subsection{Stochastic orders \(\mathcal{O}_p(\cdot)\) and \(o_p(\cdot)\) (Pesaran 8.5)}
@@ -755,42 +754,62 @@ so \(\Pr(A) = 1\).
 \end{definition}
 
 %%% Section 8.6
-\subsection{Law of Large Numbers (8.6 of Pesaran)}
+\subsection{Laws of Large Numbers and Central Limit Theorems (Pesaran 8.6; Grimmett and Stirzaker 7.4, 7.5)}
 
-
-\begin{theorem} \textbf{(Khinchine) (Pesaran 8.6 Theorem 10.)} Suppose that \(\{x_t\}\) is a sequence of IID random variables with constant mean, i.e., \(\E(x_t) = \mu < \infty\). Then
+\begin{theorem}\label{asym.wlln} \textbf{Weak Law of Large Numbers (Khinchine) (Pesaran 8.6 Theorem 10, Grimmett and Stirzaker Theorem 7.4.7).} Suppose that \(\{X_k\}\) is a sequence of (i) IID random variables with (ii) constant means, i.e., \(\E(X_k) = \mu < \infty\). Then
 
 \[
-\overline{x}_T = \frac{1}{T} \sum_{t=1}^T x_t \xrightarrow{p} \mu
+\overline{X}_k = \frac{1}{n} \sum_{k=1}^n X_k \xrightarrow{p} \mu
 \]
 
 \end{theorem}
 
-\begin{theorem}\textbf{Weak Law of Large Numbers (Chebyshev) (Pesaran Section 8.6, p. 178, Theorem 11.)} Let \(\E(x_t) = \mu_t\), \(\Var(x_t) = \sigma_t^2\), and \(\Cov(x_t, x_t) = 0, \ t \neq s\). Then if 
+\begin{theorem}\textbf{Weak Law of Large Numbers (Chebyshev) (Pesaran Section 8.6, p. 178, Theorem 11.)} Let \(\{X_k\}\) be a sequence of random variables. If (i) \(\E(X_k) = \mu_k\), (ii) \(\Var(X_k) = \sigma_k^2\), and (iii) \(\Cov(X_k, X_j) = 0, \ k \neq j\), and (iv)
 
 \[
-\lim_{T \to \infty} \frac{1}{T} \sum_{t=1}^T \sigma_t^2 < \infty
+\lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n \sigma_k^2 < \infty
 \]
 
-we have \(\overline{x}_T - \overline{\mu}_T \xrightarrow{p} 0\), where \( \overline{\mu}_T = T^{-1} \sum_{t=1}^T \mu_t\).\end{theorem}
+then we have \(\overline{X}_n - \overline{\mu}_n \xrightarrow{p} 0\), where \( \overline{\mu}_n = n^{-1} \sum_{k=1}^n \mu_k\).\end{theorem}
 
-\begin{theorem}\textbf{Strong Law of Large Numbers 1 (Kolmogorov) (Pesaran 8.8 Theorem 12).} Let \(\{x_t\}\) be a sequence of independent random variables with \(\E(x_t) = \mu_t < \infty\) and \(\Var(x_t) =\sigma_t^2\) such that
+\begin{theorem}\label{asym.lln1} \textbf{Strong Law of Large Numbers (Grimmett and Stirzakker Theorem 7.4.3).} Let \(\{X_k\}\) be a sequence of (i) independent (ii) identically distributed random variables with (iii) \(\E(X_k) = \mu \) and (iv) \(\E(X_k^2) < \infty \). Then 
 
 \[
-\sum_{t=1}^\infty \frac{\sigma_t^2}{t^2} < \infty
+\frac{1}{n} \sum_{k=1}^n X_k \rightarrow \mu \text{ almost surely and in mean square.}
 \]
 
-Then \(\overline{x}_T - \overline{\mu}_T \xrightarrow{wp1} 0 \). If the independence assumption is replaced by a lack of correlation (i.e. \(\Cov(x_t, x_s) = 0, t \neq s\)), the convergence of \(\overline{x}_T - \overline{\mu}_T\) with probability one requires the stronger condition
+\end{theorem}
+
+\begin{theorem}\label{asym.lln2} \textbf{Strong Law of Large Numbers (Grimmett and Stirzakker Theorem 7.5.1).} Let \(\{X_k\}\) be a sequence of (i) independent (ii) identically distributed random variables. Then if and only if (iii) \(\E|X_k|  < \infty \),
 
 \[
-\sum_{t=1}^\infty \frac{\sigma_t^2 (\log t)^2}{t^2} < \infty
+\frac{1}{n} \sum_{k=1}^n X_k \xrightarrow{a.s.} \mu
+\]
+
+\end{theorem}
+
+\begin{theorem}\textbf{Strong Law of Large Numbers 1 (Kolmogorov) (Pesaran 8.8 Theorem 12).} Let \(\{X_k\}\) be a sequence of (i) independent random variables with (ii) \(\E(X_k) = \mu_k < \infty\) and (ii) \(\Var(X_k) =\sigma_k^2\) such that (iii)
+
+\[
+\sum_{k=1}^\infty \frac{\sigma_k^2}{k^2} < \infty
+\]
+
+Then \(\overline{X}_n - \overline{\mu}_n \xrightarrow{wp1} 0 \). If the independence assumption (i) is replaced by a lack of correlation (i.e. \(\Cov(X_k, X_j) = 0, k \neq j\)), the convergence of \(\overline{X}_n - \overline{\mu}_n\) with probability one requires the stronger condition
+
+\[
+\sum_{k=1}^\infty \frac{\sigma_k^2 (\log k)^2}{k^2} < \infty
 \]
 \end{theorem}
 
-\begin{theorem}\textbf{Strong Law of Large Numbers 2 (Pesaran 8.8 Theorem 13)} Suppose that \(x_1, x_2, \ldots\) are independent random variables, and that \(\E(x_i) = 0, \E(x_i^4) \leq K \ \forall \ i\) where \(K\) is an arbitrary positive constant. Then \(\overline{x}_T\) converges to 0 with probability 1.
+\begin{theorem}\textbf{Strong Law of Large Numbers 2 (Pesaran 8.8 Theorem 13)} Suppose that \(X_1, X_2, \ldots\) are (i) independent random variables, and that (ii) \(\E(X_k) = 0\), (iii) \(\E(X_k^4) \leq M \ \forall \ k\) where \(M\) is an arbitrary positive constant. Then 
+
+\[
+\overline{X}_n = \frac{1}{n} \sum_{k=1}^n X_k \xrightarrow{a.s.} 0
+\] 
+
 \end{theorem}
 
-\begin{theorem}\textbf{Central Limit Theorem (Grimmett and Stirzaker theorem 5.10.4.)} Let \(X_1, X_2, \ldots\) be a sequence of independent identically distributed random variables with finite mean \(\mu\) and finite non-zero variance \(\sigma^2\), and let \(S_n = \sum_{i=1}^n X_i\). Then
+\begin{theorem} \label{asym.clt} \textbf{Central Limit Theorem (Grimmett and Stirzaker theorem 5.10.4.)} Let \(X_1, X_2, \ldots\) be a sequence of independent identically distributed random variables with finite mean \(\mu\) and finite non-zero variance \(\sigma^2\), and let \(S_n = \sum_{i=1}^n X_i\). Then
 
 \[
 \frac{S_n - n \mu}{\sqrt{n \sigma^2}} \xrightarrow{d} \mathcal{N}(0,1)
@@ -881,7 +900,7 @@ Prove that \(\lim_{n \to \infty} \sqrt{n} Y_n\) exists in an appropriate sense, 
 \lim_{n \to \infty} \frac{\sum_{k=1}^n X_k}{\sum_{k=1}^n X_k^2} = \lim_{n \to \infty} \frac{n^{-1}\sum_{k=1}^n X_k}{n^{-1}\sum_{k=1}^n X_k^2}
 \]
 
-Since \(X_1, X_2, \ldots\) are i.i.d., \(E(X_1^2) = \Var(X_1) + (\E(X_1))^2 = 2 < \infty\), we have \[ n^{-1}\sum_{k=1}^n X_k \xrightarrow{a.s.} \E(X_1) = 1 \text{ as } n \to \infty\] by Theorem 7.4.3 (Strong Law of Large Numbers). Also, \(X_1^2, X_2^2, \ldots\) are clearly identically distributed, and are independent by Theorem 4.2.3 (``If \(X\) and \(Y\) are independent, then so are \(g(X)\) and \(g(Y)\)."). It is clear also that \(\E(|X_1^2|) = \E(X_1^2) = \Var(X_1) + \E(X_1)^2 = 1 + 1 = 2 < \infty\). Therefore by the Strong Law of Large Numbers,  
+Since \(X_1, X_2, \ldots\) are i.i.d., \(E(X_1^2) = \Var(X_1) + (\E(X_1))^2 = 2 < \infty\), we have \[ n^{-1}\sum_{k=1}^n X_k \xrightarrow{a.s.} \E(X_1) = 1 \text{ as } n \to \infty\] by Theorem \ref{asym.lln1} (Strong Law of Large Numbers). Also, \(X_1^2, X_2^2, \ldots\) are clearly identically distributed, and are independent by Theorem 4.2.3 (``If \(X\) and \(Y\) are independent, then so are \(g(X)\) and \(g(Y)\)."). It is clear also that \(\E(|X_1^2|) = \E(X_1^2) = \Var(X_1) + \E(X_1)^2 = 1 + 1 = 2 < \infty\). Therefore by Theorem \ref{asym.lln2} (Strong Law of Large Numbers),  
 
 \[
  n^{-1}\sum_{k=1}^n X_k^2 \xrightarrow{a.s.}\E(X_1^2) = 2 \text{ as } n \to \infty
@@ -891,15 +910,15 @@ Since \(X_1, X_2, \ldots\) are i.i.d., \(E(X_1^2) = \Var(X_1) + (\E(X_1))^2 = 2 
 
 \begin{itemize}
 
-\item \textbf{Approach suggested by Lototsky (possibly less rigorous?):}
+\item 
  
- Because we have almost sure convergence in the numerator and denominator, the regular rules of calculus/real analysis apply. That is,
+Because we have almost sure convergence in the numerator and denominator, by the Continuous Mapping Theorem (Theorem \ref{asym.contmappthm}),
  
  \[
  \lim_{n \to \infty} \frac{n^{-1}\sum_{k=1}^n X_k}{n^{-1}\sum_{k=1}^n X_k^2} =  \frac{\lim_{n \to \infty} n^{-1}\sum_{k=1}^n X_k}{\lim_{n \to \infty} n^{-1}\sum_{k=1}^n X_k^2} \xrightarrow{a.s.} \boxed{\frac{1}{2}}
  \]
 
-\item \textbf{By-the-book approach:}
+\item 
 
 Then, using one of  Slutsky's convergence theorems (Theorem \ref{asym.slutsky}: ``If \(x_t \xrightarrow{d} x\) and \(y_t \xrightarrow{p} c\) where \(c\) is a finite constant, then \(x_t/y_t \xrightarrow{d}  x/c, \text{ if } c \neq 0\)."), we have
 
@@ -925,19 +944,19 @@ Note that \(\E(X_1) = 0, \E(X_1^2) = \Var(X_1) + \E(X_1)^2 = (1 - -1)^2/12 + 0^2
 \implies \sqrt{n} Y_n =  \frac{\sqrt{1/3} \big(\sum_{j=1}^n X_j - n\E(X_1) \big)/ \sqrt{n \cdot1/3} }{n^{-1}\sum_{j=1}^n X_j^2 + n^{-1}\sum_{j=1}^n X_j^3} 
 \]
  
-By the Central Limit Theorem,
+By the Central Limit Theorem (Theorem \ref{asym.clt}),
  
 \[
  \frac{\sum_{j=1}^n X_j - n\E(X_1) }{\sqrt{n \cdot1/3} } \xrightarrow{d} \mathcal{N}(0, 1)
 \]
 
-By the Law of Large Numbers, since \(\E(|X_1^2|) = \E(X_1^2) = 1/3 < \infty\),
+By the Law of Large Numbers (Theorem \ref{asym.lln2}), since \(\E(|X_1^2|) = \E(X_1^2) = 1/3 < \infty\),
 
 \[
 \frac{1}{n}\sum_{j=1}^n X_j^2 \xrightarrow{a.s.} \E(X_1^2) =   1/3
 \]
 
-By the Law of Large Numbers, since \(\E(|X_1^3|) = (1/2) \int_{-1}^1 |x^3| dx = \int_0^1 x^3 dx = 1/4 < \infty\),
+By the Law of Large Numbers (Theorem \ref{asym.lln2}), since \(\E(|X_1^3|) = (1/2) \int_{-1}^1 |x^3| dx = \int_0^1 x^3 dx = 1/4 < \infty\),
 
 \[
 \frac{1}{n}\sum_{j=1}^n X_j^3 \xrightarrow{a.s.} \E(X_1^3) =   0
@@ -956,6 +975,76 @@ Therefore
 \]
 
 \end{enumerate}
+
+%%%%%%%%%%%% Midterm question 2 %%%%%%%%%%%%
+\item 
+
+%\textbf{Hints/Notes about this question:} Has to do with generating functions and Taylor series. This is the only nontrivial generating function problem. We either did this problem in class or discussed one like it. \textbf{Guess: HW 6 question 4(a) (went over on 11/02, p. 17 of notes; Fall 2010 qual, question 2)? Melike solution involves generating functions; probably the one I should use.}
+
+\textbf{Question:} Fix \(p \in (0, 1)\) and consider independent Poisson random variables \(X_k, k \geq 1\) with
+
+\[
+\E X_k = \frac{p^k}{k}
+\]
+
+Verify that the sum \(\sum_{k=1}^\infty k X_k\) converges with probability one and determine the distribution of the random variable \(Y = \sum_{k=1}^\infty k X_k\).
+
+\textbf{Solution.} %%%%%%%%%% Melike's solution (use for midterm) %%%%%%%%%%%%%
+\textbf{Melike's solution (use for midterm):} We have \(\E[k X_k] = p^k\) and \(\sum_{k=1}^\infty p^k = p/(1-p) < \infty\), and \(\Var(k X_k) = kp^k\) and 
+
+\[
+\sum_{k=1}^\infty k p^k= p\sum_{k=1}^\infty k p^{k-1} = p \deriv{}{p}\sum_{k=1}^\infty  p^k = p \deriv{}{p}\frac{p}{1-p}= p \cdot \frac{(1-p) - p(-1)}{(1-p)^2} = \frac{p}{(1-p)^2} < \infty
+\]
+
+Since the sequence \(\{Y_k|\}_{k \geq 1}\) is independent, by Kolmogorov's Two Series Theorem (Theorem \ref{asym:k2st}: ``Let \(X_1, X_2, \ldots\) be independent random variables with \(\E(X_n) = \mu_n\) and \(\Var(X_n) = \sigma_n^2\) such that \(\sum_{n=1}^\infty \mu_n < \infty\) and \(\sum_{n=1}^\infty \sigma_n^2 < \infty\). Then \(\sum_{n=1}^\infty X_n\) converges in \(\mathbb{R}\) almost surely."), we conclude that \(\sum_{k=1}^\infty k X_k\) converges almost surely. 
+
+To find the distribution of \(Y\), let \(X\) be a Poisson random variable and consider its probability generating function:
+
+\[
+G_X(s) = \E(s^X) = \sum_{k=0}^\infty s^k e^{- \lambda} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_{k=0}^\infty \frac{(\lambda s)^k}{k!} = e^{-\lambda}e^{\lambda s} = e^{\lambda(s-1)}
+\]
+
+So \(\E(s^{X_k}) = \exp \bigg( \frac{p^k}{k}(s-1) \bigg)\) and \(\E(s^{kX_k}) = \E[(s^k)^{X_k}] = \exp\bigg( \frac{p^k}{k}(s^k - 1) \bigg)\). Then define \(Y_n = \sum_{k=1}^n k X_k\) and consider
+
+\[
+G_{Y_n}(s) = \E(s^{Y_n}) = \E\bigg( \prod_{k=1}^n s^{kX_k}\bigg) = \prod_{k=1}^n\E\big(  s^{kX_k}\big) = \prod_{k=1}^n \exp \bigg( \frac{p^k}{k} (s^k - 1)\bigg) = \exp \bigg( \sum_{k=1}^n  \frac{p^k}{k} (s^k - 1)\bigg) 
+\]
+
+\[
+= \exp \bigg( \sum_{k=1}^n  \frac{(ps)^k}{k} -  \sum_{k=1}^n  \frac{p^k}{k} \bigg)
+\]
+
+Now, by taking limits as \(n \to \infty\) (since we are allowed to take limit inside of expectation here), we get
+
+\[
+G_Y(s) = \E(s^Y) = \exp \bigg( \sum_{k=1}^\infty  \frac{(ps)^k}{k} -  \sum_{k=1}^\infty  \frac{p^k}{k} \bigg) = \exp \bigg( \int \sum_{k=1}^\infty (ps)^{k-1} dp -  \int \sum_{k=1}^\infty  p^{k-1} dp \bigg) 
+\]
+
+\[
+= \exp \bigg( \int \frac{1}{1-ps} dp-  \int \frac{1}{1-p} dp \bigg) = \exp (-\log(1 - ps) + \log(1 - p)), \ \ -1 \leq ps < 1 \text{ and } -1 \leq p < 1
+\]
+
+\[
+ = \frac{1 - p}{1 - ps}, \ \ \ -1 \leq ps < 1
+\]
+
+Since we know \(\Pr(X =k) = \frac{G_X^{(k)}(0)}{k!} \), we have
+
+\[
+G_Y(s) = \frac{1-p}{1 -sp}, \ G'(s) = \frac{p(1-p)}{(1-sp)^2}, \ G''(s) = \frac{2p^2(1-p)}{(1-sp)^3}, \ G^{(3)}(s) = \frac{3 \cdot 2p^3(1-p)}{(1 - sp)^3}, \ldots
+\]
+
+\[
+G^{(k)}(s) = \frac{k!p^k (1-p)}{(1-sp)^k} \text{ for } k = 0, 1, 2, \ldots
+\]
+
+So we have
+
+\[
+\Pr(Y=k) = (1-p)p^k, \ \ k= 0, 1, 2, \ldots
+\]
+
+which means \(Y \sim G_1(p) - 1\).
 
 
 %%%%%%%%%%%% Midterm question 4 %%%%%%%%%%%%
@@ -1026,7 +1115,7 @@ Since \(\sqrt{3} < C < 2\), \(\sqrt{3}/2 < C/2 < 1\). Since \(X_n \in [0, C X_{n
 \Pr(\lim_{n \to \infty} |X_n| \geq a) = \Pr(\lim_{n \to \infty} X_n \geq a) \leq \lim_{n \to \infty}  \bigg( \frac{C}{2}\bigg)^{n-1} \cdot \frac{1}{2a} =  0 \ \ \forall \ a > 0
 \]
 
-Since \(|X_n| \geq 0\), this implies that \(\Pr(\lim_{n \to \infty} X_n = 0) = \Pr\big( \{\omega \in \Omega: \lim_{n \to \infty} X_n(\omega) = 0 \} \big) = 1\), so \(X_n\) converges to 0 with probability 1.
+Since \(|X_n| \geq 0\), this implies that \(\Pr(\lim_{n \to \infty} X_n = 0) = \Pr\big( \{\omega \in \Omega: \lim_{n \to \infty} X_n(\omega) = 0 \} \big) = 1\), so by the Borel-Cantelli Lemma (Theorem \ref{asym.borel}), \(X_n\) converges to 0 with probability 1.
 
 \item \textbf{Convergence in \(\ell_1\) norm:} We seek to show that \(\lim_{n \to \infty} \E(|X_n|) = 0\). Since \(X_n \in [0, C X_{n-1}]\), \(X_n \geq 0\), so \(|X_n| = X_n\). Therefore
 

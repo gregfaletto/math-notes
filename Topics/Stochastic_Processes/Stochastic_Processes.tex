@@ -1,0 +1,243 @@
+%\documentclass{article}
+%
+%\usepackage{fancyhdr}
+%\usepackage{extramarks}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{tikz}
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\graphicspath{ {images/} }
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[document]{ragged2e}
+%\usepackage{textcomp}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{import}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=black,  %choose some color if you want links to stand out
+%}
+%
+%\usetikzlibrary{automata,positioning}
+%
+%%%%%%%
+%%%%%%% Basic Document Settings
+%%%%%%%
+%
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%\setlength{\parskip}{1em}
+%
+%\linespread{1.1}
+%
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+%
+%\renewcommand\headrulewidth{0.4pt}
+%\renewcommand\footrulewidth{0.4pt}
+%
+%\setlength\parindent{0pt}
+%
+%
+%\newcommand{\hmwkTitle}{Math Review Notes---Stochastic Processes}
+%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+%
+%%%%%%%
+%%%%%%% Title Page
+%%%%%%%
+%
+%\title{
+%    \vspace{2in}
+%    \textmd{\textbf{ \hmwkTitle}}\\
+%}
+%
+%\author{Gregory Faletto}
+%\date{}
+%
+%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%%%%%%%
+%%%%%%% Various Helper Commands
+%%%%%%%
+%
+%%%%%%% Useful for algorithms
+%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+%
+%%%%%%% For derivatives
+%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%
+%%%%%%% For partial derivatives
+%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+%
+%%%%%%% Integral dx
+%\newcommand{\dx}{\mathrm{d}x}
+%
+%%%%%%% Alias for the Solution section header
+%\newcommand{\solution}{\textbf{\large Solution}}
+%
+%%%%%%% Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\Var}{\mathrm{Var}}
+%\newcommand{\Cov}{\mathrm{Cov}}
+%\newcommand{\Bias}{\mathrm{Bias}}
+%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+%\DeclareMathOperator{\Tr}{Tr}
+%
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem*{remark}{Remark}
+%
+%%%%%%% Tilde
+%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+%
+%\begin{document}
+%
+%\maketitle
+%
+%\pagebreak
+%
+%\tableofcontents
+%
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+%
+%
+%
+%\newpage
+%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+
+%%%%%%%%%%%%%%% Stochastic Processes (Random Walks, Martingales, Brownian Motion)
+
+\section{Stochastic Processes}
+
+These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran as well as coursework for Economics 613: Economic and Financial Time Series I at USC.
+
+\subsection{Martingales}
+
+\textbf{Definition.} Let \(\{y_t\}_{t=0}^\infty \) be a sequence of random variables, and let \(\Omega_t\) denote the information set available at date \(t\), which at least contains \(\{y_t, y_{t-1}, y_{t-2}, \ldots \}\). If \(\E(y_t \mid \Omega_{t-1}) = y_{t-1}\) holds then \(\{y_t\}\) is a martingale process with respect to \(\Omega_t\).
+
+\textbf{Definition.} Let \(\{y_t\}_{t=1}^\infty \) be a sequence of random variables, and let \(\Omega_t\) denote the information set available at date \(t\), which at least contains \(\{y_t, y_{t-1}, y_{t-2}, \ldots \}\). If \(\E(y_t \mid \Omega_{t-1}) =0\), then \(\{y_t\}\) is a martingale difference process with respect to \(\Omega_t\).
+
+\subsection{Brownian Motion}
+
+% \textbf{The first distribution is in appendix B.13.1, formula B.52 (p.984 of book). Supposedly the proof is in Phillips and Durlaf (1986), which is now in the Google drive folder.}
+%
+\textbf{Appendix B.13, Brownian motion.} A standard Brownian motion \(b(\cdot)\) is a continuous-time stochastic process associating each date \(a \in [0, 1]\) with the scalar \(b(a)\) such that
+
+\begin{enumerate}[(i)]
+
+\item b(0) = 0
+
+\item For any dates \(0 \leq a_1 \leq a_2 \leq \ldots \leq a_k \leq 1\) the changes \([b(a_2) - b(a_1)]\), \([b(a_3) - b(a_2)], \ldots, [b(a_k) - b(a_k - 1)]\) are independent multivariate Gaussian with \(b(a) - b(s) \sim \mathcal{N}(0, a -s)\). 
+
+\item For any given realization, \(b(a)\) is continuous in \(a\) with probability 1.
+
+\end{enumerate}
+
+Other continuous time processes can be generated from the standard Brownian motion. For example, a Brownian motion with variance \(\sigma^2\) can be obtained as
+
+\[
+w(a) = \sigma b(a)
+\]
+
+where \(b(a)\) is a standard Brownian motion.
+
+\
+
+The continuous time process
+
+\[
+\boldsymbol{w}(a) = \boldsymbol{\Sigma}^{1/2} \boldsymbol{b}(a)
+\]
+
+is a Brownian motion with covariance matrix \(\boldsymbol{\Sigma}\).
+
+\textbf{Definition 26 (Wiener process).} Let \(\Delta w(t)\) be the change in \(w(t)\) during the time interval \(dt\). Then \(w(t)\) is said to follow a Wiener process if
+
+\[
+\Delta w(t) = \epsilon_t \sqrt{dt}, \ \ \epsilon_t \sim IID(0, 1)
+\]
+
+and \(w(t)\) denotes the value of the \(w(\cdot)\) at date \(t\). Clearly,
+
+\[
+\E[\Delta w(t)] = 0, \text{ and } \Var[ \Delta w(t)] = dt
+\]
+
+\textbf{Donsker's Theorem, Theorem 43, p.335, Section 15.6.3.} Let \(a \in [0, 1)\), \(t \in [0, T]\), and suppose \((J - 1)/T \leq a < J/T, J = 1, 2, \ldots, T\). Define
+
+\[
+R_T(a) = \frac{1}{\sqrt{T}} s_{ \big[Ta \big] }
+\]
+
+where
+
+\[
+s_{ \big[Ta \big] } = \epsilon_1 + \epsilon_2 + \ldots + \epsilon_{ \big[Ta \big] }
+\]
+
+\(\big[Ta \big]\) denotes the largest integer part of \(Ta\) and \(s_{ \big[Ta \big] } = 0\) if \(\big[Ta \big] = 0\). Then \(R_T(a)\) weakly converges to \(w(a)\), i.e., 
+
+\[
+R_T(a) \to w(a)
+\]
+
+where \(w(a)\) is a Wiener process. Note that when \(a = 1\), \(R_T(1) = 1/\sqrt{T} \cdot S_{\big[T \big]} = 1/\sqrt{T} \cdot (\epsilon_1 + \epsilon_2 + \ldots + \epsilon_T\). Since \(\epsilon_t\)'s are IID, by the central limit theorem, \(R_T(1) \to \mathcal{N}(0, 1)\). 
+
+Similar (Theorem 2.1 in  Phillips and Durlaf (1986)): Let \(\{u_t\}\) be a sequence satisfying \(\E(u_t) = 0\), \( \gamma(0) = \E(T^{-1}S_t ^2) \to \sigma^2 < \infty \text{ as } T \to \infty\), \(\{u_t\}\) is square summable, \(\sup_t \{ \E( |u_t|^\beta) \} < \infty\) for some \(2 \leq \beta < \infty\) and all \(t\), \(\gamma(h) = \E(T^{-1}(y_t - y_{t-h})^2) \to K_h < \infty\) as \(\min \{h, T\} \to \infty\). Then \(X_T(t) \implies W(t)\) as \(T \to \infty\), where \(W(t)\) is a Wiener process.
+
+\begin{theorem} \textbf{Continuous Mapping Theorem (Theorem 44 of Pesaran in 15.6.3).} Let \(a \in [0, 1)\), \(i \in [0, n]\), and suppose \((J-1)/n \leq a < J/n, J = 1, 2, \ldots, n\). Define \(R_n(a) = n^{-1/2} S_{\big[ n \cdot a \big] }\). If \(f(\cdot)\) is continuous over \([0, 1)\), then 
+
+\[
+f[R_n(a)] \xrightarrow{d} f[w(a)]
+\]
+
+\end{theorem}
+
+%\end{enumerate}
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+%\end{document}

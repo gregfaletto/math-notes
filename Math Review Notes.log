@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.8)  22 NOV 2018 08:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.8)  23 NOV 2018 12:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -863,20 +863,20 @@ OML/cmm/m/it/10 p$ \OT1/cmr/m/n/10 times, whether there are $\OML/cmm/m/it/10 p
 $ \OT1/cmr/m/n/10 in-de-pen-dent eigenvectors-- 
  []
 
-[7] <images/0568_12.png, id=667, 928.46875pt x 308.15125pt>
+[7] <images/0568_12.png, id=668, 928.46875pt x 308.15125pt>
 File: images/0568_12.png Graphic file (type png)
 
 <use images/0568_12.png>
 Package pdftex.def Info: images/0568_12.png used on input line 280.
 (pdftex.def)             Requested size: 464.23325pt x 154.07524pt.
  [8]
-<images/0568_12s.png, id=673, 879.285pt x 176.66pt>
+<images/0568_12s.png, id=674, 879.285pt x 176.66pt>
 File: images/0568_12s.png Graphic file (type png)
  <use images/0568_12s.png>
 Package pdftex.def Info: images/0568_12s.png used on input line 282.
 (pdftex.def)             Requested size: 439.64143pt x 88.32977pt.
 
-<images/1268_24.png, id=674, 759.83875pt x 341.275pt>
+<images/1268_24.png, id=675, 759.83875pt x 341.275pt>
 File: images/1268_24.png Graphic file (type png)
  <use images/1268_24.png>
 Package pdftex.def Info: images/1268_24.png used on input line 284.
@@ -886,14 +886,14 @@ Overfull \hbox (24.13434pt too wide) in paragraph at lines 284--285
 [][]  
  []
 
-<images/1268_24s.png, id=675, 721.69624pt x 70.2625pt>
+<images/1268_24s.png, id=676, 721.69624pt x 70.2625pt>
 File: images/1268_24s.png Graphic file (type png)
 
 <use images/1268_24s.png>
 Package pdftex.def Info: images/1268_24s.png used on input line 286.
 (pdftex.def)             Requested size: 469.097pt x 45.67007pt.
 
-<images/1268_34.png, id=676, 715.67375pt x 347.2975pt>
+<images/1268_34.png, id=677, 715.67375pt x 347.2975pt>
 File: images/1268_34.png Graphic file (type png)
 
 <use images/1268_34.png>
@@ -901,14 +901,14 @@ Package pdftex.def Info: images/1268_34.png used on input line 288.
 (pdftex.def)             Requested size: 465.18242pt x 225.74069pt.
  [9 <./images/0568_12.png> <./images/0568_12s.png> <./images/1268_24.png> <./im
 ages/1268_24s.png>]
-<images/1268_34s.png, id=685, 721.69624pt x 134.5025pt>
+<images/1268_34s.png, id=686, 721.69624pt x 134.5025pt>
 File: images/1268_34s.png Graphic file (type png)
 
 <use images/1268_34s.png>
 Package pdftex.def Info: images/1268_34s.png used on input line 290.
 (pdftex.def)             Requested size: 469.097pt x 87.42557pt.
 
-<images/1268_37.png, id=686, 758.835pt x 159.59625pt>
+<images/1268_37.png, id=687, 758.835pt x 159.59625pt>
 File: images/1268_37.png Graphic file (type png)
  <use images/1268_37.png>
 Package pdftex.def Info: images/1268_37.png used on input line 292.
@@ -918,21 +918,21 @@ Overfull \hbox (23.48192pt too wide) in paragraph at lines 292--293
 [][]  
  []
 
-<images/1268_37s.png, id=687, 721.69624pt x 92.345pt>
+<images/1268_37s.png, id=688, 721.69624pt x 92.345pt>
 File: images/1268_37s.png Graphic file (type png)
 
 <use images/1268_37s.png>
 Package pdftex.def Info: images/1268_37s.png used on input line 294.
 (pdftex.def)             Requested size: 469.097pt x 60.02351pt.
 
-<images/0568_50.png, id=688, 848.16875pt x 189.70876pt>
+<images/0568_50.png, id=689, 848.16875pt x 189.70876pt>
 File: images/0568_50.png Graphic file (type png)
 
 <use images/0568_50.png>
 Package pdftex.def Info: images/0568_50.png used on input line 296.
 (pdftex.def)             Requested size: 424.08333pt x 94.85414pt.
 
-<images/0568_50s.png, id=689, 884.30376pt x 115.43124pt>
+<images/0568_50s.png, id=690, 884.30376pt x 115.43124pt>
 File: images/0568_50s.png Graphic file (type png)
 
 <use images/0568_50s.png>
@@ -940,7 +940,7 @@ Package pdftex.def Info: images/0568_50s.png used on input line 298.
 (pdftex.def)             Requested size: 442.1508pt x 57.71547pt.
  [10 <./images/1268_34.png> <./images/1268_34s.png> <./images/1268_37.png> <./i
 mages/1268_37s.png> <./images/0568_50.png>]
-<images/1268_51.png, id=699, 775.89874pt x 525.965pt>
+<images/1268_51.png, id=700, 775.89874pt x 525.965pt>
 File: images/1268_51.png Graphic file (type png)
  <use images/1268_51.png>
 Package pdftex.def Info: images/1268_51.png used on input line 300.
@@ -950,7 +950,7 @@ Overfull \hbox (34.57323pt too wide) in paragraph at lines 300--301
 [][]  
  []
 
-<images/1268_51s.png, id=700, 719.68875pt x 114.4275pt>
+<images/1268_51s.png, id=701, 719.68875pt x 114.4275pt>
 File: images/1268_51s.png Graphic file (type png)
 
 <use images/1268_51s.png>
@@ -958,28 +958,28 @@ Package pdftex.def Info: images/1268_51s.png used on input line 302.
 (pdftex.def)             Requested size: 467.79214pt x 74.37698pt.
 ) [11 <./images/0568_50s.png> <./images/1268_51.png> <./images/1268_51s.png>] (
 ./Topics/Calculus/Calculus.tex
-<images/derivatives.png, id=709, 641.39626pt x 212.795pt>
+<images/derivatives.png, id=710, 641.39626pt x 212.795pt>
 File: images/derivatives.png Graphic file (type png)
 
 <use images/derivatives.png>
 Package pdftex.def Info: images/derivatives.png used on input line 134.
 (pdftex.def)             Requested size: 288.62564pt x 95.75685pt.
 
-<images/integrals.png, id=710, 309.155pt x 203.76125pt>
+<images/integrals.png, id=711, 309.155pt x 203.76125pt>
 File: images/integrals.png Graphic file (type png)
 
 <use images/integrals.png>
 Package pdftex.def Info: images/integrals.png used on input line 136.
 (pdftex.def)             Requested size: 139.11845pt x 91.69171pt.
 
-<images/integral_ln.png, id=711, 258.9675pt x 51.19125pt>
+<images/integral_ln.png, id=712, 258.9675pt x 51.19125pt>
 File: images/integral_ln.png Graphic file (type png)
 
 <use images/integral_ln.png>
 Package pdftex.def Info: images/integral_ln.png used on input line 138.
 (pdftex.def)             Requested size: 116.53429pt x 23.03584pt.
 
-<images/integrals2.png, id=712, 325.215pt x 35.38219pt>
+<images/integrals2.png, id=713, 325.215pt x 35.38219pt>
 File: images/integrals2.png Graphic file (type png)
 
 <use images/integrals2.png>
@@ -994,61 +994,61 @@ l-able for down-load at [][]$\OT1/cmtt/m/n/10 https : / / atmos . washington .
 
 [12 <./images/derivatives.png> <./images/integrals.png> <./images/integral_ln.p
 ng> <./images/integrals2.png>] [13] [14]
-<images/hessian1.png, id=737, 654.445pt x 368.37625pt>
+<images/hessian1.png, id=738, 654.445pt x 368.37625pt>
 File: images/hessian1.png Graphic file (type png)
 
 <use images/hessian1.png>
 Package pdftex.def Info: images/hessian1.png used on input line 292.
 (pdftex.def)             Requested size: 425.38422pt x 239.44171pt.
- <images/hessian2.png, id=738, 634.37pt x 132.495pt>
+ <images/hessian2.png, id=739, 634.37pt x 132.495pt>
 File: images/hessian2.png Graphic file (type png)
 
 <use images/hessian2.png>
 Package pdftex.def Info: images/hessian2.png used on input line 294.
 (pdftex.def)             Requested size: 412.3356pt x 86.12071pt.
  [15 <./images/hessian1.png>]
-<images/hessian3.png, id=744, 533.995pt x 140.525pt>
+<images/hessian3.png, id=745, 533.995pt x 140.525pt>
 File: images/hessian3.png Graphic file (type png)
  <use images/hessian3.png>
 Package pdftex.def Info: images/hessian3.png used on input line 296.
 (pdftex.def)             Requested size: 347.09264pt x 91.34015pt.
 
 [16 <./images/hessian2.png> <./images/hessian3.png>]
-<images/tangent_plane.png, id=752, 653.44125pt x 152.57pt>
+<images/tangent_plane.png, id=753, 653.44125pt x 152.57pt>
 File: images/tangent_plane.png Graphic file (type png)
 
 <use images/tangent_plane.png>
 Package pdftex.def Info: images/tangent_plane.png used on input line 331.
 (pdftex.def)             Requested size: 424.73178pt x 99.16931pt.
 
-<images/tangent_plane2.png, id=753, 655.44875pt x 157.58875pt>
+<images/tangent_plane2.png, id=754, 655.44875pt x 157.58875pt>
 File: images/tangent_plane2.png Graphic file (type png)
 
 <use images/tangent_plane2.png>
 Package pdftex.def Info: images/tangent_plane2.png used on input line 333.
 (pdftex.def)             Requested size: 426.03664pt x 102.43146pt.
 
-<images/total_differential.png, id=754, 838.13126pt x 135.50626pt>
+<images/total_differential.png, id=755, 838.13126pt x 135.50626pt>
 File: images/total_differential.png Graphic file (type png)
 
 <use images/total_differential.png>
 Package pdftex.def Info: images/total_differential.png used on input line 335.
 (pdftex.def)             Requested size: 460.97362pt x 74.52866pt.
 
-<images/gradient.png, id=755, 784.9325pt x 166.6225pt>
+<images/gradient.png, id=756, 784.9325pt x 166.6225pt>
 File: images/gradient.png Graphic file (type png)
 
 <use images/gradient.png>
 Package pdftex.def Info: images/gradient.png used on input line 346.
 (pdftex.def)             Requested size: 431.7142pt x 91.64265pt.
- <images/line_int1.png, id=756, 558.085pt x 80.3pt>
+ <images/line_int1.png, id=757, 558.085pt x 80.3pt>
 File: images/line_int1.png Graphic file (type png)
 
 <use images/line_int1.png>
 Package pdftex.def Info: images/line_int1.png used on input line 348.
 (pdftex.def)             Requested size: 306.94771pt x 44.16512pt.
 
-<images/line_int2.png, id=757, 653.44125pt x 120.45pt>
+<images/line_int2.png, id=758, 653.44125pt x 120.45pt>
 File: images/line_int2.png Graphic file (type png)
 
 <use images/line_int2.png>
@@ -1056,7 +1056,7 @@ Package pdftex.def Info: images/line_int2.png used on input line 350.
 (pdftex.def)             Requested size: 359.3938pt x 66.2477pt.
  [17 <./images/tangent_plane.png> <./images/tangent_plane2.png> <./images/total
 _differential.png> <./images/gradient.png> <./images/line_int1.png>] <images/05
-68_19.png, id=767, 952.55875pt x 272.01625pt>
+68_19.png, id=768, 952.55875pt x 272.01625pt>
 File: images/0568_19.png Graphic file (type png)
 
 <use images/0568_19.png>
@@ -1067,34 +1067,34 @@ Overfull \hbox (6.52322pt too wide) in paragraph at lines 352--353
 [][]  
  []
 
-<images/0568_19s.png, id=768, 881.2925pt x 143.53625pt>
+<images/0568_19s.png, id=769, 881.2925pt x 143.53625pt>
 File: images/0568_19s.png Graphic file (type png)
 
 <use images/0568_19s.png>
 Package pdftex.def Info: images/0568_19s.png used on input line 354.
 (pdftex.def)             Requested size: 440.64517pt x 71.76794pt.
 
-<images/1268_22.png, id=769, 695.59875pt x 106.3975pt>
+<images/1268_22.png, id=770, 695.59875pt x 106.3975pt>
 File: images/1268_22.png Graphic file (type png)
 
 <use images/1268_22.png>
 Package pdftex.def Info: images/1268_22.png used on input line 356.
 (pdftex.def)             Requested size: 452.13383pt x 69.15755pt.
 
-<images/1268_22s.png, id=770, 719.68875pt x 285.065pt>
+<images/1268_22s.png, id=771, 719.68875pt x 285.065pt>
 File: images/1268_22s.png Graphic file (type png)
 
 <use images/1268_22s.png>
 Package pdftex.def Info: images/1268_22s.png used on input line 358.
 (pdftex.def)             Requested size: 467.79214pt x 185.29005pt.
 
-<images/0568_24.png, id=771, 764.8575pt x 110.4125pt>
+<images/0568_24.png, id=772, 764.8575pt x 110.4125pt>
 File: images/0568_24.png Graphic file (type png)
  <use images/0568_24.png>
 Package pdftex.def Info: images/0568_24.png used on input line 360.
 (pdftex.def)             Requested size: 382.42781pt x 55.2061pt.
 
-<images/0568_24s.png, id=772, 880.28876pt x 227.85126pt>
+<images/0568_24s.png, id=773, 880.28876pt x 227.85126pt>
 File: images/0568_24s.png Graphic file (type png)
 
 <use images/0568_24s.png>
@@ -1102,26 +1102,26 @@ Package pdftex.def Info: images/0568_24s.png used on input line 362.
 (pdftex.def)             Requested size: 440.1433pt x 113.92534pt.
  [18 <./images/line_int2.png> <./images/0568_19.png> <./images/0568_19s.png> <.
 /images/1268_22.png> <./images/1268_22s.png> <./images/0568_24.png>] <images/05
-68_26.png, id=783, 713.66624pt x 272.01625pt>
+68_26.png, id=784, 713.66624pt x 272.01625pt>
 File: images/0568_26.png Graphic file (type png)
 
 <use images/0568_26.png>
 Package pdftex.def Info: images/0568_26.png used on input line 364.
 (pdftex.def)             Requested size: 356.83224pt x 136.00778pt.
- <images/0568_26s.png, id=784, 877.2775pt x 401.5pt>
+ <images/0568_26s.png, id=785, 877.2775pt x 401.5pt>
 File: images/0568_26s.png Graphic file (type png)
 
 <use images/0568_26s.png>
 Package pdftex.def Info: images/0568_26s.png used on input line 366.
 (pdftex.def)             Requested size: 438.63768pt x 200.7495pt.
 
-<images/0568_27.png, id=785, 896.34875pt x 260.975pt>
+<images/0568_27.png, id=786, 896.34875pt x 260.975pt>
 File: images/0568_27.png Graphic file (type png)
  <use images/0568_27.png>
 Package pdftex.def Info: images/0568_27.png used on input line 368.
 (pdftex.def)             Requested size: 448.17328pt x 130.48718pt.
 
-<images/0568_27s.png, id=786, 884.30376pt x 282.05376pt>
+<images/0568_27s.png, id=787, 884.30376pt x 282.05376pt>
 File: images/0568_27s.png Graphic file (type png)
 
 <use images/0568_27s.png>
@@ -1129,7 +1129,7 @@ Package pdftex.def Info: images/0568_27s.png used on input line 370.
 (pdftex.def)             Requested size: 442.1508pt x 141.02652pt.
  [19 <./images/0568_24s.png> <./images/0568_26.png> <./images/0568_26s.png> <./
 images/0568_27.png>]
-<images/1268_32.png, id=796, 749.80125pt x 136.51pt>
+<images/1268_32.png, id=797, 749.80125pt x 136.51pt>
 File: images/1268_32.png Graphic file (type png)
  <use images/1268_32.png>
 Package pdftex.def Info: images/1268_32.png used on input line 372.
@@ -1139,13 +1139,13 @@ Overfull \hbox (17.61005pt too wide) in paragraph at lines 372--373
 [][]  
  []
 
-<images/1268_32s.png, id=797, 720.6925pt x 280.04625pt>
+<images/1268_32s.png, id=798, 720.6925pt x 280.04625pt>
 File: images/1268_32s.png Graphic file (type png)
 
 <use images/1268_32s.png>
 Package pdftex.def Info: images/1268_32s.png used on input line 374.
 (pdftex.def)             Requested size: 468.44458pt x 182.0279pt.
- <images/1268_41.png, id=798, 760.8425pt x 208.78pt>
+ <images/1268_41.png, id=799, 760.8425pt x 208.78pt>
 File: images/1268_41.png Graphic file (type png)
 
 <use images/1268_41.png>
@@ -1156,7 +1156,7 @@ Overfull \hbox (24.78677pt too wide) in paragraph at lines 376--377
 [][]  
  []
 
-<images/1268_41s1.png, id=799, 719.68875pt x 151.56625pt>
+<images/1268_41s1.png, id=800, 719.68875pt x 151.56625pt>
 File: images/1268_41s1.png Graphic file (type png)
 
 <use images/1268_41s1.png>
@@ -1164,7 +1164,7 @@ Package pdftex.def Info: images/1268_41s1.png used on input line 378.
 (pdftex.def)             Requested size: 467.79214pt x 98.51689pt.
  [20 <./images/0568_27s.png> <./images/1268_32.png> <./images/1268_32s.png> <./
 images/1268_41.png>]
-<images/0568_41.png, id=808, 954.56625pt x 148.555pt>
+<images/0568_41.png, id=809, 954.56625pt x 148.555pt>
 File: images/0568_41.png Graphic file (type png)
  <use images/0568_41.png>
 Package pdftex.def Info: images/0568_41.png used on input line 380.
@@ -1174,35 +1174,35 @@ Overfull \hbox (7.52698pt too wide) in paragraph at lines 380--381
 [][]  
  []
 
-<images/0568_41s.png, id=809, 703.62875pt x 225.84375pt>
+<images/0568_41s.png, id=810, 703.62875pt x 225.84375pt>
 File: images/0568_41s.png Graphic file (type png)
 
 <use images/0568_41s.png>
 Package pdftex.def Info: images/0568_41s.png used on input line 382.
 (pdftex.def)             Requested size: 351.8135pt x 112.92159pt.
 
-<images/1268_41s2.png, id=810, 718.685pt x 51.19125pt>
+<images/1268_41s2.png, id=811, 718.685pt x 51.19125pt>
 File: images/1268_41s2.png Graphic file (type png)
 
 <use images/1268_41s2.png>
 Package pdftex.def Info: images/1268_41s2.png used on input line 384.
 (pdftex.def)             Requested size: 467.13971pt x 33.27391pt.
 
-<images/1268_44.png, id=811, 711.65875pt x 154.5775pt>
+<images/1268_44.png, id=812, 711.65875pt x 154.5775pt>
 File: images/1268_44.png Graphic file (type png)
 
 <use images/1268_44.png>
 Package pdftex.def Info: images/1268_44.png used on input line 386.
 (pdftex.def)             Requested size: 462.57271pt x 100.47417pt.
 
-<images/1268_44s.png, id=812, 717.68124pt x 223.83624pt>
+<images/1268_44s.png, id=813, 717.68124pt x 223.83624pt>
 File: images/1268_44s.png Graphic file (type png)
 
 <use images/1268_44s.png>
 Package pdftex.def Info: images/1268_44s.png used on input line 388.
 (pdftex.def)             Requested size: 466.48727pt x 145.49182pt.
 
-<images/1268_48.png, id=813, 728.7225pt x 115.43124pt>
+<images/1268_48.png, id=814, 728.7225pt x 115.43124pt>
 File: images/1268_48.png Graphic file (type png)
 
 <use images/1268_48.png>
@@ -1215,14 +1215,14 @@ Overfull \hbox (3.90903pt too wide) in paragraph at lines 391--392
 
 [21 <./images/1268_41s1.png> <./images/0568_41.png> <./images/0568_41s.png> <./
 images/1268_41s2.png> <./images/1268_44.png> <./images/1268_44s.png>]
-<images/1268_48s.png, id=824, 721.69624pt x 189.70876pt>
+<images/1268_48s.png, id=826, 721.69624pt x 189.70876pt>
 File: images/1268_48s.png Graphic file (type png)
 
 <use images/1268_48s.png>
 Package pdftex.def Info: images/1268_48s.png used on input line 393.
 (pdftex.def)             Requested size: 469.097pt x 123.30922pt.
 
-<images/0568_48.png, id=825, 962.59625pt x 600.2425pt>
+<images/0568_48.png, id=827, 962.59625pt x 600.2425pt>
 File: images/0568_48.png Graphic file (type png)
 
 <use images/0568_48.png>
@@ -1233,7 +1233,7 @@ Overfull \hbox (11.54196pt too wide) in paragraph at lines 395--396
 [][]  
  []
 
-<images/0568_48s.png, id=826, 877.2775pt x 87.32625pt>
+<images/0568_48s.png, id=828, 877.2775pt x 87.32625pt>
 File: images/0568_48s.png Graphic file (type png)
 
 <use images/0568_48s.png>
@@ -1241,7 +1241,7 @@ Package pdftex.def Info: images/0568_48s.png used on input line 397.
 (pdftex.def)             Requested size: 438.63768pt x 43.66301pt.
 ) [22 <./images/1268_48.png> <./images/1268_48s.png> <./images/0568_48.png> <./
 images/0568_48s.png>] (./Topics/Diff_EQ.tex
-<images/1268_61.png, id=836, 743.77875pt x 140.525pt>
+<images/1268_61.png, id=837, 743.77875pt x 140.525pt>
 File: images/1268_61.png Graphic file (type png)
  <use images/1268_61.png>
 Package pdftex.def Info: images/1268_61.png used on input line 4.
@@ -1251,7 +1251,7 @@ Overfull \hbox (13.69547pt too wide) in paragraph at lines 4--5
 []  
  []
 
-<images/1268_61s.png, id=837, 724.7075pt x 283.0575pt>
+<images/1268_61s.png, id=838, 724.7075pt x 283.0575pt>
 File: images/1268_61s.png Graphic file (type png)
 
 <use images/1268_61s.png>
@@ -1269,7 +1269,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--144
 
 [23 <./images/1268_61.png> <./images/1268_61s.png>] (./Topics/Real_Analysis.tex
 [24] [25] [26] [27] [28]
-<images/0568_38.png, id=885, 940.51375pt x 209.78375pt>
+<images/0568_38.png, id=886, 940.51375pt x 209.78375pt>
 File: images/0568_38.png Graphic file (type png)
 
 <use images/0568_38.png>
@@ -1280,27 +1280,27 @@ Overfull \hbox (0.50073pt too wide) in paragraph at lines 257--258
 []  
  []
 
-<images/0568_38s.png, id=886, 884.30376pt x 202.7575pt>
+<images/0568_38s.png, id=887, 884.30376pt x 202.7575pt>
 File: images/0568_38s.png Graphic file (type png)
 
 <use images/0568_38s.png>
 Package pdftex.def Info: images/0568_38s.png used on input line 259.
 (pdftex.def)             Requested size: 442.1508pt x 101.3785pt.
- <images/1268_47.png, id=887, 489.83pt x 284.06125pt>
+ <images/1268_47.png, id=888, 489.83pt x 284.06125pt>
 File: images/1268_47.png Graphic file (type png)
 
 <use images/1268_47.png>
 Package pdftex.def Info: images/1268_47.png used on input line 261.
 (pdftex.def)             Requested size: 318.38573pt x 184.6376pt.
  [29 <./images/0568_38.png> <./images/0568_38s.png>]
-<images/1268_47s.png, id=894, 718.685pt x 69.25874pt>
+<images/1268_47s.png, id=895, 718.685pt x 69.25874pt>
 File: images/1268_47s.png Graphic file (type png)
 
 <use images/1268_47s.png>
 Package pdftex.def Info: images/1268_47s.png used on input line 263.
 (pdftex.def)             Requested size: 467.13971pt x 45.01764pt.
 
-<images/1268_57.png, id=895, 772.8875pt x 227.85126pt>
+<images/1268_57.png, id=896, 772.8875pt x 227.85126pt>
 File: images/1268_57.png Graphic file (type png)
 
 <use images/1268_57.png>
@@ -1311,13 +1311,13 @@ Overfull \hbox (32.61592pt too wide) in paragraph at lines 265--266
 [][]  
  []
 
-<images/1268_57s.png, id=896, 720.6925pt x 115.43124pt>
+<images/1268_57s.png, id=897, 720.6925pt x 115.43124pt>
 File: images/1268_57s.png Graphic file (type png)
 
 <use images/1268_57s.png>
 Package pdftex.def Info: images/1268_57s.png used on input line 267.
 (pdftex.def)             Requested size: 468.44458pt x 75.0294pt.
- <images/1268_60.png, id=897, 628.3475pt x 337.26pt>
+ <images/1268_60.png, id=898, 628.3475pt x 337.26pt>
 File: images/1268_60.png Graphic file (type png)
 
 <use images/1268_60.png>
@@ -1325,20 +1325,20 @@ Package pdftex.def Info: images/1268_60.png used on input line 269.
 (pdftex.def)             Requested size: 408.42104pt x 219.2164pt.
  [30 <./images/1268_47.png> <./images/1268_47s.png> <./images/1268_57.png> <./i
 mages/1268_57s.png>]
-<images/1268_60s.png, id=906, 720.6925pt x 95.35625pt>
+<images/1268_60s.png, id=907, 720.6925pt x 95.35625pt>
 File: images/1268_60s.png Graphic file (type png)
 
 <use images/1268_60s.png>
 Package pdftex.def Info: images/1268_60s.png used on input line 271.
 (pdftex.def)             Requested size: 468.44458pt x 61.98082pt.
 
-<images/1268_63.png, id=907, 711.65875pt x 263.98625pt>
+<images/1268_63.png, id=908, 711.65875pt x 263.98625pt>
 File: images/1268_63.png Graphic file (type png)
 
 <use images/1268_63.png>
 Package pdftex.def Info: images/1268_63.png used on input line 273.
 (pdftex.def)             Requested size: 462.57271pt x 171.58902pt.
- <images/1268_63s.png, id=908, 722.7pt x 141.52875pt>
+ <images/1268_63s.png, id=909, 722.7pt x 141.52875pt>
 File: images/1268_63s.png Graphic file (type png)
 
 <use images/1268_63s.png>
@@ -1366,7 +1366,7 @@ Overfull \hbox (1.71036pt too wide) in paragraph at lines 392--393
 mr/m/n/10 from a group of $\OML/cmm/m/it/10 N$ \OT1/cmr/m/n/10 items, 
  []
 
-[35] <images/prob_hypergeometric.jpg, id=972, 3738.96875pt x 2052.66875pt>
+[35] <images/prob_hypergeometric.jpg, id=973, 3738.96875pt x 2052.66875pt>
 File: images/prob_hypergeometric.jpg Graphic file (type jpg)
 
 <use images/prob_hypergeometric.jpg>
@@ -1391,7 +1391,7 @@ f $\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^X^^Q\OT1/cmr/m/n/10 ) =
  []
 
 [38] [39] [40] [41]
-<images/prob_classex_matching.jpg, id=1016, 3453.90375pt x 2447.1425pt>
+<images/prob_classex_matching.jpg, id=1017, 3453.90375pt x 2447.1425pt>
 File: images/prob_classex_matching.jpg Graphic file (type jpg)
 
 <use images/prob_classex_matching.jpg>
@@ -1399,7 +1399,7 @@ Package pdftex.def Info: images/prob_classex_matching.jpg used on input line 84
 2.
 (pdftex.def)             Requested size: 345.41061pt x 244.72859pt.
  [42]
-<images/prob_classex_matching2.jpg, id=1024, 3219.02625pt x 2544.50626pt>
+<images/prob_classex_matching2.jpg, id=1025, 3219.02625pt x 2544.50626pt>
 File: images/prob_classex_matching2.jpg Graphic file (type jpg)
 
 <use images/prob_classex_matching2.jpg>
@@ -1408,14 +1408,14 @@ Package pdftex.def Info: images/prob_classex_matching2.jpg used on input line 8
 (pdftex.def)             Requested size: 321.92148pt x 254.46553pt.
  [43 <./images/prob_classex_matching.jpg> <./images/prob_classex_matching2.jpg>
 ]
-<images/prob_sp18p2.png, id=1030, 745.78625pt x 298.11375pt>
+<images/prob_sp18p2.png, id=1031, 745.78625pt x 298.11375pt>
 File: images/prob_sp18p2.png Graphic file (type png)
 
 <use images/prob_sp18p2.png>
 Package pdftex.def Info: images/prob_sp18p2.png used on input line 873.
 (pdftex.def)             Requested size: 447.4752pt x 178.86963pt.
  [44 <./images/prob_sp18p2.png>]
-<images/prob_hw3p8.png, id=1036, 748.7975pt x 158.5925pt>
+<images/prob_hw3p8.png, id=1037, 748.7975pt x 158.5925pt>
 File: images/prob_hw3p8.png Graphic file (type png)
 
 <use images/prob_hw3p8.png>
@@ -1429,17 +1429,9 @@ m/n/10 )$ (\OT1/cmr/bx/n/10 note: this pa-ram-e-ter-i-za-tion is a lit-tle un-u
 sual; more com-monly $\OML/cmm/m/it/10 ^^L$ \OT1/cmr/bx/n/10 is ex-pressed 
  []
 
-[54] [55] [56] [57]
-Overfull \hbox (3.3787pt too wide) in paragraph at lines 1867--1868
-\OML/cmm/m/it/10 X[]; X[]; []$ \OT1/cmr/m/n/10 be in-de-pen-dent ran-dom vari-a
-bles with $\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 
-) = \OML/cmm/m/it/10 ^^V[]$ \OT1/cmr/m/n/10 and $[](\OML/cmm/m/it/10 X[]\OT1/cm
-r/m/n/10 ) = \OML/cmm/m/it/10 ^^[[]$ \OT1/cmr/m/n/10 such that $[][] \OML/cmm/m
-/it/10 ^^V[] < 
- []
-
-[58] [59]) [60] (./Topics/Stochastic_Processes.tex [61]) [62]
-(./Topics/Asymptotics/Asymptotics.tex [63]
+[54] [55] [56] [57] [58]) [59]
+(./Topics/Stochastic_Processes/Stochastic_Processes.tex [60]) [61]
+(./Topics/Asymptotics/Asymptotics.tex [62]
 Overfull \hbox (1.26411pt too wide) in paragraph at lines 228--229
 \OT1/cmr/m/n/10 dis-tri-bu-tion func-tions \OT1/cmr/bx/n/10 con-verges \OT1/cmr
 /m/n/10 to the dis-tri-bu-tion func-tion $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 (
@@ -1449,14 +1441,14 @@ writ-ten $\OML/cmm/m/it/10 F[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 F$\OT1/cmr/m
 10 )$ 
  []
 
-[64]
+[63]
 Overfull \hbox (4.63089pt too wide) in paragraph at lines 273--274
 []\OT1/cmr/m/n/10 (Can be used to demon-strate con-sis-tency of es-ti-ma-tors: 
 if we can show that as $\OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 ! 1$ $[]\OT1/cmr/m/
 n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ) = 
  []
 
-[65]
+[64]
 Overfull \hbox (3.24895pt too wide) in paragraph at lines 354--355
 []\OT1/cmr/m/n/10 The above con-cept is read-ily ex-tended to mul-ti-vari-ate c
 ases where $\OMS/cmsy/m/n/10 f[][]\OML/cmm/m/it/10 ; n \OT1/cmr/m/n/10 = 1\OML/
@@ -1464,7 +1456,7 @@ cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; []\OMS/cmsy/m/n/10 g$ \OT1/cm
 r/m/n/10 de-note $\OML/cmm/m/it/10 m$\OT1/cmr/m/n/10 -dimensional 
  []
 
-[66]
+[65]
 Overfull \hbox (7.47464pt too wide) in paragraph at lines 413--414
 [][]\OT1/cmr/bx/n/10 Definition 7.9. []Con-ver-gence in Dis-tri-bu-tion. \OT1/c
 mr/m/n/10 Let $\OML/cmm/m/it/10 X[]; X[]; []$ \OT1/cmr/m/n/10 have dis-tri-bu-t
@@ -1473,7 +1465,7 @@ mr/m/n/10 )\OML/cmm/m/it/10 ; F[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OT1/cmr/
 m/n/10 )\OML/cmm/m/it/10 ; []$ 
  []
 
-[67] [68] [69]
+[66] [67] [68]
 Overfull \hbox (24.94687pt too wide) in paragraph at lines 641--642
 \OT1/cmr/m/n/10 an in-fi-nite se-quence of events from some prob-a-bil-ity spac
 e $(
@@ -1482,53 +1474,78 @@ e $(
 0 A[]  \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10 A[] \OT1/cmr/m/n/10 = 
  []
 
-[70]
+[69]
 Overfull \hbox (1.15886pt too wide) in paragraph at lines 693--693
 []\OT1/cmr/m/n/10 Available on wikipedia, [][]$\OT1/cmtt/m/n/10 https : / / en 
 . wikipedia . org / wiki / Kolmogorov % 27s _ two-[]series _ theorem$[][]\OT1/c
 mr/m/n/10 . 
  []
 
+[70]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 735.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 735.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\cdot' on input line 735.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 735.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 735.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\cdot' on input line 735.
+
 [71]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 736.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 736.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\cdot' on input line 736.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 736.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 736.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\cdot' on input line 736.
-
-[72]
-Overfull \hbox (2.98877pt too wide) in paragraph at lines 783--784
+Overfull \hbox (24.99667pt too wide) in paragraph at lines 797--798
 []\OT1/cmr/m/n/10 Then $[][] \OMS/cmsy/m/n/10 ^^@ [][] [] \OT1/cmr/m/n/10 0$. I
-f the in-de-pen-dence as-sump-tion is re-placed by a lack of cor-re-la-tion (i.
-e. $[](\OML/cmm/m/it/10 x[]; x[]\OT1/cmr/m/n/10 ) = 
+f the in-de-pen-dence as-sump-tion (i) is re-placed by a lack of cor-re-la-tion
+ (i.e. $[](\OML/cmm/m/it/10 X[]; X[]\OT1/cmr/m/n/10 ) = 
  []
 
 
-Overfull \hbox (0.40562pt too wide) in paragraph at lines 790--791
-[][]\OT1/cmr/bx/n/10 Theorem 63. []Strong Law of Large Num-bers 2 (Pe-saran 8.8
- The-o-rem 13) \OT1/cmr/m/n/10 Sup-pose that $\OML/cmm/m/it/10 x[]; x[]; []$ 
+Overfull \hbox (5.54454pt too wide) in paragraph at lines 804--805
+[][]\OT1/cmr/bx/n/10 Theorem 66. []Strong Law of Large Num-bers 2 (Pe-saran 8.8
+ The-o-rem 13) \OT1/cmr/m/n/10 Sup-pose that $\OML/cmm/m/it/10 X[]; X[]; []$ 
  []
 
-[73] [74] [75]
-Overfull \hbox (13.29747pt too wide) in paragraph at lines 1012--1013
+[72] [73]
+Overfull \hbox (6.6068pt too wide) in paragraph at lines 903--904
+\OT1/cmr/m/n/10 by The-o-rem [][]63[][] (Strong Law of Large Num-bers). Also, $
+\OML/cmm/m/it/10 X[]; X[]; []$ \OT1/cmr/m/n/10 are clearly iden-ti-cally dis-tr
+ibuted, 
+ []
+
+
+Overfull \hbox (8.75272pt too wide) in paragraph at lines 903--904
+\OT1/cmr/m/n/10 and are in-de-pen-dent by The-o-rem 4.2.3 (``If $\OML/cmm/m/it/
+10 X$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 Y$ \OT1/cmr/m/n/10 are in-de-pen-de
+nt, then so are $\OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/
+m/n/10 )$ and $\OML/cmm/m/it/10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y\OT1/cmr/m/
+n/10 )$."). 
+ []
+
+[74]
+Overfull \hbox (3.3787pt too wide) in paragraph at lines 999--1000
+\OML/cmm/m/it/10 X[]; X[]; []$ \OT1/cmr/m/n/10 be in-de-pen-dent ran-dom vari-a
+bles with $\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 
+) = \OML/cmm/m/it/10 ^^V[]$ \OT1/cmr/m/n/10 and $[](\OML/cmm/m/it/10 X[]\OT1/cm
+r/m/n/10 ) = \OML/cmm/m/it/10 ^^[[]$ \OT1/cmr/m/n/10 such that $[][] \OML/cmm/m
+/it/10 ^^V[] < 
+ []
+
+[75] [76]
+Overfull \hbox (13.29747pt too wide) in paragraph at lines 1101--1102
 []\OT1/cmr/bx/n/10 Convergence with prob-a-bil-ity one: \OT1/cmr/m/n/10 We seek
  to show that $[] []\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ! \OMS/cmsy/m/n/10 2 \OT
 1/cmr/m/n/10 
@@ -1536,7 +1553,7 @@ Overfull \hbox (13.29747pt too wide) in paragraph at lines 1012--1013
 ) = 
  []
 
-[76]) [77] (./Topics/LinReg/LinReg.tex [78] [79] [80] [81] [82] [83]) [84]
+[77]) [78] (./Topics/LinReg/LinReg.tex [79] [80] [81] [82] [83] [84]) [85]
 (./Topics/Time_Series/Time_Series.tex
 Overfull \hbox (25.00882pt too wide) in paragraph at lines 142--143
 \OT1/cmr/bx/n/10 Stationarity con-di-tions: $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10
@@ -1545,7 +1562,7 @@ ry \OT1/cmr/m/n/10 if the joint dis-tri-bu-tion func-tions of $\OMS/cmsy/m/n/10
  f\OML/cmm/m/it/10 X[]; X[]; [] ; X[]\OMS/cmsy/m/n/10 g$ 
  []
 
-[85] [86]
+[86] [87]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 312.
@@ -1554,17 +1571,17 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\infty' on input line 312.
 
-[87]
+[88]
 Overfull \hbox (23.09566pt too wide) detected at line 369
 []
  []
 
-[88]
+[89]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 428.
 
-[89] [90]
+[90] [91]
 Overfull \hbox (3.42577pt too wide) in paragraph at lines 558--559
 \OT1/cmr/m/n/10 By Cheby-shev's In-equal-ity (see sec-tion [][]7.2[][]), $[][]$
  is a con-sis-tent es-ti-ma-tor of $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/n/10 as $\
@@ -1572,7 +1589,7 @@ OML/cmm/m/it/10 T \OMS/cmsy/m/n/10 ! 1$ \OT1/cmr/m/n/10 if $[][] \U/msb/m/n/10
 E\OT1/cmr/m/n/10 ([][]) = 
  []
 
-[91] [92] [93] [94] [95]
+[92] [93] [94] [95] [96]
 Overfull \hbox (9.25098pt too wide) detected at line 879
 \OT1/cmr/m/n/10 = [][] [] \OML/cmm/m/it/10 u[]y[] \OT1/cmr/m/n/10 + \OML/cmm/m/
 it/10 u[]y[][] \OT1/cmr/m/n/10 + [][]\OML/cmm/m/it/10 ^^Ru[]y[] \OT1/cmr/m/n/10
@@ -1587,21 +1604,21 @@ Overfull \hbox (31.24446pt too wide) in paragraph at lines 883--898
 []  
  []
 
-[96] [97]) [98] (./Topics/Abstract_Algebra.tex
+[97] [98]) [99] (./Topics/Abstract_Algebra.tex
 Overfull \hbox (1.15063pt too wide) in paragraph at lines 6--7
 \OT1/cmr/m/n/10 These are my notes from read-ing \OT1/cmr/m/it/10 El-e-men-tary
  Ab-stract Al-ge-bra \OT1/cmr/m/n/10 by W. Ed-win Clark, avail-able for free do
 wn- 
  []
 
-<images/binary_operation.png, id=1478, 529.98pt x 357.335pt>
+<images/binary_operation.png, id=1494, 529.98pt x 357.335pt>
 File: images/binary_operation.png Graphic file (type png)
 
 <use images/binary_operation.png>
 Package pdftex.def Info: images/binary_operation.png used on input line 11.
 (pdftex.def)             Requested size: 344.4829pt x 232.26498pt.
 
-<images/1268_15.png, id=1479, 748.7975pt x 222.8325pt>
+<images/1268_15.png, id=1495, 748.7975pt x 222.8325pt>
 File: images/1268_15.png Graphic file (type png)
 
 <use images/1268_15.png>
@@ -1612,35 +1629,35 @@ Overfull \hbox (16.95761pt too wide) in paragraph at lines 39--40
 [][]  
  []
 
-[99 <./images/binary_operation.png>]
-<images/1268_15s.png, id=1485, 722.7pt x 73.27374pt>
+[100 <./images/binary_operation.png>]
+<images/1268_15s.png, id=1501, 722.7pt x 73.27374pt>
 File: images/1268_15s.png Graphic file (type png)
  <use images/1268_15s.png>
 Package pdftex.def Info: images/1268_15s.png used on input line 41.
 (pdftex.def)             Requested size: 469.74944pt x 47.62735pt.
 
-<images/binary_operation2.png, id=1486, 915.42pt x 854.19125pt>
+<images/binary_operation2.png, id=1502, 915.42pt x 854.19125pt>
 File: images/binary_operation2.png Graphic file (type png)
 
 <use images/binary_operation2.png>
 Package pdftex.def Info: images/binary_operation2.png used on input line 45.
 (pdftex.def)             Requested size: 411.9352pt x 384.38252pt.
- [100 <./images/1268_15.png> <./images/1268_15s.png> <./images/binary_operation
-2.png>] [101]
-<images/group_properties.png, id=1498, 914.41624pt x 694.595pt>
+ [101 <./images/1268_15.png> <./images/1268_15s.png> <./images/binary_operation
+2.png>] [102]
+<images/group_properties.png, id=1514, 914.41624pt x 694.595pt>
 File: images/group_properties.png Graphic file (type png)
 
 <use images/group_properties.png>
 Package pdftex.def Info: images/group_properties.png used on input line 98.
 (pdftex.def)             Requested size: 411.4835pt x 312.56487pt.
- [102 <./images/group_properties.png>]
-<images/cycle.png, id=1508, 904.37875pt x 575.14874pt>
+ [103 <./images/group_properties.png>]
+<images/cycle.png, id=1524, 904.37875pt x 575.14874pt>
 File: images/cycle.png Graphic file (type png)
  <use images/cycle.png>
 Package pdftex.def Info: images/cycle.png used on input line 134.
 (pdftex.def)             Requested size: 406.96669pt x 258.81454pt.
 
-[103]
+[104]
 Overfull \hbox (15.97241pt too wide) in paragraph at lines 136--137
 []\OT1/cmr/m/n/10 Two cy-cles $(\OML/cmm/m/it/10 i[] i[]  []  i[]\OT1/cmr/m/n/1
 0 )$ and $(\OML/cmm/m/it/10 j[] j[]  []  j[]\OT1/cmr/m/n/10 )$ are said to be \
@@ -1649,41 +1666,41 @@ mm/m/it/10 i[]; i[]; [] ; i[]\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 and $\OMS/cmsy
 /m/n/10 f\OML/cmm/m/it/10 j[]; j[]; [] ; j[]\OMS/cmsy/m/n/10 g$ 
  []
 
-<images/disjoint_cycle_decomp.png, id=1514, 902.37125pt x 298.11375pt>
+<images/disjoint_cycle_decomp.png, id=1529, 902.37125pt x 298.11375pt>
 File: images/disjoint_cycle_decomp.png Graphic file (type png)
 
 <use images/disjoint_cycle_decomp.png>
 Package pdftex.def Info: images/disjoint_cycle_decomp.png used on input line 14
 2.
 (pdftex.def)             Requested size: 406.06331pt x 134.14995pt.
- [104 <./images/cycle.png> <./images/disjoint_cycle_decomp.png>]
-<images/determinant.png, id=1521, 907.39pt x 325.215pt>
+ [105 <./images/cycle.png> <./images/disjoint_cycle_decomp.png>]
+<images/determinant.png, id=1536, 907.39pt x 325.215pt>
 File: images/determinant.png Graphic file (type png)
 
 <use images/determinant.png>
 Package pdftex.def Info: images/determinant.png used on input line 161.
 (pdftex.def)             Requested size: 408.32173pt x 146.3454pt.
- [105 <./images/determinant.png>] [106]
-<images/ch4_proof.png, id=1534, 1037.8775pt x 696.6025pt>
+ [106 <./images/determinant.png>] [107]
+<images/ch4_proof.png, id=1549, 1037.8775pt x 696.6025pt>
 File: images/ch4_proof.png Graphic file (type png)
 
 <use images/ch4_proof.png>
 Package pdftex.def Info: images/ch4_proof.png used on input line 230.
 (pdftex.def)             Requested size: 415.14365pt x 278.63606pt.
 
-<images/1268_49.png, id=1535, 581.17125pt x 67.25125pt>
+<images/1268_49.png, id=1550, 581.17125pt x 67.25125pt>
 File: images/1268_49.png Graphic file (type png)
 
 <use images/1268_49.png>
 Package pdftex.def Info: images/1268_49.png used on input line 234.
 (pdftex.def)             Requested size: 377.75684pt x 43.71277pt.
- <images/1268_49s.png, id=1536, 718.685pt x 50.1875pt>
+ <images/1268_49s.png, id=1551, 718.685pt x 50.1875pt>
 File: images/1268_49s.png Graphic file (type png)
 
 <use images/1268_49s.png>
 Package pdftex.def Info: images/1268_49s.png used on input line 236.
 (pdftex.def)             Requested size: 467.13971pt x 32.62148pt.
- [107 <./images/ch4_proof.png> <./images/1268_49.png> <./images/1268_49s.png>]
+ [108 <./images/ch4_proof.png> <./images/1268_49.png> <./images/1268_49s.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 240.
@@ -1692,7 +1709,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 240.
 
-[108]
+[109]
 Overfull \hbox (13.91089pt too wide) in paragraph at lines 332--333
 []\OT1/cmr/bx/n/10 Theorem. \OT1/cmr/m/n/10 Let $(\OML/cmm/m/it/10 G; \OMS/cmsy
 /m/n/10 ^^C\OT1/cmr/m/n/10 )$ and $(\OML/cmm/m/it/10 H; \OMS/cmsy/m/n/10 ^^O\OT
@@ -1703,7 +1720,7 @@ T1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 )) \OMS/cmsy/m/n/10 8 \OML/cmm
 /m/it/10 a \OMS/cmsy/m/n/10 2 
  []
 
-[109] <images/1268_66.png, id=1559, 752.8125pt x 179.67125pt>
+[110] <images/1268_66.png, id=1574, 752.8125pt x 179.67125pt>
 File: images/1268_66.png Graphic file (type png)
 
 <use images/1268_66.png>
@@ -1714,7 +1731,7 @@ Overfull \hbox (19.56734pt too wide) in paragraph at lines 360--361
 [][]  
  []
 
-<images/1268_66s.png, id=1560, 723.70375pt x 152.57pt>
+<images/1268_66s.png, id=1575, 723.70375pt x 152.57pt>
 File: images/1268_66s.png Graphic file (type png)
 
 <use images/1268_66s.png>
@@ -1725,8 +1742,8 @@ Overfull \hbox (0.64687pt too wide) in paragraph at lines 362--363
 [][]  
  []
 
-[110 <./images/1268_66.png> <./images/1268_66s.png>]
-<images/prime_order.png, id=1569, 1051.93pt x 161.60374pt>
+[111 <./images/1268_66.png> <./images/1268_66s.png>]
+<images/prime_order.png, id=1584, 1051.93pt x 161.60374pt>
 File: images/prime_order.png Graphic file (type png)
 
 <use images/prime_order.png>
@@ -1745,13 +1762,13 @@ f there are $\OML/cmm/m/it/10 k$ \OT1/cmr/m/n/10 groups $\OML/cmm/m/it/10 G[];
 G[]; [] ; G[]$ 
  []
 
-<images/1268_12.png, id=1570, 714.67pt x 182.6825pt>
+<images/1268_12.png, id=1585, 714.67pt x 182.6825pt>
 File: images/1268_12.png Graphic file (type png)
  <use images/1268_12.png>
 Package pdftex.def Info: images/1268_12.png used on input line 406.
 (pdftex.def)             Requested size: 464.52998pt x 118.7422pt.
 
-<images/1268_12s.png, id=1571, 727.71875pt x 74.2775pt>
+<images/1268_12s.png, id=1586, 727.71875pt x 74.2775pt>
 File: images/1268_12s.png Graphic file (type png)
 
 <use images/1268_12s.png>
@@ -1762,32 +1779,32 @@ Overfull \hbox (3.25659pt too wide) in paragraph at lines 408--409
 [][]  
  []
 
-<images/isomorphism_groups_order.png, id=1572, 1041.8925pt x 351.3125pt>
+<images/isomorphism_groups_order.png, id=1587, 1041.8925pt x 351.3125pt>
 File: images/isomorphism_groups_order.png Graphic file (type png)
 
 <use images/isomorphism_groups_order.png>
 Package pdftex.def Info: images/isomorphism_groups_order.png used on input line
  410.
 (pdftex.def)             Requested size: 468.8473pt x 158.08916pt.
- [111 <./images/prime_order.png> <./images/1268_12.png> <./images/1268_12s.png>
+ [112 <./images/prime_order.png> <./images/1268_12.png> <./images/1268_12s.png>
 ]
-<images/isomorphism_groups_order2.png, id=1585, 911.405pt x 483.8075pt>
+<images/isomorphism_groups_order2.png, id=1600, 911.405pt x 483.8075pt>
 File: images/isomorphism_groups_order2.png Graphic file (type png)
 
 <use images/isomorphism_groups_order2.png>
 Package pdftex.def Info: images/isomorphism_groups_order2.png used on input lin
 e 428.
 (pdftex.def)             Requested size: 410.12846pt x 217.71136pt.
- [112 <./images/isomorphism_groups_order.png> <./images/isomorphism_groups_orde
+ [113 <./images/isomorphism_groups_order.png> <./images/isomorphism_groups_orde
 r2.png>]
-<images/ring_summary.png, id=1592, 911.405pt x 842.14626pt>
+<images/ring_summary.png, id=1607, 911.405pt x 842.14626pt>
 File: images/ring_summary.png Graphic file (type png)
 
 <use images/ring_summary.png>
 Package pdftex.def Info: images/ring_summary.png used on input line 438.
 (pdftex.def)             Requested size: 410.12846pt x 378.96231pt.
 
-<images/1268_23.png, id=1593, 776.9025pt x 212.795pt>
+<images/1268_23.png, id=1608, 776.9025pt x 212.795pt>
 File: images/1268_23.png Graphic file (type png)
  <use images/1268_23.png>
 Package pdftex.def Info: images/1268_23.png used on input line 440.
@@ -1797,14 +1814,14 @@ Overfull \hbox (35.22565pt too wide) in paragraph at lines 440--441
 [][]  
  []
 
-<images/1268_23s.png, id=1594, 722.7pt x 170.6375pt>
+<images/1268_23s.png, id=1609, 722.7pt x 170.6375pt>
 File: images/1268_23s.png Graphic file (type png)
  <use images/1268_23s.png>
 Package pdftex.def Info: images/1268_23s.png used on input line 442.
 (pdftex.def)             Requested size: 469.74944pt x 110.91304pt.
 
-[113 <./images/ring_summary.png> <./images/1268_23.png>]
-<images/1268_50.png, id=1601, 786.94pt x 148.555pt>
+[114 <./images/ring_summary.png> <./images/1268_23.png>]
+<images/1268_50.png, id=1616, 786.94pt x 148.555pt>
 File: images/1268_50.png Graphic file (type png)
  <use images/1268_50.png>
 Package pdftex.def Info: images/1268_50.png used on input line 444.
@@ -1814,29 +1831,29 @@ Overfull \hbox (41.74995pt too wide) in paragraph at lines 444--445
 [][]  
  []
 
-<images/1268_50s.png, id=1602, 721.69624pt x 176.66pt>
+<images/1268_50s.png, id=1617, 721.69624pt x 176.66pt>
 File: images/1268_50s.png Graphic file (type png)
 
 <use images/1268_50s.png>
 Package pdftex.def Info: images/1268_50s.png used on input line 446.
 (pdftex.def)             Requested size: 469.097pt x 114.82762pt.
- <images/0568_18.png, id=1603, 923.45pt x 134.5025pt>
+ <images/0568_18.png, id=1618, 923.45pt x 134.5025pt>
 File: images/0568_18.png Graphic file (type png)
 
 <use images/0568_18.png>
 Package pdftex.def Info: images/0568_18.png used on input line 448.
 (pdftex.def)             Requested size: 461.72386pt x 67.25107pt.
 
-<images/0568_18s.png, id=1604, 880.28876pt x 55.20625pt>
+<images/0568_18s.png, id=1619, 880.28876pt x 55.20625pt>
 File: images/0568_18s.png Graphic file (type png)
 
 <use images/0568_18s.png>
 Package pdftex.def Info: images/0568_18s.png used on input line 450.
 (pdftex.def)             Requested size: 440.1433pt x 27.60304pt.
-) [114 <./images/1268_23s.png> <./images/1268_50.png> <./images/1268_50s.png> <
+) [115 <./images/1268_23s.png> <./images/1268_50.png> <./images/1268_50s.png> <
 ./images/0568_18.png> <./images/0568_18s.png>]
 (./Topics/Miscellaneous.tex
-<images/0568_6.png, id=1614, 946.53625pt x 298.11375pt>
+<images/0568_6.png, id=1630, 946.53625pt x 298.11375pt>
 File: images/0568_6.png Graphic file (type png)
 
 <use images/0568_6.png>
@@ -1847,68 +1864,68 @@ Overfull \hbox (3.51198pt too wide) in paragraph at lines 4--5
 []  
  []
 
-<images/0568_6s.png, id=1615, 888.31876pt x 166.6225pt>
+<images/0568_6s.png, id=1631, 888.31876pt x 166.6225pt>
 File: images/0568_6s.png Graphic file (type png)
 
 <use images/0568_6s.png>
 Package pdftex.def Info: images/0568_6s.png used on input line 6.
 (pdftex.def)             Requested size: 444.1583pt x 83.31104pt.
- <images/1268_19.png, id=1616, 640.3925pt x 84.315pt>
+ <images/1268_19.png, id=1632, 640.3925pt x 84.315pt>
 File: images/1268_19.png Graphic file (type png)
 
 <use images/1268_19.png>
 Package pdftex.def Info: images/1268_19.png used on input line 8.
 (pdftex.def)             Requested size: 416.25018pt x 54.80408pt.
- <images/1268_19s.png, id=1617, 722.7pt x 217.81375pt>
+ <images/1268_19s.png, id=1633, 722.7pt x 217.81375pt>
 File: images/1268_19s.png Graphic file (type png)
 
 <use images/1268_19s.png>
 Package pdftex.def Info: images/1268_19s.png used on input line 10.
 (pdftex.def)             Requested size: 469.74944pt x 141.57724pt.
 
-<images/1268_28.png, id=1618, 689.57625pt x 58.2175pt>
+<images/1268_28.png, id=1634, 689.57625pt x 58.2175pt>
 File: images/1268_28.png Graphic file (type png)
 
 <use images/1268_28.png>
 Package pdftex.def Info: images/1268_28.png used on input line 12.
 (pdftex.def)             Requested size: 448.21924pt x 37.84091pt.
- <images/1268_28s.png, id=1619, 718.685pt x 116.435pt>
+ <images/1268_28s.png, id=1635, 718.685pt x 116.435pt>
 File: images/1268_28s.png Graphic file (type png)
 
 <use images/1268_28s.png>
 Package pdftex.def Info: images/1268_28s.png used on input line 14.
 (pdftex.def)             Requested size: 467.13971pt x 75.68184pt.
 
-<images/1268_28fig.png, id=1620, 263.98625pt x 118.4425pt>
+<images/1268_28fig.png, id=1636, 263.98625pt x 118.4425pt>
 File: images/1268_28fig.png Graphic file (type png)
 
 <use images/1268_28fig.png>
 Package pdftex.def Info: images/1268_28fig.png used on input line 17.
 (pdftex.def)             Requested size: 171.58902pt x 76.9867pt.
- [115 <./images/0568_6.png> <./images/0568_6s.png> <./images/1268_19.png> <./im
+ [116 <./images/0568_6.png> <./images/0568_6s.png> <./images/1268_19.png> <./im
 ages/1268_19s.png> <./images/1268_28.png> <./images/1268_28s.png>] <images/1268
-_38.png, id=1632, 593.21625pt x 61.22874pt>
+_38.png, id=1647, 593.21625pt x 61.22874pt>
 File: images/1268_38.png Graphic file (type png)
 
 <use images/1268_38.png>
 Package pdftex.def Info: images/1268_38.png used on input line 20.
 (pdftex.def)             Requested size: 385.58598pt x 39.79819pt.
 
-<images/1268_38s.png, id=1633, 721.69624pt x 111.41624pt>
+<images/1268_38s.png, id=1648, 721.69624pt x 111.41624pt>
 File: images/1268_38s.png Graphic file (type png)
 
 <use images/1268_38s.png>
 Package pdftex.def Info: images/1268_38s.png used on input line 22.
 (pdftex.def)             Requested size: 469.097pt x 72.4197pt.
 
-<images/1268_45.png, id=1634, 492.84125pt x 70.2625pt>
+<images/1268_45.png, id=1649, 492.84125pt x 70.2625pt>
 File: images/1268_45.png Graphic file (type png)
 
 <use images/1268_45.png>
 Package pdftex.def Info: images/1268_45.png used on input line 24.
 (pdftex.def)             Requested size: 320.343pt x 45.67007pt.
 
-<images/1268_45s.png, id=1635, 724.7075pt x 155.58125pt>
+<images/1268_45s.png, id=1650, 724.7075pt x 155.58125pt>
 File: images/1268_45s.png Graphic file (type png)
 
 <use images/1268_45s.png>
@@ -1924,7 +1941,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--184
  
  []
 
-[116 <./images/1268_28fig.png> <./images/1268_38.png> <./images/1268_38s.png> <
+[117 <./images/1268_28fig.png> <./images/1268_38.png> <./images/1268_38s.png> <
 ./images/1268_45.png> <./images/1268_45s.png>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 186.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 186.
@@ -1932,17 +1949,21 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 186.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 186.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 186.
 Package rerunfilecheck Info: File `"Math Review Notes".out' has not changed.
-(rerunfilecheck)             Checksum: 7998D633D5058F1F0CDC2B55443BF5CC;8166.
+(rerunfilecheck)             Checksum: 299D728B12182F529B34779F5D1195D1;8224.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 186.
  ) 
 Here is how much of TeX's memory you used:
- 18857 strings out of 493013
- 357815 string characters out of 6133344
- 417722 words of memory out of 5000000
- 21417 multiletter control sequences out of 15000+600000
+ 18868 strings out of 493013
+ 357996 string characters out of 6133344
+ 416878 words of memory out of 5000000
+ 21423 multiletter control sequences out of 15000+600000
  15461 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,14n,66p,820b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,66p,820b,674s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1966,10 +1987,10 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
 016/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on "Math Review Notes.pdf" (116 pages, 9424946 bytes).
+Output written on "Math Review Notes.pdf" (117 pages, 9392671 bytes).
 PDF statistics:
- 1826 PDF objects out of 2073 (max. 8388607)
- 1472 compressed objects within 15 object streams
- 501 named destinations out of 1000 (max. 500000)
+ 1843 PDF objects out of 2073 (max. 8388607)
+ 1488 compressed objects within 15 object streams
+ 505 named destinations out of 1000 (max. 500000)
  1318 words of extra memory for PDF output out of 10000 (max. 10000000)
 
