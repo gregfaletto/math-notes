@@ -49,52 +49,53 @@
 \BOOKMARK [3][-]{subsubsection.5.3.6}{Multivariate Gaussian \(Normal\) Distributions}{subsection.5.3}% 49
 \BOOKMARK [2][-]{subsection.5.4}{Worked problems}{section.5}% 50
 \BOOKMARK [3][-]{subsubsection.5.4.1}{Example Problems That Will Likely Appear on Midterm}{subsection.5.4}% 51
-\BOOKMARK [1][-]{section.6}{Stochastic Processes}{}% 52
-\BOOKMARK [2][-]{subsection.6.1}{Martingales}{section.6}% 53
-\BOOKMARK [2][-]{subsection.6.2}{Brownian Motion}{section.6}% 54
-\BOOKMARK [1][-]{section.7}{Asymptotics and Convergence}{}% 55
-\BOOKMARK [2][-]{subsection.7.1}{Preliminaries \(5.9 and 7.1, Grimmett and Stirzaker\)}{section.7}% 56
-\BOOKMARK [2][-]{subsection.7.2}{Inequalities \(8.6 of Pesaran\)}{section.7}% 57
-\BOOKMARK [2][-]{subsection.7.3}{Modes of Convergence \(7.2 of Grimmet and Strikazer, 8.2 and 8.4 of Pesaran\)}{section.7}% 58
-\BOOKMARK [2][-]{subsection.7.4}{More on convergence \(7.2 of Grimmet and Strikazer\)}{section.7}% 59
-\BOOKMARK [3][-]{subsubsection.7.4.1}{Slutsky's Convergence Theorems \(8.4.1 of Pesaran, 7.3 of Grimmett and Stirzaker\)}{subsection.7.4}% 60
-\BOOKMARK [2][-]{subsection.7.5}{Stochastic orders Op\(\) and op\(\) \(Pesaran 8.5\)}{section.7}% 61
-\BOOKMARK [2][-]{subsection.7.6}{Laws of Large Numbers and Central Limit Theorems \(Pesaran 8.6; Grimmett and Stirzaker 7.4, 7.5\)}{section.7}% 62
-\BOOKMARK [2][-]{subsection.7.7}{The case of dependent and heterogeneously distributed observations \(Pesaran 8.8\)}{section.7}% 63
-\BOOKMARK [2][-]{subsection.7.8}{Worked Examples from Math 505A Midterm 2}{section.7}% 64
-\BOOKMARK [1][-]{section.8}{Linear Regression}{}% 65
-\BOOKMARK [2][-]{subsection.8.1}{Chapter 1: Linear Regression}{section.8}% 66
-\BOOKMARK [3][-]{subsubsection.8.1.1}{Preliminaries}{subsection.8.1}% 67
-\BOOKMARK [3][-]{subsubsection.8.1.2}{Estimation}{subsection.8.1}% 68
-\BOOKMARK [2][-]{subsection.8.2}{Chapter 2: Multiple Regression}{section.8}% 69
-\BOOKMARK [2][-]{subsection.8.3}{Chapter 3: Hypothesis testing in regression}{section.8}% 70
-\BOOKMARK [2][-]{subsection.8.4}{Chapter 4: Heteroskedasticity}{section.8}% 71
-\BOOKMARK [2][-]{subsection.8.5}{Chapter 5: Autocorrelated disturbances}{section.8}% 72
-\BOOKMARK [1][-]{section.9}{Time Series}{}% 73
-\BOOKMARK [2][-]{subsection.9.1}{Chapter 6: ARDL Models}{section.9}% 74
-\BOOKMARK [2][-]{subsection.9.2}{Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{section.9}% 75
-\BOOKMARK [2][-]{subsection.9.3}{Some time series and their properties}{section.9}% 76
-\BOOKMARK [3][-]{subsubsection.9.3.1}{White noise process:}{subsection.9.3}% 77
-\BOOKMARK [3][-]{subsubsection.9.3.2}{MA\(1\) process:}{subsection.9.3}% 78
-\BOOKMARK [3][-]{subsubsection.9.3.3}{MA\(\) process:}{subsection.9.3}% 79
-\BOOKMARK [3][-]{subsubsection.9.3.4}{AR\(1\) process:}{subsection.9.3}% 80
-\BOOKMARK [3][-]{subsubsection.9.3.5}{AR\(2\) process:}{subsection.9.3}% 81
-\BOOKMARK [3][-]{subsubsection.9.3.6}{AR\(p\) process:}{subsection.9.3}% 82
-\BOOKMARK [3][-]{subsubsection.9.3.7}{ARMA\(1, 1\) process:}{subsection.9.3}% 83
-\BOOKMARK [2][-]{subsection.9.4}{Chapter 14: Estimation of Stationary Time Series Processes}{section.9}% 84
-\BOOKMARK [3][-]{subsubsection.9.4.1}{Sufficient conditions for ergodicity of mean. \(Book section 14.2.1\)}{subsection.9.4}% 85
-\BOOKMARK [3][-]{subsubsection.9.4.2}{Estimation of autocovariances \(Book section 14.2.2\).}{subsection.9.4}% 86
-\BOOKMARK [3][-]{subsubsection.9.4.3}{Worked examples}{subsection.9.4}% 87
-\BOOKMARK [2][-]{subsection.9.5}{Chapter 17: Introduction to Forecasting}{section.9}% 88
-\BOOKMARK [3][-]{subsubsection.9.5.1}{17.7: Iterated and direct multi-step AR methods}{subsection.9.5}% 89
-\BOOKMARK [1][-]{section.10}{Abstract Algebra}{}% 90
-\BOOKMARK [2][-]{subsection.10.1}{Chapter 1: Binary Operations}{section.10}% 91
-\BOOKMARK [2][-]{subsection.10.2}{Chapter 2: Groups}{section.10}% 92
-\BOOKMARK [2][-]{subsection.10.3}{Chapter 3: The Symmetric Groups}{section.10}% 93
-\BOOKMARK [2][-]{subsection.10.4}{Chapter 4: Subgroups}{section.10}% 94
-\BOOKMARK [2][-]{subsection.10.5}{Chapter 5: The Group of Units of Zn}{section.10}% 95
-\BOOKMARK [2][-]{subsection.10.6}{Chapter 6: Direct Products of Groups}{section.10}% 96
-\BOOKMARK [2][-]{subsection.10.7}{Chapter 7: Isomorphism of Groups}{section.10}% 97
-\BOOKMARK [2][-]{subsection.10.8}{Chapter 8: Cosets and Lagrange's Theorem}{section.10}% 98
-\BOOKMARK [2][-]{subsection.10.9}{Chapter 9: Introduction to Ring Theory}{section.10}% 99
-\BOOKMARK [1][-]{section.11}{Miscellaneous}{}% 100
+\BOOKMARK [3][-]{subsubsection.5.4.2}{More Problems From Homework}{subsection.5.4}% 52
+\BOOKMARK [1][-]{section.6}{Stochastic Processes}{}% 53
+\BOOKMARK [2][-]{subsection.6.1}{Martingales}{section.6}% 54
+\BOOKMARK [2][-]{subsection.6.2}{Brownian Motion}{section.6}% 55
+\BOOKMARK [1][-]{section.7}{Asymptotics and Convergence}{}% 56
+\BOOKMARK [2][-]{subsection.7.1}{Preliminaries \(5.9 and 7.1, Grimmett and Stirzaker\)}{section.7}% 57
+\BOOKMARK [2][-]{subsection.7.2}{Inequalities \(8.6 of Pesaran\)}{section.7}% 58
+\BOOKMARK [2][-]{subsection.7.3}{Modes of Convergence \(7.2 of Grimmet and Strikazer, 8.2 and 8.4 of Pesaran\)}{section.7}% 59
+\BOOKMARK [2][-]{subsection.7.4}{More on convergence \(7.2 of Grimmet and Strikazer\)}{section.7}% 60
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Slutsky's Convergence Theorems \(8.4.1 of Pesaran, 7.3 of Grimmett and Stirzaker\)}{subsection.7.4}% 61
+\BOOKMARK [2][-]{subsection.7.5}{Stochastic orders Op\(\) and op\(\) \(Pesaran 8.5\)}{section.7}% 62
+\BOOKMARK [2][-]{subsection.7.6}{Laws of Large Numbers and Central Limit Theorems \(Pesaran 8.6; Grimmett and Stirzaker 7.4, 7.5\)}{section.7}% 63
+\BOOKMARK [2][-]{subsection.7.7}{The case of dependent and heterogeneously distributed observations \(Pesaran 8.8\)}{section.7}% 64
+\BOOKMARK [2][-]{subsection.7.8}{Worked Examples from Math 505A Midterm 2}{section.7}% 65
+\BOOKMARK [1][-]{section.8}{Linear Regression}{}% 66
+\BOOKMARK [2][-]{subsection.8.1}{Chapter 1: Linear Regression}{section.8}% 67
+\BOOKMARK [3][-]{subsubsection.8.1.1}{Preliminaries}{subsection.8.1}% 68
+\BOOKMARK [3][-]{subsubsection.8.1.2}{Estimation}{subsection.8.1}% 69
+\BOOKMARK [2][-]{subsection.8.2}{Chapter 2: Multiple Regression}{section.8}% 70
+\BOOKMARK [2][-]{subsection.8.3}{Chapter 3: Hypothesis testing in regression}{section.8}% 71
+\BOOKMARK [2][-]{subsection.8.4}{Chapter 4: Heteroskedasticity}{section.8}% 72
+\BOOKMARK [2][-]{subsection.8.5}{Chapter 5: Autocorrelated disturbances}{section.8}% 73
+\BOOKMARK [1][-]{section.9}{Time Series}{}% 74
+\BOOKMARK [2][-]{subsection.9.1}{Chapter 6: ARDL Models}{section.9}% 75
+\BOOKMARK [2][-]{subsection.9.2}{Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{section.9}% 76
+\BOOKMARK [2][-]{subsection.9.3}{Some time series and their properties}{section.9}% 77
+\BOOKMARK [3][-]{subsubsection.9.3.1}{White noise process:}{subsection.9.3}% 78
+\BOOKMARK [3][-]{subsubsection.9.3.2}{MA\(1\) process:}{subsection.9.3}% 79
+\BOOKMARK [3][-]{subsubsection.9.3.3}{MA\(\) process:}{subsection.9.3}% 80
+\BOOKMARK [3][-]{subsubsection.9.3.4}{AR\(1\) process:}{subsection.9.3}% 81
+\BOOKMARK [3][-]{subsubsection.9.3.5}{AR\(2\) process:}{subsection.9.3}% 82
+\BOOKMARK [3][-]{subsubsection.9.3.6}{AR\(p\) process:}{subsection.9.3}% 83
+\BOOKMARK [3][-]{subsubsection.9.3.7}{ARMA\(1, 1\) process:}{subsection.9.3}% 84
+\BOOKMARK [2][-]{subsection.9.4}{Chapter 14: Estimation of Stationary Time Series Processes}{section.9}% 85
+\BOOKMARK [3][-]{subsubsection.9.4.1}{Sufficient conditions for ergodicity of mean. \(Book section 14.2.1\)}{subsection.9.4}% 86
+\BOOKMARK [3][-]{subsubsection.9.4.2}{Estimation of autocovariances \(Book section 14.2.2\).}{subsection.9.4}% 87
+\BOOKMARK [3][-]{subsubsection.9.4.3}{Worked examples}{subsection.9.4}% 88
+\BOOKMARK [2][-]{subsection.9.5}{Chapter 17: Introduction to Forecasting}{section.9}% 89
+\BOOKMARK [3][-]{subsubsection.9.5.1}{17.7: Iterated and direct multi-step AR methods}{subsection.9.5}% 90
+\BOOKMARK [1][-]{section.10}{Abstract Algebra}{}% 91
+\BOOKMARK [2][-]{subsection.10.1}{Chapter 1: Binary Operations}{section.10}% 92
+\BOOKMARK [2][-]{subsection.10.2}{Chapter 2: Groups}{section.10}% 93
+\BOOKMARK [2][-]{subsection.10.3}{Chapter 3: The Symmetric Groups}{section.10}% 94
+\BOOKMARK [2][-]{subsection.10.4}{Chapter 4: Subgroups}{section.10}% 95
+\BOOKMARK [2][-]{subsection.10.5}{Chapter 5: The Group of Units of Zn}{section.10}% 96
+\BOOKMARK [2][-]{subsection.10.6}{Chapter 6: Direct Products of Groups}{section.10}% 97
+\BOOKMARK [2][-]{subsection.10.7}{Chapter 7: Isomorphism of Groups}{section.10}% 98
+\BOOKMARK [2][-]{subsection.10.8}{Chapter 8: Cosets and Lagrange's Theorem}{section.10}% 99
+\BOOKMARK [2][-]{subsection.10.9}{Chapter 9: Introduction to Ring Theory}{section.10}% 100
+\BOOKMARK [1][-]{section.11}{Miscellaneous}{}% 101

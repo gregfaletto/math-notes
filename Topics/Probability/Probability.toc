@@ -5,20 +5,21 @@
 \contentsline {subsubsection}{\numberline {1.1.3}Odds and Ends}{5}{subsubsection.1.1.3}
 \contentsline {subsubsection}{\numberline {1.1.4}Methods for Calculating Quantities}{6}{subsubsection.1.1.4}
 \contentsline {subsubsection}{\numberline {1.1.5}Discrete Random Variable Distributions}{7}{subsubsection.1.1.5}
-\contentsline {subsubsection}{\numberline {1.1.6}Indicator Method}{8}{subsubsection.1.1.6}
-\contentsline {subsubsection}{\numberline {1.1.7}Linear transformations of random variables}{8}{subsubsection.1.1.7}
-\contentsline {subsubsection}{\numberline {1.1.8}Poisson Paradigm (Poisson approximation for indicator method)}{8}{subsubsection.1.1.8}
-\contentsline {subsubsection}{\numberline {1.1.9}Asymptotic Distributions}{9}{subsubsection.1.1.9}
-\contentsline {subsection}{\numberline {1.2}Worked problems}{9}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Example Problems That Will Likely Appear on Midterm}{9}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.1.6}Indicator Method}{9}{subsubsection.1.1.6}
+\contentsline {subsubsection}{\numberline {1.1.7}Linear transformations of random variables}{9}{subsubsection.1.1.7}
+\contentsline {subsubsection}{\numberline {1.1.8}Poisson Paradigm (Poisson approximation for indicator method)}{9}{subsubsection.1.1.8}
+\contentsline {subsubsection}{\numberline {1.1.9}Asymptotic Distributions}{10}{subsubsection.1.1.9}
+\contentsline {subsection}{\numberline {1.2}Worked problems}{10}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Example Problems That Will Likely Appear on Midterm}{10}{subsubsection.1.2.1}
 \contentsline {subsubsection}{\numberline {1.2.2}Problems we did in class that professor mentioned}{15}{subsubsection.1.2.2}
 \contentsline {subsubsection}{\numberline {1.2.3}Problems we did on homework}{17}{subsubsection.1.2.3}
-\contentsline {subsection}{\numberline {1.3}To Know for Math 505A Midterm 2}{23}{subsection.1.3}
-\contentsline {subsubsection}{\numberline {1.3.1}Definitions}{23}{subsubsection.1.3.1}
-\contentsline {subsubsection}{\numberline {1.3.2}Probability-Generating Functions}{24}{subsubsection.1.3.2}
-\contentsline {subsubsection}{\numberline {1.3.3}Moment-Generating Functions}{24}{subsubsection.1.3.3}
-\contentsline {subsubsection}{\numberline {1.3.4}Characteristic Functions}{25}{subsubsection.1.3.4}
-\contentsline {subsubsection}{\numberline {1.3.5}Continuous Random Variable Distributions}{26}{subsubsection.1.3.5}
-\contentsline {subsubsection}{\numberline {1.3.6}Multivariate Gaussian (Normal) Distributions}{29}{subsubsection.1.3.6}
-\contentsline {subsection}{\numberline {1.4}Worked problems}{30}{subsection.1.4}
-\contentsline {subsubsection}{\numberline {1.4.1}Example Problems That Will Likely Appear on Midterm}{30}{subsubsection.1.4.1}
+\contentsline {subsection}{\numberline {1.3}To Know for Math 505A Midterm 2}{30}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Definitions}{30}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Probability-Generating Functions}{32}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}Moment-Generating Functions}{32}{subsubsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.4}Characteristic Functions}{32}{subsubsection.1.3.4}
+\contentsline {subsubsection}{\numberline {1.3.5}Continuous Random Variable Distributions}{33}{subsubsection.1.3.5}
+\contentsline {subsubsection}{\numberline {1.3.6}Multivariate Gaussian (Normal) Distributions}{37}{subsubsection.1.3.6}
+\contentsline {subsection}{\numberline {1.4}Worked problems}{38}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Example Problems That Will Likely Appear on Midterm}{38}{subsubsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.2}More Problems From Homework}{39}{subsubsection.1.4.2}

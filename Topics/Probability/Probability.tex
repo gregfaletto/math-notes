@@ -217,7 +217,7 @@ f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
 
 \subsubsection{Odds and Ends}
 
-\begin{proposition}\textbf{Inclusion-Exclusion Principle:}
+\begin{proposition} \label{prob.inex} \textbf{Inclusion-Exclusion Principle:}
 \begin{enumerate}[(a)]
 
 \item \[
@@ -244,6 +244,40 @@ f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
 \Var(X_1 + \ldots + X_n) = \sum_k \Var(X_k) + \sum_{k \neq m} \sum_m \Cov(X_k, X_m)
 \]
 \end{proposition}
+
+\begin{proposition} \label{prob.ross1.6.1} \textbf{(Proposition 1.6.1 in Sheldon Ross \textit{A First Course in Probability}.)} There are \(\binom{n-1}{r-1}\) distinct positive integer-valued vectors \((x_1, x_2, \ldots, x_r), x_i > 0 \ \forall \ i\) satisfying the equation \(x_1 + x_2 + \ldots + x_r = n\).
+
+\end{proposition}
+
+\begin{proof} (Not rigorous, but a justification.) Imagine we have \(n\) indistinguishable objects to allocate to \(r\) people. We lay out the \(n\) objects and take \(r - 1\) sticks to place in the \(n - 1\) spaces between them. The first person gets all the objects to the left of the leftmost stick, the second person gets the objects between the leftmost and second leftmost stick, and so on, until the last person gets all the objects to the right of the rightmost stick. The constraint that \(x_i\) be positive is equivalent to saying that each person must receive at least one object. Therefore we must place each stick in a different place. There are \(\binom{n-1}{r-1}\) ways to do this. 
+
+\end{proof}
+
+\begin{proposition} \label{prob.ross1.6.2} \textbf{(Proposition 1.6.2 in Sheldon Ross \textit{A First Course in Probability}.)}There are \(\binom{n+r-1}{r-1}\) distinct nonnegative integer-valued vectors \((x_1, x_2, \ldots, x_r), x_i \geq 0 \ \forall \ i\) satisfying the equation \(x_1 + x_2 + \ldots + x_r = n\).
+
+\end{proposition}
+
+\begin{proof}We would like to solve the problem
+
+\[
+x_1  + x_2 + \ldots + x_r  = n , x_i  \geq 0 \ \forall i
+\]
+
+Note that we can transform this problem in the following way:
+
+\[
+x_1 + 1 + x_2 + 1 + \ldots + x_r + 1 = n + 1 \cdot r, x_i + 1 \geq 1 \ \forall i
+\]
+
+Letting \(y_i = x_i + 1\), we have the equivalent system
+
+\[
+y_1 + y_2 + \ldots + y_r = n + r, y_i \geq 1 \ \forall i
+\]
+
+By Proposition \ref{prob.ross1.6.1}, the number of distinct solutions to this equation is \(\binom{n+r-1}{r-1}  \).
+
+\end{proof}
 
 \subsubsection{Methods for Calculating Quantities}
 
@@ -1332,6 +1366,491 @@ It is easy to see that the leftmost product will always equal the product of the
 
 for all \((x_1, \ldots, x_n) \in \mathbb{R}^n\), all \(n \in \mathbb{Z} \) such that \(n \geq 2\), all permutations \(\tau\). 
 
+\textbf{Homework 2 Problem 2.} Consider the function
+
+\[
+f(x) = \begin{cases}
+C(2x - x^2) & 0 < x < 2 \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+\begin{enumerate}[(a)]
+
+\item Could \(f\) be a distribution function? If so, determine \(C\).
+
+\item Could \(f\) be a probability density function? If so, determine \(C\).
+
+\end{enumerate}
+
+\textbf{Solution.} 
+
+\begin{enumerate}[(a)]
+
+\item If \(f\) is a distribution function, \(\lim_{x \to -\infty} f(x) = 0\), \(\lim_{x \to \infty} f(x) = 1\), and \(f'(x) \geq 0 \ \forall \ x \in \mathbb{R}\). \(f\) clearly does not meet the second or third conditions and is therefore \boxed{\text{not a distribution function.}}
+
+\item If \(f\) is a density function then \(\int_{-\infty}^{\infty} f(x) dx = 1\) and \(f(x) \geq 0 \ \forall x \in \mathbb{R}\). 
+
+\[
+\int_{-\infty}^{\infty} f(x) dx = \int_{0}^2 C(2x - x^2) dx = C \bigg[ x^2 - \frac{x^3}{3}\bigg]_0^2 = C \bigg( 4 - \frac{8}{3} - 0\bigg) = C \cdot \frac{4}{3} 
+\]
+
+\[
+= 1 \iff C = \frac{3}{4}
+\]
+
+Next we check that \(f\) is always nonnegative. It equals zero except on \((0, 2)\). 
+
+\[
+\frac{3}{4}(2x -  x^2) \geq 0 \iff x(2 - x) \geq 0 \iff x \in (0, 2)
+\]
+
+Therefore \(f\) is nonnegative \(\forall x \in \mathbb{R}\), so \boxed{f \text{ is a probability density function if } C = \frac{3}{4}.}
+
+\end{enumerate}
+
+%%%%%%%% Homework 1 Problem 1 %%%%%%%%%%
+
+\textbf{Homework 1 Problem 1.} 
+
+\begin{enumerate}[(I)]
+
+\item Seven different gifts are distributed among 10 children. How many different outcomes are possible if every child can receive (a) at most one gift, (b) at most two gifts, (c) any number of gifts?
+
+\item Answer the same questions if the gifts are identical (but the children are still different).
+
+\end{enumerate}
+
+\textbf{Solution.} 
+
+\begin{enumerate}[(I)]
+
+\item
+
+\begin{enumerate}[(a)]
+
+% 1 (I) (a)
+\item \(\binom{10}{7}7! = \boxed{604,800}\)
+
+% 1 (I) (b)
+\item Clearly all outcomes that satisfy part (I)(a) also satisfy these conditions, so we start with \(\binom{10}{7}7! = 604,800\) possible outcomes. In addition, the following outcomes are possible:
+
+\begin{enumerate}[(i)]
+
+\item \textbf{A set of 6 children receive gifts; one child receives two gifts.} There are \(\binom{10}{6}\) ways to pick a group of 6 children to receive the gifts. Next, there are \(\binom{6}{1} = 6\) ways to choose which child receives two gifts. Finally, there are \(7!/2!\) unique ways to distribute the gifts among the children once a particular partition is chosen (since order matters for all of the gifts except for the two that are received by the same child). 
+
+\item \textbf{A set of 5 children receive gifts; two children receive two gifts.} There are \(\binom{10}{5}\) ways to pick a group of 5 children to receive the gifts. Next, there are \(\binom{5}{2}\) ways to choose which of these children receive one gift and which receive two. Finally, there are \(7!/(2!2!)\) unique ways to distribute the gifts among the children once a particular partition is chosen (since order matters for all of the gifts except for the two batches of two gifts that are received by the same child). 
+
+(Note that without the restriction that a child can receive at most two gifts, another possibility is that 1 child could receive 3 gifts, but that wouldn't work in this case.)
+
+\item \textbf{A set of 4 children receive gifts; three children each receive two gifts.} There are \(\binom{10}{4}\) ways to pick a group of 4 children to receive the gifts. Next, there are \(\binom{4}{3} = 4\) ways to choose which of these children receive one gift and which receive two. Finally, there are \(7!/(2!2!2!)\) unique ways to distribute the gifts among the children once a particular partition is chosen (since order matters for all of the gifts except for the three batches of two gifts that are received by the same child). 
+
+(Again, there are other possibilities for 4 children to receive 7 gifts, but none that satisfy the condition that no child receives more than 2 gifts.)
+
+\end{enumerate}
+
+Clearly each of these outcomes are mutually exclusive. Therefore the answer is
+
+\[
+\binom{10}{7}7! + \binom{10}{6} \cdot \binom{6}{1} \cdot \frac{7!}{2!} + \binom{10}{5} \cdot \binom{5}{2} \cdot \frac{7!}{2!2!} + \binom{10}{4} \cdot \binom{4}{3} \cdot \frac{7!}{2!2!2!} 
+\]
+
+\[
+= 7!\cdot \bigg(\frac{10!}{3!} + \frac{10!}{6!4!}\cdot6 \cdot \frac{1}{2} + \frac{10!}{5!5!} \cdot \frac{5!}{3!2!} \cdot \frac{1}{4} + \frac{10!}{4!6!} \cdot \frac{4!}{3!} \cdot \frac{1}{8}  \bigg) 
+\]
+
+\[
+= 7!10!\cdot \bigg(\frac{1}{3!} + \frac{1}{6!4!}\cdot\frac{6}{2} + \frac{1}{5!} \cdot \frac{1}{3!2!} \cdot \frac{1}{4} + \frac{1}{6!3!\cdot8}  \bigg) 
+\]
+
+\[
+= \boxed{7,484,400}
+\]
+
+\item \(10^7 = \boxed{10,000,000} \)
+
+\end{enumerate}
+
+\item
+
+\begin{enumerate}[(a)]
+
+\item \(\binom{10}{7} = \boxed{120}\)
+
+\item 
+
+Clearly all outcomes that satisfy part (I)(a) also satisfy these conditions, so we start with \(\binom{10}{7} = 120\) possible outcomes. In addition, the following outcomes are possible:
+
+\begin{enumerate}[(i)]
+
+\item A set of 6 children receive gifts; one child receives two gifts (6 distinct ways this could happen for each set of 6 children).
+
+\item A set of 5 children receive gifts; two children receive two gifts (\(\binom{5}{2}\) distinct ways this could happen for each set of 5 children).
+
+\item A set of 4 children receive gifts; three children each receive two gifts (4 distinct ways this could happen for each set of 4 children). 
+
+\end{enumerate}
+
+Clearly each of these outcomes are mutually exclusive. Therefore the answer is
+
+\[
+\binom{10}{7} + \binom{10}{6}\cdot \binom{6}{7 - 6} +  \binom{10}{5}\cdot \binom{5}{7 - 5} + \binom{10}{4}\cdot \binom{4}{7 - 4} = \boxed{4,740}
+\]
+
+\item By Proposition \ref{prob.ross1.6.2}, the number of nonnegative integer-valued vectors \((x_1, x_2, \ldots, x_r)\) satisfying the equation
+
+\[
+x_1 + x_2 + \ldots + x_r = n
+\]
+
+is equal to \(\binom{n + r - 1}{r - 1}\). In distributing 7 identical gifts to 10 different children, we can imagine the vector \((x_1, x_2, \ldots, x_{10})\) represents the number of gifts given to each child (where \(x_i\) is a nonnegative integer for all \(i\)). So we have \(n = 7\) and \(r = 10\). Therefore the number of possible allocations is 
+
+\[
+\binom{7 + 10 - 1}{10 - 1} = \boxed{11,440}
+\]
+
+\end{enumerate}
+
+\end{enumerate}
+
+%%%%%%%%%% Homework 1 Problem 2 %%%%%%%%%%%%
+
+\textbf{Homework 1 Problem 2.} 
+
+\begin{enumerate}[(I)]
+
+\item 20 different gifts are distributed among seven children. How many different outcomes are possible if every child can receive (a) at least one gift, (b) at least two gifts, (c) any number of gifts?
+
+\item Answer the same questions if the gifts are identical (but the children are still different).
+
+\item Now try to generalize problems (1) and (2).
+
+\end{enumerate}
+
+\textbf{Solution.} 
+
+\begin{enumerate}[(I)]
+
+\item
+
+\begin{enumerate}[(a)]
+
+%2  I(a)
+\item
+
+% Imagine instead that we assign children to gifts. First we choose 7 children to assign to the first 7 gifts; order matters since the gifts (and children) are distinct. Therefore there are \(\nPr{20}{7} = 390,700,800\) ways to do this. The remaining 13 gifts can be distributed arbitrarily among the 7 children. There are \(7^{13} = 96,889,010,407\) ways to do this. Therefore the total number of possible distributions is \(\boxed{\nPr{20}{7} \cdot 7^{13} = 390,700,800 \cdot 96,889,010,407 \approx 3.785 \cdot 10^{19}}\).
+
+%Imagine instead that we assign children to gifts. First we choose 7 gifts to assign to each child; there are \(\binom{20}{7}\) such unordered groups. There are \(7!\) allocations of each of these groups of gifts. The remaining 13 gifts can be distributed arbitrarily among the 7 children. For each grouping of 7 original gifts, there are \(7^{20 - 7} = 96,889,010,407\) ways to allocate the remaining \(20 - 7\) gifts. Therefore the total number of possible distributions is 
+%
+%\[
+%\binom{20}{7} \cdot 7! \cdot 7^{13} = 77,520 \cdot 5,040 \cdot 96,889,010,407 \approx \boxed{3.785 \cdot 10^{19}}
+%\]
+
+There are \(7^{20}\) possible allocations of gifts if we have no restrictions. If one child doesn't get a gift, there are \(\binom{7}{1}\) ways to choose which child that is and \(6^{20}\) subsequent allocations of gifts. Likewise, there are \(\binom{7}{2} \cdot (7-2)^{20}\) ways to allocate the gifts if two children don't receive gifts,  \(\binom{7}{3} \cdot (7-3)^{20}\) ways if three children don't receive gifts, \(\binom{7}{4} \cdot (7-4)^{20}\) ways if four children don't receive gifts, \(\binom{7}{5} \cdot (7-5)^{20}\) ways if five children don't receive gifts, and \(\binom{7}{6} \cdot (7-6)^{20}\) ways if six children don't receive gifts. 
+
+Let \(A_i\) denote the number of allocations in which \(i\) children do not receive gifts. In order to make the calculation, we must use the Inclusion-Exclusion principle (Proposition \ref{prob.inex}) (because, for example, some of the allocations in which three children don't receive gifts include allocations where four or more children don't receive gifts, and we don't want to double-count). Therefore the number of ways that at least one child can not receive a gift (i.e. the complement of every child receiving at least one gift) is
+
+\[
+\left| \bigcup_{i=1}^6 A_i \right| =\sum_{i=1}^6  \left| A_i \right|  -  \sum_{1 \leq i < j \leq 6} \left|A_i \cap A_j \right| +  \sum_{1 \leq i < j < k \leq 6} \left|A_i \cap A_j \cap A_k \right|  -  \ldots 
+\]
+
+\[
++  (-1)^{6 - 1} \left| A_1 \cap A_2 \cap A_3 \cap \dots \cap A_6 \right| 
+\]
+
+Fortunately, these allocations are nested in the sense that all the allocations where e.g. 5 children do not receive gifts are a subset of all the allocations where 4 children do not receive gifts; that is
+
+\[
+A_6 \subset A_5 \subset A_4 \subset A_3 \subset A_2 \subset A_1
+\]
+
+which implies e.g.
+
+\[
+A_1 \cap A_2 \cap A_3 \cap \dots \cap A_6 = A_6, 
+\]
+
+\[
+ \sum_{1 \leq i < j \leq 6}  \left| A_i \cap A_j \right|  = 5 |A_6| + 4 |A_5| +3 |A_4| + 2 |A_3| + |A_2|
+\]
+
+So we have
+
+\[
+\left| \bigcup_{i=1}^6 A_i \right| = |A_6| + |A_5| + |A_4| +| A_3| + |A_2| + |A_1| - (5 |A_6| + 4 |A_5| +3 |A_4| + 2 |A_3| + |A_2|)   
+\]
+
+\[
++ (4 |A_6| + 3 |A_5| +2 |A_4| +  |A_3| ) - (3 |A_6| + 2 |A_5| + |A_4| )  +  \ldots - \left|   A_6 \right| 
+\]
+
+\[
+=|A_1| - |A_2| + |A_3| - |A_4| + |A_5| - |A_6|
+\]
+
+\[
+= \binom{7}{1}\cdot 6^{20} - \binom{7}{2} \cdot (7-2)^{20} + \binom{7}{3} \cdot (7-3)^{20} - \binom{7}{4} \cdot (7-4)^{20} 
+\]
+
+\[
++ \binom{7}{5} \cdot (7-5)^{20}  - \binom{7}{6} \cdot (7-6)^{20} 
+\]
+
+The final answer is 
+
+\[
+7^{20} - \left| \bigcup_{i=1}^6 A_i \right| = 7^{20} - \binom{7}{1}\cdot 6^{20} + \binom{7}{2} \cdot (7-2)^{20} - \binom{7}{3} \cdot (7-3)^{20} + \binom{7}{4} \cdot (7-4)^{20} 
+\]
+
+\[
+- \binom{7}{5} \cdot (7-5)^{20}  + \binom{7}{6} \cdot (7-6)^{20} \approx \boxed{5.616 \cdot 10^{16}}
+\]
+
+%2  I(b)
+\item Similar to above, but more complicated. The complement of every child receiving at least two gifts is that at least one child doesn't receive a gift (same as above) or at least one child only receives one gift. So we start from the baseline answer above, and subtract out all the possible allocations in which at least one child receives one gift.
+
+If one child only receives one gift (and the rest receive more than one), there are \(\binom{7}{1}\) ways to choose which child that is, \(\binom{20}{1}\) ways to choose which gift that child receives, and \(6^{20 - 1}\) allocations of the remaining gifts. If two children receive only one gift, there are \(\binom{7}{2}\) ways to choose which children those are, \(\binom{20}{2} \cdot 2!\) ways to choose which gifts those children get and distribute them among those children, and \( (7-2)^{20 - 2}\) ways to allocate the remaining gifts. Likewise, if three children receive only one gift there are \(\binom{7}{3} \binom{20}{3} \cdot 3!  \cdot (7-3)^{20-3}\) ways to allocate the gifts, \(\binom{7}{4} \binom{20}{4}  \cdot 4!\cdot (7-4)^{20 - 4}\) ways if four children receive only one gift, \(\binom{7}{5} \binom{20}{5} \cdot 5! \cdot (7-5)^{20 - 5}\) ways if five children receive only one gift, and \(\binom{7}{6} \binom{20}{6} \cdot 6!  (7-6)^{20-6}\) ways if six children don't receive gifts.
+
+Let \(B_j\) be the event that \(j\) children receive only one gift. Note that \(B_1 \cap A_i \) is nonempty \( \forall i < 7 - 1 \),  \(B_2 \cap A_i \) is nonempty \( \forall i < 7 - 2 \), and in general, \(B_j \cap A_i \) is nonempty \( \forall i < 7 - j, j \in \{1, 2, \ldots, 6\} \).
+
+
+
+Applying the Inclusion-Exclusion Principle (Proposition \ref{prob.inex}) in a similar way as in part (I)(a), the answer is
+
+\[\boxed{
+7^{20} - \left| \bigcup_{i=1}^6 A_i \right| - \left| \bigcup_{j=1}^6 B_j \right| + \sum_{i \in \{1, \ldots, 6\}, j \in \{1, \ldots, 6\}} \left| A_i \bigcap B_j \right| }
+\]
+
+Per part (I)(a), the first two terms approximately equal \(5.616 \cdot 10^ 16\). Clearly
+
+\[
+\bigcup_{i \in \{1, \ldots, 6\}, j \in \{1, \ldots, 6\}}  \bigg( A_i \bigcap B_j \bigg) \subset  \bigcup_{j=1}^6 B_j 
+\]
+
+which implies
+
+\[
+ - \left| \bigcup_{j=1}^6 B_j \right| + \left| A_i \bigcap_{i \in \{1, \ldots, 6\}, j \in \{1, \ldots, 6\}} B_j \right|  < 0
+\]
+
+so the answer to this part will be less than \(5.616 \cdot 10^ 16\), which makes sense. 
+
+Calculating  \( \left| \bigcup_{j=1}^6 B_j \right|  \) is not too difficult using Inclusion-Exclusion:
+
+\[
+ \left| \bigcup_{j=1}^6 B_j \right| =\sum_{j=1}^6  \left| B_j \right|  -  \sum_{1 \leq j < k \leq 6} \left|B_j \cap B_k \right| +  \sum_{1 \leq j < k < \ell \leq 6} \left|B_j \cap B_k \cap B_{\ell} \right|  -  \ldots 
+\]
+
+\[
++  (-1)^{6 - 1} \left| B_1 \cap B_2 \cap B_3 \cap \dots \cap B_6 \right| 
+\]
+
+where since 
+
+\[
+B_6 \subset B_5 \subset B_4 \subset B_3 \subset B_2 \subset B_1
+\]
+
+which implies e.g.
+
+\[
+B_1 \cap B_2 \cap B_3 \cap \dots \cap B_6 = B_6, 
+\]
+
+\[
+\sum_{1 \leq j < k \leq 6}  \left|  B_j \cap B_j \right|  = 5 |B_6| + 4 |B_5| +3 |B_4| + 2 |B_3| + |B_2|
+\]
+
+we have
+
+\[
+\left| \bigcup_{j=1}^6 B_j \right| = |B_6| + |B_5| + |B_4| +| B_3| + |B_2| + |B_1| - (5 |B_6| + 4 |B_5| +3 |B_4| + 2 |B_3| + |B_2|)   
+\]
+
+\[
++ (4 |B_6| + 3 |B_5| +2 |B_4| +  |B_3| ) - (3 |B_6| + 2 |B_5| + |B_4| )  +  \ldots - \left|   B_6 \right| 
+\]
+
+\[
+=|B_1| - |B_2| + |B_3| - |B_4| + |B_5| - |B_6|
+\]
+
+\[
+= \binom{7}{1}\binom{20}{1} \cdot (7 -1)^{20 -1} - \binom{7}{2}\binom{20}{2}\cdot 2! \cdot (7 - 2)^{20 -2} + \binom{7}{3} \binom{20}{3} \cdot 3!  \cdot (7-3)^{20-3} - \binom{7}{4} \binom{20}{4}  \cdot 4!\cdot (7-4)^{20 - 4}
+\]
+
+\[
++ \binom{7}{5} \binom{20}{5} \cdot 5! \cdot (7-5)^{20 - 5}  - \binom{7}{6} \binom{20}{6} \cdot 6!  (7-6)^{20-6}
+\]
+
+\[
+\boxed{
+\approx 5.846 \cdot 10^{16}}
+\]
+
+However, calculating 
+
+\[
+ \sum_{i \in \{1, \ldots, 6\}, j \in \{1, \ldots, 6\}} \left| A_i \bigcap B_j \right|
+\] 
+
+is very difficult because, for example, \(B_2 \cap A_ 3\) is nonempty but \(B_2 \not\subset A_3\) and \(A_3 \not\subset B_2\).
+
+%
+%\[
+%7^{20} - \binom{7}{1}\cdot 6^{20} + \binom{7}{2} \cdot (7-2)^{20} - \binom{7}{3} \cdot (7-3)^{20} + \binom{7}{4} \cdot (7-4)^{20} - \binom{7}{5} \cdot (7-5)^{20} 
+%\]
+%
+%\[
+% + \binom{7}{6} \cdot (7-6)^{20}  - \bigg[ \binom{7}{1}\binom{20}{1}\cdot1! \cdot (7 - 1)^{20-1} - \binom{7}{2}\binom{20}{2}\cdot2! \cdot (7 - 2)^{20-2} + \binom{7}{3} \binom{20}{3} \cdot 3!  \cdot (7-3)^{20-3}
+%\]
+%
+%\[
+% - \binom{7}{4} \binom{20}{4}  \cdot 4!\cdot (7-4)^{20 - 4} + \binom{7}{5} \binom{20}{5} \cdot 5! \cdot (7-5)^{20 - 5} - \binom{7}{6} \binom{20}{6} \cdot 6!  (7-6)^{20-6} \bigg]
+%\]
+%
+%\[
+%\approx 5.616 \cdot 10^{16} - \binom{7}{1}\binom{20}{1}\cdot1! \cdot (7 - 1)^{20-1} + \binom{7}{2}\binom{20}{2}\cdot2! \cdot (7 - 2)^{20-2} - \binom{7}{3} \binom{20}{3} \cdot 3!  \cdot (7-3)^{20-3}
+%\]
+%
+%\[
+% + \binom{7}{4} \binom{20}{4}  \cdot 4!\cdot (7-4)^{20 - 4} - \binom{7}{5} \binom{20}{5} \cdot 5! \cdot (7-5)^{20 - 5} + \binom{7}{6} \binom{20}{6} \cdot 6!  (7-6)^{20-6}
+%\]
+
+%Similarly to above, first we choose 7 children to assign to the first 7 gifts; order matters since the gifts (and children) are distinct. Therefore there are \(\nPr{20}{7} = 390,700,800\) ways to do this. We do this again with the next 7 gifts to guarantee that each child receives two gifts; there are \(\nPr{13}{7} = 1,716\) ways to do this.  The remaining 6 gifts can be distributed arbitrarily among the 7 children. There are \(7^6 = 117,649\) ways to do this. Therefore the total number of possible distributions is \(\boxed{\nPr{20}{7} \cdot \nPr{13}{7} \cdot 7^6 = 390,700,800 \cdot 1,716 \cdot 117,649 \approx 3.975 \cdot 10^{20}}\).
+
+% 2  I(c)
+\item \(\boxed{7^{20} \approx 7.979 \cdot 10^{16}} \)
+
+\end{enumerate}
+
+\item
+
+\begin{enumerate}[(a)]
+
+% 2 II(a)
+\item Imagine we lay out the 20 indistinguishable gifts and take 6 sticks to place in the 19 spaces between them. The first child gets all the gifts to the left of the leftmost stick, the second child gets the gifts between the leftmost and second leftmost stick, and so on, until the last child gets all the gifts to the right of the rightmost stick. Because each child must receive at least one gift, we must place each stick in a different space. There are \(\binom{19}{6} = \boxed{27,132}\) ways to do this. 
+
+(See also Proposition \ref{prob.ross1.6.1}.)
+
+% 2 II(b)
+\item Similar to Problem 1 part (II)(c), if the vector \((x_1, x_2, \ldots, x_{7})\) represents the number of gifts given to each child, we would like a solution such that
+
+\[
+x_1 + x_2 + \ldots + x_7 = 20, x_i \geq 2 \ \forall i
+\]
+
+Note that we can transform this problem in the following way:
+
+\[
+x_1 - 1 + x_2 - 1 + \ldots + x_7 - 1 = 20 - 1 \cdot 7, x_i - 1 \geq 1 \ \forall i
+\]
+
+Letting \(y_i = x_i - 1\), we have the equivalent system
+
+\[
+y_1 + y_2 + \ldots + y_7 = 13, y_i \geq 1 \ \forall i
+\]
+
+By Proposition \ref{prob.ross1.6.1} (and because of the same logic as used in part (a)), the number of distinct solutions to this equation, and therefore the number of possible allocations under these conditions, is \(\binom{12}{6} = \boxed{924} \).
+
+% 2 II(c)
+\item By Proposition \ref{prob.ross1.6.2}, the number of nonnegative integer-valued vectors \((x_1, x_2, \ldots, x_r)\) satisfying the equation
+
+\[
+x_1 + x_2 + \ldots + x_r = n
+\]
+
+is equal to \(\binom{n + r - 1}{r - 1}\). In distributing 20 identical gifts to 7 different children, we can imagine the vector \((x_1, x_2, \ldots, x_{10})\) represents the number of gifts given to each child (where \(x_i\) is a nonnegative integer for all \(i\)). So we have \(n = 20\) and \(r = 7\). Therefore the number of possible allocations is 
+
+\[
+\binom{20 + 7 - 1}{7 - 1} = \boxed{165,765,600}
+\]
+
+\end{enumerate}
+
+\item Generalization of 1(I): If there are \(g\) distinguishable gifts and \(c \geq g\) children, the number of distinct allocations if each child can receive
+
+\begin{enumerate}[(a)]
+
+\item at most one gift is \( \binom{c}{g}g!\).
+
+\item at most two gifts is 
+
+\[ 
+\sum_{i=c - g + 1}^{g}  \binom{c}{i} \cdot \binom{i}{g - i} \cdot \frac{g!}{(2!)^{g - i}}
+\]
+
+%\[ 
+%\sum_{i=c - g + 1}^{g}  \nPr{c}{i} \cdot \nPr{i}{g - i} = \sum_{i=c - g + 1}^{g}  \binom{c}{i} i! \binom{i}{g-i}(g-i)!
+%\] 
+
+\item any number of gifts is \(c^g\).
+
+\end{enumerate}
+
+Generalization of 1(II): If there are \(g\) identical gifts and \(c \geq g\) children, the number of distinct allocations if each child can receive
+
+\begin{enumerate}[(a)]
+
+\item at most one gift is \(\binom{c}{g}\).
+
+\item at most two gifts is 
+
+\[ 
+\sum_{i=c - g + 1}^{g}  \binom{c}{i} \cdot \binom{i}{g - i} 
+\]
+
+%= \sum_{i=c - g + 1}^{g}  \frac{c!}{(c-i)!i!} \cdot \frac{i!}{[i - (g - i)]!(g - i)!} = \sum_{i=c - g + 1}^{g}  \frac{c!}{(c-i)!(2i - g)!(g - i)!}   \] 
+
+\item any number of gifts is \(\binom{g + c - 1}{c - 1}\)
+
+\end{enumerate}
+
+Generalization of 2(I): If there are \(g\) distinguishable gifts and \(c \leq g\) children, the number of distinct allocations if each child must receive
+
+\begin{enumerate}[(a)]
+
+\item at least one gift is 
+
+\[
+c^g - \sum_{i = 1}^{c - 1} (-1)^{i+1} \binom{c}{i}\cdot(c - i)^g
+\]
+
+\item at least two gifts is
+
+\[
+c^g - \sum_{i = 1}^{c - 1} (-1)^{i+1} \binom{c}{i}\cdot(c - i)^g - \sum_{i = 1}^{c - 1} (-1)^{i+1} \binom{c}{i} \binom{g}{i} \cdot i! \cdot(c - i)^{g-i}
+\]
+
+\item any number of gifts is \(c^g\)
+
+\end{enumerate}
+
+Generalization of 2(II): If there are \(g\) identical gifts and \(c \leq g\) children, the number of distinct allocations if each child must receive
+
+\begin{enumerate}[(a)]
+
+\item at least one gift is \[\binom{g - 1}{c - 1}\]
+
+\item at least two gifts is \[\binom{g - c - 1}{c - 1}\]
+
+\item any number of gifts is \[\binom{g + c - 1}{c - 1}\]
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+%%%%%%%%%%%% To Know for Math 505A Midterm 2 %%%%%%%%%%%
+%
+%
+%
+%
+%
+%
+%
+
 \subsection{To Know for Math 505A Midterm 2}
 
 \subsubsection{Definitions}
@@ -1610,6 +2129,9 @@ f(x)  = \frac{1}{\beta^\alpha\Gamma(\alpha)} x^{\alpha - 1} e^{-x/\beta} = \frac
 
 \end{itemize}
 
+\begin{proposition}\label{prob.gammasum}Let \(X \sim \operatorname{Gamma}(\alpha_1, \beta)\) and \(Y\ \sim \operatorname{Gamma}(\alpha_2, \beta)\). Then \(X + Y \sim \operatorname{Gamma}(\alpha_1 + \alpha_2, \beta)\). 
+\end{proposition}
+
 \textbf{\(\chi_n^2\)}: special case of a gamma distribution: \(\Gamma(n/2, 2)\). Also the sum of \(n\) independent standard normally distributed variables.
 
 \begin{itemize}
@@ -1634,7 +2156,7 @@ f(x)  = \frac{1}{2^{n/2}\Gamma(n/2)} x^{n/2 - 1} e^{-x/2} = \frac{1}{\Gamma(n/2,
 
 \end{itemize}
 
-\textbf{Exponential}: (special case of a gamma distribution: \(\Gamma(1, \beta)\). Also a special case of a Weibull distribution with \(\beta = 1\).)
+\textbf{Exponential}: \label{prob.exp} (special case of a gamma distribution: \(\Gamma(1, \beta)\). Also a special case of a Weibull distribution with \(\beta = 1\).)
 
 \begin{itemize}
 
@@ -1960,6 +2482,288 @@ F_U(u)=\int_0^\infty f_Z(z) \int_{-\infty}^{uz} f_W(w) dw dz - \int_{-\infty}^0 
 \]
 
 To find \(\Pr(Y > aX)\), graph the line \(aX\) 
+
+\end{enumerate}
+
+\subsubsection{More Problems From Homework}
+
+%%%%%%%%%%% HW 5 P 7 %%%%%%%%%%%%%%
+
+\textbf{Homework 5 Problem 4.}
+
+Let \(X_1, X_2, \ldots\) be i.i.d. having moment-generating functions \(M_X = M_X(t), t \in (-\infty, \infty)\). Let \(N\) be an integer-valued random variable with moment-generating function \(M_N = M_N(t), t \in (-\infty, \infty)\). Assume that \(N\) is independent of all \(X_k\) and define \(S = \sum_{k=1}^N X_k\). Confirm that the random variable \(S\) has the moment-generating function \(M_S = M_S(t)\) defined for all \(t \in (-\infty, \infty)\) and 
+
+\[
+M_S(t) = M_N \big(M_X(t) \big)
+\]
+
+Then use the result to derive the formulae
+
+%\[
+%\E(S) = \mu_N \mu_X, \Var(S) = \sigma_N^2 \mu_X^2 + \mu_N \sigma_X^2
+%\]
+\[
+\E(S) = \mu_N \mu_X, \Var(S) = (\sigma_N^2  -\mu_N)\mu_X^2 + \mu_N \sigma_X^2
+\]
+
+where \(\mu_N = \E(N)\), \(\mu_X = \E(X_1)\), \(\sigma_N^2 = \Var(N)\), and \(\sigma_X^2 = \Var(X_1)\). How will the above computations change if we use the characteristic function \(\phi_X\) instead of the moment-generating function \(M_X\)? 
+
+\textbf{Solution.}
+
+\[
+M_S(t) = \E(e^{tS}) = \E[ \E(e^{tS} \mid N)] =\sum_{n=0}^\infty \E(e^{tS} \mid N = n) \Pr(N = n) =\sum_{n=0}^\infty \E(e^{t(X_1 + X_2 + \ldots + X_n)} \mid N = n) \Pr(N = n)
+\]
+
+\[
+=\sum_{n=0}^\infty \E(e^{tX_1} e^{tX_2}\cdots e^{t X_n} ) \Pr(N = n)
+\]
+
+By independence of the \(X_i\) we have
+
+\[
+=\sum_{n=0}^\infty \E(e^{tX_1}) \E( e^{tX_2})\cdots \E( e^{t X_n}) \Pr(N = n)
+\]
+
+which, since the \(X_i\) are i.i.d., can be written as
+
+\[
+=\sum_{n=0}^\infty \E(e^{tX_1})^n \Pr(N = n) =\sum_{n=0}^\infty (M_X(t))^n \Pr(N = n)
+\]
+
+But since \(G_N(s) = \E(s^N) = \sum_{n=0}^\infty s^n \Pr(N = n)\), this can be written as
+
+\[
+M_S(t) = G_N(M_X(t))
+\]
+
+as desired. Note that
+
+\[
+M_S'(t) = G_N' \big( M_X(t) \big) M_X'(t)
+\]
+
+\[
+M_S''(t) = G_N'' \big( M_X(t) \big) (M_X'(t))^2 + G_N' \big( M_X(t) \big) M_X''(t)
+\]
+
+So we have
+
+\begin{itemize}
+
+\item \(\E(S) = M_S'(0) =G_N' \big( M_X(0) \big) M_X'(0) = G_N'(1) \E(X_1) = \E(N) \E(X_1) = \mu_N \mu_X\)
+
+\item \(\Var(S) =  \E(S^2) - \E(S)^2 = M_S''(0) - (M_S'(0))^2  \)
+
+\[
+= G_N'' \big( M_X(0) \big) (M_X'(0))^2 + G_N' \big( M_X(0) \big) M_X''(0) - \mu_N^2 \mu_X^2  = G_N'' \big( 1 \big) \E(X_1)^2 + G_N' \big( 1 \big) \Var(X_1) - \mu_N^2 \mu_X^2
+\]
+
+\[
+= \E[N(N-1)] \E(X_1)^2 + \E(N) \Var(X_1) - \mu_N^2 \mu_X^2 = \E[N^2-N] \E(X_1)^2 + \E(N) \Var(X_1) - \mu_N^2 \mu_X^2
+\]
+
+\[
+= [\E(N^2) - \E(N)^2 + \E(N)^2 - \E(N)] \E(X_1)^2 + \E(N) \Var(X_1) - \mu_N^2 \mu_X^2 = 
+\]
+
+\[
+= [\Var(N) + \E(N)^2 - \E(N)] \E(X_1)^2 + \E(N) \Var(X_1) - \mu_N^2 \mu_X^2 = (\sigma_N^2 + \mu_N^2 -\mu_N)\mu_X^2 + \mu_N \sigma_X^2 - \mu_N^2 \mu_X^2
+\]
+
+\[
+= \boxed{ (\sigma_N^2  -\mu_N)\mu_X^2 + \mu_N \sigma_X^2}
+\]
+
+\end{itemize}
+
+To use the characteristic function \(\phi_X\) instead of the moment generating function \(M_X\), we would do the following:
+
+\[
+\phi_S(t) = \E(e^{itS}) = \E[ \E(e^{itS} \mid N)] =\sum_{n=0}^\infty \E(e^{itS} \mid N = n) \Pr(N = n) =\sum_{n=0}^\infty \E(e^{it(X_1 + X_2 + \ldots + X_n)} \mid N = n) \Pr(N = n)
+\]
+
+\[
+=\sum_{n=0}^\infty \E(e^{itX_1} e^{tX_2}\cdots e^{it X_n} ) \Pr(N = n)
+\]
+
+By independence of the \(X_i\) we have
+
+\[
+=\sum_{n=0}^\infty \E(e^{itX_1}) \E( e^{itX_2})\cdots \E( e^{it X_n}) \Pr(N = n)
+\]
+
+which, since the \(X_i\) are i.i.d., can be written as
+
+\[
+=\sum_{n=0}^\infty \E(e^{itX_1})^n \Pr(N = n) =\sum_{n=0}^\infty (\phi_X(t))^n \Pr(N = n)
+\]
+
+But since \(G_N(s) = \E(s^N) = \sum_{n=0}^\infty s^n \Pr(N = n)\), this can be written as
+
+\[
+\phi_S(t) = G_N(\phi_X(t))
+\]
+
+%%%%%%%%%%% HW 5 P 7 %%%%%%%%%%%%%%
+
+\textbf{Homework 5 Problem 7.}
+
+\begin{enumerate}[(a)]
+
+\item Let \(X_1, X_2, \ldots, X_n\) be independent with mean zero and finite third moment. Prove that 
+
+\[
+\E(X_1 + \ldots + X_n)^3 = \E X_1^3 + \ldots + \E X_n^3
+\]
+
+%\item Let \(X_1, \ldots, X_n\) be exponential with mean one. Prove that the random variables \(\max_{1 \leq k \leq } X_k\) and \(\sum_{k=1}^n X_k/k\) have the same distribution.
+
+\end{enumerate}
+
+\textbf{Solution.}
+
+\begin{enumerate}[(a)]
+
+% 7a
+\item Let \(\E(\exp(it_iX_i) = \phi_{X_i}(t_i)\). Let \(S_n = \sum_{i=1}^n X_i\). Then by independence the characteristic function for \(S_n\) is
+
+\[
+\E(\exp(itS_n)) = \phi_{S_n}(t) = \prod_{i=1}^n \phi_{X_i}(t)
+\]
+
+Then 
+
+\[
+\E(X_1 + X_2 + \ldots + X_n)^3 = \E(S_n^3) = \phi_{S_n}^{(3)} (0)
+\]
+
+\[
+= \sum_{i=1}^n \phi_{X_i}^{(3)}(0) \cdot \bigg( \prod_{j \in \{1, \ldots, n\}, j \neq i}\phi_{X_j}(0) \bigg) + C \bigg[ \sum_{i=1}^n \cdot \bigg( \sum_{j \in \{1, \ldots, n\}, j \neq i} \phi_{X_i}^{(2)} (0) \phi_{X_j}^{(1)}(0) \bigg)  \cdot \bigg( \prod_{k \in \{1, \ldots, n\}, k \neq i, j} \phi_{X_k}(0) \bigg) \bigg]
+\]
+
+where \(C\) is some coefficient resulting from the multinomial expansion of \(S_n\) after repeated differentiation product rules. But because \(\E(X_i) = 0\), \(\phi_{X_i}^{(1)} (0) = 0 \ \forall i\), so the second term goes to 0. Therefore we have
+
+\[
+\E(X_1 + X_2 + \ldots + X_n)^3  = \sum_{i=1}^n \phi_{X_i}^{(3)}(0) \cdot \bigg( \prod_{j \in \{1, \ldots, n\}, j \neq i}\phi_{X_j}(0) \bigg) = \sum_{i=1}^n \E(X_i^3) \cdot 1^{n-1} = \sum_{i=1}^n \E(X_i^3)
+\]
+
+as desired.
+
+%% 7b
+%\item 
+%
+%\[
+%\phi_{X_i}(t) = \frac{\lambda}{\lambda - it} = \frac{1}{1 - it}
+%\]
+%
+%An exponential distribution is itself a gamma distribution with parameters \((\lambda, 1)\). Let \(Y = \max_k \{X_k\}\). Then by independence,
+%
+%\[
+%\Pr(Y \leq y) = \Pr(X_1 \leq y \cap X_2 \leq y \cap \cdots \cap X_n \leq y) = \Pr(X_1 \leq y) \cdot \Pr(X_2 \leq y) \cdot \ldots \cdot \Pr(X_n \leq y)
+%\]
+%
+%Using independence, we have
+%
+%\[
+%\phi_{Y}(t) = \prod_{i=1}^k  \frac{1}{1 - it}
+%\]
+%
+%Let \(Z = \sum_{k=1}^n X_k/k\). By independence,
+%
+%\[
+%\phi_{Z}(t) = \prod_{k=1}^n (\phi_{X_i}(t/k)) = \prod_{k=1}^n \frac{1}{1 - it/k}
+%\]
+
+%which is the characteristic function for a gamma distribution with parameters \((1, n)\). 
+
+
+%\[
+%\phi_{S_n}(t) = (\phi_{X_i}(t))^n = \bigg(  \frac{1}{1 - it} \bigg)^n
+%\]
+%Since the product of independent gamma distributions is gamma (Proposition \ref{prob.gammasum}), \(Y \sim \operatorname{Gamma}(1, n)\). 
+
+%Therefore \(Y\) and \(S_n\) have the same distribution.
+
+\end{enumerate}
+
+
+%%%%%%%%%%% HW 6 P 10 %%%%%%%%%%%%%%
+
+\textbf{Homework 6 Problem 10.}
+
+\begin{enumerate}[(a)]
+
+\item For \(p \in (0, 1)\), let \(x(p)\) be the smallest number of people so that there is a better than \(100 \cdot p \%\) chance to have at least two born on the same day. Find an approximate expression for \(x(p)\), and sketch the graph of the function \(x = x(p)\).
+
+\item Repeat part (a) when you want at least three people to share a birthday.
+
+\end{enumerate}
+
+\textbf{Solution.} 
+
+\begin{enumerate}[(a)]
+
+% 10a
+\item Let \(f(x)\) be the probability of no matches in birthdays in a group of \(x\) people; that is, 
+
+\[
+f(x) = \frac{365 \cdot 364 \cdot 363 \cdots (365 - x + 1)}{365^x} = \frac{1}{365^x} \cdot \frac{365!}{(365 - x)!} = \bigg( 1 - \frac{1}{365} \bigg) \bigg(1 - \frac{2}{365} \bigg) \cdots \bigg( 1 - \frac{x-1}{365}\bigg) 
+\]
+
+Using the first order Taylor approximation \(\exp(-k/x) \approx 1 - k/x\), we have
+
+\[
+f(x) = \bigg( 1 - \frac{1}{365} \bigg) \bigg(1 - \frac{2}{365} \bigg) \cdots \bigg( 1 - \frac{x-1}{365}\bigg)  \approx \exp(-1/365) \exp(-2/365) \cdots \exp(-(x-1)/365) 
+\]
+
+\[
+= e^{-(x^2 - x)/(2\cdot 365)}
+\]
+
+We want the probability of a match to be at least \(p\); that is, \(f(x) \leq 1 - p\). Setting this equal to \(q = 1 - p\), we have
+
+\[
+e^{-(x^2 - x)/(2\cdot 365)} = q \iff -\frac{x^2 - x}{730} = \log(q) \iff x^2 - x + 730 \log(q) = 0 
+\]
+
+\[
+\implies x = 0.5 + \sqrt{1/4 + 730 \log(1/q)} \approx \boxed{ \sqrt{2 \cdot 365 \log(1/q)}}
+\]
+
+where we discard the negative root because we have to have a nonnegative number of people, and we don't worry about the decimals since this is an approximation and we have to round up to the nearest whole person anyway.
+
+\includegraphics[scale=0.4]{prob_hw6p10a}
+
+%We want the probability of a match to be at least \(p\); that is, \(f(x) \leq 1 - p\). Using Stirling's Formula, we have
+%
+%\[
+%f(x) \approx  \frac{1}{365^x} \cdot \frac{365^{365} \exp(-365) \sqrt{2 \pi \cdot 365} }{(365-x)^{365-x} \exp(x-365) \sqrt{2 \pi \cdot (365-x)} } =\frac{365^{365-x} \exp(-x) \sqrt{365} }{(365-x)^{365-x} \sqrt{ 365-x }}
+%\]
+%
+%\[
+%=\frac{365^{365.5-x} \exp(-x) }{(365-x)^{365.5-x} } = \bigg( \frac{365}{365 -x} \bigg)^{365.5 - x} \cdot e^{-x}
+%\]
+
+
+
+% 10b
+\item For a group of three people, the Poisson approximation is more convenient. The number of groups of 3 people in a room of \(x\) people is \(\binom{x}{3}\). For a group of three people, the probability that all three have the same birthday is \(1 \cdot 1/365 \cdot 1/365 = 365^{-2}\). Therefore we can think of the number of matches of three people as distributed Poisson with expectation \(\binom{x}{3} \cdot 365^{-2}\). Then we have the probability of at least one ``success" (triplet with three matched birthdays) is
+
+\[
+1 - \frac{\exp(-\lambda) \lambda^0}{0!} = 1 - \exp \bigg(-\binom{x}{3} \cdot 365^{-2} \bigg)
+\]
+
+We set this equal to \(p\) and solve:
+
+\[
+p = 1 - \exp \bigg(-\binom{x}{3} \cdot 365^{-2} \bigg) \iff -\binom{x}{3} \cdot 365^{-2}  = \log(1-p) \iff \frac{x!}{(x-3)!3!} = 365^2 \cdot \log \bigg(\frac{1}{1-p} \bigg)
+\]
+
+\[
+\iff x(x-1)(x-2) = 6 \cdot 365^2 \cdot \log \bigg(\frac{1}{1-p} \bigg) \iff (x^2-x)(x-2) =  x^3 - 3x^2 + 2x = 6 \cdot 365^2 \cdot \log \bigg(\frac{1}{1-p} \bigg) 
+\]
+
+This has a unique real solution, but it is hard to find.
 
 \end{enumerate}
 
