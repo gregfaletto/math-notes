@@ -284,12 +284,69 @@ Then
 
 \begin{itemize}
 
-\item \begin{theorem} \textbf{Cauchy-Schwarz.} (and \textbf{Bunyakovsky})
+\item \begin{theorem} \label{asym.cauchy.schwarz} \textbf{Cauchy-Schwarz.} (and \textbf{Bunyakovsky})
 
 \[
 \E(XY)^2 \leq \E(X^2) \E(Y^2)
 \]
 \end{theorem}
+
+To prove this, we first prove a useful result.
+
+\begin{lemma}\label{asym.cauchy.lemma}If \(\Var(X) = 0\) then \(X\) is almost surely constant; that is, \(\Pr(X = a) = 1\) for some \(a \in \mathbb{R}\).
+\end{lemma}
+
+\begin{proof}
+Note that because \(\Var(X) = 0 < \infty\), we know that \(\E(X)\) and \(\E(X^2)\) exist. We have
+
+\[
+\Var(X) = \E\big[ (X - \E(X))^2 \big] = 0
+\]
+
+Let \(Y = (X - \E(X))^2 \). Note that \(Y = (X - \E(X))^2 \geq 0\) and that \(\E(Y) = \Var(X) = 0\). Therefore \(\Pr(Y=0) = 1\), so \(\Pr(Y \neq 0) = 0\). To see why, in the case that \(X\) is discrete,
+
+\[
+\E(Y) = \sum_{k=0}^\infty k \cdot \Pr(Y=k) = \Var(X) = 0 
+\]
+
+which is true if and only if \(\Pr(Y=k) = 0\) for all \(k > 0\). Since we already showed that \(Pr(Y < 0) = 0\), it follows that \(\Pr(Y=0) = 1\). In the continuous case,
+
+\[
+\E(Y) = \int_{0}^\infty y \cdot f_Y(y) dy = \Var(X) = 0 
+\]
+
+which implies that \(f_Y(x) = 0\) for all \(x > 0\). Again, since \(\Pr(Y < 0) = 0\), we have \(\Pr(Y \neq 0) = 0\). But
+
+\[
+Y = 0 \iff X = \E(X)
+\]
+
+so we have \(\Pr(X = \E(X)) = 1\).
+\end{proof}
+
+We are now ready to prove the Cauchy-Schwarz Inequality.
+
+\begin{proof}
+ if \(\E(X^2) = 0\) or \(\E(Y^2)=0\), the Cauchy-Schwarz Inequality follows immediately, because that would imply that the right side is 0 and either \(X\) or \(Y\) is constant so the left side is zero too. In the case that \(\E(X^2) > 0\) and \(\E(Y^2) > 0\), for \(a, b \in \mathbb{R}\), let \(Z = aX - bY\). Then 
+
+\begin{equation}\label{asym.cauchyschwarz.1}
+0 \leq \E(Z^2) = a^2 \E(X^2) - 2ab \E(XY) + b^2 \E(Y^2)
+\end{equation}
+
+The right side of (\ref{asym.cauchyschwarz.1}) is quadratic in \(a\). Because it is greater than or equal to zero, it has at most one real root, which means its discriminant must be non-positive. That is, if \(b \neq 0\),
+
+\[
+(-2b \E(XY))^2 - 4 b^2\E(X^2)\E(Y^2) \leq 0 \iff \E(XY)^2 - \E(X^2)\E(Y^2) \leq 0
+\]
+
+which yields the result. Note that equality holds if and only if \(\Pr(aX = bY) = 1\) because the discriminant is zero if and only if the quadratic has a real root, which occurs if and only if 
+
+\[
+\E\big[ (aX -bY)^2 \big] = 0
+\]
+
+which is true if and only if \(\Pr(aX = bY) = 1\) by Lemma (\ref{asym.cauchy.lemma}).
+\end{proof}
 
 \item \textbf{Krylov}
 

@@ -101,6 +101,8 @@
 %\theoremstyle{definition}
 %\newtheorem{lemma}[theorem]{Lemma}
 %\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
 %\newtheorem{definition}{Definition}[section]
 %\newtheorem*{remark}{Remark}
 %
@@ -253,7 +255,7 @@ f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
 
 \end{proof}
 
-\begin{proposition} \label{prob.ross1.6.2} \textbf{(Proposition 1.6.2 in Sheldon Ross \textit{A First Course in Probability}.)}There are \(\binom{n+r-1}{r-1}\) distinct nonnegative integer-valued vectors \((x_1, x_2, \ldots, x_r), x_i \geq 0 \ \forall \ i\) satisfying the equation \(x_1 + x_2 + \ldots + x_r = n\).
+\begin{proposition} \label{prob.ross1.6.2} \textbf{(Proposition 1.6.2 in Sheldon Ross \textit{A First Course in Probability}.)} There are \(\binom{n+r-1}{r-1}\) distinct nonnegative integer-valued vectors \((x_1, x_2, \ldots, x_r), x_i \geq 0 \ \forall \ i\) satisfying the equation \(x_1 + x_2 + \ldots + x_r = n\).
 
 \end{proposition}
 
@@ -275,8 +277,28 @@ Letting \(y_i = x_i + 1\), we have the equivalent system
 y_1 + y_2 + \ldots + y_r = n + r, y_i \geq 1 \ \forall i
 \]
 
-By Proposition \ref{prob.ross1.6.1}, the number of distinct solutions to this equation is \(\binom{n+r-1}{r-1}  \).
+Since \(y_i \geq 1 \iff y_i > 0\), by Proposition \ref{prob.ross1.6.1}, the number of distinct solutions to this equation is \(\binom{n+r-1}{r-1}  \).
 
+\end{proof}
+
+\begin{proposition}\label{prob.ross1.6.2general} More generally, if we desire solutions to \(x_1 + x_2 + \ldots + x_r = n\) such that  \(x_i \geq k \in \mathbb{N}\), then  \(\binom{n + r\cdot(1-k)-1}{r-1}\) solutions are possible.
+
+\end{proposition}
+
+\begin{proof}
+We can construct a similar argument to that used in the proof of Proposition \ref{prob.ross1.6.2} by adding \(r \cdot(1-k) \) to each side of \(x_1 + x_2 + \ldots + x_r = n\):
+
+\[
+x_1 + 1 - k + x_2 + 1 - k + \ldots + x_r  + 1 - k= n + r\cdot(1-k), \ x_i \geq k \ \forall i
+\]
+
+Then substitute \(y_i = x_i + 1 - k\) to yield 
+
+\[
+y_1+ y_2 + \ldots + y_ r = n + r\cdot(1-k), \ y_i + k - 1\geq k \ \forall i
+\]
+
+then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff y_i \geq 1 \iff x_i \geq k\) to yield the result.
 \end{proof}
 
 \subsubsection{Methods for Calculating Quantities}
@@ -873,9 +895,144 @@ Let \(A_k\) and \(C_k\) be defined as above. Note that \(\{A_k | k = 1, 2, \ldot
 
 \subsubsection{Problems we did in class that professor mentioned}
 
-\includegraphics[scale=0.1]{prob_classex_matching}
+\textbf{Example (Letter/envelope matching problem).} An assistant brings \(n\) sandwiches for \(n\) employees at a company. Each employee ordered a unique sandwich, but unfortunately the assistant forgot to ask that the sandwiches be labeled, so they are all indistinguishable, wrapped in the same paper. The assistant plans to distribute one sandwich to each employee and hope for the best. Let \(X\) be the number of sandwiches that are delivered to the correct person.
 
-\includegraphics[scale=0.1]{prob_classex_matching2}
+\begin{enumerate}[(a)]
+
+\item What is the probability of at least one match; that is, \(\Pr(X \geq 1)\)?
+
+\item What is the probability of \(r\) correct matches?
+
+\item What \(\E(X)\)?
+
+\item What is \(\Var(X)\)?
+
+\end{enumerate}
+
+\
+
+\textbf{Solution.} 
+
+\begin{enumerate}[(a)]
+% 2(a)
+\item Let \(A_k\) be an indicator variable for the event that sandwich \(k\) is matched to the correct employee. Then
+
+\[
+\Pr(X \geq 1) = \Pr\bigg(\bigcup_{k=1}^n A_k \bigg) 
+\]
+
+Consider that if there are \(k\) correct matches, there are \(\binom{n}{k}\) sets of \(k\) sandwiches that could be correctly distributed. Also, the probability of a particular set of \(k\) sandwiches being correctly distributed is \((n-k)!/n!\). So we have
+
+\[
+\Pr(X = k) = \binom{n}{k} \frac{(n-k)!}{n!} 
+\]
+
+Therefore by the Inclusion-Exclusion Principle (Proposition \ref{prob.inex}),
+
+\[
+\Pr\bigg(\bigcup_{k=1}^n A_k \bigg)  = \sum_{k=1}^n (-1)^{k-1} \Pr(X=k) = \sum_{k=1}^n (-1)^{k-1} \binom{n}{k} \frac{(n-k)!}{n!}  = \sum_{k=1}^n (-1)^{k-1} \frac{n!}{(n-k)!k!} \frac{(n-k)!}{n!}  
+\]
+
+\[
+=\sum_{k=1}^n \frac{(-1)^{k-1}}{k!} = \frac{(-1)^{0}}{0!}  -\sum_{k=0}^n \frac{(-1)^{k}}{k!}  = \boxed{1 - \sum_{k=0}^n \frac{(-1)^{k}}{k!}}
+\]
+
+As \(n \to \infty\), we have 
+
+\[
+1 - \sum_{k=0}^n \frac{(-1)^{k}}{k!} \to 1 - e^{-1} = \boxed{1 - \frac{1}{e}}
+\]
+
+%% 2 (b)
+\item Clearly there is only one way to match all the sandwiches correctly, so \(\Pr(X = r \mid r = n) = 1/n!\). Also, note that it is impossible to match all but one sandwich, so \(\Pr(X = r \mid r = n -1) = 0\). Only the cases for \(r \leq n - 2\) are nontrivial. Using a similar argument as part (a), we see that for any set of \(m\) sandwiches, the probability that at least one was correctly distributed is 
+
+\[
+\Pr\bigg(\bigcup_{k=1}^m A_k \bigg)  = \sum_{k=1}^m (-1)^{k-1} \frac{(n-k)!}{n!}  
+\]
+
+and that the probability that \textit{any} set of \(m\) sandwiches contained at least one correct match is
+\[
+ \sum_{k=1}^m (-1)^{k-1} \binom{n}{k} \frac{(n-k)!}{n!}   = \sum_{k=1}^m (-1)^{k-1} \frac{n!}{(n-k)!k!} \frac{(n-k)!}{n!}  
+\]
+
+\[
+=\sum_{k=1}^m \frac{(-1)^{k-1}}{k!} = 1 + \sum_{k=2}^m \frac{(-1)^{k-1}}{k!}   = 1 - \sum_{k=2}^m \frac{(-1)^{k}}{k!}
+\]
+
+
+
+
+%\[
+%\sum_{k=1}^m \frac{(-1)^{k-1}}{k!} = 1 - \sum_{k=0}^m \frac{(-1)^{k}}{k!}
+%\]
+
+So for \(m \geq 2\), the probability of \textit{no} correct matches is \(\sum_{k=2}^m \frac{(-1)^{k}}{k!}\) if \(n \geq 2\), and of course \(0\) if \(n = 1\). Therefore the probability of \(r\) matches is the probability of any one set of \(r\) sandwiches all matching and none of the remaining \(n-r\) sandwiches matching times the number of sets of \(r\) sandwiches; that is,
+
+\[
+\Pr(X=r \mid r \leq n -2) = \binom{n}{r}  \cdot \frac{(n-r)!}{n!} \cdot \bigg( \sum_{k=2}^{n-r} \frac{(-1)^{k}}{k!} \bigg) = \frac{r!}{(n-r)!r!} \cdot \frac{(n-r)!}{n!} \sum_{k=2}^{n-r} \frac{(-1)^{k}}{k!}  
+\]
+
+\[
+= \frac{1}{r!} \sum_{k=2}^{n-r} \frac{(-1)^{k}}{k!} 
+\]
+
+Therefore we have
+
+\[
+\boxed{
+\Pr(X=r) = \begin{cases}
+\frac{1}{r!} \sum_{k=2}^{n-r} \frac{(-1)^{k}}{k!}  & r \leq n-2 \\
+0 & r = n -1 \\
+\frac{1}{r!} & r=n
+\end{cases}
+}
+\]
+
+%\[
+%\sum_{k=0}^m \frac{(-1)^{k}}{k!}
+%\]
+
+% 2(c)
+\item 
+
+\[
+\E(X) = \E \bigg( \sum_{k=1}^n A_k \bigg) = \sum_{k=1}^n \E(A_k) = \sum_{k=1}^n \Pr(A_k = 1) = n \cdot \frac{1}{n} = \boxed{1}
+\]
+
+% 2(d)
+\item 
+
+\[
+\Var(X) = \E(X^2) - \E(X)^2 
+\]
+
+\[
+\E(X^2) = \E \bigg(\sum_{k=1}^n A_k \bigg)^2 = \E \bigg(\sum_{k=1}^n A_k^2 + 2 \sum_{1 \leq i < j \leq n} A_i A_j\bigg) = \sum_{k=1}^n \E(A_k^2 ) + 2 \sum_{1 \leq i < j \leq n}  \E(A_i A_j )
+\]
+
+Because
+
+\[
+\E(A_k^2) = 1^2 \cdot \Pr(A_k = 1) = \frac{1}{n}
+\]
+
+\[
+\E(A_i A_j) = \Pr(A_j = 1 \cap A_j = 1) = \frac{(n-2)!}{n!}  =  \frac{1}{n(n-1)} = \frac{1}{2} \cdot \binom{n}{2}^{-1}
+\]
+
+we have
+
+\[
+\E(X^2) = \sum_{k=1}^n \frac{1}{n} + 2 \sum_{1 \leq i < j \leq n}  \frac{1}{n(n-1)} = 1 + 2 \cdot \binom{n}{2} \cdot \frac{1}{2} \cdot \binom{n}{2}^{-1} = 2
+\]
+
+\[
+\implies \Var(X) = \E(X^2) - \E(X)^2 = 2 - 1 = \boxed{1}
+\]
+
+
+
+\end{enumerate}
 
 \textbf{Variance Problem 09/21}  If \(\E(X \mid Y) = Y, \E(Y \mid X) = X, \E(X^2) < \infty, \E(Y^2) < \infty\), show \(\E(X-Y)^2 = 0 \) (or equivalently, show \(\Pr(X = Y) = 1\)).
 
@@ -1503,11 +1660,7 @@ Clearly each of these outcomes are mutually exclusive. Therefore the answer is
 x_1 + x_2 + \ldots + x_r = n
 \]
 
-is equal to \(\binom{n + r - 1}{r - 1}\). In distributing 7 identical gifts to 10 different children, we can imagine the vector \((x_1, x_2, \ldots, x_{10})\) represents the number of gifts given to each child (where \(x_i\) is a nonnegative integer for all \(i\)). So we have \(n = 7\) and \(r = 10\). Therefore the number of possible allocations is 
-
-\[
-\binom{7 + 10 - 1}{10 - 1} = \boxed{11,440}
-\]
+is equal to \(\binom{n + r - 1}{r - 1} = \binom{7 + 10 - 1}{10 - 1} = \boxed{11,440}\).
 
 \end{enumerate}
 
@@ -1729,9 +1882,12 @@ is very difficult because, for example, \(B_2 \cap A_ 3\) is nonempty but \(B_2 
 \begin{enumerate}[(a)]
 
 % 2 II(a)
-\item Imagine we lay out the 20 indistinguishable gifts and take 6 sticks to place in the 19 spaces between them. The first child gets all the gifts to the left of the leftmost stick, the second child gets the gifts between the leftmost and second leftmost stick, and so on, until the last child gets all the gifts to the right of the rightmost stick. Because each child must receive at least one gift, we must place each stick in a different space. There are \(\binom{19}{6} = \boxed{27,132}\) ways to do this. 
+\item 
 
-(See also Proposition \ref{prob.ross1.6.1}.)
+%Imagine we lay out the 20 indistinguishable gifts and take 6 sticks to place in the 19 spaces between them. The first child gets all the gifts to the left of the leftmost stick, the second child gets the gifts between the leftmost and second leftmost stick, and so on, until the last child gets all the gifts to the right of the rightmost stick. Because each child must receive at least one gift, we must place each stick in a different space. There are \(\binom{19}{6} = \boxed{27,132}\) ways to do this. 
+
+By Proposition \ref{prob.ross1.6.1}, there are \(\binom{19}{6} = \boxed{27,132}\) ways to do this. 
+
 
 % 2 II(b)
 \item Similar to Problem 1 part (II)(c), if the vector \((x_1, x_2, \ldots, x_{7})\) represents the number of gifts given to each child, we would like a solution such that
@@ -1740,19 +1896,21 @@ is very difficult because, for example, \(B_2 \cap A_ 3\) is nonempty but \(B_2 
 x_1 + x_2 + \ldots + x_7 = 20, x_i \geq 2 \ \forall i
 \]
 
-Note that we can transform this problem in the following way:
+By Proposition \ref{prob.ross1.6.2general}, the number of possible allocations under these conditions, is \(\binom{20 + 7\cdot(1-2)-1}{7-1} = \binom{12}{6} = \boxed{924} \).
 
-\[
-x_1 - 1 + x_2 - 1 + \ldots + x_7 - 1 = 20 - 1 \cdot 7, x_i - 1 \geq 1 \ \forall i
-\]
-
-Letting \(y_i = x_i - 1\), we have the equivalent system
-
-\[
-y_1 + y_2 + \ldots + y_7 = 13, y_i \geq 1 \ \forall i
-\]
-
-By Proposition \ref{prob.ross1.6.1} (and because of the same logic as used in part (a)), the number of distinct solutions to this equation, and therefore the number of possible allocations under these conditions, is \(\binom{12}{6} = \boxed{924} \).
+%Note that we can transform this problem in the following way:
+%
+%\[
+%x_1 - 1 + x_2 - 1 + \ldots + x_7 - 1 = 20 - 1 \cdot 7, x_i - 1 \geq 1 \ \forall i
+%\]
+%
+%Letting \(y_i = x_i - 1\), we have the equivalent system
+%
+%\[
+%y_1 + y_2 + \ldots + y_7 = 13, y_i \geq 1 \ \forall i
+%\]
+%
+%By Proposition \ref{prob.ross1.6.1} (and because of the same logic as used in part (a)), the number of distinct solutions to this equation, and therefore the number of possible allocations under these conditions, is \(\binom{12}{6} = \boxed{924} \).
 
 % 2 II(c)
 \item By Proposition \ref{prob.ross1.6.2}, the number of nonnegative integer-valued vectors \((x_1, x_2, \ldots, x_r)\) satisfying the equation
@@ -1820,7 +1978,7 @@ c^g - \sum_{i = 1}^{c - 1} (-1)^{i+1} \binom{c}{i}\cdot(c - i)^g
 \item at least two gifts is
 
 \[
-c^g - \sum_{i = 1}^{c - 1} (-1)^{i+1} \binom{c}{i}\cdot(c - i)^g - \sum_{i = 1}^{c - 1} (-1)^{i+1} \binom{c}{i} \binom{g}{i} \cdot i! \cdot(c - i)^{g-i}
+c^g - \sum_{i = 1}^{c - 1} (-1)^{i+1} \binom{c}{i}\cdot(c - i)^g - \sum_{i = 1}^{c - 1} (-1)^{i+1} \binom{c}{i} \binom{g}{i} \cdot i! \cdot(c - i)^{g-i} 
 \]
 
 \item any number of gifts is \(c^g\)
@@ -1841,6 +1999,131 @@ Generalization of 2(II): If there are \(g\) identical gifts and \(c \leq g\) chi
 
 \end{enumerate}
 
+\textbf{Homework 1 Problem 4.} You have \(\$20\)K to invest, and have a choice of stocks, bonds, mutual funds, or a CD. Investments must be made in multiples of \(\$1\)K, and there are minimal amounts to be invested: \(\$2\)K in stocks, \(\$2\)K in bonds, \(\$3\)K in mutual funds, and \(\$4\)K in the CD. Count the number of choices in each situation: (a) You want to invest in all four, (b) you want to invest in at least three out of four.
+
+\textbf{Solution.} 
+
+\begin{enumerate}[(a)]
+
+% 4a
+\item If the vector \((x_{S}, x_{B}, x_{MF}, x_{CD})\) represents the amount of money (in thousands of dollars) invested in each instrument, we would like a solution such that
+
+\[
+x_{S} + x_{B} + x_{MF} + x_{CD} = 20\] where \[x_{S} \geq 2, x_{B} \geq 2, x_{MF} \geq 3,  x_{CD} \geq 4
+\]
+
+In a way similar to the proof for Proposition \ref{prob.ross1.6.2general}, note that we can transform this problem in the following way:
+
+\[
+x_{S} - 1 +  x_{B} - 1 + x_{MF} - 2 + x_{CD} - 3 = 20 -  (1 + 1 + 2 + 3)\] where \[ x_{S} - 1 \geq 1,  x_{B} - 1 \geq 1, x_{MF} - 2 \geq 1,  x_{CD} - 3 \geq 1
+\]
+
+Letting \(y_{S} =  x_{S} - 1, y_{B} =  x_{B} - 1, y_{MF} = x_{MF} - 2, y_{CD} =x_{CD} - 3  \), we have the equivalent system
+
+\[
+y_{S} + y_{B} + y_{MF} + y_{CD} = 13, y \geq 1 \ \forall y
+\]
+
+By Proposition \ref{prob.ross1.6.1}, the number of distinct solutions to this equation, and therefore the number of possible allocations under these conditions, is \(\binom{13 - 1}{4 - 1} = \boxed{220} \).
+
+%4b
+\item Enumerate the \(\binom{4}{3} = 4\) possibilities.
+
+\begin{enumerate}[(i)]
+
+\item \textbf{Invest in stocks, bonds, and mutual funds.}
+
+\[
+x_{S} + x_{B} + x_{MF} = 202\] where \[x_{S} \geq 2, x_{B} \geq 2, x_{MF} \geq 3
+\]
+
+Note that we can transform this problem in the following way:
+
+\[
+x_{S} - 1 +  x_{B} - 1 + x_{MF} - 2= 20 -  (1 + 1 + 2)\] where \[ x_{S} - 1 \geq 1,  x_{B} - 1 \geq 1, x_{MF} - 2 \geq 1
+\]
+
+Letting \(y_{S} =  x_{S} - 1, y_{B} =  x_{B} - 1, y_{MF} = x_{MF} - 2 \), we have the equivalent system
+
+\[
+y_{S} + y_{B} + y_{MF} = 16, y \geq 1 \ \forall y
+\]
+
+Therefore the number of possible allocations under these conditions is \(\binom{16 - 1}{3 - 1} = \boxed{105} \).
+
+\item \textbf{Invest in stocks, bonds, and CDs.}
+
+\[
+x_{S} + x_{B} + x_{CD} = 20\] where \[x_{S} \geq 2, x_{B} \geq 2, x_{CD} \geq 4
+\]
+
+Note that we can transform this problem in the following way:
+
+\[
+x_{S} - 1 +  x_{B} - 1 + x_{CD} - 3 = 20 -  (1 + 1 + 3)\] where \[ x_{S} - 1 \geq 1,  x_{B} - 1 \geq 1, x_{CD} - 3 \geq 1
+\]
+
+Letting \(y_{S} =  x_{S} - 1, y_{B} =  x_{B} - 1, y_{CD} =x_{CD} - 3  \), we have the equivalent system
+
+\[
+y_{S} + y_{B} + y_{CD} = 15, y \geq 1 \ \forall y
+\]
+
+Therefore the number of possible allocations under these conditions is \(\binom{15 - 1}{3 - 1} = \boxed{91} \).
+
+\item \textbf{Invest in stocks, mutual funds, and CDs.}
+
+\[
+x_{S} + x_{MF} + x_{CD} = 2\] where \[x_{S} \geq 2, x_{MF} \geq 3,  x_{CD} \geq 4
+\]
+
+Note that we can transform this problem in the following way:
+
+\[
+x_{S} - 1 +  x_{MF} - 2 + x_{CD} - 3 = 20 -  (1 +  2 + 3)\] where \[ x_{S} - 1 \geq 1,  x_{MF} - 2 \geq 1,  x_{CD} - 3 \geq 1
+\]
+
+Letting \(y_{S} =  x_{S} - 1, y_{MF} = x_{MF} - 2, y_{CD} =x_{CD} - 3  \), we have the equivalent system
+
+\[
+y_{S} +y_{MF} + y_{CD} = 14, y \geq 1 \ \forall y
+\]
+
+Therefore the number of possible allocations under these conditions is \(\binom{14 - 1}{3 - 1} = \boxed{78} \).
+
+\item \textbf{Invest in bonds, mutual funds, and CDs.}
+
+\[
+ x_{B} + x_{MF} + x_{CD} = 2\] where \[ x_{B} \geq 2, x_{MF} \geq 3,  x_{CD} \geq 4
+\]
+
+Note that we can transform this problem in the following way:
+
+\[
+ x_{B} - 1 + x_{MF} - 2 + x_{CD} - 3 = 20 -  ( 1 + 2 + 3)\] where \[  x_{B} - 1 \geq 1, x_{MF} - 2 \geq 1,  x_{CD} - 3 \geq 1
+\]
+
+Letting \( y_{B} =  x_{B} - 1, y_{MF} = x_{MF} - 2, y_{CD} =x_{CD} - 3  \), we have the equivalent system
+
+\[
+ y_{B} + y_{MF} + y_{CD} = 14, y \geq 1 \ \forall y
+\]
+
+therefore the number of possible allocations under these conditions is \(\binom{14 - 1}{3 - 1} = \boxed{78} \).
+
+\item \textbf{Invest in all four:} per part 4(a), there are \(\boxed{220}\) ways to do this.
+
+\end{enumerate}
+
+Note that all of these possibilities are mutually exclusive. Therefore the total number is 
+
+\[
+\binom{16 - 1}{3 - 1} + \binom{15 - 1}{3 - 1} + \binom{14 - 1}{3 - 1} + \binom{14 - 1}{3 - 1} + \binom{13 - 1}{4 - 1} = 105 + 91 + 78 + 78 + 220 = \boxed{572}
+\]
+
+\end{enumerate}
+
+
 
 %%%%%%%%%%%% To Know for Math 505A Midterm 2 %%%%%%%%%%%
 %
@@ -1853,6 +2136,7 @@ Generalization of 2(II): If there are \(g\) identical gifts and \(c \leq g\) chi
 
 \subsection{To Know for Math 505A Midterm 2}
 
+%%%%%%%% Definitions 
 \subsubsection{Definitions}
 
 \begin{definition} A random variable \(X\) is \textbf{continuous} if its distribution function \(F(x) = \Pr(X \leq x)\) can be written as 
@@ -1919,6 +2203,28 @@ is equal to 0. \end{theorem}
 \end{itemize}
 
 \begin{theorem} \textbf{(Theorem 4.2.3, Grimmett and Stirzaker.)} Let \(X\) and \(Y\) be random variables, and let \(g, h: \mathbb{R} \to \mathbb{R}\). If \(X\) and \(Y\) are independent, then so are \(g(X)\) and \(h(Y)\). \end{theorem}
+
+\begin{definition}The \textbf{correlation coefficient} between random variables \(X\) and \(Y\) is given by
+
+\[
+\rho = \frac{\Cov(X,Y)}{\sqrt{\Var(X) \Var(Y)}}
+\]
+\end{definition}
+
+\begin{theorem}The correlation coefficient satisfies \(|\rho| \leq 1\).\end{theorem}
+
+\begin{proof}
+Apply the Cauchy-Schwarz Inequality (Theorem \ref{asym.cauchy.schwarz})  to \(X - \E(X)\) and \(Y - \E(Y)\):
+
+\[
+\Cov(X,Y)^2 = \big(\E\big[\big(X - \E(X) \big) \big(Y - \E(Y) \big) \big]^2\big)^2 \leq \E \big[\big(X - \E(X) \big)^2 \big]\E \big[ \big(Y - \E(Y) \big) ^2\big] = \Var(X) \Var(Y) 
+\]
+
+\[
+\iff \frac{\Cov(X,Y)^2}{\Var(X) \Var(Y) } \leq 1 \iff \rho^2 \leq 1 \iff |\rho| \leq 1
+\]
+
+\end{proof}
 
 \subsubsection{Probability-Generating Functions}
 
@@ -2046,6 +2352,8 @@ f(x) = \frac{1}{2\pi} \int_{-\infty}^\infty \exp(-itx) \phi(t) dt
 
 \subsubsection{Continuous Random Variable Distributions}
 
+
+%%%%%%%%% Uniform %%%%%%%%%%%%%%
 \textbf{Uniform}: \(\operatorname{U}(a, b)\)
 
 \begin{itemize}
@@ -2071,15 +2379,55 @@ F(x) = \Pr(X \leq x) = \begin{cases}
 
 \item Probability-generating function:
 
-\item Moment-generating function:
+\item Moment-generating function: 
+
+\[
+M_X(t) = \frac{1}{(b-a)t} \big[ \exp(bt) - \exp(at) \big]
+\]
+
+\begin{proof}
+\[
+M_X(t) = \E(\exp(tX)) = \int_a^b \frac{1}{b-a} \cdot \exp(tx) dx = \frac{1}{b-a} \bigg[ \frac{1}{t} \exp(tx) \bigg]_a^b =  \frac{1}{(b-a)t} \big[ \exp(bt) - \exp(at) \big]
+\]
+\end{proof}
 
 \item Characteristic function:
+
+\[
+\frac{2}{(b-a)t} \sin \bigg( \frac{1}{2} (b-a)t \bigg) \exp \bigg(i(a+b) \frac{t}{2} \bigg)
+\]
+
+%\begin{proof}
+%\[
+%\E(e^{itX}) = \E( \cos(tX) + i \sin(tX) ) =  \int_a^b \cos(tx) \cdot \frac{1}{b-a} dx + \int_a^b i\sin(tx) \cdot \frac{1}{b-a} dx   
+%\]
+%
+%\[
+%=  \frac{1}{b-a} \bigg( \int_a^b \cos(tx) dx + i \int_a^b \sin(tx) dx  \bigg)
+%\]
+%\end{proof}
 
 \item Expectation: \(\E(X) = (b-a)/2\)
 
 \item Variance: \(\Var(X) = (b - a)^2/12 \)
 
 \end{itemize}
+
+\begin{proposition}\label{prob.log.unif.exp}If \(X \sim U(0, 1)\), then \(Y = - \log(X) \sim \operatorname{Exponential}(1)\). 
+\end{proposition}
+
+\begin{proof}
+\[
+\Pr(Y \leq y) = \Pr(- \log(X) \leq y) = \Pr( \log(X) \geq -y)  = \Pr(X \geq e^{-y}) = \int_{\exp(-y)}^\infty dt = \int_{\exp(-y)}^1 dt
+\]
+
+Substituting \(t = e^{-u}\) (so that we have \(u = -\log(t)\), \(dt = -e^{-u} du\), we have
+
+\[
+\Pr(Y \leq y) =  -\int_{y}^{0}  e^{-u} du = \big[e^{-u} \big]_y^0 = 1 - e^{- y}
+\]
+which is the cdf for an exponential distribution with mean 1.
+\end{proof}
 
 \textbf{Normal}: \(\mathcal{N}(\mu, \sigma^2)\)
 
@@ -2156,6 +2504,8 @@ f(x)  = \frac{1}{2^{n/2}\Gamma(n/2)} x^{n/2 - 1} e^{-x/2} = \frac{1}{\Gamma(n/2,
 
 \end{itemize}
 
+%%%%%%%%%% Exponential %%%%%%%%%%%%%
+
 \textbf{Exponential}: \label{prob.exp} (special case of a gamma distribution: \(\Gamma(1, \beta)\). Also a special case of a Weibull distribution with \(\beta = 1\).)
 
 \begin{itemize}
@@ -2166,7 +2516,7 @@ f(x)  = \frac{1}{2^{n/2}\Gamma(n/2)} x^{n/2 - 1} e^{-x/2} = \frac{1}{\Gamma(n/2,
 
 \item Probability-generating function:
 
-\item Moment-generating function:
+\item Moment-generating function: \(\frac{\lambda}{\lambda - t}\)
 
 \item Characteristic function:
 
@@ -2175,6 +2525,10 @@ f(x)  = \frac{1}{2^{n/2}\Gamma(n/2)} x^{n/2 - 1} e^{-x/2} = \frac{1}{\Gamma(n/2,
 \item Variance: \(\Var(X) = \beta^2 = \lambda^{-2}  \)
 
 \end{itemize}
+
+\begin{remark}
+Recall Proposition \ref{prob.log.unif.exp}: If \(X \sim U(0, 1)\), then \(Y = - \log(X) \sim \operatorname{Exponential}(1)\). 
+\end{remark}
 
 \textbf{Cauchy}: 
 
