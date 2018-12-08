@@ -6,8 +6,8 @@
 \contentsline {subsubsection}{\numberline {1.1.4}Methods for Calculating Quantities}{7}{subsubsection.1.1.4}
 \contentsline {subsubsection}{\numberline {1.1.5}Discrete Random Variable Distributions}{8}{subsubsection.1.1.5}
 \contentsline {subsubsection}{\numberline {1.1.6}Indicator Method}{9}{subsubsection.1.1.6}
-\contentsline {subsubsection}{\numberline {1.1.7}Linear transformations of random variables}{9}{subsubsection.1.1.7}
-\contentsline {subsubsection}{\numberline {1.1.8}Poisson Paradigm (Poisson approximation for indicator method)}{9}{subsubsection.1.1.8}
+\contentsline {subsubsection}{\numberline {1.1.7}Linear transformations of random variables}{10}{subsubsection.1.1.7}
+\contentsline {subsubsection}{\numberline {1.1.8}Poisson Paradigm (Poisson approximation for indicator method)}{10}{subsubsection.1.1.8}
 \contentsline {subsubsection}{\numberline {1.1.9}Asymptotic Distributions}{10}{subsubsection.1.1.9}
 \contentsline {subsection}{\numberline {1.2}Worked problems}{10}{subsection.1.2}
 \contentsline {subsubsection}{\numberline {1.2.1}Example Problems That Will Likely Appear on Midterm}{10}{subsubsection.1.2.1}
@@ -22,4 +22,4 @@
 \contentsline {subsubsection}{\numberline {1.3.6}Multivariate Gaussian (Normal) Distributions}{41}{subsubsection.1.3.6}
 \contentsline {subsection}{\numberline {1.4}Worked problems}{42}{subsection.1.4}
 \contentsline {subsubsection}{\numberline {1.4.1}Example Problems That Will Likely Appear on Midterm}{42}{subsubsection.1.4.1}
-\contentsline {subsubsection}{\numberline {1.4.2}More Problems From Homework}{43}{subsubsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.2}More Problems From Homework}{44}{subsubsection.1.4.2}

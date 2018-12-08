@@ -137,12 +137,12 @@
 %%
 %%
 %%
-%%
-%% Probability
+%%%
+%%% Probability
 
 \section{Probability}
 
-These are my notes from taking Math 505A at USC and the textbook \textit{Probability and Random Processes} (Grimmet and Stirkazer) 3rd edition.
+These are my notes from taking Math 505A at USC and the textbook \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition.
 
 \subsection{To Know for Math 505A Midterm 1 (Discrete Random Variables)}
 
@@ -217,6 +217,7 @@ f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
 \begin{definition} \textbf{Conditional Variance:} \(\Var(X \mid Y) = \E\big[ (X - \E(X \mid Y))^2   \mid Y\big]\)
 \end{definition}
 
+%%%%%%% Odds and Ends %%%%%%%%%%
 \subsubsection{Odds and Ends}
 
 \begin{proposition} \label{prob.inex} \textbf{Inclusion-Exclusion Principle:}
@@ -301,6 +302,7 @@ y_1+ y_2 + \ldots + y_ r = n + r\cdot(1-k), \ y_i + k - 1\geq k \ \forall i
 then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff y_i \geq 1 \iff x_i \geq k\) to yield the result.
 \end{proof}
 
+%%%%%%%%%% Methods for Calculating Quantities %%%%%%%%%
 \subsubsection{Methods for Calculating Quantities}
 
 \begin{itemize}
@@ -356,7 +358,19 @@ then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff
 \end{enumerate}
 \end{theorem}
 
-\item \begin{theorem} \textbf{Law of Total variance:} \( \Var(X) = \Var \big( \E(X \mid Y) \big) + \E \big( \Var(X \mid Y) \big) \)\end{theorem}
+\item \begin{definition} Conditional variance: 
+
+\[
+\Var(X \mid Y) = \E \big[ (X - \E(X \mid Y))^2 \mid Y \big]
+\] 
+%= \E(X^2 \mid Z) - \E(X \mid Z)^2 
+
+\end{definition}
+
+\item \begin{theorem} \textbf{Law of Total Variance:} \( \Var(X) = \Var \big( \E(X \mid Y) \big) + \E \big( \Var(X \mid Y) \big) \)\end{theorem}
+
+\item \begin{proposition}\label{prob.const.var}If \(c \in \mathbb{R}\), then \(\Var(c) = 0\).
+\end{proposition}
 
 \end{itemize}
 
@@ -366,7 +380,21 @@ then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff
 
 \item \begin{definition} \( \Cov(X, Y ) = \E \big[ (X - \E(X))(Y - \E(Y))\big] \) \end{definition}
 
-\item \begin{proposition} \textbf{(Useful reformulation):} \(\Cov(X) = \E(XY) - \E(X)\E(Y)\) \end{proposition}
+\item \begin{proposition} \textbf{(Useful reformulation):} \(\Cov(X, Y) = \E(XY) - \E(X)\E(Y)\) \end{proposition}
+
+\item \begin{theorem} \textbf{(Some useful results):} 
+
+
+\begin{enumerate}[(a)]
+
+\item \(\Cov(aX, BY) = ab \Cov(X, Y)\)
+
+\item \(\Cov(X, X) = \Var(X)\)
+
+\item \(\Cov(aX + bY) = ac\Var(X) + bd\Var(Y) + (ad + bc)\Cov(X, Y)\)
+
+\end{enumerate}
+\end{theorem}
 
 \item \begin{definition} Conditional covariance: 
 
@@ -1140,7 +1168,7 @@ Therefore
 
 \textbf{Solution.} 
 
-Since \(Y\) is a function of \(N\), let \(Y = y(N)\). By the Law of the Unconscious Statistician (Theorem \ref{prob.law.of.uncon}),
+Since \(Y\) is a function of \(N\), let \(Y = y(N)\). By the Law of the Unconscious Statistician,
 
 \[
 \E(Y) = \E \big( \E( Y \mid N) \big) = \E \big( \E( \max_{1 \leq i \leq N} U_i \mid N = n ) \big) 
@@ -1161,7 +1189,15 @@ for \(x \in [0, 1]\). Therefore the pdf of \(Z_n\) is its derivative, \(nx^{n-1}
 Plugging this into the expression for \(\E(Y)\) yields
 
 \[
-\E(Y) = \E \bigg( \frac{N}{N+1} \bigg) = \sum_{n=1}^\infty \frac{n}{n+1} \Pr(N = n) = \sum_{n=1}^\infty \frac{n}{n+1} \frac{\exp(-1)1^n}{n!} = \boxed{ \frac{1}{e} \sum_{n=1}^\infty \frac{n}{(n+1)!}}
+\E(Y) = \E \big( \E( Y \mid N) \big) = \sum_{n=0}^\infty \frac{n}{n+1} \Pr(N = n) = \sum_{n=1}^\infty \frac{n}{n+1} \frac{\exp(-1)1^n}{n!} 
+\]
+
+\[
+=\frac{1}{e} \sum_{n=1}^\infty \frac{n + 1  - 1}{(n+1)!} =\frac{1}{e}\bigg(  \sum_{n=1}^\infty \frac{n + 1  }{(n+1)!} -  \sum_{n=1}^\infty \frac{ 1  }{(n+1)!}  \bigg) =\frac{1}{e}\bigg(  \sum_{n=1}^\infty \frac{1  }{n!} -  \sum_{m=2}^\infty \frac{ 1  }{m!}  \bigg) 
+\]
+
+\[
+= \frac{1}{e} \big[e - 1 - (e - 1 - 1) \big]  = \boxed{\frac{1}{e}}
 \]
 
 
@@ -2626,6 +2662,26 @@ f(x)  = \frac{\Gamma((n+1)/2)}{\sqrt{n \pi} \cdot \Gamma(n/2)} \bigg( 1 + \frac{
 
 \end{itemize}
 
+\textbf{Pareto}: (parameters \(\alpha\), \(x_m\))
+
+\begin{itemize}
+
+\item Probability density function: \(f(x) = \alpha x_m^\alpha/x^{\alpha + 1} \text{ for } x \geq 1, 0 \text{ otherwise.} \)
+
+\item Cumulative distribution function: \(F(x) = 1 - (x_m/x)^{\alpha} \text{ for } x \geq 1, 0 \text{ otherwise.}\)
+
+\item Probability-generating function:
+
+\item Moment-generating function:
+
+\item Characteristic function:
+
+\item Expectation: \(\E(X) = \alpha x_m/(\alpha -1) \text{ for } \alpha > 1, \infty \text{ otherwise.}\)
+
+\item Variance: \(\Var(X) = \frac{x_m^2\alpha}{(\alpha-1)^2(\alpha - 2)}\) for \(\alpha > 2\), \(\infty\) otherwise.
+
+\end{itemize}
+
 
 \subsubsection{Multivariate Gaussian (Normal) Distributions}
 
@@ -2647,9 +2703,15 @@ f_X(x) = \frac{1}{2 \pi \sigma_2 \sigma_2 \sqrt{1 - \rho^2}} \exp \bigg[ - \frac
 for \(x \in \mathbb{R}^2\).
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}\label{prob.cond.bivar.norm.dist}
 
-From \url{http://pluto.huji.ac.il/~pchiga/teaching/MathStat/SIAnotes2013.pdf} (Proposition 3c1): Let \(X\) be a Gaussian random variable in \(\mathbb{R}^2\) as in Definition 2b6. Then \(f_{X_1 \mid X_2}(x_1; x_2)\) is Gaussian with the (conditional) mean
+From \url{http://pluto.huji.ac.il/~pchiga/teaching/MathStat/SIAnotes2013.pdf} (Proposition 3c1): Let \(X\) be a Gaussian random variable in \(\mathbb{R}^2\) such that
+
+\[
+\begin{bmatrix} X_1 \\ X_2 \end{bmatrix}  \sim \mathcal{N}\bigg(\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & \rho \sigma_1 \sigma_2 \\  \rho \sigma_1 \sigma_2 & \sigma_2^2 \end{bmatrix}  \bigg)
+\]
+
+Then \(f_{X_1 \mid X_2}(x_1; x_2)\) is Gaussian with the (conditional) mean
 
 \[
 \E(X_1 \mid X_2 = x_2) = \mu_1 + \frac{\rho \sigma_1}{\sigma_2} (x_2 - \mu_2)
@@ -2660,7 +2722,15 @@ and the (conditional) variance
 \[
 \Var(X_1 \mid X_2 = x_2) = \sigma_1^2 (1 - \rho^2)
 \]
+
+That is, the conditional distribution of \(X_1\) given \(X_2\) is
+
+\[
+X_1 \mid X_2 = x_2 \sim \mathcal{N} \bigg( \mu_1 + \rho \frac{\sigma_1}{\sigma_2}(x_2 - \mu_2), (1 - \rho^2)\sigma_1^2 \bigg) 
+\]
 \end{proposition} 
+
+\begin{remark}Note that this matches the OLS coefficients in the univariate case. In other words, the univariate OLS formula can be derived using only this fact.\end{remark}
 
 Recall Theorem \ref{prob.bivariate.norm.indep}: if two variables are bivariate normal, they are independent if and only if their covariance 
 
@@ -2669,22 +2739,6 @@ Recall Theorem \ref{prob.bivariate.norm.indep}: if two variables are bivariate n
 \] 
 
 equals 0. 
-
-\begin{theorem}\label{prob.cond.bivar.norm.dist}For a bivariate normal distribution
-
-\[
-\begin{bmatrix} X_1 \\ X_2 \end{bmatrix}  \sim \mathcal{N}\bigg(\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & \rho \sigma_1 \sigma_2 \\  \rho \sigma_1 \sigma_2 & \sigma_2^2 \end{bmatrix}  \bigg)
-\]
-
-the conditional distribution of \(X_1\) given \(X_2\) is
-
-\[
-X_1 \mid X_2 = x_2 \sim \mathcal{N} \bigg( \mu_1 + \rho \frac{\sigma_1}{\sigma_2}(x_2 - \mu_2), (1 - \rho^2)\sigma_1^2 \bigg) 
-\]
-
-\end{theorem}
-
-\begin{remark}Note that this matches the OLS coefficients in the univariate case. In other words, the univariate OLS formula can be derived using only this fact.\end{remark}
 
 
 %

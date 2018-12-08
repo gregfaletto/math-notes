@@ -142,7 +142,7 @@
 %%% Chapter 8
 \section{Asymptotics and Convergence}
 
-These notes are based on my notes from chapter 8 of \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as Math 505A at USC and chapter 7 from \textit{Probability and Random Processes} (Grimmet and Stirkazer) 3rd edition.
+These notes are based on my notes from chapter 8 of \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as Math 505A at USC and chapter 7 from \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition.
 
 %%%% Chapter 8
 %\subsection{Chapter 8: Asymptotic Theory}
@@ -261,7 +261,7 @@ Then
 \Pr(|X| \geq a) \leq \frac{\E(|X|)}{a}
 \]
 \end{lemma}
-\begin{proof} Note that \( a \cdot \boldsymbol{1}_{\{|X| \geq a\}} \leq |X|\), where \(\boldsymbol{1}\) is the indicator function. Dividing both sides by \(a\) and taking expectations yields the result. \end{proof}
+\begin{proof} Note  \( a \cdot \boldsymbol{1}_{\{|X| \geq a\}} \leq |X|\), where \(\boldsymbol{1}\) is the indicator function. Dividing both sides by \(a\) and taking expectations yields the result. \end{proof}
 
 \item \begin{theorem}\label{asym.cheby}\textbf{Chebyshev's Inequality:} (probability p. 319) Let \(X\) be an (integrable) random variable with finite expected value \(\mu\) and finite nonzero variance \(\sigma^2\). Then for any real number \(k > 0\)
 
@@ -284,7 +284,7 @@ Then
 
 \begin{itemize}
 
-\item \begin{theorem} \label{asym.cauchy.schwarz} \textbf{Cauchy-Schwarz.} (and \textbf{Bunyakovsky})
+\item \begin{theorem} \label{asym.cauchy.schwarz} \textbf{Cauchy-Schwarz} (and \textbf{Bunyakovsky).} If \(X\) and \(Y\) are random variables with finite variance then
 
 \[
 \E(XY)^2 \leq \E(X^2) \E(Y^2)
@@ -315,19 +315,20 @@ which is true if and only if \(\Pr(Y=k) = 0\) for all \(k > 0\). Since we alread
 \E(Y) = \int_{0}^\infty y \cdot f_Y(y) dy = \Var(X) = 0 
 \]
 
-which implies that \(f_Y(x) = 0\) for all \(x > 0\). Again, since \(\Pr(Y < 0) = 0\), we have \(\Pr(Y \neq 0) = 0\). But
-
-\[
-Y = 0 \iff X = \E(X)
-\]
-
-so we have \(\Pr(X = \E(X)) = 1\).
+which implies that \(f_Y(x) = 0\) for all \(x > 0\). Again, since \(\Pr(Y < 0) = 0\), we have \(\Pr(Y \neq 0) = 0\). But \(Y = 0 \iff X = \E(X)\) so we have \(\Pr(X = \E(X)) = 1\).
 \end{proof}
+
+\begin{remark}Note that Lemma \ref{asym.cauchy.lemma} along with Proposition \ref{prob.const.var} imply that \(X\) has variance 0 if and only if it is (almost surely) constant.
+\end{remark}
 
 We are now ready to prove the Cauchy-Schwarz Inequality.
 
 \begin{proof}
- if \(\E(X^2) = 0\) or \(\E(Y^2)=0\), the Cauchy-Schwarz Inequality follows immediately, because that would imply that the right side is 0 and either \(X\) or \(Y\) is constant so the left side is zero too. In the case that \(\E(X^2) > 0\) and \(\E(Y^2) > 0\), for \(a, b \in \mathbb{R}\), let \(Z = aX - bY\). Then 
+if \(\E(X^2) = 0\) or \(\E(Y^2)=0\), the Cauchy-Schwarz Inequality follows immediately. To see why, suppose without loss of generality that \(\E(X^2) = 0\). Then the right side is 0. Also, \(0 \leq \Var(X) = \E(X^2) - \E(X)^2 = - \E(X)^2\). Since \(\E(X)^2 \geq 0\), we must have \(E(X)^2 =0\) and therefore \(\Var(X) = 0\). Therefore by Lemma \ref{asym.cauchy.lemma}, \(X\) is almost surely constant, which means that \(\Cov(X,Y) = 0\).
+
+\
+
+ In the case that \(\E(X^2) > 0\) and \(\E(Y^2) > 0\), for \(a, b \in \mathbb{R}\), let \(Z = aX - bY\). Then 
 
 \begin{equation}\label{asym.cauchyschwarz.1}
 0 \leq \E(Z^2) = a^2 \E(X^2) - 2ab \E(XY) + b^2 \E(Y^2)
@@ -345,7 +346,7 @@ which yields the result. Note that equality holds if and only if \(\Pr(aX = bY) 
 \E\big[ (aX -bY)^2 \big] = 0
 \]
 
-which is true if and only if \(\Pr(aX = bY) = 1\) by Lemma (\ref{asym.cauchy.lemma}).
+which is true if and only if \(\Pr(aX = bY) = 1\) by by Lemma \ref{asym.cauchy.lemma} and Proposition \ref{prob.const.var}.
 \end{proof}
 
 \item \textbf{Krylov}
@@ -386,7 +387,7 @@ which is true if and only if \(\Pr(aX = bY) = 1\) by Lemma (\ref{asym.cauchy.lem
 \textbf{Dominated convergence theorem.}
 
 %%% Section 8.2
-\subsection{Modes of Convergence (7.2 of Grimmet and Strikazer, 8.2 and 8.4 of Pesaran)}
+\subsection{Modes of Convergence (7.2 of Grimmett and Stirzaker, 8.2 and 8.4 of Pesaran)}
 
  Let \(\{X_n\} = \{X_1, X_2, \ldots\}\) and \(X\) be random variables defined on a probability space \((\Omega, \mathcal{F}, \mathbb{P})\).
 
@@ -431,7 +432,7 @@ where \(\lVert \cdot \rVert \) denotes an appropriate norm (say \(\ell_2\)). Con
 
 (Note: pointwise convergence can hardly ever be shown here and is not useful.)
 
-\item Grimmett and Strikazer textbook definition:
+\item Grimmett and Stirzaker textbook definition:
 \[
 \Pr \big( \{\omega \in \Omega: X_n(\omega) \to X(\omega) \text{ as } n \to \infty \} \big) = 1
 \]
@@ -523,7 +524,7 @@ Also, if \(r > s \geq 1\), then \((X_n \xrightarrow{r} X) \implies (X_n \xrighta
 so \(\lim_{m \to \infty} \Pr(B_m(\epsilon)) = 0\) whenever \(\sum_n \Pr(A_n(\epsilon)) < \infty\). See also Lemma \ref{asym.7.2.10} part (b).\end{proof}
 
 %%% Section 7.2
-\subsection{More on convergence (7.2 of Grimmet and Strikazer)}
+\subsection{More on convergence (7.2 of Grimmet and Stirzaker)}
 
 \textbf{Other theorems to include:} Fatou's Lemma, Fubini's Theorem, Kolmogorov's Maximal Inequality, Kolmogorov Three-Series Test, Lindeberg Feller Central Limit Theorem, \textbf{this and more at beginning of Mike's 505A qual solutions.}
 
@@ -665,7 +666,7 @@ and so \(\{X_n\}\) does not converge almost surely.
 Therefore, although \(X_n\) may fail to converge to \(X\) in any mode other than in distribution, there exists a sequence \(\{Y_n\}\) such that \(Y_n\) is distributed identically to \(X_n\) for every \(n\), which converges almost surely to a copy of \(X\).
 \end{theorem}
 
-\begin{theorem}\textbf{(Theorem 7.2.18, Grimmett and Stirzaker.)} If \(X_n \xrightarrow{d} X\) and \(g: \mathbb{R} \to \mathbb{R}\) is continuous, then \(g(X_n) \xrightarrow{d} g(X)\). \end{theorem}
+
 
 \begin{theorem}\textbf{(Theorem 7.2.19, Grimmett and Stirzaker; same as Portmanteau Theorem?)} The following three statements are equivalent:
 
@@ -788,6 +789,10 @@ so \(\Pr(A) = 1\).
 
 \begin{proof}See Serfling (1980) or Rao (1973).\end{proof}
 
+See also: 
+
+\begin{theorem} \label{asym.thm.7.2.18} \textbf{(Theorem 7.2.18, Grimmett and Stirzaker.)} If \(X_n \xrightarrow{d} X\) and \(g: \mathbb{R} \to \mathbb{R}\) is continuous, then \(g(X_n) \xrightarrow{d} g(X)\). \end{theorem}
+
 %%% Section 8.5
 \subsection{Stochastic orders \(\mathcal{O}_p(\cdot)\) and \(o_p(\cdot)\) (Pesaran 8.5)}
 
@@ -906,10 +911,10 @@ converge in distrbution to \(\mathcal{N}(0, 1)\) as \(n \to \infty\).
 \subsection{The case of dependent and heterogeneously distributed observations (Pesaran 8.8)}
 
 
-\begin{theorem}\label{sec:tsch8.8} \textbf{Central limit theorem for martingale difference sequences (Pesaran 8.8 Theorem 28).} Let \(\{x_t\}\) be a martingale difference sequence with respect to the information set \(\Omega_t\). Let \(\overline{\sigma}_T^2 = \Var( \sqrt{T} \overline{x}_T) = T^{-1} \sum_{t=1}^T \sigma_t^2\). If \(\E(|x_t|^r) < K < \infty\), \(r > 2\) and for all \(t\), and
+\begin{theorem}\label{asym.clt.mart.ds} \textbf{Central limit theorem for martingale difference sequences (Pesaran 8.8 Theorem 28).} Let \(\{x_t\}\) be a martingale difference sequence with respect to the information set \(\Omega_t\). Let \(\overline{\sigma}_T^2 = \Var( \sqrt{T} \overline{x}_T) = T^{-1} \sum_{t=1}^T \sigma_t^2\). If \(\E(|x_t|^r) < K < \infty\) for any \(r > 2\) and for all \(t\), and
 
 \[
-\frac{1}{T} \sum_{t=1}^T x_t^2 - \overline{\sigma}_t^2 \xrightarrow{p} 0
+\frac{1}{T} \sum_{t=1}^T x_t^2 - \overline{\sigma}_T^2 \xrightarrow{p} 0
 \]
 
 then \(\sqrt{T} \overline{x}_T / \overline{\sigma}_T \xrightarrow{d} \mathcal{N}(0, 1)\).

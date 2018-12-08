@@ -1,0 +1,191 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage[document]{ragged2e}
+\usepackage{textcomp}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{import}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+
+\usetikzlibrary{automata,positioning}
+
+
+% Basic Document Settings
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\setlength{\parskip}{1em}
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+
+\newcommand{\hmwkTitle}{Math Review Notes---Convex Optimization}
+\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+
+
+%%%%% Title Page
+
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{ \hmwkTitle}}\\
+}
+
+\author{Gregory Faletto}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+%%%%% Various Helper Commands
+
+
+%%%%% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+%%%%% For derivatives
+\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+%%%%% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+%%%%% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+%%%%% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+%%%%% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+
+%%%%% Tilde
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+%\tableofcontents
+
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+%
+%
+%
+%\newpage
+
+%
+%
+%
+%
+%
+%
+%
+%
+%%
+%% Convex Optimization
+
+\section{Convex Optimization}
+
+These are my notes from taking EE 588 at USC and the textbook \textit{Convex Optimization} (Boyd and Vandenberghe) 7th printing.
+
+\textbf{Need to cover:}
+
+\begin{itemize}
+
+\item Update rules for optimization problems (e.g. gradient descent, be able to write down gradient, etc.)
+
+\item Know which algorithms are useful in which settings
+
+\item Homework-like problems from first part of class (no proofs though) (Boyd homework is good practice)
+
+\item Understand how to derive algorithms
+
+\item Understand how to calculate gradients, proximal functions, etc.
+
+\item Understand examples, how to run algorithms
+
+\item Only conceptual thing: duality question (write down dual)
+
+\item Formulate problems as convex optimization problems
+
+\end{itemize}
+
+\textbf{Do not need to cover:}
+
+\begin{itemize}
+
+\item ADMM
+
+\item Proofs from 2nd half of class (rates of convergence, etc.)
+
+\item Coding
+
+\end{itemize}
+
+
+%
+%
+%
+%
+%
+%
+%
+%
+
+\end{document}

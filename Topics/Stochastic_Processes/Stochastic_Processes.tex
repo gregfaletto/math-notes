@@ -138,8 +138,8 @@
 %%
 %%
 %%
-
-%%%%%%%%%%%%%%% Stochastic Processes (Random Walks, Martingales, Brownian Motion)
+%
+%%%%%%%%%%%%%%%% Stochastic Processes (Random Walks, Martingales, Brownian Motion)
 
 \section{Stochastic Processes}
 
@@ -197,7 +197,7 @@ and \(w(t)\) denotes the value of the \(w(\cdot)\) at date \(t\). Clearly,
 \E[\Delta w(t)] = 0, \text{ and } \Var[ \Delta w(t)] = dt
 \]
 
-\textbf{Donsker's Theorem, Theorem 43, p.335, Section 15.6.3.} Let \(a \in [0, 1)\), \(t \in [0, T]\), and suppose \((J - 1)/T \leq a < J/T, J = 1, 2, \ldots, T\). Define
+\begin{theorem}\label{stoch.donsker}\textbf{Donsker's Theorem, Theorem 43, p.335, Section 15.6.3.} Let \(a \in [0, 1)\), \(t \in [0, T]\), and suppose \((J - 1)/T \leq a < J/T, J = 1, 2, \ldots, T\). Define
 
 \[
 R_T(a) = \frac{1}{\sqrt{T}} s_{ \big[Ta \big] }
@@ -217,9 +217,11 @@ R_T(a) \to w(a)
 
 where \(w(a)\) is a Wiener process. Note that when \(a = 1\), \(R_T(1) = 1/\sqrt{T} \cdot S_{\big[T \big]} = 1/\sqrt{T} \cdot (\epsilon_1 + \epsilon_2 + \ldots + \epsilon_T\). Since \(\epsilon_t\)'s are IID, by the central limit theorem, \(R_T(1) \to \mathcal{N}(0, 1)\). 
 
+\end{theorem}
+
 Similar (Theorem 2.1 in  Phillips and Durlaf (1986)): Let \(\{u_t\}\) be a sequence satisfying \(\E(u_t) = 0\), \( \gamma(0) = \E(T^{-1}S_t ^2) \to \sigma^2 < \infty \text{ as } T \to \infty\), \(\{u_t\}\) is square summable, \(\sup_t \{ \E( |u_t|^\beta) \} < \infty\) for some \(2 \leq \beta < \infty\) and all \(t\), \(\gamma(h) = \E(T^{-1}(y_t - y_{t-h})^2) \to K_h < \infty\) as \(\min \{h, T\} \to \infty\). Then \(X_T(t) \implies W(t)\) as \(T \to \infty\), where \(W(t)\) is a Wiener process.
 
-\begin{theorem} \textbf{Continuous Mapping Theorem (Theorem 44 of Pesaran in 15.6.3).} Let \(a \in [0, 1)\), \(i \in [0, n]\), and suppose \((J-1)/n \leq a < J/n, J = 1, 2, \ldots, n\). Define \(R_n(a) = n^{-1/2} S_{\big[ n \cdot a \big] }\). If \(f(\cdot)\) is continuous over \([0, 1)\), then 
+\begin{theorem}\label{stoch.cont.map} \textbf{Continuous Mapping Theorem (Theorem 44 of Pesaran in 15.6.3).} Let \(a \in [0, 1)\), \(i \in [0, n]\), and suppose \((J-1)/n \leq a < J/n, J = 1, 2, \ldots, n\). Define \(R_n(a) = n^{-1/2} S_{\big[ n \cdot a \big] }\). If \(f(\cdot)\) is continuous over \([0, 1)\), then 
 
 \[
 f[R_n(a)] \xrightarrow{d} f[w(a)]
