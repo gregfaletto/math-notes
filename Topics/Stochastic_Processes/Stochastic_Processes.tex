@@ -101,7 +101,7 @@
 %\theoremstyle{definition}
 %\newtheorem{lemma}[theorem]{Lemma}
 %\theoremstyle{definition}
-%\newtheorem{corollary}{Corollary}[theorem]
+%\newtheorem{corollary}[theorem]{Corollary}
 %\theoremstyle{definition}
 %\newtheorem{definition}{Definition}[section]
 %\newtheorem*{remark}{Remark}
@@ -138,12 +138,83 @@
 %%
 %%
 %%
-%
-%%%%%%%%%%%%%%%% Stochastic Processes (Random Walks, Martingales, Brownian Motion)
+
+%%%%%%%%%%%%%%% Stochastic Processes (Random Walks, Martingales, Brownian Motion)
 
 \section{Stochastic Processes}
 
-These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran as well as coursework for Economics 613: Economic and Financial Time Series I at USC.
+These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as notes from \textit{Probability and Random Processes} by Grimmett and Stirzaker.
+
+\subsection{Poisson Processes}\label{stoch.pois.proc.sec}
+
+\begin{definition}\label{stoch.pois.proc.def}A \textbf{Poisson process with intensity \(\lambda\)} is a process \(N=\{N(t): t \geq 0 \}\) taking values in \(S=\{0, 1, 2, \ldots \}\) such that 
+
+\begin{enumerate}[(a)]
+
+\item \(N(0) = 0\); if \(s < t\) then \(N(s) \leq N(t)\).
+
+\item \(\Pr(N(t+h) = n+m \mid N(t) =n) = \begin{cases}
+\lambda h + o(h) & \text{if } m = 1, \\
+o(h) & \text{if } m > 1; \\
+1 - \lambda h + o(h) & \text{if } m=0
+\end{cases}
+\)
+
+\item If \(s < t\), the number \(N(t) - N(s)\) of emissions in the interval \((s, t]\) is independent of the times of emissions during \([0,s]\).
+
+\end{enumerate}
+
+\end{definition}
+
+\begin{remark}
+\(\lambda\) can be interpreted as the average or long-run frequency of the Poisson process.
+\end{remark}
+
+\begin{theorem}\label{stoch.pois.proc.thm.6.8.2}\textbf{(Grimmett and Stirzaker theorem 6.8.2.)} Let \(N(t)\) be a Poisson process with intensity \(\lambda\). Then \(N(t)\) has the Poisson distribution with parameter \(\lambda t\); that is,
+
+\[
+\Pr(N(t) = j)  = \frac{(\lambda t)^j \exp(-\lambda t)}{j!}, \ \ j = 0, 1, 2, \ldots
+\]
+\end{theorem}
+
+\begin{proof}See Grimmett and Stirzaker section 6.8.2, page 247. \end{proof}
+
+\begin{definition}
+Let \(N(t)\) be a Poisson process with intensity \(\lambda\). Let \(T_0, T_1, \ldots\) be given by
+
+\begin{equation}\label{stoch.eqn.6.8.7}
+T_0 = 0, T_n = \inf \{t: N(t) = n\}
+\end{equation}
+
+so that \(T_n\) is the time of the \(n\)th arrival. The \textbf{interarrival times} are the random variables \(X_1, X_2, \ldots\) given by
+
+\begin{equation}\label{stoch.eqn.6.8.8}
+X_n = T_n - T_{n-1}.
+\end{equation}
+
+\end{definition}
+
+\begin{remark}
+From knowledge of \(N\), we can find the values of \(X_1, X_2, \ldots\) by (\ref{stoch.eqn.6.8.7}) and (\ref{stoch.eqn.6.8.8}). Conversely, we can construct \(N\) from knowledge of the \(X_i\) by
+
+\begin{equation}\label{stoch.eqn.6.8.9}
+T_n = \sum_{i=1}^n X_i, \ \ \  N(t) = \max\{n: T_n \leq t\}
+\end{equation}
+\end{remark}
+
+\begin{theorem}
+\textbf{(Grimmett and Stirzaker theorem 6.8.10.)}\label{stoch.pois.proc.inter.thm} Let \(N(t)\) be a Poisson process with intensity \(\lambda\). Let \(T_0, T_1, \ldots\) be given by (\ref{stoch.eqn.6.8.7}) and let \(X_n\) be given by (\ref{stoch.eqn.6.8.8}). Then then random variables \(\{X_n\}\) are independent, each having an exponential distribution with parameter \(\lambda\).
+\end{theorem}
+
+\begin{proof}See Grimmett and Stirzaker section 6.8.2, page 249. \end{proof}
+
+\begin{corollary}\label{stoch.pois.proc.inter.cor} 
+Let \(N(t)\) be a Poisson process with intensity \(\lambda\). Let \(T_0, T_1, \ldots\) be given by (\ref{stoch.eqn.6.8.7}). Then \(T_n \sim \operatorname{Gamma}(n, \lambda^{-1})\).
+\end{corollary}
+
+\begin{proof}
+By (\ref{stoch.eqn.6.8.9}), \(T_n = \sum_{i=1}^n X_i\). \(X_i \sim \operatorname{Exponential}(\lambda) \) by Theorem \ref{stoch.pois.proc.inter.thm}, which means \(X_i \sim \operatorname{Gamma}(1, \lambda^{-1})\). Then by Proposition \ref{prob.gammasum}, \(T_n \sim \operatorname{Gamma}(n, \lambda^{-1})\).
+\end{proof}
 
 \subsection{Martingales}
 

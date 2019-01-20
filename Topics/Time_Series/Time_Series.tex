@@ -308,56 +308,56 @@ Therefore a sufficient condition for consistency is
 \]
 
 % 2(2)(b) solution
-\item 
+\item See section \ref{sec:tsch14.2.2}.
 
 %By Chebyshev's Inequality, \(\hat{\gamma}(h) \) is a consistent estimator of \(\gamma(h)\) as \(T \to \infty\) if \(\lim_{T \to \infty} \E(\hat{\gamma}(h) ) = \gamma(h) \) and \(\lim_{T \to \infty} \Var(\hat{\gamma}(h) ) = 0\).
 
- \textbf{ask about the derivation}  Per the derivation in section~\ref{sec:tsch14.2.2}, we have that
-
+% \textbf{ask about the derivation}  Per the derivation in section~\ref{sec:tsch14.2.2}, we have that
+%
+%%\[
+%%\hat{\gamma}(h) = \frac{1}{T} \sum_{t=h+1}^T(y_t - \overline{y}_T)(y_{t-h} - \overline{y}_T)
+%%\]
+%%
+%%\[
+%%= \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu + \mu - \overline{y}_T)(y_{t-h} - \mu + \mu - \overline{y}_T)
+%%\]
+%
 %\[
-%\hat{\gamma}(h) = \frac{1}{T} \sum_{t=h+1}^T(y_t - \overline{y}_T)(y_{t-h} - \overline{y}_T)
+%\hat{\gamma}(h)  = \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu)(y_{t-h} - \mu) + \mathcal{O}_p(T^{-1})
+%\]
+%
+%For \(\hat{\gamma}(h)\) to be consistent, we need
+%
+%\[
+%\frac{1}{T}\sum_{t=h_1}^T (y_t - \mu)(y_{t-h} - \mu) \xrightarrow{p} \gamma(h) \iff \lim_{T \to \infty} \Pr(|\hat{\gamma}(h)-\gamma(h)| < \epsilon) = 1, \text{ for every } \epsilon > 0
+%\]
+%
+%First we show that \((y_t - \mu)(y_{t-h} - \mu)\) is a martingale difference process:
+%
+%\[
+%\E[(y_t - \mu)(y_{t-h} - \mu) \mid F_{t-h}] =(y_{t-h} - \mu)  \E[y_t - \mu \mid F_{t-h}] = 0
+%\]
+%
+%\textbf{why? which theorem is being used to prove this result? ask} We need to show that
+%
+%\[
+%\E[(y_t - \mu)^2(y_{t-h} - \mu)^2 ] = \E \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2 \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2 \bigg] < \infty
+%\]
+%
+%By the Cauchy-Schwarz Inequality (Theorem \ref{asym.cauchy.schwarz}), we have
+%
+%\[
+%\E \left| \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2 \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2 \bigg] \right| ^2 \leq \E \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2\bigg]^2 \E \bigg[ \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2\bigg]^2
 %\]
 %
 %\[
-%= \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu + \mu - \overline{y}_T)(y_{t-h} - \mu + \mu - \overline{y}_T)
+%< \infty \iff \E \bigg[ \sum_{i=0}^\infty \alpha_i \epsilon_{t-i}\bigg]^4 < \infty, \ \ \  \E \bigg[ \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg]^4 < \infty
 %\]
-
-\[
-\hat{\gamma}(h)  = \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu)(y_{t-h} - \mu) + \mathcal{O}_p(T^{-1})
-\]
-
-For \(\hat{\gamma}(h)\) to be consistent, we need
-
-\[
-\frac{1}{T}\sum_{t=h_1}^T (y_t - \mu)(y_{t-h} - \mu) \xrightarrow{p} \gamma(h) \iff \lim_{T \to \infty} \Pr(|\hat{\gamma}(h)-\gamma(h)| < \epsilon) = 1, \text{ for every } \epsilon > 0
-\]
-
-First we show that \((y_t - \mu)(y_{t-h} - \mu)\) is a martingale difference process:
-
-\[
-\E[(y_t - \mu)(y_{t-h} - \mu) \mid F_{t-h}] =(y_{t-h} - \mu)  \E[y_t - \mu \mid F_{t-h}] = 0
-\]
-
-\textbf{why? which theorem is being used to prove this result? ask} We need to show that
-
-\[
-\E[(y_t - \mu)^2(y_{t-h} - \mu)^2 ] = \E \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2 \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2 \bigg] < \infty
-\]
-
-By the Cauchy-Schwarz Inequality (Theorem \ref{asym.cauchy.schwarz}), we have
-
-\[
-\E \left| \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2 \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2 \bigg] \right| ^2 \leq \E \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2\bigg]^2 \E \bigg[ \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2\bigg]^2
-\]
-
-\[
-< \infty \iff \E \bigg[ \sum_{i=0}^\infty \alpha_i \epsilon_{t-i}\bigg]^4 < \infty, \ \ \  \E \bigg[ \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg]^4 < \infty
-\]
-
-These conditions hold if \(\E(\epsilon_t^4) < \infty\) and \(\sum_{i=0}^\infty |\alpha_i| < \infty\). Then \(\E[(y_t - \mu)^2(y_{t-h} - \mu)^2 ] < \infty\) holds and
-\[
-\hat{\gamma} \xrightarrow{p} \gamma(h)
-\]
+%
+%These conditions hold if \(\E(\epsilon_t^4) < \infty\) and \(\sum_{i=0}^\infty |\alpha_i| < \infty\). Then \(\E[(y_t - \mu)^2(y_{t-h} - \mu)^2 ] < \infty\) holds and
+%\[
+%\hat{\gamma} \xrightarrow{p} \gamma(h)
+%\]
 
 \end{enumerate}
 
@@ -824,17 +824,71 @@ it follows that
 \implies \hat{\gamma}(h)  = \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu)(y_{t-h} - \mu) + \mathcal{O}_p(T^{-1}) 
 \]
 
-which implies that \(\lim_{T \to \infty} \E(\hat{\gamma}(h)) = \gamma(h)\). Also using results in Bartlett (1946) \textbf{where? do we need to know how to do this?} we have
+%which implies that \(\lim_{T \to \infty} \E(\hat{\gamma}(h)) = \gamma(h)\). Also using results in Bartlett (1946) \textbf{where? do we need to know how to do this?} we have
+%
+%\[
+%\lim_{T \to \infty} \Var(\hat{\gamma}_T(h) - \gamma(h)) = 0
+%\]
+%
+%under the assumption that 
+%
+%\[
+%\lim_{H \to \infty} H^{-1} \sum_{h=1}^H \gamma_h^2 \to 0
+%\]
+%
+%\[
+%\vdots
+%\]
+
+%Per the derivation in section~\ref{sec:tsch14.2.2}, we have that
+%
+%%\[
+%%\hat{\gamma}(h) = \frac{1}{T} \sum_{t=h+1}^T(y_t - \overline{y}_T)(y_{t-h} - \overline{y}_T)
+%%\]
+%%
+%%\[
+%%= \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu + \mu - \overline{y}_T)(y_{t-h} - \mu + \mu - \overline{y}_T)
+%%\]
+%
+%\[
+%\hat{\gamma}(h)  = \frac{1}{T} \sum_{t=h+1}^T(y_t - \mu)(y_{t-h} - \mu) + \mathcal{O}_p(T^{-1})
+%\]
+
+For \(\hat{\gamma}(h)\) to be consistent, we need
 
 \[
-\lim_{T \to \infty} \Var(\hat{\gamma}_T(h) - \gamma(h)) = 0
+\frac{1}{T}\sum_{t=h_1}^T (y_t - \mu)(y_{t-h} - \mu) \xrightarrow{p} \gamma(h) 
 \]
 
-under the assumption that 
+First we show that \((y_t - \mu)(y_{t-h} - \mu)\) is a martingale difference process:
 
 \[
-\lim_{H \to \infty} H^{-1} \sum_{h=1}^H \gamma_h^2 \to 0
+\E[(y_t - \mu)(y_{t-h} - \mu) \mid F_{t-h}] =(y_{t-h} - \mu)  \E[y_t - \mu \mid F_{t-h}] = 0
 \]
+
+%\textbf{why? which theorem is being used to prove this result? ask} 
+
+We need to show that
+
+\[
+\E[(y_t - \mu)^2(y_{t-h} - \mu)^2 ] = \E \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2 \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2 \bigg] < \infty
+\]
+
+By the Cauchy-Schwarz Inequality (Theorem \ref{asym.cauchy.schwarz}), we have
+
+\[
+\E \left| \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2 \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2 \bigg] \right| ^2 \leq \E \bigg[ \bigg( \sum_{i=0}^\infty \alpha_i \epsilon_{t-i} \bigg)^2\bigg]^2 \E \bigg[ \bigg( \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg) ^2\bigg]^2
+\]
+
+\[
+< \infty \iff \E \bigg[ \sum_{i=0}^\infty \alpha_i \epsilon_{t-i}\bigg]^4 < \infty, \ \ \  \E \bigg[ \sum_{j=0}^\infty \alpha_j \epsilon_{t - h - j} \bigg]^4 < \infty
+\]
+
+These conditions hold if \(\E(\epsilon_t^4) < \infty\) and \(\sum_{i=0}^\infty |\alpha_i| < \infty\). Then \(\E[(y_t - \mu)^2(y_{t-h} - \mu)^2 ] < \infty\) holds and
+\[
+\hat{\gamma} \xrightarrow{p} \gamma(h)
+\]
+
 
 %\[
 %\Var(\hat{\gamma}(h)) = 
@@ -1439,7 +1493,7 @@ with \(y_0 =0\).
 \begin{bmatrix} T^{-1/2} \sum_{t=1}^T u_t \\ T^{-3/2} \sum_{t=1}^T y_{t-1} \end{bmatrix} \xrightarrow{d} \mathcal{N} \bigg(0, \begin{bmatrix} 1 & 1/2 \\ 1/2 & 1/3 \end{bmatrix} \bigg)
 \]
 
-\item Use the functional limit theorem (Donsker's Theorem, Theorem \ref{stoch.donsker}) to show that 
+\item Use the functional central limit theorem (Donsker's Theorem, Theorem \ref{stoch.donsker}) to show that 
 
 \[
 T^{-3/2} \sum_{t=1}^T y_{t-1} \xrightarrow{d} \sigma \int_0^1 W(r) dr
@@ -1564,12 +1618,12 @@ we have (if \(u_t\) has finite fourth moment)
 \]
 
 \[
-\iff  \sqrt{T}  \bigg( \sum_{t=1}^T t u_t \bigg) \cdot \sqrt{ \frac{6}{\sigma^2} \cdot \frac{1}{2T^2 + 3T + 1}}  \xrightarrow{d} \mathcal{N}(0, 1) \implies  \sqrt{T}  \bigg( \sum_{t=1}^T t u_t \bigg) \cdot \sqrt{ \frac{6}{\sigma^2} \cdot \frac{1}{2T^2 } }  \xrightarrow{d} \mathcal{N}(0, 1)
+\iff  T^{-3/2} \bigg( \sum_{t=1}^T t u_t \bigg) \cdot \sqrt{ \frac{6}{\sigma^2} \cdot \frac{1}{2T^2 + 3T + 1}}  \xrightarrow{d} \mathcal{N}(0, 1) \implies  \sqrt{T}  \bigg( \sum_{t=1}^T t u_t \bigg) \cdot \sqrt{ \frac{6}{\sigma^2} \cdot \frac{1}{2T^2 } }  \xrightarrow{d} \mathcal{N}(0, 1)
 \]
 
 
 \[
-\iff  T^{-1/2} \bigg( \sum_{t=1}^T \frac{t u_t}{T} \bigg) \cdot \sqrt{ \frac{3}{\sigma^2}  }   \xrightarrow{d} \mathcal{N}(0, 1) \iff T^{-1/2} \frac{\sqrt{3}}{\sigma} \sum_{t=0}^{T-1} \frac{ t u_{t}}{T}   \xrightarrow{d} \mathcal{N}\bigg(0, 1\bigg)
+\iff  T^{-3/2} \bigg( \sum_{t=1}^T \frac{t u_t}{T} \bigg) \cdot \sqrt{ \frac{3}{\sigma^2}  }   \xrightarrow{d} \mathcal{N}(0, 1) \iff T^{-1/2} \frac{\sqrt{3}}{\sigma} \sum_{t=0}^{T-1} \frac{ t u_{t}}{T}   \xrightarrow{d} \mathcal{N}\bigg(0, 1\bigg)
 \]
 
 
@@ -1742,6 +1796,171 @@ We have two methods for forecasting \(y_{t+h}\) \(h >1\) steps ahead.
 
 \textbf{Problem 4 (Homework 5 Question 3---fine on all but part (c), which even Lidan is hazy on.}
 
+Consider the AR(1) model
+
+\begin{equation} \label{eqn:17.7ar}
+y_t =  \phi y_{t-1} + u_t, \ \ \ \ u_t \sim iid(0, \sigma^2)
+\end{equation}
+
+\begin{enumerate}[(a)]
+
+\item Derive iterated and direct forecasts of \(y_{T+2}\) condition on \(y_T\), and show that they can be estimated as 
+
+\[
+\text{Iterated: } \hat{y}_{T+2\mid T}^{(it)} = \hat{\phi}^2 y_T
+\]
+
+\[
+\text{Direct: } \hat{y}_{T+2\mid T}^{(d)} = \hat{\phi}_2 y_T
+\]
+
+where \(\hat{\phi}\) and \( \hat{\phi}_2\) are OLS coefficients in the regressions of \(y_t\) on \(y_{t-1}\) and \(y_{t-2}\), respectively, using the \(M\) observations \(y_{T-M+1}, y_{T-M+2}, \ldots, y_{T}\).
+
+\item Show that conditional on \(y_t\),
+
+\[
+\E(y_{T+2} - \hat{y}_{T+2\mid T}^{(it)})^2 = \E(\phi^2 - \hat{\phi}^2)^2 y_T^2 + (1 + \phi^2)\sigma^2
+\]
+
+\[
+\E(y_{T+2} - \hat{y}_{T+2\mid T}^{(d)})^2 = \E(\phi^2 - \hat{\phi}_2)^2 y_T^2 + (1 + \phi^2)\sigma^2
+\]
+
+\item Hence, or otherwise, show that
+
+\[
+\lim_{M \to \infty} \E(d_{T+2}) = 0
+\]
+
+where \(d_{T+2}\) is the loss differential of the two forecasting methods, defined by
+
+\[
+d_{T+2} = (y_{T+2}- \hat{y}_{T+2\mid T}^{(it)})^2 + (y_{T+2} - \hat{y}_{T+2\mid T}^{(d)})^2
+\]
+
+\end{enumerate}
+
+\textbf{Solution.} 
+
+\begin{enumerate}[(a)]
+
+% 3a
+\item Note that we can write
+
+\[
+y_t =  \phi \big[\phi y_{t-2} + u_{t-1} \big] + u_t =  \phi^2y_{t-2} + u_t + \phi u_{t-1}
+\]
+
+\[
+\implies y_{T+2} =  \phi^2y_{T} + u_{T+2} + \phi u_{T+1}
+\]
+
+\[
+\implies \E(y_{T+2} \mid y_{T - M + 1}, y_{T-M + 2}, \ldots, y_T) =  \phi^2y_{T} +  \E(u_{T+2} \mid y_{T - M + 1}, \ldots, y_T) + \phi  \E( u_{T+1} \mid y_{T - M + 1}, \ldots, y_T)
+\]
+
+\[
+ = \phi^2y_{T}
+\]
+
+\begin{equation} \label{eqn:17.7ar.2}
+\iff  \E(y_{T+2} \mid y_{T - M + 1}, y_{T-M + 2}, \ldots, y_T) = \phi^2y_{T}
+\end{equation}
+
+If we calculate the OLS estimate \(\hat{\phi}\) in Equation (\ref{eqn:17.7ar}), we can substitute that into Equation (\ref{eqn:17.7ar.2}) to obtain the iterated estimate of \(y_{T+2}\):
+
+\[
+\hat{y}_{T+2\mid T}^{(it)} = \hat{\phi}^2y_{T}
+\]
+
+Since we have no intercept term, the OLS estimate would be simply
+
+\[
+\hat{\phi} = (x'x)^{-1}x'y = \frac{\sum_{t=T-M+2}^{T} y_t y_{t-1}}{\sum_{t=T-M+1}^{T-1} y_t^2}
+\]
+
+Alternatively, we could directly calculate the OLS estimate \(\hat{\phi}_2\) of \(\phi^2\) in Equation (\ref{eqn:17.7ar.2})
+
+\[
+\hat{y}_{T+2\mid T}^{(d)} = \hat{\phi}_2y_{T}
+\]
+
+The OLS estimate would be simply
+
+\[
+\hat{\phi}_2 = (x'x)^{-1}x'y = \frac{\sum_{t=T-M+3}^{T} y_t y_{t-2}}{\sum_{t=T-M+1}^{T-2} y_t^2}
+\]
+
+% 3b
+\item We have
+
+\[
+\E(y_{T+2} - \hat{y}_{T+2\mid T}^{(it)})^2 = \E\big(y_{T+2}^2\big) + \E \big((\hat{y}_{T+2\mid T}^{(it)})^2 \big)  -2 \E \big(y_{T+2} \cdot \hat{y}_{T+2\mid T}^{(it)}\big) 
+\]
+
+\[
+= \E((\phi^2 y_T + u_{T+2} + \phi u_{T+1})^2) + \E \big((\hat{\phi}^2y_{T})^2 \big)  -2 \E \big((\phi^2 y_T + u_{T+2} + \phi u_{T+1}) \cdot \hat{\phi}^2y_{T}\big) 
+\]
+
+\[
+= \E(\phi^4 y_T^2 + (u_{T+2} + \phi u_{T+1})^2 + 2\phi^2 y_T( u_{T+2} + \phi u_{T+1})) + y_{T}^2 \E \big(\hat{\phi}^2 \big)  -2\phi^2 y_T \E \big(  \hat{\phi}^2y_{T}\big) 
+\]
+
+\[
+= \E(\phi^4)  y_T^2+ \E(u_{T+2}^2 + \phi^2 u_{T+1}^2 ) + y_{T}^2 \E \big(\hat{\phi}^2 \big)  -2\phi^2 y_T^2 \E \big(  \hat{\phi}^2\big)  = \E(\phi^4)  y_T^2+ (1 + \phi^2)\sigma^2 + y_{T}^2 \E \big(\hat{\phi}^2 \big)  -2\phi^2 y_T^2 \E \big(  \hat{\phi}^2\big) 
+\]
+
+\[
+= y_T^2 \big[ \E \big(\phi^4   +\hat{\phi}^2 -2  \phi^2 \hat{\phi}^2\big) \big] + (1 + \phi^2)\sigma^2 = \boxed{\E(\phi^2 - \hat{\phi}^2)^2 y_T^2 + (1 + \phi^2) \sigma^2}
+\]
+
+%
+%
+%
+%
+%
+%
+
+\[
+\E(y_{T+2} - \hat{y}_{T+2\mid T}^{(d)})^2 = \E\big(y_{T+2}^2\big) + \E \big((\hat{y}_{T+2\mid T}^{(d)})^2 \big)  -2 \E \big(y_{T+2} \cdot \hat{y}_{T+2\mid T}^{(d)}\big) 
+\]
+
+\[
+= \E((\phi^2 y_T + u_{T+2} + \phi u_{T+1})^2) + \E \big((\hat{\phi}_2y_{T})^2 \big)  -2 \E \big((\phi^2 y_T + u_{T+2} + \phi u_{T+1}) \cdot \hat{\phi}_2y_{T}\big) 
+\]
+
+\[
+= \E(\phi^4 y_T^2 + (u_{T+2} + \phi u_{T+1})^2 + 2\phi^2 y_T( u_{T+2} + \phi u_{T+1})) + y_{T}^2 \E \big(\hat{\phi}_2 \big)  -2\phi^2 y_T \E \big(  \hat{\phi}_2y_{T}\big) 
+\]
+
+\[
+= \E(\phi^4)  y_T^2+ \E(u_{T+2}^2 + \phi^2 u_{T+1}^2 ) + y_{T}^2 \E \big(\hat{\phi}_2 \big)  -2\phi^2 y_T^2 \E \big(  \hat{\phi}_2\big)  = \E(\phi^4)  y_T^2+ (1 + \phi^2)\sigma^2 + y_{T}^2 \E \big(\hat{\phi}_2 \big)  -2\phi^2 y_T^2 \E \big(  \hat{\phi}_2\big) 
+\]
+
+\[
+= y_T^2 \big[ \E \big(\phi^4   +\hat{\phi}_2 -2  \phi^2 \hat{\phi}_2\big) \big] + (1 + \phi^2)\sigma^2 = \boxed{\E(\phi^2 - \hat{\phi}_2)^2 y_T^2 + (1 + \phi^2) \sigma^2}
+\]
+
+% 3c
+\item Begin by expanding \(\hat{\phi}^2\) in a first order Taylor series about \(\phi\):
+
+\[
+\hat{\phi} = \phi + \mathcal{O}_p(M^{-1/2}) \implies \hat{\phi}^2 = \phi^2 + 2 \phi(\hat{\phi} - \phi) + \mathcal{O}_p(M^{-1})
+\]
+
+Then
+
+\[
+\E\big[ (\hat{\phi}^2 - \phi^2)^2 \mid y_T \big] = \E\big[ \big( 2 \phi(\hat{\phi} - \phi) + \mathcal{O}_p(M^{-1}) \big)^2 \mid y_T \big] = 4 \phi^2 \E\big[ \big( (\hat{\phi} - \phi) + \mathcal{O}_p(M^{-1}) \big)^2 \mid y_T \big] 
+\]
+
+\[
+= 4 \phi^2 \E\big[ \big( (\hat{\phi} - \phi) + \mathcal{O}_p(M^{-1}) \big)^2 \mid y_T \big] 
+\]
+
+\end{enumerate}
+
+
 %
 %
 %
@@ -1797,7 +2016,7 @@ and yields a stationary outcome if all the roots of
 like outside the unit circle. In that case
 
 \begin{equation} \label{ts.eq.18.8}
-\Var(\epsilon_t) = \sigma^2 = \frac{\alpha_0}{1 1 - \sum_{i=1}^q \alpha_i + \sum_{i=1}^p \phi_i } > 0
+\Var(\epsilon_t) = \sigma^2 = \frac{\alpha_0}{1 - \sum_{i=1}^q \alpha_i - \sum_{i=1}^p \phi_i } > 0
 \end{equation}
 
 Clearly the necessary condition for (\ref{ts.eq.18.7}) to be covariance stationary is given by

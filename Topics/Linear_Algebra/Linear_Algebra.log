@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.8)  1 NOV 2018 18:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.8)  19 JAN 2019 17:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -755,45 +755,49 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
-) (./Linear_Algebra.aux)
+)
+\c@theorem=\count139
+\c@corollary=\count140
+\c@definition=\count141
+ (./Linear_Algebra.aux)
 \openout1 = `Linear_Algebra.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 100.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 112.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 112.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count139
+\scratchcounter=\count142
 \scratchdimen=\dimen165
 \scratchbox=\box61
-\nofMPsegments=\count140
-\nofMParguments=\count141
+\nofMPsegments=\count143
+\nofMParguments=\count144
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count142
+\MPscratchCnt=\count145
 \MPscratchDim=\dimen166
-\MPnumerator=\count143
-\makeMPintoPDFobject=\count144
+\MPnumerator=\count146
+\makeMPintoPDFobject=\count147
 \everyMPtoPDFconversion=\toks45
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -812,12 +816,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package ragged2e Info: ABD: executing \RaggedRight on input line 100.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 112.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 100.
+LaTeX Info: Redefining \selectfont on input line 112.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring ON on input line 100.
+Package hyperref Info: Link coloring ON on input line 112.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -825,22 +829,22 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count145
+\c@section@level=\count148
 )
-LaTeX Info: Redefining \ref on input line 100.
-LaTeX Info: Redefining \pageref on input line 100.
-LaTeX Info: Redefining \nameref on input line 100.
+LaTeX Info: Redefining \ref on input line 112.
+LaTeX Info: Redefining \pageref on input line 112.
+LaTeX Info: Redefining \nameref on input line 112.
 
 (./Linear_Algebra.out) (./Linear_Algebra.out)
 \@outlinefile=\write4
 \openout4 = `Linear_Algebra.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 103.
+LaTeX Font Info:    Try loading font information for U+msa on input line 115.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 103.
+LaTeX Font Info:    Try loading font information for U+msb on input line 115.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -852,139 +856,158 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `Linear_Algebra.toc'.
 
  [2] [3]
-Overfull \hbox (25.75264pt too wide) in paragraph at lines 192--193
+Overfull \hbox (25.75264pt too wide) in paragraph at lines 207--208
 []\OT1/cmr/m/n/10 The test is to check, for an eigen-value that is re-peated $\
 OML/cmm/m/it/10 p$ \OT1/cmr/m/n/10 times, whether there are $\OML/cmm/m/it/10 p
 $ \OT1/cmr/m/n/10 in-de-pen-dent eigenvectors-- 
  []
 
-[4] <images/0568_12.png, id=86, 928.46875pt x 308.15125pt>
+[4]
+
+LaTeX Warning: Reference `cvx.schur.sec' on page 5 undefined on input line 263.
+
+
+[5] [6]
+Overfull \hbox (3.91234pt too wide) in paragraph at lines 341--342
+[]\OT1/cmr/m/n/10 To find the sec-ond eigen-vec-tor and eigen-value, we can re-
+peat the above pro-ce-dure, where we start by choos- 
+ []
+
+<images/0568_12.png, id=100, 928.46875pt x 308.15125pt>
 File: images/0568_12.png Graphic file (type png)
 
 <use images/0568_12.png>
-Package pdftex.def Info: images/0568_12.png used on input line 280.
+Package pdftex.def Info: images/0568_12.png used on input line 350.
 (pdftex.def)             Requested size: 464.23325pt x 154.07524pt.
- [5]
-<images/0568_12s.png, id=92, 879.285pt x 176.66pt>
+ <images/0568_12s.png, id=102, 879.285pt x 176.66pt>
 File: images/0568_12s.png Graphic file (type png)
- <use images/0568_12s.png>
-Package pdftex.def Info: images/0568_12s.png used on input line 282.
-(pdftex.def)             Requested size: 439.64143pt x 88.32977pt.
 
-<images/1268_24.png, id=93, 759.83875pt x 341.275pt>
+<use images/0568_12s.png>
+Package pdftex.def Info: images/0568_12s.png used on input line 352.
+(pdftex.def)             Requested size: 439.64143pt x 88.32977pt.
+ [7 <./images/0568_12.png>]
+<images/1268_24.png, id=110, 759.83875pt x 341.275pt>
 File: images/1268_24.png Graphic file (type png)
  <use images/1268_24.png>
-Package pdftex.def Info: images/1268_24.png used on input line 284.
+Package pdftex.def Info: images/1268_24.png used on input line 354.
 (pdftex.def)             Requested size: 493.88933pt x 221.82611pt.
 
-Overfull \hbox (24.13434pt too wide) in paragraph at lines 284--285
+Overfull \hbox (24.13434pt too wide) in paragraph at lines 354--355
 [][]  
  []
 
-<images/1268_24s.png, id=94, 721.69624pt x 70.2625pt>
+<images/1268_24s.png, id=111, 721.69624pt x 70.2625pt>
 File: images/1268_24s.png Graphic file (type png)
 
 <use images/1268_24s.png>
-Package pdftex.def Info: images/1268_24s.png used on input line 286.
+Package pdftex.def Info: images/1268_24s.png used on input line 356.
 (pdftex.def)             Requested size: 469.097pt x 45.67007pt.
 
-<images/1268_34.png, id=95, 715.67375pt x 347.2975pt>
+<images/1268_34.png, id=112, 715.67375pt x 347.2975pt>
 File: images/1268_34.png Graphic file (type png)
- <use images/1268_34.png>
-Package pdftex.def Info: images/1268_34.png used on input line 288.
+
+<use images/1268_34.png>
+Package pdftex.def Info: images/1268_34.png used on input line 358.
 (pdftex.def)             Requested size: 465.18242pt x 225.74069pt.
 
-[6 <./images/0568_12.png> <./images/0568_12s.png> <./images/1268_24.png> <./ima
-ges/1268_24s.png>] <images/1268_34s.png, id=104, 721.69624pt x 134.5025pt>
+<images/1268_34s.png, id=113, 721.69624pt x 134.5025pt>
 File: images/1268_34s.png Graphic file (type png)
 
 <use images/1268_34s.png>
-Package pdftex.def Info: images/1268_34s.png used on input line 290.
+Package pdftex.def Info: images/1268_34s.png used on input line 360.
 (pdftex.def)             Requested size: 469.097pt x 87.42557pt.
-
-<images/1268_37.png, id=105, 758.835pt x 159.59625pt>
+ [8 <./images/0568_12s.png> <./images/1268_24.png> <./images/1268_24s.png> <./i
+mages/1268_34.png>]
+<images/1268_37.png, id=122, 758.835pt x 159.59625pt>
 File: images/1268_37.png Graphic file (type png)
  <use images/1268_37.png>
-Package pdftex.def Info: images/1268_37.png used on input line 292.
+Package pdftex.def Info: images/1268_37.png used on input line 362.
 (pdftex.def)             Requested size: 493.23691pt x 103.73631pt.
 
-Overfull \hbox (23.48192pt too wide) in paragraph at lines 292--293
+Overfull \hbox (23.48192pt too wide) in paragraph at lines 362--363
 [][]  
  []
 
-<images/1268_37s.png, id=106, 721.69624pt x 92.345pt>
+<images/1268_37s.png, id=123, 721.69624pt x 92.345pt>
 File: images/1268_37s.png Graphic file (type png)
 
 <use images/1268_37s.png>
-Package pdftex.def Info: images/1268_37s.png used on input line 294.
+Package pdftex.def Info: images/1268_37s.png used on input line 364.
 (pdftex.def)             Requested size: 469.097pt x 60.02351pt.
 
-<images/0568_50.png, id=107, 848.16875pt x 189.70876pt>
+<images/0568_50.png, id=124, 848.16875pt x 189.70876pt>
 File: images/0568_50.png Graphic file (type png)
 
 <use images/0568_50.png>
-Package pdftex.def Info: images/0568_50.png used on input line 296.
+Package pdftex.def Info: images/0568_50.png used on input line 366.
 (pdftex.def)             Requested size: 424.08333pt x 94.85414pt.
 
-<images/0568_50s.png, id=108, 884.30376pt x 115.43124pt>
+<images/0568_50s.png, id=125, 884.30376pt x 115.43124pt>
 File: images/0568_50s.png Graphic file (type png)
 
 <use images/0568_50s.png>
-Package pdftex.def Info: images/0568_50s.png used on input line 298.
+Package pdftex.def Info: images/0568_50s.png used on input line 368.
 (pdftex.def)             Requested size: 442.1508pt x 57.71547pt.
- [7 <./images/1268_34.png> <./images/1268_34s.png> <./images/1268_37.png> <./im
-ages/1268_37s.png> <./images/0568_50.png>]
-<images/1268_51.png, id=119, 775.89874pt x 525.965pt>
+
+<images/1268_51.png, id=126, 775.89874pt x 525.965pt>
 File: images/1268_51.png Graphic file (type png)
  <use images/1268_51.png>
-Package pdftex.def Info: images/1268_51.png used on input line 300.
+Package pdftex.def Info: images/1268_51.png used on input line 370.
 (pdftex.def)             Requested size: 504.32822pt x 341.87318pt.
 
-Overfull \hbox (34.57323pt too wide) in paragraph at lines 300--301
+Overfull \hbox (34.57323pt too wide) in paragraph at lines 370--371
 [][]  
  []
 
-<images/1268_51s.png, id=120, 719.68875pt x 114.4275pt>
+[9 <./images/1268_34s.png> <./images/1268_37.png> <./images/1268_37s.png> <./im
+ages/0568_50.png> <./images/0568_50s.png>]
+<images/1268_51s.png, id=136, 719.68875pt x 114.4275pt>
 File: images/1268_51s.png Graphic file (type png)
 
 <use images/1268_51s.png>
-Package pdftex.def Info: images/1268_51s.png used on input line 302.
+Package pdftex.def Info: images/1268_51s.png used on input line 372.
 (pdftex.def)             Requested size: 467.79214pt x 74.37698pt.
- [8 <./images/0568_50s.png> <./images/1268_51.png> <./images/1268_51s.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
- (./Linear_Algebra.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 314.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 314.
+ [10 <./images/1268_51.png> <./images/1268_51s.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
+
+(./Linear_Algebra.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 384.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 384.
 Package rerunfilecheck Info: File `Linear_Algebra.out' has not changed.
-(rerunfilecheck)             Checksum: 11F680B4DC930E8D3279AC0650273C1F;437.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 314.
+(rerunfilecheck)             Checksum: 9E38637DA63ED0E4362DCEE16B71C1AE;507.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 384.
  ) 
 Here is how much of TeX's memory you used:
- 17735 strings out of 493013
- 339524 string characters out of 6133344
- 409616 words of memory out of 5000000
- 20908 multiletter control sequences out of 15000+600000
+ 17768 strings out of 493013
+ 339879 string characters out of 6133344
+ 409965 words of memory out of 5000000
+ 20938 multiletter control sequences out of 15000+600000
  12509 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,66p,515b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,66p,544b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Linear_Algebra.pdf (8 pages, 419356 bytes).
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Linear_Algebra.pdf (10 pages, 443501 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 198 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

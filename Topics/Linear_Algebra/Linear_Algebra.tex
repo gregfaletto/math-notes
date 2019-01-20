@@ -94,6 +94,18 @@
 %\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
 %\DeclareMathOperator{\Tr}{Tr}
 %
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem*{remark}{Remark}
+%
 %% Tilde
 %\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
 %
@@ -114,16 +126,19 @@
 %\end{center}
 %
 %\newpage
-
 %
-%
-%
-%
-%
-%
-%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
 
 \section{Linear Algebra}
+
+These are my notes from taking EE 588 at USC, Math 541A at USC, and various other sources which I mostly cite within the text.
+
 \subsection{Properties of Projection Matrices}
 
 \begin{enumerate}[i.]
@@ -243,13 +258,11 @@ Let \(A \in \mathbb{R}^{m \times n}\) with \(m \geq n\) and let \(\text{rank}(A)
 
 Every positive definite matrix is invertible and its inverse is also positive definite.
 
-\subsection{Other}
+\subsection{Matrix Decompositions}
 
-\textbf{Frobenius norm}
+\textbf{Schur complement, Schur decomposition}: For information, see Section \ref{cvx.schur.sec}.
 
 \textbf{QR decompositon}
-
-From appendix of Convex Optimization:
 
 \textbf{Orthogonal Decomposition}
 
@@ -257,11 +270,15 @@ From appendix of Convex Optimization:
 
 \textbf{Generalized eigenvalue decomposition}
 
-\textbf{Singular value decomposition}
+\textbf{Singular value decomposition and Pseudo-inverse}
 
-\textbf{Pseudo-inverse (Moore-Penrose inverse)}
+\textbf{Jordan decomposition}
 
-\textbf{Schur complement, Schur decomposition}
+\textbf{Cholesky decomposition}
+
+\subsection{Other}
+
+\textbf{Frobenius norm}
 
 From appendix of Time Series:
 
@@ -269,13 +286,66 @@ From appendix of Time Series:
 
 \textbf{Special matrices}
 
-\textbf{Jordan decomposition}
-
-\textbf{Cholesky decomposition}
-
 \textbf{Difference Equations}
 
 \subsection{Practice Problems}
+
+[\textbf{The Power Method}]
+This exercise gives an algorithm for finding the eigenvectors and eigenvalues of a symmetric matrix.  In modern statistics, this is often a useful thing to do.  The Power Method described below is not the best algorithm for this task, but it is perhaps the easiest to describe and analyze.
+
+Let $A$ be an $n\times n$ real symmetric matrix.  Let $\lambda_{1}\geq\cdots\geq\lambda_{n}$ be the (unknown) eigenvalues of $A$, and let $v_{1},\ldots,v_{n}\in\mathbb{R}^{n}$ be the corresponding (unknown) eigenvectors of $A$ such that $|v_{i}|=1$ and such that $A v_{i}=\lambda_{i}v_{i}$ for all $1\leq i\leq n$.
+
+Given $A$, our first goal is to find $v_{1}$ and $\lambda_{1}$.  For simplicity, assume that $1/2<\lambda_{1}<1$, and $0\leq \lambda_{n}\leq\cdots\leq\lambda_{2}<1/4$.  Suppose we have found a vector $v\in\mathbb{R}^{n}$ such that $|v|=1$ and $|\langle v,v_{1}\rangle|>1/n$. Let $k$ be a positive integer.  Show that
+$$A^{k}v$$
+approximates $v_{1}$ well as $k$ becomes large.  More specifically, show that for all $k\geq1$,
+$$|A^{k}v - \langle v,v_{1}\rangle\lambda_{1}^{k}v_{1}|^{2}\leq\frac{n-1}{16^{k}}.$$
+(Hint: use the spectral theorem for symmetric matrices.)
+
+\textbf{Solution.} Since the eigenvectors for \(A\) are orthogonal, they form a basis for \(\mathbb{R}^n\), so for any \(v \in \mathbb{R}^n\) we have \(v = \sum_{i=1}^n c_i v_i\) for some \(c = (c_1, \ldots, c_n) \in \mathbb{R}^n\). It also follows then that \(\langle v, v_1 \rangle = \langle   \sum_{i=1}^n c_i v_i, v_1 \rangle = c_1 v_1' v_1 = c_1\). And finally, since \(\Vert v \rVert = 1\) and \(\lVert v_i \rVert = 1\) for all \(i\), clearly we have \(-1 \leq c_i \leq 1\). Using these facts, we have 
+
+\[
+\lVert A^kv - \langle v, v_1 \rangle \lambda_1^k v_1 \rVert^2 = \lVert \sum_{i=1}^n \lambda_i^k c_i v_i - \langle v, v_1 \rangle \lambda_1^k v_1 \rVert^2  = \lVert \sum_{i=1}^n \lambda_i^k c_i v_i - \lambda_1^k c_1v_1 \rVert^2 = \lVert \sum_{i=2}^n \lambda_i^k c_i v_i  \rVert^2 
+\]
+
+\[
+= \sum_{i=2}^n \lambda_i^{2k} c_i^2 v_i'v_i = \sum_{i=2}^n \lambda_i^{2k} c_i^2
+\]
+
+Since by assumption \(0 \leq \lambda_n \leq \ldots \leq \lambda_2 \leq 1/4\), \(\lambda_i^{2k} \leq 1/16^k\) for all \(i\), so we have
+
+\[
+\lVert A^kv - \langle v, v_1 \rangle \lambda_1^k v_1 \rVert^2  \leq  \frac{1}{16^k} \sum_{i=2}^n c_i^2
+\]
+
+Since \(-1 \leq c_i \leq 1 \implies 0 \leq c_i^2 \leq 1\), we have \(\sum_{i=2}^n c_i^2 \leq n- 1\), so this can be written as
+
+\[
+\boxed{
+\lVert A^kv - \langle v, v_1 \rangle \lambda_1^k v_1 \rVert^2  \leq  \frac{n-1}{16^k} }
+\]
+
+\begin{remark} Since $|\langle v,v_{1}\rangle|\lambda_{1}^{k}>2^{-k}/n$, this inequality implies that $A^{k}v$ is approximately an eigenvector of $A$ with eigenvalue $\lambda_{1}$.  That is, by the triangle inequality,
+$$|A(A^{k}v)-\lambda_{1}(A^{k}v)|
+\leq|A^{k+1}v-\langle v,v_{1}\rangle\lambda_{1}^{k+1}v_{1}|
++\lambda_{1}|\langle v,v_{1}\rangle\lambda_{1}^{k}v_{1}-A^{k}v|\leq 2\frac{\sqrt{n-1}}{4^{k}}.$$
+Moreover, by the reverse triangle inequality,
+$$|A^{k}v|=|A^{k}v-\langle v,v_{1}\rangle\lambda_{1}^{k}v_{1}+\langle v,v_{1}\rangle\lambda_{1}^{k}v_{1}|
+\geq\frac{1}{n}2^{-k}-\frac{\sqrt{n-1}}{4^{k}}.$$
+
+If we take $k$ to be large (say $k>10\log n$), and if we define $z : equals A^{k}v$, then $z$ is approximately an eigenvector of $A$, that is
+$$|A\frac{A^{k}v|{|A^{k}v}|-\lambda_{1}\frac{A^{k}v}{|A^{k}v}|}\leq 4n^{3/2}2^{-k}\leq 4n^{-4}.$$
+And to approximately find the first eigenvalue $\lambda_{1}$, we simply compute
+$$\frac{z^{T}Az}{z^{T}z}.$$
+That is, we have approximately found the first eigenvector and eigenvalue of $A$.
+
+To find the second eigenvector and eigenvalue, we can repeat the above procedure, where we start by choosing $v$ such that $\langle v,v_{1}\rangle=0$, $|v|=1$ and $|\langle v,v_{2}\rangle|>1/(10\sqrt{n})$.  To find the third eigenvector and eigenvalue, we can repeat the above procedure, where we start by choosing $v$ such that $\langle v,v_{1}\rangle=\langle v,v_{2}\rangle=0$, $|v|=1$ and $|\langle v,v_{3}\rangle|>1/(10\sqrt{n})$.  And so on.
+
+Google's PageRank algorithm uses the power method to rank websites very rapidly.  In particular, they let $n$ be the number of websites on the internet (so that $n$ is roughly $10^{9}$).  They then define an $n\times n$ matrix $C$ where $C_{ij}=1$ if there is a hyperlink between websites $i$ and $j$, and $C_{ij}=0$ otherwise.  Then, they let $B$ be an $n\times n$ matrix such that $B_{ij}$ is $1$ divided by the number of $1$'s in the $i^{th}$ row of $C$, if $C_{ij}=1$, and $B_{ij}=0$ otherwise.  Finally, they define
+$$A=(.85)B+(.15)D/n$$
+where $D$ is an $n\times n$ matrix all of whose entries are $1$.
+
+The power method finds the eigenvector $v_{1}$ of $A$, and the size of the $i^{th}$ entry of $v_{1}$ is proportional to the ``rank'' of website $i$.
+\end{remark}
 
 \includegraphics[scale=0.5]{0568_12}
 

@@ -128,21 +128,21 @@
 %
 %
 %\newpage
-%
-%%
-%%
-%%
-%%
-%%
-%%
-%%
 %%
 %%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%%
 %%% Probability
 
 \section{Probability}
 
-These are my notes from taking Math 505A at USC and the textbook \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition.
+These are my notes from taking Math 505A at USC, Math 541A at USC, ISE 620 at USC and the textbook \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition.
 
 \subsection{To Know for Math 505A Midterm 1 (Discrete Random Variables)}
 
@@ -170,7 +170,22 @@ F(x, y) = \Pr(X \leq x \cap Y \leq y)
 \Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}
 \]\end{definition}
 
-\begin{definition}Two random variables \(X\) and \(Y\) are \textbf{independent} if and only if \(\Pr(X \cap Y) = \Pr(X) \Pr(Y)\).\end{definition}
+\begin{definition}\textbf{(Independent sets.)} Let \(A_1, A_2, \ldots\) be subsets of a sample space \(\Omega\), and let \(\mathbb{P}\) be a probability law on \(\Omega\). We say that \(A_1, A_2, \ldots\) are \textbf{independent} if for any finite subset \(S\) of \(\{1, 2, \ldots\}\), we have
+
+\[
+\mathbb{P}\bigg( \bigcap_{i \in S} A_i \bigg) = \prod_{i \in S} \mathbb{P}(A_i)
+\]
+
+\end{definition}
+
+\begin{definition}\textbf{(Independence of random variables.)} Random variables \(X_1, X_2, \ldots\) are \textbf{independent} if for every \(B_1, B_2, \ldots \subseteq \mathbb{R}\), the events \(\{X_1 \in B_1\}, \{X_2 \in B_2\}, \ldots\) are independent; that is, 
+
+\[
+\mathbb{P} \bigg( \bigcap_{i=1}^n \{X_i \in B_i\} \bigg) = \prod_{i=1}^n \mathbb{P}(\{X_i \in B_i\})
+\]
+\end{definition}
+
+\begin{remark}A more informal definition is as follows: Two random variables \(X\) and \(Y\) are \textbf{independent} if and only if \(\Pr(X \cap Y) = \Pr(X) \Pr(Y)\).\end{remark}
 
 \begin{theorem} \textbf{(Law of total probability).} If \(X\) is a random variable and \(Y\) is a discrete random variable taking on values \(y_1, y_2, \ldots, y_n\), then \(\Pr(X) = \sum_i \Pr(X \mid Y = y_i) \cdot \Pr(Y = y_i)\). (Can be used to prove independence.)\end{theorem}
 
@@ -201,18 +216,40 @@ f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
 \]
 \end{definition}
 
-\begin{proposition}\textbf{Iterated expectations:} 
+\begin{theorem}\textbf{Iterated expectations}: 
 
-\begin{itemize}
+\begin{enumerate}[(i)]
 
-\item \(\E\big[ \E(Y \mid X) \big] = \E(Y)\)
+\item \(\E\big[ \E(X \mid Y) \big] = \E(X)\) \textbf{(Law of Total Expectation)}
 
 \item \(\E \big[ (X \mid Y) \mid Z \big] = \E(X \mid Y)\)
 
 \item \( \E(E(XY \mid Y)) = \E(Y \E(X \mid Y))\)
 
-\end{itemize}
-\end{proposition}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}(i) Discrete case:
+
+\[
+\E\big[ \E(X \mid Y) \big] = \sum_{y} \E(X \mid Y = y) \Pr(Y=y) =  \sum_{y} \sum_{x} x \Pr(X=x \mid Y=y) \Pr(Y=y) 
+\]
+
+\[
+=  \sum_{y} \sum_{x} x \Pr(X=x \cap Y=y) =  \sum_{x}x \sum_{y}  \Pr(X=x \cap Y=y) = \sum_x x \Pr(X=x) = \E(X)
+\]
+
+Continuous case:
+
+\[
+\E\big[ \E(X \mid Y) \big]  = \int_{-\infty}^\infty \E(X \mid Y = y) f_Y(y) dy = \text{ (by definition 1.75) }  \int_{-\infty}^\infty \bigg( \int_{-\infty}^\infty x f_{X\mid Y}(x \mid y) dx \bigg)  f_Y(y) dy
+\]
+
+\[
+\text{ (by Fubini's Theorem, Theorem \ref{ra.fubini}) }  \int_{-\infty}^\infty \bigg( \int_{-\infty}^\infty x f_{X\mid Y}(x \mid y)  f_Y(y) dy \bigg)  dx = \int_{-\infty}^\infty x f_X(x) dx = \E(X)
+\]
+
+\end{proof}
 
 \begin{definition} \textbf{Conditional Variance:} \(\Var(X \mid Y) = \E\big[ (X - \E(X \mid Y))^2   \mid Y\big]\)
 \end{definition}
@@ -231,7 +268,64 @@ f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
 \left| \bigcup_{i=1}^n A_i \right| = \sum_{k=1}^n (-1)^{k+1} \bigg( \sum_{1 \leq i_1 < \ldots < i_k \leq m} \left| A_{i1} \cap \ldots \cap A_{ik} \right| \bigg)
 \]
 \end{enumerate}
+
 \end{proposition}
+
+To prove this, we will first prove the Multi-Binomial Theorem.
+
+\begin{lemma}\label{prob.m.bin.thm}\textbf{(Multi-Binomial Theorem)} 
+
+\[
+\prod_{i=1}^d (x_i + y_i)^{n_i} = \sum_{k_1=0}^{n_1} \sum_{k_2=0}^{n_2} \cdots \sum_{k_d=0}^{n_d} \binom{n_1}{k_1}x_1^{k_1}y_1^{n_1-k_1} \binom{n_2}{k_2}x_2^{k_2}y_2^{n_2-k_2} \cdots \binom{n_d}{k_d}x_d^{k_d}y_d^{n_d-k_d}
+\]
+
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+We are now ready to prove the Inclusion-Exclusion Principle.
+
+\begin{proof}(Proof of (a).) Begin by noting that 
+
+\begin{equation} \label{prob.541a.hw1.6}
+\boldsymbol{1}_{\{\cup_{i=1}^n A_i\}} = 1 - \prod_{i=1}^n (1 - \boldsymbol{1}_{\{A_i\}})
+\end{equation}
+
+because the expression on the right will equal 1 if at least one term in the product equals 0 (that is, if \(\boldsymbol{1}_{\{A_i\}} = 1\) for some \(i \in 1, \ldots, n\)) and will equal 0 if every term in the product equals 1 (if \(\boldsymbol{1}_{\{A_i\}} = 0\) for every \(i \in 1, \ldots, n\)), which is exactly what we want. Expanding the right side of (\ref{prob.541a.hw1.6}) using the Multi-Binomial Theorem (Lemma \ref{prob.m.bin.thm}), we have
+
+\[
+= 1 - \prod_{i=1}^n (1 - \boldsymbol{1}_{\{A_i\}}) = 1 -  (1 - \boldsymbol{1}_{\{A_1\}}) (1 - \boldsymbol{1}_{\{A_2\}}) \cdots (1 - \boldsymbol{1}_{\{A_n\}})  
+\]
+
+\[
+ = 1 - \bigg[ 1 + \sum_{k=1}^n (-1)^{k} \bigg( \sum_{1 \leq i_1 < \ldots < i_k \leq k} \boldsymbol{1}_{\{A_{i_1}\}}  \cdots \boldsymbol{1}_{\{A_{i_k}\}}\bigg) \bigg]  = -1 \cdot \sum_{k=1}^n (-1)^{k} \bigg( \sum_{1 \leq i_1 < \ldots < i_k \leq k} \boldsymbol{1}_{\{A_{i_1} \cap \ldots \cap A_{i_k}\}}\bigg) 
+\] 
+
+\[
+= \sum_{k=1}^n (-1)^{k+1} \bigg( \sum_{1 \leq i_1 < \ldots < i_k \leq k} \boldsymbol{1}_{\{A_{i_1} \cap \ldots \cap A_{i_k}\}}\bigg)
+\]
+
+\begin{equation} \label{prob.541a.hw1.6.b}
+\implies \boldsymbol{1}_{\{\cup_{i=1}^n A_i\}} = \sum_{k=1}^n (-1)^{k+1} \bigg( \sum_{1 \leq i_1 < \ldots < i_k \leq k} \boldsymbol{1}_{\{A_{i_1} \cap \ldots \cap A_{i_k}\}}\bigg)
+\end{equation}
+
+Taking expectations of both sides of (\ref{prob.541a.hw1.6.b}) yields
+
+\[
+\Pr(\cup_{i=1}^{n}A_{i}) = \E \bigg[ \sum_{k=1}^n (-1)^{k+1} \bigg( \sum_{1 \leq i_1 < \ldots < i_k \leq k} \boldsymbol{1}_{\{A_{i_1} \cap \ldots \cap A_{i_k}\}}\bigg)\bigg]
+\]
+
+\[
+= \sum_{k=1}^n (-1)^{k+1} \bigg( \sum_{1 \leq i_1 < \ldots < i_k \leq k} \E [ \boldsymbol{1}_{\{A_{i_1} \cap \ldots \cap A_{i_k}\}} ] \bigg)
+\]
+
+\[
+= \sum_{k=1}^n (-1)^{k+1} \bigg( \sum_{1 \leq i_1 < \ldots < i_k \leq k} \Pr \big(A_{i_1} \cap \ldots \cap A_{i_k} \big) \bigg)
+\]
+
+\end{proof}
 
 \begin{theorem}\textbf{Sums of random variables.} If \(X\) and \(Y\) are independent then
 
@@ -246,6 +340,32 @@ f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
 \[
 \Var(X_1 + \ldots + X_n) = \sum_k \Var(X_k) + \sum_{k \neq m} \sum_m \Cov(X_k, X_m)
 \]
+\end{proposition}
+
+\begin{definition}Let \(\{X_i\}\) be i.i.d. random variables. Let \(N\) be a random variable taking on positive integer values. Let
+
+\[
+S = \sum_{i=1}^N X_i
+\]
+
+Then \(S\) is a \textbf{compound random variable}.
+
+\end{definition}
+
+\begin{proposition} \textbf{(Wald's Equation.)} Let \(\{X_i\}\) be i.i.d. random variables with mean \(\E(X)\). Let \(N\) be a random variable taking on positive integer values, and let \(S = \sum_{i=1}^N X_i\). Then \(\E(S) = \E(N) \E(X)\).
+
+\begin{proof}
+
+\[
+\E(S \mid N) = \E \bigg( \sum_{i=1}^N X_i \bigg) = \sum_{i=1}^N \E(X_i) = N \E(X) 
+\]
+
+\[
+\E(S) = \E(\E[S \mid N]) = \E(N \E(X)) = \E(N) \E(X)
+\]
+
+\end{proof}
+
 \end{proposition}
 
 \begin{proposition} \label{prob.ross1.6.1} \textbf{(Proposition 1.6.1 in Sheldon Ross \textit{A First Course in Probability}.)} There are \(\binom{n-1}{r-1}\) distinct positive integer-valued vectors \((x_1, x_2, \ldots, x_r), x_i > 0 \ \forall \ i\) satisfying the equation \(x_1 + x_2 + \ldots + x_r = n\).
@@ -282,7 +402,7 @@ Since \(y_i \geq 1 \iff y_i > 0\), by Proposition \ref{prob.ross1.6.1}, the numb
 
 \end{proof}
 
-\begin{proposition}\label{prob.ross1.6.2general} More generally, if we desire solutions to \(x_1 + x_2 + \ldots + x_r = n\) such that  \(x_i \geq k \in \mathbb{N}\), then  \(\binom{n + r\cdot(1-k)-1}{r-1}\) solutions are possible.
+\begin{proposition}\label{prob.ross1.6.2general} More generally, if we desire solutions to \(x_1 + x_2 + \ldots + x_r = n\) such that  \(x_i \geq k \in \mathbb{N}\), then \(\binom{n + r\cdot(1-k)-1}{r-1} = \binom{n + r - 1 - rk}{r-1}\) solutions are possible.
 
 \end{proposition}
 
@@ -302,6 +422,89 @@ y_1+ y_2 + \ldots + y_ r = n + r\cdot(1-k), \ y_i + k - 1\geq k \ \forall i
 then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff y_i \geq 1 \iff x_i \geq k\) to yield the result.
 \end{proof}
 
+\begin{proposition}\label{prob.ross1.6.2.most.general} Even more generally, suppose we desire solutions to \(x_1 + x_2 + \ldots + x_r = n\) such that  \(x_1 \geq k_1 \in \mathbb{N}, x_2 \geq k_2 \in \mathbb{N}, \ldots, x_r \geq k_r \in \mathbb{N}\). Then 
+
+\[
+\binom{n +  \sum_{i=1}^r (1 - k_i )-1}{r-1} = \binom{n + r - 1 -  \sum_{i=1}^r  k_i}{r-1}
+\] solutions are possible.
+
+\begin{proof}
+Very similar to the proof of Proposition \ref{prob.ross1.6.2general}. Add \(\sum_{i=1}^r (1 - k_i ) \) to each side of \(x_1 + x_2 + \ldots + x_r = n\):
+
+\[
+x_1 + 1 - k_1 + x_2 + 1 - k_2 + \ldots + x_r  + 1 - k_r = n + \sum_{i=1}^r (1 - k_i ), \ x_i \geq k_i \ \forall i
+\]
+
+Then substitute \(y_i = x_i + 1 - k_i\) to yield 
+
+\[
+y_1+ y_2 + \ldots + y_ r = n +  \sum_{i=1}^r (1 - k_i ), \ y_i + k_i - 1\geq k_i \ \forall i
+\]
+
+Finally, apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k_i - 1\geq k_i \iff y_i \geq 1 \iff x_i \geq k_i\) to yield the result.
+\end{proof}
+
+\end{proposition}
+
+\begin{proposition}\label{prob.ross1.6.2.numer} Suppose we desire solutions to \(x_1 + x_2 + \ldots + x_r = n\) such that \(\tau \leq r\) of the \(\{x_i\}\) exceed some threshold \(k\). For example, if we have \(x_1 \geq k, x_2 \geq k, \ldots, x_\tau \geq k\), with \(x_{\tau + 1}, \ldots, x_r\) taking on arbitrary values, then the condition is satisfied. (The particular \(x_i\) that exceed \(k\) does not matter, as long as \(\tau\) of them exceed \(k\)). Then
+
+\[
+\binom{r}{\tau}\binom{n + r - 1 - k \tau}{r-1}
+\] solutions are possible.
+
+\begin{proof}
+By Proposition \ref{prob.ross1.6.2.most.general}, the number of ways this condition can be met for a particular set of \(\tau\) variables \(x_i\) is \(\binom{n + r - 1 - k \tau}{r-1}\). Since there are \(\binom{r}{\tau}\) ways to choose which \(\tau\) variables will exceed \(k\), the result follows.
+\end{proof}
+
+\end{proposition}
+
+\begin{remark} \textbf{Convolution on the integers.} Let \(X\), \(Y\) be independent integer-valued random variables. Let \(t \in \mathbb{Z}\). 
+
+\[
+\Pr(X +Y = t) = \sum_{j, k \in \mathbb{Z}: j+k=t} \Pr(X=j, Y=k) = \sum_{j \in \mathbb{z}} \Pr(X=j, Y=t-j) = \sum_{j \in \mathbb{Z}} \Pr(X=j)\Pr(Y=t-j)
+\]
+
+\[
+= \sum_{j \in \mathbb{Z}} p_X(j) p_Y(t-j)
+\]
+
+\end{remark}
+
+\begin{definition} Let \(g, h: \mathbb{Z} \to \mathbb{R}\) be functions. The \textbf{convolution} of \(g\) and \(h\), denoted by \(g * h\), is a function \(g * h: \mathbb{Z} \to \mathbb{R}\) defined by
+
+\[
+(g *h)(t) = \sum_{j \in \mathbb{Z}} g(j) h(t-j) \ \ \ \forall t \in \mathbb{Z}
+\]
+
+\end{definition}
+
+\begin{definition} \textbf{(Convolution on the real line.)} Let \(g, h: \mathbb{R} \to \mathbb{R}\) b functions. The \textbf{convolution} of \(g\) and \(h\), denoted by \(g * h\), is a function \(g*h:\mathbb{R} \to \mathbb{R}\) defined by
+
+\[
+(g*h)(t) = \int_{-\infty}^\infty g(x) h(t-x)dx , \ \ \ \forall t \in \mathbb{R}
+\]
+
+\end{definition}
+
+\begin{proposition} Let \(X, Y\) be two continuous independent random variables such that \(\Pr(X +Y \leq t)\) is differentiable with respect to \(t \in \mathbb{R}\). Then
+
+\[
+f_{X+Y}(t) = (f_X * f_Y)(t) , \ \ \ \forall t \in \mathbb{R}
+\]
+
+\begin{proof}
+\[
+\Pr(X+Y \leq t) = \int_{\{(x,y) \in \mathbb{R}^2 : x+y \leq t\}} f_{X,Y}(x,y)dxdy = \int_{x=-\infty}^{x=\infty} \int_{y=-\infty}^{y=t-x} f_{X}(x) f_Y(y)dy dx
+\]
+
+Then, since \(\Pr(X+Y \leq t)\) is differentiable with respect to \(t\), we have by the Fundamental Theorem of Calculus
+
+\[
+f_{X+Y}(t) = \deriv{}{t} \Pr(X+Y \leq t) = \int_{x=-\infty}^{x=\infty} f_{X}(x) \deriv{}{t} \int_{y=-\infty}^{y=t-x}  f_Y(y)dy dx = \int_{x=-\infty}^{x=\infty} f_X(x) f_Y(t-x) dx
+\]
+\end{proof}
+
+\end{proposition}
 %%%%%%%%%% Methods for Calculating Quantities %%%%%%%%%
 \subsubsection{Methods for Calculating Quantities}
 
@@ -355,6 +558,8 @@ then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff
 
 \item \(\Var(aX \pm bY) = a^2\Var(X) + b^2\Var(Y) \pm 2ab \Cov(X, Y)\) 
 
+\item \(\Var \bigg( \sum_{i=1}^n X_i \bigg) = \sum_{i=1}^n \Var(X_i) + 2 \sum_{1 \leq i < j \leq n} \Cov(X_i, X_j)\)
+
 \end{enumerate}
 \end{theorem}
 
@@ -367,7 +572,37 @@ then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff
 
 \end{definition}
 
-\item \begin{theorem} \textbf{Law of Total Variance:} \( \Var(X) = \Var \big( \E(X \mid Y) \big) + \E \big( \Var(X \mid Y) \big) \)\end{theorem}
+\item \begin{theorem}\label{prob.ltv} \textbf{Law of Total Variance:} \( \Var(X) = \Var \big( \E(X \mid Y) \big) + \E \big( \Var(X \mid Y) \big) \)\end{theorem}
+
+\begin{proof}
+
+\begin{equation}\label{prob.ltv.proof.1}
+\Var \big( \E(X \mid Y) \big) =\E[( \E(X \mid Y))^2]  - [\E( \E(X \mid Y))]^2 =  \E[( \E(X \mid Y))^2] - \E(X)^2
+\end{equation}
+
+\begin{equation}\label{prob.ltv.proof.2}
+\Var(X \mid Y) = \E(X^2 \mid Y) - ( \E(X \mid Y))^2 \implies \E[\Var(X \mid Y)] = \E(X^2) - \E[( \E(X \mid Y))^2]
+\end{equation}
+
+Adding together (\ref{prob.ltv.proof.1}) and (\ref{prob.ltv.proof.2}) yields
+
+\[
+\Var \big( \E(X \mid Y) \big) + \E \big( \Var(X \mid Y) \big) = \E[( \E(X \mid Y))^2]  - \E(X)^2 +  \E(X^2) - \E[( \E(X \mid Y))^2] 
+\]
+
+\[
+= \E(X^2) - \E(X)^2 = \Var(X)
+\]
+
+\end{proof}
+
+\begin{corollary} \textbf{(Rao-Blackwell Theorem.)} \(\Var(X) \geq \Var(\E(X \mid Y))\)
+
+\end{corollary}
+
+\begin{proof} Follows immediately from Theorem \ref{prob.ltv} by noting that since the variance is nonnegative, \(\E \big( \Var(X \mid Y) \big)  \geq 0\).
+
+\end{proof}
 
 \item \begin{proposition}\label{prob.const.var}If \(c \in \mathbb{R}\), then \(\Var(c) = 0\).
 \end{proposition}
@@ -392,6 +627,13 @@ then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff
 \item \(\Cov(X, X) = \Var(X)\)
 
 \item \(\Cov(aX + bY) = ac\Var(X) + bd\Var(Y) + (ad + bc)\Cov(X, Y)\)
+
+\item \(\Cov(X_1 + X_2, Y) = \Cov(X_1, Y) + \Cov(X_2, Y)\)
+
+\item \(\Cov\bigg( \sum_{i=1}^n X_i , Y\bigg) = \sum_{i=1}^n \Cov(X_i, Y)\)
+
+\item \(\Cov\bigg( \sum_{i=1}^n X_i, \sum_{j=1}^m Y_j \bigg) = \sum_{i=1}^n \sum_{j=1}^m \Cov(X_i, Y_j)
+\)
 
 \end{enumerate}
 \end{theorem}
@@ -443,6 +685,43 @@ then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff
 
 \end{itemize}
 
+\begin{proposition}\label{prob.binom.to.poisson}Let \(X \sim \operatorname{Binomial}(n, p)\). Then
+
+\[
+\lim_{n \to \infty, \ p \to 0, \ np \to \lambda} X \sim \operatorname{Poisson}(np).
+\]
+
+\end{proposition}
+
+\begin{proof}
+\[
+\lim_{n \to \infty, \ p \to 0, \ np \to \lambda} \binom{n}{k}p^k(1-p)^{n-k} = \lim_{n \to \infty, \ p \to 0, \ np \to \lambda} \frac{n!}{(n-k)!k!} p^k(1-p)^{n-k} 
+\]
+
+\[
+= \frac{1}{k!} \cdot \lim_{n \to \infty, \ p \to 0, \ np \to \lambda}  (1-p)^{n-k} p^k \prod_{i=0}^{k-1} (n-i)  = \frac{1}{k!} \cdot \lim_{n \to \infty, \ p \to 0, \ np \to \lambda}  \bigg(1-\frac{np}{n} \bigg)^{n-k} p^k \prod_{i=0}^{k-1} (n-i) 
+\]
+
+Using \(\lim_{n \to \infty} (1 - \lambda/n)^n = \exp(\lambda) \), and letting \(\lambda =np\), we have
+
+\[
+= \frac{\exp(-np)(np)^k}{k!} = \boxed{\frac{\exp(-\lambda)\lambda^k}{k!} } \sim \operatorname{Poisson}(np)
+\]
+\end{proof}
+
+\begin{proposition}\label{prob.poisson.to.normal}
+Let \(X \sim \operatorname{Poisson}(\lambda)\). If \(\lambda\) is sufficiently large (say \(\lambda > 20\), then we can use the approximation
+
+\[
+X \sim \mathcal{N}(\lambda, \lambda)
+\]
+
+\end{proposition}
+
+\begin{proof}
+(Informal justification.) By Proposition \ref{prob.binom.to.poisson}, a Poisson distribution can be thought of as a close approximation of a binomial distribution. Since a binomial distribution can be approximated by a normal distribution for \(n\) large and \(np\) not too large, the same is true of a Poisson distribution.
+\end{proof}
+
 \textbf{Geometric}:  \(\operatorname{G}_1(p)\): the number of Bernoulli trials before the first success.
 
 \begin{itemize}
@@ -466,14 +745,14 @@ then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff
 
 \item Distribution: \(\Pr(X \leq k) = \sum_{i=r}^k \binom{i-1}{r-1} p^r (1-p)^{i-r} \)
 
-\item Expectation: \(\E(X) = \)
+\item Expectation: \(\E(X) = \frac{pr}{1-p}\)
 
-\item Variance: \(\Var(X) = \)
+\item Variance: \(\Var(X) =  \frac{pr}{(1-p)^2}\)
 
 \end{itemize}
 
 
-\textbf{Hypergeometric}: \( \operatorname{Hypergeometric}(N, M, K)\): When drawing a sample of size \(K\) from a group of \(N\) items, \(M\) of which are special, the number of special items retrieved.
+\textbf{Hypergeometric}: \( \operatorname{Hypergeometric}(N, M, K)\): When drawing a sample of size \(K\) from a group of \(N\) items, \(M\) of which are special, \(X\) is the number of special items retrieved.
 
 \begin{itemize}
 
@@ -481,13 +760,83 @@ then apply Proposition \ref{prob.ross1.6.1} noting that \(y_i + k - 1\geq k \iff
 
 \item Distribution: \[\Pr(X \leq k) = \sum_{i=0}^k \frac{\binom{M}{i} \binom{N-M}{K-i}}{\binom{N}{K}}  \]
 
-\item Expectation: \(\E(X) = \) (find by indicator method)
+\item Expectation: \(\E(X) = \frac{MK}{N}\)
+
+\begin{proof}Let \(Y_j\) be an indicator variable for special item \(j\) being selected. Note that \(X = \sum_{j=1}^M Y_j\) and that 
+
+\[
+\E(Y_j) =  \frac{\binom{1}{1} \binom{N-1}{K-1}}{\binom{N}{K}} = \frac{1 \cdot \frac{(N-1)!}{(N-K)!(K-1)!}}{\frac{N!}{(N-K)!K!}} = \frac{K}{N} ,
+\]
+
+so we have
+
+\[
+\E(X) = \E \bigg( \sum_{j=1}^M Y_j \bigg) = \sum_{j=1}^M  \E(Y_j ) = \frac{MK}{N}.
+\]
+
+Alternative proof:
+
+Let \(Z_i\) be an indicator variable for the \(i\)th selected item to be special. Then \(X = \sum_{i=1}^K Z_i\) and \(\E(Z_i) = \frac{M}{N}\), so we have
+
+\[
+\E(X) = \E \bigg( \sum_{i=1}^K Z_i \bigg) = \sum_{i=1}^K  \E(Z_i) = \frac{MK}{N}.
+\]
+
+\item Variance: \(\Var(X) = \) (find by indicator method. Proof from notes, I think this may have errors:)
+
+\
 
 \includegraphics[scale=0.1]{prob_hypergeometric}
-
-\item Variance: \(\Var(X) = \) (find by indicator method)
+\end{proof}
 
 \end{itemize}
+
+\begin{proposition}Let \(X \sim \operatorname{Hypergeometric}(N, M, K)\). Then
+
+\[
+\lim_{M, N \to \infty, M/N \to p} \Pr(X=k) \sim \operatorname{Binomial}(K, p)
+\]
+
+\end{proposition}
+
+\begin{proof}
+\[
+\lim_{M, N \to \infty, M/N \to p} p_k(M, N, K) = \lim_{M, N \to \infty, M/N \to p} \frac{\binom{M}{k} \binom{N-M}{K-k}}{\binom{N}{K}}
+\]
+
+\[
+= \lim_{M, N \to \infty, M/N \to p} \frac{M!(N-M)!/[k!(M-k)!(K-k)!(N-M-K+k)!]}{N!/[K!(N-K)!]}
+\]
+
+\[
+= \lim_{M, N \to \infty, M/N \to p} \frac{K!}{(K-k)!k!}\cdot \frac{M!(N-M)!(N-K)!}{N!(M-k)!(N-M-K+k)!}
+\]
+
+%Note that \( \frac{}{} = \frac{(N-x)!}{(N-x)!} \)
+
+%Note that \((N-K)! = (N-k)!\)
+
+\[
+= \lim_{M, N \to \infty, M/N \to p} \binom{K}{k}\cdot \frac{M!/ (M-k)!}{N!/(N-k)!} \cdot \frac{ (N-M)!(N-K)!}{(N-k)! (N-M-(K-k))!}
+\]
+
+\[
+= \binom{K}{k} \lim_{M, N \to \infty, M/N \to p} \frac{M!/ (M-k)!}{N!/(N-k)!} \cdot \frac{ (N-M)!/  (N-M-(K-k))!}{(N-K+(K-k))!/(N-K)!}
+\]
+
+\[
+= \binom{K}{k} \lim_{M, N \to \infty, M/N \to p}\prod_{i=0}^{k-1} \frac{M-i}{N-i} \cdot \prod_{j=0}^{K-k-1} \frac{N-M-j}{N-K+1+j}
+\]
+
+
+\[
+= \binom{K}{k} \bigg(\frac{M}{N} \bigg)^k \bigg(\frac{N - M}{N} \bigg)^{K-k}
+\]
+
+\[
+= \binom{K}{k} \bigg(\frac{M}{N} \bigg)^k \bigg(1 - \frac{M}{N} \bigg)^{K-k}=  \binom{K}{k}p^k(1-p)^{K-k} 
+\]
+\end{proof}
 
 
 \subsubsection{Indicator Method}
@@ -519,7 +868,7 @@ Worked examples in p. 56 - 59 of Grimmett and Stirzaker 3rd edition.
 
 \subsubsection{Linear transformations of random variables}
 
-\subsubsection{Poisson Paradigm (Poisson approximation for indicator method)}
+\subsubsection{Poisson Paradigm (Poisson approximation for indicator method)}\label{prob.poisson.paradigm}
 
 \begin{theorem} (Theorem 4.12.9, p. 129 of Grimmett and Stirzaker.) Let \(A_i\) be an event. If \(X = \sum_{i=1}^m \boldsymbol{1}_{A_i}\) where \(\boldsymbol{1}_{A_i}\) is an indicator variable for \(A_i\), and the \(A_i\) are only weakly dependent on each other, then 
 
@@ -534,6 +883,10 @@ More specifically, let \(B_i\) be \(n\) independent Bernoulli random variables w
 \]
 
 \end{theorem}
+
+\begin{proof}
+Full proof available in Grimmett and Stirzaker, section 4.12, page 129. A justification of the first claim is as follows: if the \(A_i\) are independent and \(\Pr(A_i) = p \ \forall i\), then \(X \sim \operatorname{Binomial}(m, p\). Then by Proposition \ref{prob.binom.to.poisson}, the result follows. It turns out that this result holds up if the probabilities are not necessarily identical (but all small) and the variables are not necessarily independent (but only weakly dependent).
+\end{proof}
 
 \subsubsection{Asymptotic Distributions}
 
@@ -550,14 +903,32 @@ n! \approx n^ne^{-n} \sqrt{2\pi n}
 \]
 \end{theorem}
 
-%%%%%%%% Example Problems That Will Likely Appear on Midterm %%%%%%%%%%%%%
+%%%%%%%% Example Problems That Will Likely Appear on Midterm (and Final) %%%%%%%%%%%%%
 \subsection{Worked problems}
 
-\subsubsection{Example Problems That Will Likely Appear on Midterm}
+\subsubsection{Example Problems That Will Likely Appear on Midterm (and Final)}
 
-\textbf{Fall 2011 Problem 1 (same as HW1 problem 5; similar to HW3 problem 2(5); likely to be question 1 on the midterm.)} True or false: if \(A\) and \(B\) are events such that \( 0 < \Pr(A) < 1\) and \(\Pr(B \mid A) = \Pr(B \mid A^c)\), then \(A\) and \(B\) are independent.
+\begin{enumerate}[(1)]
 
-\textbf{Solution.} \(A\) and \(B\) are independent if and only if 
+%%%%%% Midterm 1 Problem 1 %%%%%%%
+\item 
+
+\begin{enumerate}[(a)]
+
+\item \textbf{Fall 2011 Problem 1 (same as HW1 problem 5; similar to HW3 problem 2(5).)} Let \(A\) and \(B\) be events such that \( 0 < \Pr(A) < 1\). Show that if \(\Pr(B \mid A) = \Pr(B \mid A^c)\), then \(A\) and \(B\) are independent.
+
+\item Let \(X\) and \(Y\) be two discrete random variables, each taking only two possible values. Show that if \(\E(XY) = \E(X) \E(Y)\) then \(X\) and \(Y\) are independent.
+
+%Show that if the events \(A\) and \(B\) are uncorrelated (\(E(AB) = \E(A)\E(B))\), then they are independent.
+
+\end{enumerate}
+
+\textbf{Solution.}
+
+\begin{enumerate}[(a)]
+
+% 1(a) solution
+\item  \(A\) and \(B\) are independent if and only if 
 
 \[
 \Pr(A \cap B) = \Pr(A)\cdot\Pr(B)
@@ -591,24 +962,323 @@ Per above \(\Pr(B|A) = \Pr(B)\), so we have
 
 which is what we were trying to prove. So the answer is \(\boxed{\text{true.}}\)
 
-\textbf{Similar problem: HW3 Problem 2(5).} Verify: \(\E(X \mid Y) = \E(X)\) if \(X\) and \(Y\) are independent.
-
-\textbf{Solution.} \(X\) and \(Y\) are independent if and only if
+% 1(b) solution
+\item Without loss of generality, let \(X\) and \(Y\) have mass functions
 
 \[
-\Pr(X \cap Y) = \Pr(X)\cdot\Pr(Y) \iff \Pr(X = x \cap Y = y) = \Pr(X = x) \Pr(Y = y)
+X = \begin{cases}
+x_1 & \text{with probability } \Pr(A) \\
+x_2 & \text{with probability } \Pr(A^c)
+\end{cases} 
 \]
 
 \[
-\iff \Pr(X = x \mid Y = y) \cdot \Pr(Y = y) =  \Pr(X = x) \Pr(Y = y) \iff \Pr(X = x \mid Y = y) = \Pr(X = x)
+Y = \begin{cases}
+y_1 & \text{with probability } \Pr(B) \\
+y_2 & \text{with probability } \Pr(B^c)
+\end{cases} 
+\]
+
+Then \(X \indep Y \iff \Pr(A \cap B) = \Pr(A) \Pr(B)\). Let \(\alpha = X - x_2\), \(\beta = Y - y_2\); that is,
+
+\[
+\alpha = \begin{cases}
+x_1 - x_2 & \text{with probability } \Pr(A) \\
+0 & \text{with probability } \Pr(A^c)
+\end{cases} 
 \]
 
 \[
-\implies E(X \mid Y) = \sum_x x \cdot \Pr(X = x \mid Y = y ) = \sum_x x \cdot \Pr(X = x ) = \E(X)
+\beta = \begin{cases}
+y_1 - y_2 & \text{with probability } \Pr(B) \\
+0 & \text{with probability } \Pr(B^c)
+\end{cases} 
+\]
+
+Then we have
+
+\begin{itemize}
+
+\item \(\E(\alpha) = (x_1 - x_2) \Pr(A)\)
+
+\item \(\E(\beta) = (y_1 - y_2) \Pr(B)\)
+
+\item \(\E(\alpha \beta) = (x_1 - x_2)(y_1 - y_2) \Pr(A \cap B)\)
+
+\end{itemize}
+
+which we can use to obtain
+
+%\begin{itemize}
+%
+%\item 
+
+\[
+\E(XY) = \E \big[(\alpha + x_2)(\beta + y_2) \big] = \E(\alpha \beta) + y_2 \E(\alpha) + x_2 \E(\beta) + x_2 y_2 
+\]
+
+\begin{equation}\label{prob.mid1.b.first}
+= (x_1 - x_2)(y_1 - y_2) \Pr(A \cap B) + y_2(x_1 - x_2) \Pr(A) + x_2(y_1 - y_2) \Pr(B) + x_2 y_2
+\end{equation}
+
+%\item 
+
+\[
+\E(X) \E(Y) = \E(\alpha + x_2) \E(\beta + y_2) = \big[x_2 + (x_1 - x_2) \Pr(A) \big] \big[y_2 + (y_1 - y_2) \Pr(B) \big]
+\]
+
+\begin{equation}\label{prob.mid1.b.second}
+= x_2 y_2 + x_2(y_1 - y_2)\Pr(B) + y_2(x_1 -x_2) \Pr(A) + (x_1 - x_2)(y_1 - y_2) \Pr(A)\Pr(B)
+\end{equation}
+
+%\end{itemize} 
+
+Using \(\E(XY) = \E(X) \E(Y)\), we set (\ref{prob.mid1.b.first}) and (\ref{prob.mid1.b.second}) equal to each other. Canceling terms appearing in both yields
+
+\[
+(x_1 - x_2)(y_1 - y_2) \Pr(A \cap B) = (x_1 - x_2)(y_1 - y_2) \Pr(A)\Pr(B) \iff \Pr(A \cap B) = \Pr(A)\Pr(B)
+\]
+
+which proves the independence of \(X\) and \(Y\) if \(\E(XY) = \E(X) \E(Y)\).
+
+
+\end{enumerate}
+
+%\textbf{Fall 2009 Problem 4 (Very similar).} Let \(X\) and \(Y\) be two random variables, both taking only two values. Show that if they are uncorrelated, then they are independent.
+%
+%\textbf{Solution.} Let \(X\) and \(Y\) have the following pmfs: \(\Pr(X = a) = p, \Pr(X = b) = 1-p; \ \ \ \Pr(Y = c) = q, \Pr(Y = d) = 1  -q \). Suppose \(X\) and \(Y\) are uncorrelated; that is, \(\E(XY) = \E(X)\E(Y)\). Then \(X\) and \(Y\) are independent if \(\Pr(X \cap Y) = \Pr(X) \Pr(Y)\). Since these random variables take on only two values each, this can also be expressed as \( \Pr(X = a \cap Y = c) = \Pr(X = a) \Pr(Y = c)\). 
+%
+%Begin by defining new variables \(\alpha = X - b\) and \(\beta = Y - d\). Then we have
+%
+%\[
+%\E(\alpha \beta) = \E( (X - b)(Y - d)) = \E(XY) - b \E(Y) -d \E(X) + bd
+%\]
+%
+%\[
+%\E(\alpha) \E(\beta) = \E(X-b) \E(Y - d) = \E(X)\E(Y) -b \E(Y) -d \E(X) + bd
+%\]
+%
+%Since by assumption \(\E(XY) = \E(X)\E(Y)\), this yields \(\E(\alpha \beta)  = \E(\alpha) \E(\beta) \). But \(\E(\alpha) = p(a-b) = (a - b) \Pr(X = a)\), \(\E(\beta) = q(c-d) = (c -d) \Pr(Y = c)\), \(\E(\alpha \beta) = (a-b)(c-d)pq = (a - b)(c - d) \Pr(X = a \cap Y = c)\). Therefore
+%
+%\[
+%\E(\alpha \beta)  = \E(\alpha) \E(\beta)  \iff  (a - b)(c - d) \Pr(X = a \cap Y = c) = (a - b) \Pr(X = a) (c -d) \Pr(Y = c)
+%\]
+%
+%\[
+%\iff \Pr(X = a \cap Y = c) = \Pr(X = a)  \Pr(Y = c)
+%\]
+%
+%which proves the independence of \(X\) and \(Y\).
+
+
+%\textbf{Independence Problem 09/24 (number 2 on some qual, likely to be problem 3 on the test)} 
+%
+%\textbf{Solution.} \(X\) is independent of \(Y\) if and only if \(X\) is independent of \(\boldsymbol{1}_A\), \(A \in Y\). 
+%
+%\[
+%\implies \E(X \mid Y) = \E(X)
+%\]
+%
+%\[
+%\E( \E(X \mid Y) \boldsymbol{1}_A) = \E(X \boldsymbol{1}_A) = \E(X) \E(\boldsymbol{1}_A)
+%\]
+%
+%where the last step follows by independence.
+
+
+%%%%%%%%%%% Midterm 1 Problem 2
+\item \textbf{Fall 2013 Qual Problem 1.} Consider a sequence of independent tosses of a pair of fair dice. Compute the probability that the sum 4 will occur before the sum 5.
+
+\textbf{Solution.} Let \(Y_k\) be the outcome of the \(k\)th toss. Let \(X_{k1}\) be the number of the first die on the \(k\)th toss and \(X_{k2}\) be the outcome of the second die. Note that
+
+\[
+\Pr(Y_k = 4) = \Pr(X_{k1} = 1 \cap X_{k2} = 3) + \Pr(X_{k1} = 2 \cap X_{k2} = 2) + \Pr(X_{k1} = 3 \cap X_{k2} = 1) = 3 \cdot \frac{1}{36} = \frac{1}{12} 
+\]
+
+\[
+\Pr(Y_k = 5) = \Pr(X_{k1} = 1 \cap X_{k2} = 4) + \Pr(X_{k1} = 2 \cap X_{k2} = 3) + \Pr(X_{k1} = 3 \cap X_{k2} = 2) 
+\]
+
+\[
++ \Pr(X_{k1} = 4 \cap X_{k2} = 1) = 4 \cdot \frac{1}{36} = \frac{1}{9} 
+\]
+
+Let \(A_k\) be the event that \(Y_k = 4\) and \(Y_j \neq 4 \text{ or }5 , \  j = 1, \ldots, k-1\). Note that all \(A_k\) are mutually exclusive and 
+
+\[
+\Pr(A_k) = \frac{1}{12}\cdot \bigg(1 - \frac{3 + 4}{36} \bigg)^{k-1} = \frac{1}{12} \cdot \bigg( \frac{29}{36} \bigg)^{k-1}.
+\]
+
+Then
+
+\[
+\Pr(\{\text{roll a 4 before a 5}\}) = \Pr\bigg( \bigcup_{k=1}^\infty A_k \bigg) = \sum_{k=1}^\infty \Pr(A_k) = \frac{1}{12}  \sum_{k=1}^\infty \bigg( \frac{29}{36} \bigg)^{k-1} = \frac{1/12}{1 - 29/36}
+\]
+
+\[
+= \frac{3}{36 -29} = \boxed{ \frac{3}{7}}
+\]
+
+%%%%%%% Midterm 1 Problem 3
+
+\item \textbf{Spring 2013 Problem 1, in notes from 09/21.} Let \(X\) and \(Y\) be random variables such that  \(\E(X \mid Y) = Y, \E(Y \mid X) = X, \E(X^2) < \infty, \E(Y^2) < \infty\). Show that \(\E(X-Y)^2 = 0 \) (or equivalently, show \(\Pr(X = Y) = 1\)).
+
+\textbf{Solution.} 
+
+\[
+\E(X-Y)^2 = \E(X^2 - 2XY + Y^2) = \E(X^2) - 2 \E(XY) + \E(Y^2)
+\]
+
+\[
+\E(XY) = \E( \E(XY\mid Y)) = \E(Y\E(X\mid Y)) = \E(Y \cdot Y) = \E(Y^2)
+\]
+
+Also,
+
+\[
+\E(XY) = \E(\E(XY \mid X)) = \E(X \E(Y \mid X)) = \E( X \cdot X) = \E(X^2)
+\]
+
+Therefore
+
+\[
+\E(X-Y)^2 =0
 \]
 
 
-\textbf{Fall 2014 Problem 1 (likely to be question 2 on the midterm).} Let \(A\) and \(B\) be two events with \(0 < \Pr(A) < 1, \ 0 < \Pr(B) < 1\). Define the random variables \(\xi = \xi(\omega)\) and \(\eta = \eta(\omega)\) by
+%%%%%%% Midterm 1 Problem 4
+
+\item \textbf{Fall 2016 Problem 4.} Consider a group of \(n \geq 4\) people, among whom are Alice, Bob, Charles, and Diana, standing in a row. Assume that all possible orderings of the \(n\) people are equally likely.
+
+\begin{enumerate}[(a)]
+
+\item Compute the probability that Charles stands somewhere between Alice and Bob. (Note: this does not mean that the three are necessarily adjacent; there can be other people between Alice and Bob.)
+
+\item Compute the probability that Diana stands somewhere between Alice and Bob given that Charles stands somewhere between Alice and Bob.
+
+\item Let \(X\) be the number of people who stand between Alice and Bob. Compute the expected value and the variance of \(X\). (Note: Alice and Bob themselves are not counted in this number.)
+
+\end{enumerate}
+
+%%%%%%% Midterm 1 Problem 4 Solution
+
+\textbf{Solution.}
+
+\begin{enumerate}[(a)]
+
+% Midterm 1 Problem 4 part(a) Solution
+\item For this part, \(n\) does not make a difference; all we need to know is the ordering of \(A\), \(B\), and \(C\). This is because conditional on a specific ordering of \(A, B,\) and \(C\), all arrangements of everyone else are equally likely; and conversely, the a particular ordering of \(A\), \(B\), and \(C\) is independent of which three particular slots are made available to them. Examining the permutations of \(A\), \(B\), and \(C\), two of them have \(C\) in the middle, so the answer is \(2/6 = \boxed{1/3}\).
+
+% Midterm 1 Problem 4 part(b) Solution
+\item Similarly, the answer is independent of \(n\), so we work with \(n=4\). All possible orderings with Charles between Alice and Bob are as follows:
+
+\[
+A C D B, \ A D C B, \ B C D A, \ B D C A, \ A C B D, \ B C A D, \ D A C B,  \ D B C A
+\]
+
+The first four of these have Diana between Alice and Bob, so the answer is \(4/8 = \boxed{1/2}\).
+
+% Midterm 1 Problem 4 part(c) Solution
+\item Let \(I_k\) be an indicator variable for the event that person \(k\) is between \(A\) and \(B\). By the result from part (a), \(\E(I_k) = 1/3\). Then we have
+
+\[
+\Var(I_k) = \E(I_k^2) - \E(I_k)^2 = 1^2 \cdot \Pr(I_k =1) - \frac{1}{9} = \frac{1}{3} - \frac{1}{9} = \frac{2}{9}
+\] 
+
+Noting that the four arrangements above with Charles and Diana in between Alice and Bob are the only ones where this will be the case of the \(4! = 24\) possible orderings, we have
+
+\[
+\E(I_k I_j) = \frac{4}{24} = \frac{1}{6}
+\]
+
+so
+
+\[
+\Cov(I_j, I_k) = \E(I_k I_j) - \E(I_i)\E(I_j) = \frac{1}{6} - \frac{1}{9} = \frac{1}{18}
+\]
+
+Therefore
+
+\[
+\E(X) = \E(\sum_{i=1}^{n-2} I_k) = \sum_{i=1}^{n-2} \frac{1}{3} = \frac{n-2}{3}
+\]
+
+\[
+\Var(X) = \Var \bigg(\sum_{i=1}^{n-2} I_k \bigg) = \sum_{i=1}^{n-2} \Var(I_k) + 2 \sum_{1 \leq j < k \leq n-2} \Cov(I_j, I_k) = \frac{2(n-2)}{9} + \big[(n-2)^2 - (n-2)\big] \cdot \frac{1}{18} 
+\]
+
+\[
+= \frac{4(n-2)}{18} + \frac{(n-2)(n-3)}{18} = \boxed{ \frac{(n-2)(n+1)}{18}}
+\]
+
+
+\end{enumerate}
+
+%%%%%%% Midterm 1 Problem 5
+
+\item \textbf{Spring 2015 Problem 2.} A deck of 52 cards is shuffled thoroughly. Someone goes through all 52 cards, scoring 1 point each time 2 cards of the same value are consecutive (that is, when two consecutive cards have the same rank but different suits). For example, the sequence 9H, 8H, 7D, 6C, 7S, 7H, 7C scores 2 points, one for the 7H following the 7S, one for the 7C following the 7H. Let \(X\) be the total score.
+
+\begin{enumerate}[(a)]
+
+\item Compute \(\E(X)\).
+
+\item Compute \(\Pr(X = 39)\). (Note that there are 13 different ranks and you cannot score more than 3 per rank.)
+
+\item In the line below, circle the number that you think is the closest to the value \(\Pr(X=0)\) and briefly explain your choice:
+
+\[
+\frac{1}{1000}, \ \ \frac{1}{500}, \ \ \frac{1}{100}, \ \ \frac{1}{50}, \ \ \frac{1}{20}, \ \ \frac{1}{10}, \ \ \frac{1}{5}, \ \ \frac{1}{2}
+\]
+
+\end{enumerate}
+
+%%%%%%% Midterm 1 Problem 5 solution
+
+\textbf{Solution.}
+
+\begin{enumerate}[(a)]
+
+% Problem 5(a) Solution
+\item Start by assuming the permutation is cyclic (that is, after the last card you go back to the beginning). Let \(Y\) be the number of matches in this situation. Let \(A_i\) be the event that the \(i\)th card is followed by a match. Then \(\Pr(A_i) = 3/51 = 1/17\), so
+
+\[
+Y = \sum_{k=1}^{52} \boldsymbol{1}_{\{A_i\}} \implies \E(Y) = \sum_{i=1}^{52} \E(\boldsymbol{1}_{\{A_i\}}) = \sum_{i=1}^{52} \Pr(A_i) = 52 \cdot 1/17 = 52/17
+\]
+
+Note that \(\E(Y) = \E(X) + \E(\boldsymbol{1}_{\{A_i\}})\) because if the permutation is cyclic then you have one extra opportunity to mach at the end.
+
+\[
+\implies \E(X) = \frac{52}{17} - \frac{1}{17} = \frac{51}{17} = \boxed{3}
+\]
+
+% Problem 5(b) Solution
+\item \(\Pr(X=39) = \Pr(\{\text{all possible matches occur}\})\), so in this event all cards of the same rank are clustered together. There are 13 clusters of 4 cards, so there are \(13!\) ways to order the clusters and \(4!\) ways to order the cards within each cluster. Therefore
+
+\[
+\boxed{
+\Pr(X=39) = \frac{13! (4!)^{13}}{52!} }
+\]
+
+% Problem 5(c) Solution
+\item Because \(A_i\) are only weakly dependent and \(\Pr(A_i)\) is small for all \(A_i\), we can use the Poisson approximation (see Section \ref{prob.poisson.paradigm}); that is, \(X \sim \operatorname{Poisson}(\E(X)) = \operatorname{Poisson}(3)\). Therefore
+
+\[
+\Pr(X=0) \approx \frac{e^{-3}\cdot3^0}{0!} = \frac{1}{e^3} \approx \frac{1}{2.8^3} \approx \boxed{\frac{1}{20}}
+\]
+
+
+\end{enumerate}
+
+%%%%%
+
+\end{enumerate}
+
+%%%%%%%%%%% Problems we did in class that professor mentioned %%%%%%%%%%%%
+
+
+\subsubsection{Problems we did in class that professor mentioned}
+
+\textbf{(Fall 2014 Problem 1) (Variation of Midterm problem 1 above)} Let \(A\) and \(B\) be two events with \(0 < \Pr(A) < 1, \ 0 < \Pr(B) < 1\). Define the random variables \(\xi = \xi(\omega)\) and \(\eta = \eta(\omega)\) by
 
 \[
 \xi(\omega) = \begin{cases} 
@@ -683,247 +1353,7 @@ Since by assumption \( \E(\xi \eta)  = \E(\xi) \E(\eta) \), this yields \(\E(\al
 
 Therefore \(\Pr(\xi \cap \eta) = \Pr(\xi) \Pr(\eta)\) and \(\xi\) and \(\eta\) are independent.
 
-%\textbf{Fall 2009 Problem 4 (Very similar).} Let \(X\) and \(Y\) be two random variables, both taking only two values. Show that if they are uncorrelated, then they are independent.
-%
-%\textbf{Solution.} Let \(X\) and \(Y\) have the following pmfs: \(\Pr(X = a) = p, \Pr(X = b) = 1-p; \ \ \ \Pr(Y = c) = q, \Pr(Y = d) = 1  -q \). Suppose \(X\) and \(Y\) are uncorrelated; that is, \(\E(XY) = \E(X)\E(Y)\). Then \(X\) and \(Y\) are independent if \(\Pr(X \cap Y) = \Pr(X) \Pr(Y)\). Since these random variables take on only two values each, this can also be expressed as \( \Pr(X = a \cap Y = c) = \Pr(X = a) \Pr(Y = c)\). 
-%
-%Begin by defining new variables \(\alpha = X - b\) and \(\beta = Y - d\). Then we have
-%
-%\[
-%\E(\alpha \beta) = \E( (X - b)(Y - d)) = \E(XY) - b \E(Y) -d \E(X) + bd
-%\]
-%
-%\[
-%\E(\alpha) \E(\beta) = \E(X-b) \E(Y - d) = \E(X)\E(Y) -b \E(Y) -d \E(X) + bd
-%\]
-%
-%Since by assumption \(\E(XY) = \E(X)\E(Y)\), this yields \(\E(\alpha \beta)  = \E(\alpha) \E(\beta) \). But \(\E(\alpha) = p(a-b) = (a - b) \Pr(X = a)\), \(\E(\beta) = q(c-d) = (c -d) \Pr(Y = c)\), \(\E(\alpha \beta) = (a-b)(c-d)pq = (a - b)(c - d) \Pr(X = a \cap Y = c)\). Therefore
-%
-%\[
-%\E(\alpha \beta)  = \E(\alpha) \E(\beta)  \iff  (a - b)(c - d) \Pr(X = a \cap Y = c) = (a - b) \Pr(X = a) (c -d) \Pr(Y = c)
-%\]
-%
-%\[
-%\iff \Pr(X = a \cap Y = c) = \Pr(X = a)  \Pr(Y = c)
-%\]
-%
-%which proves the independence of \(X\) and \(Y\).
-
-\textbf{HW1 Problem 8.} Two people, \(A\) and \(B\), are involved in a duel. The rules are simple: shoot at each other once; if at least one is hit, the duel is over, if both miss, repeat (go to the next round), and so on. Denote by \(p_A\) and \(p_B\) the probabilities that \(A\) hits \(B\) and \(B\) hits \(A\) with one shot, and assume that that hitting/missing is independent from round to round. Compute the probabilities of the following events: (a) the duel ends and \(A\) is not hit; (b) the duel ends and both are hit; (c) the duel ends after round number \(n\); (d) the duel ends after round number \(n\) GIVEN that \(A\) is not hit; (e) the duel ends after \(n\) rounds GIVEN that both are hit; (f) the duel goes on forever.
-
-\textbf{Solution.} \begin{enumerate}[(a)]
-
-% 8a
-\item Let \(A_k\) denote the event that the duel is ended by \(A\) shooting \(B\) in the \(k\)th round (with neither person being shot in the first \(k - 1\) rounds). Note that \( \{A_k | k = 1, 2, \ldots\}\) are all mutually exclusive. Therefore the probability of the duel ending without \(A\) being hit is \(\sum_{k=1}^\infty A_k\). Because the probabilities in each round are constant and independent, 
-
-\[
-A_k = (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k}
-\]
-
-So the probability that the duel ends and \(A\) is not hit is
-
-\[
-\sum_{k=1}^\infty A_k = \sum_{k=1}^\infty (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k} = p_A (1 - p_B)\sum_{k=1}^\infty (1 - p_A)^{{k-1}}(1 - p_B)^{k-1} 
-\]
-
-This is an infinite geometric series. Since the ratio \((1 - p_A)(1 - p_B)\) has absolute value less than 1, the sum can be calculated.
-
-\[
-\sum_{k=1}^\infty A_k = p_A (1 - p_B) \cdot \frac{1}{1 - (1 - p_A)(1 - p_B)} = \frac{p_A (1 - p_B) }{p_A + p_B - p_Ap_B} = \boxed{\frac{p_A (1 - p_B) }{p_A(1 - p_B) + p_B}}
-\]
-
-% 8b
-\item Similar to part (a). Let \(C_k\) denote the event that the duel is ended with both players being shot in the \(k\)th round (with neither person being shot in the first \(k - 1\) rounds). Again, \( \{C_k | k = 1, 2, \ldots\}\) are all mutually exclusive, so the probability of the duel ending in these circumstances is \(\sum_{k=1}^\infty C_k\). We have
-
-\[
-C_k = (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k-1}p_B
-\]
-
-\[
-\sum_{k=1}^\infty C_k = \sum_{k=1}^\infty (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k-1}p_B = p_A p_B\sum_{k=1}^\infty (1 - p_A)^{{k-1}}(1 - p_B)^{k-1} 
-\]
-
-\[
-= p_A p_B \cdot \frac{1}{1 - (1 - p_A)(1 - p_B)} = \boxed{ \frac{p_A p_B }{p_A + p_B - p_Ap_B} }
-\]
-
-Note that this value is less than the answer from part (a) if \(p_B < \frac{1}{2}\) and greater if \(p_B > \frac{1}{2}\)
-
-% 8c
-\item Let \(B_k\) denote the event that the duel is ended by \(B\) shooting \(A\) in the \(k\)th round (with neither person being shot in the first \(k - 1\) rounds), with
-
-\[
-B_k = (1 - p_A)^{{k}}p_B(1 - p_B)^{k-1}
-\]
-
-Let \(A_k\) and \(C_k\) be defined as above. Note that \(\{A_k | k = 1, 2, \ldots\} , \{B_k | k = 1, 2, \ldots\}, \{C_k | k = 1, 2, \ldots\}\) are all mutually exclusive, and that the event that the duel ends in round \(n\) is \(\{A_n \cup B_n \cup C_n\}\). So the probability of the duel ending in round \(n\) is
-
-\[
-\Pr(A_n \cup B_n \cup C_n) = \Pr(A_n) + \Pr(B_n) + \Pr(C_n) 
-\]
-
-\[
-= (1 - p_A)^{n-1}p_A(1 - p_B)^{n} + (1 - p_A)^{{n}}p_B(1 - p_B)^{n-1} + (1 - p_A)^{{n-1}}p_A(1 - p_B)^{n-1}p_B
-\]
-
-\[
-= (1 - p_A)^{n-1}(1 - p_B)^{n-1} \big[p_A(1 - p_B) + (1 - p_A)p_B + p_Ap_B \big]
-\]
-
-\[
-= \boxed{(1 - p_A)^{n-1}(1 - p_B)^{n-1} (p_A + p_B - p_Ap_B )}
-\]
-
-% 8d
-\item Let \(A_k\), \(B_k\), \(C_k\) be defined as above. The event that the duel ends at round \(n\) without \(A\) being hit is given by \(\{ A_n\} \). 
-
-\[
-\Pr(A_n) = \boxed{(1 - p_A)^{{n-1}}p_A(1 - p_B)^{n}}
-\]
-
-% 8e
-\item Let \(A_k\), \(B_k\), \(C_k\) be defined as above. The event that the duel ends at round \(n\) with both players being hit is given by \(\{ C_n\} \). 
-
-\[
-\Pr(C_n) = \boxed{(1 - p_A)^{{n-1}}p_A(1 - p_B)^{n-1}p_B}
-\]
-
-% 8e
-\item Let \(A_k\), \(B_k\), \(C_k\) be defined as above. The probability that the duel never ends is equal to 1 - the probability that the duel ends at some point, which is  \(\{A_k | k = 1, 2, \ldots\} \cup \{B_k | k = 1, 2, \ldots\} \cup \{C_k | k = 1, 2, \ldots\}\). Since all of these events are mutually exclusive, we have
-
-\[
-1 - \Pr(\{A_k | k = 1, 2, \ldots\} \cup \{B_k | k = 1, 2, \ldots\} \cup \{C_k | k = 1, 2, \ldots\}) = 1 - \sum_{k = 1}^\infty \big(A_k + B_k + C_k\big)
-\]
-
-\[
-= 1 - \sum_{k=1}^\infty \big( (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k} + (1 - p_A)^{{k}}p_B(1 - p_B)^{k-1} + (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k-1}p_B \big)
-\]
-
-\[
-= 1 -   \big[p_A(1 - p_B) + (1 - p_A)p_B + p_Ap_B \big] \sum_{k=1}^\infty (1 - p_A)^{k-1}(1 - p_B)^{k-1} 
-\]
-
-\[
-=  1 -  \big[ p_A1 - p_A p_B) + p_B - p_A)p_B + p_Ap_B \big] \cdot \frac{1}{1 - (1 - p_A)(1 - p_B)}
-\]
-
-\[
-=1 -  \frac{p_A - p_Ap_B + p_B - p_Ap_B + p_Ap_B}{p_A + p_B - p_Ap_B} = 1 -  \frac{p_A + p_B - p_Ap_B}{p_A + p_B - p_Ap_B} = \boxed{0}
-\]
-
-\end{enumerate}
-
-%\textbf{Independence Problem 09/24 (number 2 on some qual, likely to be problem 3 on the test)} 
-%
-%\textbf{Solution.} \(X\) is independent of \(Y\) if and only if \(X\) is independent of \(\boldsymbol{1}_A\), \(A \in Y\). 
-%
-%\[
-%\implies \E(X \mid Y) = \E(X)
-%\]
-%
-%\[
-%\E( \E(X \mid Y) \boldsymbol{1}_A) = \E(X \boldsymbol{1}_A) = \E(X) \E(\boldsymbol{1}_A)
-%\]
-%
-%where the last step follows by independence.
-
-\textbf{Similar: HW3 Problem 2 (parts 1 - 4).} Verify:
-
-\begin{enumerate}[(1)]
-
-\item \(\E(\E(X\mid Y)) = \E(X)\)
-
-\item \( \E(g(Y) X \mid Y) = g(Y) \E(X \mid Y) \)
-
-\item \(\Cov ( \E(X \mid Y), Y ) = \Cov(X , Y)\)
-
-\item \(Y\) and \(X - \E(X \mid Y)\) are uncorrelated.
-
-\end{enumerate}
-
-\textbf{Solution.} \begin{enumerate}[(1)]
-
-%1
-\item 
-
-\[
-\E\big(\E(X\mid Y)\big) = \sum_y \E(X \mid Y) \Pr(Y = y) = \sum_y \bigg[ \sum_x x \cdot \Pr(X = x \mid Y = y) \Pr(Y = y) \bigg]
-\]
-
-\[
-= \sum_y \bigg[ \sum_x x \cdot \Pr(X = x \cap Y = y) \bigg] = \sum_y \bigg[ \sum_x x \cdot \Pr(Y= y \mid X = x) \cdot \Pr(X = x) \bigg]
-\]
-
-\[
-= \sum_x \bigg[ x \cdot \Pr(X = x) \cdot \sum_y \big( \Pr(Y= y \mid X = x) \big) \bigg] = \sum_x \bigg[ x \cdot \Pr(X = x) \cdot 1 \bigg]
-\]
-
-\[
-= \E(X)
-\]
-
-%%2
-\item 2
-%
-%%\textbf{double check?}
-%
-%\[
-%\E(g(Y)X \mid Y) = \sum_{y} \sum_x g(y) \cdot x \cdot \Pr(g(Y) = g(y) \cap X = x \mid Y = y) 
-%\]
-%
-%\[
-%= \sum_{y} \sum_x g(y) \cdot x \cdot \Pr( X = x \mid Y = y) = \sum_{y}  g(y) \sum_x x \cdot \Pr( X = x \mid Y = y) 
-%\]
-%
-%\[
-%= \sum_{y}  g(y) \E(X \mid Y = y)
-%\]
-%
-%
-%\[
-%= g(Y) \E(X \mid Y)
-%\]
-
-%3
-\item 
-
-\[
-\Cov(\E(X \mid Y) , Y) = \E \bigg( \bigg[\E(X \mid Y) - \E \big(\E(X \mid Y) \big) \bigg] \bigg[Y - \E(Y) \bigg] \bigg)
-\]
-
-\[
-= \E \bigg( \bigg[\E(X \mid Y) - \E (X) \bigg] \bigg[Y - \E(Y) \bigg] \bigg) = \E \bigg( \E(X \mid Y)Y  - \E (X) Y -  \E(X \mid Y)\E(Y) +  \E(X)\E(Y)  \bigg)
-\]
-
-\[
-= \E \big( \E(X \mid Y)Y\big)  -  \E (X) \E( Y)  - \E(Y) \E \big( \E(X \mid Y) \big) +   \E(X)\E(Y) = \E \big( \E(X \mid Y)Y\big)  - \E(Y) \E(X)
-\]
-
-\[
-= \E(XY) - \E(X) \E(Y) = \Cov(X, Y)
-\]
-
-%4
-\item \(Y\) and \(X  - \E(X \mid Y)\) are uncorrelated if and only if \( \Cov \big(Y, X - \E(X \mid Y) \big) = 0 \iff \E(Y \cdot \big[ X - \E(X \mid Y)\big] ) - \E(Y) \E( X - \E(X \mid Y)) = 0 \).
-
-\[
-\E(Y \cdot \big[ X - \E(X \mid Y)\big] ) -  \E(Y) \E( X - \E(X \mid Y))= \E(Y X - Y \E(X \mid Y) ) -  \E(Y) \E( X) +  \E(Y) \E \big( \E(X \mid Y)) \big)
-\]
-
-\[
-= \E(Y X) - \E\big( Y \E(X \mid Y) \big) -  \E(Y) \E( X)  + \E(Y) \E(X) = \E(YX) - \E(YX) = 0
-\]
-
-\end{enumerate}
-
-\textbf{Remaining problems are likely to be indicator method.}
-
-%%%%%%%%%%% Problems we did in class that professor mentioned %%%%%%%%%%%%
-
-
-\subsubsection{Problems we did in class that professor mentioned}
-
-\textbf{Example (Letter/envelope matching problem).} An assistant brings \(n\) sandwiches for \(n\) employees at a company. Each employee ordered a unique sandwich, but unfortunately the assistant forgot to ask that the sandwiches be labeled, so they are all indistinguishable, wrapped in the same paper. The assistant plans to distribute one sandwich to each employee and hope for the best. Let \(X\) be the number of sandwiches that are delivered to the correct person.
+\textbf{Example (Letter/envelope matching problem; sometimes referred to as Montmort's matching problem).} An assistant brings \(n\) sandwiches for \(n\) employees at a company. Each employee ordered a unique sandwich, but unfortunately the assistant forgot to ask that the sandwiches be labeled, so they are all indistinguishable, wrapped in the same paper. The assistant plans to distribute one sandwich to each employee and hope for the best. Let \(X\) be the number of sandwiches that are delivered to the correct person.
 
 \begin{enumerate}[(a)]
 
@@ -1062,29 +1492,111 @@ we have
 
 \end{enumerate}
 
-\textbf{Variance Problem 09/21}  If \(\E(X \mid Y) = Y, \E(Y \mid X) = X, \E(X^2) < \infty, \E(Y^2) < \infty\), show \(\E(X-Y)^2 = 0 \) (or equivalently, show \(\Pr(X = Y) = 1\)).
+\textbf{HW3 Problem 2(5).} Verify: \(\E(X \mid Y) = \E(X)\) if \(X\) and \(Y\) are independent.
 
-\textbf{Solution.} 
+\textbf{Solution.} \(X\) and \(Y\) are independent if and only if
 
 \[
-\E(X-Y)^2 = \E(X^2 - 2XY + Y^2) = \E(X^2) - 2 \E(XY) + \E(Y^2)
+\Pr(X \cap Y) = \Pr(X)\cdot\Pr(Y) \iff \Pr(X = x \cap Y = y) = \Pr(X = x) \Pr(Y = y)
 \]
 
 \[
-\E(XY) = \E( \E(XY\mid Y)) = \E(Y\E(X\mid Y)) = \E(Y \cdot Y) = \E(Y^2)
+\iff \Pr(X = x \mid Y = y) \cdot \Pr(Y = y) =  \Pr(X = x) \Pr(Y = y) \iff \Pr(X = x \mid Y = y) = \Pr(X = x)
 \]
-
-Also,
 
 \[
-\E(XY) = \E((XY \mid X)) = \E(X \E(Y \mid X)) = \E( X \cdot X) = \E(X^2)
+\implies E(X \mid Y) = \sum_x x \cdot \Pr(X = x \mid Y = y ) = \sum_x x \cdot \Pr(X = x ) = \E(X)
 \]
 
-Therefore
+
+\textbf{HW3 Problem 2 (parts 1 - 4).} Verify:
+
+\begin{enumerate}[(1)]
+
+\item \(\E(\E(X\mid Y)) = \E(X)\)
+
+\item \( \E(g(Y) X \mid Y) = g(Y) \E(X \mid Y) \)
+
+\item \(\Cov ( \E(X \mid Y), Y ) = \Cov(X , Y)\)
+
+\item \(Y\) and \(X - \E(X \mid Y)\) are uncorrelated.
+
+\end{enumerate}
+
+\textbf{Solution.} \begin{enumerate}[(1)]
+
+%1
+\item 
 
 \[
-\E(X-Y)^2 =0
+\E\big(\E(X\mid Y)\big) = \sum_y \E(X \mid Y) \Pr(Y = y) = \sum_y \bigg[ \sum_x x \cdot \Pr(X = x \mid Y = y) \Pr(Y = y) \bigg]
 \]
+
+\[
+= \sum_y \bigg[ \sum_x x \cdot \Pr(X = x \cap Y = y) \bigg] = \sum_y \bigg[ \sum_x x \cdot \Pr(Y= y \mid X = x) \cdot \Pr(X = x) \bigg]
+\]
+
+\[
+= \sum_x \bigg[ x \cdot \Pr(X = x) \cdot \sum_y \big( \Pr(Y= y \mid X = x) \big) \bigg] = \sum_x \bigg[ x \cdot \Pr(X = x) \cdot 1 \bigg]
+\]
+
+\[
+= \E(X)
+\]
+
+%%2
+\item 2
+%
+%%\textbf{double check?}
+%
+%\[
+%\E(g(Y)X \mid Y) = \sum_{y} \sum_x g(y) \cdot x \cdot \Pr(g(Y) = g(y) \cap X = x \mid Y = y) 
+%\]
+%
+%\[
+%= \sum_{y} \sum_x g(y) \cdot x \cdot \Pr( X = x \mid Y = y) = \sum_{y}  g(y) \sum_x x \cdot \Pr( X = x \mid Y = y) 
+%\]
+%
+%\[
+%= \sum_{y}  g(y) \E(X \mid Y = y)
+%\]
+%
+%
+%\[
+%= g(Y) \E(X \mid Y)
+%\]
+
+%3
+\item 
+
+\[
+\Cov(\E(X \mid Y) , Y) = \E \bigg( \bigg[\E(X \mid Y) - \E \big(\E(X \mid Y) \big) \bigg] \bigg[Y - \E(Y) \bigg] \bigg)
+\]
+
+\[
+= \E \bigg( \bigg[\E(X \mid Y) - \E (X) \bigg] \bigg[Y - \E(Y) \bigg] \bigg) = \E \bigg( \E(X \mid Y)Y  - \E (X) Y -  \E(X \mid Y)\E(Y) +  \E(X)\E(Y)  \bigg)
+\]
+
+\[
+= \E \big( \E(X \mid Y)Y\big)  -  \E (X) \E( Y)  - \E(Y) \E \big( \E(X \mid Y) \big) +   \E(X)\E(Y) = \E \big( \E(X \mid Y)Y\big)  - \E(Y) \E(X)
+\]
+
+\[
+= \E(XY) - \E(X) \E(Y) = \Cov(X, Y)
+\]
+
+%4
+\item \(Y\) and \(X  - \E(X \mid Y)\) are uncorrelated if and only if \( \Cov \big(Y, X - \E(X \mid Y) \big) = 0 \iff \E(Y \cdot \big[ X - \E(X \mid Y)\big] ) - \E(Y) \E( X - \E(X \mid Y)) = 0 \).
+
+\[
+\E(Y \cdot \big[ X - \E(X \mid Y)\big] ) -  \E(Y) \E( X - \E(X \mid Y))= \E(Y X - Y \E(X \mid Y) ) -  \E(Y) \E( X) +  \E(Y) \E \big( \E(X \mid Y)) \big)
+\]
+
+\[
+= \E(Y X) - \E\big( Y \E(X \mid Y) \big) -  \E(Y) \E( X)  + \E(Y) \E(X) = \E(YX) - \E(YX) = 0
+\]
+
+\end{enumerate}
 
 
 \textbf{Spring 2018 Problem 2 (did not complete)}
@@ -1117,58 +1629,102 @@ Therefore
 = 1 - \lim_{n \to \infty} \prod_{i=0}^{n}\bigg(1-\frac{1}{n - \frac{i}{n}} \bigg) = 1 - \lim_{n \to \infty} \prod_{i=0}^{n}\bigg(1-\frac{1}{n} \bigg) = 1 - \lim_{n \to \infty}  \bigg(1 - \frac{1}{n} \bigg)^n = \boxed{1 - \exp(-1)}
 \]
 
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
 %%%%%%%%%%% Problems we did on homework %%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Problems we did on homework}
 
-%\textbf{Fall 2017 Problem 2/Fall 2009 Problem 1 (HW3 Problem 6---most of solution)}
-%
-%\includegraphics[scale=0.6]{prob_hw3p6}
-%
-%%\textbf{From Fall 2017 qual, no solutions to quals that late. Not in solutions to past homeworks online. Seems kind of standard, like I might be able to google.}
-%
-%\textbf{Solution.} Let \(X\) represent the number of matching pairs. At most \(n/2\) pairs can be formed. We have
-%
-%\[
-%\Pr(X = 0) = \frac{\binom{n}{n}2^n }{\binom{2n}{n}} 
-%\]
-%
-%because there are \(\binom{n}{n}\) ways to choose which \(n\) pairs will fail to match, \(2^n\) ways to pick which sock will be chosen in each of these pairs, and \(\binom{2n}{n}\) total ways to pick out \(n\) socks. Next,
-%
-%\[
-%\Pr(X = 1) = \frac{\binom{n}{n - 1}2^{n-1} }{\binom{2n}{n}} 
-%\]
-%
-%because there are \(\binom{n}{n - 1}\) ways to choose which \(n - 1\) pairs will fail to match, \(2^{n-1}\) ways to pick which sock will be chosen in each of these pairs, 1 way to choose which socks will be chosen in the matched pairs, and \(\binom{2n}{n}\) total ways to pick out \(n\) socks. In general,
-%
-%\[
-%\Pr(X = k) = \frac{\binom{n}{n - k}2^{n-k} }{\binom{2n}{n}}  = \frac{(n!)^3 }{(n-k)!k!(2n)!} \cdot 2^{n-k} , \ \ k = 0, 1, \ldots, n/2
-%\]
-%
-%Therefore
-%
-%\[
-%\E(X) = \sum_{k=0}^{n/2} k \cdot  \frac{(n!)^3 }{(n-k)!k!(2n)!} \cdot 2^{n-k} = \boxed{ \frac{(n!)^2}{(2n)!} \sum_{k=1}^{n/2}k \cdot  \binom{n}{k} 2^{n-k} }
-%\]
-%
-%\[
-%\Var(X) = \sum_{k=0}^{n/2} k^2 \cdot  \frac{(n!)^3 }{(n-k)!k!(2n)!} \cdot 2^{n-k}  - \bigg(  \frac{(n!)^2}{(2n)!} \sum_{k=1}^{n/2}k \cdot  \binom{n}{k} 2^{n-k} \bigg)^2
-%\]
-%
-%\[
-%= \boxed{ \frac{(n!)^2}{(2n)!} \sum_{k=1}^{n/2}k^2 \cdot  \binom{n}{k} 2^{n-k}  - \bigg(  \frac{(n!)^2}{(2n)!} \sum_{k=1}^{n/2}k \cdot  \binom{n}{k} 2^{n-k} \bigg)^2 }
-%\]
+\textbf{Fall 2017 Problem 2 (Homework 3 Problem 6).} An urn contains \(2n\) balls, coming in pairs: two balls are labeled ``1", two balls are labeled ``2", ..., two balls are labeled ``\(n\)". A sample of size \(n\) is taken without replacement. Denote by \(N\) the number of pairs in the sample. Compute the expected value and the variance of \(N\). \textbf{You do not need to simplify the expression for the variance.}
+
+\
+
+%\textbf{From Fall 2017 qual, no solutions to quals that late. Not in solutions to past homeworks online. Seems kind of standard, like I might be able to google.}
+
+%Each ball has one matching partner. Imagine we have \(n/2\) left balls and \(n/2\) right balls. We would like to know the probability 
+
+\textbf{Solution.}  Let \(X_k\) be an indicator variable for both balls labeled \(k\) being in the sample. Note that
+
+\[
+\E(X_k) = \Pr(X_k = 1) = \frac{\binom{2n-2}{n-2}}{\binom{2n}{n}} = \left. \frac{(2n-2)!}{(n-2)!n!} \middle/ \frac{(2n)!}{n!n!}  \right. = \frac{(2n-2)!n!}{(2n)!(n-2)!} = \frac{n(n-1)}{2n(2n-1)} = \frac{n-1}{2(2n-1)}
+\]
+
+Now since \(N = \sum_{k=1}^n X_k\), we have
+
+\[
+\E(N) = \E \bigg( \sum_{k=1}^n X_k \bigg) = \sum_{k=1}^n \E(X_k) = \boxed{\frac{n(n-1)}{2(2n-1)} }
+\]
+
+To obtain the variance, note that
+
+\[
+\E(N^2) = \E \bigg( \sum_{k=1}^n X_k \bigg)^2 =  \E \bigg( \sum_{k=1}^n X_k^2 + 2\sum_{1 \leq i < j \leq n} X_i X_j \bigg)  = \sum_{k=1}^n \E(X_k^2)   + 2\sum_{1 \leq i < j \leq n} \E(X_i X_j)
+\]
+
+Because
+
+\[
+\E(X_k^2) = 1^2 \cdot \Pr(X_k = 1) = \E(X_k) = \frac{n-1}{2(2n-1)}
+\]
+
+\[
+\E(X_i X_j) = \Pr(X_i = 1 \cap X_j = 1) = \frac{\binom{2n-4}{n-4}}{\binom{2n}{n}} = \left. \frac{(2n-4)!}{(n-4)!n!} \middle/ \frac{(2n)!}{n!n!}  \right. = \frac{(2n-4)!n!}{(2n)!(n-4)!} 
+\]
+
+\[
+= \frac{n(n-1)(n-2)(n-3)}{2n(2n-1)(2n-2)(2n-3)} = \frac{(n-1)(n-2)(n-3)}{2(2n-1)(2n-2)(2n-3)}
+\]
+
+we have
+
+\[
+\E(N^2) = \sum_{k=1}^n  \frac{n-1}{2(2n-1)}  + 2\sum_{1 \leq i < j \leq n} \frac{(n-1)(n-2)(n-3)}{2(2n-1)(2n-2)(2n-3)} =  \frac{n(n-1)}{2(2n-1)} + 2 \binom{n}{2} \frac{(2n-4)!n!}{(2n)!(n-4)!}  
+\]
+
+\[
+=\frac{n(n-1)}{2(2n-1)} + \frac{n!}{(n-2)!} \cdot \frac{(2n-4)!n!}{(2n)!(n-4)!} = \frac{n(n-1)}{2(2n-1)} + n(n-1) \cdot  \frac{(n-1)(n-2)(n-3)}{2(2n-1)(2n-2)(2n-3)}
+\]
+
+\[
+ = \frac{n(n-1)}{2(2n-1)} + \frac{n(n-1)^2(n-2)(n-3)}{2(2n-1)(2n-2)(2n-3)}
+\]
+
+\[
+\implies \Var(N) = \E(N^2) - \E(N)^2 = \boxed{ \frac{n(n-1)}{2(2n-1)} +  \frac{n(n-1)^2(n-2)(n-3)}{2(2n-1)(2n-2)(2n-3)} - \frac{n^2(n-1)^2}{4(2n-1)^2}}
+\]
+
 
 
 \textbf{Fall 2017 Problem 3 (HW3 Problem 8---almost full solution)}
 
-\includegraphics[scale=0.6]{prob_hw3p8}
+Let \(U_1, U_2, \ldots\) be iid random variables, uniformly distributed on \([0, 1]\), and let \(N\) be a Poisson random variable with mean value equal to 1. Assume that \(N\) is independent of \(U_1, U_2, \ldots\) and define 
+
+\[
+Y = \begin{cases}
+0 & \text{if } N = 0 \\
+\underset{{1 \leq i \leq N}}\max U_i & \text{if } N > 0
+\end{cases}
+\]
+
+Compute the expected value of \(Y\).
 
 %\textbf{Some information in notes from 09/24. Also from Fall 2017 qual, no solutions to quals that late. Feel like might be in notes from 100B. Seems kind of standard, might be able to google.}
 
-\textbf{Solution.} 
+\
 
-Since \(Y\) is a function of \(N\), let \(Y = y(N)\). By the Law of the Unconscious Statistician,
+\textbf{Solution.} Since \(Y\) is a function of \(N\), let \(Y = y(N)\). By the Law of the Unconscious Statistician,
+
+%\[
+%\E(Y) = \E( y(N)) = \sum_{n=0}^\infty y(n) \cdot \Pr(N = n) = \sum_{n=1}^\infty \max_{1 \leq i \leq n} U_i \cdot \Pr(N = n) 
+%\]
 
 \[
 \E(Y) = \E \big( \E( Y \mid N) \big) = \E \big( \E( \max_{1 \leq i \leq N} U_i \mid N = n ) \big) 
@@ -1226,6 +1782,8 @@ Plugging this into the expression for \(\E(Y)\) yields
 
 \item Now imagine that the balls are dropped one-by-one (with each ball equally likely to go into any of the \(m\) boxes, independent of all other balls), and denote by \(N_m\) the minimal number of balls required to fill all the boxes. Compute \(\E(N_m), \Var(N_m)\) and \[ \lim_{m \to \infty} \Pr \bigg( \frac{N_m - m \log m}{m} \leq x \bigg) \]
 
+\item Suppose we instead place an unlimited number of balls into the \(m\) boxes until we have \(k\) consecutive balls land in the same box (it doesn't matter which box). What is the expected number of balls we will drop until this happens?
+
 \end{enumerate}
 
 \textbf{Solution.} \begin{enumerate}[(a)]
@@ -1280,7 +1838,7 @@ Plugging this into the expression for \(\E(Y)\) yields
 X = \sum_{i=1}^m \boldsymbol{1}_{A_i}
 \]
 
-and that the \(A_i\) are only weakly dependent on each other, especially as \(m\) and \(n\) increase. Therefore as \(m, n \to \infty\), the Poisson paradigm suggests \(X \sim \operatorname{Poisson}(\E(X))\). We have
+and that the \(A_i\) are only weakly dependent on each other, especially as \(m\) and \(n\) increase. Therefore as \(m, n \to \infty\), the Poisson paradigm (see Section \ref{prob.poisson.paradigm}) suggests \(X \sim \operatorname{Poisson}(\E(X))\). We have
 
 \[
 \E(X) =  \frac{(m-1)^n}{m^{n-1}}
@@ -1394,7 +1952,7 @@ where \(X_{m, k}\) is defined as \(X\) is in part (b) with \(k\) being the numbe
 
 \
 
-Again, let \(A_{i,k}\) be the event that the \(i\)th box is empty after dropping \(k\) balls. Then because \(X_{m, k} = \sum_{i=1}^m \boldsymbol{1}_{A_{i,k}}\) and the \(A_{i,k}\) are only weakly dependent on each other (especially as \(m\) becomes large), the Poisson paradigm again suggests that as \(m \to \infty\), \(X_{m, k} \sim \operatorname{Poisson}(\lambda_k)\) where \(\lambda_k = \E(X_{m,k})\) is defined as above. Therefore we have
+Again, let \(A_{i,k}\) be the event that the \(i\)th box is empty after dropping \(k\) balls. Then because \(X_{m, k} = \sum_{i=1}^m \boldsymbol{1}_{A_{i,k}}\) and the \(A_{i,k}\) are only weakly dependent on each other (especially as \(m\) becomes large), the Poisson paradigm (see Section \ref{prob.poisson.paradigm}) again suggests that as \(m \to \infty\), \(X_{m, k} \sim \operatorname{Poisson}(\lambda_k)\) where \(\lambda_k = \E(X_{m,k})\) is defined as above. Therefore we have
 
 \[
 \lim_{m \to \infty} \Pr \bigg( \frac{N_m - m \log m}{m} \leq x \bigg) = \lim_{m \to \infty} \Pr \big( N_m \leq xm + m \log    m\big) = \lim_{m \to \infty} \Pr \big( X_{m, {xm + m \log    m}} 
@@ -1432,6 +1990,45 @@ which yields
 %\[
 %\lim_{m \to \infty} \Pr \bigg( \frac{N_m - m \log m}{m} \leq x \bigg) = \lim_{m \to \infty} \Pr \bigg(  \frac{1}{m} \sum_{i=1}^m T_i   \leq x + \log m\bigg)
 %\]
+
+% Part (e) 
+\item Let \(N = N_k\) be the number of balls that are dropped until \(k\) consecutive balls land in the same box, and likewise for \(N_{k-1}\). Suppose we have already observed \(k-1\) consecutive outcomes (of any kind) in \(N_{k-1} \) trials. Then we finish on the next term (by having another consecutive outcome) with probability \(1/m\). Otherwise we have a different outcome and then repeat the same process again. So we have
+
+\[
+\E(N_k \mid N_{k-1} ) = N_{k-1} + 1 \cdot \frac{1}{m} + \E(N_k) \cdot \bigg(1 - \frac{1}{m} \bigg)
+\]
+
+Therefore
+
+\[
+\E(N) = \E(N_k) = \E \big[ \E(N_k \mid N_{k-1} )\big] = \E(N_{k-1}) + \frac{1}{m} + \bigg(1 - \frac{1}{m} \bigg) \E(N_k)
+\]
+
+\[
+\iff \frac{1}{m} \E(N_k) = \E(N_{k-1}) + \frac{1}{m} \iff \E(N_k) = m \E(N_{k-1}) + 1
+\]
+
+We have a recursive formula. Note that \(\E(N_1) = 1\) because the number of trials until there is 1 consecutive outcome of any kind is simply 1. We can then calculate as follows:
+
+\[
+\E(N_2) = m \E(N_{2-1}) + 1 = m + 1
+\]
+
+\[
+\E(N_3) = m \E(N_{3-1}) + 1 = m(m + 1) + 1 = 1 + m + m^2
+\]
+
+\[
+\E(N_4) = m \E(N_{4-1}) + 1 = m(1 + m + m^2) + 1 = 1 + m + m^2 + m^3
+\]
+
+\[
+\vdots
+\]
+
+\[
+\E(N_k) = \sum_{i=0}^{k-1} m^i = \frac{1 \cdot (1-m^{k})}{1 - m} = \boxed{\frac{m^k -1}{m-1}}
+\]
 
 
 \end{enumerate}
@@ -1601,6 +2198,113 @@ Next we check that \(f\) is always nonnegative. It equals zero except on \((0, 2
 Therefore \(f\) is nonnegative \(\forall x \in \mathbb{R}\), so \boxed{f \text{ is a probability density function if } C = \frac{3}{4}.}
 
 \end{enumerate}
+
+%%%%%%%%% Homework 1 Problem 8 %%%%%%%%%%%%
+
+\textbf{HW1 Problem 8.} Two people, \(A\) and \(B\), are involved in a duel. The rules are simple: shoot at each other once; if at least one is hit, the duel is over, if both miss, repeat (go to the next round), and so on. Denote by \(p_A\) and \(p_B\) the probabilities that \(A\) hits \(B\) and \(B\) hits \(A\) with one shot, and assume that that hitting/missing is independent from round to round. Compute the probabilities of the following events: (a) the duel ends and \(A\) is not hit; (b) the duel ends and both are hit; (c) the duel ends after round number \(n\); (d) the duel ends after round number \(n\) GIVEN that \(A\) is not hit; (e) the duel ends after \(n\) rounds GIVEN that both are hit; (f) the duel goes on forever.
+
+\textbf{Solution.} \begin{enumerate}[(a)]
+
+% 8a
+\item Let \(A_k\) denote the event that the duel is ended by \(A\) shooting \(B\) in the \(k\)th round (with neither person being shot in the first \(k - 1\) rounds). Note that \( \{A_k | k = 1, 2, \ldots\}\) are all mutually exclusive. Therefore the probability of the duel ending without \(A\) being hit is \(\sum_{k=1}^\infty A_k\). Because the probabilities in each round are constant and independent, 
+
+\[
+A_k = (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k}
+\]
+
+So the probability that the duel ends and \(A\) is not hit is
+
+\[
+\sum_{k=1}^\infty A_k = \sum_{k=1}^\infty (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k} = p_A (1 - p_B)\sum_{k=1}^\infty (1 - p_A)^{{k-1}}(1 - p_B)^{k-1} 
+\]
+
+This is an infinite geometric series. Since the ratio \((1 - p_A)(1 - p_B)\) has absolute value less than 1, the sum can be calculated.
+
+\[
+\sum_{k=1}^\infty A_k = p_A (1 - p_B) \cdot \frac{1}{1 - (1 - p_A)(1 - p_B)} = \frac{p_A (1 - p_B) }{p_A + p_B - p_Ap_B} = \boxed{\frac{p_A (1 - p_B) }{p_A(1 - p_B) + p_B}}
+\]
+
+% 8b
+\item Similar to part (a). Let \(C_k\) denote the event that the duel is ended with both players being shot in the \(k\)th round (with neither person being shot in the first \(k - 1\) rounds). Again, \( \{C_k | k = 1, 2, \ldots\}\) are all mutually exclusive, so the probability of the duel ending in these circumstances is \(\sum_{k=1}^\infty C_k\). We have
+
+\[
+C_k = (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k-1}p_B
+\]
+
+\[
+\sum_{k=1}^\infty C_k = \sum_{k=1}^\infty (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k-1}p_B = p_A p_B\sum_{k=1}^\infty (1 - p_A)^{{k-1}}(1 - p_B)^{k-1} 
+\]
+
+\[
+= p_A p_B \cdot \frac{1}{1 - (1 - p_A)(1 - p_B)} = \boxed{ \frac{p_A p_B }{p_A + p_B - p_Ap_B} }
+\]
+
+Note that this value is less than the answer from part (a) if \(p_B < \frac{1}{2}\) and greater if \(p_B > \frac{1}{2}\)
+
+% 8c
+\item Let \(B_k\) denote the event that the duel is ended by \(B\) shooting \(A\) in the \(k\)th round (with neither person being shot in the first \(k - 1\) rounds), with
+
+\[
+B_k = (1 - p_A)^{{k}}p_B(1 - p_B)^{k-1}
+\]
+
+Let \(A_k\) and \(C_k\) be defined as above. Note that \(\{A_k | k = 1, 2, \ldots\} , \{B_k | k = 1, 2, \ldots\}, \{C_k | k = 1, 2, \ldots\}\) are all mutually exclusive, and that the event that the duel ends in round \(n\) is \(\{A_n \cup B_n \cup C_n\}\). So the probability of the duel ending in round \(n\) is
+
+\[
+\Pr(A_n \cup B_n \cup C_n) = \Pr(A_n) + \Pr(B_n) + \Pr(C_n) 
+\]
+
+\[
+= (1 - p_A)^{n-1}p_A(1 - p_B)^{n} + (1 - p_A)^{{n}}p_B(1 - p_B)^{n-1} + (1 - p_A)^{{n-1}}p_A(1 - p_B)^{n-1}p_B
+\]
+
+\[
+= (1 - p_A)^{n-1}(1 - p_B)^{n-1} \big[p_A(1 - p_B) + (1 - p_A)p_B + p_Ap_B \big]
+\]
+
+\[
+= \boxed{(1 - p_A)^{n-1}(1 - p_B)^{n-1} (p_A + p_B - p_Ap_B )}
+\]
+
+% 8d
+\item Let \(A_k\), \(B_k\), \(C_k\) be defined as above. The event that the duel ends at round \(n\) without \(A\) being hit is given by \(\{ A_n\} \). 
+
+\[
+\Pr(A_n) = \boxed{(1 - p_A)^{{n-1}}p_A(1 - p_B)^{n}}
+\]
+
+% 8e
+\item Let \(A_k\), \(B_k\), \(C_k\) be defined as above. The event that the duel ends at round \(n\) with both players being hit is given by \(\{ C_n\} \). 
+
+\[
+\Pr(C_n) = \boxed{(1 - p_A)^{{n-1}}p_A(1 - p_B)^{n-1}p_B}
+\]
+
+% 8e
+\item Let \(A_k\), \(B_k\), \(C_k\) be defined as above. The probability that the duel never ends is equal to 1 - the probability that the duel ends at some point, which is  \(\{A_k | k = 1, 2, \ldots\} \cup \{B_k | k = 1, 2, \ldots\} \cup \{C_k | k = 1, 2, \ldots\}\). Since all of these events are mutually exclusive, we have
+
+\[
+1 - \Pr(\{A_k | k = 1, 2, \ldots\} \cup \{B_k | k = 1, 2, \ldots\} \cup \{C_k | k = 1, 2, \ldots\}) = 1 - \sum_{k = 1}^\infty \big(A_k + B_k + C_k\big)
+\]
+
+\[
+= 1 - \sum_{k=1}^\infty \big( (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k} + (1 - p_A)^{{k}}p_B(1 - p_B)^{k-1} + (1 - p_A)^{{k-1}}p_A(1 - p_B)^{k-1}p_B \big)
+\]
+
+\[
+= 1 -   \big[p_A(1 - p_B) + (1 - p_A)p_B + p_Ap_B \big] \sum_{k=1}^\infty (1 - p_A)^{k-1}(1 - p_B)^{k-1} 
+\]
+
+\[
+=  1 -  \big[ p_A1 - p_A p_B) + p_B - p_A)p_B + p_Ap_B \big] \cdot \frac{1}{1 - (1 - p_A)(1 - p_B)}
+\]
+
+\[
+=1 -  \frac{p_A - p_Ap_B + p_B - p_Ap_B + p_Ap_B}{p_A + p_B - p_Ap_B} = 1 -  \frac{p_A + p_B - p_Ap_B}{p_A + p_B - p_Ap_B} = \boxed{0}
+\]
+
+\end{enumerate}
+
 
 %%%%%%%% Homework 1 Problem 1 %%%%%%%%%%
 
@@ -2234,6 +2938,38 @@ Ways to show independence:
 
 is equal to 0. \end{theorem}
 
+\begin{theorem}\label{prob.change.vars} \textbf{(Change of variables.)} Let $X_{1},Y_{1}$ be random variables with joint PDF $f_{X_{1},Y_{1}}$.  Let $X_{2},Y_{2}$ be random variables with joint PDF $f_{X_{2},Y_{2}}$.  Let $T : \mathbb{R}^{2}\to\mathbb{R}^{2}$ and let $S : \mathbb{R}^{2}\to\mathbb{R}^{2}$ so that $ST(x,y)=(x,y)$ and $TS(x,y)=(x,y)$ for every $(x,y)\in\mathbb{R}^{2}$.  Let $J(x,y)$ denote the determinant of the Jacobian of $S$ at $(x,y)$.  Then
+$$f_{X_{2},Y_{2}}(x,y)=f_{X_{1},Y_{1}}(S(x,y))\left|J(x,y)\right|.$$
+
+%\
+%
+%\textbf{Resources available in group chat. Change of variables formula:}
+%
+%\begin{verbatim}
+%http://tutorial.math.lamar.edu/Classes/CalcIII/ChangeOfVariables.aspx
+%\end{verbatim}
+
+\end{theorem}
+
+\begin{proof} If the transformation from \(X_1, Y_1\) to \(X_2, Y_2\) is given by \(S(X_1, Y_1) = (X_2, Y_2)\), then the change of variables formula from calculus is as follows: 
+
+\[
+\int \int_{A} f_{X_1, Y_1} (x,y) dx dy = \int \int_{B} f_{X_1, Y_1} \big( S(x,y) \big) \left| J(x, y) \right| dx dy
+\]
+
+where \(A \subseteq \text{domain}(f_{X_1, Y_1}(\cdot))\), \(B\) is the transformation of the region \(A\) under \(S\), and \(|J(x,y)|\) is the Jacobian of \(S\) at \((x,y)\). It follows from the definition of joint pdfs that the integrand on the right is the joint pdf of \((X_2, Y_2)\); that is,
+
+\[
+f_{X_2, Y_2}(x,y) =  f_{X_1, Y_1} \big( S(x,y) \big) \left| J(x, y) \right| .
+\]
+
+\end{proof}
+
+
+
+
+
+
 \item Characteristic functions: \begin{theorem}\(X\) and \(Y\) are independent if and only if \(\phi_{X,Y}(s,t) = \phi_X(s) \phi_Y(t)\).\end{theorem}
 
 \end{itemize}
@@ -2261,6 +2997,49 @@ Apply the Cauchy-Schwarz Inequality (Theorem \ref{asym.cauchy.schwarz})  to \(X 
 \]
 
 \end{proof}
+
+\begin{theorem} \textbf{(Stein identity.)}\label{prob.stein.id} Let $X$ be a standard Gaussian random variable, so that $X$ has density $x\to e^{-x^{2}/2}/\sqrt{2\pi}$, $\forall$ $x\in\mathbb{R}$.  Let $g : \mathbb{R}\to\mathbb{R}$ be a continuously differentiable function such that $g$ and $g'$ have polynomial volume growth.  That is, $\exists$ $a,b>0$ such that $|{g(x)}|,|g'(x)|\leq a(1+|x|)^{b}$, $\forall$ $x\in\mathbb{R}$. Then 
+$$\E Xg(X)=\E g'(X).$$
+
+\end{theorem}
+
+
+\begin{proof}Examining the left side, we have
+
+\[
+\E(X g(X)) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty x g(x)  e^{-x^2/2} dx
+\]
+
+We will use integration by parts with \(u = g(x) \implies du = g'(x)dx, \ \ dv = xe^{-x^2/2} dx \implies v = -e^{-x^2/2}\) to yield the result:
+
+\[
+\E(X g(X)) = -g(x)e^{-x^2/2} + \int_{-\infty}^\infty g'(x) e^{-x^2/2} dx = \E(g'(X)).
+\]
+
+\end{proof}
+
+\textbf{Example.} Using Theorem \ref{prob.stein.id}, recursively compute $\E X^{k}$ for any positive integer $k$. Alternatively, for any $t>0$, show that $\E e^{tX}=e^{t^{2}/2}$, i.e. compute the \textbf{moment generating function} of $X$.  Then, using $\frac{d^{k}}{dt^{k}}|_{t=0}\E e^{tX}=\E X^{k}$ and using the power series expansion of the exponential, compute $\E X^{k}$ directly from the identity $\E e^{tX}=e^{t^{2}/2}$.
+
+\textbf{Solution.} We can use this result to recursively calculate \(\E(X^k)\) for any positive integer \(k\). Suppose we have \(\E(X^{k-1})\). Letting \(g(X) = X^{k-1} \implies g'(X) = (k-1)X^{k-2}\), we have 
+
+\[
+\E(X^k) = \E(X \cdot X^{k-1}) = \E(X g(X)) = \E(g'(X)) \iff \boxed{\E(X^k) = (k-1)\E(X^{k-2})}.
+\]
+
+Since \(X \sim \mathcal{N}(0,1)\), we have \(\E(X)=0, \ \ \E(X^2) = \Var(X) + \E(X)^2 = 1 + 0 = 1\). Therefore we have
+
+\[
+\E(X^k) = \begin{cases} \prod_{i=1}^{(k-1)/2} (k-(2i-1)) \E(X) & k \text{ is odd} \\
+ \prod_{i=1}^{k/2} (k-(2i-1)) \E(X^2) & k \text{ is even} \end{cases}
+\]
+
+\[
+\boxed{
+\E(X^k) = \begin{cases} 0& k \text{ is odd} \\
+ \prod_{i=1}^{k/2} (k-(2i-1))  & k \text{ is even} \end{cases}}
+\]
+
+
 
 \subsubsection{Probability-Generating Functions}
 
@@ -2489,7 +3268,9 @@ f_X(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \bigg( - \frac{(x-\mu)^2}{2 \sigma
 
 \end{itemize}
 
-\textbf{Gamma}: \(\Gamma(\alpha, \beta)\) (\textbf{note: this parameterization is a little unusual; more commonly \(\beta\) is expressed as the reciprocal of how it appears here.})
+\textbf{Gamma}: \(\Gamma(\alpha, \beta)\) 
+
+%(\textbf{note: this parameterization is a little unusual; more commonly \(\beta\) is expressed as the reciprocal of how it appears here.})
 
 \begin{itemize}
 
@@ -2515,6 +3296,13 @@ f(x)  = \frac{1}{\beta^\alpha\Gamma(\alpha)} x^{\alpha - 1} e^{-x/\beta} = \frac
 
 \begin{proposition}\label{prob.gammasum}Let \(X \sim \operatorname{Gamma}(\alpha_1, \beta)\) and \(Y\ \sim \operatorname{Gamma}(\alpha_2, \beta)\). Then \(X + Y \sim \operatorname{Gamma}(\alpha_1 + \alpha_2, \beta)\). 
 \end{proposition}
+
+\begin{proposition}\label{prob.gamma.to.normal}Let \(X \sim \operatorname{Gamma}(\alpha, \beta)\). Then as \(\beta \to \infty\), \(X \xrightarrow{d} \mathcal{N}(\alpha \beta, \alpha \beta^2)\). 
+
+\end{proposition}
+
+\begin{proof}See \url{http://www.math.wm.edu/~leemis/chart/UDR/PDFs/GammaNormal1.pdf}.
+\end{proof}
 
 \textbf{\(\chi_n^2\)}: special case of a gamma distribution: \(\Gamma(n/2, 2)\). Also the sum of \(n\) independent standard normally distributed variables.
 
@@ -2748,10 +3536,10 @@ equals 0.
 %
 %
 %
-%%%%%%%%%%%% Example Problems That Will Likely Appear on Midterm %%%%%%%%%%%%%
+%%%%%%%%%%%% Example Problems That Will Likely Appear on Midterm (and Final) %%%%%%%%%%%%%
 \subsection{Worked problems}
 
-\subsubsection{Example Problems That Will Likely Appear on Midterm}
+\subsubsection{Example Problems That Will Likely Appear on Midterm (and Final)}
 
 %Note: All problems will be from quals from last ten years. Two problems are from homework 4, and three are from homework 6. The stick-breaking problem won't appear. Won't need to come up with counterexamples. All 5 problems will be computations.
 %
@@ -2774,125 +3562,336 @@ equals 0.
 \begin{enumerate}[(1)]
 
 %%%%%%%%%%%% Midterm question 3 %%%%%%%%%%%%
-\item
 
-% \textbf{Hints/Notes about this question:} Best way to solve it is with geometry (and a double integral). It involves computing the distribution of a function of independent random variables. We either did this problem in class or discussed one like it \textbf{true for hw 4 question 6: pretty much solved in notes (10/08, p. 3). Also, Lototsky said at time that this part (b) was likely to appear in the midterm.}  \textbf{Very likely: homework 4 question 6 part (b).} 
+\item 
 
-\textbf{Note: we worked through an example problem like this on Friday. Should probably fix solution, and use geometric}
+%\textbf{Hints/Notes about this question:} Solve with double integrals. \textbf{Preliminary guess: HW 4 Number 9? (said in 10/08 notes (p. 4) about Jacobians, two dimensional, may be from quals).} (9a: Spring 2017 qual problem 2; 9(b), did on notes on 10/10 (p. 6 of notes); 9(c), 2012 qual problem 3 might be helpful; 9(d), very similar to homework 3 problem 4 (except that was with geometric distribution and this is exponential).
 
-\textbf{Question:} 
+% Question 1
+%\begin{enumerate}[1.]
 
-Let \(X, Y, Z\) be independent uniform on (0, 1). Compute the cdfs of \(XY\), \(X/Y\), and \(XY/Z\). 
+Let \(X\) be uniform on \([1, 5]\), let \(Y\) be uniform on \([0, 1]\), and assume that \(X\) and \(Y\) are independent.
 
-\textbf{Solution (may not be the way Lototsky suggested, consider revising).}
+\begin{enumerate}[(a)]
+
+\item Compute the probability density function of the product \(XY\).
+
+\item \textbf{Only part included on midterm.} Compute the cumulative distribution function of the ratio \(X/Y\).
+
+\item Compute the characteristic function of the sum \(X + Y\).
+
+\item Compute the moment-generating function of the random variable \(X - \ln (Y)\).
+
+\end{enumerate}
+
+\
+
+\textbf{Solution.}
+
+\begin{enumerate}[(a)]
 
 % \textbf{solution online: https://stats.stackexchange.com/questions/185683/distribution-of-ratio-between-two-independent-uniform-random-variables/185709}
 
 %https://stats.stackexchange.com/questions/185683/distribution-of-ratio-between-two-independent-uniform-random-variables/185709#185709
 
-Using the information from part (a), and the fact that \(f_X(x) = 1\) (for \(x \in [0, 1]\)) and likewise for \(f_Y(y)\):
+
+
+% 1(a)
+\item We will find the cdf and then differentiate to yield the pdf. Observe that
+
+\[
+F_{XY}(t) = \Pr(XY \leq t) = \Pr(Y \leq tX^{-1})
+\]
+
+Plotting the density function of \(XY\) along with plots of \(F_{XY}(t)\) as a function of \(X\) for various values of \(t\), we have the following:
+
+%\begin{figure}
+%  \caption{Problem 1(a), plots of \(F_{XY}(t)\) as a function of \(X\) for various values of \(t\).}
+%  \centering
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{prob_505a_midterm_1a}
+    \end{center}
+%\end{figure}
+
+Now since both \(X\) and \(Y\) are distributed uniformly, for a given \(t\), \( \Pr(Y \leq tX^{-1})\) is the area under the curve and in the rectangle, weighted by \(1/4\) since the rectangle has total area 4 but total probability 1. It is clear that the four regimes we need to consider are (1) \(t < 0\), (2) \(0 \leq t < 1\), (3) \(1 \leq t < 5\), and (4) \(t \geq 5\). 
+
+\begin{enumerate}[(1)]
+
+\item \(t < 0\): The curve lies below the rectangle, so there is no area below the curve and in the rectangle. Therefore \( \boxed{\Pr(Y \leq tX^{-1} \mid t < 0) = 0}\). (This is also clear since \(tX^{-1}\) would be a negative number and \(Y\) is nonnegative.)
+
+\item \(0 \leq t < 1\): Integrating the relevant area, we have
+
+\[
+\Pr(Y \leq tX^{-1} \mid 0 \leq t < 1) = \frac{1}{4} \int_1^5 \frac{t}{x} dx = \frac{t}{4} \big[\log(x) \big]_1^5 = \boxed{\frac{t}{4} \log(5)}
+\]
+
+\item \(1 \leq t < 5\): In this case, the area is a rectangle of height 1 and width \(t-1\) plus the area under the curve from \(t\) to 5.
+
+\[
+\Pr(Y \leq tX^{-1} \mid 1 \leq t < 5) = \frac{1}{4} \bigg( 1 \cdot (t-1) +  \int_t^5 \frac{t}{x} dx \bigg)  = \frac{1}{4} \bigg(t -1 + t\big[\log(x) \big]_t^5 \bigg) = \boxed{\frac{1}{4} \big[t \big(1+\log(5/t) \big) - 1\big]}
+\]
+
+\item \(t \geq 5\): In this case, the entire rectangle lies below the curve. Therefore \(\boxed{\Pr(Y \leq tX^{-1} \mid t \geq 5) = 1}\).
+
+\end{enumerate}
+
+So we have
+
+\[
+F_{XY}(t) = \begin{cases}
+0 & t <0 \\
+\frac{t}{4} \log(5) & 0 \leq t < 1 \\
+\frac{1}{4} \big[t \big(1+\log(5/t) \big) - 1\big] & 1 \leq t < 5 \\
+1 & t \geq 5
+\end{cases}
+\]
+
+Finally, differentiating yields
+
+\[
+\boxed{
+f_{XY}(t) = \begin{cases}
+0 & t <0 \\
+\frac{1}{4} \log(5) & 0 \leq t < 1 \\
+\frac{1}{4} \log \bigg( \frac{5}{t} \bigg) & 1 \leq t < 5 \\
+0 & t \geq 5
+\end{cases}
+}
+\]
+
+since
+
+\[
+\deriv{}{t} \bigg( \frac{1}{4} \big[t \big(1+\log(5/t) \big) - 1\big]  \bigg) = \frac{1}{4} \bigg[1 + \log(5/t)  + t\bigg( \frac{1}{5/t} \cdot -5 \cdot t^{-2}  \bigg) \bigg] = \frac{1}{4} \bigg[1 + \log(5/t)  + t\bigg( t\cdot -1 \cdot t^{-2}  \bigg) \bigg] 
+\]
+
+\[
+= \frac{1}{4} \log \bigg( \frac{5}{t} \bigg)
+\]
+
+% 1(b)
+\item \textbf{Only part included on midterm.} We will proceed in a similar way as part (a). Observe that
+
+\[
+F_{X/Y}(t) = \Pr\bigg(\frac{X}{Y} \leq t\bigg) = \Pr(Y \geq X/t)
+\]
+
+Plotting the density function of \(X/Y\) along with plots of \(F_{X/Y}(t)\) as a function of \(X\) for various values of \(t\), we have the following:
+
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{prob_505a_midterm_1b}
+    \end{center}
+
+
+Now since both \(X\) and \(Y\) are distributed uniformly, for a given \(t\), \( \Pr(Y \geq X/t)\) is the area above the curve and in the rectangle, weighted by \(1/4\) since the rectangle has total area 4 but total probability 1. It is clear that the three regimes we need to consider are (1) \(t^{-1} \geq 1 \iff  t \leq 1\), (2) \(1/5 \leq t^{-1} < 1 \iff 1 < t \leq 5\), and (3) \(0 < t^{-1} < 1/5 \iff t > 5\). 
+
+\begin{enumerate}[(1)]
+
+\item \(t \leq 1\): The curve lies above the rectangle, so there is no area above the curve and in the rectangle. Therefore \( \Pr(Y \geq X/t \mid t \leq 1) = 0\). (This is also clear since \(X/t\) would have to be greater than 1 and \(Y\) is less than or equal to 1.)
+
+\item \(1 < t \leq 5\): The relevant area is the triangle above the green line in the rectangle. Note that it intersects the vertical line at \(Y = 1/t\) and the horizontal line at \(X = t\).
+
+\[
+\Pr(Y \geq X/t \mid 1 < t \leq 5) = \frac{1}{4} \cdot \frac{1}{2}\bigg(1 - \frac{1}{t} \bigg)(t - 1) = \frac{1}{8} \bigg(t - 1 - 1 + \frac{1}{t} \bigg) = \frac{1}{8} \bigg(t -2  + \frac{1}{t} \bigg) 
+\]
+
+\item \(t > 5\): In this case, the area is a trapezoid above the blue line and in the rectangle. Note that the blue line intersects the left vertical line at \(Y = 1/t\) and the right vertical line at \(Y = 5/t\).
+
+\[
+\Pr(Y \geq X/t \mid t > 5) = \frac{1}{4} \cdot  \frac{1}{2} \cdot \bigg(1 - \frac{1}{t} + 1 - \frac{5}{t} \bigg) \cdot 4 = \frac{1}{2} \cdot \bigg(2 - \frac{6}{t} \bigg)= 1 - \frac{3}{t}
+\]
+
+
+\end{enumerate}
+
+So we have
+
+\[
+\boxed{
+F_{XY}(t) = \begin{cases}
+0 & t \leq 1 \\
+\frac{1}{8} \bigg(t -2  + \frac{1}{t} \bigg) & 1 < t \leq 5 \\
+1 - \frac{3}{t} & t > 5
+\end{cases}
+}
+\]
+
+% 1(c)
+\item The characteristic function for a uniform distribution on \([a, b]\) is 
+
+\[
+\frac{2}{(b-a)t} \sin \bigg( \frac{1}{2} (b-a)t \bigg) \exp \bigg(i(a+b) \frac{t}{2} \bigg).
+\]
+
+Using the fact that \(X \indep Y \implies \phi_{X + Y}(t) = \phi_X(t) \phi_Y(t)\), we have
+
+\[
+\phi_{X + Y}(t) = \phi_X(t) \phi_Y(t) = \frac{2}{(5-1)t} \sin \bigg( \frac{1}{2} (5-1)t \bigg) \exp \bigg(i(5+1) \frac{t}{2} \bigg)\cdot \frac{2}{t} \sin \bigg( \frac{1}{2} t \bigg) \exp \bigg(i \frac{t}{2} \bigg)
+\]
+
+\[
+= \frac{1}{2t} \sin ( 2t ) \exp (3it) \cdot \frac{2}{t} \sin \bigg( \frac{1}{2} t \bigg) \exp \bigg(i \frac{t}{2} \bigg) = \boxed{ \frac{1}{t^2} \exp \bigg( \frac{7}{2}it \bigg)\cdot \sin ( 2t ) \sin \bigg( \frac{1}{2} t \bigg)}
+\]
+
+% 1(d)
+\item The moment-generating function for a uniform distribution on \([a, b]\) is 
+
+\[
+M_X(t) = \E(\exp(tX)) = \int_a^b \frac{1}{b-a} \cdot \exp(tx) dx = \frac{1}{b-a} \bigg[ \frac{1}{t} \exp(tx) \bigg]_a^b =  \frac{1}{(b-a)t} \big[ \exp(bt) - \exp(at) \big]
+\]
+
+Therefore the moment-generating function for \(X\) is \(t^{-1} \big[ \exp(t) - 1\big]\). Note that
+\[
+\Pr(Y \leq y) = \Pr(- \log(X) \leq y) = \Pr( \log(X) \geq -y)  = \Pr(X \geq e^{-y}) = \int_{\exp(-y)}^\infty dt = \int_{\exp(-y)}^1 dt
+\]
+
+Substituting \(t = e^{-u}\) (so that we have \(u = -\log(t)\), \(dt = -e^{-u} du\), we have
+
+\[
+\Pr(Y \leq y) =  -\int_{y}^{0}  e^{-u} du = \big[e^{-u} \big]_y^0 = 1 - e^{- y}
+\]
+which is the cdf for an exponential distribution with mean 1. Therefore \(Y = - \log(X) \sim \operatorname{Exponential}(1)\), so
+
+\[
+M_Y(t) = \frac{1}{1- t}
+\]
+
+Using the fact that if \(X\) and \(Y\) are independent then \(M_{X +Y}(t) = M_X(t) M_Y(t)\), we have
+
+\[
+M_{X +Y}(t) = M_X(t) M_Y(t) = \frac{\exp(t) - 1}{t} \cdot \frac{1}{1- t} = \boxed{\frac{\exp(t) - 1}{t - t^2}  }
+\]
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%% Midterm question 5 %%%%%%%%%%%%
+\item \textbf{Fall 2016 Problem 2.} Let \(X\) and \(Y\) be i.i.d. exponential with mean 1. Show that for every \(t > 0\) the events \(\{\omega: \min\{X,Y\} > t\}\) and \(\{\omega: X < Y \}\) are independent.
+
+\textbf{Solution.} Note that \(\min\{X,Y\} > t \iff X > t \cap Y > t\). 
 
 \begin{itemize}
 
-% Product
-\item \(XY\):
+\item \(\Pr(\min\{X, Y\} > t) = \Pr(X > t \cap Y > t) = \Pr(X>t) \Pr(Y > t)\)
 
 \[
-F_{XY}(z) = \int_0^\infty f_X(x) \int_{-\infty}^{z/x} f_Y(y) dy dx - \int_{-\infty}^0 f_X(x) \int_{\infty}^ {z/x} f_Y(y) dy dx
+= \int_t^\infty e^{-x}dx\int_t^\infty e^{-y}dy = -e^{-x} \big|_t^\infty -e^{-y} \big|_t^\infty = \boxed{e^{-2t}}
+\]
+
+\item \(\Pr(X < Y)\): Note that in Figure \ref{prob.fig.midterm2.p5}, the region that satisfies this condition is region \(G_1\) plus \(G_2\) (note that \(X\) and \(Y\) are nonnegative). Therefore we can find this probability by integrating the joint pdf over that region.
+
+\begin{figure}\label{prob.fig.midterm2.p5}
+  \caption{Diagram for Fall 2016 Problem 2.}
+  \centering
+    \includegraphics[width=0.7\textwidth]{prob_midterm2_p5}
+\end{figure}
+
+\[
+\Pr(X < Y) = \underset{\{G_1 + G_2\}}{\int \int} f_{X,Y}(x,y) dx dy 
+\]
+
+Note that the joint pdf is the probability of the marginal pdfs since \(X\) and \(Y\) are independent.
+
+\[
+= \int_0^\infty \int_x^\infty e^{-x-y} dydx = \int_0^\infty e^{-x} \int_x^\infty e^{-y} dy dx 
 \]
 
 \[
-= \int_0^1  \big[ (z/x) \boldsymbol{1}_{\{0 < z/x \leq 1\}} + \boldsymbol{1}_{\{z/x > 1\}} \big] dx = \int_0^1  \big[ (z/x) \boldsymbol{1}_{\{z \leq x\}} + \boldsymbol{1}_{\{z > x\}} \big] dx = \int_0^z dx + \int_z^1 (z/x) dx
+ \int_x^\infty e^{-y} dy  = -e^{-y} \big|_x^\infty = e^{-x}
 \]
 
 \[
-=z + z \log(x) \big|_z^1 = z + z \log(1) - z \log(z) = z (1 - \log(z))
+\implies \Pr(X < Y) = \int_0^\infty e^{-2x} dx = -\frac{1}{2} e^{-2x} \big|_0^\infty = \boxed{\frac{1}{2}}
+\]
+
+
+
+\item \(\Pr(X < Y \cap \min \{X, Y\} > t) \): Note that in Figure \ref{prob.fig.midterm2.p5}, the region that satisfies this condition is region \(G_1\). Therefore we can find this probability by integrating the joint pdf over that region.
+
+\[
+\Pr(X < Y \cap \min \{X, Y\} > t) = \underset{G_1}{\int \int} f_{X,Y}(x,y) dx dy = \int_t^\infty \int_t^y e^{-x-y} dxdy = \int_t^\infty e^{-y} \int_t^y e^{-x} dx dy
+\]
+
+
+\[
+ \int_t^y e^{-x} dx = -e^{-x} \big|_t^y= -e^{-y} + e^{-t}
 \]
 
 \[
-\implies \boxed{ F_{XY}(z) =  \begin{cases} 
-     0   &  z \leq 0 \\
-     z (1 - \log(z)) & 0 < z \leq 1 \\
-   1 & z > 1\end{cases}}
-\]
-
-% quotient
-\item \(X/Y\):
-
-\[
-F_{X/Y}(z) =\int_0^\infty f_Y(y) \int_{-\infty}^{zy} f_X(x) dx dy - \int_{-\infty}^0 f_Y(y) \int_{\infty}^ {zy} f_X(x) dx dy
+\implies \Pr(X < Y \cap \min \{X, Y\} > t) = \int_t^\infty e^{-y}\big(-e^{-y} + e^{-t} \big) dy =  \int_t^\infty \big( e^{-t-y} - e^{-2y}\big)dy
 \]
 
 \[
-= \int_0^1  \big[ zy \boldsymbol{1}_{\{0 < zy \leq 1\}} + \boldsymbol{1}_{\{zy > 1\}} \big] dy = \int_0^1  \big[ zy \boldsymbol{1}_{\{y >0 \cap y \leq 1/z\}} + \boldsymbol{1}_{\{y > 1/z\}} \big] dy = \int_0^{1/z}zy \cdot dy + \int_{1/z}^1 dy
-\]
-
-\[
-=\frac{zy^2}{2} \bigg|_0^{1/z}+ (1 - 1/z) = \frac{z}{2z^2} + 1 - \frac{2}{2z} = 1 - \frac{1}{2z}
-\]
-
-\[
-\implies  F_{XY}(z) =  \begin{cases} 
-     0   & z \leq 0 \\
-     1 - \frac{1}{2z} & 0 < 1/z \leq 1 
-     \end{cases}
-\]
-
-\[
-=  \boxed{ \begin{cases} 
-     0   & z \leq 0 \\
-     z/2   & 0 < z \leq 1 \\
-     1 - \frac{1}{2z} & z > 1
-     \end{cases}}
-\]
-
-% Third thing
-\item \(XY/Z\): Consider this the cdf of the quotient of \(W = XY\) and \(Z\).
-
-\[
-F_U(u)=\int_0^\infty f_Z(z) \int_{-\infty}^{uz} f_W(w) dw dz - \int_{-\infty}^0 f_Z(z) \int_{\infty}^ {uz} f_W(w) dw dz
-\]
-
-\[
-=\int_0^1  \int_{0}^{uz} - \log(w)  \boldsymbol{1}_{\{0 < uz \leq 1\}} dw dz  =\int_0^1   - \big[ w \log(w) - w \big]_0^{uz} \boldsymbol{1}_{\{0 < z \leq 1/u\}}  dz  
-\]
-
-\[
-=\int_0^{1/u} uz  \big[1  - \log(uz)  \big] dz = \frac{u}{4}z^2\big( 3 - 2 \log(uz) \big) \bigg|_0^{1/u}  = \frac{u}{4u^2}\big( 3 - 2 \log(1) \big) - 0 = \frac{3}{4u}
-\]
-
-\[
-\implies \boxed{ F_{XY/Z}(u) =  \begin{cases} 
-     0   & u \leq 0 \\
-     \frac{3}{4u} & 0 < u \leq 3/4 \\
-     1 & u > 3/4
-     \end{cases}}
+= \frac{1}{2}e^{-2y} -e^{-t}e^{-y} \big|_t^\infty = - \frac{1}{2}e^{-2t} - e^{-2t} = \boxed{\frac{1}{2}e^{-2t}}
 \]
 
 \end{itemize}
 
-
-
-
-%%%%%%%%%%%%% Midterm question 5 %%%%%%%%%%%%
-\item 
-
-%\textbf{Hints/Notes about this question:} Solve with double integrals. \textbf{Preliminary guess: HW 4 Number 9? (said in 10/08 notes (p. 4) about Jacobians, two dimensional, may be from quals).} (9a: Spring 2017 qual problem 2; 9(b), did on notes on 10/10 (p. 6 of notes); 9(c), 2012 qual problem 3 might be helpful; 9(d), very similar to homework 3 problem 4 (except that was with geometric distribution and this is exponential).
-
-\textbf{Note: we worked through an example problem like this on Friday.}
-
-\textbf{Question from Friday:} Let \(X\), \(Y\) be distributed exponentially with mean 1. What is the probability distribution of \(X/(X+Y)\)?
-
-\textbf{Solution.} Find the cdf:
+Note that
 
 \[
-\Pr \bigg( \frac{X}{X+Y}  < t \bigg) = \Pr ( X < tX + tY) = \Pr \bigg( Y > \frac{X(1-t)}{t} \bigg) 
+\Pr(X < Y \cap \min \{X, Y\} > t)  = \frac{1}{2} \cdot e^{-2t} = \Pr(X < Y ) \Pr(\min \{X, Y\} > t)
 \]
 
-To find \(\Pr(Y > aX)\), graph the line \(aX\) 
+Therefore the events \(\{\omega: \min\{X,Y\} > t\}\) and \(\{\omega: X < Y \}\) are independent for every \(t > 0\).
+
+%%%%%%%%% Final Earthquake Question %%%%%%%%%%%%%%
+
+\item In a certain area, earthquakes happen at a frequency of one every four days. What is the probability that more than 100 earthquakes will occur in this area in one year (365 days)?
+
+\textbf{Solution.} We can think of this as a Poisson process (see section \ref{stoch.pois.proc.sec}) with \(\lambda = 1/4\). Then there are two ways to obtain the answer: we can either examine the number of earthquakes in a 365 day period \(N(365)\) and find the probability that \(N(365) >100\), or we can examine the number of days until the 101st earthquake \(T_{101}\) and find the probability that \(T_{101} < 365\).
+
+\begin{enumerate}[(i)]
+
+% Poisson Approximation to earthquake problem
+\item \textbf{Number of earthquakes in 365 days:} Let \(N(t)\) be the number of earthquakes that occur in \(t\) days after the start of this process. By Theorem \ref{stoch.pois.proc.thm.6.8.2}, \(N(t) \sim \operatorname{Poisson}(t \cdot 1/4)\). Then
+
+\[
+\Pr(N(t) > 100 )= \sum_{j=101}^\infty \frac{(365 \cdot 1/4)^j \exp(-365 \cdot 1/4)}{j!} 
+\]
+
+To obtain an answer for this, we can use the normal approximation to a Poisson distribution (Proposition \ref{prob.poisson.to.normal}):
+
+\[
+N(t) \sim \mathcal{N}(t/4, t/4) \implies \Pr(N(365) > 100) \approx \Pr \bigg(\mathcal{N}(0,1) > \frac{100.5 - 365/4}{\sqrt{365/4}} \bigg)
+\]
+
+\[
+= \Pr \bigg(\mathcal{N}(0,1) > \frac{100.5 - 91.25}{\sqrt{91.25}} \bigg) \approx  \Pr \bigg(\mathcal{N}(0,1) > \frac{9.25}{9.1} \bigg)  \approx \boxed{0.1664}
+\]
+
+% Gamma Approximation to earthquake problem
+\item \textbf{Number of days before 100th earthquake:} Let \(T_n\) be the number of days until the \(n\)th earthquake happens. By Corollary \ref{stoch.pois.proc.inter.cor}, \(T_n \sim \operatorname{Gamma}(n, 4)\). Then
+
+\[
+\Pr(T_{101} < 365 )= \int_{0}^{365} \frac{1}{\Gamma(101, 4)} x^{101 - 1} e^{-x/4} dx
+\]
+
+To obtain an answer for this, we can use the normal approximation to a Gamma distribution (Proposition \ref{prob.gamma.to.normal}):
+
+\[
+T_n \sim \mathcal{N}(404, 1616) \implies \Pr(T_{101} < 365) \approx \Pr \bigg(\mathcal{N}(0,1) < \frac{365 - 404}{\sqrt{1616}} \bigg) \approx \Pr \bigg(\mathcal{N}(0,1) < \frac{-40}{40} \bigg) 
+\]
+
+\[
+=  \Pr \big(\mathcal{N}(0,1) < -1 \big)   \approx \boxed{0.1660}
+\]
 
 \end{enumerate}
 
+\end{enumerate}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%%%%%%%%% More Problems From Homework
 \subsubsection{More Problems From Homework}
 
 %%%%%%%%%%% HW 5 P 7 %%%%%%%%%%%%%%
@@ -3155,7 +4154,7 @@ where we discard the negative root because we have to have a nonnegative number 
 
 
 % 10b
-\item For a group of three people, the Poisson approximation is more convenient. The number of groups of 3 people in a room of \(x\) people is \(\binom{x}{3}\). For a group of three people, the probability that all three have the same birthday is \(1 \cdot 1/365 \cdot 1/365 = 365^{-2}\). Therefore we can think of the number of matches of three people as distributed Poisson with expectation \(\binom{x}{3} \cdot 365^{-2}\). Then we have the probability of at least one ``success" (triplet with three matched birthdays) is
+\item For a group of three people, the Poisson approximation (see Section \ref{prob.poisson.paradigm}) is more convenient. The number of groups of 3 people in a room of \(x\) people is \(\binom{x}{3}\). For a group of three people, the probability that all three have the same birthday is \(1 \cdot 1/365 \cdot 1/365 = 365^{-2}\). Therefore we can think of the number of matches of three people as distributed Poisson with expectation \(\binom{x}{3} \cdot 365^{-2}\). Then we have the probability of at least one ``success" (triplet with three matched birthdays) is
 
 \[
 1 - \frac{\exp(-\lambda) \lambda^0}{0!} = 1 - \exp \bigg(-\binom{x}{3} \cdot 365^{-2} \bigg)
@@ -3174,6 +4173,101 @@ p = 1 - \exp \bigg(-\binom{x}{3} \cdot 365^{-2} \bigg) \iff -\binom{x}{3} \cdot 
 This has a unique real solution, but it is hard to find.
 
 \end{enumerate}
+
+
+%%%%%%%%%%%%% Another one 
+
+\textbf{Question:} 
+
+Let \(X, Y, Z\) be independent uniform on (0, 1). Compute the cdfs of \(XY\), \(X/Y\), and \(XY/Z\). 
+
+\textbf{Solution.}
+
+% \textbf{solution online: https://stats.stackexchange.com/questions/185683/distribution-of-ratio-between-two-independent-uniform-random-variables/185709}
+
+%https://stats.stackexchange.com/questions/185683/distribution-of-ratio-between-two-independent-uniform-random-variables/185709#185709
+
+Using the information from part (a), and the fact that \(f_X(x) = 1\) (for \(x \in [0, 1]\)) and likewise for \(f_Y(y)\):
+
+\begin{itemize}
+
+% Product
+\item \(XY\):
+
+\[
+F_{XY}(z) = \int_0^\infty f_X(x) \int_{-\infty}^{z/x} f_Y(y) dy dx - \int_{-\infty}^0 f_X(x) \int_{\infty}^ {z/x} f_Y(y) dy dx
+\]
+
+\[
+= \int_0^1  \big[ (z/x) \boldsymbol{1}_{\{0 < z/x \leq 1\}} + \boldsymbol{1}_{\{z/x > 1\}} \big] dx = \int_0^1  \big[ (z/x) \boldsymbol{1}_{\{z \leq x\}} + \boldsymbol{1}_{\{z > x\}} \big] dx = \int_0^z dx + \int_z^1 (z/x) dx
+\]
+
+\[
+=z + z \log(x) \big|_z^1 = z + z \log(1) - z \log(z) = z (1 - \log(z))
+\]
+
+\[
+\implies \boxed{ F_{XY}(z) =  \begin{cases} 
+     0   &  z \leq 0 \\
+     z (1 - \log(z)) & 0 < z \leq 1 \\
+   1 & z > 1\end{cases}}
+\]
+
+% quotient
+\item \(X/Y\):
+
+\[
+F_{X/Y}(z) =\int_0^\infty f_Y(y) \int_{-\infty}^{zy} f_X(x) dx dy - \int_{-\infty}^0 f_Y(y) \int_{\infty}^ {zy} f_X(x) dx dy
+\]
+
+\[
+= \int_0^1  \big[ zy \boldsymbol{1}_{\{0 < zy \leq 1\}} + \boldsymbol{1}_{\{zy > 1\}} \big] dy = \int_0^1  \big[ zy \boldsymbol{1}_{\{y >0 \cap y \leq 1/z\}} + \boldsymbol{1}_{\{y > 1/z\}} \big] dy = \int_0^{1/z}zy \cdot dy + \int_{1/z}^1 dy
+\]
+
+\[
+=\frac{zy^2}{2} \bigg|_0^{1/z}+ (1 - 1/z) = \frac{z}{2z^2} + 1 - \frac{2}{2z} = 1 - \frac{1}{2z}
+\]
+
+\[
+\implies  F_{XY}(z) =  \begin{cases} 
+     0   & z \leq 0 \\
+     1 - \frac{1}{2z} & 0 < 1/z \leq 1 
+     \end{cases}
+\]
+
+\[
+=  \boxed{ \begin{cases} 
+     0   & z \leq 0 \\
+     z/2   & 0 < z \leq 1 \\
+     1 - \frac{1}{2z} & z > 1
+     \end{cases}}
+\]
+
+% Third thing
+\item \(XY/Z\): Consider this the cdf of the quotient of \(W = XY\) and \(Z\).
+
+\[
+F_U(u)=\int_0^\infty f_Z(z) \int_{-\infty}^{uz} f_W(w) dw dz - \int_{-\infty}^0 f_Z(z) \int_{\infty}^ {uz} f_W(w) dw dz
+\]
+
+\[
+=\int_0^1  \int_{0}^{uz} - \log(w)  \boldsymbol{1}_{\{0 < uz \leq 1\}} dw dz  =\int_0^1   - \big[ w \log(w) - w \big]_0^{uz} \boldsymbol{1}_{\{0 < z \leq 1/u\}}  dz  
+\]
+
+\[
+=\int_0^{1/u} uz  \big[1  - \log(uz)  \big] dz = \frac{u}{4}z^2\big( 3 - 2 \log(uz) \big) \bigg|_0^{1/u}  = \frac{u}{4u^2}\big( 3 - 2 \log(1) \big) - 0 = \frac{3}{4u}
+\]
+
+\[
+\implies \boxed{ F_{XY/Z}(u) =  \begin{cases} 
+     0   & u \leq 0 \\
+     \frac{3}{4u} & 0 < u \leq 3/4 \\
+     1 & u > 3/4
+     \end{cases}}
+\]
+
+\end{itemize}
+
 
 %
 %

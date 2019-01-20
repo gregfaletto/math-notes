@@ -142,7 +142,7 @@
 %%% Chapter 8
 \section{Asymptotics and Convergence}
 
-These notes are based on my notes from chapter 8 of \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as Math 505A at USC and chapter 7 from \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition.
+These notes are based on my notes from chapter 8 of \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as Math 505A and Math 541A at USC and chapter 7 from \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition.
 
 %%%% Chapter 8
 %\subsection{Chapter 8: Asymptotic Theory}
@@ -255,19 +255,41 @@ Then
 
 \begin{itemize}
 
-\item \begin{lemma}\label{asym.markov} \textbf{Markov's Inequality (Grimmett and Stirzaker p. 311, 319) ):} For \(a > 0\),
+\item \begin{lemma}\label{asym.markov} \textbf{Markov's Inequality (Grimmett and Stirzaker p. 311, 319) ):} Let \(X: \Omega \to [-\infty, \infty]\) be a random variable. Then for all \(a > 0\),
 
 \[
 \Pr(|X| \geq a) \leq \frac{\E(|X|)}{a}
 \]
 \end{lemma}
-\begin{proof} Note  \( a \cdot \boldsymbol{1}_{\{|X| \geq a\}} \leq |X|\), where \(\boldsymbol{1}\) is the indicator function. Dividing both sides by \(a\) and taking expectations yields the result. \end{proof}
+\begin{proof} Note \( a \cdot \boldsymbol{1}_{\{|X| \geq a\}} \leq |X|\), where \(\boldsymbol{1}\) is the indicator function. Dividing both sides by \(a\) and taking expectations yields the result. \end{proof}
 
-\item \begin{theorem}\label{asym.cheby}\textbf{Chebyshev's Inequality:} (probability p. 319) Let \(X\) be an (integrable) random variable with finite expected value \(\mu\) and finite nonzero variance \(\sigma^2\). Then for any real number \(k > 0\)
+\begin{corollary} If \(n\) is a positive integer, then
 
 \[
-\Pr \big(\left| X - \mu \right| \geq k \sigma \big) \leq \frac{1}{k^2}
+\Pr(|X| \geq t) \leq \frac{\E(|X|^n)}{t^n} \ \ \forall t > 0
+\]
+
+\end{corollary}
+
+\begin{proof}By Markov's Inequality (Theorem \ref{asym.markov}), 
+
+\[
+\Pr(|X| \geq t) = \Pr(|X|^n \geq t^n) \leq \frac{\E(|X|^n)}{t^n}
+\]
+
+\end{proof}
+
+\item \begin{theorem}\label{asym.cheby}\textbf{Chebyshev's Inequality:} (probability p. 319) Let \(X: \Omega \to [-\infty, \infty]\) be an (integrable) random variable with \(\E(X^2) < \infty\).Then for any real number \(k > 0\)
+
+\[
+\Pr \big(\left| X - \E(X) \right| \geq k \sqrt{\Var(X)} \big) \leq \frac{1}{k^2}
 \] 
+
+This can also be written as
+
+\[
+\Pr(|X - \E(X)| \geq k) \leq \frac{\Var(X)}{k^2}
+\]
 \end{theorem}
 
 (Can be used to demonstrate consistency of estimators: if we can show that as \(T \to \infty\) \(\Var(X) = \sigma^2 \to 0\), then this implies \(\Pr \big(\left| X - \mu \right| \geq k \sigma \big) \to 0\) as \(T \to \infty\), showing consistency.)
@@ -275,7 +297,7 @@ Then
 \item \begin{theorem} \textbf{Chernoff} For \(x \geq 0\), \(a > 0\), \(\forall \ t > 0\),
 
 \[
-\Pr(X \geq a) = \Pr( e^{tx} \geq e^{ta} ) \leq \frac{\E(e^{tx})}{e^{ta}}
+\Pr(X \geq a) = \Pr( e^{tX} \geq e^{ta} ) \leq \frac{\E(e^{tX})}{e^{ta}}
 \]
 \end{theorem} 
 \end{itemize}
@@ -291,7 +313,7 @@ Then
 \]
 \end{theorem}
 
-To prove this, we first prove a useful result.
+Note that this can is a corollary of Theorem \ref{asym.thm.holder.ineq} with \(p = q = 2\). We can also prove this theorem on its own in a different one. We first prove a useful result.
 
 \begin{lemma}\label{asym.cauchy.lemma}If \(\Var(X) = 0\) then \(X\) is almost surely constant; that is, \(\Pr(X = a) = 1\) for some \(a \in \mathbb{R}\).
 \end{lemma}
@@ -351,19 +373,74 @@ which is true if and only if \(\Pr(aX = bY) = 1\) by by Lemma \ref{asym.cauchy.l
 
 \item \textbf{Krylov}
 
-\item \begin{theorem} \textbf{Jensen's} (Grimmett and Stirzaker p.181, 349) If \(u\) is convex and \(\E X < \infty\), 
+\item \begin{definition}Let \(\phi: \mathbb{R} \to \mathbb{R}\). We say that \(\phi\) is \textbf{convex} if for any \(x, y \in \mathbb{R}\) and for any \(t \in [0,1]\), we have
 
 \[
-\E(u(X)) \geq u(\E(X))
+\phi(tx + (1-t)y) \leq t \phi(x) + (1-t) \phi(y)
+\]
+ \end{definition}
+ 
+ \begin{proposition}\label{asym.conv.prop}  Let \(\phi: \mathbb{R} \to \mathbb{R}\). Then \(\phi\) is convex if and only if for any \(y \in \mathbb{R}\) there exists a constant \(a\) and there exists a function \(L : \mathbb{R} \to \mathbb{R}\) defined by \(L(x) = a(x-y) + \phi(y), x \in \mathbb{R}\) such that \(L(y) = \phi(y)\) and such that \(L(x) \leq \phi(x)\) for all \(x \in \mathbb{R}\).
+ 
+ \end{proposition}
+ 
+ \begin{proof} Hint: Suppose \(\phi\) is convex. If \(x\) is fixed and \(y\) varies, show that \(\frac{\phi(y)- \phi(x)}{y-x}\) increases as \(y\) increases. Draw a picture. What slope \(a\) should \(L\) have at \(x\)?
+ 
+ \end{proof}
+
+ \begin{theorem} \textbf{Jensen's Inequality} (Grimmett and Stirzaker p.181, 349) Let \(X: \Omega \to [-\infty, \infty]\) be a random variable. Let \(u: \mathbb{R} \to \mathbb{R}\) be convex. If \(\E |X| < \infty\) and \(\E|u(X)| < \infty\), then
+
+\[
+u(\E(X)) \leq \E(u(X)) 
 \]
 \end{theorem}
 
-\item \begin{theorem} \textbf{Holder} (Grimmett and Stirzaker p. p. 143, 319) Generalization of Cauchy-Schwarz. For \(p, q > 1\) satisfying \(1/p + 1/q =1\) we have
+\begin{proof} Hint: use Proposition \ref{asym.conv.prop} with \(y := \E(X)\).
+
+%Since \(u\) is convex, we have \(u(tx + (1-t)y) \leq t u(x) + (1-t) u(y)\) for any \(x, y \in \mathbb{R}\) and for any \(t \in [0,1]\).
+
+\end{proof}
+
+\begin{corollary} \textbf{Triangle Inequality.} Let \(X: \Omega \to [-\infty, \infty]\) be a random variable. If \(\E |X| < \infty\), then \(|\E(X)| \leq \E(|X|)\).
+
+\end{corollary}
+
+\begin{proof} Follows immediately from Jensen's Inequality using \(u(X) = |X|\). \end{proof}
+
+\begin{corollary}If \(\E(X^2) < \infty\), then \(\E(|X|) < \infty\), so \(\E(X) \in \mathbb{R}\). \end{corollary}
+
+\begin{proof} Follows immediately from Jensen's Inequality using \(u(X) = X^2 \).\end{proof}
+
+\item \begin{theorem}\label{asym.thm.holder.ineq} \textbf{Holder} (Grimmett and Stirzaker p. p. 143, 319) Generalization of Cauchy-Schwarz. For \(p, q > 1\) satisfying \(1/p + 1/q =1\) we have
 
 \[
 \E(|XY|) \leq (\E(|X^p|))^{1/p}(\E(|X^q|))^{1/q} 
 \]
 \end{theorem}
+
+\begin{proof} Assume without loss of generality that \(\lVert X\rVert_p = \lVert Y \rVert_q = 1\). Also, the case \(p=1, q=\infty\) follows from the triangle inequality, so we assume \(1 < p < \infty\). From concavity of the log function, we have
+
+\[
+\log\big((x^p)^{1/p}(y^q)^{1/q} \big) = (1/p) \log \big( x^p\big) + (1/q) \log \big(y^q\big)
+\]
+
+\[
+ \leq \log \bigg( \frac{1}{p} x^p + \frac{1}{q} y^q\bigg) 
+ \]
+ 
+ \[
+ \implies (x^p)^{1/p}(y^q)^{1/q} \leq \frac{1}{p} x^p + \frac{1}{q} y^q
+ \]
+ 
+ Fixing an \(\omega \in \Omega\), we have
+ 
+ \[
+|X(\omega) Y(\omega)| =  (|X(\omega)|^p)^{1/p}(|Y(\omega)|^q)^{1/q} \leq \frac{1}{p}  |X(\omega)|^p + \frac{1}{q}  |Y(\omega)|^q
+ \]
+ 
+Integrating we have...
+ 
+\end{proof}
 
 \item \begin{theorem} \textbf{Minkowski} (Grimmett and Stirzaker p. p. 143) For \(p \geq 1\),
 
@@ -378,6 +455,33 @@ which is true if and only if \(\Pr(aX = bY) = 1\) by by Lemma \ref{asym.cauchy.l
 \E(|X|^r)^{1/r} \leq \E(|X|^s)^{1/s} 
 \]
 \end{lemma}
+
+\item \begin{theorem}\textbf{Triangle Inequality:} Let \(X, Y: \Omega \to \mathbb{R}\) be random variables. Let \(1 \leq p \leq \infty\). Then
+
+\[
+\lVert X+Y\rVert_p \leq \Vert X\rVert_p + \lVert Y \rVert_p, 1 \leq p \leq \infty
+\]
+
+\begin{proof} The case \(p = \infty\) follows from the scalar triangle inequality, so assume \(1 \leq p < \infty\). By scaling, we may assume \(\lVert X \rVert_p = 1 - t, \lVert Y \rVert_p = t\), for some \(t \in (0,1)\) (zeroes and infinities being trivial). Define \(V:=X/(1-t), W:=Y/t\). Then by convexity of \(x \to |x|^p\) on \(\mathbb{R}\), 
+
+\[
+|(1-t)V(\omega) + t(W(\omega)|^p \leq (1-t)|V(\omega)|^p + t|W(\omega)|^p
+\]
+
+Take expectation of both sides:
+\[
+\E|X+Y|^p \leq (a-t)^{1-p}\E(|X|^p) + t^{1-p}\E(|Y|^p)
+\]
+
+Since \(\lVert X\rVert_p = t, \lVert Y \rVert_p=1-t\), we have that the right side is \(1 - t + t = 1\). (Note: \(\lVert Y\rVert_p = t, \E|Y|^p = t^p, \lVert X\rVert_p = 1-t\) Therefore
+
+\[
+(\E|X+Y|^p)^{1/p} = \lVert X+Y\rVert_p \leq 1
+\]
+
+\end{proof}
+
+\end{theorem}
 \end{itemize}
 
 \end{itemize}
@@ -925,7 +1029,7 @@ then \(\sqrt{T} \overline{x}_T / \overline{\sigma}_T \xrightarrow{d} \mathcal{N}
 \begin{enumerate}[(1)]
 
 %%%%%%%%%%%% Midterm question 1 %%%%%%%%%%%%
-\item 
+\item
 
 %\textbf{Hints/Notes about this question:} Calculus limit (calculating limit). Law of large numbers/central limit theorem. We did this problem in class \textbf{(true for hw6 q1: went over part (a) on 10/31, p. 15 of notes)}. \textbf{Very likely: Homework 6 Question 1 (Fall 2010 qual, question 1)}.
 
@@ -933,7 +1037,7 @@ then \(\sqrt{T} \overline{x}_T / \overline{\sigma}_T \xrightarrow{d} \mathcal{N}
 
 \begin{enumerate}[(a)]
 
-\item Let \(X_k\), \(k \geq 1\), be i.i.d. random variables with mean 1 and variance 1. Show that the limit
+\item  \textbf{Fall 2010 Problem 1.} Let \(X_k\), \(k \geq 1\), be i.i.d. random variables with mean 1 and variance 1. Show that the limit
 
 \[
 \lim_{n \to \infty} \frac{\sum_{k=1}^n X_k}{\sum_{k=1}^n X_k^2} 
@@ -941,7 +1045,7 @@ then \(\sqrt{T} \overline{x}_T / \overline{\sigma}_T \xrightarrow{d} \mathcal{N}
 
 exists in an appropriate sense, and identify the limit.
 
-\item Let \((X_j)_{j \geq 1}\) be i.i.d. uniform on \((-1, 1)\). Let 
+\item \textbf{Not included on midterm or final.} Let \((X_j)_{j \geq 1}\) be i.i.d. uniform on \((-1, 1)\). Let 
 
 \[
 Y_n = \frac{\sum_{j=1}^n X_j}{\sum_{j=1}^n X_j^2 + \sum_{j=1}^n X_j^3} 
@@ -994,7 +1098,7 @@ But then, by Theorem \ref{asym.7.2.4} (Theorem 7.2.4(a) in Grimmett and Stirzake
 \end{itemize}
 
 % 1b
-\item 
+\item \textbf{(Not included on midterm or final.)}
 
 \[
 Y_n = \frac{\sum_{j=1}^n X_j}{\sum_{j=1}^n X_j^2 + \sum_{j=1}^n X_j^3} =  \frac{n^{-1}\sum_{j=1}^n X_j}{n^{-1}\sum_{j=1}^n X_j^2 + n^{-1}\sum_{j=1}^n X_j^3} 
@@ -1043,7 +1147,7 @@ Therefore
 
 %\textbf{Hints/Notes about this question:} Has to do with generating functions and Taylor series. This is the only nontrivial generating function problem. We either did this problem in class or discussed one like it. \textbf{Guess: HW 6 question 4(a) (went over on 11/02, p. 17 of notes; Fall 2010 qual, question 2)? Melike solution involves generating functions; probably the one I should use.}
 
-\textbf{Question:} Fix \(p \in (0, 1)\) and consider independent Poisson random variables \(X_k, k \geq 1\) with
+\textbf{Fall 2010 Problem 2.} Fix \(p \in (0, 1)\) and consider independent Poisson random variables \(X_k, k \geq 1\) with
 
 \[
 \E X_k = \frac{p^k}{k}
@@ -1106,11 +1210,15 @@ So we have
 \Pr(Y=k) = (1-p)p^k, \ \ k= 0, 1, 2, \ldots
 \]
 
-which means \(Y \sim G_1(p) - 1\).
+\[
+= \Pr(G_1(1-p) = k +1) = \Pr(G_1(1-p) - 1 = k)
+\]
+
+which means \(Y \sim G_1(1-p) - 1\).
 
 
 %%%%%%%%%%%% Midterm question 4 %%%%%%%%%%%%
-\item 
+\item \textbf{Spring 2017 Problem 3.}
 
 %\textbf{Hints/Notes about this question:} Almost sure convergence. Computation. We did this problem in class \textbf{(true for hw6 q6: went over on 11/07, p. 22 of notes)}. \textbf{Very likely: Homework 6 Question 6(a) (Spring 2017 qual, question 3.}
 
@@ -1121,6 +1229,10 @@ which means \(Y \sim G_1(p) - 1\).
 \item Consider the sequence \(\{X_k, k \geq 1\}\) of random variables such that \(X_1\) is uniform on \((0, 1)\) and, given \(X_k\), the distribution of \(X_{k+1}\) is uniform on \((0, CX_k)\), where \(\sqrt{3} < C < 2\).
 
 \begin{enumerate}[(i)]
+
+\item For \(n \geq 1\), compute the conditional expectation \(\E(X_{n+1}^r \mid X_n)\).
+
+\item For \(n \geq 1\), compute \(\E(X_n^r)\).
 
 \item Show that \(\lim_{x \to \infty} X_n = 0\) in \(\ell_1\) and with probability one, but not in \(\ell_2\). 
 
@@ -1150,13 +1262,17 @@ which means \(Y \sim G_1(p) - 1\).
 \implies \E(X_{n+1}^r) = \E[\E(X_{n+1}^r \mid X_n)] = \frac{C^r}{r+1} \cdot \E( X_n^r)
 \]
 
-Note that \(E(X_1^r) = \int_0^1 x^r dr = 1/(r+1)\). Therefore 
-
 \[
-\E(X_{n+1}^r) = \frac{C^r}{r+1} \cdot \E( X_n^r) = \bigg( \frac{C^r}{r+1}\bigg)^n \cdot \E(X_1^r) = \bigg( \frac{C^r}{r+1}\bigg)^n \cdot \frac{1}{r+1}
+\implies \boxed{ \E(X_{n+1}^r \mid X_n) = \frac{C^r}{r+1} X_n^r}
 \]
 
-We would like to show that \(X_n \xrightarrow{w.p.1} 0\) and that \(X_n \xrightarrow{1} 0\), but that the same result does not follow for the \(\ell_2\) norm.
+\item Note that \(E(X_1^r) = \int_0^1 x^r dr = 1/(r+1)\). Therefore 
+
+\[
+\E(X_{n+1}^r) = \frac{C^r}{r+1} \cdot \E( X_n^r) = \bigg( \frac{C^r}{r+1}\bigg)^n \cdot \E(X_1^r) =  \boxed{\bigg( \frac{C^r}{r+1}\bigg)^n \cdot \frac{1}{r+1}}
+\]
+
+\item We would like to show that \(X_n \xrightarrow{w.p.1} 0\) and that \(X_n \xrightarrow{1} 0\), but that the same result does not follow for the \(\ell_2\) norm.
 
 \begin{itemize}
 

@@ -93,6 +93,8 @@
 \newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
 \DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
@@ -134,6 +136,17 @@ Last updated \today
 
 \newpage
 
+% Introduction
+\section{Introduction}
+
+These are notes I've collected on various math topics. I originally created this document to prepare for the GRE Math Subject test. Since then I've expanded it as I've reviewed concepts from past classes and reinforced concepts from new classes. This document is very much a work in progress, with many typos, omissions to be filled in, and probably errors. Nonetheless, I share this document in case it's useful to anyone else as a reference.
+
+\
+
+I use many sources throughout this document, which I either cite at the beginning of the section (for sources I use broadly) or as I use them (for sources I use for one or two isolated results).
+
+\pagebreak
+
 % Linear Algebra
 \import{Topics/Linear_Algebra/}{Linear_Algebra}
 
@@ -150,7 +163,7 @@ Last updated \today
 \pagebreak
 
 % Real Analysis
-\import{Topics/}{Real_Analysis}
+\import{Topics/Real_Analysis/}{Real_Analysis}
 
 \pagebreak
 
@@ -176,6 +189,11 @@ Last updated \today
 
 % Time Series
 \import{Topics/Time_Series/}{Time_Series}
+
+\pagebreak
+
+% Convex Optimization
+\import{Topics/Convex_Optimization/}{Convex_Optimization}
 
 \pagebreak
 

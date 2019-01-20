@@ -1,144 +1,146 @@
-\documentclass{article}
-
-\usepackage{fancyhdr}
-\usepackage{extramarks}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{tikz}
-\usepackage{enumerate}
-\usepackage{graphicx}
-\graphicspath{ {images/} }
-\usepackage[plain]{algorithm}
-\usepackage{algpseudocode}
-\usepackage[document]{ragged2e}
-\usepackage{textcomp}
-\usepackage{color}   %May be necessary if you want to color links
-\usepackage{import}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true, %set true if you want colored links
-    linktoc=all,     %set to all if you want both sections and subsections linked
-    linkcolor=black,  %choose some color if you want links to stand out
-}
-
-\usetikzlibrary{automata,positioning}
-
-
-% Basic Document Settings
-
-
-\topmargin=-0.45in
-\evensidemargin=0in
-\oddsidemargin=0in
-\textwidth=6.5in
-\textheight=9.0in
-\headsep=0.25in
-\setlength{\parskip}{1em}
-
-\linespread{1.1}
-
-\pagestyle{fancy}
-\lhead{\hmwkAuthorName}
-\lfoot{\lastxmark}
-\cfoot{\thepage}
-
-\renewcommand\headrulewidth{0.4pt}
-\renewcommand\footrulewidth{0.4pt}
-
-\setlength\parindent{0pt}
-
-
-\newcommand{\hmwkTitle}{Math Review Notes---Convex Optimization}
-\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
-
-
-%%%%% Title Page
-
-
-\title{
-    \vspace{2in}
-    \textmd{\textbf{ \hmwkTitle}}\\
-}
-
-\author{Gregory Faletto}
-\date{}
-
-\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
-
-
-%%%%% Various Helper Commands
-
-
-%%%%% Useful for algorithms
-\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
-
-%%%%% For derivatives
-\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
-
-%%%%% For partial derivatives
-\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
-
-%%%%% Integral dx
-\newcommand{\dx}{\mathrm{d}x}
-
-%%%%% Alias for the Solution section header
-\newcommand{\solution}{\textbf{\large Solution}}
-
-%%%%% Probability commands: Expectation, Variance, Covariance, Bias
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\Var}{\mathrm{Var}}
-\newcommand{\Cov}{\mathrm{Cov}}
-\newcommand{\Bias}{\mathrm{Bias}}
-\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
-\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
-\DeclareMathOperator{\Tr}{Tr}
-
-\theoremstyle{definition}
-\newtheorem{theorem}{Theorem}
-\theoremstyle{definition}
-\newtheorem{proposition}[theorem]{Proposition}
-\theoremstyle{definition}
-\newtheorem{lemma}[theorem]{Lemma}
-\theoremstyle{definition}
-\newtheorem{corollary}{Corollary}[theorem]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem*{remark}{Remark}
-
-%%%%% Tilde
-\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
-
-\begin{document}
-
-\maketitle
-
-\pagebreak
-
-%\tableofcontents
-
-%\
+%\documentclass{article}
 %
-%\
+%\usepackage{fancyhdr}
+%\usepackage{extramarks}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{tikz}
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\graphicspath{ {images/} }
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[document]{ragged2e}
+%\usepackage{textcomp}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{import}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=black,  %choose some color if you want links to stand out
+%}
 %
-%\begin{center}
-%Last updated \today
-%\end{center}
+%\usetikzlibrary{automata,positioning}
 %
 %
-%
-%\newpage
-
+%% Basic Document Settings
 %
 %
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%\setlength{\parskip}{1em}
+%
+%\linespread{1.1}
+%
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+%
+%\renewcommand\headrulewidth{0.4pt}
+%\renewcommand\footrulewidth{0.4pt}
+%
+%\setlength\parindent{0pt}
 %
 %
+%\newcommand{\hmwkTitle}{Math Review Notes---Convex Optimization}
+%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
 %
 %
+%%%%%% Title Page
 %
+%
+%\title{
+%    \vspace{2in}
+%    \textmd{\textbf{ \hmwkTitle}}\\
+%}
+%
+%\author{Gregory Faletto}
+%\date{}
+%
+%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%
+%%%%%% Various Helper Commands
+%
+%
+%%%%%% Useful for algorithms
+%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+%
+%%%%%% For derivatives
+%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%
+%%%%%% For partial derivatives
+%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+%
+%%%%%% Integral dx
+%\newcommand{\dx}{\mathrm{d}x}
+%
+%%%%%% Alias for the Solution section header
+%\newcommand{\solution}{\textbf{\large Solution}}
+%
+%%%%%% Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\Var}{\mathrm{Var}}
+%\newcommand{\Cov}{\mathrm{Cov}}
+%\newcommand{\Bias}{\mathrm{Bias}}
+%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+%\DeclareMathOperator{\Tr}{Tr}
+%\DeclareMathOperator*{\argmax}{arg\,max}
+%\DeclareMathOperator*{\argmin}{arg\,min}
+%
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem*{remark}{Remark}
+%
+%%%%%% Tilde
+%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+%
+%\begin{document}
+%
+%\maketitle
+%
+%\pagebreak
+%
+%%\tableofcontents
+%
+%%\
+%%
+%%\
+%%
+%%\begin{center}
+%%Last updated \today
+%%\end{center}
+%%
+%%
+%%
+%%\newpage
 %
 %%
-%% Convex Optimization
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%%
+%%% Convex Optimization
 
 \section{Convex Optimization}
 
@@ -178,6 +180,615 @@ These are my notes from taking EE 588 at USC and the textbook \textit{Convex Opt
 
 \end{itemize}
 
+\subsection{Convex Functions}
+
+\begin{theorem} \label{cvx.jensen} Jensen's Inequality: \(f\) is convex if and only if
+\[
+\frac{f(a) + f(b)}{2} \geq f \bigg(\frac{a+b}{2} \bigg)
+\]
+for all \(a, b \in \textbf{dom}(f)\). 
+\end{theorem}
+
+\subsection{Schur Complement Trick}\label{cvx.schur.sec}
+
+\subsubsection{Definition}
+
+For a matrix \(X \in \boldsymbol{S}^n\) partitioned as 
+
+\[
+X = \begin{bmatrix} A & B \\ B^T & C\end{bmatrix}
+\]
+
+the Schur complement is (if \(\textbf{det}(A) \neq 0\))
+
+\[
+S = C - B^TA^{-1} B
+\]
+
+The Schur complement has two useful properties in convex analysis.
+
+\begin{theorem}\label{cvx.schur.props}
+
+\begin{enumerate}[(a)]
+
+\item \(X \succ 0\) if and only if \(A \succ 0\) and \(S \succ 0\).
+
+\item If \(A \succ 0\), then \(X \succeq 0\) if and only if \(S \succeq 0\).
+
+\end{enumerate}
+
+\end{theorem}
+
+\subsubsection{The Trick}
+
+Suppose we are trying to express a problem as a semidefinite program (SDP); that is, in the form
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & c^T x \\
+& \text{subject to}
+& & x_1F_1 + \ldots + x_n F_n + G \preceq 0 \\
+& & & Ax = b
+\end{aligned}
+\]
+
+where \(G, F_1, \ldots, F_n \in \boldsymbol{S}^k\) and \(A \in \mathbb{R}^{p \times n}\). If we have a constraint of the form \(c^TF(x)^{-1}c  \leq t\) where \(F(x)\) is symmetric and positive definite and \(t \in \mathbb{R}\), by Theorem \ref{cvx.schur.props}(b) we can write
+
+\[
+c^TF(x)^{-1}c  \leq t \iff  \begin{bmatrix}
+    F(x)      & c \\
+    c^T & t
+\end{bmatrix} \succeq 0 
+\]
+
+in order to get our constraint in the form required for an SDP.
+
+\subsubsection{Example 1: Last Year's Final, Question 2(b)}
+
+Suppose we have the constraints
+
+\[
+\begin{aligned}
+Ax + b \geq 0 \\
+\frac{(c^Tx)^2}{d^Tx} \leq t
+\end{aligned}
+\]
+
+which we would like to express in an SDP. By Theorem \ref{cvx.schur.props}(b) we can write
+
+\[
+\frac{(c^Tx)^2}{d^Tx} \leq t \iff d^Tx - (c^Tx)^T t^{-1} c^Tx \geq 0  \iff  \begin{bmatrix}
+    t      & c^Tx \\
+    c^Tx & d^Tx
+\end{bmatrix} \succeq 0 
+\]
+
+Since
+
+\[
+Ax + b \geq 0 \iff \textbf{diag}(Ax + b) \succeq 0
+\]
+
+we can finally write our constraints as 
+
+\[
+\begin{bmatrix}
+    \textbf{diag}(Ax + b) & 0 & 0 \\
+    0 & t      & c^Tx \\
+    0 & c^Tx & d^Tx
+\end{bmatrix} \succeq 0 
+\]
+
+\subsubsection{Example 2: Last Year's Final, Question 4(b)}
+
+Suppose we have the constraints
+
+\[
+\begin{aligned}
+Ax + b \geq 0 \\
+\frac{(c^Tx)^2}{d^Tx} \leq t
+\end{aligned}
+\]
+
+which we would like to express in an SDP. By Theorem \ref{cvx.schur.props}(b) we can write
+
+\[
+\frac{(c^Tx)^2}{d^Tx} \leq t \iff d^Tx - (c^Tx)^T t^{-1} c^Tx \geq 0  \iff  \begin{bmatrix}
+    t      & c^Tx \\
+    c^Tx & d^Tx
+\end{bmatrix} \succeq 0 
+\]
+
+Since
+
+\[
+Ax + b \geq 0 \iff \textbf{diag}(Ax + b) \succeq 0
+\]
+
+we can finally write our constraints as 
+
+\[
+\begin{bmatrix}
+    \textbf{diag}(Ax + b) & 0 & 0 \\
+    0 & t      & c^Tx \\
+    0 & c^Tx & d^Tx
+\end{bmatrix} \succeq 0 
+\]
+
+
+\subsection{Duality}
+
+\begin{theorem} \label{cvx.slater.thm} Slater's condition/constraint qualification: Strong duality holds for a convex problem
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & f_0(x) \\
+& \text{subject to}
+& & f_i(x) \leq 0, i = 1, \ldots, m \\
+& & & Ax = b
+\end{aligned}
+\]
+
+if it is strictly feasible, i.e., there exists at least one \(x\) in the domain of \(f_0\) such that \(f_i(x) < 0, \ i=1,2, \ldots, m\), \(Ax=b\).
+
+\end{theorem}
+
+\subsection{MLE estimates}
+
+For linear estimates with iid noise
+
+\[
+y_i = a_i^T x + v_i, i = 1, \ldots, m
+\]
+
+where \(a\) is observed and \(x \in \mathbb{R}^n\) are the parameters to be estimated, the likelihood function is
+
+\[
+p_x(y) = \prod_{i=1}^m \Pr(v_i = y_i - a_i^Tx \mid x)
+\]
+
+Therefore the log likelihood function is:
+
+\[
+\ell_x (y) = \sum_{i=1}^m \log[ \Pr(v_i = y_i - a_i^Tx \mid x)]
+\]
+
+\subsection{Practice Final (2017 Final)}
+
+\begin{enumerate}[(1)]
+
+% Problem 1
+\item
+%\begin{homeworkProblem}
+
+
+
+\begin{enumerate}[(a)]
+
+% 1 a
+\item Strictly convex. Multiply by \(x/x\) (allowed in this case since \(x >0\)) to get \(\frac{x^2}{x+1}\) which is a quadratic over linear, which is convex in \(\mathbb{R}^{++}\) according to CVX rules.
+
+% 1 b
+\item Not convex, it is convex for \(x \geq -1\), but there is a boundary problem at \(x=-1\). Note that Jensen's inequality (Theorem \ref{cvx.jensen})
+
+\[
+\frac{f(a) + f(b)}{2} \geq f \bigg(\frac{a+b}{2} \bigg)
+\]
+
+is violated because
+
+\[
+\frac{f(-1.3) + f(-0.9)}{2} = \frac{2.3 + 0}{2} = 1.15  \leq 2.2 = f(-1.1) = f\bigg(\frac{-1.3 + -0.9}{2} \bigg) 
+\]
+
+% 1 c
+\item 
+
+%Nonconvex. \(\Tr(X)\) can come out of the determinant, so this can be written as
+%
+%\[
+%-\Tr(X) \cdot \log \bigg( \frac{1}{\Tr(X)^n} \cdot \textbf{det}(X) \bigg) = -\Tr(X) \cdot \big[ \log(\textbf{det}(X)) - n \log(\Tr(X)) \big]
+%\]
+%
+%%\[
+%%=n \Tr(X) \log(\Tr(X)) - \Tr(x) \log(\textbf{det}(X))
+%%\]
+%
+%In the parentheses, \( \log(\textbf{det}(X)) \) is convex and \(- n \log(\Tr(X))  \) is convex since \(\Tr(X)\) is affine and \(-n\log(\cdot)\) is convex. Since \(\Tr(X)\) is affine (and increasing in \(X\)), the expression \(\Tr(X) \cdot \big[ \log(\textbf{det}(X)) - n \log(\Tr(X)) \big]\) is convex, so with the minus sign it is concave.
+
+
+% 1 d
+\item 
+
+\[
+f(x) = \sup \log \bigg( \frac{p(t)}{q(t)} \bigg) = \sup \{ \log p(t) - \log q(t) \} = \sup \{ \log \bigg( \sum_{i=1}^n \exp(x_i \sin(i t)) \bigg) - \sum_{i=1}^n x_i \sin (i t) \}
+\]
+
+% 1 e
+\item The proximal mapping is
+
+\[
+\text{prox}_\mathcal{R}(z) = \underset{y}{\argmin} \frac{1}{2} \Vert z - y\rVert_2^2 + \mathcal{R}(y) = \underset{y}{\argmin} \frac{1}{2}  \sum_{i=1}^n (z_i - y_i)^2  + \sum_{i=1}^n w_i |y_i|
+\]
+
+\[
+= \underset{y}{\argmin} \frac{1}{2}  \sum_{i=1}^n \big[ (z_i - y_i)^2  + w_i |y_i| \big]
+\]
+
+Taking the gradient of the inside quantity with respect to \(y\), we have
+
+\[
+\nabla(y) =  \begin{pmatrix} \frac{1}{2}  \cdot 2 (z_1 - y_1)   + \textbf{sign}(y_1) w_1 \\ 
+ \frac{1}{2}  \cdot 2 (z_2 - y_2)  + \textbf{sign}(y_2) w_2 \\ 
+ \vdots \\
+  \frac{1}{2}  \cdot 2 (z_n - y_n)  + \textbf{sign}(y_n) w_n 
+  \end{pmatrix} = \begin{pmatrix} z_1 - y_1  + \textbf{sign}(y_1) w_1 \\ 
+ z_2 - y_2  + \textbf{sign}(y_2)w_2 \\ 
+ \vdots \\
+  z_n - y_n + \textbf{sign}(y_n) w_n 
+  \end{pmatrix} 
+\]
+
+Setting equal to 0, we have
+
+\[
+y = \begin{pmatrix} z_1 \pm w_1 \\ 
+ z_2   \pm w_2 \\ 
+ \vdots \\
+  z_n  \pm w_n 
+  \end{pmatrix} 
+\]
+
+\end{enumerate}
+
+%\end{homeworkProblem}
+
+% Problem 2
+\item
+%\begin{homeworkProblem}
+
+
+
+\begin{enumerate}[(a)]
+
+% Problem 2 a
+\item The constraint is convex (affine). The denominator is affine. Since \(c^Tx = x^Tc\), the numerator 
+
+\[
+(c^Tx)^2 = (c^T x)( c^T x) = x^T c c^T x = x^T (c c^T) x 
+\]
+
+is convex since \(c c^T\) is positive semidefinite.
+
+%= \bigg( \sum_{i=1}^n c_i x_i \bigg)^2 = \sum_{i=1}^n \sum_{j=1}^n c_i c_j  x_i x_j =  \sum_{i=1}^n c_i^2 x_i^2 + 2 \sum_{1 \leq i < j \leq n}c_i c_j x_i x_j
+%
+%\[
+%= x^t \begin{bmatrix} c_1 & c_2 & \cdots & c_n \\
+%c_
+%\]
+
+%is quadratic, so therefore by CVX rules this is convex (quadratic over positive linear).
+
+%
+
+%
+%\[
+%=\Tr(c^T x c^T x) = \Tr(x c^T x c^T) = \Tr([x c^T]^T [x c^T]^T) = \Tr(cx^T c x^T) 
+%\]
+
+
+
+% Problem 2 b
+\item We start by using the epigraph trick to transform the problem:
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & t \\
+& \text{subject to}
+& & \frac{(c^Tx)^2}{d^Tx} \leq t \\
+& & & Ax + b \geq 0
+\end{aligned}
+\]
+
+We are trying to express this problem as a semidefinite program (SDP); that is, in the form
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & c^T x \\
+& \text{subject to}
+& & x_1F_1 + \ldots + x_n F_n + G \preceq 0 \\
+& & & Ax = b
+\end{aligned}
+\]
+
+where \(G, F_1, \ldots, F_n \in \boldsymbol{S}^k\) and \(A \in \mathbb{R}^{p \times n}\). The first constraint
+
+\[
+\frac{(c^Tx)^2}{d^Tx} \leq t
+\]
+
+can be expressed in the form
+
+\[
+(c^Tx)^2 \leq t d^T x \iff (c^T x c^T - t d^T)x \leq 0
+\]
+
+
+We have a constraint
+
+\[
+Ax + b \geq 0
+\]
+
+which can be expressed in the form
+
+\[
+Ax \geq -b
+\]
+
+\[
+c^TF(x)^{-1}c  \leq t
+\]
+
+where \(F(x)\) is symmetric and positive definite and \(t \in \mathbb{R}\), by Theorem \ref{cvx.schur.props}(b) we can write
+
+\[
+c^TF(x)^{-1}c  \leq t \iff  \begin{bmatrix}
+    F(x)      & c \\
+    c^T & t
+\end{bmatrix} \succeq 0 
+\]
+
+in order to get our constraint in the form required for an SDP.
+
+\end{enumerate}
+
+%\end{homeworkProblem}
+
+% Problem 3
+\item
+%\begin{homeworkProblem}
+
+\begin{enumerate}[(a)]
+
+% Problem 3a
+\item Yes, \(g\) is convex over \(\mathcal{X}\) since it is quadratic over linear.
+
+% Problem 3b
+\item  The only points satisfying the constraint have \(x_1 = 0\). Therefore the primal optimal value (the only feasible value) is \(e^0 = \boxed{1}\). 
+
+% Problem 3 c
+\item Lagrangian:
+
+\[
+L(x, \lambda) = e^{-x_1} + \lambda (x_1^2/x_2)
+\]
+
+The Lagrangian obtains its minimum value of 0 when \(x_2 = x_1^3\) and \(x_1 \to \infty\). Thus, its dual function (\( g(\lambda) = \min_x L(x, \lambda)\)) is
+
+
+\[
+g(\lambda) = 0
+\]
+%\[
+%\nabla_x L(x, \lambda) = \begin{bmatrix} 
+%-\exp(-x_1) + \frac{2 \lambda}{x_2} x_1 \\
+%-\lambda x_1^2 \cdot \frac{1}{x_2^2}
+%\end{bmatrix}
+%\]
+%
+%\[
+%-\exp(-x_1) + \frac{2 \lambda}{x_2} x_1 = 0 \implies 
+%\]
+%
+%\[
+%g(\lambda, \nu) = \begin{cases} 
+%     - \lambda^T h - \nu^T b & \text{if }c + G^T \lambda  + A^T \nu = 0\\
+%     - \infty & \text{otherwise}
+%   \end{cases}
+%\]
+
+The dual problem is then
+
+\[
+\boxed{
+\begin{aligned}
+& {\text{maximize}}
+& & 0 \\
+& \text{subject to}
+& & \lambda \geq 0
+\end{aligned}}
+\]
+
+% Problem 3 d
+\item  The optimal value of the dual problem is 0. Strong duality does not hold since the optimum of the dual problem is less than the optimum of the primal problem. We can also tell this because Slater's Condition (Theorem \ref{cvx.slater.thm}) is violated; that is, there is no \((x_1, x_2)\) that is strictly feasible since \(x_1\) must equal 0, which is on the boundary of the feasible region. 
+
+% Problem 3 e
+\item Now for the primal problem, instead of \(x_1 = 0\), we have
+
+\[
+\frac{x_1^2}{x_2} \leq u \iff x_1^2 \leq u x_2 \implies -\sqrt{u x_2} \leq x_1 \leq \sqrt{u x_2}
+\]
+
+Since \(e^{-x_1}\) is minimized as \(x_1 \to \infty\), our optimal solution is \(x_2 \to \infty, x_1 = \sqrt{u x_2} \to \infty\) yielding a primal optimal value of \(\boxed{0}\). For the dual problem, we have 
+
+\[
+L(x, \lambda) = e^{-x_1} + \lambda \bigg( \frac{x_1^2}{x_2} - u \bigg)
+\]
+
+Dual function (\( g(\lambda) = \min_x L(x, \lambda)\)):
+
+\[
+\frac{x_1^2}{x_2} - u = 0 \implies x_2 = \frac{x_1^2}{u}
+\]
+
+and let \(x_1 \to - \infty\) to yield
+
+\[
+g(\lambda) = 0
+\]
+
+The dual problem is then
+
+\[
+\boxed{
+\begin{aligned}
+& {\text{maximize}}
+& & 0 
+\end{aligned}}
+\]
+
+with optimal value 0, so there is no longer a duality gap. We can also tell this because Slater's Condition (Theorem \ref{cvx.slater.thm}) is satisfied; that is, there exists an \((x_1, x_2)\) which is strictly feasible (say \((x_1, x_2) = (\sqrt{u}, 10)\). 
+
+\end{enumerate}
+
+
+%\end{homeworkProblem}
+
+% Problem 4
+\item
+%\begin{homeworkProblem}
+
+\begin{enumerate}[(a)]
+
+% 4 a
+\item Yes, the set is convex. If \((u_i, v_i) = \boldsymbol{u}_i\), each 
+
+\[
+\sqrt{(x - u_i)^2 + (y- v_i)^2} = \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert_2
+\]
+
+is convex in \(\boldsymbol{x}\). Therefore the function
+
+\[
+\sum_{i=1}^k \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert_2
+\]
+
+is convex. For any fixed \(d\), this set is a sublevel set of this function, which is convex since the function is convex.
+
+%The constraint is equivalent to a probability simplex which is a convex set.
+
+% 4 b
+\item This is a feasibility problem:
+
+\[
+\begin{aligned}
+& {\text{find}}
+& & \boldsymbol{x} \\
+& \text{subject to}
+& & \sum_{i=1}^k \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert \leq d \\
+& & & \sum_{i=1}^j \lVert \boldsymbol{x} - \boldsymbol{v}_i \rVert \leq e 
+\end{aligned}
+\]
+
+or
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & 0 \\
+& \text{subject to}
+& & \sum_{i=1}^k \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert \leq d \\
+& & & \sum_{i=1}^j \lVert \boldsymbol{x} - \boldsymbol{v}_i \rVert \leq e 
+\end{aligned}
+\]
+
+for two sets of points in \(\mathbb{R}^2\) \(\boldsymbol{u}_1, \ldots, \boldsymbol{u}_k\), \(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_j\). We would like to express these constraints as matrix inequalities in order to have an SDP. To do this, first rewrite the problem as 
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & 0 \\
+& \text{subject to}
+& & \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert \leq t_i, i = 1, \ldots, k \\
+& & & \lVert \boldsymbol{x} - \boldsymbol{v}_i \rVert \leq s_i, s = 1, \ldots, j \\
+& & & \boldsymbol{1}^T t \leq d \\
+& & & \boldsymbol{1}^T s \leq e
+\end{aligned}
+\]
+
+Then note that we can use the Schur trick:
+
+\[
+(\boldsymbol{x} - \boldsymbol{u}_i )^T I (\boldsymbol{x} - \boldsymbol{u}_i )  \leq t_i \iff  \begin{bmatrix}
+    I      & \boldsymbol{x} - \boldsymbol{u}_i\\
+    (\boldsymbol{x} - \boldsymbol{u}_i)^T & t_i
+\end{bmatrix} \succeq 0 
+\]
+
+and write the optimization problem as an SDP:
+
+\[
+\boxed{
+\begin{aligned}
+& {\text{minimize}}
+& & 0 \\
+& \text{subject to}
+& & \begin{bmatrix}
+    I      & \boldsymbol{x} - \boldsymbol{u}_i\\
+    (\boldsymbol{x} - \boldsymbol{u}_i)^T & t_i
+\end{bmatrix} \succeq 0  , i = 1, \ldots, k \\
+& & & \begin{bmatrix}
+    I      & \boldsymbol{x} - \boldsymbol{v}_i\\
+    (\boldsymbol{x} - \boldsymbol{v}_i)^T & s_i
+\end{bmatrix} \succeq 0 , s = 1, \ldots, j \\
+& & & \boldsymbol{1}^T t \leq d \\
+& & & \boldsymbol{1}^T s \leq e
+\end{aligned}}
+\]
+
+\end{enumerate}
+
+%\end{homeworkProblem}
+
+% Problem 5
+\item
+%\begin{homeworkProblem}
+
+\begin{enumerate}[(a)]
+
+% 5 a
+\item To minimize the MSE:
+
+\[
+\mathcal{L}(z) = \sum_{r} (y_r - | a_r^T x|^2)^2 
+\]
+
+For MLE estimate:
+
+\[
+p_x(y) = \prod_{r=1}^m \Pr(w_r = y_r - (a_r^Tx)^2 \mid x) = \frac{1}{(y_r - (a_r^Tx)^2)!} \cdot \exp\big(-(a_r^Tx)^2 \big) \cdot (a_r^Tx)^{2 [y_r - (a_r^Tx)^2]}
+\]
+
+Therefore the log likelihood function is:
+
+\[
+\ell_x (y) = \sum_{i=1}^m \log [ \Pr(y_i - a_i^Tx \mid x)] = \sum_{i=1}^m \log \bigg[ \frac{1}{(y_r - (a_r^Tx)^2)!} \cdot \exp\big(-(a_r^Tx)^2 \big) \cdot (a_r^Tx)^{2[y_r - (a_r^Tx)^2]} \bigg]
+\]
+
+\[
+= \sum_{i=1}^m  \log \bigg[\frac{1}{(y_r - (a_r^Tx)^2)!} \bigg]-(a_r^Tx)^2 + 2[y_r - (a_r^Tx)^2] \cdot \log \big[ (a_r^Tx) \big] 
+\]
+
+% 5 b
+\item b
+% 5 c
+\item c
+
+% 5d
+\item d
+
+% 5e
+\item e
+
+\end{enumerate}
+
+\end{enumerate}
+%\end{homeworkProblem}
 
 %
 %
@@ -188,4 +799,4 @@ These are my notes from taking EE 588 at USC and the textbook \textit{Convex Opt
 %
 %
 
-\end{document}
+%\end{document}

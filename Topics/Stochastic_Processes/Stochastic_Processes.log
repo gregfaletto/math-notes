@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.8)  23 NOV 2018 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.8)  11 DEC 2018 15:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -757,8 +757,7 @@ s/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
 \c@theorem=\count139
-\c@corollary=\count140
-\c@definition=\count141
+\c@definition=\count140
  (./Stochastic_Processes.aux)
 \openout1 = `Stochastic_Processes.aux'.
 
@@ -788,16 +787,16 @@ LaTeX Font Info:    ... okay on input line 112.
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count142
+\scratchcounter=\count141
 \scratchdimen=\dimen165
 \scratchbox=\box61
-\nofMPsegments=\count143
-\nofMParguments=\count144
+\nofMPsegments=\count142
+\nofMParguments=\count143
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count145
+\MPscratchCnt=\count144
 \MPscratchDim=\dimen166
-\MPnumerator=\count146
-\makeMPintoPDFobject=\count147
+\MPnumerator=\count145
+\makeMPintoPDFobject=\count146
 \everyMPtoPDFconversion=\toks45
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -829,7 +828,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count148
+\c@section@level=\count147
 )
 LaTeX Info: Redefining \ref on input line 112.
 LaTeX Info: Redefining \pageref on input line 112.
@@ -855,24 +854,33 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `Stochastic_Processes.toc'.
 
- [2] [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 243.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 243.
+ [2] [3]
+
+LaTeX Warning: Reference `prob.gammasum' on page 4 undefined on input line 216.
+
+
+[4] [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 316.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 316.
  (./Stochastic_Processes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 243.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 243.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 316.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 316.
 Package rerunfilecheck Info: File `Stochastic_Processes.out' has not changed.
-(rerunfilecheck)             Checksum: CD7F6FE5B99DB2CF6C7EB4FAC0682087;179.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 243.
+(rerunfilecheck)             Checksum: AA9ED73980D64275DD2C32A79B57BA2F;245.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 316.
  ) 
 Here is how much of TeX's memory you used:
- 17699 strings out of 493013
- 338646 string characters out of 6133344
- 407971 words of memory out of 5000000
- 20893 multiletter control sequences out of 15000+600000
+ 17721 strings out of 493013
+ 338973 string characters out of 6133344
+ 410154 words of memory out of 5000000
+ 20901 multiletter control sequences out of 15000+600000
  14958 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,66p,541b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,66p,541b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -887,10 +895,10 @@ texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Stochastic_Processes.pdf (4 pages, 154023 bytes).
+Output written on Stochastic_Processes.pdf (5 pages, 164565 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
