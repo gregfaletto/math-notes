@@ -1,0 +1,17 @@
+library("ggplot2")
+data <- read.table("TestExer1-holiday expenditures-round2.txt",
+	header=T)
+n <- nrow(data)
+
+### Part (a)
+
+# Calculate b
+
+A.bar <- mean(data$Age)
+E.bar <- mean(data$Expenditures)
+b <- (data$Age-A.bar)%*%(data$Expenditures-E.bar)/((data$Age-
+	A.bar)%*%(data$Age-A.bar))
+
+# Calculate a
+
+a <- E.bar-b*A.bar

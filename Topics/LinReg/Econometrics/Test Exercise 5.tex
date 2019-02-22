@@ -1,0 +1,402 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ : \hmwkTitle} %(\hmwkClassInstructor\) \hmwkClassTime): 
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem (\alph{#1}) continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem (\alph{#1}) (continued)}{Problem (\alph{#1}) continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem (\alph{#1}) (continued)}{Problem (\alph{#1}) continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem (\alph{#1})}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem (\alph{homeworkProblemCounter})}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem (\alph{homeworkProblemCounter})}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Test Exercise\ \#5}
+%\newcommand{\hmwkDueDate}{February 12, 2014}
+\newcommand{\hmwkClass}{MOOC Econometrics}
+%\newcommand{\hmwkClassTime}{Section A}
+%\newcommand{\hmwkClassInstructor}{Professor Isaac Newton}
+\newcommand{\hmwkAuthorName}{\textbf{Greg Faletto}} % \and \textbf{Davis Josh}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    %\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 3:10pm}\\
+    %\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{homeworkProblem}
+    Consider again the application in lecture 5.5, where we have analyzed response to a direct mailing using the following logit specification: 
+
+\[
+\Pr[resp_i = 1] = \frac{\exp(\beta_0 + \beta_1male_i + \beta_2active_i + \beta_3age_i + \beta_4(age_i/10)^2)}{1 + \exp(\beta_0 + \beta_1male_i + \beta_2active_i + \beta_3age_i + \beta_4(age_i/10)^2)}
+\]
+
+for \( i = 1, \ldots , 925\). The maximum likelihood estimates of the parameters are given by
+
+
+\begin{center}
+\begin{tabular}{l l l l l}
+	\hline
+	Variable & Coefficient & Std. Error & t-value & p-value \\
+	\hline
+	\(Intercept\) & -2.488 & 0.890 & -2.796 & 0.005 \\
+	\(Male\) & 0.954 & 0.158 & 6.029 & 0.000 \\
+	\(Active\) & 0.914 & 0.185 & 4.945 & 0.000 \\
+	\(Age\) & 0.070 & 0.036 & 1.964 & 0.050 \\
+	\((Age/10)^2\) & -0.069 & 0.034 & -2.015 & 0.044 \\
+	\hline
+\end{tabular}
+\end{center}
+
+
+The marginal effect of activity status is defined as
+
+\[
+\frac{\partial \Pr[resp_i = 1]}{\partial active_i} = \Pr[resp_i = 1]\Pr[resp_i =0]\beta_2.
+\]
+
+
+We could use this result to construct an activity status elasticity
+
+\[
+\frac{\partial \Pr[resp_i = 1]}{\partial active_i}\frac{active_i}{\Pr[resp_i = 1]} = \Pr[resp_i = 0]active_i\beta_2.
+\]
+
+
+Use this result to compute the elasticity effect of active status for a 50-year-old active male customer. Do the same for a 50-year-old inactive male customer.
+\\
+
+    \solution
+    \\
+   
+    \[
+    \Pr[resp_i = 0] = 1 - \Pr[resp_i = 1] 
+    \]
+    \[
+= 1 - \frac{\exp(\beta_0 + \beta_1male_i + \beta_2active_i + \beta_3age_i + \beta_4(age_i/10)^2)}{1 + \exp(\beta_0 + \beta_1male_i + \beta_2active_i + \beta_3age_i + \beta_4(age_i/10)^2)}
+    \]
+    
+        \[
+    =  \frac{1 + \exp(\beta_0 + \beta_1male_i + \beta_2active_i + \beta_3age_i + \beta_4(age_i/10)^2) - \exp(\beta_0 + \beta_1male_i + \beta_2active_i + \beta_3age_i + \beta_4(age_i/10)^2)}{1 + \exp(\beta_0 + \beta_1male_i + \beta_2active_i + \beta_3age_i + \beta_4(age_i/10)^2)}
+    \]
+    \[
+    =  \frac{1}{1 + \exp(\beta_0 + \beta_1male_i + \beta_2active_i + \beta_3age_i + \beta_4(age_i/10)^2)}
+    \]
+    For a 50-year-old active male customer, \(male_i = 1, active_i = 1, age_i = 50, (age_i/10)^2 = (50/10)^2 = 25.\)
+    \\
+    
+    Therefore
+
+\[
+elasticity = \Pr[resp_i = 0]active_i\beta_2
+\]
+\[
+= \frac{1}{1 + \exp(\beta_0 + 1\beta_1 + 1\beta_2 + 50\beta_3 + 25\beta_4}\cdot 1 \cdot \beta_2
+\]
+
+\pagebreak
+
+Plugging in the given coefficients, we have
+
+\[
+elasticity = \frac{1}{1 + \exp(-2.488 + 1\cdot 0.954 + 1\cdot 0.914 + 50\cdot 0.070 + 25\cdot -0.069}\cdot 1 \cdot 0.914
+\]
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+\[
+\approx \mathbf{0.2189734}
+\]
+}
+}
+\\
+
+
+For a 50-year-old inactive male customer, \(male_i = 1, active_i = 0, age_i = 50, (age_i/10)^2 = (50/10)^2 = 25.\)
+
+
+Therefore
+
+\[
+elasticity = \Pr[resp_i = 0]active_i\beta_2
+\]
+
+\[
+= \frac{1}{1 + \exp(\beta_0 + 1\beta_1 + 1\beta_2 + 50\beta_3 + 25\beta_4}\cdot 0 \cdot \beta_2
+\]
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+\[
+= \mathbf{0}
+\]
+}
+}
+    
+\end{homeworkProblem}
+
+%\pagebreak
+
+\begin{homeworkProblem}
+    The activity status variable is only a dummy variable and hence it can take only two values. It is therefore better to define the elasticity as
+    
+    \[
+   \frac{ \Pr[resp_i = 1 | active_i = 1] - \Pr[resp_i = 1 | active_i = 0]}{\Pr[resp_i = 1 | active_i = 0]}
+   \]
+   
+   Show that you can simplify the expression for the elasticity as
+   
+   \[
+   (\exp(\beta_2) - 1)\Pr[resp_i = 0 | active_i =1].
+   \]
+   
+   
+
+    \solution
+    \\
+    
+    \[
+    \Pr[resp_i = 1 | active_i = 1] = \frac{\exp(\beta_0 + \beta_1 male_i + \beta_2 \cdot 1 + \beta_3 age_i + \beta_4 (age_i/10)^2)}{1 + \exp(\beta_0 + \beta_1 male_i + \beta_2 \cdot 1 + \beta_3 age_i + \beta_4 (age_i/10)^2)}
+    \]
+    
+        \[
+    \Pr[resp_i = 1 | active_i = 0] = \frac{\exp(\beta_0 + \beta_1 male_i +  \beta_3 age_i + \beta_4 (age_i/10)^2)}{1 + \exp(\beta_0 + \beta_1 male_i + \beta_3 age_i + \beta_4 (age_i/10)^2)}
+    \]
+    
+        \[
+    \Pr[resp_i = 0 | active_i = 1] = 1 - \Pr[resp_i = 1 | active_i = 1] 
+    \]
+    
+    \[
+    = 1- \frac{\exp(\beta_0 + \beta_1 male_i + \beta_2 \cdot 1 + \beta_3 age_i + \beta_4 (age_i/10)^2)}{1 + \exp(\beta_0 + \beta_1 male_i + \beta_2 \cdot 1 + \beta_3 age_i + \beta_4 (age_i/10)^2)}
+    \]
+    
+            \[
+    = \frac{1 + \exp(\beta_0 + \beta_1 male_i + \beta_2 \cdot 1 + \beta_3 age_i + \beta_4 (age_i/10)^2) - \exp(\beta_0 + \beta_1 male_i + \beta_2 \cdot 1 + \beta_3 age_i + \beta_4 (age_i/10)^2)}{1 + \exp(\beta_0 + \beta_1 male_i + \beta_2 + \beta_3 age_i + \beta_4 (age_i/10)^2)}
+    \]
+    
+        \[
+    = \frac{1}{1 + \exp(\beta_0 + \beta_1 male_i + \beta_2 + \beta_3 age_i + \beta_4 (age_i/10)^2)}
+    \]
+   \\
+   
+   %\pagebreak
+    
+    Let \( \beta_{-2} = [\beta_0 \; \beta_1 \; \beta_3 \; \beta_4 ]' \). Let \( X_{-2} = [1 \; male_i \; age_i \; (age_i/10)^2 ]'. \) Then
+    
+    \[
+    {\beta_{-2}}' X_{-2} = \beta_0 + \beta_1 male_i + \beta_3 age_i + \beta_4 (age_i/10)^2
+    \]
+    
+    and
+    
+        \[
+    {\beta_{-2}}' X_{-2} + \beta_2 = \beta_0 + \beta_1 male_i + \beta_2 + \beta_3 age_i + \beta_4 (age_i/10)^2
+    \]
+    
+    so
+    
+    \[
+    \Pr[resp_i = 1 | active_i = 1] = \frac{\exp({\beta_{-2}}'X_{-2} + \beta_2)}{(1+\exp({\beta_{-2}}'X_{-2} + \beta_2)} = \frac{\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)}{1+\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)}
+    \]
+    \\
+    and
+    
+    \[
+    \Pr[resp_i = 1 | active_i = 0] = \frac{\exp({\beta_{-2}}'X_{-2})}{1 + \exp({\beta_{-2}}'X_{-2})}
+\]
+
+Therefore
+
+\[
+elasticity = \frac{\frac{\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)}{1+\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)} - \frac{\exp({\beta_{-2}}'X_{-2})}{1 + \exp({\beta_{-2}}'X_{-2})}}{\frac{\exp({\beta_{-2}}'X_{-2})}{1 + \exp({\beta_{-2}}'X_{-2})}}
+\]
+
+\[
+= \bigg(\frac{\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)}{1+\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)} - \frac{\exp({\beta_{-2}}'X_{-2})}{1 + \exp({\beta_{-2}}'X_{-2})}\bigg) \cdot \frac{1 + \exp({\beta_{-2}}'X_{-2})}{\exp({\beta_{-2}}'X_{-2})}
+\]
+
+\[
+= \bigg(\frac{\exp(\beta_2)}{1+\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)} - \frac{1}{1 + \exp({\beta_{-2}}'X_{-2})}\bigg) \cdot \big[1 + \exp({\beta_{-2}}'X_{-2}) \big]
+\]
+
+\[
+= \frac{\exp(\beta_2)(1 + \exp({\beta_{-2}}'X_{-2}))}{1+\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)} - 1
+\]
+
+\[
+= \frac{\exp(\beta_2) + \exp(\beta_2) \exp({\beta_{-2}}'X_{-2})) - 1 - \exp({\beta_{-2}}'X_{-2})\exp(\beta_2) }{1+\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)}
+\]
+
+\[
+= \frac{\exp(\beta_2) - 1 }{1+\exp({\beta_{-2}}'X_{-2})\exp(\beta_2)}
+\]
+
+\[
+= \big( \exp(\beta_2) - 1 \big)  \cdot \frac{1}{1+\exp({\beta_{-2}}'X_{-2} + \beta_2)}
+\]
+
+\[
+= \big( \exp(\beta_2) - 1 \big)  \cdot \frac{1}{1+\exp(\beta_0 + \beta_1 male_i + \beta_2 + \beta_3 age_i + \beta_4 (age_i/10)^2)}
+\]
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+\[
+= \mathbf { \big( \exp(\beta_2) - 1 \big)  \cdot  \Pr[resp_i = 0 | active_i = 1]}
+\]
+}
+}
+    
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+
+Use the formula in (b) to compute the activity elasticity of a 50-year-old male active customer.
+\\
+\\
+    \solution
+    
+   \[
+elasticity = \big( \exp(\beta_2) - 1 \big)  \cdot \frac{1}{1+\exp(\beta_0 + \beta_1 male_i + \beta_2 + \beta_3 age_i + \beta_4 (age_i/10)^2)}
+\] 
+
+    For a 50-year-old male active customer, \(male_i = 1, active_i = 1, age_i = 50, (age_i/10)^2 = (50/10)^2 = 25.\)
+    \\
+
+Plugging in our variable values and the given coefficients, we have
+
+   \[
+elasticity = \big( \exp(0.914) - 1 \big)  \cdot \frac{1}{1+\exp(-2.488 + 0.954 \cdot 1 + 0.914 + 0.070 \cdot 50+ -0.069 \cdot 25)}
+\] 
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+\[
+\approx \mathbf{0.3579951}
+\]
+}
+}
+
+\end{homeworkProblem}
+
+\end{document}

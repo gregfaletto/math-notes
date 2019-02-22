@@ -5,6 +5,7 @@
 %\usepackage{amsmath}
 %\usepackage{amsthm}
 %\usepackage{amsfonts}
+%\usepackage{mathrsfs}
 %\usepackage{tikz}
 %\usepackage{enumerate}
 %\usepackage{graphicx}
@@ -103,6 +104,8 @@
 %\theoremstyle{definition}
 %\newtheorem{definition}{Definition}[section]
 %\newtheorem*{remark}{Remark}
+%\theoremstyle{definition}
+%\newtheorem{example}{Example}[section]
 %
 % %Tilde
 %\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
@@ -135,12 +138,12 @@
 %%
 %%
 %%
-
+%
 %% Econometrics and Linear Regression
 
 \section{Linear Regression}
 
-These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC. I also borrowed from some other sources which I mention when I use them.
+These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, DSO 607 at USC taught by Jinchi Lv, and Statistics 100B at UCLA taught by Nicolas Christou. I also borrowed from some other sources which I mention when I use them.
 
 %\section{Linear Regression}
 
@@ -245,6 +248,408 @@ r = \frac{1}{T-1} \frac{S_{XY}}{\sqrt{S_{XX}S_{YY}}}
 \]
 
 \begin{remark}The formulas for the coefficients in univariate OLS can also be derived by considering \((x, y)\) as a bivariate normal distribution and calculating the conditional expectation of \(y\) given \(x\). (See Proposition (\ref{prob.cond.bivar.norm.dist}).)\end{remark}
+
+\begin{proposition}[\textbf{Stats 100B homework problem}] Consider the regression model \(y_i = \beta_0 + \beta_1 x_i + \epsilon_i\) with \(x_i\) fixed and \(\epsilon_i \sim \mathcal{N}(0, \sigma^2)\), \(\epsilon_i\) i.i.d. Let \(e_i = y_i - \hat{y}_i\) be the residuals.
+
+\begin{enumerate}[(a)]
+
+\item 
+
+\[
+\sum_{i=1}^n e_i = 0
+\]
+
+\item \(\Cov(\overline{Y}, \hat{\beta}_1) =0\) where \(\overline{Y}\) is the sample mean of the \(y\) values.
+
+
+\item 
+
+\[
+\Cov(e_i, e_j)  = \sigma^2\bigg(-\frac{1}{n} - \frac{ (x_i -\bar{x})(x_j - \bar{x})}{\sum_{k=1}^n(x_k - \bar{x})^2} \bigg)
+\]
+
+\item We can construct a confidence interval for \(\sigma^2\) as 
+
+\[
+ \Pr \bigg( \frac{\sum_{i=1}^n e_i^2}{\chi_{1 - \frac{\alpha}{2}; n-2}^2}  \leq \sigma^2  \leq  \frac{\sum_{i=1}^n e_i^2}{\chi_{\frac{\alpha}{2}; n-2}^2}  \bigg) = 1 - \alpha 
+\]
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item \[
+\sum_{i=1}^n e_i = \sum_{i=1}^n(y_i - \hat{y}_i) = \sum_{i=1}^n(y_i - [\bar{y} + \hat{\beta_1}(x_i - \bar{x})])
+\]
+
+\[
+= \sum_{i=1}^n\bigg(y_i - \bar{y} - \frac{\sum(x_i - \bar{x}) y_i}{\sum(x_i - \bar{x})^2}(x_i - \bar{x})\bigg)  = \sum_{i=1}^n y_i - n\bar{y} - \frac{\sum(x_i - \bar{x}) y_i}{\sum(x_i - \bar{x})^2} \sum_{i=1}^n (x_i - \bar{x})
+\]
+
+\[
+= \sum_{i=1}^n y_i - n \frac{1}{n} \sum_{i=1}^n y_i - \bigg( \frac{\sum(x_i -  \bar{x}) y_i}{\sum(x_i - \bar{x})^2} \bigg) \bigg[ \sum_{i=1}^n \bigg( x_i - \frac{1}{n}\sum_{i=1}^n x_i \bigg)\bigg]
+\]
+
+\[
+= \sum_{i=1}^n (y_i - y_i)  - \bigg( \frac{\sum(x_i -  \bar{x}) y_i}{\sum(x_i - \bar{x})^2} \bigg) \bigg[ \sum_{i=1}^n x_i - \frac{1}{n} \cdot n\sum_{i=1}^n x_i\bigg] = 0 - 0 = \boxed{0}
+\]
+
+Or:
+
+\[
+\sum_{i=1}^n e_i = \sum_{i=1}^n(y_i - \hat{y}_i) = \sum_{i=1}^n(y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = \sum_{i=1}^n(y_i - (\bar{y} - \hat{\beta_1} \bar{x}) - \hat{\beta_1}x_i) 
+\]
+
+\[
+= \sum_{i=1}^n(y_i - \bar{y})  - \hat{\beta_1}\sum_{i=1}^n( x_i - \bar{x})  = 0
+\]
+
+
+\item \[
+\Cov(\bar{Y}, \hat{\beta_1}) = \Cov\bigg(\frac{1}{n} \sum_{i=1}^n Y_i , \frac{\sum_{i=1}^n (x_i - \bar{x})Y_i}{\sum_{i=1}^n (x_i - \bar{x})^2} \bigg) = \frac{1}{n\sum_{i=1}^n (x_i - \bar{x})^2}\Cov\bigg( \sum_{i=1}^n Y_i , \sum_{i=1}^n (x_i - \bar{x})Y_i\bigg)
+\]
+
+\(x_i\) is fixed, \(\Cov(Y_i, Y_j) = 0 \) for \(i \neq j\) by assumption of the model, \(\Var(Y_i) = \sigma^2\) by assumption of the model. 
+
+\[
+= \frac{1}{n\sum_{i=1}^n (x_i - \bar{x})^2} \sum_{i=1}^n[(x_i - \bar{x})  \Var ( Y_i)  ] = \frac{\sigma^2}{n\sum_{i=1}^n (x_i - \bar{x})^2} \sum_{i=1}^n(x_i - \bar{x})   = \boxed{0}
+\]
+
+\item \[
+\Cov(e_i, e_j) = \Cov(y_i - \bar{y} - \hat{\beta_1}(x_i - \bar{x}), y_j - \bar{y} - \hat{\beta_1}(x_j - \bar{x}))
+\]
+
+\[
+ = \Cov(y_i, y_j) - \Cov(y_i, \bar{y}) - \Cov(y_i, \hat{\beta_1}(x_j - \bar{x})) - \Cov(\bar{y}, y_j)  + \Cov(\bar{y}, \bar{y}) + \Cov(\bar{y}, \hat{\beta_1}(x_j - \bar{x})) - \Cov(\hat{\beta_1}(x_i - \bar{x}), y_j) 
+\]
+
+\[
++ \Cov(\hat{\beta_1}(x_i - \bar{x}), \bar{y}) + \Cov(\hat{\beta_1}(x_i - \bar{x}), \hat{\beta_1}(x_j - \bar{x}))
+\]
+
+By assumption of the model, \(\Cov(y_i, y_j) = 0\). 
+
+\[
+ = 0 - \Cov(y_i, \bar{y}) - ( x_j - \bar{x} )\Cov(y_i, \hat{\beta_1} )  - \Cov(\bar{y}, y_j)  + \Var(\bar{y}) + (x_j - \bar{x}) \Cov(\bar{y}, \hat{\beta_1}) -  (x_i - \bar{x}) \Cov(\hat{\beta_1}, y_j)   
+\]
+
+\[
++ (x_i  - \bar{x}) \Cov(\hat{\beta_1} , \bar{y} ) + (x_i - \bar{x})(x_j - \bar{x})\Cov(\hat{\beta_1}, \hat{\beta_1})
+\]
+
+
+In part 7(b) we showed \( \Cov(\bar{y}, \hat{\beta_1}) = 0 \). \(\Var(\bar{y}) = \sigma^2/n\). \(\Cov(\hat{\beta_1}, \hat{\beta_1}) = \Var(\hat{\beta_1}) = \sigma^2/\sum(x_k - \bar{x})^2\). So this simplifies to 
+
+\[
+ = - \Cov(y_i, \bar{y}) - ( x_j - \bar{x})\Cov(y_i, \hat{\beta_1} ) - \Cov(y_j, \bar{y}) + \frac{\sigma^2}{n} + 0 - ( x_i - \bar{x})\Cov(y_j, \hat{\beta_1} ) + 0 + (x_i - \bar{x})(x_j - \bar{x})\frac{\sigma^2}{\sum_{k=1}^n(x_k - \bar{x})^2}
+\]
+
+\begin{equation} \label{linreg.100b.hw5.8}
+ =- \Cov(y_i, \bar{y}) - ( x_j - \bar{x})\Cov(y_i, \hat{\beta_1} ) - \Cov(y_j, \bar{y}) + \frac{\sigma^2}{n} - ( x_i - \bar{x})\Cov(y_j, \hat{\beta_1} ) + (x_i - \bar{x})(x_j - \bar{x})\frac{\sigma^2}{\sum_{k=1}^n(x_k - \bar{x})^2}
+\end{equation}
+
+Find \(\Cov(y_i, \bar{y}), \Cov(y_j, \bar{y}), \Cov(y_i, \hat{\beta_1} ), \) and \(\Cov(y_j, \hat{\beta_1} )\):
+
+%\begin{center}
+%\noindent\rule{12cm}{0.4pt}
+%\end{center}
+
+%\vspace{1em}
+
+%\textbf{Easy way} 
+
+Using that \(x_i\) is fixed, \(\Cov(Y_i, Y_j) = 0 \) for \(i \neq j\) by assumption of the model, \(\Var(Y_i) = \sigma^2\) by assumption of the model:
+
+\[
+\Cov(y_i, \bar{y}) = \Cov\bigg(y_i, \frac{1}{n}\sum_{k=1}^n y_k  \bigg) = \frac{1}{n} \Cov(y_i, y_i) = \frac{\sigma^2}{n}
+\]
+
+Similarly, 
+
+\[
+\Cov(y_j, \bar{y})  = \frac{\sigma^2}{n}
+\]
+
+\[
+\Cov(y_i, \hat{\beta_1}) = \Cov \bigg(y_i, \frac{\sum_{k=1}^n (x_k - \bar{x})y_i}{\sum_{k=1}^n (x_k - \bar{x})^2} \bigg) = \frac{1}{\sum_{k=1}^n (x_k - \bar{x})^2} \Cov \bigg(y_i, \sum_{k=1}^n (x_k - \bar{x})y_i \bigg)
+\]
+
+\[
+= \frac{1}{\sum_{k=1}^n (x_k - \bar{x})^2} \Cov (y_i,  (x_i - \bar{x})y_i ) = \frac{x_i - \bar{x}}{\sum_{k=1}^n (x_k - \bar{x})^2} \Var (y_i) = \frac{x_i - \bar{x}}{\sum_{k=1}^n (x_k - \bar{x})^2}  \sigma^2
+\]
+
+Similarly, 
+
+\[
+\Cov(y_j, \hat{\beta_1}) = \frac{x_j - \bar{x}}{\sum_{k=1}^n (x_k - \bar{x})^2}  \sigma^2
+\]
+
+%\textbf{Hard way:} Find a matrix \(\boldsymbol{A}\) such that \(\boldsymbol{A}\vec{Y} = \begin{pmatrix} \vec{Y} \ \bar{Y} \ \hat{\beta_1} \end{pmatrix}' \). Then the covariance matrix \(\Var(\boldsymbol{A}\vec{Y}) = \boldsymbol{A} \Var(\vec{Y}) \boldsymbol{A}' = \boldsymbol{A} (\sigma^2 \boldsymbol{I}) \boldsymbol{A}' = \sigma^2 \boldsymbol{A} \boldsymbol{A}'\) will contain \(\Cov(y_i, \bar{y}), \Cov(y_j, \bar{y}), \Cov(y_i, \hat{\beta_1} ), \) and \(\Cov(y_j, \hat{\beta_1} )\). 
+%
+%%\vspace{1em}
+%%
+%%(Note: Since \(\boldsymbol{A}\vec{Y}\) is multivariate normal, if  \(\Cov(\bar{Y}, \hat{\beta_1}) = 0 \) then \(\bar{Y}\) and \(\hat{\beta_1}\) are independent.)
+%
+%\[
+%\boxed{
+%\bar{Y} = \frac{1}{n} \boldsymbol{1}'\vec{Y}}
+%\]
+%
+%\[
+%\hat{\beta_1} = \frac{\sum(x_k - \bar{x}) y_k}{\sum(x_k - \bar{x})^2}
+%\]
+%
+%\[
+%\boxed{
+%\hat{\beta_1} = \frac{\boldsymbol{q}' }{\boldsymbol{q}'\boldsymbol{q}} \vec{Y}}
+%\]
+%
+%(defining \(\boldsymbol{q}\) as in question 7(b). Therefore 
+%
+%\[
+%\begin{pmatrix}
+%\boldsymbol{I} \\
+%\frac{1}{n} \boldsymbol{1}' \\
+%\frac{\boldsymbol{q}' }{\boldsymbol{q}'\boldsymbol{q}}
+%\end{pmatrix} \vec{Y} = \begin{pmatrix}
+%\vec{Y} \\
+%\bar{Y} \\
+%\hat{\beta_1} 
+%\end{pmatrix}
+%\]
+%
+%So
+%
+%\[
+%\boldsymbol{A} = \begin{pmatrix}
+%\boldsymbol{I} \\
+%\frac{1}{n} \boldsymbol{1}' \\
+%\frac{\boldsymbol{q}' }{\boldsymbol{q}'\boldsymbol{q}}
+%\end{pmatrix} 
+%\]
+%
+%To find the variance matrix, we calculate
+%
+%\[
+%\sigma^2 \boldsymbol{A} \boldsymbol{A}' = \sigma^2 \begin{pmatrix}
+%\boldsymbol{I} \\
+%\frac{1}{n} \boldsymbol{1}' \\
+%\frac{\boldsymbol{q}' }{\boldsymbol{q}'\boldsymbol{q}}
+%\end{pmatrix} \begin{pmatrix}
+%\boldsymbol{I} \ \frac{1}{n} \boldsymbol{1} \ \frac{\boldsymbol{q} }{\boldsymbol{q}'\boldsymbol{q}}
+%\end{pmatrix} = \sigma^2 \begin{pmatrix}
+%\boldsymbol{I} \ \frac{1}{n} \boldsymbol{1} \ \frac{\boldsymbol{q} }{\boldsymbol{q}'\boldsymbol{q}} \\
+%\frac{1}{n} \boldsymbol{1}'  \ \frac{1}{n^2}\boldsymbol{1}'\boldsymbol{1} \ \frac{1}{n\boldsymbol{q}'\boldsymbol{q}} \boldsymbol{1}'\boldsymbol{q} \\
+%\frac{\boldsymbol{q}' }{\boldsymbol{q}'\boldsymbol{q}} \ \frac{1}{n \boldsymbol{q}'\boldsymbol{q}} \boldsymbol{q}' \boldsymbol{1} \ \frac{1}{(\boldsymbol{q}'\boldsymbol{q})^2} \boldsymbol{q}'\boldsymbol{q}
+%\end{pmatrix} = \sigma^2 \begin{pmatrix}
+%\boldsymbol{I} \ \frac{1}{n} \boldsymbol{1} \ \frac{\boldsymbol{q} }{\boldsymbol{q}'\boldsymbol{q}} \\
+%\frac{1}{n} \boldsymbol{1}'  \  \frac{n}{n^2} \ \frac{1}{n\boldsymbol{q}'\boldsymbol{q}} \boldsymbol{1}'\boldsymbol{q} \\
+%\frac{\boldsymbol{q}' }{\boldsymbol{q}'\boldsymbol{q}} \  \frac{1}{n \boldsymbol{q}'\boldsymbol{q}} \boldsymbol{q}' \boldsymbol{1} \ \frac{1}{\boldsymbol{q}'\boldsymbol{q}}
+%\end{pmatrix}
+%\]
+%
+%But
+%
+%\[
+%\boldsymbol{1}'\boldsymbol{q}  = \boldsymbol{q}' \boldsymbol{1} = \sum_{i=1}^n (x_i - \bar{x}) = \sum_{i=1}^n \bigg( x_i - \frac{1}{n}\sum_{j=1}^n x_j \bigg) = \sum_{i=1}^n x_i - \frac{1}{n} \cdot n\sum_{j=1}^n x_j = 0
+%\]
+%
+%So we have 
+% 
+%\[
+%\Var(\boldsymbol{A}\vec{Y}) = \sigma^2 \boldsymbol{A} \boldsymbol{A}' = \sigma^2 \begin{pmatrix}
+%\boldsymbol{I} \ \frac{1}{n} \boldsymbol{1} \ \frac{\boldsymbol{q} }{\boldsymbol{q}'\boldsymbol{q}} \\
+%\frac{1}{n} \boldsymbol{1}'  \  \frac{1}{n} \ 0 \\
+%\frac{\boldsymbol{q}' }{\boldsymbol{q}'\boldsymbol{q}} \  0 \ \frac{1}{\boldsymbol{q}'\boldsymbol{q}}
+%\end{pmatrix}
+%\]
+%
+%This implies
+%
+%\[
+%\Cov(y_i, \bar{y}) = \Cov(y_j, \bar{y}) = \frac{\sigma^2}{n}
+%\]
+%
+%and 
+%
+%\[
+%\Cov(y_i, \hat{\beta_1}) = \frac{(x_i - \bar{x})\sigma^2}{\sum_{k=1}^n(x_k - \bar{x})^2}, \Cov(y_j, \hat{\beta_1}) = \frac{(x_j - \bar{x})\sigma^2}{\sum_{k=1}^n(x_k - \bar{x})^2}
+%\]
+%
+%\begin{center}
+%\noindent\rule{12cm}{0.4pt}
+%\end{center}
+
+Plugging these in to equation (\ref{linreg.100b.hw5.8}) yields
+
+
+\[
+\Cov(e_i, e_j)  = -\frac{\sigma^2}{n} - ( x_j - \bar{x})\frac{(x_i - \bar{x})\sigma^2}{\sum_{k=1}^n(x_k - \bar{x})^2} -\frac{\sigma^2}{n} + \frac{\sigma^2}{n}  - ( x_i - \bar{x}) \frac{(x_j - \bar{x})\sigma^2}{\sum_{k=1}^n(x_k - \bar{x})^2} 
+\]
+
+\[
++ (x_i - \bar{x})(x_j - \bar{x})\frac{\sigma^2}{\sum_{k=1}^n(x_k - \bar{x})^2}
+\]
+
+\[
+= \frac{-\sigma^2 }{n} - \sigma^2\frac{ (x_i -\bar{x})(x_j - \bar{x})}{\sum_{k=1}^n(x_k - \bar{x})^2} 
+\]
+
+\[
+\Cov(e_i, e_j)  = \sigma^2\bigg(-\frac{1}{n} - \frac{ (x_i -\bar{x})(x_j - \bar{x})}{\sum_{k=1}^n(x_k - \bar{x})^2} \bigg)
+\]
+
+
+\item From class notes 08/29:
+
+\[
+\frac{(n-2)S_e^2}{\sigma^2} \sim \chi^2_{n-2}
+\]
+
+\[
+\implies \Pr \bigg( \chi_{\frac{\alpha}{2};  n-2}^2 \leq \frac{(n-2)S_e^2}{\sigma^2}  \leq  \chi_{1 - \frac{ \alpha}{2}; n-2}^2 \bigg) = 1 - \alpha
+\]
+
+\[
+\implies \boxed{ \Pr \bigg( \frac{(n-2)S_e^2}{\chi_{1 - \frac{\alpha}{2}; n-2}^2}  \leq \sigma^2  \leq  \frac{(n-2)S_e^2}{\chi_{\frac{\alpha}{2}; n-2}^2}  \bigg) = 1 - \alpha }
+\]
+
+Since 
+
+\[
+S_e^2 = \frac{1}{n-2}\sum_{i=1}^n e_i^2
+\]
+
+this interval can be expressed as 
+
+\[
+ \Pr \bigg( \frac{\sum_{i=1}^n e_i^2}{\chi_{1 - \frac{\alpha}{2}; n-2}^2}  \leq \sigma^2  \leq  \frac{\sum_{i=1}^n e_i^2}{\chi_{\frac{\alpha}{2}; n-2}^2}  \bigg) = 1 - \alpha 
+\]
+
+\end{enumerate}
+
+\end{proof}
+
+
+\begin{proposition}[\textbf{Stats 100B homework problem}]Suppose \(Y_i = \beta_1 x_i + \epsilon_i\) (no intercept). Suppose \(x_i\) is fixed and \(\epsilon_i \sim \mathcal{N}(0, \sigma^2)\).
+
+\begin{enumerate}[(a)]
+
+\item The maximum likelihood estimator of \(\beta_1\) is
+
+\[
+\hat{\beta}_1 = \frac{\sum_{i=1}^n x_i y_i }{\sum_{i=1}^n x_i^2}
+\]
+
+which is unbiased. Its variance is \( \frac{\sigma^2}{\sum_{i=1}^n x_i^2}\) and it is normally distributed.
+
+\item The maximum likelihood estimator of \(\sigma^2\) is 
+
+\[
+\hat{\sigma^2} = \frac{1}{n}\sum_{i=1}^n (y_i - \beta_1 x_i)^2 .
+\]
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+
+ \begin{enumerate}[(a)]
+
+\item First we find the likelihood function to find the MLE. Assuming the \(n\) observations are independent,
+
+\[
+L = \prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}} \exp\bigg(-\frac{1}{2\sigma^2}(y_i - \beta_1 x_i)^2 \bigg)
+\]
+
+\[
+= 
+(2\sigma^2 \pi)^{-n/2}\exp \bigg(-\frac{1}{2\sigma^2} \sum_{i=1}^n (y_i - \beta_1 x_i)^2 \bigg)
+\]
+
+Next,
+
+\[
+\log(L) = -\frac{n}{2} \log(2 \pi \sigma^2) -\frac{1}{2\sigma^2} \sum_{i=1}^n (y_i - \beta_1 x_i)^2 
+\]
+
+\[
+\deriv{\log(L)}{\beta_1} = \deriv{}{\beta_1} \bigg(  -\frac{n}{2} \log(2 \pi \sigma^2) -\frac{1}{2\sigma^2} \sum_{i=1}^n (y_i - \beta_1 x_i)^2  \bigg)
+\]
+
+\[
+= \frac{1}{\sigma^2} \sum_{i=1}^n x_i(y_i - \beta_1 x_i) = 0
+\]
+
+\[
+\sum_{i=1}^n x_i y_i - \hat{\beta_1} \sum_{i=1}^n x_i^2 = 0
+\]
+
+\[
+\implies \hat{\beta_1} = \frac{\sum_{i=1}^n x_i y_i }{\sum_{i=1}^n x_i^2}
+\]
+
+Next we show that this estimator is unbiased.
+
+\[
+\E(\hat{\beta_1}) = \E \bigg( \frac{\sum_{i=1}^n x_i y_i }{\sum_{i=1}^n x_i^2} \bigg) = \frac{1}{\sum_{i=1}^n x_i^2} \E \bigg( \sum_{i=1}^n x_i (\beta_1 x_i + \epsilon_i) \bigg) = \frac{1}{\sum_{i=1}^n x_i^2} \bigg[\E \bigg(\sum_{i=1}^n x_i^2 \beta_1 \bigg) + E \bigg(\sum_{i=1}^n x_i \epsilon_i \bigg) \bigg]
+\]
+
+Since \(x_i\) and \(\beta_1\) are non-random and \(\epsilon_i\) are independent, this can be written as
+
+\[
+\frac{1}{\sum_{i=1}^n x_i^2} \bigg[\sum_{i=1}^n x_i^2 \beta_1 + \sum_{i=1}^n x_i \E(\epsilon_i)  \bigg] =  \frac{1}{\sum_{i=1}^n x_i^2} \beta_1 \sum_{i=1}^n x_i^2 = \beta_1
+\]
+
+Next we find the variance.
+
+\[
+\Var(\hat{\beta_1}) =  \Var \bigg( \frac{\sum_{i=1}^n x_i y_i }{\sum_{i=1}^n x_i^2} \bigg) = \frac{1}{(\sum_{i=1}^n x_i^2)^2} \Var \bigg( \sum_{i=1}^n x_i (\beta_1 x_i + \epsilon_i) \bigg)
+\]
+
+\[
+= \frac{1}{(\sum_{i=1}^n x_i^2)^2} \bigg[\Var \bigg(\sum_{i=1}^n x_i^2 \beta_1 \bigg) + \Var \bigg(\sum_{i=1}^n x_i \epsilon_i \bigg) \bigg]
+\]
+
+Since \(x_i\) and \(\beta_1\) are non-random and \(\epsilon_i\) are independent, this can be written as
+
+\[
+\frac{1}{(\sum_{i=1}^n x_i^2)^2} \bigg[0 + \sum_{i=1}^n x_i^2 \Var(\epsilon_i)  \bigg] =  \frac{1}{(\sum_{i=1}^n x_i^2)^2} \sigma^2 \sum_{i=1}^n x_i^2 = \frac{\sigma^2}{\sum_{i=1}^n x_i^2}
+\]
+
+\(\beta_1\) is a linear combination of \(y_i\) which is normally distributed, therefore \(\beta_1\) is normally distributed.
+
+\[
+\implies
+\beta_1 \sim\mathcal{N}\bigg(\beta_1, \frac{\sigma}{\sqrt{\sum_{i=1}^n x_i^2}}\bigg)
+\]
+
+\item
+
+\[
+\deriv{\log(L)}{\sigma^2} = \deriv{}{\sigma^2} \bigg(  -\frac{n}{2} \log(2 \pi \sigma^2) -\frac{1}{2\sigma^2} \sum_{i=1}^n (y_i - \beta_1 x_i)^2  \bigg)
+\]
+
+\[
+= -\frac{n}{2} \frac{1}{2 \pi \sigma^2} 2 \pi - \frac{1}{2} \bigg(- \frac{1}{(\sigma^2)^2} \bigg) \sum_{i=1}^n (y_i - \beta_1 x_i)^2 = -\frac{n}{2\sigma^2} + \frac{1}{2(\sigma^2)^2} \sum_{i=1}^n (y_i - \beta_1 x_i)^2 = 0
+\]
+
+\[
+\frac{1}{2(\hat{\sigma^2})^2} \sum_{i=1}^n (y_i - \beta_1 x_i)^2  = \frac{n}{2\hat{\sigma^2}}
+\]
+
+\[
+\hat{\sigma^2} = \frac{1}{n}\sum_{i=1}^n (y_i - \beta_1 x_i)^2 
+\]
+
+\end{enumerate}
+
+\end{proof}
 
 %%%%%%%%%%% Multiptle Regression %%%%%%%%%%%%%
 \subsection{Chapter 2: Multiple Regression}
@@ -488,6 +893,388 @@ where \(\boldsymbol{\Sigma}\) is a positive definite matrix.
 \[
 \Var(\hat{\beta}_{GLS}) = (X' \Sigma^{-1} X)^{-1}
 \]
+
+\subsection{DSO 607}
+
+Generalized linear models:
+
+\[
+f_n(z, \beta) = \prod_{i=1}^n \exp \big[ \theta_i z_i - b(\theta_i) h(z_i) \big], \ \ z = (z_1, \ldots, z_n)^T
+\]
+
+Natural parameter \(\theta_i\): \(\theta_i = x_i^T \beta\), \(x_i = 9x_{ij}: j \in \mathscr{M}\)
+
+\(h(z_i)\): normalization constant
+
+linear regression: \(b(\theta) = \frac{1}{2} \theta^2\)
+
+other: \(b(\theta) = \log(1 + e^{\theta})\)
+
+\
+
+If \(Y = (Y_1, \ldots, Y_n)^T \sim F_n(\cdot, \beta)\), then \(\E(Y) = (b'(\theta_1), \ldots, b'(\theta_n))^T = \mu(\theta)\) and 
+
+\(\Cov(Y) = \operatorname{diag}\{b''(\theta_1), \ldots, b''(\theta_n)\} = \Sigma(\theta)\) where \(\theta = X \beta\) and \(X = (x_1, \ldots ,x_n)^T\) is the \(n \times d\) design matrix.
+
+Quasi-log-likelihood (``quasi" because error may be misspecified):
+
+\[
+\ell_n(y, \beta) = y^T X \beta - \boldsymbol{1}^Tb(X \beta) + \boldsymbol{1}^T h(y)
+\]
+
+Like MLE, maximizing \(\ell_n(y, \beta)\) with respect to \(\beta\) gives the quasi-MLE \(\hat{\beta}_n\). Solution exists and is unique due to strict convexity of \(b\), solves the score equation
+
+\[
+\pderiv{\ell_n(y,\beta)}{\beta} = x^T[y - \mu(X \beta)] = \boldsymbol{0}
+\]
+
+(Intuition of score equation: the columns of \(X\) are all orthogonal to the errors (uncorrelated if \(X\) is random).
+
+
+KL Divergence:
+\[
+I(g_n; f_n(\cdot, \beta)) = \sum_{i=1}^n \bigg[ \int \bigg]
+\]
+
+To minimize the KL divergence:
+
+\[
+\pderiv{I(g_n; f_n(\cdot, \beta))}{\beta} = - X^T [ \E(Y) = \mu(X \beta)] = 0
+\]
+
+the inverse of the Fisher information matrix is the covariance of the MLE (?).
+
+\[
+\vdots
+\]
+
+For AIC, we minimize the KL divergence. For BIC, we maximize the Bayes factor (posterior probability for the model).
+\[
+\vdots
+\]
+
+\[
+B_n^{1/2} A_n(\hat{\beta}_n - \beta_{n,0} ) = W_n \xrightarrow{D} \mathcal{N}(0, I_d)
+\]
+
+\[
+\hat{\beta}_n - \beta_{n,0} = A_n^{-1} B_n^{1/2} W_n \implies \Cov(\hat{\beta}_n) = \Cov(\hat{\beta}-n - \beta_{n,0})
+\]
+
+\[ 
+= \Cov(A_n^{-1} B^{1/2} W_n) = A_n^{-1}B_n^{1/2} \Cov(W_n) B_n^{1/2} A_n^{-1} = A_n^{-1}B_n^{1/2} I_d B_n^{1/2} A_n^{-1} = \boxed{A_n^{-1} B_n A_n^{-1}}
+\]
+
+Note that if the model is correct, \(A_n = B_n\) so this reduces to conventional asymptotic MLE theory (\(\Cov(\hat{\beta_n}) = A_n^{-1}\)).
+
+\[
+\vdots
+\]
+
+\(A_n\) from working model, \(B_n\) from true model (unknown).
+
+GBIC in misspecified models: \(H_n = A_n^{-1} B_n\) (covariance contrast matrix). Note that when model is specified, \(H_n = I_d\) so the log of its determinant is 0 so it vanishes. If not, then it is a misspecification penalty.
+
+\[
+\vdots
+\]
+
+Note: \(\log(y, \hat{\beta}_n) > \log(y, \beta_{n,0})\) because \(\hat{\beta}_n\) is by definition the MLE on the observed data. But \(\E(\log(\tilde{y}, \beta_{n,0}) > \E(\log(\tilde{y}, \hat{\beta}_n)\) because \(\beta_{n,0}\) is the true parameter. We have a systematic upward bias when we use the empirical estimate. (p.18 of week 2-2 slides)
+
+\subsection{Lasso}
+
+Consider the linear regression model \(y = X \beta + \epsilon\). If we assume the errors \(\epsilon\) have a multivariate Gaussian distribution, that is,
+
+\[
+f_\epsilon(t) = \bigg( \frac{1}{2 \sqrt{\pi \sigma^2}}   \bigg)^n \exp \bigg( - \frac{t^T t}{2 \sigma^2} \bigg) , \ \ \ t = (t_1, \ldots, t_n)^T
+\]
+
+then the log likelihood is
+
+\[
+\log(f(t)) = n \log[(2 \pi \sigma^2)^{-1/2}] - t^Tt/(2 \sigma^2)
+\]
+
+Suppose we want the MLE estimator. When we maximize the log likelihood, we can disregard the first term which does not include \(t\) (it is constant). So we seek
+
+\[
+\arg \max_{\beta} -t^Tt/(2 \sigma^2) = \arg \max_{\beta} - \lVert y - X \beta \rVert_2^2 /(2 \sigma^2)
+\]
+
+which is the same as
+
+\[
+ \arg \min_{\beta} \lVert y - X \beta \rVert_2^2 /(2 \sigma^2)
+\]
+
+We commonly scale this with an \(n\) in the denominator to match the empirical risk; note that this does not affect the arguments which minimize the quantity. When the design matrix \(X\) multiplied by \(n^{-1/2}\) is orthonormal (\(X^TX = nI_p\)), the penalized least squares reduces to the minimization of 
+
+\[
+\min_{\beta \in \mathbb{R}^p} \{ \ \ \frac{1}{2n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{1}{2} \lVert \hat{\beta} - \beta \rVert_2^2 + \sum_{j=1}^p p_\lambda ( | \beta_j|)   \ \ \}
+\]
+
+where \(\hat{\beta} = (X^TX)^{-1}X^Ty = nX^T y\) is the OLS estimator. Disregarding the first term which does not contain \(\beta\), we have a \textbf{separable} loss function (we can solve for one parameter at a time):
+
+\[
+\min_{\beta \in \mathbb{R}^p} \{ \ \ \frac{1}{2} \lVert \hat{\beta} - \beta \rVert_2^2 + \sum_{j=1}^p p_\lambda ( | \beta_j|)   \ \ \}.
+\]
+
+So we can consider the univariate penalized least squares function
+
+\[
+\hat{\theta}(z) = \arg \min_{\theta \in \mathbb{R}} \{ \frac{1}{2}(z - \theta)^2 + p_\lambda(|\theta|).
+\]
+
+Antoniadis and Fan (2001) showed that the PLS estimator \(\hat{\theta}\) possesses the following properties:
+
+\begin{itemize}
+
+\item \textit{sparsity} if \(\min_{t \geq 0} \{t + p'_\lambda (t) \} > 0\);
+
+\item \textit{approximate unbiasedness} if \(p'_\lambda(t) = 0\) for large \(t\);
+
+\item \textit{continuity} if and only if \(\arg \min_{t \geq 0} \{t + p'_\lambda(t) \} = 0\). Intuition: if you perturb data a little, the solution should remain similar. 
+
+\end{itemize}
+
+In general, the singularity of the penalty function at the origin (i.e., \(p'_\lambda(0+) < 0\)) is needed for generating sparsity in variable selection and the concavity is needed to reduce the bias.
+
+
+\subsubsection{Soft Thresholding}
+
+Classical ideas of nonparametric models: kernels (locally constant/linear), splines (smooth basic functions). But wavelets are non-smooth. Why is this beneficial? Some real life functions are non-smooth. (example; image data with noise. There will be non-smooth edges to objects.) Also, the wavelet basis functions are orthonormal (which is closely related to the assumption we made above about the orthonormal design matrix). So when working with wavelets, we have a separable optimization problem. Soft thresholding is something like the lasso idea for wavelets (but before the lasso was developed).
+
+
+\
+
+Suppose we wish to recover an unknown function \(f\) on \([0,1]\) from noisy data
+
+\[
+d_i = f(t_i) + \sigma z_i, \ \ \ \ i=0, \ldots, n-1
+\]
+
+where \(t_i = i/n\) and \(z_i \sim \mathcal{N}(0,1)\). The term de-noising is to optimize the mean squared error \(n^{-1}\ E \lVert \hat{f} - f \rVert_2^2\). Donoho and Johnstone (1994) proposed a soft-thresholding estimator
+
+\[
+\hat{\beta}_j = \operatorname{sgn}(\hat{\beta}_j^0) (| \hat{\beta}_j^0| - \gamma)_+
+\]
+
+where \(\gamma\) is some small number. (So estimator gets shrunk by \(\gamma\), and if \(\gamma\) is bigger than the original estimator, we set it equal to 0.) They applied this estimator to the coefficients of a wavelet transform of a function measured with noise, then back-transformed to obtain a smooth estimate of the function.
+
+\begin{example} Suppose we have an image in data in the form of \(X \in \mathbb{R}^n\). We have a wavelet basis \(W \in \mathbb{R}^{n \times n}\) where \(W\) is orthonormal. We transform the image into the frequency domain by
+
+\[
+W x \to \tilde{x}
+\]
+
+where \(\tilde{x}\) is the frequency domain representation. Then we apply soft-thresholding to \(\tilde{x}\) to yield \(\tilde{x}^*\), which we hope is de-noised. Finally, we bring the image back into the original domain according to
+
+\[
+\hat{x} = W^{-1}\tilde{x}^* = W^T \tilde{x}^*.
+\]
+
+\end{example}
+
+The asymptotic risk of this estimator is 
+
+\[
+[2(\log p) + 1](\sigma^2 + R_{DP})
+\]
+
+Note that the \(2 \log p\) term is related to the result (described informally) below:
+
+\begin{proposition}
+if we have \(n\) i.i.d. \(\mathcal{N}(0,1)\) random variables, the maximum of them is near \(\sqrt{2 \log n}\) if \(n\) is large. (The order is this large with high probability)
+\end{proposition}
+
+\begin{remark} In the language of wavelets, sometimes \(\ell_0\) penalization is called ``hard-thresholding."
+
+\end{remark}
+
+\subsubsection{Lasso theory}
+
+Drawbacks of previous techniques that lasso helps with: subset selection is interpretable but computationally intensive and not stable because it is a discrete process (small changes in the data can result in very different models being selected). Ridge regression is a continuous process and more stable, but it does not set any coefficients equal to 0 and hence does not give an easily interpretable model.
+
+\
+
+In the orthonormal design case \(X^T X = n I_p\), the lasso solution can be shown to be the same as soft thresholding:
+
+\[
+\hat{\beta}_j = \operatorname{sgn}(\hat{\beta}_j^0) (| \hat{\beta}_j^0| - \gamma)_+
+\]
+
+where \(\gamma \geq 0\) is determined by the condition \(\sum_{j=1}^p |\beta_j| = t\).
+
+Geometry: the criterion \(\sum_{i=1}^n (y_i - \sum_{j=1}^p \beta_j x_{ij})^2\) equals the quadratic function (plus a constant)
+
+\[
+(\beta - \hat{\beta}^00^TX^T X(\beta - \hat{\beta}^0).
+\]
+
+The contours (level sets) are elliptical and centered at the OLS estimates. If the constraint region does not have corners, zero solutions result with probability zero (see DSO 607 homework 2).
+
+\subsubsection{Non-Negative Garotte}
+
+This idea inspired the lasso. Proposed by Breiman (1995). It minimizes
+
+\[
+\sum_{i=1}^n (y_i - \alpha - \sum_{j=1}^p c_j \hat{\beta}_j^o x_{ij})^2 \text{ subject to } c_j \geq 0, \sum_{j=1}^p c_j \leq t
+\]
+
+It starts with OLS estimates and shrinks them by non-negative factors whose sum is constrained. It depends on both the sign and magnitude of OLS estimates. In contrast, lasso avoids the explicit use of OLS estimates.
+
+\subsubsection{LARS---Preliminaries and Intuition}
+
+Intuition: the algorithm takes steps from a model where all coefficients are 0 to the biggest model (the unpenalized OLS model). Covariates are considered from the highest correlation with \(y\) to the least. (The variable most highly correlated with \(y\) is the one at the ``least angle" from \(y\).) Recall the original definition of the lasso estimator:
+
+\begin{equation}\label{linreg.lasso.constrained}
+\hat{\beta}_{lasso} = \arg \min_\beta \{ \frac{1}{2n}\lVert y - X \beta \rVert_2^2 \} \text{ subject to } \lVert \beta \rVert_1 \leq t
+\end{equation}
+
+The more common version now:
+
+\begin{equation}\label{linreg.lasso.lagrangian}
+\hat{\beta}_{lasso} = \arg \min_\beta \{ \frac{1}{2n}\lVert y - X \beta \rVert_2^2   + \lambda \lVert \beta \rVert_1\}
+\end{equation}
+
+One form can be changed to the other by applying Lagrangians\footnote{However, the correspondence between \(t\) and \(\lambda\) is \textbf{not} one-to-one. Because with \(t = \infty\), \(\lambda =0\). But a slightly smaller \(t\) would result in the same solution.}. Have to be careful because this is a convex program (quadratic with ``linear" constraint---use a slack variable). 
+
+Taking the gradient of the loss function in (\ref{linreg.lasso.lagrangian}) yields
+
+\[
+\nabla \bigg(  \frac{1}{2n}\lVert y - X \beta \rVert_2^2   + \lambda \lVert \beta \rVert_1 \bigg) = \nabla   \bigg( \frac{1}{2n}\lVert y - X \beta \rVert_2^2   \bigg) + \lambda \nabla \big( \lVert \beta \rVert_1 \big)
+\]
+
+\begin{equation}\label{linreg.lasso.lagrangian.gradient}
+= - \frac{1}{n} X^T(y - X \beta) + \lambda \nabla  \big( \lVert \beta \rVert_1 \big)
+\end{equation}
+
+We set this equal to zero. If the first term equals 0, the residual has to equal 0. For the second part to equal zero, we have to account for the fact that the gradient doesn't exist at 0. In the one-dimensional case \(g(t) = |t|\), we have
+
+\[
+g'(t) = \begin{cases}
+-1 & t < 0 \\
+1 & t > 0
+\end{cases}
+\]
+
+but it doesn't exist at 0. Instead of using the gradient, we will use \(\partial\), the subdifferential, which is the set of all subgradients. We have a solution if 0 is in the subdifferential. We can rewrite (\ref{linreg.lasso.lagrangian.gradient}) using the subdifferential instead of the gradient:
+
+\[
+\partial \bigg(  \frac{1}{2n}\lVert y - X \beta \rVert_2^2   + \lambda \lVert \beta \rVert_1 \bigg) = \nabla \bigg(  \frac{1}{2n}\lVert y - X \beta \rVert_2^2  \bigg)  + \lambda \partial \big( \lVert \beta \rVert_1 \big)  =  - \frac{1}{n} X^T(y - X \beta) + \lambda \partial \big( \lVert \beta \rVert_1 \big)
+\]
+
+Then rather than setting the gradient equal to 0, our condition is
+
+\[
+0 \in - \frac{1}{n} X^T(y - X \beta) + \lambda \partial \big( \lVert \beta \rVert_1 \big)
+\]
+
+Note that 
+
+\[
+\partial g (t) = \begin{cases}
+-1 & t < 0 \\
+[-1, 1] & t = 0 \\
+1 & t > 0
+\end{cases} = \begin{cases}
+\operatorname{sgn}(t) & t \neq 0 \\
+[-1, 1] & t = 0 
+\end{cases}
+\]
+
+so we have
+
+\[
+0 \in - \frac{1}{n} X^T(y - X \beta) + \lambda \cdot \begin{bmatrix} \begin{cases}
+\operatorname{sgn}(\beta_j) & t \neq 0 \\
+[-1, 1] & \beta_j = 0 
+\end{cases} \end{bmatrix}
+\]
+
+where 
+
+\[
+\begin{bmatrix} \begin{cases}
+\operatorname{sgn}(\beta_j) & t \neq 0 \\
+[-1, 1] & \beta_j = 0 
+\end{cases} \end{bmatrix} \in \mathbb{R}^p
+\]
+
+\begin{enumerate}[(1)]
+\item Examining the \(j\)th component of this separable equation, if \(\beta_j \neq 0\), we have
+
+\[
+0 = -\frac{1}{n} X_j^T(y - X \beta) + \lambda \cdot
+\operatorname{sgn}(\beta_j) \iff \frac{1}{n} X_j^T(y - X \beta) = \lambda \cdot
+\operatorname{sgn}(\beta_j) 
+\]
+
+Note that the left side contains the correlation between \(X_j\) and \(e = y - X \beta\), the residual vector. \textbf{So if lasso chooses \(k\) variables, all \(k\) of them will have the same correlation with the residual (\(\lambda\)).}
+
+\item If \(\beta_j \neq 0\), we have
+
+\[
+0 \in - \frac{1}{n} X^T(y - X \beta) + \lambda \cdot 
+[-1, 1]  \iff \left|  \frac{1}{n} X^T(y - X \beta)  \right| \leq \lambda
+\]
+
+\textbf{So for unselected features, the (absolute) correlation should be bounded by \(\lambda\).}
+
+\end{enumerate}
+
+These two conditions relate to the KKT conditions (first order conditions).
+
+So if we start with \(\lambda\) very large and gradually decrease it, we will let in as the first feature the one that is most highly correlated with \(y\)---that is, the feature with the \textit{least angle} between it and \(y\).
+
+
+\subsubsection{LARS}
+
+\begin{figure}
+\center{\includegraphics[width=0.8\textwidth, angle=0]{linreg_lars_2d.png}}
+\caption{\label{fig:lars_2d} LARS figure in 2d case.}
+\end{figure}
+
+\begin{figure}
+\center{\includegraphics[width=0.8\textwidth, angle=0]{linreg_lars_3d.png}}
+\caption{\label{fig:lars_3d} LARS figure in 3d case.}
+\end{figure}
+
+In Figure \ref{fig:lars_2d}, note that we choose feature \(X_1\) first because it has the highest correlation with \(y\). As the coefficient on \(X_1\) increases, the correlation between \(X_1\) and the residual with \(y\) decreases, while the correlation between \(X_2\) and the residual remains constant (\textbf{increases?}). When the correlation between \(X_1\) and the residual becomes equal to the correlation between \(X_2\) and the residual, \(X_2\) enters the lasso path.
+
+\begin{remark} Just like in lasso, in LARS the correlation between all included features and the residual are equal. However, LARS is a stepwise procedure---once we add a feature, it stays in the model. In the lasso, features can be dropped later in the path after they are selected---whenever \(\beta_j\) becomes 0, it is dropped from the current active set. A feature's sign cannot change in lasso---it is not possible. If we modify the LARS algorithm to have this property (``lasso modfiication"), then the result is the lasso estimator.
+
+\end{remark}
+
+The LARS algorithm for lasso has order \(\mathcal{O}(np \cdot \min \{n, p\})\). In particular, if \(p > n\) it has order \(\mathcal{O}(n^2p)\).
+
+
+\subsection{Quadratic Loss}
+
+\begin{theorem}\label{exercise6.5}
+Let $X:\Omega\to\mathbb{R}$ be a random variable with $\E X^{2}<\infty$. Then $\E(X-t)^{2}$ is minimized for $t\in\mathbb{R}$ uniquely when $t=\E X$.
+\end{theorem}
+
+\begin{proof}
+
+%\textbf{proof definitely in Mostly Harmless Econometrics but might be less rigorous, possibly in Pesaran book, possible in stats 100C course notes.}
+
+We seek
+
+\[
+ \arg \min_t \E(X - t)^2 = \arg \min_t \big[ \E(X^2) - 2t\E(X) + t^2 \big] = \arg \min_t \big[  t^2 - 2t\E(X)\big] 
+\]
+
+where the last step follows because \(\E(X^2)\) is independent of \(t\). This expression is quadratic in \(t\). Differentiating with respect to \(t\) and setting equal to 0, we have
+
+\[
+2t - 2 \E(X) = 0 \implies \boxed{\arg \min_t \E(X - t)^2 = \E(X)}
+\]
+
+\end{proof}
+
+
+
 %
 %
 %

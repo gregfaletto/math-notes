@@ -1,0 +1,372 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{verbatim}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ : \hmwkTitle} %(\hmwkClassInstructor\) \hmwkClassTime): 
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem (\alph{#1}) continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem (\alph{#1}) (continued)}{Problem (\alph{#1}) continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem (\alph{#1}) (continued)}{Problem (\alph{#1}) continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem (\alph{#1})}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem (\alph{homeworkProblemCounter})}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem (\alph{homeworkProblemCounter})}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Test Exercise\ \#3}
+%\newcommand{\hmwkDueDate}{February 12, 2014}
+\newcommand{\hmwkClass}{MOOC Econometrics}
+%\newcommand{\hmwkClassTime}{Section A}
+%\newcommand{\hmwkClassInstructor}{Professor Isaac Newton}
+\newcommand{\hmwkAuthorName}{\textbf{Greg Faletto}} % \and \textbf{Davis Josh}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    %\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 3:10pm}\\
+    %\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\section{Questions}
+
+This test exercise is of a theoretic nature. The exercise is based on Exercise 5.2c of 'Econometric Methods with Applications in Business and Economics.' The question of interest is how the decision whether or not to include a group of variables differs based on AIC from that based on the F-test. We will stepwise show that for large samples selection based on AIC corresponds to an F-test with a critical value of approximately 2.
+
+\begin{homeworkProblem}
+
+Consider the usual linear model, where \(y = X\beta + \epsilon\). We now compare two regressions, which differ in how many variables are included in the matrix \(X\). In the full (unrestricted) model \(p_1\) regressors are included. In the restricted model only a subset of \(p_0 < p_1\) regressors are included. Show that the smallest model is preferred according to the AIC if
+
+\[
+\frac{s_0^2}{s_1^2} < e^{\frac{2}{n}(p_1 - p_0)}.
+\]
+\\
+
+ \solution
+    \vspace{5mm}
+    
+ AIC: \[ \log(s^2) + \frac{2k}{n} \]
+ \\
+ where \(k\) is the number of regressors included in the model.
+ \\
+    
+ Small model: \[ AIC_0 = \log(s_0^2) + \frac{2p_0}{n} \]
+    
+Big model: \[AIC_1 = \log(s_1^2) + \frac{2p_1}{n} \]
+   
+AIC: Choose small model if
+   
+\[
+AIC_0 < AIC_1
+\]
+\[
+\log(s_0^2) + \frac{2p_0}{n} < \log(s_1^2) + \frac{2p_1}{n}
+\]
+
+\[
+\log(s_0^2) - \log(s_1^2) < \frac{2p_1}{n} - \frac{2p_0}{n}
+ \]
+\[
+\log( \frac{s_0^2}{s_1^2}) < \frac{2}{n}(p_1 - p_0)
+\]
+
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+    \[
+\frac{s_0^2}{s_1^2} < e^{\frac{2}{n}(p_1 - p_0)}
+\]
+}
+}
+    
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+Argue that for very large values of n the inequality of (a) is equal to the condition
+
+\[
+\frac{s_0^2 - s_1^2}{s_1^2} < \frac{2}{n}(p_1 - p_0)
+\]
+
+Use that \(e^x \approx 1 + x\) for small values of \(x\).
+
+    \vspace{5mm}
+    \solution
+    \\  
+    
+If \(n\) is very large, 
+
+\[
+\frac{2}{n}(p_1 - p_0)
+\]
+is small. Therefore, since
+
+\[
+e^x \approx 1 + x\
+\]
+
+we can approximate that
+
+\[
+e^{\frac{2}{n}(p_1 - p_0)} \approx 1 + \frac{2}{n}(p_1 - p_0)
+\]
+
+(if \(n\) is very large.) Substituting this expression into the right side of the result from part (a) yields
+
+\[
+\frac{s_0^2}{s_1^2} < 1 + \frac{2}{n}(p_1 - p_0)
+\]
+
+\[
+\frac{s_0^2}{s_1^2} - 1 < \frac{2}{n}(p_1 - p_0)
+\]
+
+
+\[
+\frac{s_0^2}{s_1^2} - \frac{s_1^2}{s_1^2} < \frac{2}{n}(p_1 - p_0)
+\]
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+\[
+\frac{s_0^2 - s_1^2}{s_1^2} < \frac{2}{n}(p_1 - p_0)
+\]
+
+\begin{center}
+\textit{(for \(n\) very large.)}
+\end{center}
+}
+}
+
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+
+Show that for very large values of n the condition in (b) is approximately equal to
+
+\[
+\frac{{e_R}'e_R - {e_U}'e_U}{{e_U}'e_U} < \frac{2}{n}(p_1 - p_0)
+\]
+
+where \(e_R\) is the vector of residuals for the restricted model with \(p_0\) parameters and \(e_U\) the vector of residuals for the full unrestricted model with \(p_1\) parameters.
+\\
+
+    \solution
+    \\
+    
+\[
+s^2 = \frac{1}{n-k}\sum_{i=1}^{n}e_i^2 = \frac{1}{n-k}e'e
+\]
+
+\[
+\implies s_0^2 = \frac{1}{n-p_0}{e_R}'e_R, s_1^2 = \frac{1}{n-p_1}{e_U}' e_U
+\]
+\\
+
+Substituting these expressions into the result from part (b) yields
+\\
+
+\[
+\frac{\frac{1}{n-p_0}{e_R}'e_R - \frac{1}{n-p_1}{e_U}' e_U}{\frac{1}{n-p_1}{e_U}' e_U} < \frac{2}{n}(p_1 - p_0)
+\]
+\\
+
+For large values of \(n\), \(n - p_0 \approx n - p_1 \approx n\). This yields
+
+\[
+\frac{\frac{1}{n}{e_R}'e_R - \frac{1}{n}{e_U}' e_U}{\frac{1}{n}{e_U}' e_U} < \frac{2}{n}(p_1 - p_0)
+\]
+\\
+
+Finally, multiplying the left side by \(\frac{n}{n}\) yields
+\\
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+\[
+\frac{{e_R}'e_R - {e_U}'e_U}{{e_U}'e_U} < \frac{2}{n}(p_1 - p_0)
+\]
+}
+}
+  
+\end{homeworkProblem}
+
+\pagebreak
+  
+\begin{homeworkProblem}
+  
+Finally, show that the inequality from (c) is approximately equivalent to an F-test with critical value 2, for large sample sizes.
+  \\
+  
+  \solution
+  \\
+  
+F-test (formula from Lecture 2.4.2 slides):
+
+\[
+F = \frac{({e_R}'e_R - {e_U}'e_U)/g}{{e_U}'e_U/(n - k)}
+\]
+\\
+
+where \(k\) is the number of explanatory factors in the unrestricted model, and \(g\) is the number of explanatory factors removed from the unrestricted model to create the restricted model.
+\\
+
+Under this test, we believe there is significant evidence to suggest that \(\beta \neq 0\) (so the unrestricted model is preferred) if \(F > F_{critical}\). Therefore a larger model is preferred if \(F > F_{critical}\), and we stay with (prefer) a smaller model if \(F < F_{critical}\).
+\\
+
+Let \(F_{critical} = 2\). Then a smaller model is preferred if \(F < 2\):
+
+\[
+\frac{({e_R}'e_R - {e_U}'e_U)/g}{{e_U}'e_U/(n - k)} < 2
+\]
+\\
+
+In this case, with \(p_1\) factors in the unrestricted model and \(p_0\) in the restricted model, we get
+\\
+
+\[
+\frac{({e_R}'e_R - {e_U}'e_U)/(p_1 - p_0)}{{e_U}'e_U/(n - p_1)} < 2
+\]
+
+\[
+\frac{({e_R}'e_R - {e_U}'e_U)}{{e_U}'e_U} < \frac{2(p_1 - p_0)}{n - p_1}
+\]
+\\
+
+If \(n\) is very large, \(n - p_1 \approx n\). Substituting this in yields
+\\
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+\[
+\frac{({e_R}'e_R - {e_U}'e_U)}{{e_U}'e_U} < \frac{2(p_1 - p_0)}{n}
+\]
+}
+}
+\\
+
+which is the same result that was obtained in part (c). Our condition for preferring a restricted model when doing an F-test with \(F_{critical} = 2\) (and when \(n\) is very large) is approximately the same as our condition for preferring a restricted model when using the AIC (when \(n\) is very large).
+  
+\end{homeworkProblem}
+
+\end{document}

@@ -1,0 +1,1 @@
+Note: To solve this exercise, you will need to estimate the parameters of a logit model. If you do not have statistical software for this task, then you can use an Excel tool that you can download from the link below (see also the instructions in the text of the Training Exercise).

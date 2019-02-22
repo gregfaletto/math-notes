@@ -1,4 +1,12 @@
 \contentsline {section}{\numberline {1}Stochastic Processes}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Poisson Processes}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Martingales}{4}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Brownian Motion}{4}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.1}Preliminaries}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Poisson Processes}{3}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Poissonization Trick}{9}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Time Sampling Poisson Processes}{14}{subsubsection.1.2.2}
+\contentsline {subsubsection}{\numberline {1.2.3}Nonstationary Poisson Processes}{15}{subsubsection.1.2.3}
+\contentsline {subsubsection}{\numberline {1.2.4}Queueing Systems}{20}{subsubsection.1.2.4}
+\contentsline {subsection}{\numberline {1.3}Renewal Processes}{21}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}ISE 620}{31}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Simple Random Walk}{33}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Martingales}{34}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.7}Brownian Motion}{34}{subsection.1.7}

@@ -94,6 +94,22 @@
 %\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
 %\DeclareMathOperator{\Tr}{Tr}
 %
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem*{remark}{Remark}
+%\theoremstyle{definition}
+%\newtheorem{exercise}{Exercise}
+%\theoremstyle{definition}
+%\newtheorem{example}{Example}[section]
+%
 %% Tilde
 %\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
 %
@@ -221,6 +237,16 @@ More generally, suppose  \(f: \mathbb{R}^n \to \mathbb{R}\), \(A \in \mathbb{R}^
 
 % Some theorems in higher dimensions
 \subsection{Some theorems in higher dimensions}
+
+\begin{proposition}[\textbf{Change of Variables}]If \(U\) is a ``nice" subset of \(\mathbb{R}^2\) and \(\phi\) is an injective differentiable function on \(U\), then 
+
+\[
+ \int_{\phi(U)} f(u,v) dudv = \int_U f(\phi(x,y)) | J \phi(x,y) | dx dy
+\]
+
+where \( J \phi(x,y)\) is the Jacobian of \(\phi\) at \((x,y)\).
+
+\end{proposition}
 
 \textbf{Taylor's Theorem (first order).} (borrowed from \url{https://www.rose-hulman.edu/~bryan/lottamath/mtaylor.pdf}) Consider a function \(f: \mathbb{R}^n \to \mathbb{R}\). Let \(a \in \mathbb{R}^n\) be a fixed point. Then Taylor's Theorem states:
 

@@ -144,7 +144,7 @@
 
 \section{Convex Optimization}
 
-These are my notes from taking EE 588 at USC and the textbook \textit{Convex Optimization} (Boyd and Vandenberghe) 7th printing.
+These are my notes from taking EE 588 at USC taught by Mahdi Soltanolkotabi and the textbook \textit{Convex Optimization} (Boyd and Vandenberghe) 7th printing, as well as Math 541A at USC taught by Steven Heilman.
 
 \textbf{Need to cover:}
 
@@ -180,14 +180,245 @@ These are my notes from taking EE 588 at USC and the textbook \textit{Convex Opt
 
 \end{itemize}
 
-\subsection{Convex Functions}
+\subsection{Convex Functions}\label{cvx.sec.jensen.etc}
 
-\begin{theorem} \label{cvx.jensen} Jensen's Inequality: \(f\) is convex if and only if
+\begin{definition}[\textbf{Math 541A definition}]\label{cvx.defn.convex} Let $\phi:\mathbb{R}\to\mathbb{R}$.  We say that $\phi$ is \textbf{convex} if, for any $x,y\in\mathbb{R}$ and for any $t\in[0,1]$, we have
+$$\phi(tx+(1-t)y)\leq t\phi(x)+(1-t)\phi(y).$$
+
+\end{definition}
+
+\begin{lemma}[Result from Math 541A Homework 2]\label{cvx.slope.nondec} The slope of a convex function is nondecreasing. More formally, let \(\phi: \mathbb{R} \to \mathbb{R}\) be a convex function. For any \(x \in \mathbb{R}\), let 
+
 \[
-\frac{f(a) + f(b)}{2} \geq f \bigg(\frac{a+b}{2} \bigg)
+M_R:= \{ \frac{\phi(c) - \phi(x) }{c-x}  : c > x\}, \ \ \ \ M_L:= \{ \frac{\phi(x) - \phi(b) }{x - b}  : b > x\}
+\]
+
+be the slopes of the secant lines through \(\phi\) using points to the right and left of \(x\), respectively. Then for any \(m \in M_R\), \(p \in M_L\) we have \(m \geq p\).
+
+\end{lemma}
+
+\begin{proof} Fix \(x \in \mathbb{R}\). Let \(m \in M_R, p \in M_L\). By definition, there exist \(b < x < c\) such that 
+
+\[
+m =  \frac{\phi(c) - \phi(x) }{c-x}, \ \ \ p = \frac{\phi(x) - \phi(b) }{x - b}.
+\]
+
+Let \(t \in (0,1)\) such that 
+
+\begin{equation}\label{cvx.541.hw2.ex4a}
+tb + (1-t)c = x.
+\end{equation}
+
+Then we have
+
+\[
+m\geq p \iff  \frac{\phi(c) - \phi(x) }{c-x} \geq  \frac{\phi(x) - \phi(b) }{x - b} \iff (x-b)(\phi(c) - \phi(x) ) \geq (c-x) (\phi(x) - \phi(b) )
+\]
+
+\[
+\iff (x-b) \phi(c) + b \phi(x) \geq c \phi(x) - (c - x) \phi(b)
+\]
+
+From (\ref{cvx.541.hw2.ex4a}), we have \( x-b = tb + (1-t)c  - b = (t-1)b + (1-t)c = (1-t)(c-b)\) and \(t(b - c) = x - c \iff t(c-b) = c - x \). Therefore
+
+\[
+(x-b) \phi(c) + b \phi(x) \geq c \phi(x) - (c - x) \phi(b) \iff  (1-t)(c-b) \phi(c) + b \phi(x) \geq c \phi(x) - t(c - b)  \phi(b)
+\]
+
+\[
+\iff  (1-t)(c-b) \phi(c)  \geq (c-b) \phi(x) - t(c - b)  \phi(b) \iff  (1-t)\phi(c)  + t \phi(b) \geq  \phi(x) 
+\]
+
+But \(t \phi(b) + (1-t) \phi(c) \geq \phi(x)\) since \(\phi\) is convex. Therefore  \(m \geq p\).
+
+\end{proof}
+
+\begin{theorem}[\textbf{Result from 541A Homework 2}]\label{cvx.convex.tangent.line}
+Let $\phi:\mathbb{R}\to\mathbb{R}$. Then $\phi$ is convex if and only if: for any $y\in\mathbb{R}$, there exists a constant $a$ and there exists a function $L:\mathbb{R}\to\mathbb{R}$ defined by $L(x)=a(x-y)+\phi(y)$, $x\in\mathbb{R}$, such that $L(y)=\phi(y)$ and such that $L(x)\leq\phi(x)$ for all $x\in\mathbb{R}$.  (In the case that $\phi$ is differentiable, the latter condition says that $\phi$ lies above all of its tangent lines.)
+\end{theorem}
+
+\begin{proof} \(\implies\): As in Lemma \ref{cvx.slope.nondec}, let 
+
+\[
+M_R:= \{ \frac{\phi(c) - \phi(y) }{c-y}  : c > y\}, \ \ \ \ M_L:= \{ \frac{\phi(y) - \phi(b) }{y - b}  : b > y\}
+\]
+
+be the slopes of the secant lines through \(\phi\) using points to the right and left of \(y\), respectively. Then by Lemma \ref{cvx.slope.nondec}, for any \(m \in M_R\), \(p \in M_L\) we have \(m \geq p\), so we can choose some \(a_0 \in \mathbb{R}\) such that \(p \leq a_0 \leq m\) for all \(p \in M_L, m \in M_R\). Then let $L:\mathbb{R}\to\mathbb{R}$ be defined by $L(x)=a_0(x-y)+\phi(y)$, $x\in\mathbb{R}$. Note that $L(y)=\phi(y)$. 
+
+\
+
+We argue that $L(x)\leq\phi(x)$ for all $x\in\mathbb{R}$ by contradiction. Suppose there is some \(z \in \mathbb{R}\) with \(L(z) > \phi(z)\). Note that \( z \neq y\) because we have already shown that \(L(y) = \phi(y)\). Then we have
+
+%Suppose \(z > y\) (a similar argument can be formed if \(z < y\)).
+
+\begin{equation}\label{cvx.541.hw2.ex4b}
+L(z) > \phi(z) \iff a_0(z-y)+\phi(y) > \phi(z) 
+\end{equation}
+
+If \(z > y\), then we can solve (\ref{cvx.541.hw2.ex4b}) for \(a_0\) as follows:
+
+\[
+a_0 >  \frac{\phi(z) - \phi(y)}{z-y}
+\]
+
+But \(z \in M_R\), so we have \( \frac{\phi(z) - \phi(y) }{z-y} > a_0 \). Contradiction. If \(z < y\), we solve (\ref{cvx.541.hw2.ex4b}) for \(a_0\) as follows:
+
+\[
+a_0 <  \frac{\phi(z) - \phi(y)}{z-y} = \frac{\phi(y) - \phi(z) }{y-z} 
+\]
+
+But \(z \in M_L\), so we have \( \frac{\phi(y) - \phi(z) }{y-z} < a_0 \). Contradiction. Therefore for every \(z \in \mathbb{R}\) we have \(L(z) \leq \phi(z)\) as desired.
+
+\(\impliedby\): Now suppose that for any $y\in\mathbb{R}$ there exists a constant $a$ and a function $L:\mathbb{R}\to\mathbb{R}$ defined by $L(x)=a(x-y)+\phi(y)$, $x\in\mathbb{R}$, such that $L(y)=\phi(y)$ and such that $L(x)\leq\phi(x)$ for all $x\in\mathbb{R}$.
+
+\
+
+Fix \(b, c \in \mathbb{R}\) and let \(t \in (0,1)\). Set \(y:= tb + (1-t)c\). Then by assumption we can write
+
+\[
+a(b-y)+\phi(y) \leq \phi(b), \ \ \ \ \ a(c-y) + \phi(y) \leq \phi(c)
+\]
+
+Multiply by \(t > 0\) and \((1-t) > 0\) respectively to yield
+
+\begin{equation}\label{cvx.541.hw2.ex4c}
+ta(b-y)+ t\phi(y) \leq t\phi(b), \ \ \ \ \ (1-t)a(c-y) + (1-t)\phi(y) \leq (1-t)\phi(c)
+\end{equation}
+
+Note that 
+
+\[
+t a(b-y) + (1-t)a(c-y) = a(tb -ty + (c - y - ct + yt)) = a(tb  + c - y - ct )
+\]
+
+\[
+= a(tb  + c(1-t) - tb - (1-t)c) = 0
+\]
+
+So adding the inequalities in (\ref{cvx.541.hw2.ex4c}) yields
+
+\[
+ t\phi(y) +  (1-t)\phi(y) \leq t\phi(b) + (1-t)\phi(c) \iff \phi(y) \leq  t\phi(b) + (1-t)\phi(c) 
+\]
+
+\[
+\iff \phi( tb + (1-t)c  ) \leq  t\phi(b) + (1-t)\phi(c) .
+\]
+
+\end{proof}
+
+\begin{proof}[My original proof from submitted homework]
+
+If \(\phi\) is differentiable at \(y\), let \(a = \phi'(y)\). If not, let \(a\) be any subgradient of \(\phi\) at \(y\). Then \(L(x)\) is (a) tangent line to \(\phi\) at \(y\), which should be lesser than or equal to \(\phi\) for all \(x \in \mathbb{R}\) if \(\phi\) is convex. If and only if this is true at every \(y \in \mathbb{R}\) (the tangent line is a global underestimator at \(y\) for every \(y \in \mathbb{R}\)), then \(\phi\) must be convex. We proceed to show this formally:
+
+\
+
+\(\implies\): We will show that if \(\phi\) is convex; that is, if for any $x,y\in\mathbb{R}$ and for any $t\in[0,1]$, we have
+
+\begin{equation}\label{prob.ex4.1}
+\phi(tx+(1-t)y)\leq t\phi(x)+(1-t)\phi(y)
+\end{equation}
+
+then the inequality 
+
+\begin{equation}\label{prob.ex4.2}
+\phi'(y)(x-y) + \phi(y) \leq \phi(x) \ \ \forall x \in \mathbb{R}
+\end{equation}
+
+holds. Starting from (\ref{prob.ex4.1}) note that
+
+\[
+\phi(tx+(1-t)y)\leq t\phi(x)+(1-t)\phi(y) \implies  \phi(tx+(1-t)y) - \phi(x) \leq(1-t)(\phi(y)  - \phi(x))
+\]
+
+Suppose \( y > x\). Then  \( tx+(1-t)y - x = (1-t)(y-x) >0\), so we can divide by it on both sides:
+
+\[
+\implies  \frac{\phi(tx+(1-t)y) - \phi(x)}{ tx+(1-t)y - x } \leq \frac{(1-t)(\phi(y)  - \phi(x))}{  (1-t)(y-x) } \implies  \frac{\phi(tx+(1-t)y) - \phi(x)}{ tx+(1-t)y - x } \leq \frac{\phi(y)  - \phi(x)}{  y-x }
+\]
+
+Taking the limit as \(t \to 1\) yields
+
+\[
+\phi'(x) \leq \frac{\phi(y)  - \phi(x)}{  y-x }
+\]
+
+if \(\phi\) is differentiable, which is (equivalent to) what we hoped to prove. The case where \(x > y\) is analogous.
+
+\(\impliedby\): We will show that if (\ref{prob.ex4.2}) holds then \(\phi\) is convex; that is, (\ref{prob.ex4.1}) holds for any $x,y\in\mathbb{R}$ and for any $t\in[0,1]$. Starting from (\ref{prob.ex4.2}) note that
+
+\[
+\phi'(y)(x-y) + \phi(y) \leq \phi(x) \iff  \phi'(y)  \leq \frac{\phi(x)  - \phi(y)}{x-y} \ \ \forall \ x,y \in \mathbb{R}
+\]
+
+\end{proof}
+
+
+\begin{theorem}[\textbf{Jensen's Inequality, from Math 541A}]\label{cvx.jensen.general}Let $X:\Omega\to[-\infty,\infty]$ be a random variable.  Let $\phi:\mathbb{R}\to\mathbb{R}$ be convex.  Assume that $\E|X|<\infty$ and $\E|\phi(X)|<\infty$.  Then
+$$\phi(\E X)\leq \E \phi(X).$$
+\end{theorem}
+
+\begin{proof}Note that from Theorem \ref{cvx.convex.tangent.line}, for any \(y \in \mathbb{R}\) there exists a constant \(a\) and a function \(L\) such that
+
+\[
+a(x-y)+\phi(y) \leq \phi(x) \ \ \ \forall x \in \mathbb{R}
+\]
+
+Letting \(y = \E(X)\) we have
+
+\[
+a (X-\E X)+\phi(\E X) \leq \phi(X)
+\]
+
+Since expectations preserve inequalities,
+
+\[
+\E[a (X-\E X)+\phi(\E X)] \leq \E \phi(X)
+\]
+
+But
+
+\[
+\E[a(X-\E X)+\phi(\E X)]  = a(\E X - \E X) + \E(\phi(\E X)) = \phi(\E X)
+\]
+
+which yields
+
+\[
+\phi( \E X) \leq \E \phi(X).
+\]
+
+\end{proof}
+
+\begin{corollary}[\textbf{Jensen's Inequality: EE 588 Formulation}]\label{cvx.jensen} \(f\) is convex if and only if
+\[
+f \bigg(\frac{a+b}{2} \bigg) \leq \frac{f(a) + f(b)}{2} 
 \]
 for all \(a, b \in \textbf{dom}(f)\). 
-\end{theorem}
+\end{corollary}
+
+\begin{proof} Follows from Theorem \ref{cvx.jensen.general} if \(X\) is a discrete random variable that equals \(a\) or \(b\) each with probability 1/2 and \(\phi(X) = f(X)\). Note that \(\phi(X)\) is convex.
+
+\end{proof}
+
+\begin{corollary}[\textbf{Triangle Inequality}] Let $X:\Omega\to[-\infty,\infty]$ be a random variable with $\E|X|<\infty$. Then
+$$\|E X|\leq\E|X|.$$
+
+\end{corollary}
+
+\begin{proof}Note that \(\phi(x) = |x|\) is convex by the definition of convexity: for any \(x, y \in \mathbb{R}\) and for any \(t \in (0, 1)\), we have
+
+\[
+\phi(tx+(1-t)y) = |tx + (1-t)y| \leq \ldots =  t|x|+(1-t)|y| =  t\phi(x)+(1-t)\phi(y).
+\]
+
+Then the result follows immediately from Jensen's Inequality (Theorem \ref{cvx.jensen.general}) using \(\phi(X) = |X|\):
+
+\[
+|\E X| \leq \E |X|
+\]
+
+\end{proof}
 
 \subsection{Schur Complement Trick}\label{cvx.schur.sec}
 

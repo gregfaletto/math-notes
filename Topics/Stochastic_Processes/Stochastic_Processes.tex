@@ -83,7 +83,7 @@
 %\newcommand{\dx}{\mathrm{d}x}
 %
 %%%%%%% Alias for the Solution section header
-%\newcommand{\solution}{\textbf{\large Solution}}
+%\newcommand{\solution}{\textbf{Solution.}}
 %
 %%%%%%% Probability commands: Expectation, Variance, Covariance, Bias
 %\newcommand{\E}{\mathbb{E}}
@@ -105,6 +105,10 @@
 %\theoremstyle{definition}
 %\newtheorem{definition}{Definition}[section]
 %\newtheorem*{remark}{Remark}
+%\theoremstyle{definition}
+%\newtheorem{exercise}{Exercise}
+%\theoremstyle{definition}
+%\newtheorem{example}{Example}[section]
 %
 %%%%%%% Tilde
 %\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
@@ -138,16 +142,46 @@
 %%
 %%
 %%
-
-%%%%%%%%%%%%%%% Stochastic Processes (Random Walks, Martingales, Brownian Motion)
+%%
+%%%%%%%%%%%%%%%%% Stochastic Processes (Random Walks, Martingales, Brownian Motion)
 
 \section{Stochastic Processes}
 
-These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as notes from \textit{Probability and Random Processes} by Grimmett and Stirzaker.
+These notes are based on my notes from ISE 620 at USC, \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as notes from \textit{Probability and Random Processes} by Grimmett and Stirzaker.
+
+\subsection{Preliminaries}
+
+\begin{definition} A \textbf{stochastic process} is a collection of random variables \(X(t), t\geq 0\) (in the continuous case) or \(X_1, X_2, \ldots\) in the discrete case such that ...
+
+\end{definition}
+
+\begin{definition}A stochastic process \(\{N(t), t \geq 0\}\) is said to be a \textbf{counting process} if \(N(t)\) represents the total number of events that have occurred up to time \(t\). Hence, a counting process \(N(t)\) must satisfy
+
+\begin{enumerate}[(i)]
+
+\item \(N(t) \geq 0\)
+
+\item \(N(t)\) is integer-valued.
+
+\item If \(s <t\) then \(N(s) \leq N(t)\).
+
+\item For \(s < t\), \(N(s) -N(t)\) equals the number of events that have occurred in the interval \((s, t]\).
+
+\end{enumerate}
+
+\end{definition}
+
+\begin{definition} We say a counting process \(\{N(t), t\geq0\}\) has \textbf{independent increments} if the numbers of events that occur in disjoint time intervals are independent; that is, for all \(t_0 < t_1 < \ldots < t_n\), \(  N(t_1) - N(t_0), \ldots, N(t_n) - N(t_{n-1})\) are independent. 
+
+\end{definition}
+
+\begin{definition} A counting process \(\{N(t) , t \geq 0 \}\) has \textbf{stationary} increments if the distribution of the number of events that occur in any interval of time depends only on the length of the time interval. That is, if \(N(t+s) - N(s)\) has a distribution that does not depend on \(s\) (is the same for all \(s\); only depends on \(t\)).
+
+\end{definition}
 
 \subsection{Poisson Processes}\label{stoch.pois.proc.sec}
 
-\begin{definition}\label{stoch.pois.proc.def}A \textbf{Poisson process with intensity \(\lambda\)} is a process \(N=\{N(t): t \geq 0 \}\) taking values in \(S=\{0, 1, 2, \ldots \}\) such that 
+\begin{definition}[\textbf{Poisson Process, Grimmet and Stirzaker definition}]\label{stoch.pois.proc.def.grimmett}A \textbf{Poisson process with intensity \(\lambda\)} is a process \(N=\{N(t): t \geq 0 \}\) taking values in \(S=\{0, 1, 2, \ldots \}\) such that 
 
 \begin{enumerate}[(a)]
 
@@ -170,16 +204,152 @@ o(h) & \text{if } m > 1; \\
 \(\lambda\) can be interpreted as the average or long-run frequency of the Poisson process.
 \end{remark}
 
-\begin{theorem}\label{stoch.pois.proc.thm.6.8.2}\textbf{(Grimmett and Stirzaker theorem 6.8.2.)} Let \(N(t)\) be a Poisson process with intensity \(\lambda\). Then \(N(t)\) has the Poisson distribution with parameter \(\lambda t\); that is,
+\begin{definition}[\textbf{Poisson Process, Ross definition, 2.1.2 in Stochastic Processes}]\label{stoch.pois.proc.def.ross.2.1.2}The counting process \(\{N(t): t\geq 0\}\) is said to be a  \textbf{Poisson process with rate \(\lambda\)} if
+
+\begin{enumerate}[(a)]
+
+\item \(N(0) = 0\)
+
+%; if \(s < t\) then \(N(s) \leq N(t)\).
+
+\item \(\{N(t) : t \geq 0\}\) has independent increments
+
+\item \(\Pr(N(t+h) - N(t) = 1) = \lambda h + o(h)\)
+
+\item \(\Pr(N(t+h) - N(t) \geq 2) = o(h)\)
+
+
+\end{enumerate}
+
+\end{definition}
+
+\begin{remark} Note that a Poisson process has stationary increments.
+
+\end{remark}
+
+\begin{lemma}[\textbf{ISE 620 Ross Lemma 1}] \label{stoch.ross.lemma1}Let \(N(t)\) be a Poisson process. For a fixed time \(s\), let \(N_s(t) = N(s+t) - N(s)\) be the difference between two Poisson processes. Then \(\{N_s(t), t \geq 0\} \) is a Poisson process.
+\end{lemma}
+
+\begin{proof} We verify the conditions in Definition \ref{stoch.pois.proc.def.ross.2.1.2}.
+
+\begin{enumerate}[(a)]
+
+\item \(N_s(0) = N(s) - N(s) = 0\), QED.
+
+\item \(\{N_s(t) : t \geq 0\}\) has independent increments, yes.
+
+\item \(\Pr(N_s(t+h) - N_s(t) = 1) = \Pr(N(s+ t+h) - N_s(s + t) = 1) =  \lambda h + o(h)\), QED.
+
+\item \(\Pr(N_s(t+h) - N_s (t) \geq 2) = (\Pr(N(s + t+h) - N_s (s + t) \geq 2)  = o(h)\), QED.
+
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{lemma}[\textbf{ISE 620 Ross Lemma 2}]\label{stoch.ross.lemma2}Let \(N(t)\) be a Poisson process. Then \(P_0(t) = \Pr(N(t) =0) = e^{-\lambda t}\).
+\end{lemma} 
+
+\begin{proof}
+
+\[
+P_0(t+h) = \Pr(N(t+h) = 0) = \Pr(N(t+h)= 0, N(t) =0) 
+\]
+
+\[
+= \Pr(N(t) = 0) \Pr(N(t+h) - N(t) =0) \text{ (by independent increments)}
+\]
+
+Using conditions (iii) and (iv) of Definition \ref{stoch.pois.proc.def.ross.2.1.2},
+
+\[
+P_0(t+h) = P_0(t)(1 - \lambda h - o(h) ) = P_0(t) (1 - \lambda h) + o(h)
+\]
+
+\[
+\iff \frac{P_0(t + h) - P_0(t)}{h} = \frac{-\lambda h P_0(t)}{h} + \frac{o(h)}{h} 
+\]
+
+Taking the limit as \(h \to 0\), we have
+
+\[
+P_0'(t) = - \lambda P_0(t) \iff \frac{P_0'(t)}{P_0(t)} = -\lambda \iff \log(P_0(t)) = -\lambda t + C
+\]
+
+\[
+\iff P_0(t) = \lambda e^{- \lambda t} \iff P_0(0) = 1
+\]
+
+\end{proof}
+
+
+\begin{theorem}\label{stoch.pois.proc.thm.6.8.2}[\textbf{Grimmett and Stirzaker theorem 6.8.2}] Let \(N(t)\) be a Poisson process with intensity \(\lambda\). Then \(N(t)\) has the Poisson distribution with parameter \(\lambda t\); that is,
 
 \[
 \Pr(N(t) = j)  = \frac{(\lambda t)^j \exp(-\lambda t)}{j!}, \ \ j = 0, 1, 2, \ldots
 \]
 \end{theorem}
 
-\begin{proof}See Grimmett and Stirzaker section 6.8.2, page 247. \end{proof}
+\begin{proof}See Grimmett and Stirzaker section 6.8.2, page 247. Ross proof:
 
-\begin{definition}
+\[
+\Pr(N(t) =n) = \frac{1}{\Pr(X_{n+1} = t-s \mid X_n =s)} \int_0^t \Pr(N(t) = n \mid S_n = s) \lambda e^{-\lambda s} \frac{(\lambda s0^{n-1}}{(n-1)!} ds = 1
+\] 
+
+\[
+= \Pr(X_{n+1} > t-s) = e^{-\lambda(t-s)}
+\]
+
+\[
+\Pr(N(t) = n) = \int_0^t e^{-\lambda(t-s)} \lambda e^{-\lambda s} \frac{(\lambda s)^{n-1} }{(n-1)!} ds
+\]
+
+\[
+= \frac{e^{-\lambda t} \lambda^n}{(n-1)!} \int_0^t s^{n-1} ds = e^{-\lambda t} \frac{(\lambda t)^n}{n!}
+\]
+
+\end{proof}
+
+\begin{corollary} \(N(t+s) - N(s) \sim \operatorname{Poisson}(\lambda t)\)
+
+\end{corollary}
+
+\begin{proof}By Lemma \ref{stoch.ross.lemma1}, ?? is a Poisson process. \(\ldots\)
+
+\end{proof}
+
+
+\begin{definition}[\textbf{Poisson Process, Ross definition, 2.1.1 in Stochastic Processes}]\label{stoch.pois.proc.def.ross.2.1.1}The counting process \(\{N(t): t\geq 0\}\) is said to be a  \textbf{Poisson process with rate \(\lambda\)} if
+
+\begin{enumerate}[(a)]
+
+\item \(N(0) = 0\)
+
+%; if \(s < t\) then \(N(s) \leq N(t)\).
+
+\item \(\{N(t) : t \geq 0\}\) has independent increments
+
+\item The number of events in any interval of length \(t\) is Poisson distributed with mean \(\lambda t\). That is, for all \(s, t \geq 0\),
+
+\[
+\Pr(N(t+s) - N(s) = n) = e^{-\lambda t} \frac{(\lambda t)^n}{n!}, \ \ \ n = 0, 1, \ldots
+\]
+
+
+\end{enumerate}
+
+\end{definition}
+
+\begin{remark} Note that it follows from condition (iii) in Definition \ref{stoch.pois.proc.def.ross.2.1.1} that a Poisson process has stationary increments and also that \(\E(N(t)) = \lambda t\).
+
+\end{remark}
+
+
+\begin{definition}[\textbf{Ross Stochastic Processes definition, Section 2.2}] Let \(X_n\) denote the time between the \(n-1\)st and \(n\)th event in a Poisson process. The sequence \(\{X_n, n \geq 1 \}\) is called the \textbf{sequence of interarrival times}.
+
+\end{definition}
+
+\begin{definition}[\textbf{Grimmett and Stirzaker definition}]
 Let \(N(t)\) be a Poisson process with intensity \(\lambda\). Let \(T_0, T_1, \ldots\) be given by
 
 \begin{equation}\label{stoch.eqn.6.8.7}
@@ -215,6 +385,1590 @@ Let \(N(t)\) be a Poisson process with intensity \(\lambda\). Let \(T_0, T_1, \l
 \begin{proof}
 By (\ref{stoch.eqn.6.8.9}), \(T_n = \sum_{i=1}^n X_i\). \(X_i \sim \operatorname{Exponential}(\lambda) \) by Theorem \ref{stoch.pois.proc.inter.thm}, which means \(X_i \sim \operatorname{Gamma}(1, \lambda^{-1})\). Then by Proposition \ref{prob.gammasum}, \(T_n \sim \operatorname{Gamma}(n, \lambda^{-1})\).
 \end{proof}
+
+\begin{lemma}[\textbf{ISE 620 Ross in-class Lemma 3, Proposition 2.2.1 in Stochastic Processes}]\label{stoch.ise620.lemma3} Let \(N(t)\) be a Poisson process. Let \(X_1, X_2, \ldots\) be the interarrival times. Then \(X_1, X_2, \ldots\) are independently and identically distributed as \(\operatorname{Exponential}(\lambda)\). Since the sum of exponential distributions is Gamma, we have \(S_n = \sum_{i=1}^n X_i \sim \operatorname{Gamma}(n, 1/\lambda)\). 
+\end{lemma}
+
+\begin{proof} See proof on page 64 (section 2.2) of \textit{Stochastic Processes}. Follows from Lemmas \ref{stoch.ross.lemma1} and \ref {stoch.ross.lemma2}.
+\end{proof}
+
+\begin{remark}If the arrival times are IID exponential, then the process is Poisson. (Will come later in notes.)
+
+\end{remark}
+
+\begin{remark}
+\[
+X_1 < t \iff N(t) = t
+\]
+
+\[
+\Pr(X_2 > t \mid X_a = s) = \Pr(N(S+t) - N(s) = 0 \mid X_1 = s) = \Pr(N(s+t) - N(s) = 0) = \Pr(N_s(t) = 0) = e^{-\lambda t}
+\]
+\end{remark}
+
+\begin{theorem}\label{stoch.coupon.collecting.thm} Suppose events occur in a Poisson process with parameter lambda, \(\operatorname{PP}(\lambda)\). Let \(N(t)\) be the number of events that occur by time \(t\). Suppose each event is independent of all that has previously occurred; that is, each event is type \(i = 1, \ldots, r\) with probability \(p_i\), and \(\sum_{i=1}^r p_i = 1\). Let \(N_i(t)\) be the number of type \(i\) events that occur by time \(t\). \(\{N_i(t)\} \sim \operatorname{PP}(\lambda p_i)\). Moreover, these processes are independent for different \(i\).
+
+\end{theorem}
+
+\begin{proof} Verify axioms of Poisson process: 
+
+\begin{enumerate}[1.]
+
+\item \(N_i(0) = 0\)
+
+\item independent increments? Yes, the number of type \(i\) events in each interval is totally independent of what happened in previous intervals.
+
+\item \(\Pr(N_i(t+h) - N_i(t) = 1) = \Pr(N(t+h) - N(t) = 1, \text{ event is type } i +  + \ldots\)
+
+probability of two or more events (and then one of them is type \(i\)) is \(o(h)\).
+
+\
+
+\[
+= \lambda h p_i + o(h)
+\]
+
+\item \(\Pr(N_i(t+h) - N_i(t) \geq 2) \leq \Pr(N(t_h) - N(t) \geq 2 ) = o(h) \)
+
+\end{enumerate}
+
+Therefore \(N_i(t)\) is a Poisson process with rate \(\lambda p_i\). We could have also proven this by looking at the interarrival times and showing that they are i.i.d. exponential.
+
+\end{proof}
+
+\begin{proof}[Proof: Alternative, stronger statement.]
+
+\[
+\Pr(N_1(t) = n_1, N_2(t) = n_2, \ldots, N_r(t) = n_r)
+\]
+
+we want to show that these random variables are independent. Let \(n = \sum_{i=1}^r n_i\). Then
+
+\[
+= \Pr(N_1(t) = n_1, \ldots, N_r(t) = n_r \mid N(t) = n) \Pr(N(t) =n)
+\]
+
+But this is a Multinomial distribution. So we have
+
+\[
+= \frac{n!}{n_1! \cdots n_r!}\prod_{i=1}^r p_i^{n_i}\cdot e^{-\lambda t} \frac{(\lambda t)^{\sum_i n_i} }{n!}
+\]
+
+\[
+\prod_{i=1}^r e^{-\lambda t p_i} \frac{(\lambda t p_i)^{n_i}}{n_i!}
+\]
+
+And these are just Poisson probabilities.
+
+Then using Proposition \ref{stoch.ross.inclass1}, we have independence (???)
+\end{proof}
+
+\begin{proposition}[offhand claim Ross made] \label{stoch.ross.inclass1}If \(\Pr(X=n, Y=m) = g(n) h(m)\) (that is, if probability can be broken into products of functions) then variables are independent.
+
+\end{proposition}
+
+\begin{proof} 
+
+\[
+\Pr(X=n) = \sum_m g(n) h(m) = g(n) C_h
+\]
+
+\[
+\Pr(Y=m) = h(m) \sum_n g(n) = h(m) C_g
+\]
+
+\[
+1 = \sum_n \sum_m g(n) h(m) = C_g C_h
+\]
+
+So this is true as long as \(C_g C_h =1\) which it does.
+
+\end{proof}
+
+\begin{example}
+
+Suppose in particular \(\lambda =10\) so we expect 10 people to arrive every hour, either men or women. What is the expected number of women to arrive given that 7 men arrived? (5---women and men's arrivals are independent.)
+
+\end{example}
+
+\begin{example}[\textbf{Coupon collecting problem, see also probability notes.}] \(r\) types of coupons collected with probability \(p_1, \ldots, p_r\). Let \(N\) be the number of coupons you collect until you have a complete set. What is \(\E(N)\)?
+
+\begin{solution} Let \(m(\mathcal{S})\) be the mean number of draws required to obtain at least one coupon of type \(i\) for each \(i \in \mathcal{S}\). Note that \(m(\emptyset) =0\), and
+
+\[
+m(\mathcal{S} ) =  1 + \sum_{i \in \mathcal{S}} p_i  m(\mathcal{S} \setminus i) + \sum_{i \notin \mathcal{S} } p_i m(S)
+\]
+
+\[
+\implies m(\mathcal{S}) = \frac{1 + \sum_{i \in \mathcal{S}} p_i  m(\mathcal{S} \setminus i) }{\sum_{i \notin \mathcal{S} } p_i }
+\]
+
+But unless \(r\) is small this is going to be hard to compute, so this doesn't really work.
+
+\
+
+\end{solution}
+
+\begin{solution}
+New idea: Let \(N_i\) be the number of draws required to obtain types \(1, \ldots, i\). We want \(N_r\). Note that \(\E(N_1) = 1/p_1\). We have \(N_{i+1} = N_i + A\) where \(A\) is the additional time required. 
+
+\[
+\E(N_{i+1}) = \E(N_i) + \E(A)
+\]
+
+if there is a type \(i +1\) in the original group, then \(\E(A) =0\). If not, note that
+
+\[
+\E(A) = \begin{cases}
+1/(p_i + 1) & \Pr(\{\text{a type } i +1 \text{ coupon has not already been collected}\}) \\
+0 & Pr(\{\text{a type } i +1 \text{ coupon has already been collected}\})
+\end{cases}
+\]
+
+\[
+\implies \E(A) = \frac{1}{p_i + 1} \cdot \Pr(\{\text{a type } i +1 \text{ coupon has not already been collected}\})
+\]
+
+\[
+\implies \E(A) = \frac{1}{p_i + 1} \cdot \Pr(\{\text{type } i +1 \text{ is the last of types } 1, \ldots, i+1 \text{ to be collected}\})
+\]
+
+\[
+= \frac{1}{p_i + 1} \cdot  \frac{\sum_{j=1}^{i+1} p_j}{p_{i+1}}
+\]
+
+this didn't work either.
+
+\end{solution}
+
+\begin{solution}
+
+
+Let \(N_i\) be the number to get type \(i\). So \(N_i \sim \operatorname{Geometric}(p_i)\). Then \(N = \max \{N_i \}\). So 
+
+\[
+\Pr(N \leq k) = \Pr(N_1 \leq k, \ldots, N_r \leq k) 
+\]
+
+but you can't multiply out probabilities because \(N_i\) is not independent. 
+
+\end{solution}
+
+%\begin{remark}Next time we'll use a trick called ``Poissonization." What if we collect coupons at times according to a Poisson process? Let \(T_i\) be the time when you get a coupon of type \(i\). and so on.
+%
+%\end{remark}
+
+
+\end{example}
+
+\subsubsection{Poissonization Trick}
+
+Suppose we collect coupons at times distributed according to a Poisson process with rate \(\lambda=1\). Let event type \(i\) be the event of collecting a type \(i\) coupon. Let \(T_i\) be the time until collecting a type \(i\) coupon. Note that by Theorem \ref{stoch.coupon.collecting.thm} and Lemma \ref{stoch.ise620.lemma3}, \(T_i \sim \operatorname{Exponential}(\lambda \cdot p_i) =\operatorname{Exponential}( p_i) \). Then the time to collect at least one of every type is \(T = \max_i \{ T_i\}\). And by Theorem \ref{stoch.coupon.collecting.thm}, the \(T_i\) are all independent. Return to the coupon collecting problem:
+
+\begin{solution} Recall the layer cake formulation for expected value:
+
+\[
+\E(T) = \int_0^\infty \Pr(T > t) dt 
+\]
+
+We have (using independence of the \(T_i\))
+
+\[
+\Pr(T > t) = 1 - \Pr(T \leq t) = 1 - \Pr(T_i \leq t, \ldots, T_r \leq t) = 1 - \prod_{i=1}^r \Pr(T_i \leq t) = 1 -  \prod_{i=1}^r  (1 - e^{-p_i t})
+\]
+
+\[
+\implies \boxed{ \E(T) = \int_0^\infty \bigg( 1 - \prod_{i=1}^r (1 - e^{-p_i t}) \bigg) dt}
+\]
+
+\[
+= \sum_i \frac{1}{p_i} - \sum_{i < j} \frac{1}{p_i + p_j} + \sum_{i , j , k} \frac{1}[p_i + p_j + p_k] - \cdots + \frac{(-1)^{r+1}}{p_1 + \ldots + p_r}
+\]
+
+But we want \(\E(N)\). Recall that \(T\) is the time of the \(N\)th event. So
+
+\[
+T= \sum_{i=1}^N X_i
+\]
+
+where \(X_1, X_2, \ldots\) are the interarrival times of a Poisson process with rate \(\lambda=1\). But \(N\) is independent of \(X_1, X_2, \ldots\) (the type of coupons you get has nothing to do with the time between coupons). So \(T\) is a compound random variable. Therefore
+
+\[
+\E(T) = \E(N) \E(X) = \E(N) \cdot \frac{1}{\lambda} = \E(N)
+\]
+
+Therefore we have \(\boxed{ \E(N) = \int_0^\infty \bigg( 1 - \prod_{i=1}^r (1 - e^{-p_i t}) \bigg) dt}\).
+
+\end{solution}
+
+\begin{example} A type is a \textit{singleton} if after you get a complete set, you have only one object of that type. Suppose we collect coupons until we have at least one of every type, and that all coupons are equally likely to be collected on each draw. What is the expected number of singletons when you stop?
+
+\end{example}
+
+\begin{solution} Let \(X\) be the number of singletons when you stop. Let \(I_j\) be an indicator variable for type \(j\) being a singleton. Then 
+
+\[
+\E(X) = \E \bigg[ \sum_{j=1}^r I_j \bigg] = \sum_{j=1}^r \E(I_j) = \sum_{j=1}^r \Pr(\{j \text{ is a singleton}\})
+\]
+
+\[
+\vdots
+\]
+
+\[
+= \frac{1}{r} \sum_{i=1}^r \frac{1}{r-i+1}
+\]
+
+\[
+\vdots
+\]
+
+Let \(T_i\) be the time you get your first type \(i\) coupon. The probability we want is that at the time when you have at least one of every type except \(j\), you have either 0 or 1 coupons of type \(j\). That is, if \(S_2^{(j)}\) is the time the second card of type \(j\) is selected, we must have \(S_2^{(j)} > \max_{i \neq j} \{T_i\}\). So we seek \(\Pr( S_2^{(j)} > \max_{i \neq j} \{T_i\} ) \). Note that \(S_2^{(j)} \sim \operatorname{Gamma}(2, p_j)\) by Corollary \ref{stoch.pois.proc.inter.cor}, so 
+
+\[
+f_{S_2^{(j)}}(s) = \frac{1}{p_j^{-2}} s^{2-1} e^{-p_j s} =  p_j e^{-p_j s} p_j \cdot s   .
+\]
+
+So we have
+
+\[
+\Pr(I_j = 1) = \Pr( S_2^{(j)} > \max_{i \neq j} \{T_i\} ) = \int_0^\infty \Pr(  \max_{i \neq j} \{T_i\} < S_2^{(j)} \mid S_2^{(j)}  = s )\cdot f_{S_2^{(j)}}(s)ds
+\]
+
+\[
+= \int_0^\infty \prod_{i \neq j} (1 - e^{- p_i s} )  \cdot p_j e^{-p_j s} p_j \cdot s \cdot ds
+\]
+
+which yields
+
+\[
+\boxed{\E(X) = \sum_{j=1}^r p_j^2 \int_0^\infty e^{-p_j s}  \cdot s \cdot \prod_{i \neq j} (1 - e^{- p_i s} )  \cdot ds}
+\]
+
+\end{solution}
+
+\begin{remark}Per Example \ref{stoch.bus.total.wait.order.poisson}, suppose people arrive at a bus stop according to a Poisson process with rate \(\lambda\). A bus arrives at (fixed) time \(T\). Let \(W\) be the sum of the waiting times for everyone at the bus stop. Let \(S_j\) be the arrival time of the \(j\)th person. (Note that if \(X_i\) are the interarrival times then \(S_j = \sum_{i=1}^j X_i\).) The number of people who get on the bus is \(N(t)\), the Poisson counting process. So 
+
+\[
+W = \sum_{i=1}^{N(T)} (T - S_i)   = N(T) T - \sum_{i=1}^{N(T)}S_i
+\]
+
+\end{remark}
+
+\begin{proposition}
+
+In a Poisson process, if we know that one event has occurred by time \(t\), then the distribution of times of the event is uniform between 0 and \(t\). That is,
+
+\[
+S_1 < x \mid N(t) = 1 \sim \operatorname{U}(0, t)
+\]
+
+\end{proposition}
+
+\begin{proof}
+\[
+\Pr(S_1 < x \mid N(t) = 1 ) = \frac{\Pr(S_1 < x \cap N(t) = 1)}{\Pr(N(t) = 1)} = \frac{\Pr(N(x) = 1 \cap N(t) - N(x) =0) }{\exp(-\lambda t) \lambda t}
+\]
+
+\[
+= \frac{\Pr(N(x) = 1) \Pr( N(t) - N(x) 0 }{\exp(-\lambda t) \lambda t} =  \frac{\lambda x e^{-\lambda x} \cdot e^{-\lambda(t-x)} }{\exp(-\lambda t) \lambda t}  = \frac{x}{t}
+\]
+
+which is the cdf for a random variable distributed as \(\operatorname{U}(0, t)\).
+
+\end{proof}
+
+\begin{remark}
+
+If \(X_i \sim \operatorname{U}(0, t)\), then \(f(x) = 1/t, \ \ \ 0 < x < t\), so per Proposition \ref{mathstats.order.stats.density},
+
+\[
+f_{X_{(1)}, \ldots, X_{(n)}}(x_1, \ldots, x_n) = \frac{n!}{t^n} , \ \ \ 0 < x < t
+\]
+
+\end{remark}
+
+
+\begin{theorem}\label{stoch.arrivals.cond.thm} In a Poisson process, if we know that \(n\) events have occurred by time \(t\) (\(N(t) = n \)), then the set of event times \(\{S_1, \ldots, S_n\}\) are distributed as a set of \(n\) i.i.d. uniform random variables between 0 and \(t\). That is, the unordered times are distributed uniformly on the interval.
+
+\
+
+More precisely: Given \(N(t) = n\), \(S_1, \ldots, S_n\) are distributed as order statistics of \(n\) i.i.d. \(\operatorname{U}(0,t)\) random variables.
+
+\end{theorem}
+
+\begin{proof} We will examine the density function
+
+\[
+f_{S_1, \ldots, S_n, \mid N(t) =n}(t_1, \ldots, t_n), \ \ \ 0 < t_1 < \ldots < t_n < t
+\]
+
+Per the above remark, we want to show that this is \(n!/t^n\). Note that by Bayes' Theorem
+
+\begin{equation}\label{stoch.prop.unif.proof}
+f_{S_1, \ldots, S_n, \mid N(t) =n}(t_1, \ldots, t_n) = \frac{f_{S_1, \ldots, S_n}(t_1, \ldots, t_n) \cdot \Pr(N(t) = n \mid S_1 = t_1, \ldots, S_n = t_n  )}{\Pr(N(t) = n)}.
+\end{equation}
+
+Let \(X_1, X_2, \ldots\) be the interarrival times. So the condition above is equivalent to \(X_1 = t_1, X_2 = t_2 - t_1, \ldots, X_n = t_n - t_{n-1}\). Recall that all the \(\{X_i\}\) are independent. So we have
+
+\[
+f_{S_1, \ldots, S_n}(t_1, \ldots, t_n) = f_{X_1, \ldots, X_n}(t_1, t_2 - t_1, \ldots, t_n - t_{n-1})
+\]
+
+Also, we can interpret \(\Pr(N(t) = n \mid S_1 = t_1, \ldots, S_n = t_n  )\) as the probability that there are 0 arrivals between times \(t_n\) and \(t\); that is,
+
+\[
+\Pr(N(t) = n \mid S_1 = t_1, \ldots, S_n = t_n  ) = e^{-\lambda(t-t_n)}
+\]
+
+So we can write (\ref{stoch.prop.unif.proof}) as 
+
+\[
+f_{S_1, \ldots, S_n, \mid N(t) =n}(t_1, \ldots, t_n) = \frac{  f_{X_1, \ldots, X_n}(t_2 - t_1, \ldots, t_n - t_{n-1}) \cdot e^{-\lambda(t-t_n)} }{e^{-\lambda t} (\lambda t)^n/n!}.
+\]
+
+\[
+= \frac{ \lambda e^{-\lambda t_1} \lambda e^{- \lambda(t_2 - t_1) } \cdots \lambda e^{-\lambda(t_n - t_{n-1})} \cdot e^{-\lambda(t-t_n)} }{e^{-\lambda t} (\lambda t)^n/n!}.
+\]
+
+\[
+= \frac{ e^{-\lambda t} \lambda^n }{e^{-\lambda t} (\lambda t)^n/n!} = \frac{n!}{t^n}
+\]
+
+\end{proof}
+
+\begin{example}\label{stoch.bus.total.wait.order.poisson} Suppose people arrive at a bus stop according to a Poisson process with rate \(\lambda\). A bus arrives at (fixed) time \(T\). What is the expected value of \(W\), the sum of the waiting times for everyone at the bus stop?
+
+\end{example}
+
+\begin{solution} Let \(S_j\) be the arrival time of the \(j\)th person. (Note that if \(X_i\) are the interarrival times then \(S_j = \sum_{i=1}^j X_i\).) The number of people who get on the bus is \(N(t)\), the Poisson counting process. So
+
+\[
+W = \sum_{j=1}^{N(T)} (T - S_j)   = N(T) T - \sum_{j=1}^{N(T)}S_j
+\]
+
+\[
+\E(W) = \E ( N(T) T) - \E \bigg(\sum_{j=1}^{N(T)} S_j  \bigg) = \lambda T^2    - \E \bigg(\sum_{j=1}^{N(T)} S_j  \bigg) 
+\]
+
+Note that by Theorem \ref{stoch.arrivals.cond.thm}, if \(\{U_i\}\) are i.i.d. uniform random variables on \([0,t]\),
+
+\[
+\E \bigg(\sum_{j=1}^{N(T)} S_j \mid N(T) = n \bigg) = \E \bigg(\sum_{j=1}^{n} S_j  \mid N(T) = n\bigg)  = \E \bigg(\sum_{j=1}^{n} U_i \bigg);
+\]
+
+that is, if we know that \(n\) arrivals have occurred by time \(T\), then the (unordered) arrival times are distributed uniformly on \([0,T]\). But
+
+\[
+ \E \bigg(\sum_{j=1}^{n} U_i \bigg) = \sum_{j=1}^{n} \E U_i = \frac{nT}{2}
+\]
+
+Also note that because the \(U_i\) is independent from \(N(T)\) (the arrival time of the \(j\)th person has nothing to do with how many people arrive by time \(T\)), \(\sum_{j=1}^{N(T)} S_j \) is a compound random variable, which means
+
+
+
+\[
+ \E \bigg(\sum_{j=1}^{N(T)} S_j  \bigg)  = \E \bigg[ \E \bigg(\sum_{j=1}^{N(T)} S_j \mid N(T) = n \bigg) \bigg] = \E \bigg(  \frac{N(T)T}{2} \bigg) = \boxed{ \frac{\lambda T^2}{2} }
+\]
+
+%\[
+%\vdots
+%\]
+%
+%What are the conditional distributions of the event times \(S_1, \ldots, S_n\) given \(N(T) = n\)? By the remark above,
+%
+%\[
+% \E \bigg(  \sum_{i=1}^n X_{(i)} \bigg) = \sum_{i=1}^n \E(X_{(i)} ) = 
+%\]
+%
+%\[
+%\vdots
+%\]
+%
+%\[
+%\Pr(X_{(i)} \leq t) = \Pr(\{ \text{at least } i \text{ if } X_1, \ldots, X_n < t\}) = \Pr(\operatorname{Binomial}(n, p = F(t)) \geq i) 
+%\]
+
+\[
+\vdots
+\]
+
+Note that the sum of the ordered values is equal to the sum of the unordered values, so we have 
+
+\[
+ \E \bigg(  \sum_{i=1}^n X_{(i)} \bigg) =   \E \bigg(  \sum_{i=1}^n X_{i} \bigg) =  \sum_{i=1}^n \E(X_{i}) = n \mu
+\]
+
+
+
+\end{solution}
+
+\begin{example} Another thing: Let \(I_j\) be an indicator variable for the event \(X_{(j)} < t\). We are interested in the distribution of \(\sum_{j=1}^n I_j\).
+
+\end{example} 
+
+\begin{solution} Note that the \(I_j\) is not independent because if \(I_1 = 0\) (so the smallest one is greater than \(t\)) then it must be the case that \(I_2 =0\) too. Also note that the sum of the ordered values less than \(t\) is the same as the sum of the unordered values less than \(t\). So this is distributed as binomial with parameters \(n\) and \(p = F(t)\).
+
+\end{solution}
+
+\begin{example} Suppose that shocks occur according to a Poisson process with rate \(\lambda\). Let \(D_i\) be the damage caused by shock \(i\), where \(\{D_i\}\) are i.i.d. and independent of \(\{N(t)\}\). The damages dissipate at an exponential rate \(\alpha\); that is, damage of value \(d\) has value \(de^{-as}\) after a time \(s\). Damages are cumulative. What is the total damage by time \(t\)?
+
+\end{example}
+
+\begin{solution} We have
+
+\[
+D(t) = \sum_{i=1}^{N(t)} D_i e^{-a(t-S_i)}
+\]
+
+so
+
+\[
+\E(D(t) \mid N(t) = n) = \E \bigg(  \sum_{i=1}^{N(t)} D_i e^{-a(t-S_i)}  \mid N(t) = n \bigg) = \sum_{i=1}^{N(t)} \E \big( D_i e^{-a(t-S_i)}  \mid N(t) = n \big)
+\]
+
+\[
+= \sum_{i=1}^{N(t)} \E ( D_i ) \E \big( e^{-a(t-S_i)}  \mid N(t) = n \big)  =  \E ( D_i )  e^{-at}\sum_{i=1}^{n}\E \big( e^{aS_i}  \mid N(t) = n \big)
+\]
+
+Let \(\{U_i\}\) be i.i.d. random variables on \([0, t]\). Then by Theorem \ref{stoch.arrivals.cond.thm}, we can write this as
+
+\[
+=  \E ( D_i )  e^{-at}\sum_{i=1}^{n}\E \big( e^{aU_i}  \mid N(t) = n \big) =  \E ( D_i ) e^{-at}   \cdot n \int_0^t     \frac{e^{ax} }{t} dx =  \E ( D_i ) e^{-at}   \cdot \frac{n}{at}( e^{at} - 1)  
+\]
+
+\[
+=  \E ( D_i )   \cdot \frac{n}{at}( 1 - e^{-at} )  
+\]
+
+So finally we have
+
+\[
+\E(D(t)) = \E[ \E(D(t) \mid N(t) = n) ] = \E \bigg[  \E ( D_i )   \cdot \frac{N(t)}{at}( 1 - e^{-at} )  \bigg] = \E ( D_i )   \cdot \frac{\E(N(t))}{at}( 1 - e^{-at} )   = \boxed{\E ( D_i )   \cdot \frac{\lambda}{a}( 1 - e^{-at} )  }
+\]
+
+\end{solution}
+
+\subsubsection{Time Sampling Poisson Processes}
+
+\begin{proposition}[\textbf{Time Sampling (Proposition 5.3 in Introduction to Probability Models)}]\label{stoch.ross.prop.5.3} Suppose we have events that happen as a Poisson process with rate \(\lambda\). Each event is of type \(1, \ldots, r\) independently of what has come before. An event at time \(s\) is type \(i\) with probability \(P_i(s) \). Let \(N_i(t)\) be the number of type \(i\) events by time \(t\). Then \(N_1(t), \ldots, N_r(t)\) are independent Poisson random variables with mean \(\E[N_i(t)] = \lambda \int_0^t P_i(s) ds\).
+
+\end{proposition}
+
+\begin{proof} \textbf{I'm not sure this proof makes sense?} Note that
+
+\[
+\Pr(N_1(t) = n_1, \ldots, N_r(t) = n_r) = \Pr(N_1(t) = n_1,  \ldots, N_r(t) = n_r \mid N(t) = \sum_{i=1}^r n_i)  \cdot \Pr \bigg( N(t) = \sum_{i=1}^r n_i \bigg) .
+\]
+
+Given \(N(t) = n\), the \(n\) event times are i.i.d. \(U(0,t)\) by Theorem \ref{stoch.arrivals.cond.thm}. Let \(P_i\) be the probability that a particular event is of type \(i\) given a time \(t\) and the fact that \(N(t) = n\). Then
+
+\[
+P_i  = \int_0^t P_i(s) \cdot f_U(s) ds = \int_0^t \frac{P_i(s)}{t} ds
+\]
+
+Since \( \Pr \bigg( N(t) = \sum_{i=1}^r n_i \bigg) = e^{-\lambda t}\), we have
+
+\[
+\Pr(N_1(t) = n_1, \ldots, N_r(t) = n_r) = \frac{n!}{n_1! \cdots n_r!} P_1^{n_1} \cdot \ldots \cdot P_r^{n_r} e^{-\lambda t}
+\]
+
+\end{proof}
+
+\begin{remark} Notation for Queueing: in many cases we suppose times between successive arrivals are independent with a common distribution \(F\). Then it is a renewal process. (If they are exponential, we get a Poisson process.) We have the following notation for a renewal process if \(k\) number of servers and \(G\) is the distribution of the service time:
+
+\[
+F  / G / k
+\]
+
+If the distribution is exponential, we use \(M\) (for ``memoryless" or ``Markovian"). (\(E\) stands for Erlang, sum of i.i.d. exponentials).
+\end{remark}
+
+\begin{example}  We have an \(M/G/\infty\) queuing system. Arrivals are a Poisson process with rate \(\lambda\). Fix \(t\) and let \(X(t)\) be the number of people in the system at time \(t\). Let \(Y(t)\) be the number of people who have completed service at time \(t\). Let the events be arrivals of customers, and call it a Type 1 event if the customer is still in the system at time \(t\), and Type 2 if the customer completes service by time \(t\) (and Type 3 otherwise).
+
+\
+
+Suppose a customer arrives at time \(s < t\). Then the customer is Type 1 if their service time exceeds \(t-s\), which happens with probability \(P_1(s) = \overline{G}(t-s)\). Similarly \(P_2(s) = G(t-s)\). Let \(N_1(t)\) be the number of Type I events that happen by time \(t\) and similarly for \(N_2(t)\). Then by Proposition \ref{stoch.ross.prop.5.3} we have
+
+\[
+X(t) =N_1(t) \sim \operatorname{Poisson} \bigg( \lambda \int_0^t \overline{G}(t-s) ds \bigg) =  \operatorname{Poisson} \bigg( \lambda \int_0^t \overline{G}(y) dy \bigg)
+\]
+
+and
+
+\[
+Y(t) = N_2(t) \sim  \operatorname{Poisson} \bigg( \lambda \int_0^t G(t-s) ds \bigg) =  \operatorname{Poisson} \bigg( \lambda \int_0^t G(y) dy \bigg)
+\]
+
+which implies the independence of \(X(t)\) and \(Y(t)\).
+\end{example}
+
+\subsubsection{Nonstationary Poisson Processes}
+
+\begin{definition}[\textbf{Nonstationary Poisson process.}]\label{stoch.nonstat.pois.proc.def.ross} The counting process \(\{N(t), t \geq 0\}\) is said to be a \textbf{nonstationary Poisson process} (or \textbf{nonhomoegeneous Poisson process}) with intensity function \(\lambda(t), t \geq 0\) if
+
+\begin{enumerate}[(i)]
+
+\item \(N(0)= 0\).
+
+\item \(\{N(t)\}\) has independent increments.
+
+\item \(\Pr(N(t+h) -N(t) = 1) = \lambda(t) h + o(h) \).
+
+\item \(\Pr(N(t+h) -N(t) \geq 2) =  o(h) \).
+
+\end{enumerate}
+
+\end{definition}
+
+\begin{remark} Note the similarities to Definition \ref{stoch.pois.proc.def.ross.2.1.2}. \end{remark}
+
+\begin{lemma}\label{stoch.ross.nonstat.lemma1} Let \(\{N(t), t \geq 0\}\) be a nonstationary Poisson process. Let \(N_s(t) = N(s+t) - N(s)\). Then \(\{N_s(t), t \geq 0\}\) is a nonstationary Poisson Process with intensity \(\lambda_s(t) = \lambda(s + t)\).
+
+\end{lemma}
+
+\begin{remark}Note the similarity to Lemma \ref{stoch.ross.lemma1}. \end{remark}
+
+\begin{proof} Note the parts of Definition \ref{stoch.nonstat.pois.proc.def.ross} above:
+
+\begin{enumerate}[(i)]
+
+\item \(N_s(0)= N(s) - N(s) = 0\).
+
+\item \(\{N_s(t)\} = \{N(s+t) - N(s)\}\) has independent increments since \(N(t)\) has independent increments.
+
+\item \textbf{Not sure about this part?} \(\Pr(N_s(t+h) -N_s(t) = 1) = \Pr(N(s+t+h) - N(s) - [N(s+t) - N(s)] = 1)  = \Pr(N(s+t+h)-  N(s+t) = 1) = \lambda(t) h + o(h) \).
+
+\item \(\Pr(N_s(t+h) -N_s(t) \geq 2) =  o(h) \) by similar argument to (iii).
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{definition} Let \(m(t) = \int_0^t \lambda(s) ds\). Note that \(m'(t) = \lambda(t)\). We call \(m(t)\) the \textbf{mean value function.}
+\end{definition}
+
+\begin{remark} Note that the mean value function for \(N_s(t)\) s 
+
+\[
+m_s(t) = \int_0^t \lambda_s(y) dy = \int_0^t \lambda (s +y) dy = \int_s^{s+t} \lambda(x) dx = m(t+s) - m(s).
+\]
+
+\end{remark}
+
+\begin{lemma}\label{stoch.ross.nonstat.lemma2} Let \(N(t)\) be a nonstationary Poisson process. Then \(\Pr(N(t) = 0) =e^{-m(t)} \) for any \(t \geq 0\).
+
+\end{lemma}
+
+\begin{remark}Note the similarity to Lemma \ref{stoch.ross.lemma2}. \end{remark}
+
+\begin{proof} Let \(P(t) = \Pr(N(t) = 0)\). Then by independent increments
+
+\begin{equation}\label{stoch.lemma.2.nonstat}
+\Pr(N(t+h) = 0) = \Pr(N(t) = 0 \cap N(t+h) - N(t) = 0) = \Pr(N(t) = 0) \cdot \Pr(N(t+h) - N(t) = 0)
+\end{equation}
+
+Let \(P_0(t+h) = \Pr(N(t+h) = 0)\). Then using Definition \ref{stoch.nonstat.pois.proc.def.ross} we have
+
+\[
+\Pr(N(t+h) - N(t) = 0 )= 1 - \Pr(N(t+h) - N(t) = 1 ) - \Pr(N(t+h) - N(t) \geq 2 ) = 1 - \lambda(t + h) + o(h)
+\] 
+
+so we can write (\ref{stoch.lemma.2.nonstat}) as 
+
+\[
+P_0(t+h) = P_0(t) [1 - \lambda(t + h) + o(h)]
+\]
+
+\[
+\iff \frac{P_0(t+h) - P_0(t)}{h} = - \lambda(t + h) \frac{ P_0(t)}{h} + \frac{o(h)}{h}
+\]
+
+Taking the limit as \(h \to 0\) yields
+
+\[
+P_0'(t) = - \lambda(t) P_0(t) \iff \int_0^s \frac{P_0'(t)}{P_0(t)} ds = \int_0^s -\lambda(t) dt \iff \log P_0(t) = \int_0^s -\lambda(t) dt\bigg]_0^s
+\]
+
+\[
+\iff P_0(s) = e^{- m(s)}
+\]
+
+\end{proof}
+
+\begin{remark}[\textbf{Interarrival times}] Let \(T_1\) be the time of the first event. Note that \(T_1 > t \iff N(t) =0\). So 
+
+\[
+\overline{F}_{T_1}(t) = \Pr(T_1 > t) = \Pr(N(t) = 0) = e^{-m(t)}
+\]
+which means
+
+\[
+f_{T_1}(t) = \deriv{ }{t} \big( -\overline{F}_{T_1}(t) \big)  =  m'(t) e^{-m(t)} =  \lambda(t) e^{-m(t)}.
+\]
+\end{remark}
+
+Note that because \(\lambda(t)\) is not constant, the interarrival times are not i.i.d.
+
+\begin{theorem}\label{stoch.ross.nonstat.dist} Let \(N(t)\) be the counting process for a nonstationary Poisson process. Then \(N(t) \sim \operatorname{Poisson}(m(t))\).
+
+\end{theorem}
+
+\begin{proof} We must show that 
+
+\[
+\Pr(N(t) = n) = e^{-m(t)}  \frac{(m(t))^n}{n!}, \ \ \ n = 0, 1, \ldots
+\]
+
+We have already shown that \(\Pr(N(t) = 0) = e^{-m(t)}   \frac{(m(t))^0}{0!} = e^{-m(t)} \)  this is true when \(n=0\) in Lemma \ref{stoch.ross.nonstat.lemma2}. We will show that this expression holds for \(n=1, 2, \ldots\) by induction. Assume for a fixed \(n\)
+
+\[
+\Pr(N(t) = n) = e^{-m(t)}  \frac{(m(t))^n}{n!}.
+\]
+
+We seek 
+
+\begin{equation}\label{stoch.thm.nonstat}
+\Pr(N(t) = n+ 1) = \int_0^t \Pr(N(t) = n+1 \mid T_1 =s) f_{T_1}(s) ds
+\end{equation}
+
+Note that (using the property of independent increments)
+
+\[
+\Pr(N(t) = n+1 \mid T_1=s) = \Pr(N(t) - N(s) = n \mid T_1 =s) = \Pr(N(t) - N(s) = n) 
+\]
+
+\[
+ = \Pr(N_s(t-s) = n) 
+\]
+
+By Lemma \ref{stoch.ross.nonstat.lemma1} above, \(N_s(\cdot)\) is a Poisson process. So using that and the induction hypothesis, we have
+
+\[
+\Pr(N(t) = n+1 \mid T_1=s) =e^{-m_s(t-s)} \frac{(m_s(t-s))^n}{n!} =  e^{-[m(t) -m(s)]} \frac{[m(t) - m(s)]^n}{n!} .
+\]
+
+Substituting this expression back in to (\ref{stoch.thm.nonstat}) and using \(f_{T_1}(t) = \lambda(t) e^{-m(t)}\), we have
+
+\[
+\Pr(N(t) = n+ 1) = \int_0^t e^{-[m(t) -m(s)]} \frac{[m(t) - m(s)]^n}{n!}  \cdot   \lambda(s) e^{-m(s)} ds
+\]
+
+\[
+= \frac{e^{-m(t)}}{n!} \int_0^t [m(t) - m(s)]^n \cdot   \lambda(s)  ds
+\]
+
+Substituting \(y=m(t) - m(s) \implies dy = -\lambda(s) ds\), we have
+
+\[
+= \frac{e^{-m(t)}}{n!} \int_{m(t)}^{0} -y^n    dy  = \frac{e^{-m(t)}}{n!} \int_0^{m(t)} y^n    dy = e^{-m(t)}  \frac{(m(t))^{n+1}}{(n+1)!}.
+\]
+
+Therefore the result follows by induction.
+\end{proof}
+
+\begin{corollary} \(N(t+s) - N(s) \sim \operatorname{Poisson}(m(t+s) - m(s)) = \operatorname{Poisson}(\int_s^{s+t} \lambda(y) dy ) \).
+
+\end{corollary}
+
+\begin{proof} Follows almost immediately from Theorem \ref{stoch.ross.nonstat.dist}, since if \(N(t) \sim \operatorname{Poisson}(m(t))\), 
+
+\end{proof}
+
+\begin{proposition} Suppose events occur according to a Poisson process with rate \(\lambda\). \(\{N(t)\}\) is the counting process. An event at time \(s\) is type 1 with probability \(p(s)\). Let \(N_1(t)\) be the number of type 1 events by time \(t\). Then \(\{N_1(t)\}\) is a nonhomogeneous Poisson Process with intensity \(\lambda(t) = \lambda p(t)\). 
+
+\end{proposition}
+
+\begin{remark}Note the similarity to Proposition \ref{stoch.ross.prop.5.3}. \end{remark}
+
+\begin{proof} Note the parts of Definition \ref{stoch.nonstat.pois.proc.def.ross} above:
+
+\begin{enumerate}[(i)]
+
+\item \(N_1(0)= 0\): yes.
+
+\item \(\{N_1(t)\}\) has independent increments: yes, follows pretty much immediately.
+
+\item Since the probability of exactly one event in the interval that happens to be type 1 is \( \lambda h P_1(t)\), we have \(\Pr(N_1(t+h) -N_1(t) = 1) = \lambda h P_1(t) = \lambda(t) h + o(h) \).
+
+\item \(\Pr(N_1(t+h) -N_1(t) \geq 2) =  o(h) \) by similar argument to (iii).
+
+\end{enumerate}
+
+\end{proof}
+
+So now we have that \(N_1(t) \sim \operatorname{Poisson}( \int_0^t \lambda p_1(s) ds)\). So if every time an event happens it is of type \(i\) with a certain probability that varies over time, the counting process is for each is a nonstationary Poisson process, and all the processes are independent. (Another way to understand the time sampling result from before.)
+
+What if the arrival process is nonstationary and the probability of a type \(i\) event is also time varying? \(\lambda(t)\), \(p(t)\). It's a nonstationary PP with intensity \(\lambda(t) p(t)\). (Probability in an interval is \(\lambda(t)h p(t) + o(h)\). 
+
+One more result about \(M/G/\infty\) processes:
+
+\begin{theorem}The \textbf{departure process} from an \(M/G/\infty\) queue is a nonstationary Poisson process with intensity function \(\lambda(t) = \)
+
+\end{theorem}
+
+\begin{proof} Let \(D(t)\) be the number of departures by time \(t\). Examine the axioms of Definition \ref{stoch.nonstat.pois.proc.def.ross} above:
+
+\begin{enumerate}[(i)]
+
+\item \(D(0)= 0\): yes.
+
+\item \(\{D(t)\}\) has independent increments: think of each arrival as an event. Types: type 1 if they depart in interval 1, 2 if they depart in 2, 3 if they depart in 3, 4 if they depart elsewhere, where 1, 2, and 3 are sequential nonoverlapping intervals. Note that for a given arrival time, the type of the event is dependent only on the service time. Since the arrival times are independent by assumption and the service times are also independent, the increments are independent.
+
+\item \(\Pr(D(t+h) -D(t) = 1) \): Call an event type 1 if they depart in the interval \((t, t+h)\). Then \(P_1(s) =  G(t+h+s) - G(t +s) = g(t-s) \cdot h + o(h) \). So 
+\[
+D(t+h) - D(t) \sim \operatorname{Poisson}(\lambda h\int_0^tg(t-s)ds + o(h))= \operatorname{Poisson}(\lambda h\int_0^tg(y)dy + o(h)) \operatorname{Poisson}(\lambda hG(t) + o(h))
+\]
+
+which means  \( \Pr(D(t+h) -D(t) = 1) = \lambda G(t)h e^{-\lambda G(t)h} = \text{ (by Taylor expansion of exp) } \lambda G(t)h + o(h)   \) which is what we wanted to show.
+
+\item \(\Pr(D(t+h) -D(t) \geq 2)= 1 - (\Pr(D(t+h) -D(t) = 0) - (\Pr(D(t+h) -D(t) = 1) = 1 - e^{-\lambda G(t) h} -\lambda G(t)h + o(h) = \text{ (by Taylor expansion of exp) } 1 +  \lambda G(t)h - \lambda G(t)h + o(h)  =    o(h) \).
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{remark}
+Notice in the limit as \(t \to \infty\) it converges to a Poisson process with rate \(\lambda\).
+\end{remark}
+
+\begin{example}
+Poisson process, event \(i\) is associated with reward \(V_i\). \(\{X(t), t \geq 0 \} \) is amount of money you get at time \(t\).
+
+\begin{equation}
+X(t) = \sum_{i=1}^r V_i N_i(t)
+\end{equation}
+
+or
+
+\[
+\E(X(t)) = \sum V_i \E(V_i (t)) = \sum V_i \lambda \alpha_i t = \lambda t \sum \alpha_i v_i = \lambda t \E(X)
+\]
+
+nice thing about this representation is \(V_i N_i(t)\) are independent, so variance is sum of variances. Using \(\Var(N_i(t) =  \lambda \alpha_i t\), 
+\[
+\Var(X(t)) = \sum_{i=1}^r V_i^2 \lambda \alpha_i t = \lambda t \sum V_i^2 \alpha_i = \lambda t \E(X^2)
+\]
+
+so we verified the formulas we derived a different way.
+
+\
+
+Note that \(N_i(t)\) is approximately Gaussian for large \(t\) (because Poisson goes to normal for large \(t\)). Therefore when \(t\) is large \(X(t)\) is also approximately Gaussian.
+
+\end{example}
+
+\subsubsection{Queueing Systems}
+
+Say we have a \(M/G/1\) queuing process. That is, arrivals are \(PP(\lambda)\), the service time has distribution \(G\), and there is one server. Note that if no one is in line, the waiting time  (length of an ``idle period") until the next arrival is exponential (since it's a Poisson process). Consider the ``busy periods," that is, the time from when a customer arrives until the time the next idle period starts. 
+
+\
+
+Let \(B\) be the length of a waiting period. Let \(S\) be the service time of the initial customer. Note that \(B\) is independent from what happened before. Let \(A\) be the additional time after the first customer is served until the next idle period so that \(B = S + A\). Let \(N(S)\) be the number of arrivals during \(S\). Note that \(A\) depends on \(N(S)\).
+
+\
+
+Suppose \(N(S) = n\). If \(n=0\), then \(A = 0\). If \(n=1, A\) has the same distribution a \(B_1\). If \(n=2\), \(A\) has the same distribution as the sum of two \(B\)s. And so on. This tells us we can say
+
+\[
+B = S + \sum_{i=1}^{N(S)} B_i
+\]
+
+If we condition on \(S=s\),
+
+\[
+\{B \mid S =s\} = s + \sum_{i=1}^{N(s)} B_i
+\]
+
+Note that \( \sum_{i=1}^{N(s)} B_i\) is a compound Poisson random variable. So
+
+\[
+\E(B \mid S =s) = s +\E(N(s)) \E( B_i) = s + \E(B) \lambda s
+\]
+
+\[
+\Var(B \mid S=s) = \lambda s \E(B^2)
+\]
+
+or
+
+\[
+\E(B \mid S) = S +\E(N(S)) \E( B_i) = S + \E(B) \lambda S
+\]
+
+\[
+\Var(B \mid S) = \lambda S \E(B^2)
+\]
+
+So
+
+\[
+\E(B) = \E[\E(B \mid S)] = \E(S) + \lambda \E(S) \E(B) \implies \boxed{\E(B) = \frac{\E(S)}{1 - \lambda \E(S)}}
+\]
+
+Note the similarity to the sum of an infinite geometric series. Similarly, if \(\lambda \E(S) \geq 1 \iff \E(S) \geq 1/\lambda\) then the expected waiting time is infinite because the arrival times under the Poisson process (\(1/\lambda\) in expectation) are faster in expectation than the service times. Also,
+
+\[
+\Var(B) = \lambda \E(S) \E(B^2) + (1 + \lambda \E(B))^2 \Var(S)
+\]
+
+Note that \(\Var(B) = \E(B)^2\), etc., then you work out the answer (\textbf{see textbook for complete answer.})
+
+\textbf{End of Poisson processes}
+
+\subsection{Renewal Processes}
+
+\begin{definition}[\textbf{Stieltjes Integral}]
+
+\[
+\int_a^b h(x) dF(x) = \lim_{n \to \infty} \sum_{i=1}^n h(x_i)( F(x_i ) - F(x_{i-1}))
+\]
+
+In particular, we often suppose that \(F(x)\) is the distribution function for a random variable \(X\). Then we have (if \(X\) is continuous)
+
+\[
+\int_a^b h(x) dF(x) = \lim_{n \to \infty} \sum_{i=1}^n h(x_i)( \Pr(x_{i-1}< X \leq x_i) = \int_a^b h(x) f_X(x) dx = \E(h(x))
+\]
+
+or if \(X\) is discrete
+
+\[
+\int_a^b h(x) dF(x) = \lim_{n \to \infty} \sum_{i=1}^n h(x_i)( \Pr(x_{i-1}< X \leq x_i) = \E(h(x)).
+\]
+
+
+\end{definition}
+
+Generalization of Poisson processes. A counting process where the interarrival times are i.i.d. Let \(X_1, X_2, \ldots\) be i.i.d. non-negative random variables with distribution function \(F\). We require \(F(0) = \Pr(X \leq 0) = \Pr(X=0) < 1\). Let
+
+\[
+\E(X_1) = \mu= \int_0^\infty x dF(x) = \int_0^\infty \overline{F}(t) dt
+\]
+
+where \(0 < \mu \leq \infty\). Let \(N(t)\) be the counting process (this is the largest value of \(n\) for which the \(n\)th event has occurred at time \(t\), so \(N(t) = \max \{n: S_n \leq t\}\) ). Let \(S_n\) be the arrival time for the \(n\)th event. Define \(S_0 = 0, S_n = \sum_{i=1}^n X_n\). 
+
+\begin{definition}[\textbf{Renewal process.}] The counting process \(\{N(t), t \geq 0\}\) is called a \textbf{renewal process.}
+
+\end{definition}
+
+Every time an event occurs is a ``renewal:' from that time on, all the arrivals are i.i.d. (Between events it is unclear what is going on until the next event happens; depends on the nature of \(F\). If we have a Poisson process, then it is memoryless, but otherwise it is not.)
+
+\begin{example}[\textbf{St. Petersburg Paradox}]Idea: you play a game, you get the amount of money \(X\). In order to play the game you have to pay, so what's a fair amount to pay? Belief: \(\E(X)\) (that's a rational price).
+
+\
+
+Game: fair coin, flip until heads occurs. If it occurs on trial \(n\), you win \(2^n\) dollars. Note that
+
+\[
+\E(X) = \sum_{i=1}^\infty 2^i \cdot \bigg( \frac{1}{2} \bigg)^ i = \infty.
+\]
+
+\end{example}
+
+\begin{proposition} With probability 1, \(N(t) < \infty\) for all \(t\).
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+\frac{S_n}{n} = \frac{X_1 + \ldots + X_n}{n} \xrightarrow{a.s.} \mu > 0 \text{ as } n \to \infty
+\]
+
+Because the denominator goes to \(\infty\) and the ratio doesn't go to 0, we must have \(S_n \xrightarrow{a.s.} \infty\). Therefore \(\Pr(N(t) < \infty) = 1\) for all \(t\).
+
+\end{proof}
+
+\begin{proposition} With probability 1, \(N(\infty) = \lim_{t \to \infty} N(t) = \infty\). (There's never a last renewal---there will always be another.)
+
+\end{proposition}
+
+
+
+\begin{proof}
+
+Recall \textbf{Boole's Inequality}:
+
+\[
+\Pr\bigg( \bigcup_{n=1}^\infty \{A_n \} \bigg) \leq \sum_{n=1}^\infty \Pr(A_n)
+\]
+
+(with equality if the events are disjoint). Then
+
+\[
+\Pr(N(\infty) < \infty) = \Pr(X_n = \infty) \text{ (for some } n) = \Pr\bigg( \bigcup_{n=1}^\infty \{X_n = \infty \} \bigg) \leq \sum_{n=1}^\infty \Pr(X_n = \infty) = 0
+\]
+
+\end{proof}
+
+\begin{definition}[\textbf{Notation for \(n\)-fold self-convolution}]Recall the notation for convolution: if \(X \sim F \indep Y \sim G\), we have \(X +Y \sim F * G\). Then
+
+\[
+S_n \sim F*F*\ldots *F(t).
+\]
+
+Let
+
+\[
+F_n(t) := F*F*\ldots *F(t)
+\]
+
+the \(n\)-fold convolution of \(F\) with itself. (In general, this is very hard to get a closed-form notation for except in some simple cases. More of a theoretical construct than something practical to compute.)
+\end{definition}
+
+\begin{proposition} \(\Pr(N(t) = n) = F_n(t) - F_{n+1}(t).\)
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+N(t) \geq n \iff S_n \leq t.
+\]
+
+\[
+\implies \Pr(N(t) \geq n) = \Pr(S_n \leq t)
+\]
+
+Then we have
+
+\[
+\Pr(N(t) = n) = \Pr(N(t) \geq n) - \Pr(N(t) \geq n+1) = F_n(t) - F_{n+1}(t).
+\]
+
+(Again, this is more of a theoretical construct than something practical to compute.)
+
+\end{proof}
+
+\begin{definition}[\textbf{Renewal function}] Let \(m(t) = \E(N(t))\). We call \(m(t)\) the \textbf{renewal function.}
+
+\end{definition}
+
+\begin{remark}
+
+\[
+m(t) = \sum_{n=1}^\infty \Pr(N(t) \geq n) = \sum_{n=1}^\infty F_n(t).
+\]
+
+\end{remark}
+
+\begin{lemma} \(m(t) < \infty\) for all \(t\).
+
+\end{lemma}
+
+\begin{proof} Skipped in class, not very enlightening.
+
+\end{proof}
+
+\begin{proposition}[\textbf{Renewal Equation}]
+
+\[
+m(t)  = F(t) + \int_0^t m(t-s) dF(s).
+\]
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+m(t) = \E(N(t)) = \int_0^\infty \E(N(t) \mid X_1 =s) dF(s)
+\]
+
+Note that
+
+\[
+\E(N(t0 \mid X_1 = s) = \begin{cases}
+1 + m(t-s) & s \leq t \\
+0 & s > t
+\end{cases}
+\]
+
+so we have
+
+\[
+m(t) = \int_0^t (1 + m(t-s)) dF(s) = F(t) + \int_0^t m(t-s) dF(s)
+\]
+
+\end{proof}
+
+\begin{remark} Remember we did a problem where \(X_i \sim \operatorname{Unif}(0,1)\) and asked how many you have to sum until the number of greater than 1. We ended up with \(1/e\). This is the smallest value of \(n\) for which the event occured after time \(n\) (or something?)
+
+\[
+N = \min \{X_1 + \ldots + X_n > 1\} = N(1) + 1
+\]
+
+(the first event that occurred after time \(1\). We showed that this was equal to \(e\) basically by solving the renewal equation. Only feasible because of uniform distribution between 0 and 1.
+
+\end{remark}
+
+\begin{remark} Note that
+
+\[
+S_{N(t)} := \text{(time of the most recent event before or at time } t) ,
+\]
+
+\[
+S_{N(t+1)} :=  \text{(time of the first event after time } t) .
+\]
+
+\end{remark}
+
+At what rate do renewals occur?
+
+\begin{theorem}[\textbf{Strong Law for Renewal Processes}]
+
+\[
+\frac{N(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}
+\]
+
+(Intuitively: since \(X_i\) are the time between renewals, the average time between renewals is \(\E(X_i) = \mu\). So the average rate of renewals is equal to one over the average time between events.) 
+
+\end{theorem}
+
+\begin{proof} Note that
+
+\[
+S_{N(t)} \leq t < S_{N(t) + 1}
+\]
+
+\[
+\iff \frac{S_{N(t)}}{N(t)} \leq \frac{t}{N(t)} < \frac{S_{N(t) + 1}}{N(t)}
+\]
+
+As \(t \to \infty\), the quantity on the left converges to the mean by the Strong Law of Large Numbers (see the proposition above). For the quantity on the right, we have
+
+\[
+\frac{S_{N(t) + 1}}{N(t)} = \frac{S_{N(t) + 1}}{N(t)+ 1} \cdot \frac{N(t) + 1}{N(t)} \xrightarrow{a.s.} \mu \cdot 1
+\]
+
+which means
+
+\[
+ \frac{t}{N(t)} \xrightarrow{a.s.} \mu \iff \frac{N(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}.
+\]
+\end{proof}
+
+\begin{remark}In many applications: \(X_1, X_2, \ldots\) are independent non-negative random variables. \(X_1 \sim G\), \(X_i \sim F, i \geq \). (That is, once the first event occurs we have a renewal process, but before then we don't.)
+
+\end{remark}
+
+\begin{definition}[\textbf{Delayed renewal process}]
+Define
+
+\[
+N_d(t) := \max \{n: X_1 + \ldots + X_n \leq t \}.
+\]
+
+We call \(\{N_d(t), t \geq 0\}\) a \textbf{delayed renewal process.}
+
+\end{definition}
+
+\begin{remark} Almost all limiting results for renewal processes apply for delayed renewal processes as well. (In the long run, that first waiting period doesn't really make a difference.) For example, consider the strong law for renewal processes (quick note: let \(N(s)=-1, s < 0.\)):
+
+\[
+N_d(t) = 1 + N(t - X_1)  \iff \frac{N_d(t)}{t} = \frac{1}{t} + \frac{N(t - X_1)}{t-X_1} \frac{t- X_1}{t}
+\]
+
+By the Strong Law for Renewal processes,
+
+\[
+\frac{N(t - X_1)}{t-X_1} \xrightarrow{a.s.} \frac{1}{\mu_F}
+\]
+
+Since \(\lim_{t \to \infty} \frac{t- X_1}{t} = 1\), we have the same result as for the Strong Law for Renewal Processes.
+
+\end{remark}
+
+\begin{example}Arrivals to a single server queue according to a Poisson process with rate \(\lambda\). However, they will only enter if the server is free when they arrive. Service time has distribution \(G\). (This is often called a \textbf{loss model} or \textbf{Erlang loss model}, more generally with \(k\) servers.) 
+
+\begin{enumerate}[(a)]
+
+\item At what rate to customers enter the system?
+
+\item What proportion of arrivals enter the system?
+
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}[(a)]
+
+\item Note that the events of customers entering are a renewal process because everything probabilistically starts all over again when a customer arrived. Specifically it's a delayed renewal process because the time of the first arrival is exponential with rate \(\lambda\), but the rest of them are more complicated because there must be a service and an arrival (the sum of two random variables). So the rate of arrivals is 1 over the expected time between events, or
+
+\[
+\frac{1}{\E(S + I)}
+\]
+
+where \(S\) is the service time and \(I\) is the interarrival time for the next customer. Let \(\E(X) = \mu_G = \int_0^\infty \overline{G}(t) dt \). Then
+
+\[
+\E(S + I) = \mu_G + \frac{1}{\lambda}
+\]
+
+so the answer is
+
+\[
+\frac{1}{\mu_G + \frac{1}{\lambda}} = \boxed{ \frac{\lambda}{1 + \lambda \mu_G}.}
+\]
+
+\item Rate of service arrivals divided by overall rates of arrivals:
+
+\[
+\left.  \frac{\lambda}{1 + \lambda \mu_G} \middle/ \lambda \right. = \boxed{ \frac{1}{1 + \lambda \mu_G}.}
+\]
+
+\end{enumerate}
+
+\end{solution}
+
+\end{example}
+
+\begin{example} Suppose we have a bin with an infinite number of coins. Each bin has value \(p\) of landing on heads, and suppose the value of \(p\) for a randomly chosen coin is distributed as \(\operatorname{Uniform}(0,1)\). We draw coins and flip them. Every turn we can either draw a new coin or flip one of the coins we already have. If we want to maximize the proportion of coins that flip heads, what is the optimal strategy?
+
+\begin{solution} Consider a strategy of giving up on a coin if it comes up tails once. Every time you flip tails, the process renews. Let \(N(n)\) be the number of tails in the first \(n\) flips. Then \(N(n)\) is a renewal process. So we know that
+
+\[
+\frac{N(n)}{n} \xrightarrow{a.s.} \frac{1}{\E(T)}
+\]
+
+where \(T\) is the time between tails. Let \(P\) be a random variable for the probability of a coin flipping heads and note that
+
+\[
+\E(T) = \int_0^1 \E(T \mid P=p) dp = \int_0^1 \frac{1}{1-p} dp = - \log(1-p) \bigg|_0^1 = \infty
+\]
+
+so the long-run proportion of coins that land heads is 1.
+
+\end{solution}
+
+\end{example}
+
+\begin{definition}[\textbf{Stopping times}] Let \(X_1, X_2, \ldots\) be independent random variables. We say the non-negative integer valued random variable \(N\) is a \textbf{stopping time} for \(X_1, X_2, \ldots\) if the event \(\{ N = n\}\) is independent of \(X_{n+1}, X_{n+2}, \ldots\). (This definition is more general than saying it must depend on previous times because it could be random and not depend on anything (except the current one) or you could have a finite memory, etc.)
+
+\end{definition}
+
+\begin{theorem}[\textbf{Wald's Equation}]\label{stoch.wald.eqn}Suppose \(X_1, X_2, \ldots\) are i.i.d. with \(\E(X) < \infty\). Let \(N\) be a stopping time for \(X_1, X_2, \ldots\) such that \(\E(N) < \infty\). Then
+
+\[
+\E \bigg( \sum_{i=1}^N X_i \bigg) = \E(N) \E(X).
+\]
+
+\end{theorem}
+
+\begin{remark}Note the similarity to compound random variables. But the proof differs because \(N\) is not independent of the \(\{X_i\}\).
+
+\end{remark}
+
+\begin{proof} Let \(I_i\) be an indicator variable for \(I \leq N\). Then
+
+\[
+\sum_{i=1}^N X_i = \sum_{i=1}^\infty X_i I_i \implies \E \bigg( \sum_{i=1}^N X_i \bigg) = \E \bigg(  \sum_{i=1}^\infty X_i I_i \bigg) =  \sum_{i=1}^\infty \E(X_i I_i)
+\]
+
+Note that \(I_i\) depends on \(X_1, \ldots, X_{i-1}\) but not on \(X_i\) (it only depends on whether you play the \(i\)th game, not the outcome of that game. You only decide whether to play the \(i\)th game based on the outcomes of the previous games.). Therefore \(X_i \indep I_i\). So we have
+
+\[
+=  \sum_{i=1}^\infty \E(X_i) \E( I_i) =   \E(X)  \sum_{i=1}^\infty\E( I_i) =   \E(X)  \sum_{i=1}^\infty\Pr(N \geq i) = \E(X) \E(N)
+\]
+
+or we can write
+
+\[
+\E(X)  \sum_{i=1}^\infty\E( I_i)  = \E(X) \E \bigg( \sum_{i=1}^\infty I_i \bigg)  = \E(X) \E(N) .
+\]
+
+\end{proof}
+
+\begin{remark}How do we justify 
+
+\[
+\E \bigg(  \sum_{i=1}^\infty X_i I_i \bigg) =  \sum_{i=1}^\infty \E(X_i I_i)?
+\]
+
+Do the same thing again but replace all the \(X_i\) with \(|X_i|\). Then the proof works, and Wald's Equation follows by Lebesgue's Dominated Convergence Theorem.
+
+\end{remark}
+
+\begin{example} Let
+
+\[
+X_i = \begin{cases}
+1 & \text{with probability } p \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+One stopping time could be \(N_1 = \min \{n; X_1 + \ldots + X_n = k\}\). Then by Wald's Equation,
+
+\[
+\E \bigg( \sum_{i=1}^N X_i \bigg) = \E(N) \E(X) \iff k = \E(N) (p) \implies \E(N) = \frac{k}{p}.
+\]
+
+Another could be \(N_2 = \min \{n: X_{n-1} = X_n = 1\}\).
+
+\end{example}
+
+\begin{example} Let
+
+\[
+X_i = \begin{cases}
+1 & \text{with probability } p \\
+-1 & \text{with probability } 1 -p
+\end{cases}
+\]
+
+with \(p > 1/2\). Note that \(\E(X_i) = 2p - 1 > 0\). One stopping time could be \(N = \min\{n: X_1 + \ldots + X_n = 10\}\). (Note that by the Strong Law of Large Numbers, with probability 1 this will eventually happen.) Then by Wald's Equation,
+
+\[
+\E \bigg( \sum_{i=1}^N X_i \bigg) = \E(N) \E(X) \iff 10 = \E(N) (2p-1) \implies \E(N) = \frac{10}{2p-1}.
+\]
+
+What's the mean amount of time until you're up by one dollar?
+
+\[
+m = 1 + (1-p) \E( \text{ up } 2) = 1 + (1-p)2m
+\]
+
+Possible stopping rule: stop when you're winning money.
+
+\[
+1 = \sum_{i=1}^N X_i = \E(N) \E(X) =0
+\]
+
+but it turns out Wald's equation doesn't apply because \(\E(N) = \infty\) (the mean number of plays to get ahead is infinite).
+
+\end{example}
+
+\begin{example} Let
+
+\[
+X_i = \begin{cases}
+1 & \text{with probability } 1/2 \\
+-1 & \text{with probability } 1/2
+\end{cases}
+\]
+
+with \(p > 1/2\). Note that \(\E(X_i) = 2p - 1 > 0\). One stopping time could be \(N = \min\{n: X_1 + \ldots + X_n = 1\}\). It turns out from Markov chain theory that this will eventually happen with probability 1.
+
+\end{example}
+
+\begin{example} Let \(U_i \sim \operatorname{Uniform}(0,1)\), \(U_i\) i.i.d. One stopping time is \(N = \min\{n: U_n > 0.8\}\). Then by Wald's Equation,
+
+\[
+\E \bigg( \sum_{i=1}^N X_i \bigg) = \E(N) \E(X) = 10 \cdot 0 = 0
+\]
+
+so the expected winnings when you stop is 0 (regardless of your stopping time, since it's a fair game).
+
+
+\end{example}
+
+Back to renewal theory: Let \(X_1, X_2, \ldots\) be a sequence of random variables with interarrival times distributed as \(F\). Note that \(N(t) = 5 \iff X_1 + \ldots + X_5 \leq t, X_1 + \ldots + X_6 > t\) so this is not a stopping time. But we could stop at the first event that occurs after time \(t\), so \(N(t)+1\) is a stopping time. Note that 
+
+\[
+N(t) + 1 = n \iff N(t) = n - 1, X_1 + \ldots + X_{n-1} \leq t, X_1 + \ldots + X_n > t.
+\]
+
+(You can't say ``I'll stop at the last event before \(t\)" because at the time of that event you wouldn't have been able to know it was the last event before \(t\).)
+
+\begin{corollary}\label{stoch.wald.eqn.cor}
+
+\[
+\E \bigg( \sum_{i=1}^{N(t) + 1} X_i \bigg) = \mu(m(t) +1)
+\]
+
+\end{corollary}
+
+\begin{theorem}[\textbf{Elementary Renewal Theorem}] 
+
+\[
+\frac{m(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}.
+\]
+
+\end{theorem}
+
+\begin{proof}
+
+Note that
+
+\[
+S_{N(t) + 1} > t
+\]
+
+We have
+
+\[
+\E(S_{N(t) + 1}) > t
+\]
+
+Using Corollary \ref{stoch.wald.eqn.cor},
+
+\[
+\mu(m(t) + 1) > t \iff m(t) + 1 > \frac{t}{\mu} \iff \frac{m(t)}{t} > \frac{1}{\mu} - \frac{1}{t} 
+\]
+
+Then as \(t \to \infty\)
+
+\[
+\lim \inf \frac{m(t)}{t} \geq \frac{1}{\mu}.
+\]
+
+Assume \(\Pr(X_i \leq M) = 1\) for some \(M \in \mathbb{R}\). Then
+
+\[
+S_{N(t) + 1} < t + M \implies \mu(m(t)+ 1) < t + M \implies m(t) < \frac{t}{\mu} + \frac{M}{\mu} - 1
+\]
+
+\[
+\implies \frac{m(t)}{t} < \frac{1}{\mu} + \frac{M}{t\mu} - \frac{1}{t} 
+\]
+
+\[
+\implies \lim \sup \frac{m(t)}{t} \leq \frac{1}{\mu}.
+\]
+
+Now consider the general case. Consider \(X_1, X_2, \ldots\). Let
+
+\[
+X_i^* = \begin{cases}
+X_i & \text{if } X_i \leq M \\
+M & \text{if } X_i > M
+\end{cases}
+\]
+
+
+and let \(N^*(t) = \max \{n: X_1^* + \ldots + X_n^* \leq t\}\). Then since \(N^*(t)\) has smaller interarrival times than \(N(t)\),
+
+\[
+N(T) \leq N^*(t) \implies \frac{\E(N(t))}{t} \leq \frac{\E(N^*(t)) }{t}
+\]
+
+\[
+\implies \lim \frac{m(t)}{t} \leq \lim \frac{\E(N^*(t))}{t} = \frac{1}{\E(X_i^*)}
+\]
+
+Note that (since \(X_I^* = X_I\) if \(X_i \leq M\))
+
+\[
+\E(X_i^*) = \int_0^M x dF(x) + M \overline{F}(M) \to \mu + 0 = \mu \text{ as } M \to \infty
+\]
+
+so
+
+\[
+ \lim \frac{m(t)}{t} \leq \frac{1}{\E(\min\{X, M \})}
+\]
+
+which is true for every \(M\). Letting \(M \to \infty\), we have
+
+\[
+\E(\min\{X, M \}) \to \E(X) \text{ as } M \to \infty
+\]
+
+by Lebesgue's Monotone convergence theorem. (``if you have a sequence of variables \(X_n \leq X_{n+1} \leq \ldots\) then \(\E(\lim_{n \to \infty} X_n) = \lim_{n \to \infty} \E(X_n)\)"). 
+
+
+\end{proof}
+
+\begin{remark}This technique is called ``coupling:" relating something you don't know to something you do.
+
+\end{remark}
+
+\begin{remark} Why doesn't the Elementary Renewal Theorem follow from the Strong Law for Renewal Processes? Consider this counterexample: Let \(U \sim \operatorname{Uniform}(0,1)\) and let \(X_n\) be a random variable such that
+
+\[
+X_n = \begin{cases}
+n & U < 1/n \\
+0 & U > 1/n 
+\end{cases}
+\]
+
+Of course with probability 1, \(U > 0\); that is, \(U = \epsilon > 0\). Note that \(X_n = 0\) for all \(n\) sufficiently large (\(1/n < \epsilon\)). So we see that \(X_n \xrightarrow{a.s.} 0\). But for all \(n\) sufficiently large
+
+\[
+\E(X_n) = n \cdot \frac{1}{n} = 1.
+\]
+
+
+So we have
+
+\[
+\lim_{n \to \infty} X_n = 0 = \E( \lim_{n \to \infty} X_n) \neq \lim_{n \to \infty} \E(X_n) = 1
+\]
+
+In summary, just because \(\frac{N(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}\) doesn't mean \(\frac{m(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}.\)
+\end{remark}
+
+\subsection{ISE 620}
+
+\begin{exercise} \textbf{(``Best Prize" problem.)} There are \(n\) prizes that are presented one at a time in a random order. Each prize has a defined value, and there is a defined ordering of the value of the prizes. Each time you see a prize, you only know the value of that prize relative to the prizes already seen---the value of later prizes remains unknown. Each time a prize is presented, we either accept it or reject it. You only get one prize, so once you accept it, you're done. Once you reject a prize, you can't get it back. Your goal is to maximize the probability of accepting the best prize. What do you do (what is the optimal policy)?
+
+\end{exercise}
+
+\begin{solution}
+The only strategy that makes sense is to accept a prize if it is a \textit{candidate}---that is, the best you've seen so far. You should never accept a prize that isn't a candidate unless you get to the last prize. Let \(P_n\) be the probability of getting the best prize. Then we expect \(P_n\) to approach 0 as \(n\) approaches infinity. Note that if it were good to accept the \(k\)th prize if it were a candidate, then it would definitely be better to accept the \(k+1\)th candidate if it were a candidate. So a good policy (\(k\)-policy) is to let \(k\) prizes go by, then accept the first candidate to come afterward. 
+
+\
+
+Let \(X\) be the position of the best prize. We will condition on the best prize being in position \(i\). Then
+
+\[
+P_k(\text{best}) = \sum_{i=1}^n P_k(\text{best} \mid X=i)  \Pr(X=i) = \frac{1}{n} \sum_{i=1}^n P_k(\text{best} \mid X=i)
+\]
+
+Note that because in order for you to win, none of the prizes between position \(k\) and \(i\) can be candidates (or else you would accept them and not get the best prize). So the best of the first \(i-1\) prizes must be among the first \(k\) prizes in order for you to get the best prize. 
+
+\[
+P_k(\text{best} \mid X=i) = \begin{cases} 
+0 & i \leq k \\
+\Pr(\{\text{best of }1, \ldots, i-1 \text{ is among the first } k\}) & k > k
+\end{cases}
+\]
+
+and 
+
+\[
+\Pr(\{\text{best of }1, \ldots, i-1 \text{ is among the first } k\}) = \frac{k}{i-1}
+\]
+
+so
+
+\[
+P_k(\text{best}) = \frac{1}{n} \sum_{i=k+1}^n \frac{k}{i-1} = \frac{k}{n} \sum_{j=k}^{n-1} \frac{1}{j} \approx \frac{k}{n} \int_{k}^{n-1} \frac{dx}{x} = \frac{k}{n} \log(x) \big|_{k}^{n-1} = \frac{k}{n} \log\bigg( \frac{n-1}{k} \bigg) \approx  \boxed{\frac{k}{n} \log \bigg( \frac{n}{k} \bigg)}.
+\]
+
+Now we want to choose \(k\) that maximizes this quantity. Generalize to letting \(x\) equal any real number in the expression 
+
+\[
+f(x) = \frac{x}{n} \log \bigg( \frac{n}{x} \bigg) \implies f'(x) = \frac{x}{n} \frac{x}{n} \bigg( \frac{-n}{x^2} \bigg) + \log \bigg( \frac{n}{x} \bigg) \frac{1}{n} 
+\]
+
+Setting equal to 0 we have
+
+\[
+\frac{1}{n} = \frac{1}{n} \log \bigg( \frac{n}{x} \bigg) \implies \frac{n}{x} = e \implies \boxed{x= \frac{n}{e}}
+\]
+
+so the optimal strategy is to let about \(1/e\) of the prizes go by, then choose the first candidate to come by afterward. 
+
+\begin{remark} The probability of getting the best prize is then
+
+\[
+f \bigg( \frac{n}{e} \bigg) = \frac{1}{e} \log(e) = \frac{1}{e}
+\]
+
+regardless of \(n\)!
+
+\end{remark}
+
+\end{solution}
+
+
+\begin{exercise} \textbf{(Ballot problem.)} Suppose we have candidates \(A\) and \(B\) with votes counted in random order. \(A\) has \(n\) votes, \(B\) has \(m\) with \(n > m\). What is the probability that \(A\) is always ahead in the count at every stage of the vote?
+
+\end{exercise}
+
+\begin{solution}
+Let \(\Pr(\{A \text{ is always ahead}\}) = P(n,m) = P_{n,m}\). Then
+
+\[
+P_{n,m} = \Pr(\{A \text{ is always ahead}\} \mid \{A \text{ receives the first vote} \}) \cdot \frac{n}{n+m} 
+\]
+
+\[
++  \Pr(\{A \text{ is always ahead}\} \mid \{B \text{ receives the first vote} \}) \cdot \frac{m}{n+m} 
+\]
+
+\[
+= \Pr(\{A \text{ is always ahead}\} \mid \{A \text{ receives the first vote} \}) \cdot \frac{n}{n+m} + 0
+\]
+
+\[
+= Q_{n-1,m} \cdot \frac{n}{n+m}
+\]
+
+where \(Q\) represents the probability that \(A\) is never behind (since going forward ties would be ok because \(A\) starts out ahead). We have
+
+\[
+Q_{nm} = \Pr(\{A \text{ is never behind}\}) = \frac{n}{n_m} \Pr(\{A \text{ is never behind}\} \mid \{A \text{ gets first vote} \})
+\]
+
+Note that \(\Pr(\{A \text{ is never behind}\} \mid \{A \text{ gets first vote} \}) = Q_{n-1, m-1}\). But now things are more complicated because \(A\) could afford to be behind by 1 going forward. So this strategy is not working. Try instead to condition on who gets the last vote. 
+
+\[
+P_{n,m} = \Pr(\{A \text{ is always ahead}\} \mid \{A \text{ receives the last vote} \}) \cdot \frac{n}{n+m} 
+\]
+
+\[
++  \Pr(\{A \text{ is always ahead}\} \mid \{B \text{ receives the last vote} \}) \cdot \frac{m}{n+m} 
+\]
+
+\[
+= P_{n-1,m} \cdot \frac{n}{n+m}  +  P_{n,m-1} \cdot \frac{m}{n+m} 
+\]
+
+We can work this out recursively using the boundary conditions
+
+\[
+P_{n,n} = 2, \ \ P_{n,0} = 1, \ n > 0
+\]
+
+We will try to guess the answer. 
+
+\[
+P_{2,1} = \Pr(\{A \text{ gets the first two votes} \}) = \frac{1}{3} 
+\]
+
+\[
+P_{n,1} = \Pr(\{\text{first two votes are for } A\}) = \frac{n}{n+1} \cdot \frac{n-1}{n} = \frac{n-1}{n+1}
+\]
+
+\[
+P_{3,2} = \frac{3}{5} \cdot \frac{2}{4} \cdot \Pr(\{A \text{ is not the last of the remaining votes}\}) = \frac{3}{5} \cdot \frac{2}{4} \cdot \frac{2}{3} = \frac{1}{5}
+\]
+
+\[
+P_{4,2} = \frac{4}{6} \cdot \frac{3}{5} \cdot \Pr(\{B \text{ does not get next two votes}\}) = \frac{4}{6} \cdot \frac{3}{5} \cdot \bigg(1 - \frac{2}{4} \cdot \frac{1}{3} \bigg) = \frac{4}{6} \cdot \frac{3}{5} \cdot \frac{5}{6} = \frac{1}{3}
+\]
+
+\[
+P_{4,3} = \frac{4}{7} \cdot \frac{3}{6} \cdot \bigg( \Pr(\{\text{next is } A\}) \cdot \Pr(\{\text{not 3 } B \text{ votes in a row}\})+ \Pr(\{\text{next is } B\}) \cdot \Pr( \{ 
+\]
+
+\[
+= \frac{4}{7} \cdot \frac{3}{6} \cdot \bigg(\frac{2}{5} \cdot \frac{3}{4} + \frac{3}{5} \cdot \frac{2}{4} \cdot \frac{2}{3} \bigg) 
+\]
+
+\[
+\vdots
+\]
+
+It seems that
+
+\[
+\boxed{
+P_{n,m}.= \frac{n-m}{n+m}}
+\]
+
+We can argue this solution is unique or we can argue it is true by induction. 
+
+\end{solution}
+
+
+\subsection{Simple Random Walk}
+
+\begin{definition}\label{sp.srw} Let \(\{X_i\}\) be i.i.d. We have
+
+\[
+X_i = \begin{cases}
+1 & \text{with probability } p \\
+-1 & \text{with probability } 1 - p
+\end{cases}
+\]
+
+Let \(S_k = \sum_{i=1}^k X_i\). Then \(\{S_k\}\) is a \textbf{simple random walk}. (It is simple because the outcomes are either 1 or -1.)
+
+\end{definition}
 
 \subsection{Martingales}
 
@@ -314,3 +2068,8 @@ f[R_n(a)] \xrightarrow{d} f[w(a)]
 %
 
 %\end{document}
+
+
+
+
+

@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Mathematical Statistics}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Order Statistics (ISE 620)}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Random Samples}{5}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}The Delta Method}{18}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Simulation of Random Variables}{21}{subsubsection.1.2.2}
+\contentsline {subsection}{\numberline {1.3}Data Reduction}{22}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Sufficient Statistics}{22}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Minimal Sufficient Statistics}{26}{subsubsection.1.3.2}
+\contentsline {subsection}{\numberline {1.4}Point Estimation}{29}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Method of Moments}{29}{subsubsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.2}Maximum likelihood estimator}{29}{subsubsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.3}Bayes estimator}{36}{subsubsection.1.4.3}
+\contentsline {subsubsection}{\numberline {1.4.4}EM Alglorithm}{36}{subsubsection.1.4.4}
+\contentsline {subsubsection}{\numberline {1.4.5}Comparison of estimators}{36}{subsubsection.1.4.5}
+\contentsline {subsection}{\numberline {1.5}Hypothesis Testing}{36}{subsection.1.5}

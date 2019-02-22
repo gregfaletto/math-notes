@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
+\usepackage{mathrsfs}
 \usepackage{tikz}
 \usepackage{enumerate}
 \usepackage{graphicx}
@@ -83,7 +84,7 @@
 \newcommand{\dx}{\mathrm{d}x}
 
 %%%%%% Alias for the Solution section header
-\newcommand{\solution}{\textbf{\large Solution}}
+\newcommand{\solution}{\textbf{Solution.}}
 
 %%%%%% Probability commands: Expectation, Variance, Covariance, Bias
 \newcommand{\E}{\mathbb{E}}
@@ -95,6 +96,8 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
+
+\numberwithin{equation}{section}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
@@ -112,6 +115,10 @@
 \newtheorem{definition}{Definition}[section]
 %\numberwithin{definition}{subsection}
 \newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
 
 %%%%%% Tilde
 \newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
@@ -179,6 +186,11 @@ I use many sources throughout this document, which I either cite at the beginnin
 
 % Asymptotics
 \import{Topics/Asymptotics/}{Asymptotics}
+
+\pagebreak
+
+% Mathematical Statistics
+\import{Topics/Mathematical_Statistics/}{Mathematical_Statistics}
 
 \pagebreak
 

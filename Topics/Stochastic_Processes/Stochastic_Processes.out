@@ -1,4 +1,12 @@
 \BOOKMARK [1][-]{section.1}{Stochastic Processes}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Poisson Processes}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Martingales}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Brownian Motion}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.1}{Preliminaries}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Poisson Processes}{section.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Poissonization Trick}{subsection.1.2}% 4
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Time Sampling Poisson Processes}{subsection.1.2}% 5
+\BOOKMARK [3][-]{subsubsection.1.2.3}{Nonstationary Poisson Processes}{subsection.1.2}% 6
+\BOOKMARK [3][-]{subsubsection.1.2.4}{Queueing Systems}{subsection.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.3}{Renewal Processes}{section.1}% 8
+\BOOKMARK [2][-]{subsection.1.4}{ISE 620}{section.1}% 9
+\BOOKMARK [2][-]{subsection.1.5}{Simple Random Walk}{section.1}% 10
+\BOOKMARK [2][-]{subsection.1.6}{Martingales}{section.1}% 11
+\BOOKMARK [2][-]{subsection.1.7}{Brownian Motion}{section.1}% 12
