@@ -4894,7 +4894,7 @@ Left side:
 
 
 
-\subsection{KL Divergence (DSO 607)}
+\subsection{KL Divergence (DSO 607)}\label{prob.kl.divergence}
 
 KL Divergence of density \(f\) (estimated) from density \(g\) (true model/distribution):
 
@@ -4903,6 +4903,10 @@ I(g; f) = \int[\log g(x) ] g(z) dz - \int [\log f(x)] g(z) dz = \E_g \log(g(z)) 
 \]
 
 Intuition: \(\log g(x)\) is the log likelihood. Penalty term can be interpreted as penalty, or as a bias correction since you are doing training and feature selection simultaneously on the same data.
+
+\
+
+One application of KL Divergence is AIC for model selection; see Section \ref{{linreg.aic.bic}}.
 
 %
 %

@@ -143,7 +143,7 @@
 
 \section{Linear Regression}
 
-These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, DSO 607 at USC taught by Jinchi Lv, and Statistics 100B at UCLA taught by Nicolas Christou. I also borrowed from some other sources which I mention when I use them.
+These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC taught by M. Hashem Pesaran, DSO 607 at USC taught by Jinchi Lv, Statistics 100B at UCLA taught by Nicolas Christou, and the Coursera MOOC ``Econometrics: Methods and Applications" from Erasmus University Rotterdam. I also borrowed from some other sources which I mention when I use them.
 
 %\section{Linear Regression}
 
@@ -931,12 +931,14 @@ Like MLE, maximizing \(\ell_n(y, \beta)\) with respect to \(\beta\) gives the qu
 (Intuition of score equation: the columns of \(X\) are all orthogonal to the errors (uncorrelated if \(X\) is random).
 
 
+\subsubsection{AIC and BIC}\label{linreg.aic.bic}
+
 KL Divergence:
 \[
 I(g_n; f_n(\cdot, \beta)) = \sum_{i=1}^n \bigg[ \int \bigg]
 \]
 
-To minimize the KL divergence:
+To minimize the KL divergence
 
 \[
 \pderiv{I(g_n; f_n(\cdot, \beta))}{\beta} = - X^T [ \E(Y) = \mu(X \beta)] = 0
@@ -948,7 +950,7 @@ the inverse of the Fisher information matrix is the covariance of the MLE (?).
 \vdots
 \]
 
-For AIC, we minimize the KL divergence. For BIC, we maximize the Bayes factor (posterior probability for the model).
+(For more information on KL Divergence, see Section \ref{prob.kl.divergence}). For AIC, we minimize the KL divergence. For BIC, we maximize the Bayes factor (posterior probability for the model).
 \[
 \vdots
 \]
@@ -980,6 +982,109 @@ GBIC in misspecified models: \(H_n = A_n^{-1} B_n\) (covariance contrast matrix)
 \]
 
 Note: \(\log(y, \hat{\beta}_n) > \log(y, \beta_{n,0})\) because \(\hat{\beta}_n\) is by definition the MLE on the observed data. But \(\E(\log(\tilde{y}, \beta_{n,0}) > \E(\log(\tilde{y}, \hat{\beta}_n)\) because \(\beta_{n,0}\) is the true parameter. We have a systematic upward bias when we use the empirical estimate. (p.18 of week 2-2 slides)
+
+\begin{proposition}[\textbf{Result from \textit{``Econometrics: Methods and Applications"} homework}]Consider the usual linear model, where \(y = X\beta + \epsilon\). Suppose we compare two regressions, which differ in how many variables are included in the matrix \(X\). In the full (unrestricted) model \(p_1\) regressors are included. In the restricted model only a subset of \(p_0 < p_1\) regressors are included. Then for large \(n\), selection based on AIC corresponds to an \(F\)-test with a critical value of approximately 2.
+
+\end{proposition}
+
+\begin{proof}
+
+Let \(e_R\) be the vector of residuals for the restricted model with \(p_0\) parameters and \(e_U\) the vector of residuals for the full unrestricted model with \(p_1\) parameters. Then we have the sample standard deviations
+
+\begin{equation}\label{linreg.aic.ftest.proof.c}
+ s_0^2 = \frac{1}{n-p_0}{e_R}'e_R, s_1^2 = \frac{1}{n-p_1}{e_U}' e_U
+\end{equation}
+
+
+Recall the  AIC: \[ \log(s^2) + \frac{2k}{n} \]
+ \\
+ where \(k\) is the number of regressors included in the model.
+ \\
+    
+For the small model, we have \[ AIC_0 = \log(s_0^2) + \frac{2p_0}{n} .\]
+    
+For the big model, we have \[AIC_1 = \log(s_1^2) + \frac{2p_1}{n}. \]
+
+Therefore the smallest model is preferred according to the AIC if
+   
+\[
+AIC_0 < AIC_1
+\]
+\[
+\iff \log(s_0^2) + \frac{2p_0}{n} < \log(s_1^2) + \frac{2p_1}{n} \iff \log(s_0^2) - \log(s_1^2) < \frac{2p_1}{n} - \frac{2p_0}{n} \iff \log( \frac{s_0^2}{s_1^2}) < \frac{2}{n}(p_1 - p_0)
+\]
+
+
+\begin{equation}\label{linreg.aic.ftest.proof.a}
+\iff \frac{s_0^2}{s_1^2} < e^{\frac{2}{n}(p_1 - p_0)}
+\end{equation}
+
+If \(n\) is very large, \(\frac{2}{n}(p_1 - p_0)\) is small. Therefore, using the first order Taylor approximation \(e^x \approx 1 + x\) we can approximate that
+
+\[
+e^{\frac{2}{n}(p_1 - p_0)} \approx 1 + \frac{2}{n}(p_1 - p_0)
+\]
+
+(if \(n\) is very large.) Substituting this expression into the right side of (\ref{linreg.aic.ftest.proof.a}) yields
+
+\[
+\frac{s_0^2}{s_1^2} < 1 + \frac{2}{n}(p_1 - p_0) \iff \frac{s_0^2}{s_1^2} - 1 < \frac{2}{n}(p_1 - p_0) \iff \frac{s_0^2}{s_1^2} - \frac{s_1^2}{s_1^2} < \frac{2}{n}(p_1 - p_0)
+\]
+
+\[
+\iff \frac{s_0^2 - s_1^2}{s_1^2} < \frac{2}{n}(p_1 - p_0)
+\]
+
+for \(n\) very large. Plugging in the expressions from (\ref{linreg.aic.ftest.proof.c}), we have
+
+\[
+\frac{\frac{1}{n-p_0}{e_R}'e_R - \frac{1}{n-p_1}{e_U}' e_U}{\frac{1}{n-p_1}{e_U}' e_U} < \frac{2}{n}(p_1 - p_0).
+\]
+
+For large values of \(n\), \(n - p_0 \approx n - p_1 \approx n\). This yields
+
+\[
+\frac{\frac{1}{n}{e_R}'e_R - \frac{1}{n}{e_U}' e_U}{\frac{1}{n}{e_U}' e_U} < \frac{2}{n}(p_1 - p_0)
+\]
+
+\begin{equation}\label{linreg.aic.ftest.proof.b}
+= \frac{{e_R}'e_R - {e_U}'e_U}{{e_U}'e_U} < \frac{2}{n}(p_1 - p_0)
+\end{equation}
+
+Now recall the \(F\) statistic:
+
+\begin{equation}\label{linreg.aic.ftest.proof.d}
+F = \frac{({e_R}'e_R - {e_U}'e_U)/g}{{e_U}'e_U/(n - k)}
+\end{equation}
+
+where \(k\) is the number of explanatory factors in the unrestricted model, and \(g\) is the number of explanatory factors removed from the unrestricted model to create the restricted model. Under this test, we believe there is significant evidence to suggest that \(\beta \neq 0\) (so the unrestricted model is preferred) if \(F > F_{critical}\). Therefore a larger model is preferred if \(F > F_{critical}\), and we stay with (prefer) a smaller model if \(F < F_{critical}\).
+
+Let \(F_{critical} = 2\). Then a smaller model is preferred if \(F < 2\):
+
+\[
+\frac{({e_R}'e_R - {e_U}'e_U)/g}{{e_U}'e_U/(n - k)} < 2
+\]
+
+In this case, with \(p_1\) factors in the unrestricted model and \(p_0\) in the restricted model, we get
+
+\[
+\frac{({e_R}'e_R - {e_U}'e_U)/(p_1 - p_0)}{{e_U}'e_U/(n - p_1)} < 2
+\]
+
+\[
+\frac{({e_R}'e_R - {e_U}'e_U)}{{e_U}'e_U} < \frac{2(p_1 - p_0)}{n - p_1}
+\]
+
+If \(n\) is very large, \(n - p_1 \approx n\). Substituting this in yields
+
+
+\begin{equation}\label{linreg.aic.ftest.proof.e}
+\frac{({e_R}'e_R - {e_U}'e_U)}{{e_U}'e_U} < \frac{2(p_1 - p_0)}{n}
+\end{equation}
+
+which equals (\ref{linreg.aic.ftest.proof.b}). Our condition for preferring a restricted model when doing an F-test with \(F_{critical} = 2\) (and when \(n\) is very large) is approximately the same as our condition for preferring a restricted model when using the AIC (when \(n\) is very large).
+
+\end{proof}
 
 \subsection{Lasso}
 
