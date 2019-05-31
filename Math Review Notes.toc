@@ -1,171 +1,208 @@
-\contentsline {section}{\numberline {1}Introduction}{9}{section.1}
-\contentsline {section}{\numberline {2}Linear Algebra}{10}{section.2}
-\contentsline {subsection}{\numberline {2.1}Properties of Projection Matrices}{10}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Eigenvalues, Eigenvectors, Diagonalization, Symmetric Matrices}{10}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Positive Definite Matrices}{12}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Matrix Decompositions}{12}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Other}{12}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Practice Problems}{13}{subsection.2.6}
-\contentsline {section}{\numberline {3}Calculus}{18}{section.3}
-\contentsline {subsection}{\numberline {3.1}List of common derivatives and integrals to know}{18}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Matrix Differentiation}{18}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Some theorems in higher dimensions}{20}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Optimizing functions of several variables}{22}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Lagrange Multipliers}{22}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Line Integrals}{22}{subsection.3.6}
-\contentsline {subsection}{\numberline {3.7}Miscellaneous}{23}{subsection.3.7}
-\contentsline {subsection}{\numberline {3.8}Practice Problems}{24}{subsection.3.8}
-\contentsline {section}{\numberline {4}Differential Equations}{30}{section.4}
-\contentsline {section}{\numberline {5}Real Analysis}{31}{section.5}
-\contentsline {subsection}{\numberline {5.1}Midterm 1}{31}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Homework 1}{31}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Homework 2}{34}{subsubsection.5.1.2}
-\contentsline {subsection}{\numberline {5.2}Midterm 2}{37}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Homework 3}{37}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Homework 4}{38}{subsubsection.5.2.2}
-\contentsline {subsection}{\numberline {5.3}Final}{39}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Homework 5}{39}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}Homework 6}{42}{subsubsection.5.3.2}
-\contentsline {subsection}{\numberline {5.4}More Theorems}{43}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Problems from Practice Math GRE Subject Tests}{43}{subsection.5.5}
-\contentsline {section}{\numberline {6}Probability}{46}{section.6}
-\contentsline {subsection}{\numberline {6.1}To Know for Math 505A Midterm 1 (Discrete Random Variables)}{46}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}Definitions}{46}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}Conditioning}{47}{subsubsection.6.1.2}
-\contentsline {subsubsection}{\numberline {6.1.3}Convolution}{48}{subsubsection.6.1.3}
-\contentsline {subsubsection}{\numberline {6.1.4}Compound Random Variables}{50}{subsubsection.6.1.4}
-\contentsline {subsubsection}{\numberline {6.1.5}Odds and Ends}{51}{subsubsection.6.1.5}
-\contentsline {subsubsection}{\numberline {6.1.6}Methods for Calculating Quantities}{54}{subsubsection.6.1.6}
-\contentsline {subsubsection}{\numberline {6.1.7}Discrete Random Variable Distributions}{57}{subsubsection.6.1.7}
-\contentsline {subsubsection}{\numberline {6.1.8}Indicator Method}{62}{subsubsection.6.1.8}
-\contentsline {subsubsection}{\numberline {6.1.9}Linear transformations of random variables}{62}{subsubsection.6.1.9}
-\contentsline {subsubsection}{\numberline {6.1.10}Poisson Paradigm (Poisson approximation for indicator method)}{62}{subsubsection.6.1.10}
-\contentsline {subsubsection}{\numberline {6.1.11}Asymptotic Distributions}{64}{subsubsection.6.1.11}
-\contentsline {subsection}{\numberline {6.2}Worked problems}{64}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Example Problems That Will Likely Appear on Midterm (and Final)}{64}{subsubsection.6.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2}Problems we did in class that professor mentioned}{68}{subsubsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.3}Problems we did on homework}{74}{subsubsection.6.2.3}
-\contentsline {subsection}{\numberline {6.3}To Know for Math 505A Midterm 2}{92}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}Definitions}{92}{subsubsection.6.3.1}
-\contentsline {subsubsection}{\numberline {6.3.2}Probability-Generating Functions}{95}{subsubsection.6.3.2}
-\contentsline {subsubsection}{\numberline {6.3.3}Moment-Generating Functions}{95}{subsubsection.6.3.3}
-\contentsline {subsubsection}{\numberline {6.3.4}Characteristic Functions}{96}{subsubsection.6.3.4}
-\contentsline {subsubsection}{\numberline {6.3.5}Continuous Random Variable Distributions}{97}{subsubsection.6.3.5}
-\contentsline {subsubsection}{\numberline {6.3.6}More on Exponential Random Variables}{106}{subsubsection.6.3.6}
-\contentsline {subsubsection}{\numberline {6.3.7}Multivariate Gaussian (Normal) Distributions}{110}{subsubsection.6.3.7}
-\contentsline {subsection}{\numberline {6.4}Exponential Families}{112}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}Differential identities}{115}{subsubsection.6.4.1}
-\contentsline {subsection}{\numberline {6.5}KL Divergence (DSO 607)}{119}{subsection.6.5}
-\contentsline {subsection}{\numberline {6.6}Worked problems}{119}{subsection.6.6}
-\contentsline {subsubsection}{\numberline {6.6.1}Example Problems That Will Likely Appear on Midterm (and Final)}{119}{subsubsection.6.6.1}
-\contentsline {subsubsection}{\numberline {6.6.2}More Problems From Homework}{125}{subsubsection.6.6.2}
-\contentsline {section}{\numberline {7}Stochastic Processes}{131}{section.7}
-\contentsline {subsection}{\numberline {7.1}Preliminaries}{131}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Poisson Processes}{131}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Poissonization Trick}{137}{subsubsection.7.2.1}
-\contentsline {subsubsection}{\numberline {7.2.2}Time Sampling Poisson Processes}{142}{subsubsection.7.2.2}
-\contentsline {subsubsection}{\numberline {7.2.3}Nonstationary Poisson Processes}{143}{subsubsection.7.2.3}
-\contentsline {subsubsection}{\numberline {7.2.4}Queueing Systems}{148}{subsubsection.7.2.4}
-\contentsline {subsection}{\numberline {7.3}Renewal Processes}{149}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}ISE 620}{159}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}Simple Random Walk}{162}{subsection.7.5}
-\contentsline {subsection}{\numberline {7.6}Martingales}{162}{subsection.7.6}
-\contentsline {subsection}{\numberline {7.7}Brownian Motion}{162}{subsection.7.7}
-\contentsline {section}{\numberline {8}Asymptotics and Convergence}{164}{section.8}
-\contentsline {subsection}{\numberline {8.1}Preliminaries (5.9 and 7.1, Grimmett and Stirzaker)}{164}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Inequalities (8.6 of Pesaran)}{165}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Modes of Convergence (7.2 of Grimmett and Stirzaker, 8.2 and 8.4 of Pesaran)}{170}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}More on convergence (7.2 of Grimmet and Stirzaker)}{172}{subsection.8.4}
-\contentsline {subsubsection}{\numberline {8.4.1}Slutsky's Convergence Theorems (8.4.1 of Pesaran, 7.3 of Grimmett and Stirzaker)}{176}{subsubsection.8.4.1}
-\contentsline {subsection}{\numberline {8.5}Stochastic orders \(\mathcal {O}_p(\cdot )\) and \(o_p(\cdot )\) (Pesaran 8.5)}{176}{subsection.8.5}
-\contentsline {subsection}{\numberline {8.6}Laws of Large Numbers and Central Limit Theorems (Pesaran 8.6; Grimmett and Stirzaker 7.4, 7.5)}{177}{subsection.8.6}
-\contentsline {subsection}{\numberline {8.7}The case of dependent and heterogeneously distributed observations (Pesaran 8.8)}{179}{subsection.8.7}
-\contentsline {subsection}{\numberline {8.8}Worked Examples from Math 505A Midterm 2}{179}{subsection.8.8}
-\contentsline {section}{\numberline {9}Mathematical Statistics}{185}{section.9}
-\contentsline {subsection}{\numberline {9.1}Order Statistics (ISE 620)}{185}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Random Samples}{187}{subsection.9.2}
-\contentsline {subsubsection}{\numberline {9.2.1}The Delta Method}{200}{subsubsection.9.2.1}
-\contentsline {subsubsection}{\numberline {9.2.2}Simulation of Random Variables}{203}{subsubsection.9.2.2}
-\contentsline {subsection}{\numberline {9.3}Data Reduction}{204}{subsection.9.3}
-\contentsline {subsubsection}{\numberline {9.3.1}Sufficient Statistics}{204}{subsubsection.9.3.1}
-\contentsline {subsubsection}{\numberline {9.3.2}Minimal Sufficient Statistics}{208}{subsubsection.9.3.2}
-\contentsline {subsection}{\numberline {9.4}Point Estimation}{211}{subsection.9.4}
-\contentsline {subsubsection}{\numberline {9.4.1}Method of Moments}{211}{subsubsection.9.4.1}
-\contentsline {subsubsection}{\numberline {9.4.2}Maximum likelihood estimator}{211}{subsubsection.9.4.2}
-\contentsline {subsubsection}{\numberline {9.4.3}Bayes estimator}{218}{subsubsection.9.4.3}
-\contentsline {subsubsection}{\numberline {9.4.4}EM Alglorithm}{218}{subsubsection.9.4.4}
-\contentsline {subsubsection}{\numberline {9.4.5}Comparison of estimators}{218}{subsubsection.9.4.5}
-\contentsline {subsection}{\numberline {9.5}Hypothesis Testing}{218}{subsection.9.5}
-\contentsline {section}{\numberline {10}Linear Regression}{220}{section.10}
-\contentsline {subsection}{\numberline {10.1}Chapter 1: Linear Regression}{220}{subsection.10.1}
-\contentsline {subsubsection}{\numberline {10.1.1}Preliminaries}{220}{subsubsection.10.1.1}
-\contentsline {subsubsection}{\numberline {10.1.2}Estimation}{220}{subsubsection.10.1.2}
-\contentsline {subsection}{\numberline {10.2}Chapter 2: Multiple Regression}{226}{subsection.10.2}
-\contentsline {subsection}{\numberline {10.3}Chapter 3: Hypothesis testing in regression}{226}{subsection.10.3}
-\contentsline {subsection}{\numberline {10.4}Chapter 4: Heteroskedasticity}{229}{subsection.10.4}
-\contentsline {subsection}{\numberline {10.5}Chapter 5: Autocorrelated disturbances}{230}{subsection.10.5}
-\contentsline {subsection}{\numberline {10.6}DSO 607}{230}{subsection.10.6}
-\contentsline {subsubsection}{\numberline {10.6.1}AIC and BIC}{231}{subsubsection.10.6.1}
-\contentsline {subsection}{\numberline {10.7}Lasso}{234}{subsection.10.7}
-\contentsline {subsubsection}{\numberline {10.7.1}Soft Thresholding}{235}{subsubsection.10.7.1}
-\contentsline {subsubsection}{\numberline {10.7.2}Lasso theory}{236}{subsubsection.10.7.2}
-\contentsline {subsubsection}{\numberline {10.7.3}Non-Negative Garotte}{237}{subsubsection.10.7.3}
-\contentsline {subsubsection}{\numberline {10.7.4}LARS---Preliminaries and Intuition}{237}{subsubsection.10.7.4}
-\contentsline {subsubsection}{\numberline {10.7.5}LARS}{239}{subsubsection.10.7.5}
-\contentsline {subsection}{\numberline {10.8}Quadratic Loss}{239}{subsection.10.8}
-\contentsline {section}{\numberline {11}Time Series}{242}{section.11}
-\contentsline {subsection}{\numberline {11.1}Chapter 6: ARDL Models}{242}{subsection.11.1}
-\contentsline {subsection}{\numberline {11.2}Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{242}{subsection.11.2}
-\contentsline {subsubsection}{\numberline {11.2.1}Worked Examples}{243}{subsubsection.11.2.1}
-\contentsline {subsection}{\numberline {11.3}Some time series and their properties}{245}{subsection.11.3}
-\contentsline {subsubsection}{\numberline {11.3.1}White noise process:}{245}{subsubsection.11.3.1}
-\contentsline {subsubsection}{\numberline {11.3.2}MA(1) process:}{245}{subsubsection.11.3.2}
-\contentsline {subsubsection}{\numberline {11.3.3}MA(\(\infty \)) process:}{246}{subsubsection.11.3.3}
-\contentsline {subsubsection}{\numberline {11.3.4}AR(1) process:}{246}{subsubsection.11.3.4}
-\contentsline {subsubsection}{\numberline {11.3.5}AR(2) process:}{247}{subsubsection.11.3.5}
-\contentsline {subsubsection}{\numberline {11.3.6}AR(\(p\)) process:}{247}{subsubsection.11.3.6}
-\contentsline {subsubsection}{\numberline {11.3.7}ARMA(1, 1) process:}{248}{subsubsection.11.3.7}
-\contentsline {subsection}{\numberline {11.4}Chapter 14: Estimation of Stationary Time Series Processes}{249}{subsection.11.4}
-\contentsline {subsubsection}{\numberline {11.4.1}Sufficient conditions for ergodicity of mean. (Book section 14.2.1)}{249}{subsubsection.11.4.1}
-\contentsline {subsubsection}{\numberline {11.4.2}Estimation of autocovariances (Book section 14.2.2).}{250}{subsubsection.11.4.2}
-\contentsline {subsubsection}{\numberline {11.4.3}Worked examples}{252}{subsubsection.11.4.3}
-\contentsline {subsection}{\numberline {11.5}Chapter 15: Unit Root Processes}{258}{subsection.11.5}
-\contentsline {subsubsection}{\numberline {11.5.1}Worked Problems}{258}{subsubsection.11.5.1}
-\contentsline {subsection}{\numberline {11.6}Chapter 17: Introduction to Forecasting}{265}{subsection.11.6}
-\contentsline {subsubsection}{\numberline {11.6.1}17.7: Iterated and direct multi-step AR methods}{265}{subsubsection.11.6.1}
-\contentsline {subsubsection}{\numberline {11.6.2}Worked Problems}{266}{subsubsection.11.6.2}
-\contentsline {subsection}{\numberline {11.7}Chapter 18: Measurement and Modeling of Volatility}{268}{subsection.11.7}
-\contentsline {subsubsection}{\numberline {11.7.1}Higher order GARCH models (Pesaran Section 18.4.2)}{268}{subsubsection.11.7.1}
-\contentsline {subsubsection}{\numberline {11.7.2}Testing for GARCH effects (Pesaran Section 18.5.1)}{269}{subsubsection.11.7.2}
-\contentsline {subsubsection}{\numberline {11.7.3}Worked Problems}{270}{subsubsection.11.7.3}
-\contentsline {subsection}{\numberline {11.8}Chapter 21: Vector Autoregressive Models}{272}{subsection.11.8}
-\contentsline {subsubsection}{\numberline {11.8.1}Worked Problems}{272}{subsubsection.11.8.1}
-\contentsline {subsection}{\numberline {11.9}Chapter 22: Cointegration Analysis}{277}{subsection.11.9}
-\contentsline {subsubsection}{\numberline {11.9.1}22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}{278}{subsubsection.11.9.1}
-\contentsline {subsubsection}{\numberline {11.9.2}Worked Problems}{279}{subsubsection.11.9.2}
-\contentsline {subsection}{\numberline {11.10}Chapter 23: VARX Modeling}{279}{subsection.11.10}
-\contentsline {subsubsection}{\numberline {11.10.1}Worked Problems}{279}{subsubsection.11.10.1}
-\contentsline {subsection}{\numberline {11.11}Chapter 24: Impulse Response Analysis}{279}{subsection.11.11}
-\contentsline {subsubsection}{\numberline {11.11.1}Worked Problems}{279}{subsubsection.11.11.1}
-\contentsline {subsection}{\numberline {11.12}Chapter 33: Theory and Practice of GVAR Modeling}{282}{subsection.11.12}
-\contentsline {section}{\numberline {12}Convex Optimization}{283}{section.12}
-\contentsline {subsection}{\numberline {12.1}Convex Functions}{283}{subsection.12.1}
-\contentsline {subsection}{\numberline {12.2}Schur Complement Trick}{288}{subsection.12.2}
-\contentsline {subsubsection}{\numberline {12.2.1}Definition}{288}{subsubsection.12.2.1}
-\contentsline {subsubsection}{\numberline {12.2.2}The Trick}{288}{subsubsection.12.2.2}
-\contentsline {subsubsection}{\numberline {12.2.3}Example 1: Last Year's Final, Question 2(b)}{289}{subsubsection.12.2.3}
-\contentsline {subsubsection}{\numberline {12.2.4}Example 2: Last Year's Final, Question 4(b)}{289}{subsubsection.12.2.4}
-\contentsline {subsection}{\numberline {12.3}Duality}{290}{subsection.12.3}
-\contentsline {subsection}{\numberline {12.4}MLE estimates}{290}{subsection.12.4}
-\contentsline {subsection}{\numberline {12.5}Practice Final (2017 Final)}{290}{subsection.12.5}
-\contentsline {section}{\numberline {13}Abstract Algebra}{295}{section.13}
-\contentsline {subsection}{\numberline {13.1}Chapter 1: Binary Operations}{295}{subsection.13.1}
-\contentsline {subsection}{\numberline {13.2}Chapter 2: Groups}{298}{subsection.13.2}
-\contentsline {subsection}{\numberline {13.3}Chapter 3: The Symmetric Groups}{299}{subsection.13.3}
-\contentsline {subsection}{\numberline {13.4}Chapter 4: Subgroups}{302}{subsection.13.4}
-\contentsline {subsection}{\numberline {13.5}Chapter 5: The Group of Units of \(\mathbb {Z}_n\)}{304}{subsection.13.5}
-\contentsline {subsection}{\numberline {13.6}Chapter 6: Direct Products of Groups}{304}{subsection.13.6}
-\contentsline {subsection}{\numberline {13.7}Chapter 7: Isomorphism of Groups}{305}{subsection.13.7}
-\contentsline {subsection}{\numberline {13.8}Chapter 8: Cosets and Lagrange's Theorem}{307}{subsection.13.8}
-\contentsline {subsection}{\numberline {13.9}Chapter 9: Introduction to Ring Theory}{309}{subsection.13.9}
-\contentsline {section}{\numberline {14}Miscellaneous}{311}{section.14}
+\contentsline {section}{\numberline {1}Introduction}{10}{section.1}
+\contentsline {section}{\numberline {2}Linear Algebra}{11}{section.2}
+\contentsline {subsection}{\numberline {2.1}Properties of Projection Matrices}{11}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Eigenvalues, Eigenvectors, Diagonalization, Symmetric Matrices}{11}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Positive Definite Matrices}{13}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Matrix Decompositions}{13}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Inverting Matrices}{13}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Other}{14}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Practice Problems}{14}{subsection.2.7}
+\contentsline {section}{\numberline {3}Calculus}{19}{section.3}
+\contentsline {subsection}{\numberline {3.1}Differentiation and common derivatives and integrals to know}{19}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Matrix Differentiation}{19}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Some theorems in higher dimensions}{21}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Optimizing functions of several variables}{23}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Lagrange Multipliers}{23}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Line Integrals}{23}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Miscellaneous}{24}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Practice Problems}{25}{subsection.3.8}
+\contentsline {section}{\numberline {4}Differential Equations}{31}{section.4}
+\contentsline {section}{\numberline {5}Real Analysis}{32}{section.5}
+\contentsline {subsection}{\numberline {5.1}Midterm 1}{32}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Homework 1}{32}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Homework 2}{35}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}Midterm 2}{38}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Homework 3}{38}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Homework 4}{39}{subsubsection.5.2.2}
+\contentsline {subsection}{\numberline {5.3}Final}{40}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Homework 5}{40}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Homework 6}{43}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.4}More Theorems}{44}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Problems from Practice Math GRE Subject Tests}{44}{subsection.5.5}
+\contentsline {section}{\numberline {6}Probability}{47}{section.6}
+\contentsline {subsection}{\numberline {6.1}To Know for Math 505A Midterm 1 (Discrete Random Variables)}{47}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Definitions}{47}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Conditioning}{49}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Convolution}{54}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.4}Compound Random Variables}{56}{subsubsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.5}Odds and Ends}{57}{subsubsection.6.1.5}
+\contentsline {subsubsection}{\numberline {6.1.6}Methods for Calculating Quantities}{60}{subsubsection.6.1.6}
+\contentsline {subsubsection}{\numberline {6.1.7}Discrete Random Variable Distributions}{64}{subsubsection.6.1.7}
+\contentsline {subsubsection}{\numberline {6.1.8}Indicator Method}{69}{subsubsection.6.1.8}
+\contentsline {subsubsection}{\numberline {6.1.9}Linear transformations of random variables}{69}{subsubsection.6.1.9}
+\contentsline {subsubsection}{\numberline {6.1.10}Poisson Paradigm (Poisson approximation for indicator method)}{69}{subsubsection.6.1.10}
+\contentsline {subsubsection}{\numberline {6.1.11}Asymptotic Distributions}{71}{subsubsection.6.1.11}
+\contentsline {subsection}{\numberline {6.2}Worked problems}{71}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Example Problems That Will Likely Appear on Midterm (and Final)}{71}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Problems we did in class that professor mentioned}{75}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Problems we did on homework}{81}{subsubsection.6.2.3}
+\contentsline {subsection}{\numberline {6.3}To Know for Math 505A Midterm 2}{99}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Definitions}{99}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Probability-Generating Functions}{102}{subsubsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3}Moment-Generating Functions}{102}{subsubsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.4}Characteristic Functions}{103}{subsubsection.6.3.4}
+\contentsline {subsubsection}{\numberline {6.3.5}Continuous Random Variable Distributions}{104}{subsubsection.6.3.5}
+\contentsline {subsubsection}{\numberline {6.3.6}More on Exponential Random Variables}{113}{subsubsection.6.3.6}
+\contentsline {subsubsection}{\numberline {6.3.7}Multivariate Gaussian (Normal) Distributions}{117}{subsubsection.6.3.7}
+\contentsline {subsection}{\numberline {6.4}Exponential Families}{119}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Differential identities (Generalization of Moment-Generating Functions)}{122}{subsubsection.6.4.1}
+\contentsline {subsection}{\numberline {6.5}KL Divergence (DSO 607)}{126}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Worked problems}{126}{subsection.6.6}
+\contentsline {subsubsection}{\numberline {6.6.1}Example Problems That Will Likely Appear on Midterm (and Final)}{126}{subsubsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.2}More Problems From Homework}{132}{subsubsection.6.6.2}
+\contentsline {section}{\numberline {7}Stochastic Processes}{138}{section.7}
+\contentsline {subsection}{\numberline {7.1}Preliminaries}{138}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Poisson Processes}{138}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Poissonization Trick}{144}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}Time Sampling Poisson Processes}{149}{subsubsection.7.2.2}
+\contentsline {subsubsection}{\numberline {7.2.3}Nonstationary Poisson Processes}{150}{subsubsection.7.2.3}
+\contentsline {subsubsection}{\numberline {7.2.4}Queueing Systems}{155}{subsubsection.7.2.4}
+\contentsline {subsection}{\numberline {7.3}Renewal Processes}{156}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Stopping Times}{163}{subsubsection.7.3.1}
+\contentsline {subsection}{\numberline {7.4}ISE 620 Midterm Solutions}{170}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}Renewal Reward Processes (Section 4.7 in \textit {Introduction to Probability Models}, 3.6 \textit {Stochastic Processes})}{173}{subsection.7.5}
+\contentsline {subsubsection}{\numberline {7.5.1}Alternating Renewal Processes (Section 7.5.1 in \textit {Introduction to Probability Models}}{182}{subsubsection.7.5.1}
+\contentsline {subsubsection}{\numberline {7.5.2}Equilibrium renewal processes}{187}{subsubsection.7.5.2}
+\contentsline {subsubsection}{\numberline {7.5.3}Regenerative Processes}{191}{subsubsection.7.5.3}
+\contentsline {subsubsection}{\numberline {7.5.4}Example of Renewal Reward Processes to Patterns}{191}{subsubsection.7.5.4}
+\contentsline {subsection}{\numberline {7.6}Markov Chains (Chapter 4 of \textit {Stochastic Processes}; Chapter 4 of \textit {Introduction to Probability Models})}{192}{subsection.7.6}
+\contentsline {subsubsection}{\numberline {7.6.1}Chapman-Kolmogorov Equations---section 4.2 of \textit {Introduction to Probability Models}, section 4.2 of \textit {Stochastic Processes} (p. 178 of pdf)}{195}{subsubsection.7.6.1}
+\contentsline {subsubsection}{\numberline {7.6.2}Classification of States (Section 4.3 of \textit {Introduction to Probability Models})}{196}{subsubsection.7.6.2}
+\contentsline {subsubsection}{\numberline {7.6.3}Long-Run Proportions and Limiting Probabilities (Limit Theorems) (4.4 in \textit {Introduction to Probability Models}, 4.3 in \textit {Stochastic Processes}}{200}{subsubsection.7.6.3}
+\contentsline {subsubsection}{\numberline {7.6.4}Branching Processes (Section 4.7 of \textit {Introduction to Probability Models}, Section 4.5 of \textit {Stochastic Processes}}{207}{subsubsection.7.6.4}
+\contentsline {subsubsection}{\numberline {7.6.5}A Markov Chain Model of Algorithmic Efficiency (Section 4.6.1 of \textit {Stochastic Processes})}{208}{subsubsection.7.6.5}
+\contentsline {subsubsection}{\numberline {7.6.6}Time Reversible Markov Chains (Section 4.8 of \textit {Introduction to Probability Models}, Section 4.7 of \textit {Stochastic Processes}}{210}{subsubsection.7.6.6}
+\contentsline {subsubsection}{\numberline {7.6.7}Semi-Markov Processes (Section 4.8 of \textit {Stochastic Processes} (p. 224 of pdf), Section 7.6 of \textit {Introduction to Probability Models}}{211}{subsubsection.7.6.7}
+\contentsline {subsection}{\numberline {7.7}ISE 620}{212}{subsection.7.7}
+\contentsline {subsection}{\numberline {7.8}Simple Random Walk}{214}{subsection.7.8}
+\contentsline {subsection}{\numberline {7.9}Martingales}{215}{subsection.7.9}
+\contentsline {subsection}{\numberline {7.10}Brownian Motion}{215}{subsection.7.10}
+\contentsline {section}{\numberline {8}Asymptotics and Convergence}{217}{section.8}
+\contentsline {subsection}{\numberline {8.1}Preliminaries (5.9 and 7.1, Grimmett and Stirzaker)}{217}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Inequalities (8.6 of Pesaran)}{218}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Modes of Convergence (7.2 of Grimmett and Stirzaker, 8.2 and 8.4 of Pesaran)}{223}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}More on convergence (7.2 of Grimmet and Stirzaker)}{226}{subsection.8.4}
+\contentsline {subsubsection}{\numberline {8.4.1}Slutsky's Convergence Theorems (8.4.1 of Pesaran, 7.3 of Grimmett and Stirzaker)}{229}{subsubsection.8.4.1}
+\contentsline {subsection}{\numberline {8.5}Stochastic orders \(\mathcal {O}_p(\cdot )\) and \(o_p(\cdot )\) (Pesaran 8.5)}{231}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}Laws of Large Numbers and Central Limit Theorems (Pesaran 8.6; Grimmett and Stirzaker 7.4, 7.5)}{231}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}The case of dependent and heterogeneously distributed observations (Pesaran 8.8)}{234}{subsection.8.7}
+\contentsline {subsection}{\numberline {8.8}Worked Examples from Math 505A Midterm 2}{234}{subsection.8.8}
+\contentsline {subsection}{\numberline {8.9}Estimators and Central Limit Theorems (DSO 607)}{239}{subsection.8.9}
+\contentsline {section}{\numberline {9}Mathematical Statistics}{240}{section.9}
+\contentsline {subsection}{\numberline {9.1}Order Statistics}{240}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Random Samples}{244}{subsection.9.2}
+\contentsline {subsubsection}{\numberline {9.2.1}The Delta Method}{256}{subsubsection.9.2.1}
+\contentsline {subsubsection}{\numberline {9.2.2}Simulation of Random Variables}{259}{subsubsection.9.2.2}
+\contentsline {subsection}{\numberline {9.3}Data Reduction}{261}{subsection.9.3}
+\contentsline {subsubsection}{\numberline {9.3.1}Sufficient Statistics}{261}{subsubsection.9.3.1}
+\contentsline {subsubsection}{\numberline {9.3.2}Minimal Sufficient Statistics}{265}{subsubsection.9.3.2}
+\contentsline {subsubsection}{\numberline {9.3.3}Ancillary Statistics}{271}{subsubsection.9.3.3}
+\contentsline {subsubsection}{\numberline {9.3.4}Complete Statistics}{272}{subsubsection.9.3.4}
+\contentsline {subsection}{\numberline {9.4}Point Estimation}{279}{subsection.9.4}
+\contentsline {subsubsection}{\numberline {9.4.1}Heuristic Principles for Finding Good Estimators}{279}{subsubsection.9.4.1}
+\contentsline {subsubsection}{\numberline {9.4.2}Evaluating Estimators}{279}{subsubsection.9.4.2}
+\contentsline {subsubsection}{\numberline {9.4.3}Efficiency of an Estimator}{286}{subsubsection.9.4.3}
+\contentsline {subsubsection}{\numberline {9.4.4}Bayes Estimation}{289}{subsubsection.9.4.4}
+\contentsline {subsubsection}{\numberline {9.4.5}Method of Moments}{291}{subsubsection.9.4.5}
+\contentsline {subsubsection}{\numberline {9.4.6}Maximum likelihood estimator}{292}{subsubsection.9.4.6}
+\contentsline {subsubsection}{\numberline {9.4.7}Bayes estimator}{302}{subsubsection.9.4.7}
+\contentsline {subsubsection}{\numberline {9.4.8}EM Algorithm}{302}{subsubsection.9.4.8}
+\contentsline {subsubsection}{\numberline {9.4.9}Comparison of estimators}{302}{subsubsection.9.4.9}
+\contentsline {subsection}{\numberline {9.5}Resampling and Bias Reduction}{302}{subsection.9.5}
+\contentsline {subsubsection}{\numberline {9.5.1}Jackknife Resampling}{302}{subsubsection.9.5.1}
+\contentsline {subsubsection}{\numberline {9.5.2}Bootstrapping}{303}{subsubsection.9.5.2}
+\contentsline {subsection}{\numberline {9.6}Some Concentration of Measure}{303}{subsection.9.6}
+\contentsline {subsubsection}{\numberline {9.6.1}Concentration for Independent Sums}{303}{subsubsection.9.6.1}
+\contentsline {subsection}{\numberline {9.7}Hypothesis Testing}{304}{subsection.9.7}
+\contentsline {section}{\numberline {10}Linear Regression}{306}{section.10}
+\contentsline {subsection}{\numberline {10.1}Chapter 1: Linear Regression}{306}{subsection.10.1}
+\contentsline {subsubsection}{\numberline {10.1.1}Preliminaries}{306}{subsubsection.10.1.1}
+\contentsline {subsubsection}{\numberline {10.1.2}Estimation}{306}{subsubsection.10.1.2}
+\contentsline {subsection}{\numberline {10.2}Chapter 2: Multiple Regression}{312}{subsection.10.2}
+\contentsline {subsection}{\numberline {10.3}Chapter 3: Hypothesis testing in regression}{313}{subsection.10.3}
+\contentsline {subsection}{\numberline {10.4}Chapter 4: Heteroskedasticity}{315}{subsection.10.4}
+\contentsline {subsection}{\numberline {10.5}Chapter 5: Autocorrelated disturbances}{316}{subsection.10.5}
+\contentsline {subsection}{\numberline {10.6}DSO 607}{317}{subsection.10.6}
+\contentsline {subsubsection}{\numberline {10.6.1}AIC and BIC}{317}{subsubsection.10.6.1}
+\contentsline {subsection}{\numberline {10.7}Ridge Regression}{321}{subsection.10.7}
+\contentsline {subsection}{\numberline {10.8}Lasso}{322}{subsection.10.8}
+\contentsline {subsubsection}{\numberline {10.8.1}Soft Thresholding}{324}{subsubsection.10.8.1}
+\contentsline {subsubsection}{\numberline {10.8.2}Lasso theory}{325}{subsubsection.10.8.2}
+\contentsline {subsubsection}{\numberline {10.8.3}Non-Negative Garotte}{326}{subsubsection.10.8.3}
+\contentsline {subsubsection}{\numberline {10.8.4}LARS---Preliminaries and Intuition}{326}{subsubsection.10.8.4}
+\contentsline {subsubsection}{\numberline {10.8.5}LARS}{328}{subsubsection.10.8.5}
+\contentsline {subsection}{\numberline {10.9}Quadratic Loss}{329}{subsection.10.9}
+\contentsline {subsubsection}{\numberline {10.9.1}Feature Selection properties}{330}{subsubsection.10.9.1}
+\contentsline {subsection}{\numberline {10.10}Dantzig Selector}{333}{subsection.10.10}
+\contentsline {subsection}{\numberline {10.11}Coordinate Descent}{334}{subsection.10.11}
+\contentsline {subsection}{\numberline {10.12}Nonconvex Learning}{334}{subsection.10.12}
+\contentsline {subsection}{\numberline {10.13}Yinfei Kong---Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{334}{subsection.10.13}
+\contentsline {subsection}{\numberline {10.14}Total Variational Distance}{334}{subsection.10.14}
+\contentsline {section}{\numberline {11}Time Series}{335}{section.11}
+\contentsline {subsection}{\numberline {11.1}Chapter 6: ARDL Models}{335}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{335}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}Worked Examples}{337}{subsubsection.11.2.1}
+\contentsline {subsection}{\numberline {11.3}Some time series and their properties}{338}{subsection.11.3}
+\contentsline {subsubsection}{\numberline {11.3.1}White noise process:}{338}{subsubsection.11.3.1}
+\contentsline {subsubsection}{\numberline {11.3.2}MA(1) process:}{338}{subsubsection.11.3.2}
+\contentsline {subsubsection}{\numberline {11.3.3}MA(\(\infty \)) process:}{339}{subsubsection.11.3.3}
+\contentsline {subsubsection}{\numberline {11.3.4}AR(1) process:}{339}{subsubsection.11.3.4}
+\contentsline {subsubsection}{\numberline {11.3.5}AR(2) process:}{340}{subsubsection.11.3.5}
+\contentsline {subsubsection}{\numberline {11.3.6}AR(\(p\)) process:}{341}{subsubsection.11.3.6}
+\contentsline {subsubsection}{\numberline {11.3.7}ARMA(1, 1) process:}{341}{subsubsection.11.3.7}
+\contentsline {subsection}{\numberline {11.4}Chapter 14: Estimation of Stationary Time Series Processes}{343}{subsection.11.4}
+\contentsline {subsubsection}{\numberline {11.4.1}Sufficient conditions for ergodicity of mean. (Book section 14.2.1)}{343}{subsubsection.11.4.1}
+\contentsline {subsubsection}{\numberline {11.4.2}Estimation of autocovariances (Book section 14.2.2).}{344}{subsubsection.11.4.2}
+\contentsline {subsubsection}{\numberline {11.4.3}Worked examples}{345}{subsubsection.11.4.3}
+\contentsline {subsection}{\numberline {11.5}Chapter 15: Unit Root Processes}{351}{subsection.11.5}
+\contentsline {subsubsection}{\numberline {11.5.1}Worked Problems}{351}{subsubsection.11.5.1}
+\contentsline {subsection}{\numberline {11.6}Chapter 17: Introduction to Forecasting}{358}{subsection.11.6}
+\contentsline {subsubsection}{\numberline {11.6.1}17.7: Iterated and direct multi-step AR methods}{358}{subsubsection.11.6.1}
+\contentsline {subsubsection}{\numberline {11.6.2}Worked Problems}{359}{subsubsection.11.6.2}
+\contentsline {subsection}{\numberline {11.7}Chapter 18: Measurement and Modeling of Volatility}{362}{subsection.11.7}
+\contentsline {subsubsection}{\numberline {11.7.1}Higher order GARCH models (Pesaran Section 18.4.2)}{362}{subsubsection.11.7.1}
+\contentsline {subsubsection}{\numberline {11.7.2}Testing for GARCH effects (Pesaran Section 18.5.1)}{363}{subsubsection.11.7.2}
+\contentsline {subsubsection}{\numberline {11.7.3}Worked Problems}{363}{subsubsection.11.7.3}
+\contentsline {subsection}{\numberline {11.8}Chapter 21: Vector Autoregressive Models}{366}{subsection.11.8}
+\contentsline {subsubsection}{\numberline {11.8.1}Worked Problems}{366}{subsubsection.11.8.1}
+\contentsline {subsection}{\numberline {11.9}Chapter 22: Cointegration Analysis}{371}{subsection.11.9}
+\contentsline {subsubsection}{\numberline {11.9.1}22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}{372}{subsubsection.11.9.1}
+\contentsline {subsubsection}{\numberline {11.9.2}Worked Problems}{373}{subsubsection.11.9.2}
+\contentsline {subsection}{\numberline {11.10}Chapter 23: VARX Modeling}{373}{subsection.11.10}
+\contentsline {subsubsection}{\numberline {11.10.1}Worked Problems}{373}{subsubsection.11.10.1}
+\contentsline {subsection}{\numberline {11.11}Chapter 24: Impulse Response Analysis}{373}{subsection.11.11}
+\contentsline {subsubsection}{\numberline {11.11.1}Worked Problems}{373}{subsubsection.11.11.1}
+\contentsline {subsection}{\numberline {11.12}Chapter 33: Theory and Practice of GVAR Modeling}{376}{subsection.11.12}
+\contentsline {section}{\numberline {12}Convex Optimization}{377}{section.12}
+\contentsline {subsection}{\numberline {12.1}Convex Functions}{377}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}Schur Complement Trick}{388}{subsection.12.2}
+\contentsline {subsubsection}{\numberline {12.2.1}Definition}{388}{subsubsection.12.2.1}
+\contentsline {subsubsection}{\numberline {12.2.2}The Trick}{388}{subsubsection.12.2.2}
+\contentsline {subsubsection}{\numberline {12.2.3}Example 1: Last Year's Final, Question 2(b)}{388}{subsubsection.12.2.3}
+\contentsline {subsubsection}{\numberline {12.2.4}Example 2: Last Year's Final, Question 4(b)}{389}{subsubsection.12.2.4}
+\contentsline {subsection}{\numberline {12.3}Duality}{389}{subsection.12.3}
+\contentsline {subsection}{\numberline {12.4}MLE estimates}{390}{subsection.12.4}
+\contentsline {subsection}{\numberline {12.5}Practice Final (2017 Final)}{390}{subsection.12.5}
+\contentsline {section}{\numberline {13}Abstract Algebra}{395}{section.13}
+\contentsline {subsection}{\numberline {13.1}Chapter 1: Binary Operations}{395}{subsection.13.1}
+\contentsline {subsection}{\numberline {13.2}Chapter 2: Groups}{398}{subsection.13.2}
+\contentsline {subsection}{\numberline {13.3}Chapter 3: The Symmetric Groups}{399}{subsection.13.3}
+\contentsline {subsection}{\numberline {13.4}Chapter 4: Subgroups}{402}{subsection.13.4}
+\contentsline {subsection}{\numberline {13.5}Chapter 5: The Group of Units of \(\mathbb {Z}_n\)}{404}{subsection.13.5}
+\contentsline {subsection}{\numberline {13.6}Chapter 6: Direct Products of Groups}{404}{subsection.13.6}
+\contentsline {subsection}{\numberline {13.7}Chapter 7: Isomorphism of Groups}{405}{subsection.13.7}
+\contentsline {subsection}{\numberline {13.8}Chapter 8: Cosets and Lagrange's Theorem}{407}{subsection.13.8}
+\contentsline {subsection}{\numberline {13.9}Chapter 9: Introduction to Ring Theory}{409}{subsection.13.9}
+\contentsline {section}{\numberline {14}Miscellaneous}{411}{section.14}
+\contentsline {subsection}{\numberline {14.1}Set Theory}{411}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Other}{411}{subsection.14.2}

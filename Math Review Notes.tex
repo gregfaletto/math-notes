@@ -22,8 +22,18 @@
     linktoc=all,     %set to all if you want both sections and subsections linked
     linkcolor=black,  %choose some color if you want links to stand out
 }
+\usepackage{import}
+\usepackage{natbib}
 
 \usetikzlibrary{automata,positioning}
+
+%% Uncomment this to omit proofs
+%\usepackage{environ}
+%\NewEnviron{killcontents}{}
+%\let\proof\killcontents
+%\let\endproof\endkillcontents
+
+
 
 %%%%%%
 %%%%%% Basic Document Settings
@@ -215,7 +225,9 @@ I use many sources throughout this document, which I either cite at the beginnin
 \pagebreak
 
 % Miscellaneous 
-\import{Topics/}{Miscellaneous}
+\import{Topics/Miscellaneous/}{Miscellaneous}
 
+\bibliographystyle{abbrvnat}
+\bibliography{mybib2fin}
 
 \end{document}

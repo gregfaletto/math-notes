@@ -1,0 +1,277 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage[document]{ragged2e}
+\usepackage{textcomp}
+% \usepackage{amssymb}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\: \hmwkTitle}
+%\rhead{\firstxmark}
+%\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+%\newcommand{\enterProblemHeader}[1]{
+%    \nobreak\extramarks{}{Question \arabic{#1} continued on next page\ldots}\nobreak{}
+%    \nobreak\extramarks{Question \arabic{#1} (cont.)}{Question \arabic{#1} continued on next page\ldots}\nobreak{}
+%}
+%
+%\newcommand{\exitProblemHeader}[1]{
+%    \nobreak\extramarks{Question \arabic{#1} (cont.)}{Question \arabic{#1} continued on next page\ldots}\nobreak{}
+%    \stepcounter{#1}
+%    \nobreak\extramarks{Question \arabic{#1}}{}\nobreak{}
+%}
+%
+%\setcounter{secnumdepth}{0}
+%\newcounter{partCounter}
+%\newcounter{homeworkProblemCounter}
+%\setcounter{homeworkProblemCounter}{1}
+%\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%%
+%% Homework Problem Environment
+%%
+%% This environment takes an optional argument. When given, it will adjust the
+%% problem counter. This is useful for when the problems given for your
+%% assignment aren't sequential. See the last 3 problems of this template for an
+%% example.
+%%
+%\newenvironment{homeworkProblem}[1][-1]{
+%    \ifnum#1>0
+%        \setcounter{homeworkProblemCounter}{#1}
+%    \fi
+%    \section{Problem \arabic{homeworkProblemCounter}}
+%    \setcounter{partCounter}{1}
+%    \enterProblemHeader{homeworkProblemCounter}
+%}{
+%    \exitProblemHeader{homeworkProblemCounter}
+%}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{corollary}{Corollary}[theorem]
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{2016 In-Class Exam}
+%\newcommand{\hmwkDueDate}{Apr. 26, 2019}
+\newcommand{\hmwkClass}{DSO}
+%\newcommand{\hmwkClassTime}{Section A}
+%\newcommand{\hmwkClassInstructor}{S. Heilman}
+\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+
+%\renewcommand{\subset}{\subseteq}
+\renewcommand{\supset}{\supseteq}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newcommand{\abs}[1]{\left|#1\right|}                   % Absolute value notation
+\newcommand{\absf}[1]{|#1|}                             % small absolute value signs
+\newcommand{\vnorm}[1]{\left|\left|#1\right|\right|}    % norm notation
+\newcommand{\vnormf}[1]{||#1||}                         % norm notation, forced to be small
+\newcommand{\im}[1]{\mbox{im}#1}                        % Pieces of English for math mode
+\newcommand{\tr}[1]{\mbox{tr}#1}
+\newcommand{\Proj}[1]{\mbox{Proj}#1}
+\newcommand{\Vol}[1]{\mbox{Vol}#1}
+\newcommand{\Z}{\mathbb{Z}}                             % Blackboard notation
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\figoneawidth}{.5\textwidth}                % Image formatting parameters
+\newcommand{\lbreak}{\\}                                % Linebreak
+\newcommand{\italicize}[1]{\textit {#1}}                % formatting commands for bibliography
+%\newcommand{\embolden}[1]{\textbf {#1}}
+\newcommand{\embolden}[1]{{#1}}
+\newcommand{\undline}[1]{\underline {#1}}
+\newcommand{\e}{\varepsilon}
+\renewcommand{\epsilon}{\varepsilon}
+%\renewcommand{:=}{=}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{DSO Screening Exam:\ \hmwkTitle}}\\
+%    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+%    \vspace{0.1in}\large{\textit{Instructor: Dr. Steven Heilman\ }}
+    \vspace{3in}
+}
+
+\author{Gregory Faletto}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{Solution.}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\nPr}[2]{\,_{#1}P_{#2}}
+\newcommand{\nCr}[2]{\,_{#1}C_{#2}}
+%\binom{n}{r}
+
+% Tilde
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+
+% Problem 1
+\begin{exercise}[\textbf{Probability/Mathematical Statistics}]
+
+\begin{enumerate}[(a)]
+
+% 1a
+\item
+
+% 1b
+\item
+
+\end{enumerate}
+
+\end{exercise}
+
+% Problem 2
+\begin{exercise}[\textbf{Mathematical statistics, Bayesian}]
+
+\begin{enumerate}[(a)]
+
+% 2a
+\item
+
+% 2b
+\item
+
+\end{enumerate}
+
+\end{exercise}
+
+% Problem 3
+\begin{exercise}[\textbf{Convergence; Wen says we don't need to worry about. From Trambak's exam; he took Analysis of Algorithms}]
+
+\begin{enumerate}[(a)]
+
+% 3a
+\item
+
+% 3b
+\item
+
+\end{enumerate}
+
+\end{exercise}
+
+% Problem 4
+\begin{exercise}[\textbf{Convex Optimization}]
+
+\begin{enumerate}[(a)]
+
+% 4a
+\item
+
+% 4b
+\item
+
+\end{enumerate}
+
+\end{exercise}
+
+% Problem 5
+\begin{exercise}[\textbf{High-Dimensional Statistics}]
+
+\begin{enumerate}[(a)]
+
+% 5a
+\item
+
+% 5b
+\item
+
+\end{enumerate}
+
+\end{exercise}
+
+
+\end{document}

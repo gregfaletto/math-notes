@@ -1,0 +1,47 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Grimmett and Stirzaker(2001)]{grimmett2001probability}
+G.~Grimmett and D.~Stirzaker.
+\newblock \emph{Probability and random processes}, volume~80.
+\newblock Oxford university press, 2001.
+\newblock URL
+  \url{http://scholar.google.com/scholar.bib?q=info:xzStZXK20NkJ:scholar.google.com/&output=citation&hl=en&as_sdt=0,5&ct=citation&cd=0}.
+
+\bibitem[Pesaran(2015)]{pesaran-2015-text}
+M.~H. Pesaran.
+\newblock \emph{{Time Series and Panel Data Econometrics}}.
+\newblock Number 9780198759980 in OUP Catalogue. Oxford University Press, 2015.
+\newblock ISBN ARRAY(0x3bdaaf68).
+\newblock URL \url{https://ideas.repec.org/b/oxp/obooks/9780198759980.html}.
+
+\bibitem[Phillips and Durlauf(1986)]{Phillips1986}
+P.~C.~B. Phillips and S.~N. Durlauf.
+\newblock {Multiple Time Series Regression with Integrated Processes}.
+\newblock \emph{The Review of Economic Studies}, 53\penalty0 (4):\penalty0
+  473--495, 1986.
+\newblock ISSN 00346527.
+\newblock \doi{10.2307/2297602}.
+
+\bibitem[Ross(2008)]{ross2008stochastic}
+S.~Ross.
+\newblock \emph{Stochastic Processes}.
+\newblock Wiley series in probability and statistics. Wiley India Pvt. Limited,
+  2nd ed. edition, 2008.
+\newblock ISBN 9788126517572.
+\newblock URL \url{https://books.google.com/books?id=HVHqPgAACAAJ}.
+
+\bibitem[Ross(2014)]{2014i}
+S.~Ross.
+\newblock \emph{Introduction to Probability Models}.
+\newblock Academic Press, Boston, eleventh edition edition, 2014.
+\newblock ISBN 978-0-12-407948-9.
+\newblock \doi{https://doi.org/10.1016/B978-0-12-407948-9.00012-8}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/B9780124079489000128}.
+
+\end{thebibliography}

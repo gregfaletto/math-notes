@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.8)  9 DEC 2018 16:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.8)  22 MAY 2019 12:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -718,6 +718,13 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 23.
 
+(/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip76
+\bibsep=\skip77
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count139
+)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryautomata.code.tex
 File: tikzlibraryautomata.code.tex 2008/07/14 v3.0.1a (rcs-revision 1.3)
@@ -756,9 +763,9 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
 s/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
-\c@theorem=\count139
-\c@corollary=\count140
-\c@definition=\count141
+\c@theorem=\count140
+\c@corollary=\count141
+\c@definition=\count142
  (./Time_Series.aux
 
 LaTeX Warning: Label `eqn:17.7ar' multiply defined.
@@ -766,41 +773,41 @@ LaTeX Warning: Label `eqn:17.7ar' multiply defined.
 )
 \openout1 = `Time_Series.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 117.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 119.
 
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count142
+\scratchcounter=\count143
 \scratchdimen=\dimen165
 \scratchbox=\box61
-\nofMPsegments=\count143
-\nofMParguments=\count144
+\nofMPsegments=\count144
+\nofMParguments=\count145
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count145
+\MPscratchCnt=\count146
 \MPscratchDim=\dimen166
-\MPnumerator=\count146
-\makeMPintoPDFobject=\count147
+\MPnumerator=\count147
+\makeMPintoPDFobject=\count148
 \everyMPtoPDFconversion=\toks45
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -819,12 +826,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package ragged2e Info: ABD: executing \RaggedRight on input line 117.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 119.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 117.
+LaTeX Info: Redefining \selectfont on input line 119.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring ON on input line 117.
+Package hyperref Info: Link coloring ON on input line 119.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -832,22 +839,22 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count148
+\c@section@level=\count149
 )
-LaTeX Info: Redefining \ref on input line 117.
-LaTeX Info: Redefining \pageref on input line 117.
-LaTeX Info: Redefining \nameref on input line 117.
+LaTeX Info: Redefining \ref on input line 119.
+LaTeX Info: Redefining \pageref on input line 119.
+LaTeX Info: Redefining \nameref on input line 119.
 
 (./Time_Series.out) (./Time_Series.out)
 \@outlinefile=\write4
 \openout4 = `Time_Series.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 120.
+LaTeX Font Info:    Try loading font information for U+msa on input line 122.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 120.
+LaTeX Font Info:    Try loading font information for U+msb on input line 122.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -860,7 +867,7 @@ _Series.toc
 \openout5 = `Time_Series.toc'.
 
  [3]
-Overfull \hbox (25.00882pt too wide) in paragraph at lines 164--165
+Overfull \hbox (25.00882pt too wide) in paragraph at lines 166--167
 \OT1/cmr/bx/n/10 Stationarity con-di-tions: $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10
  X[]\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 is \OT1/cmr/bx/n/10 strictly sta-tion-a
 ry \OT1/cmr/m/n/10 if the joint dis-tri-bu-tion func-tions of $\OMS/cmsy/m/n/10
@@ -869,50 +876,50 @@ ry \OT1/cmr/m/n/10 if the joint dis-tri-bu-tion func-tions of $\OMS/cmsy/m/n/10
 
 [4] [5]
 
-LaTeX Warning: Reference `asym.cheby' on page 6 undefined on input line 284.
+LaTeX Warning: Reference `asym.cheby' on page 6 undefined on input line 286.
 
 [6] [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 468.
+(hyperref)                removing `math shift' on input line 470.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 468.
+(hyperref)                removing `\infty' on input line 470.
 
 
-Overfull \hbox (23.09566pt too wide) detected at line 525
+Overfull \hbox (23.09566pt too wide) detected at line 527
 []
  []
 
 [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 584.
+(hyperref)                removing `math shift' on input line 586.
 
 [9] [10]
 
-LaTeX Warning: Reference `sec:tsch8.6' on page 11 undefined on input line 721.
+LaTeX Warning: Reference `sec:tsch8.6' on page 11 undefined on input line 723.
 
 
-Overfull \hbox (1.509pt too wide) in paragraph at lines 721--722
+Overfull \hbox (1.509pt too wide) in paragraph at lines 723--724
 \OT1/cmr/m/n/10 By Cheby-shev's In-equal-ity (see sec-tion []), $[][]$ is a con
 -sis-tent es-ti-ma-tor of $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/n/10 as $\OML/cmm/m
 /it/10 T \OMS/cmsy/m/n/10 ! 1$ \OT1/cmr/m/n/10 if $[][] \U/msb/m/n/10 E\OT1/cmr
 /m/n/10 ([][]) = 
  []
 
-[11]
+[11] [12]
 
-LaTeX Warning: Reference `asym.cheby' on page 12 undefined on input line 777.
+LaTeX Warning: Reference `asym.cheby' on page 13 undefined on input line 779.
 
-[12] [13]
+[13]
 
 LaTeX Warning: Reference `asym.cauchy.schwarz' on page 14 undefined on input li
-ne 877.
+ne 879.
 
 [14]
-Overfull \hbox (9.25098pt too wide) detected at line 979
+Overfull \hbox (9.25098pt too wide) detected at line 981
 \OT1/cmr/m/n/10 = [][] [] \OML/cmm/m/it/10 u[]y[] \OT1/cmr/m/n/10 + \OML/cmm/m/
 it/10 u[]y[][] \OT1/cmr/m/n/10 + [][]\OML/cmm/m/it/10 ^^Ru[]y[] \OT1/cmr/m/n/10
  + [] \OML/cmm/m/it/10 ^^Ru[]y[][] \OT1/cmr/m/n/10 = [][] [] \OML/cmm/m/it/10 u
@@ -921,82 +928,82 @@ it/10 u[]y[][] \OT1/cmr/m/n/10 + [][]\OML/cmm/m/it/10 ^^Ru[]y[] \OT1/cmr/m/n/10
 t/10 u[]y[][]
  []
 
+[15]
 
-LaTeX Warning: Reference `asym.clt.mart.ds' on page 15 undefined on input line 
-981.
+LaTeX Warning: Reference `asym.clt.mart.ds' on page 16 undefined on input line 
+983.
 
 
-Overfull \hbox (31.24446pt too wide) in paragraph at lines 983--998
+Overfull \hbox (31.24446pt too wide) in paragraph at lines 985--1000
 []  
  []
 
-[15]
 
-LaTeX Warning: Reference `asym.wlln' on page 16 undefined on input line 1032.
+LaTeX Warning: Reference `asym.wlln' on page 16 undefined on input line 1034.
 
 [16]
 
-LaTeX Warning: Reference `asym.wlln' on page 17 undefined on input line 1100.
+LaTeX Warning: Reference `asym.wlln' on page 17 undefined on input line 1102.
 
 
-LaTeX Warning: Reference `asym.lln2' on page 17 undefined on input line 1106.
+LaTeX Warning: Reference `asym.lln2' on page 17 undefined on input line 1108.
 
-[17]
+[17] [18]
 
-LaTeX Warning: Reference `asym.wlln' on page 18 undefined on input line 1193.
-
-[18]
-
-LaTeX Warning: Reference `asym.wlln' on page 19 undefined on input line 1205.
+LaTeX Warning: Reference `asym.wlln' on page 19 undefined on input line 1195.
 
 
-LaTeX Warning: Reference `asym.lln2' on page 19 undefined on input line 1221.
+LaTeX Warning: Reference `asym.wlln' on page 19 undefined on input line 1207.
 
 
-LaTeX Warning: Reference `asym.lln2' on page 19 undefined on input line 1227.
+LaTeX Warning: Reference `asym.lln2' on page 19 undefined on input line 1223.
+
+
+LaTeX Warning: Reference `asym.lln2' on page 19 undefined on input line 1229.
 
 [19] [20] [21] [22]
 
 LaTeX Warning: Reference `stoch.donsker' on page 23 undefined on input line 149
-6.
+8.
 
 [23]
 
-LaTeX Warning: Reference `asym.clt' on page 24 undefined on input line 1548.
+LaTeX Warning: Reference `asym.clt' on page 24 undefined on input line 1550.
 
 
 LaTeX Warning: Reference `asym.clt.mart.ds' on page 24 undefined on input line 
-1572.
+1574.
 
 
-Overfull \hbox (31.24446pt too wide) in paragraph at lines 1574--1589
+Overfull \hbox (31.24446pt too wide) in paragraph at lines 1576--1591
 []  
  []
 
+[24]
 
-LaTeX Warning: Reference `asym.wlln' on page 24 undefined on input line 1600.
+LaTeX Warning: Reference `asym.wlln' on page 25 undefined on input line 1602.
 
-[24] [25]
+[25]
 
 LaTeX Warning: Reference `stoch.donsker' on page 26 undefined on input line 169
-3.
+5.
 
 
 LaTeX Warning: Reference `stoch.cont.map' on page 26 undefined on input line 16
-93.
+95.
 
 
-Overfull \hbox (31.24446pt too wide) in paragraph at lines 1696--1719
+Overfull \hbox (31.24446pt too wide) in paragraph at lines 1698--1721
 []  
  []
 
-
-Overfull \hbox (31.24446pt too wide) in paragraph at lines 1720--1728
+[26]
+Overfull \hbox (31.24446pt too wide) in paragraph at lines 1722--1730
 []  
  []
 
-[26] [27]
-Overfull \hbox (11.45415pt too wide) detected at line 1860
+[27] [28]
+Overfull \hbox (11.45415pt too wide) detected at line 1862
  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  \U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cm
 m/m/it/10 y[] \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 y[]; y[]; [] ; y[]\OT1/cmr/m/
 n/10 ) = \OML/cmm/m/it/10 ^^^[]y[] \OT1/cmr/m/n/10 + \U/msb/m/n/10 E\OT1/cmr/m/
@@ -1005,31 +1012,31 @@ n/10 (\OML/cmm/m/it/10 u[] \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 y[]; [] ; y[]\OT
 /it/10 u[] \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 y[]; [] ; y[]\OT1/cmr/m/n/10 )
  []
 
-[28] [29]
-Overfull \hbox (7.02122pt too wide) in paragraph at lines 1988--1989
+[29] [30]
+Overfull \hbox (7.02122pt too wide) in paragraph at lines 1990--1991
 \OT1/cmr/m/n/10 Risk-Met-rics ex-po-nen-tially weighted for-mu-la-tion of $\OML
 /cmm/m/it/10 h[]$ \OT1/cmr/m/n/10 for large $\OML/cmm/m/it/10 H$ \OT1/cmr/m/n/1
 0 is a spe-cial case of the IGARCH(1,1) 
  []
 
-[30] [31] [32] [33] [34]
+[31] [32] [33] [34] [35]
 
-LaTeX Warning: Reference `prob.cond.bivar.norm.dist' on page 35 undefined on in
-put line 2298.
+LaTeX Warning: Reference `prob.cond.bivar.norm.dist' on page 36 undefined on in
+put line 2300.
 
-[35] [36] [37] [38]
-Overfull \hbox (4.53056pt too wide) in paragraph at lines 2610--2611
+[36] [37] [38] [39]
+Overfull \hbox (4.53056pt too wide) in paragraph at lines 2612--2613
 []\OT1/cmr/m/n/10 For the def-i-ni-tion of coin-te-gra-tion, see Def-i-ni-tion 
 [][]1.3[][] and Sec-tion [][]1.9.1[][]. In this par-tic-u-lar case, if $\OML/cm
 m/m/it/10 Y[] \OMS/cmsy/m/n/10 ^^X 
  []
 
-[39] [40] [41] [42] [43] [44]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2994.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2994.
+[40] [41] [42] [43] [44] (./Time_Series.bbl) [45]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2997.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2997.
  (./Time_Series.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2994.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2994.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2997.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2997.
 
 Package rerunfilecheck Info: File `Time_Series.out' has not changed.
 (rerunfilecheck)             Checksum: F6EB975249EE4054A0C45C20D673F4D0;3087.
@@ -1040,14 +1047,14 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2994.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2997.
  ) 
 Here is how much of TeX's memory you used:
- 17987 strings out of 493013
- 342144 string characters out of 6133344
- 421980 words of memory out of 5000000
- 20993 multiletter control sequences out of 15000+600000
- 15293 words of font info for 57 fonts, out of 8000000 for 9000
+ 18316 strings out of 493013
+ 346059 string characters out of 6133344
+ 427734 words of memory out of 5000000
+ 21311 multiletter control sequences out of 15000+600000
+ 15461 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,14n,66p,603b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
@@ -1067,12 +1074,13 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2
 016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Time_Series.pdf (44 pages, 336285 bytes).
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Time_Series.pdf (45 pages, 349137 bytes).
 PDF statistics:
- 717 PDF objects out of 1000 (max. 8388607)
- 646 compressed objects within 7 object streams
- 200 named destinations out of 1000 (max. 500000)
+ 731 PDF objects out of 1000 (max. 8388607)
+ 658 compressed objects within 7 object streams
+ 203 named destinations out of 1000 (max. 500000)
  293 words of extra memory for PDF output out of 10000 (max. 10000000)
 

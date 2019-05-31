@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  21 FEB 2019 20:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  25 FEB 2019 09:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -931,25 +931,25 @@ ulus.toc)
 <images/derivatives.png, id=77, 641.39626pt x 212.795pt>
 File: images/derivatives.png Graphic file (type png)
 <use images/derivatives.png>
-Package pdftex.def Info: images/derivatives.png  used on input line 150.
+Package pdftex.def Info: images/derivatives.png  used on input line 154.
 (pdftex.def)             Requested size: 288.62564pt x 95.75685pt.
 <images/integrals.png, id=79, 309.155pt x 203.76125pt>
 File: images/integrals.png Graphic file (type png)
 <use images/integrals.png>
-Package pdftex.def Info: images/integrals.png  used on input line 152.
+Package pdftex.def Info: images/integrals.png  used on input line 156.
 (pdftex.def)             Requested size: 139.11845pt x 91.69171pt.
 <images/integral_ln.png, id=80, 258.9675pt x 51.19125pt>
 File: images/integral_ln.png Graphic file (type png)
 <use images/integral_ln.png>
-Package pdftex.def Info: images/integral_ln.png  used on input line 154.
+Package pdftex.def Info: images/integral_ln.png  used on input line 158.
 (pdftex.def)             Requested size: 116.53429pt x 23.03584pt.
 <images/integrals2.png, id=81, 325.215pt x 35.38219pt>
 File: images/integrals2.png Graphic file (type png)
 <use images/integrals2.png>
-Package pdftex.def Info: images/integrals2.png  used on input line 156.
+Package pdftex.def Info: images/integrals2.png  used on input line 160.
 (pdftex.def)             Requested size: 211.38724pt x 22.99814pt.
 
-Overfull \hbox (12.38348pt too wide) in paragraph at lines 161--162
+Overfull \hbox (12.38348pt too wide) in paragraph at lines 165--166
 \OT1/cmr/m/n/10 ment of Civil En-gi-neer-ing, Uni-ver-sity of Min-nesota). Avai
 l-able for down-load at [][]$\OT1/cmtt/m/n/10 https : / / atmos . washington . 
 
@@ -957,229 +957,229 @@ l-able for down-load at [][]$\OT1/cmtt/m/n/10 https : / / atmos . washington .
 
 [3 <./images/derivatives.png> <./images/integrals.png> <./images/integral_ln.pn
 g> <./images/integrals2.png>] [4] [5]
-<images/hessian1.png, id=114, 654.445pt x 368.37625pt>
+<images/hessian1.png, id=116, 654.445pt x 368.37625pt>
 File: images/hessian1.png Graphic file (type png)
 <use images/hessian1.png>
-Package pdftex.def Info: images/hessian1.png  used on input line 318.
+Package pdftex.def Info: images/hessian1.png  used on input line 322.
 (pdftex.def)             Requested size: 425.38422pt x 239.44171pt.
  [6]
-<images/hessian2.png, id=119, 634.37pt x 132.495pt>
+<images/hessian2.png, id=121, 634.37pt x 132.495pt>
 File: images/hessian2.png Graphic file (type png)
 <use images/hessian2.png>
-Package pdftex.def Info: images/hessian2.png  used on input line 320.
+Package pdftex.def Info: images/hessian2.png  used on input line 324.
 (pdftex.def)             Requested size: 412.3356pt x 86.12071pt.
-<images/hessian3.png, id=120, 533.995pt x 140.525pt>
+<images/hessian3.png, id=122, 533.995pt x 140.525pt>
 File: images/hessian3.png Graphic file (type png)
 <use images/hessian3.png>
-Package pdftex.def Info: images/hessian3.png  used on input line 322.
+Package pdftex.def Info: images/hessian3.png  used on input line 326.
 (pdftex.def)             Requested size: 347.09264pt x 91.34015pt.
  [7 <./images/hessian1.png> <./images/hessian2.png> <./images/hessian3.png>]
-<images/tangent_plane.png, id=130, 653.44125pt x 152.57pt>
+<images/tangent_plane.png, id=132, 653.44125pt x 152.57pt>
 File: images/tangent_plane.png Graphic file (type png)
 <use images/tangent_plane.png>
-Package pdftex.def Info: images/tangent_plane.png  used on input line 357.
+Package pdftex.def Info: images/tangent_plane.png  used on input line 361.
 (pdftex.def)             Requested size: 424.73178pt x 99.16931pt.
-<images/tangent_plane2.png, id=131, 655.44875pt x 157.58875pt>
+<images/tangent_plane2.png, id=133, 655.44875pt x 157.58875pt>
 File: images/tangent_plane2.png Graphic file (type png)
 <use images/tangent_plane2.png>
-Package pdftex.def Info: images/tangent_plane2.png  used on input line 359.
+Package pdftex.def Info: images/tangent_plane2.png  used on input line 363.
 (pdftex.def)             Requested size: 426.03664pt x 102.43146pt.
-<images/total_differential.png, id=132, 838.13126pt x 135.50626pt>
+<images/total_differential.png, id=134, 838.13126pt x 135.50626pt>
 File: images/total_differential.png Graphic file (type png)
 <use images/total_differential.png>
-Package pdftex.def Info: images/total_differential.png  used on input line 361.
+Package pdftex.def Info: images/total_differential.png  used on input line 365.
 
 (pdftex.def)             Requested size: 460.97362pt x 74.52866pt.
  [8 <./images/tangent_plane.png> <./images/tangent_plane2.png> <./images/total_
 differential.png>]
-<images/gradient.png, id=140, 784.9325pt x 166.6225pt>
+<images/gradient.png, id=142, 784.9325pt x 166.6225pt>
 File: images/gradient.png Graphic file (type png)
 <use images/gradient.png>
-Package pdftex.def Info: images/gradient.png  used on input line 372.
+Package pdftex.def Info: images/gradient.png  used on input line 376.
 (pdftex.def)             Requested size: 431.7142pt x 91.64265pt.
-<images/line_int1.png, id=141, 558.085pt x 80.3pt>
+<images/line_int1.png, id=143, 558.085pt x 80.3pt>
 File: images/line_int1.png Graphic file (type png)
 <use images/line_int1.png>
-Package pdftex.def Info: images/line_int1.png  used on input line 374.
+Package pdftex.def Info: images/line_int1.png  used on input line 378.
 (pdftex.def)             Requested size: 306.94771pt x 44.16512pt.
-<images/line_int2.png, id=142, 653.44125pt x 120.45pt>
+<images/line_int2.png, id=144, 653.44125pt x 120.45pt>
 File: images/line_int2.png Graphic file (type png)
 <use images/line_int2.png>
-Package pdftex.def Info: images/line_int2.png  used on input line 376.
+Package pdftex.def Info: images/line_int2.png  used on input line 380.
 (pdftex.def)             Requested size: 359.3938pt x 66.2477pt.
-<images/0568_19.png, id=143, 952.55875pt x 272.01625pt>
+<images/0568_19.png, id=145, 952.55875pt x 272.01625pt>
 File: images/0568_19.png Graphic file (type png)
 <use images/0568_19.png>
-Package pdftex.def Info: images/0568_19.png  used on input line 378.
+Package pdftex.def Info: images/0568_19.png  used on input line 382.
 (pdftex.def)             Requested size: 476.27821pt x 136.00778pt.
 
-Overfull \hbox (6.52322pt too wide) in paragraph at lines 378--379
+Overfull \hbox (6.52322pt too wide) in paragraph at lines 382--383
 [][]  
  []
 
-<images/0568_19s.png, id=144, 881.2925pt x 143.53625pt>
+<images/0568_19s.png, id=146, 881.2925pt x 143.53625pt>
 File: images/0568_19s.png Graphic file (type png)
 <use images/0568_19s.png>
-Package pdftex.def Info: images/0568_19s.png  used on input line 380.
+Package pdftex.def Info: images/0568_19s.png  used on input line 384.
 (pdftex.def)             Requested size: 440.64517pt x 71.76794pt.
-<images/1268_22.png, id=145, 695.59875pt x 106.3975pt>
+<images/1268_22.png, id=147, 695.59875pt x 106.3975pt>
 File: images/1268_22.png Graphic file (type png)
 <use images/1268_22.png>
-Package pdftex.def Info: images/1268_22.png  used on input line 382.
+Package pdftex.def Info: images/1268_22.png  used on input line 386.
 (pdftex.def)             Requested size: 452.13383pt x 69.15755pt.
 [9 <./images/gradient.png> <./images/line_int1.png> <./images/line_int2.png> <.
 /images/0568_19.png> <./images/0568_19s.png>]
-<images/1268_22s.png, id=155, 719.68875pt x 285.065pt>
+<images/1268_22s.png, id=157, 719.68875pt x 285.065pt>
 File: images/1268_22s.png Graphic file (type png)
 <use images/1268_22s.png>
-Package pdftex.def Info: images/1268_22s.png  used on input line 384.
+Package pdftex.def Info: images/1268_22s.png  used on input line 388.
 (pdftex.def)             Requested size: 467.79214pt x 185.29005pt.
-<images/0568_24.png, id=156, 764.8575pt x 110.4125pt>
+<images/0568_24.png, id=158, 764.8575pt x 110.4125pt>
 File: images/0568_24.png Graphic file (type png)
 <use images/0568_24.png>
-Package pdftex.def Info: images/0568_24.png  used on input line 386.
+Package pdftex.def Info: images/0568_24.png  used on input line 390.
 (pdftex.def)             Requested size: 382.42781pt x 55.2061pt.
-<images/0568_24s.png, id=157, 880.28876pt x 227.85126pt>
+<images/0568_24s.png, id=159, 880.28876pt x 227.85126pt>
 File: images/0568_24s.png Graphic file (type png)
 <use images/0568_24s.png>
-Package pdftex.def Info: images/0568_24s.png  used on input line 388.
+Package pdftex.def Info: images/0568_24s.png  used on input line 392.
 (pdftex.def)             Requested size: 440.1433pt x 113.92534pt.
-<images/0568_26.png, id=158, 713.66624pt x 272.01625pt>
+<images/0568_26.png, id=160, 713.66624pt x 272.01625pt>
 File: images/0568_26.png Graphic file (type png)
 <use images/0568_26.png>
-Package pdftex.def Info: images/0568_26.png  used on input line 390.
+Package pdftex.def Info: images/0568_26.png  used on input line 394.
 (pdftex.def)             Requested size: 356.83224pt x 136.00778pt.
-<images/0568_26s.png, id=159, 877.2775pt x 401.5pt>
+<images/0568_26s.png, id=161, 877.2775pt x 401.5pt>
 File: images/0568_26s.png Graphic file (type png)
 <use images/0568_26s.png>
-Package pdftex.def Info: images/0568_26s.png  used on input line 392.
+Package pdftex.def Info: images/0568_26s.png  used on input line 396.
 (pdftex.def)             Requested size: 438.63768pt x 200.7495pt.
  [10 <./images/1268_22.png> <./images/1268_22s.png> <./images/0568_24.png> <./i
 mages/0568_24s.png> <./images/0568_26.png>]
-<images/0568_27.png, id=169, 896.34875pt x 260.975pt>
+<images/0568_27.png, id=171, 896.34875pt x 260.975pt>
 File: images/0568_27.png Graphic file (type png)
 <use images/0568_27.png>
-Package pdftex.def Info: images/0568_27.png  used on input line 394.
+Package pdftex.def Info: images/0568_27.png  used on input line 398.
 (pdftex.def)             Requested size: 448.17328pt x 130.48718pt.
-<images/0568_27s.png, id=170, 884.30376pt x 282.05376pt>
+<images/0568_27s.png, id=172, 884.30376pt x 282.05376pt>
 File: images/0568_27s.png Graphic file (type png)
 <use images/0568_27s.png>
-Package pdftex.def Info: images/0568_27s.png  used on input line 396.
+Package pdftex.def Info: images/0568_27s.png  used on input line 400.
 (pdftex.def)             Requested size: 442.1508pt x 141.02652pt.
-<images/1268_32.png, id=171, 749.80125pt x 136.51pt>
+<images/1268_32.png, id=173, 749.80125pt x 136.51pt>
 File: images/1268_32.png Graphic file (type png)
 <use images/1268_32.png>
-Package pdftex.def Info: images/1268_32.png  used on input line 398.
+Package pdftex.def Info: images/1268_32.png  used on input line 402.
 (pdftex.def)             Requested size: 487.36504pt x 88.73044pt.
 
-Overfull \hbox (17.61005pt too wide) in paragraph at lines 398--399
+Overfull \hbox (17.61005pt too wide) in paragraph at lines 402--403
 [][]  
  []
 
-<images/1268_32s.png, id=172, 720.6925pt x 280.04625pt>
+<images/1268_32s.png, id=174, 720.6925pt x 280.04625pt>
 File: images/1268_32s.png Graphic file (type png)
 <use images/1268_32s.png>
-Package pdftex.def Info: images/1268_32s.png  used on input line 400.
+Package pdftex.def Info: images/1268_32s.png  used on input line 404.
 (pdftex.def)             Requested size: 468.44458pt x 182.0279pt.
 [11 <./images/0568_26s.png> <./images/0568_27.png> <./images/0568_27s.png> <./i
 mages/1268_32.png>]
-<images/1268_41.png, id=181, 760.8425pt x 208.78pt>
+<images/1268_41.png, id=183, 760.8425pt x 208.78pt>
 File: images/1268_41.png Graphic file (type png)
 <use images/1268_41.png>
-Package pdftex.def Info: images/1268_41.png  used on input line 402.
+Package pdftex.def Info: images/1268_41.png  used on input line 406.
 (pdftex.def)             Requested size: 494.54176pt x 135.70537pt.
 
-Overfull \hbox (24.78677pt too wide) in paragraph at lines 402--403
+Overfull \hbox (24.78677pt too wide) in paragraph at lines 406--407
 [][]  
  []
 
-<images/1268_41s1.png, id=182, 719.68875pt x 151.56625pt>
+<images/1268_41s1.png, id=184, 719.68875pt x 151.56625pt>
 File: images/1268_41s1.png Graphic file (type png)
 <use images/1268_41s1.png>
-Package pdftex.def Info: images/1268_41s1.png  used on input line 404.
+Package pdftex.def Info: images/1268_41s1.png  used on input line 408.
 (pdftex.def)             Requested size: 467.79214pt x 98.51689pt.
-<images/0568_41.png, id=183, 954.56625pt x 148.555pt>
+<images/0568_41.png, id=185, 954.56625pt x 148.555pt>
 File: images/0568_41.png Graphic file (type png)
 <use images/0568_41.png>
-Package pdftex.def Info: images/0568_41.png  used on input line 406.
+Package pdftex.def Info: images/0568_41.png  used on input line 410.
 (pdftex.def)             Requested size: 477.28197pt x 74.27731pt.
 
-Overfull \hbox (7.52698pt too wide) in paragraph at lines 406--407
+Overfull \hbox (7.52698pt too wide) in paragraph at lines 410--411
 [][]  
  []
 
-<images/0568_41s.png, id=184, 703.62875pt x 225.84375pt>
+<images/0568_41s.png, id=186, 703.62875pt x 225.84375pt>
 File: images/0568_41s.png Graphic file (type png)
 <use images/0568_41s.png>
-Package pdftex.def Info: images/0568_41s.png  used on input line 408.
+Package pdftex.def Info: images/0568_41s.png  used on input line 412.
 (pdftex.def)             Requested size: 351.8135pt x 112.92159pt.
-<images/1268_41s2.png, id=185, 718.685pt x 51.19125pt>
+<images/1268_41s2.png, id=187, 718.685pt x 51.19125pt>
 File: images/1268_41s2.png Graphic file (type png)
 <use images/1268_41s2.png>
-Package pdftex.def Info: images/1268_41s2.png  used on input line 410.
+Package pdftex.def Info: images/1268_41s2.png  used on input line 414.
 (pdftex.def)             Requested size: 467.13971pt x 33.27391pt.
 [12 <./images/1268_32s.png> <./images/1268_41.png> <./images/1268_41s1.png> <./
 images/0568_41.png> <./images/0568_41s.png>]
-<images/1268_44.png, id=195, 711.65875pt x 154.5775pt>
+<images/1268_44.png, id=197, 711.65875pt x 154.5775pt>
 File: images/1268_44.png Graphic file (type png)
 <use images/1268_44.png>
-Package pdftex.def Info: images/1268_44.png  used on input line 412.
+Package pdftex.def Info: images/1268_44.png  used on input line 416.
 (pdftex.def)             Requested size: 462.57271pt x 100.47417pt.
-<images/1268_44s.png, id=196, 717.68124pt x 223.83624pt>
+<images/1268_44s.png, id=198, 717.68124pt x 223.83624pt>
 File: images/1268_44s.png Graphic file (type png)
 <use images/1268_44s.png>
-Package pdftex.def Info: images/1268_44s.png  used on input line 414.
+Package pdftex.def Info: images/1268_44s.png  used on input line 418.
 (pdftex.def)             Requested size: 466.48727pt x 145.49182pt.
-<images/1268_48.png, id=197, 728.7225pt x 115.43124pt>
+<images/1268_48.png, id=199, 728.7225pt x 115.43124pt>
 File: images/1268_48.png Graphic file (type png)
 <use images/1268_48.png>
-Package pdftex.def Info: images/1268_48.png  used on input line 417.
+Package pdftex.def Info: images/1268_48.png  used on input line 421.
 (pdftex.def)             Requested size: 473.66402pt x 75.0294pt.
 
-Overfull \hbox (3.90903pt too wide) in paragraph at lines 417--418
+Overfull \hbox (3.90903pt too wide) in paragraph at lines 421--422
 [][]  
  []
 
-<images/1268_48s.png, id=198, 721.69624pt x 189.70876pt>
+<images/1268_48s.png, id=200, 721.69624pt x 189.70876pt>
 File: images/1268_48s.png Graphic file (type png)
 <use images/1268_48s.png>
-Package pdftex.def Info: images/1268_48s.png  used on input line 419.
+Package pdftex.def Info: images/1268_48s.png  used on input line 423.
 (pdftex.def)             Requested size: 469.097pt x 123.30922pt.
-<images/0568_48.png, id=199, 962.59625pt x 600.2425pt>
+<images/0568_48.png, id=201, 962.59625pt x 600.2425pt>
 File: images/0568_48.png Graphic file (type png)
 <use images/0568_48.png>
-Package pdftex.def Info: images/0568_48.png  used on input line 421.
+Package pdftex.def Info: images/0568_48.png  used on input line 425.
 (pdftex.def)             Requested size: 481.29695pt x 300.12051pt.
 
-Overfull \hbox (11.54196pt too wide) in paragraph at lines 421--422
+Overfull \hbox (11.54196pt too wide) in paragraph at lines 425--426
 [][]  
  []
 
 [13 <./images/1268_41s2.png> <./images/1268_44.png> <./images/1268_44s.png> <./
 images/1268_48.png> <./images/1268_48s.png>]
-<images/0568_48s.png, id=210, 877.2775pt x 87.32625pt>
+<images/0568_48s.png, id=212, 877.2775pt x 87.32625pt>
 File: images/0568_48s.png Graphic file (type png)
 <use images/0568_48s.png>
-Package pdftex.def Info: images/0568_48s.png  used on input line 423.
+Package pdftex.def Info: images/0568_48s.png  used on input line 427.
 (pdftex.def)             Requested size: 438.63768pt x 43.66301pt.
  [14 <./images/0568_48.png> <./images/0568_48s.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 449.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 449.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 453.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 453.
  (./Calculus.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 449.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 449.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 453.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 453.
 Package rerunfilecheck Info: File `Calculus.out' has not changed.
-(rerunfilecheck)             Checksum: E034D14B40D7C085D8B513431E3AB298;644.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 449.
+(rerunfilecheck)             Checksum: 091DA8F64817F1CABB8831A752045735;656.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 453.
  ) 
 Here is how much of TeX's memory you used:
- 17886 strings out of 492649
- 341852 string characters out of 6129622
+ 17887 strings out of 492649
+ 341861 string characters out of 6129622
  410994 words of memory out of 5000000
  21371 multiletter control sequences out of 15000+600000
  15126 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,66p,411b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,66p,454b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1189,17 +1189,18 @@ r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
 local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/
 local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
 cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/te
-xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Calculus.pdf (14 pages, 1271575 bytes).
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texli
+ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
+2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
+018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Calculus.pdf (14 pages, 1279961 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
+ 282 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
  265 words of extra memory for PDF output out of 10000 (max. 10000000)
 

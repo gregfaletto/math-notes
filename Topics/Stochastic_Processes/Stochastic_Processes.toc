@@ -1,12 +1,27 @@
-\contentsline {section}{\numberline {1}Stochastic Processes}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Preliminaries}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Poisson Processes}{3}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Poissonization Trick}{9}{subsubsection.1.2.1}
-\contentsline {subsubsection}{\numberline {1.2.2}Time Sampling Poisson Processes}{14}{subsubsection.1.2.2}
-\contentsline {subsubsection}{\numberline {1.2.3}Nonstationary Poisson Processes}{15}{subsubsection.1.2.3}
-\contentsline {subsubsection}{\numberline {1.2.4}Queueing Systems}{20}{subsubsection.1.2.4}
-\contentsline {subsection}{\numberline {1.3}Renewal Processes}{21}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}ISE 620}{31}{subsection.1.4}
-\contentsline {subsection}{\numberline {1.5}Simple Random Walk}{33}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}Martingales}{34}{subsection.1.6}
-\contentsline {subsection}{\numberline {1.7}Brownian Motion}{34}{subsection.1.7}
+\contentsline {section}{\numberline {1}Stochastic Processes}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Preliminaries}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Poisson Processes}{4}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Poissonization Trick}{10}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Time Sampling Poisson Processes}{15}{subsubsection.1.2.2}
+\contentsline {subsubsection}{\numberline {1.2.3}Nonstationary Poisson Processes}{16}{subsubsection.1.2.3}
+\contentsline {subsubsection}{\numberline {1.2.4}Queueing Systems}{21}{subsubsection.1.2.4}
+\contentsline {subsection}{\numberline {1.3}Renewal Processes}{22}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Stopping Times}{29}{subsubsection.1.3.1}
+\contentsline {subsection}{\numberline {1.4}ISE 620 Midterm Solutions}{36}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Renewal Reward Processes (Section 4.7 in \textit {Introduction to Probability Models}, 3.6 \textit {Stochastic Processes})}{39}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Alternating Renewal Processes (Section 7.5.1 in \textit {Introduction to Probability Models}}{48}{subsubsection.1.5.1}
+\contentsline {subsubsection}{\numberline {1.5.2}Equilibrium renewal processes}{53}{subsubsection.1.5.2}
+\contentsline {subsubsection}{\numberline {1.5.3}Regenerative Processes}{57}{subsubsection.1.5.3}
+\contentsline {subsubsection}{\numberline {1.5.4}Example of Renewal Reward Processes to Patterns}{57}{subsubsection.1.5.4}
+\contentsline {subsection}{\numberline {1.6}Markov Chains (Chapter 4 of \textit {Stochastic Processes}; Chapter 4 of \textit {Introduction to Probability Models})}{58}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Chapman-Kolmogorov Equations---section 4.2 of \textit {Introduction to Probability Models}, section 4.2 of \textit {Stochastic Processes} (p. 178 of pdf)}{61}{subsubsection.1.6.1}
+\contentsline {subsubsection}{\numberline {1.6.2}Classification of States (Section 4.3 of \textit {Introduction to Probability Models})}{62}{subsubsection.1.6.2}
+\contentsline {subsubsection}{\numberline {1.6.3}Long-Run Proportions and Limiting Probabilities (Limit Theorems) (4.4 in \textit {Introduction to Probability Models}, 4.3 in \textit {Stochastic Processes}}{66}{subsubsection.1.6.3}
+\contentsline {subsubsection}{\numberline {1.6.4}Branching Processes (Section 4.7 of \textit {Introduction to Probability Models}, Section 4.5 of \textit {Stochastic Processes}}{73}{subsubsection.1.6.4}
+\contentsline {subsubsection}{\numberline {1.6.5}A Markov Chain Model of Algorithmic Efficiency (Section 4.6.1 of \textit {Stochastic Processes})}{74}{subsubsection.1.6.5}
+\contentsline {subsubsection}{\numberline {1.6.6}Time Reversible Markov Chains (Section 4.8 of \textit {Introduction to Probability Models}, Section 4.7 of \textit {Stochastic Processes}}{76}{subsubsection.1.6.6}
+\contentsline {subsubsection}{\numberline {1.6.7}Semi-Markov Processes (Section 4.8 of \textit {Stochastic Processes} (p. 224 of pdf), Section 7.6 of \textit {Introduction to Probability Models}}{77}{subsubsection.1.6.7}
+\contentsline {subsection}{\numberline {1.7}ISE 620}{78}{subsection.1.7}
+\contentsline {subsection}{\numberline {1.8}Simple Random Walk}{80}{subsection.1.8}
+\contentsline {subsection}{\numberline {1.9}Martingales}{81}{subsection.1.9}
+\contentsline {subsection}{\numberline {1.10}Brownian Motion}{81}{subsection.1.10}

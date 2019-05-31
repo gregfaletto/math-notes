@@ -21,6 +21,8 @@
 %    linktoc=all,     %set to all if you want both sections and subsections linked
 %    linkcolor=black,  %choose some color if you want links to stand out
 %}
+%\usepackage{import}
+%\usepackage{natbib}
 %
 %\usetikzlibrary{automata,positioning}
 %
@@ -147,7 +149,7 @@
 
 \section{Stochastic Processes}
 
-These notes are based on my notes from ISE 620 at USC, \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as notes from \textit{Probability and Random Processes} by Grimmett and Stirzaker.
+These notes are based on my notes from ISE 620 at USC taught by Sheldon Ross (along with the textbooks \textit{Stochastic Processes} \citep{ross2008stochastic} and \textit{Introduction to Probability Models} \citep{2014i} by Sheldon Ross) \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran \citep{pesaran-2015-text} and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as notes from \textit{Probability and Random Processes} by Grimmett and Stirzaker \citep{grimmett2001probability}.
 
 \subsection{Preliminaries}
 
@@ -175,7 +177,7 @@ These notes are based on my notes from ISE 620 at USC, \textit{Time Series and P
 
 \end{definition}
 
-\begin{definition} A counting process \(\{N(t) , t \geq 0 \}\) has \textbf{stationary} increments if the distribution of the number of events that occur in any interval of time depends only on the length of the time interval. That is, if \(N(t+s) - N(s)\) has a distribution that does not depend on \(s\) (is the same for all \(s\); only depends on \(t\)).
+\begin{definition}\label{stoch.stationary.increments.def} A counting process \(\{N(t) , t \geq 0 \}\) has \textbf{stationary} increments if the distribution of the number of events that occur in any interval of time depends only on the length of the time interval. That is, if \(N(t+s) - N(s)\) has a distribution that does not depend on \(s\) (is the same for all \(s\); only depends on \(t\)).
 
 \end{definition}
 
@@ -1103,8 +1105,7 @@ What if the arrival process is nonstationary and the probability of a type \(i\)
 
 One more result about \(M/G/\infty\) processes:
 
-\begin{theorem}The \textbf{departure process} from an \(M/G/\infty\) queue is a nonstationary Poisson process with intensity function \(\lambda(t) = \)
-
+\begin{theorem}[\textbf{Example 5.25 in \textit{Introduction to Probability Models}}]The \textbf{departure process} from an \(M/G/\infty\) queue is a nonstationary Poisson process with intensity function \(\lambda(t) = \lambda G(t) \).
 \end{theorem}
 
 \begin{proof} Let \(D(t)\) be the number of departures by time \(t\). Examine the axioms of Definition \ref{stoch.nonstat.pois.proc.def.ross} above:
@@ -1164,7 +1165,7 @@ Say we have a \(M/G/1\) queuing process. That is, arrivals are \(PP(\lambda)\), 
 
 \
 
-Let \(B\) be the length of a waiting period. Let \(S\) be the service time of the initial customer. Note that \(B\) is independent from what happened before. Let \(A\) be the additional time after the first customer is served until the next idle period so that \(B = S + A\). Let \(N(S)\) be the number of arrivals during \(S\). Note that \(A\) depends on \(N(S)\).
+Let \(B\) be the length of a busy period. Let \(S\) be the service time of the initial customer. Note that \(B\) is independent from what happened before. Let \(A\) be the additional time after the first customer is served until the next idle period so that \(B = S + A\). Let \(N(S)\) be the number of arrivals during \(S\). Note that \(A\) depends on \(N(S)\).
 
 \
 
@@ -1247,9 +1248,25 @@ Generalization of Poisson processes. A counting process where the interarrival t
 
 where \(0 < \mu \leq \infty\). Let \(N(t)\) be the counting process (this is the largest value of \(n\) for which the \(n\)th event has occurred at time \(t\), so \(N(t) = \max \{n: S_n \leq t\}\) ). Let \(S_n\) be the arrival time for the \(n\)th event. Define \(S_0 = 0, S_n = \sum_{i=1}^n X_n\). 
 
-\begin{definition}[\textbf{Renewal process.}] The counting process \(\{N(t), t \geq 0\}\) is called a \textbf{renewal process.}
+\begin{definition}[\textbf{Renewal process; Definition 3.1.1 in \textit{Stochastic Processes}}] Let \(\{X_n, n =1, 2, \ldots \}\) be a sequence of nonnegative independent random variables with a common distribution \(F\). To avoid trivialities, suppose that \(F(0) = \Pr(\{X_n = 0 \}) < 1\). We shall interpret \(X_n\) as the time between the \((n-1)\)st and \(n\)th event. Let
+
+\[
+S_0 = 0, \qquad S_n = \sum_{i=1}^n X_i, n \geq 1
+\]
+
+so that \(S_n\) is the time of the \(n\)th event. As the number of events by time \(t\) will equal the largest value of \(n\) for which the \(n\)th event occurs before or at time \(t\), we have that \(N(t)\), the number of events by time \(t\), is given by
+
+\[
+N(t) = \sup \{n: S_n \leq t\}.
+\]
+
+The counting process \(\{N(t), t \geq 0\}\) is called a \textbf{renewal process.} We can write this as \(\{N(t), t \geq 0 \}\) as a renewal process with intensity distribution \(F\).
 
 \end{definition}
+
+\begin{remark} Let \(\mu = \E(X_n) = \int_0^\infty x dF(x)\) denote the mean time between successive events and note that from the assumptions \(X_n \geq 0\) and \(F(0) < 1\) it follows that \(0 < \mu \leq \infty\).
+
+\end{remark}
 
 Every time an event occurs is a ``renewal:' from that time on, all the arrivals are i.i.d. (Between events it is unclear what is going on until the next event happens; depends on the nature of \(F\). If we have a Poisson process, then it is memoryless, but otherwise it is not.)
 
@@ -1265,7 +1282,7 @@ Game: fair coin, flip until heads occurs. If it occurs on trial \(n\), you win \
 
 \end{example}
 
-\begin{proposition} With probability 1, \(N(t) < \infty\) for all \(t\).
+\begin{proposition}\label{stoch.prop.n.finite} With probability 1, \(N(t) < \infty\) for all \(t\).
 
 \end{proposition}
 
@@ -1287,7 +1304,7 @@ Because the denominator goes to \(\infty\) and the ratio doesn't go to 0, we mus
 
 \begin{proof}
 
-Recall \textbf{Boole's Inequality}:
+Recall \textbf{Boole's Inequality} (which can be proven in a similar manner to Theorem \ref{stoch.prob.set.func}):
 
 \[
 \Pr\bigg( \bigcup_{n=1}^\infty \{A_n \} \bigg) \leq \sum_{n=1}^\infty \Pr(A_n)
@@ -1377,7 +1394,7 @@ m(t) = \E(N(t)) = \int_0^\infty \E(N(t) \mid X_1 =s) dF(s)
 Note that
 
 \[
-\E(N(t0 \mid X_1 = s) = \begin{cases}
+\E(N(t) \mid X_1 = s) = \begin{cases}
 1 + m(t-s) & s \leq t \\
 0 & s > t
 \end{cases}
@@ -1415,7 +1432,7 @@ S_{N(t+1)} :=  \text{(time of the first event after time } t) .
 
 At what rate do renewals occur?
 
-\begin{theorem}[\textbf{Strong Law for Renewal Processes}]
+\begin{theorem}[\textbf{Strong Law for Renewal Processes}]\label{stoch.strong.law.renew.proc}
 
 \[
 \frac{N(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}
@@ -1435,7 +1452,7 @@ S_{N(t)} \leq t < S_{N(t) + 1}
 \iff \frac{S_{N(t)}}{N(t)} \leq \frac{t}{N(t)} < \frac{S_{N(t) + 1}}{N(t)}
 \]
 
-As \(t \to \infty\), the quantity on the left converges to the mean by the Strong Law of Large Numbers (see the proposition above). For the quantity on the right, we have
+As \(t \to \infty\), the quantity on the left converges to the mean by the Strong Law of Large Numbers (see the proof of Proposition \ref{stoch.prop.n.finite} above). For the quantity on the right, we have
 
 \[
 \frac{S_{N(t) + 1}}{N(t)} = \frac{S_{N(t) + 1}}{N(t)+ 1} \cdot \frac{N(t) + 1}{N(t)} \xrightarrow{a.s.} \mu \cdot 1
@@ -1463,7 +1480,7 @@ We call \(\{N_d(t), t \geq 0\}\) a \textbf{delayed renewal process.}
 
 \end{definition}
 
-\begin{remark} Almost all limiting results for renewal processes apply for delayed renewal processes as well. (In the long run, that first waiting period doesn't really make a difference.) For example, consider the strong law for renewal processes (quick note: let \(N(s)=-1, s < 0.\)):
+\begin{remark} Almost all limiting results for renewal processes apply for delayed renewal processes as well. (In the long run, that first waiting period doesn't really make a difference.) For example, consider the Strong Law for Renewal Processes (Theorem \ref{stoch.strong.law.renew.proc}) (quick note: let \(N(s)=-1, s < 0.\)):
 
 \[
 N_d(t) = 1 + N(t - X_1)  \iff \frac{N_d(t)}{t} = \frac{1}{t} + \frac{N(t - X_1)}{t-X_1} \frac{t- X_1}{t}
@@ -1475,7 +1492,13 @@ By the Strong Law for Renewal processes,
 \frac{N(t - X_1)}{t-X_1} \xrightarrow{a.s.} \frac{1}{\mu_F}
 \]
 
-Since \(\lim_{t \to \infty} \frac{t- X_1}{t} = 1\), we have the same result as for the Strong Law for Renewal Processes.
+
+where \(\mu_F = \int_0^\infty \overline{F}(t) dt\). Since \(\lim_{t \to \infty} \frac{t- X_1}{t} = 1\), we have the same result as for the Strong Law for Renewal Processes:
+
+\[
+\frac{N_d(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu_F}
+\]
+
 
 \end{remark}
 
@@ -1543,6 +1566,50 @@ so the long-run proportion of coins that land heads is 1.
 
 \end{example}
 
+\begin{proposition}[\textbf{Homework problem; \textit{Introduction to Probability Models} Ch. 7 Problem 30}] For a renewal process, let \(A(t) = t - S_{N(t)}\) be the age at time \(t\). If \(\mu < \infty\), then 
+
+\[
+\frac{A(t)}{t} \xrightarrow{w.p,1} 0 .
+\]
+
+\end{proposition}
+
+\begin{proof}
+
+We hope to show that
+
+\[
+\frac{ t - S_{N(t)}}{t} \xrightarrow{w.p,1} 0 .
+\]
+
+Note that
+
+\[
+\frac{ t - S_{N(t)}}{t}  = \frac{ t - S_{N(t)}}{N(t)}  \cdot \frac{ N(t)}{t} =  \bigg(  \frac{ t}{N(t)} -  \frac{S_{N(t)}}{N(t)}     \bigg) \frac{ N(t)}{t} 
+\]
+
+By the Strong Law for Renewal Processes (Theorem \ref{stoch.strong.law.renew.proc}), \(\frac{ N(t)}{t} \xrightarrow{w.p.1} \mu^{-1}\), where \(\mu =\E(X)\) is the expected interarrival time. Since the expected interarrival time is finite, \(N(t) \to \infty\) as \(t \to \infty\). Therefore
+
+\[
+ \frac{S_{N(t)}}{N(t)} = \frac{X_1 + \ldots + X_{N(t)}}{N(t)} \xrightarrow{w.p.1} \mu.
+\]
+
+Lastly, since \(N(t) > 0 \) with probability 1 as \(t \to \infty\) and \(t > 0\), by the Continuous Mapping Theorem (Theorem {asym.contmappthm}),
+
+\[
+\frac{ t}{N(t)} =  \bigg( \frac{ N(t)}{t} \bigg)^{-1}  \xrightarrow{w.p.1} (\mu^{-1})^{-1} = \mu.
+\]
+
+Therefore by another application of the Continuous Mapping Theorem (Theorem {asym.contmappthm}),
+
+\[
+\frac{ t - S_{N(t)}}{t} = \bigg(  \frac{ t}{N(t)} -  \frac{S_{N(t)}}{N(t)}     \bigg) \frac{ N(t)}{t}  \xrightarrow{w.p.1} ( \mu - \mu) \cdot \mu^{-1} = 0.
+\]
+
+\end{proof}
+
+\subsubsection{Stopping Times}
+
 \begin{definition}[\textbf{Stopping times}] Let \(X_1, X_2, \ldots\) be independent random variables. We say the non-negative integer valued random variable \(N\) is a \textbf{stopping time} for \(X_1, X_2, \ldots\) if the event \(\{ N = n\}\) is independent of \(X_{n+1}, X_{n+2}, \ldots\). (This definition is more general than saying it must depend on previous times because it could be random and not depend on anything (except the current one) or you could have a finite memory, etc.)
 
 \end{definition}
@@ -1598,7 +1665,7 @@ X_i = \begin{cases}
 \end{cases}
 \]
 
-One stopping time could be \(N_1 = \min \{n; X_1 + \ldots + X_n = k\}\). Then by Wald's Equation,
+One stopping time could be \(N_1 = \min \{n; X_1 + \ldots + X_n = k\}\). Then by Wald's Equation (Theorem \ref{stoch.wald.eqn}),
 
 \[
 \E \bigg( \sum_{i=1}^N X_i \bigg) = \E(N) \E(X) \iff k = \E(N) (p) \implies \E(N) = \frac{k}{p}.
@@ -1617,7 +1684,7 @@ X_i = \begin{cases}
 \end{cases}
 \]
 
-with \(p > 1/2\). Note that \(\E(X_i) = 2p - 1 > 0\). One stopping time could be \(N = \min\{n: X_1 + \ldots + X_n = 10\}\). (Note that by the Strong Law of Large Numbers, with probability 1 this will eventually happen.) Then by Wald's Equation,
+with \(p > 1/2\). Note that \(\E(X_i) = 2p - 1 > 0\). One stopping time could be \(N = \min\{n: X_1 + \ldots + X_n = 10\}\). (Note that by the Strong Law of Large Numbers, with probability 1 this will eventually happen.) Then by Wald's Equation (Theorem \ref{stoch.wald.eqn}),
 
 \[
 \E \bigg( \sum_{i=1}^N X_i \bigg) = \E(N) \E(X) \iff 10 = \E(N) (2p-1) \implies \E(N) = \frac{10}{2p-1}.
@@ -1648,11 +1715,15 @@ X_i = \begin{cases}
 \end{cases}
 \]
 
-with \(p > 1/2\). Note that \(\E(X_i) = 2p - 1 > 0\). One stopping time could be \(N = \min\{n: X_1 + \ldots + X_n = 1\}\). It turns out from Markov chain theory that this will eventually happen with probability 1.
+with \(p > 1/2\). Note that \(\E(X_i) = 2p - 1 > 0\). One stopping time could be \(N = \min\{n: X_1 + \ldots + X_n = 1\}\). It turns out from Markov chain theory that this will eventually happen with probability 1. We can't apply Wald's Equation (Theorem \ref{stoch.wald.eqn}) because \(\E(N)\) is not finite. Note that if we try, a contradiction results:
+
+\[
+1 = \E(N) \cdot 0 = 0
+\]
 
 \end{example}
 
-\begin{example} Let \(U_i \sim \operatorname{Uniform}(0,1)\), \(U_i\) i.i.d. One stopping time is \(N = \min\{n: U_n > 0.8\}\). Then by Wald's Equation,
+\begin{example} Let \(U_i \sim \operatorname{Uniform}(0,1)\), \(U_i\) i.i.d. One stopping time is \(N = \min\{n: U_n > 0.8\}\). Then by Wald's Equation (Theorem \ref{stoch.wald.eqn}),
 
 \[
 \E \bigg( \sum_{i=1}^N X_i \bigg) = \E(N) \E(X) = 10 \cdot 0 = 0
@@ -1671,7 +1742,7 @@ N(t) + 1 = n \iff N(t) = n - 1, X_1 + \ldots + X_{n-1} \leq t, X_1 + \ldots + X_
 
 (You can't say ``I'll stop at the last event before \(t\)" because at the time of that event you wouldn't have been able to know it was the last event before \(t\).)
 
-\begin{corollary}\label{stoch.wald.eqn.cor}
+\begin{corollary}[\textbf{Corollary to Wald's Equation}]\label{stoch.wald.eqn.cor}
 
 \[
 \E \bigg( \sum_{i=1}^{N(t) + 1} X_i \bigg) = \mu(m(t) +1)
@@ -1679,7 +1750,7 @@ N(t) + 1 = n \iff N(t) = n - 1, X_1 + \ldots + X_{n-1} \leq t, X_1 + \ldots + X_
 
 \end{corollary}
 
-\begin{theorem}[\textbf{Elementary Renewal Theorem}] 
+\begin{theorem}[\textbf{Elementary Renewal Theorem}]\label{stoch.elem.renew.thm}
 
 \[
 \frac{m(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}.
@@ -1713,7 +1784,7 @@ Then as \(t \to \infty\)
 \lim \inf \frac{m(t)}{t} \geq \frac{1}{\mu}.
 \]
 
-Assume \(\Pr(X_i \leq M) = 1\) for some \(M \in \mathbb{R}\). Then
+So if we can show \(\lim \inf \frac{m(t)}{t} \leq \frac{1}{\mu}\), we're done. Assume \(\Pr(X_i \leq M) = 1\) for some \(M \in \mathbb{R}\). Then
 
 \[
 S_{N(t) + 1} < t + M \implies \mu(m(t)+ 1) < t + M \implies m(t) < \frac{t}{\mu} + \frac{M}{\mu} - 1
@@ -1774,7 +1845,7 @@ by Lebesgue's Monotone convergence theorem. (``if you have a sequence of variabl
 
 \end{remark}
 
-\begin{remark} Why doesn't the Elementary Renewal Theorem follow from the Strong Law for Renewal Processes? Consider this counterexample: Let \(U \sim \operatorname{Uniform}(0,1)\) and let \(X_n\) be a random variable such that
+\begin{remark} Why doesn't the Elementary Renewal Theorem follow from the Strong Law for Renewal Processes (Theorem \ref{stoch.strong.law.renew.proc})? Consider this counterexample: Let \(U \sim \operatorname{Uniform}(0,1)\) and let \(X_n\) be a random variable such that
 
 \[
 X_n = \begin{cases}
@@ -1799,7 +1870,2682 @@ So we have
 In summary, just because \(\frac{N(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}\) doesn't mean \(\frac{m(t)}{t} \xrightarrow{a.s.} \frac{1}{\mu}.\)
 \end{remark}
 
+
+\begin{proposition}
+Consider a delayed renewal process \(N_d(t)\) and let \(m_d(t) = \E(N_d(t))\). Recall that the first arrival has distribution \(G\) and the rest have distribution \(F\).  Then \(m_d(t) \xrightarrow{a.s.} 1/\mu\).
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+m_d(t) = \int_0^t \E(N_d(t) \mid X_1 = s) dG(s)
+\]
+
+Note that
+
+\[
+\E(N_d(t) \mid X_1 = s) = 1 + m(t-s)
+\]
+
+so we have
+
+\[
+m_d(t) = \int_0^t (1 + m(t-s)) dG(s) = G(t) + \int_0^t m(t-s) dG(s) 
+\]
+
+\[
+\iff \frac{m_d(t) }{t} = \frac{G(t)}{t} + \frac{1}{t}\int_0^t m(t-s) dG(s) \xrightarrow{a.s.} \frac{1}{\mu}
+\]
+
+by using \(m(y)/y \xrightarrow{a.s.} 1/\mu\). (Details can be fleshed out.)
+
+\end{proof}
+
+\begin{proposition}
+Suppose \(X_1, X_2, \ldots\) are integer valued, and there is only one renewal at a time. Suppose \(\Pr(X_i = 0) = 0\).  Then
+\end{proposition}
+
+\begin{proof}
+Note that
+
+\[
+\frac{ \E(N_d(t))}{n} \to \frac{1}{\mu}
+\]
+
+by the Strong Law for Renewal Processes (Theorem \ref{stoch.strong.law.renew.proc}). Note that
+
+\[
+N_d(n) = \sum_{j=1}^n I_j
+\]
+
+where \(I_j\) is an indicator variable for whether there is a renewal at time \(j\). Then
+
+\[
+\E(N_d(n) ) = \sum_{j=1}^n \E( I_j) =  \sum_{j=1}^n \Pr(I_j = 1)
+\]
+
+Then by the Elementary Renewal Theorem (Theorem \ref{stoch.elem.renew.thm}),
+
+\[
+ \frac{1}{n} \sum_{j=1}^n \Pr(I_j = 1) \xrightarrow{a.s.} \frac{1}{\E(X_i)}
+ \]
+ 
+
+\end{proof}
+
+Recall we say that \(a_n \to a\) pointwise if \(\lim_{n \to \infty} a_n = a\). 
+
+\begin{definition}[\textbf{Caesaro Convergence}] We say \(a_n\) Caesaro converges to \(a\) if 
+
+\[
+\frac{a_1 + \ldots + a_n}{n} \to a \text{ as } n \to \infty.
+\]
+
+\end{definition}
+
+\begin{remark} Pointwise convergence implies Caesaro convergence, but not the other way around.
+\end{remark}
+
+When does \(\Pr(\{\text{renewal at } n\}) \to 1/\mu\)? Let \(\Pr(\{\text{renewal at } j\}) = P_j\) and suppose \(P_n \to P^*\). This implies Caesaro convergence
+
+\[
+\frac{P_1 + \ldots + P_n}{n} \to p^* 
+\]
+
+and \(p^* = 1/\mu\) where \(\mu\) is the expected time between renewals.
+
+\textbf{These examples are very confusing---look for explanations in textbook? Seems to be same as Section 7.9.2 in \textit{Introduction to Probability Models}.}
+
+\begin{example} Let \(Y_1, Y_2, \ldots\) i.i.d. Suppose \(p_j = \Pr(Y_i = j)\). We will keep doing draws until we observe the pattern 1, 2, 1, 3, 4, 1, 2, 1. Let \(N\) be the number of trials until this occurs. What is \(\E(N)\)?
+
+\begin{solution} Suppose we consider the process as continuing to happen forever even after a pattern appears, and treat a pattern arriving as an event. let \(N(n)\) be the number of events by \(n\). Is \(\{N(n)\}\) a renewal process? That is, once an event occurs does everything start all over? Yes, so it's either an ordinary or delayed renewal process. Note that it's delayed because the last three digits of the pattern match the first three, so once a pattern has just happened, another one could happen in 5 draws. Note that
+
+\[
+\Pr(\text{pattern appears at time } n) = P_1 P_2 \ldots = P_1^4P_2^2 P_3 P_4
+\]
+
+so the expected time between renewals is \(1/(P_1^4P_2^2 P_3 P_4) \), except that we need to take into account the fact that we already have the first three digits of the pattern if we just got one. Note that
+
+\[
+\Pr(\text{pattern appears at time } n \mid \text{just had pattern}) = P_1^2P_2 P_3 P_4
+\]
+
+We can look at this a different way. The time until we get a pattern \(T_p\) is the time until we get 1,2,1 \(T_{121}\) plus the time until we get the rest of the pattern \(T_{rest}\).
+
+\[
+T_p = T_{121} + T_{rest} \implies \E(T_p) = \E( T_{121}) + 1/(P_1^4P_2^2 P_3 P_4)
+\]
+
+Then \(\Pr(\text{renewal at }n) = P_1^2 P_2\) so the expected time between renewals is \(1/( P_1^2 P_2)\). Then the time between renewals is the additional time between renewals given that you currently have 1, so
+
+\[
+\E(\text{time between renewals}) = \E(\text{additional time when you have a } 1) = 1/(P_1^2 P_2)
+\]
+
+Do it again: time to get to 1,2,1 is time to get to 1 plus additional:
+
+\[
+T_{121} = T_{1} + T_{21} \implies \E(T_{121}) = \E( T_{1}) + /(P_1^2 P_2) = 1/P_1 + /(P_1^2 P_2)
+\]
+
+putting this all together, we have
+
+\[
+\E(T_p) = 1/P_1 + /(P_1^2 P_2) + 1/(P_1^4P_2^2 P_3 P_4).
+\]
+
+\end{solution}
+
+\end{example}
+
+\begin{example}Flips coins, get heads with probability \(P\). Then \(T_{k}\) is the time to land \(k\) heads in a row. What is the expected time until \(k\) heads in a row?
+
+\begin{solution} Note that the probability of a renewal at \(n\) is \(p^k\). So the expected time between renewals is equal to \(1/p^k\) not taking into account that the next time we could use the heads we already have. Note that
+
+\[
+T_k = T_{k-1} + T_rest
+\] 
+
+so
+
+\[
+\E(T_k) = \E(T_{k=1} + 1/p^k = 1/p^k + \E(T_{k-2}) + 1/(p^{k-1}) + \ldots
+\]
+
+\end{solution}
+
+\end{example}
+
+\subsection{ISE 620 Midterm Solutions}
+
+
+\begin{exercise}
+
+\[
+\Var \bigg( \sum_{i=1}^n X_i \bigg) 
+\]
+
+\end{exercise}
+\begin{solution} 
+
+\[
+\Var \bigg( \sum_{i=1}^n X_i \bigg) = \Var \bigg( \sum_{i=1}^n (n + 1 - i) X_i \bigg) = \sum_{i=1}^n \frac{(n + 1 - i)^2}{\lambda^2} = \sum_{j=1}^n j^2/\lambda^2
+\]
+
+or
+
+\[
+\Var \bigg( \sum_{i=1}^n X_i \bigg) = \sum_{i=1}^n \Var(S_i) +2  \sum_{1 \leq i < j \leq n} \Cov(S_i, S_j) 
+\]
+
+Note that 
+
+\[
+ \Cov(S_i, S_j)  = \Cov \bigg(S_i, S_i + \sum_{k=i+1}^j X_k \bigg) = \Var(S_i) + 0 = i/\lambda^2
+\]
+
+\end{solution}
+
+\begin{exercise}
+
+\[
+\Var \bigg( \sum_{i=1}^{N(t)} S_i \mid N(t) 
+\]
+
+\end{exercise}
+
+\begin{solution} 
+
+\[
+\Var \bigg( \sum_{i=1}^{N(t)} S_i \mid N(t) = n \bigg) = \Var \bigg( \sum_{i=1}^{n} U_i \bigg) 
+\]
+
+where \(U_1, \ldots, U_n \sim \text{ i.i.d. } U(0,t)\) and they are ordered. Since the sum of the ordered values is the same as the sum of the unordered values and they are i.i.d., we have
+
+\[
+ \Var \bigg( \sum_{i=1}^{n} U_i \bigg)  =  \sum_{i=1}^{n} \Var(U_i ) =  \frac{n t^2}{12}.
+ \]
+
+
+\end{solution}
+
+\begin{exercise} A wins point with probability \(p_1\) if \(A\) is server, \(A\) wins with probability \(p_2\) if \(B\) serves. (a) serve next if you just won. (b) alternate serve.
+
+\end{exercise}
+
+\begin{solution} 
+
+\begin{enumerate}[(a)]
+
+\item \(A\) serving is a renewal. Suppose \(A\) just won a point. Let \(X\) be the number of games until \(A\) wins again. Frequency with which \(A\) wins converges to \(1/\E(X)\) by the Strong Law for Renewal Processes (Theorem \ref{stoch.strong.law.renew.proc}). Condition on who wins next game. Let \(Y\) be an indicator variable for \(A\) winning the next game. Then
+
+\[
+\E(X) = \E(X \mid Y = 1) p_1 + \E(X \mid Y = 0) (1- p_1)
+\]
+
+Note that if \(Y =1\), \(X = 1\). For \(\E(X \mid Y = 0)\), \(B\) keeps serving until \(A\) wins, so the number of games until \(A\) wins is a geometric random variable with probability \(p_2\), so the mean is \(1/p_2\). So we have
+
+\[
+\E(X) = 1 \cdot p_1 +(1 + 1/p_2) (1- p_1) = 1 + \frac{1- p_1}{p_2} = \frac{p_2 + 1 - p_1}{p_2}
+\]
+
+and the rate is 
+
+\[
+ \frac{p_2}{p_2 + 1 - p_1}
+\]
+
+\item Not a renewal---everything doesn't start all over again when \(A\) wins a point, because just because \(A\) just won doesn't tell us anything about who wins. A renewal would happen every time \(A\) wins on her serve. Let \(X\) be the number of games until the next renewal. Then the answer we seek is \(1/\E(X)\). Let \(Y\) be an indicator variable for \(A\) winning on her next serve. Note that
+
+%\underbrace{1}_{\text{game B serves}} +
+
+\[
+\E(X) =  \E(X \mid Y = 1) p_1 + \E(X \mid Y= 0) (1- p_1)
+\]
+
+Note that \( \E(X \mid Y = 1)  = 2\),  \( \E(X \mid Y = 0)  = 2 + \E(X) \). So we have
+
+\[
+\E(X) =  2 p_1 + (2 + \E(X)) (1- p_1) \iff p_1\E(X) = 2 p_1 + 2 - 2p_1 \iff \E(X) = 2/p_1
+\]
+
+Do the same thing again for when \(A\) wins on \(B\)'s serves. Then add them together.
+
+A renewal would happen every time \(A\) wins on \(B\)'s serve. Let \(Z\) be the number of games until the next renewal. Then the answer we seek is \(1/\E(Z)\). Let \(Y\) be an indicator variable for \(A\) winning on \(B\)'s next serve. Note that
+
+%\underbrace{1}_{\text{game B serves}} +
+
+\[
+\E(Z) =  \E(Z \mid Y = 1) p_2 + \E(Z \mid Y= 0) (1- p_2)
+\]
+
+Note that \( \E(Z \mid Y = 1)  = 2\),  \( \E(Z \mid Y = 0)  = 2 + \E(Z) \). So we have
+
+\[
+\E(Z) =  2 p_2 + (2 + \E(Z)) (1- p_2) \iff p_1\E(Z) = 2 p_2 + 2 - 2p_2 \iff \E(Z) = 2/p_2
+\]
+So the long-run proportion of games won by \(A\) is
+
+\[
+\frac{1}{\E(X)} + \frac{1}{\E(Z)} = \frac{p_1 + p_2}{2}.
+\]
+
+\end{enumerate}
+
+\end{solution}
+
+\begin{exercise} \(M/G/\infty, \qquad \Pr(X(t) = j \mid N(t) = n).\)
+
+\end{exercise}
+
+\begin{solution}
+
+
+
+
+
+The arrival times are i.i.d. uniform on \((0,t)\). So each one has the same probability of being in the system at time \(t\), and the number who are in the system is a binomial random variable. 
+
+\[
+\Pr(X(t) = j \mid N(t) = n) = \binom{n}{j} p^j(1-p)^{n-j}
+\]
+
+where \(p\) is the probability of being in the system at time \(t\):
+
+\[
+p = \int_0^t \Pr(\text{in system} \mid \text{arrived at } s ) \cdot (1/t) ds = \frac{1}{t} \int_0^t \overline{G}(t-s) ds.
+\]
+
+
+\end{solution}
+
+\begin{exercise}
+
+number of claims \(N\) poisson with mean lambda, claim amounts `are uniformly distributed on \((0,1)\), we want \(\E( \max\{X_1, \ldots, X_N\})\). 
+
+\end{exercise}
+
+\begin{solution} Note that 
+
+\[
+ \Pr(\max\{X_1, \ldots, X_n\} \leq t) = t^n \implies  \Pr(\max\{X_1, \ldots, X_n\} > t) = 1 - t^n
+\]
+
+\[
+\implies \E(\max\{X_1, \ldots, X_n\}) = \int_0^1 (1 - t^n ) dt = \frac{n}{n+1} = 1 - \frac{1}{n+1}
+\]
+
+so this is the expected value if we condition on \(n\). Therefore
+
+\[
+\E( \max\{X_1, \ldots, X_N\}) = \E( \max\{X_1, \ldots, X_N\} \mid N = n) \Pr(N = n) 
+\]
+
+\[
+=\sum_{n=0}^\infty  \bigg( 1 - \frac{1}{n+1} \bigg) \cdot e^{-\lambda} \frac{\lambda^n}{n!} = \ldots
+\]
+
+\end{solution}
+
+\begin{exercise}
+
+\[
+\E(X(t) \mid N(s) = n)
+\]
+
+where
+
+%\[
+%X = \sum_{i=1}^{N(t)} X_i
+%\]
+%
+%so
+
+\[
+X(t) = \sum_{i=1}^{N(t)} X_i
+\]
+
+\end{exercise}
+
+\begin{solution}
+
+We have
+
+\[
+X(t) \mid N(s) = n =   \sum_{i=1}^{N(s)} X_i  + \sum_{i=N(s) + 1}^{N(t)} X_i =   \sum_{i=1}^{n} X_i  + \sum_{i=N(s) + 1}^{N(t)} X_i
+\]
+
+\[
+\implies \E(X(t) \mid N(s)) = \E \bigg(  \sum_{i=1}^{n} X_i  \bigg) + \E \bigg( \sum_{i=N(s) + 1}^{N(t)} X_i \bigg)  = n \E(X) + \E (X) \lambda(t-s)
+\]
+
+where \(\lambda(t-s)\) is the expected number of events between \(s\) and \(t\).
+
+\end{solution}
+
+\subsection{Renewal Reward Processes (Section 4.7 in \textit{Introduction to Probability Models}, 3.6 \textit{Stochastic Processes})}
+
+\begin{definition}[\textbf{Renewal reward process}]Suppose we have a renewal process with interarrival times \(X_1, X_2, \ldots\). Suppose we receive a reward \(R_i\) when renewal \(i\) occurs (after time \(X_i\) from the previous renewal). The reward is allowed to depend on what happens during the previous period \(X_i\), but every time renewal happens, process starts again. So we assume the vectors \((X_i, R_i), i \geq 1\) are i.i.d. Let \(R(t)\) be the total reward by time \(t\); that is,
+
+\[
+R(t) = \sum_{i=1}^{N(t)} R_i.
+\]
+
+Then \(\{R(t), t \geq 0\}\) is a \textbf{renewal reward process.}
+
+\end{definition}
+
+\begin{proposition}[\textbf{Proposition 7.3 in \textit{Introduction to Probability Models}; sometimes called Renewal Reward Theorem}]\label{stoch.prop.7.3}
+
+\
+
+\begin{enumerate}[(a)]
+
+\item 
+
+\[
+\frac{R(t)}{t} \xrightarrow{a.s.} \frac{\E(R)}{\E(X)}
+\]
+
+(generalization of strong law)
+
+\item 
+
+
+\[
+\frac{\E(R(t))}{t} \xrightarrow{a.s.} \frac{\E(R)}{\E(X)}
+\]
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item 
+
+\[
+\frac{R(t) }{t} = \frac{1}{t}  \sum_{i=1}^{N(t)} R_i = \frac{1}{N(t) }   \sum_{i=1}^{N(t)} R_i \cdot \frac{N(t)}{t}
+\]
+
+Since \(N(t) \to \infty\) as \(t \to \infty\), by Strong Law of Large Numbers (Theorem \ref{asym.lln2})
+
+\[
+ \frac{1}{N(t) }   \sum_{i=1}^{N(t)} R_i  \xrightarrow{a.s.} \E(R)
+ \]
+ 
+ By Strong Law for Renewal Processes (Theorem \ref{stoch.strong.law.renew.proc}), 
+ 
+ \[
+  \frac{N(t)}{t} \xrightarrow{a.s.} 1/\E(X).
+\]
+
+Then by the Continuous Mapping Theorem (Theorem \ref{asym.contmappthm}), the result follows.
+\item
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{example}[\textbf{Same as exam question}] A wins point with probability \(p_1\) if \(A\) is server, \(A\) wins with probability \(p_2\) if \(B\) serves. alternate serve.
+
+\end{example}
+
+\begin{solution} Every time \(A\) serves is a renewal. 1 reward each time \(A\) wins a point. Expected earning per cycle is \(p_1 + p_2\). Cycles are length 2. Works out to \((p_1 + p_2)/2\).
+
+
+\end{solution}
+
+\begin{proposition}We've assumed that the renewal is earned at the end of the cycle. But the result holds even if the reward is earned during the interval gradually, not all at once at the end of the renewal interval (assuming all rewards are nonnegative). So
+
+\[
+\frac{R(t)}{t} \xrightarrow{a.s.} \frac{\E(R)}{\E(X)}.
+\]
+
+Also,
+
+\[
+\E \bigg[ \frac{R(t)}{t} \bigg] \xrightarrow{a.s.} \frac{\E(R)}{\E(X)}.
+\]
+
+\end{proposition}
+
+
+\begin{proof}
+\(R(t)\) is the total reward you get by time \(t\). So \(\sum_{i=1}^{N(t)} R_i \leq R(t)\) (the inequality holds if you've earned a bit since the last renewal). We have
+
+\[
+\sum_{i=1}^{N(t)} R_i \leq R(t) \leq \sum_{i=1}^{N(t) + 1} R_i
+\]
+
+Dividing through by \(t\):
+
+\[
+\frac{1}{t} \sum_{i=1}^{N(t)} R_i \leq  \frac{R(t)}{t}  \leq  \frac{1}{N(t) + 1} \sum_{i=1}^{N(t) + 1} R_i \cdot \frac{N(t)+1}{t} 
+\]
+
+But by Proposition \ref{stoch.prop.7.3}
+
+\[
+\frac{1}{t} \sum_{i=1}^{N(t)} R_i  \xrightarrow{a.s.} \E(R)/\E(X),
+\]
+
+\[
+\frac{1}{N(t) + 1} \sum_{i=1}^{N(t) + 1} R_i  \xrightarrow{a.s.} \E(R)
+\]
+
+\[
+\frac{N(t)+1}{t}  \xrightarrow{a.s.} 1/\E(X)
+\]
+
+So by the Continuous Mapping Theorem,
+
+\[
+\frac{R(t)}{t} \xrightarrow{a.s.} \frac{\E(R)}{\E(X)}.
+\]
+\end{proof}
+
+\begin{example}[\textbf{Similar to Example 7.15 in \textit{Introduction to Probability Models}}] People arrive to train station in a Poisson process with rate \(\lambda\). \(K\) is the cost to dispatch the train. Suppose we incur a cost \(c\) per unit of time waiting per customer. What dispatching policy minimizes the long-run average cost per unit time?
+
+\end{example}
+
+\begin{solution} 
+
+The structure of the optimal policy is to wait until a certain number of people arrive and then dispatch a train (\(n\) policy). So we want to determine this number. (Another policy is a \(t\) policy: dispatch a train every \(t\) units of time. But it turns out the best \(n\) policy is better than the best \(t\) policy. We may be interested in the difference in minimal costs because \(t\) policies are easier to employ and more convenient for customers.)
+
+\begin{enumerate}[(a)]
+
+
+\item \textbf{\(n\)-policy:} Note that every time we dispatch a train, there is a renewal. At every renewal time there is a cost incurred. The long run average cost per unit time is the expected cost during a cycle divided by the expected time of a cycle. Note that the expected time between cycles is the expected amount of time for \(n\) people to arrive, which is simply \(n/\lambda\). The cost of a cycle is
+
+\[
+cX_2 + 2c X_3 + 3c X_4 + \ldots + (n - 1)c X_n + K
+\]
+
+so the expected cost is
+
+\[
+\E(X) (c + 2c + 3c+ \ldots + (n-1)c) + K = \frac{c}{\lambda} \frac{(n-1)n}{2} + K
+\]
+
+Therefore taking the ratio, the average cost per cycle is 
+
+\[
+\left(  \frac{1}{\lambda} \frac{c(n-1)n}{2}  + K \bigg) \middle/ \bigg( \frac{n}{\lambda} \right) = \frac{c(n-1)}{2} + \frac{\lambda K}{n}.
+\]
+
+Now we want to pick \(n\) to minimize this quantity. Treat \(n\) as continuous and take the derivative.
+
+\[
+\frac{c}{2}  - \frac{\lambda K}{n^2} = 0 \iff n = \sqrt{\frac{2 \lambda K}{c}}
+\]
+
+which makes the minimum average cost
+
+\[
+ \frac{1}{2} \bigg(c \sqrt{\frac{2 \lambda K}{c}}-c\bigg)  + K  \sqrt{\frac{c}{2 \lambda K}} = \sqrt{2 \lambda c K } - \frac{c}{2}.
+\]
+
+\item \textbf{\(t\)-policy:} Dispatch a train every \(t\) time units. Note that we have a renewal every time you dispatch a train. The average cost per unit time is the expected cost per cycle \(\E(C)\) divided by \(t\). Note that
+
+\[
+C = c \sum_{i=1}^{N(t)} (t - S_i)  = c\bigg( t N(t) - \sum_{i=1}^{N(t)} S_i \bigg) + K
+\]
+
+\[
+\implies \E(C) =c \E \bigg( t N(t) - \sum_{i=1}^{N(t)} S_i \bigg) + K = c \bigg[\lambda t^2 - \E \bigg( \sum_{i=1}^{N(t)}  S_i \bigg) \bigg] + K
+\]
+
+Note that
+
+\[
+ \E \bigg( \sum_{i=1}^{N(t)}  S_i \mid N(t) = n \bigg) =  \E \bigg( \sum_{i=1}^{n}  S_i ) =  \E \bigg( \sum_{i=1}^{n}  U_i ) = \frac{nt}{2} \implies  \E \bigg( \sum_{i=1}^{N(t)}  S_i \mid N(t) \bigg)  = \frac{t N(t)}{2}
+\]
+
+where \(U_i \sim \operatorname{U}(0,t)\).
+
+\[
+\implies  \E(C)=  c \lambda t^2 -c  \E \bigg[  \E \bigg( \sum_{i=1}^{N(t)}  S_i \mid N(t) \bigg) \bigg] + K =  c \lambda t^2 -c  \E \bigg[  \frac{t N(t)}{2} \bigg] + K =  c \lambda t^2 -c   \frac{\lambda t^2}{2} + K
+\]
+
+\[
+\implies \E(C) = \frac{c \lambda t^2}{2} + K 
+\]
+
+Therefore the average cost per cycle is
+
+\[
+\frac{1}{t} \cdot \bigg( \frac{c \lambda t^2}{2} + K \bigg) = \frac{\lambda c t}{2} + \frac{K}{t}
+\]
+
+We seek the best \(t\) to minimize this cost. Take the derivative with respect to \(t\).
+
+\[
+\frac{\lambda c}{2} - \frac{K}{t^2} = 0 \implies t = \sqrt{ \frac{2 K}{\lambda c}}
+\]
+
+So the minimum average cost is
+
+\[
+  \sqrt{ \frac{2 K}{\lambda c}}\frac{\lambda c }{2} + \frac{K}{t}  \sqrt{ \frac{\lambda c}{2 K}} = K \sqrt{\frac{\lambda c}{2K}}.
+  \]
+
+\end{enumerate}
+
+
+\end{solution}
+
+\begin{example}It costs \(C\) to buy a new car. The car lasts for a time \(L\) having distribution \(F\) before it fails. If the car fails, you incur cost \(K\). Suppose you have a policy of buying a new car when the old car either fails or reaches a certain age \(t\).
+
+\end{example}
+
+\begin{solution} Note that a renewal occurs when you get a new car or when it fails. The cost per cycle is \(C\) if \(L > t\), \(C+K\) if \(L \leq t\). The time for a cycle is \(\min\{L, t\}\). Therefore the average cost per unit time is the expected cost of a cycle \(C + K \Pr(L< t) = C + K F(t)\). The average lifetime is 
+
+\[
+\int_0^t x dF(x) + \int_t^\infty t dF(x) = \int_0^t x dF(x) + t \overline{F}(t).
+\]
+
+Therefore the average cost per cycle is
+
+\[
+\left( c + K F(t) \bigg) \middle/  \bigg( \int_0^t x dF(x) + t \overline{F}(t) \right).
+\]
+
+\end{solution}
+
+\begin{definition}[\textbf{Age of a renewal process}]
+We call \(A(t) = t - S_{N(t)}\) the \textbf{age of the renewal process at time \(t\).}
+\end{definition}
+
+\begin{definition}[\textbf{Excess (or residual) lifetime at time t}]
+We call \(Y(t) =  S_{N(t) + 1} - t \) be the \textbf{excess (or residual) lifetime of a renewal process at time \(t\).}
+\end{definition}
+
+\begin{proposition}\label{stoch.long.run.age.excess} Let \(X\) be the interarrival time for a renewal reward process. Then
+
+\begin{enumerate}[(a)]
+
+\item with probability 1,
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t A(s) ds = \frac{\E(X^2)}{2\E(X)}.
+\]
+
+\item With probability 1,
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t Y(s) ds = \frac{\E(X^2)}{2\E(X)}.
+\]
+
+\item With probability 1,
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t \E[A(s)] ds = \frac{\E(X^2)}{2\E(X)}.
+\]
+
+\item With probability 1,
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t \E[Y(s)] ds = \frac{\E(X^2)}{2\E(X)}.
+\]
+
+\end{enumerate}
+
+
+
+\end{proposition}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item Imagine we earn a reward at a rate equal to the age of the renewal process. Then the amount earned by time \(t\) is
+
+\[
+\int_0^t A(s) ds.
+\]
+
+When there is a new renewal, the process starts over again, so this is a renewal reward process. The reward earned during each cycle is 
+
+\[
+\int_0^X t dt = \frac{X^2}{2}.
+\]
+
+Taking expectations and taking the ratio of these in the limit, we have
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t A(s) ds = \frac{\E(X^2)}{2\E(X)}.
+\]
+
+For more detail, see Example 7.18 in \textit{Introduction to Probability Models}.
+
+\item Imagine we earn a reward at a rate equal to the residual lifetime of the renewal process. Then the amount earned by time \(t\) is
+
+\[
+\int_0^t Y(s) ds.
+\]
+
+When there is a new renewal, the process starts over again, so this is a renewal reward process. The reward earned during each cycle is 
+
+\[
+\int_0^X(X -  t) dt = X^2 -  \frac{X^2}{2} = \frac{X^2}{2}.
+\]
+
+Taking expectations and taking the ratio of these in the limit, we have
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t A(s) ds = \frac{\E(X^2)}{2\E(X)}.
+\]
+
+For more detail, see Example 7.19 in \textit{Introduction to Probability Models}.
+
+
+\item Similar to (a).
+
+\item Similar to (c).
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{remark} This makes sense because if the process is infinitely long, if you look at it backwards in time the distribution of renewals is the same as if you look forward in time. But when you switch direction, the residual lifetimes and ages reverse meaning. Therefore since the distribution doesn't change depending on the direction you look at it from, the long-term expected residual lifetime and age ought to be equal.
+
+\end{remark}
+
+\begin{proposition}[\textbf{Homework 7, \textit{Introduction to Probability Models} Ch. 7 Problem 30}] 
+
+\[
+\frac{A(t)}{t} \xrightarrow{a.s.} 0.
+\]
+
+\end{proposition}
+
+\begin{proof}
+
+\(A(t)\) is the time since the last renewal; that is, \(A(t) = t - S_{N(t)}\). So we hope to show that with probability one,
+
+\[
+\frac{ t - S_{N(t)}}{t} \to 0 \text{ as } t \to \infty
+\]
+
+(or, equivalently)
+
+\[
+\frac{ t - S_{N(t)}}{t} \xrightarrow{w.p,1} 0 .
+\]
+
+Note that
+
+\[
+\frac{ t - S_{N(t)}}{t}  = \frac{ t - S_{N(t)}}{N(t)}  \cdot \frac{ N(t)}{t} =  \bigg(  \frac{ t}{N(t)} -  \frac{S_{N(t)}}{N(t)}     \bigg) \frac{ N(t)}{t} 
+\]
+
+By the Strong Law for Renewal Processes (Theorem \ref{stoch.strong.law.renew.proc}), \(\frac{ N(t)}{t} \xrightarrow{w.p.1} \mu^{-1}\), where \(\mu =\E(X)\) is the expected interarrival time. Since the expected interarrival time is finite, \(N(t) \to \infty\) as \(t \to \infty\). Therefore
+
+\[
+ \frac{S_{N(t)}}{N(t)} = \frac{X_1 + \ldots + X_{N(t)}}{N(t)} \xrightarrow{w.p.1} \mu.
+\]
+
+Lastly, since \(N(t) > 0 \) with probability 1 as \(t \to \infty\) and \(t > 0\), by the Continuous Mapping Theorem
+
+\[
+\frac{ t}{N(t)} =  \bigg( \frac{ N(t)}{t} \bigg)^{-1}  \xrightarrow{w.p.1} (\mu^{-1})^{-1} = \mu.
+\]
+
+Therefore by another application of the Continuous Mapping Theorem,
+
+\[
+\frac{ t - S_{N(t)}}{t} = \bigg(  \frac{ t}{N(t)} -  \frac{S_{N(t)}}{N(t)}     \bigg) \frac{ N(t)}{t}  \xrightarrow{w.p.1} ( \mu - \mu) \cdot \mu^{-1} = 0.
+\]
+%\textbf{hopefully pretty similar to proofs we did in class (and available in book)}
+
+\end{proof}
+
+\begin{example}[\textbf{Similar to Example 7.20 in \textit{Introduction to Probability Models}}]People arrive to a bus stop in a Poisson process with rate \(\lambda\). Buses arrive in an independent renewal process after time \(T\) with distribution \(F\) where \(\E(T) = \mu\).
+
+\begin{enumerate}[(a)]
+
+\item What is the long-run average number of people picked up by a bus when it arrives?
+
+\item Suppose busses arrive according to a  Poisson process with rate \(\lambda\); that is, \(F(t) = 1 - e^{-\alpha t}\). What is the long-run average number of people waiting at any given time (averaged over all time)?
+
+\item What is the average amount of time a person waits for a bus (averaged over all people)? (Let \(W_i\) be the waiting time of person \(i\). We seek \(\lim_{n \to \infty} \sum_{i=1}^n W_i / n\).)
+
+\end{enumerate}
+
+\end{example}
+
+\begin{solution}
+
+\begin{enumerate}[(a)]
+
+\item Every time a bus arrives, we have a renewal. The number of people picked up by a bus is \(N(T)\). Note that \(\{N(t)\} \sim PP(\lambda)\). Note that
+
+\[
+\E(N(T) \mid T = t) = \E(N(t) \mid T = t) = \text{(by independence) } \E(N(t)) = \lambda t \implies \E(N(T) \mid T) = \lambda T
+\]
+
+\[
+\implies \E(N(T)) = \E(\E(N(T) \mid T) ) = \lambda \E(T) = \lambda \mu.
+\]
+
+\item Let \(N_s(s)\) be the number of people waiting at time \(s\). We seek
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t N_w(s) ds.
+\]
+
+Imagine that at time \(s\) we earn at a rate \(N_w(s)\). Then we want the average reward per unit time. Then this is a renewal reward process, where renewals happen when a bus arrive. The expected reward earned per cycle is
+
+\begin{equation}\label{stoch.ex.bus.renewal.reward}
+ \frac{1}{\E(T)} \cdot \E \bigg( \int_0^T N(s) ds \bigg) 
+\end{equation}
+
+Note that
+
+\[
+\E \bigg( \int_0^T N(s) ds \mid T = t \bigg) = \E \bigg( \int_0^t N(s) ds  \bigg) = \text{(by Fubini's Theorem) } \int_0^t \E(N(s)) ds = \int_0^t \lambda s ds = \frac{ \lambda t^2}{2}
+\]
+
+\[
+\implies \E \bigg( \int_0^T N(s) ds \mid T  \bigg) = \frac{\lambda T^2}{2}
+\]
+
+Therefore we have that the expected reward earned per cycle is (plugging into (\ref{stoch.ex.bus.renewal.reward}))
+
+\[
+\frac{\lambda \E(T^2)}{2 \E(T)} .
+\]
+
+Because arrivals occur in a Poisson process (\(F(t) = 1 - e^{-\alpha t}\)), we have \(\E(T) = \alpha^{-1}\), \(\E(T^2)= 2 \alpha^{-2}\). Therefore the expected reward earned per cycle is
+
+\[
+\frac{\lambda 2 \alpha^{-2}}{2 \alpha^{-1}} = \frac{\lambda}{\alpha} .
+\]
+
+
+
+\item \(\frac{\lambda}{\alpha}\).
+
+\begin{remark}Note that the average number of people picked up by a bus now matches the average number of people waiting at any given time. This is counterintuitive because you would think at the time the bus comes, the most people are there, so the average number of people picked up should be larger than the average number of people waiting in general. 
+
+\
+
+This illustrates the \textbf{PASTA principle} and the \textbf{inspection paradox}. The paradox is resolved by the fact that the average in (b) is averaged over all time, while the average in (c) is averaged over all people.
+
+\end{remark}
+
+\end{enumerate}
+
+\end{solution}
+
+\begin{theorem} Queue, customers arrive in a renewal process with distribution \(F\), so 
+
+\[
+\lambda^{-1} = \int_0^\infty \overline{F}(t) dt.
+\]
+
+Each customer eventually leaves. Let \(L\) be the average number of customers in the system, averaged over all time. Let \(X(s)\) be the number of customers in the system at time \(s\). Note that
+
+\[
+L = \lim_{t \to \infty} \frac{1}{t} \int_0^t X(s) ds.
+\]
+
+Let \(W\) be the average time a customer spends in the system. Let \(W_i\) be the amount of time customer \(i\) spends in the system. Note that
+
+\[
+W = \lim_{n \to \infty} \frac{W_1 + \ldots + W_n}{n}.
+\]
+
+Then \(L = \lambda W\).
+
+\end{theorem}
+
+\begin{proof}
+
+\[
+L = \lim_{t \to \infty} \frac{1}{t} \int_0^t X(s) ds
+\]
+
+Suppose we are paid at any time at a rate equal to the number of customers in the system. Then we can interpret \(L\) as the average reward per unit time. We can consider a renewal as occurring upon the arrival of the first customer when the system was previously empty. Then we have a renewal reward process. Let \(T\) be the time between renewals. Assume the first arrival occurs at time \(t=0\) (so this is not a delayed renewal reward process). Note that
+
+\begin{equation}\label{stoch.renewal.reward.thm.a}
+L =  \frac{1}{\E (T)} \E \bigg( \int_0^T X(s) ds \bigg) \iff   \E \bigg( \int_0^T X(s) ds \bigg)  = L \E(T)
+\end{equation}
+
+Note that
+
+\[
+W = \lim_{n \to \infty} \frac{W_1 + \ldots + W_n}{n}
+\]
+
+Let \(N\) be the number of customers served in a busy period. Then when customer \(N+1\) arrives, the system is empty and there is a renewal, so \(T\) is the time of the \(N+1\)st arrival. So
+
+\[
+T = \sum_{i=1}^N X_i
+\]
+
+where \(X_i\) are the interarrival times (\(X_i\) is the time between the \(i\)th and \(i + 1\)st arrival). Note that \(N\) depends on the interarrival times; if the interarrival times are small, \(N\) will be larger. So this is not a compound random variable, but we can use Wald's Equation (Theorem \ref{stoch.wald.eqn}) if \(N\) is a stopping time for \(X_1, \ldots, X_n\). Note that \(N= 1\) if and only if \(X_1\) is greater than the service time of the initial customer. And in general, \(N=k\) depends only on the arrival times up to \(X_k\). So \(N\) is a stopping time and we can use Wald's Equation. Therefore
+
+\begin{equation}\label{stoch.renewal.reward.thm.b}
+\E(T) = \frac{\E(N)}{\lambda}.
+\end{equation}
+
+Suppose each customer pays us 1 dollar per unit time. Then at time \(s\) we are earning at rate \(X(s)\), so 
+
+\[
+\int_0^T X(s) ds
+\]
+
+is the total amount you earn by time \(T\). But we can also calculate this amount by adding up the amount of time each customer spends in the system:
+
+\[
+\int_0^T X(s) ds = \sum_{i=1}^N W_i.
+\]
+
+So we have (using (\ref{stoch.renewal.reward.thm.a}) and (\ref{stoch.renewal.reward.thm.b}))
+
+\[
+\E \bigg( \int_0^T X(s) ds \bigg) =  \E \sum_{i=1}^N W_i  \iff L \E(T) =   \E \sum_{i=1}^N W_i   \iff L = \frac{ \E( \sum_{i=1}^N W_i) }{\E(N)/\lambda}  
+\]
+
+\[
+= \text{(by Wald's Equation) }\frac{ \lambda \E(N) \E (W_i) }{\E(N)} = \lambda W.
+\]
+
+
+\end{proof}
+
+
+\begin{exercise} Queue, customers arrive in a renewal process with distribution \(F\), so 
+
+\[
+\lambda^{-1} = \int_0^\infty \overline{F}(t) dt.
+\]
+
+Each customer eventually leaves. Let \(L\) be the average number of customers in the system, averaged over all time. Let \(X(s)\) be the number of customers in the system at time \(s\). Note that
+
+\[
+L = \lim_{t \to \infty} \frac{1}{t} \int_0^t X(s) ds.
+\]
+
+Let \(W\) be the average time a customer spends in the system. Let \(W_i\) be the amount of time customer \(i\) spends in the system. Note that
+
+\[
+W = \lim_{n \to \infty} \frac{W_1 + \ldots + W_n}{n}.
+\]
+
+
+
+\end{exercise}
+
+
+\begin{solution}
+
+\end{solution}
+
+\subsubsection{Alternating Renewal Processes (Section 7.5.1 in \textit{Introduction to Probability Models}}
+
+\begin{definition}[\textbf{Alternating renewal process}] Suppose we have a process that is on for time \(Y_1\), off for time \(Z_1\), on for time \(Y_2\), off for time \(Z_2\), etc if \((X_i, Y_i)\), \(i \geq 1\) are i.i.d. Call \(\{X(t), t \geq 0\}\) an \textbf{alternating renewal process}, where \(X(t)\) is an indicator variable for the process being on at time \(t\).
+
+\end{definition}
+
+\
+
+
+\begin{proposition}[\textbf{Proposition 7.4 in \textit{Introduction to Probability Models}; similar to Theorem \ref{stoch.on.off.lr.prop} (Theorem 3.4.4 in \textit{Stochastic Processes})}]\label{stoch.prop.7.4}
+
+\
+
+\begin{enumerate}[(a)]
+
+\item The long-run proportion of time that the system is on is
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t I\{X(s) = 1 \} ds =  \frac{\E(Y)}{\E(Y) + \E(Z)}.
+\]
+
+\item \[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t \Pr(X(s) = 1)  ds  =  \frac{\E(Y)}{\E(Y) + \E(Z)}.
+\]
+
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item Imagine we earn 1 dollar per unit time when the system is on and nothing when the system is off. Note that we have a renewal when the system turns back on after having been turned off. So this is a renewal reward process.
+
+\item Something about 
+
+\[
+\frac{R(t)}{t} \to \frac{\E(R)}{\E(T)} 
+\]
+
+and
+
+\[
+\frac{\E R(t)}{t} \to \frac{\E(R)}{\E(T)} 
+\]
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{proposition}[\textbf{Theorem 3.4.4 in \textit{Stochastic Processes}; Similar to Proposition \ref{stoch.prop.7.4} (Proposition 7.4 in \textit{Introduction to Probability Models})}]\label{stoch.on.off.lr.prop} If the cycle distribution is not lattice (see Definition \ref{prob.defn.lattice}), then 
+
+\[
+\Pr(\text{on at } t) \to \frac{\E(Y)}{\E(Y) + \E(Z)} \text{ as } t \to \infty
+\]
+
+where \(\E(Y)\) is the expected length of time intervals when the system is on and \(\E(Z)\) is the expected length of time intervals when the system is off.
+
+\end{proposition}
+
+\begin{example}Suppose you have insurance and you pay at a rate \(r_1\) until you have an accident. Then the rate is \(r_2\) until \(s\) units pass without an accident, in which case you go back to paying rate \(r_1\). Suppose accidents occur according to a Poisson process with rate \(\lambda\). Then the probability you have to pay at rate \(r_1\) is 
+
+\[
+\frac{\E(\text{on})}{\E(\text{on}) + \E(\text{off})}.
+\]
+
+where we define the process to be ``on" when your pay rate is \(r_1\) and ``off" when your pay rate is \(r_2\). Note that
+
+\[
+\E(\text{on}) = 1/\lambda
+\]
+
+\[
+\E(\text{off}) = \int_0^\infty \E(\text{off} \mid T = x) \lambda e^{-\lambda x} dx
+\]
+
+We have
+
+\[
+ \E(\text{off} \mid T = x) = \begin{cases} 
+ x + \E(\text{off}) & x < s \\
+ s & x > s
+ \end{cases}
+\]
+
+Substituting this in yields
+
+\[
+\E(\text{off}) = \int_0^s ( x + \E(\text{off})) \lambda e^{-\lambda x} dx +  s \int_s^\infty  \lambda e^{-\lambda x} dx = \int_0^s x \lambda e^{-\lambda x} dx + \E(\text{off}) (1 - e^{-\lambda s})  +  s e^{-\lambda s}.
+\]
+
+\end{example}
+
+Recall that the age of the renewal process at time \(t\) is \(A(t) - t - S_{N(t)}\) and the excess time at \(t\) is \(Y(t) = S_{N(t) + 1} - t\). We have already shown (in Proposition \ref{stoch.long.run.age.excess}) that
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t A(s) ds =  \lim_{t \to \infty} \frac{1}{t} \int_0^t Y(s) ds  = \frac{\E(X^2)}{2 \E(X)}.
+\]
+
+
+\begin{example}[\textbf{Example 7.28 in \textit{Introduction to Probability Models}}] \(M/G/\infty\) queue, (arrivals are a Poisson Process). Consider the system to be ``on" if the system is empty and ``off" when the system is not empty (busy period). Note that \(\E(\text{on}) = \lambda^{-1}\). Let \(\E(B)\) be the expected length of the ``off" time (busy period). Find \(\E(B)\).
+
+\end{example}
+
+\begin{solution} A busy time starts when a first customer arrives. The long-run proportion of time the system is on is
+
+\[
+\frac{\E(\text{on})}{\E(\text{on}) + \E(\text{off})}.
+\]
+
+By Proposition \ref{stoch.on.off.lr.prop}, since this is nonlattice, this equals the limiting probability that the system is on at time \(t\). That is, 
+
+
+\[
+\lim_{t \to \infty} \Pr(\text{on at } t) = \frac{\E(\text{on})}{\E(\text{on}) + \E(\text{off})}.
+\]
+
+Let \(X(t)\) be the number remaining in the system at time \(t\).  By Proposition \ref{stoch.ross.prop.5.3},
+
+\[
+X(T) \sim \operatorname{Poisson} \bigg (\lambda \int_0^t \overline{G}(s) ds \bigg).
+\]
+
+So
+
+\[
+\lim_{t \to \infty} \Pr(\text{on at } t) = \Pr(X(t) = 0) = \exp \bigg( - \lambda \int_0^t \overline{G}(s) ds\bigg) 
+\]
+
+Plugging in we have \textbf{might have made a mistake here:} \(S \sim G\), then \(
+\lim_{t \to \infty} \Pr(\text{on at } t) =  \E(S) \)
+
+\[
+ \exp \bigg( - \lambda \int_0^t \overline{G}(s) ds\bigg) = \frac{\lambda^{-1}}{\lambda^{-1}+ \E(\text{off})}.
+\]
+
+\textbf{think this bottom one below might be the right one}
+\[
+ \exp \bigg( - \E(S) \bigg) = \frac{\lambda^{-1}}{\lambda^{-1}+ \E(\text{off})}.
+\]
+
+\end{solution}
+
+\begin{definition}[\textbf{Equilibrium distribution of a renewal process}] We call 
+\[
+F_e(x) = \frac{1}{\mu}  \int_0^x \overline{F}(t) \ dt
+\]
+
+the \textbf{equilibrium distribution} of a renewal process with interarrival distribution \(F\), where \(\mu\) is the expected length of a cycle in the renewal process.
+
+\end{definition}
+
+\begin{proposition}[\textbf{Age of equilibrium distribution; restatement of Theorem \ref{stoch.on.off.lr.prop} (Theorem 3.4.4 in \textit{Stochastic Processes}); similar to Examples 7.26 and 7.27 in \textit{Introduction to Probability Models}; Similar to Proposition \ref{stoch.prop.7.4} (Proposition 7.4 in \textit{Introduction to Probability Models})}]
+With probability 1, the long-run proportion of time that the age is less than \(x\) is
+
+\[
+\lim_{s \to \infty} \frac{1}{s} \int_0^s I \{A(t) < x \} dt  = F_e(x) 
+\]
+
+and the long-run proportion of the time that the excess is less than \(x\)
+
+\[
+\lim_{s \to \infty} \frac{1}{s} \int_0^s I \{Y(t) < x \} dt  = F_e(x) 
+\]
+
+both equal \(F_e(x) =  \frac{1}{\mu}  \int_0^x \overline{F}(t) \ dt\). These are also equal to
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t \Pr(A(s) < x) ds = F_e(x) 
+\]
+
+and
+
+\[
+\lim_{t \to \infty} \frac{1}{t} \int_0^t \Pr(Y(s) < x) ds = F_e(x) 
+\]
+
+If \(F\) is not lattice, then
+
+\[
+\lim \Pr(A(t) < a) = \lim \Pr(Y(t) < a) = F_e(t).
+\]
+
+\end{proposition}
+
+\begin{proof} Say the system is ``on" at time \(t\) if \(A(t) < x\), ``off" otherwise. A cycle is a renewal. So the system is ``on" for the first \(x\) units of a renewal cycle, and then it is ``off." Once a renewal occurs, the age goes back to 0, so this is an alternating renewal process. The ``on" time in a cycle is \(\min \{x, X\}\) because it's on for the first \(x\) units of time the item is in use of a cycle, unless the cycle is less than \(x\), in which case it's on for the whole length of the cycle. Therefore we have that the expected ``on" time is
+
+\[
+\frac{\E( \text{on time in cycle})}{\mu} = \frac{\E(\min \{x, X\})}{\mu} = F_e(x)
+\]
+
+where \(\mu\) is the average length of a cycle. Note that
+
+\[
+\E(\min \{x, X\}) = \int_0^\infty \Pr( \min \{x, X\} > t) dt = \int_0^x \overline{F}(t) dt
+\]
+
+so we have that the expected ``on" time is
+
+\[
+\frac{1}{\mu}  \int_0^x \overline{F}(t) dt = F_e(x)
+\]
+
+Now we will show that the expected excess is the same as the expected age. Say that the system is ``on" at \(t\) if \(Y(t) > x\) and ``off" otherwise. A cycle happens every time a renewal occurs. So if a renewal cycle is longer than \(x\), the system will be initially on and then become off for the last \(x\) time units of a renewal. So the off time is \(\min \{x, X\} \). Again, by a similar argument as above we get the same result. (Intuitively this makes sense because the distribution of interarrival times is the same if you look backward in time as it is if you look forward in time.)
+
+
+\end{proof}
+
+Recall Proposition \ref{stoch.long.run.age.excess}: The average age and average excess both equal \(\E(X^2)/(2 \E(X))\).  Note that
+
+\[
+A(t) + Y(t) = S_{N(t) + 1} - S_{N(t)} = X_{N(t)+ 1}.
+\]
+
+\begin{proposition}[[\textbf{Proposition 3.4.6 in \textit{Stochastic Processes}}] With probability 1, the average value of \(X_{N(t) + 1}\) is 
+
+\[
+\frac{\E(X^2)}{\E(x)} > \E(X)
+\]
+
+\end{proposition}
+
+\begin{proof}
+
+Suppose \(X_e \sim F_e\) where
+
+\[
+F_e(x) = \frac{1}{\mu} \int_0^x \overline{F}(y) dy 
+\]
+
+Note that
+
+\[
+\deriv{F_e(x)}{x} = \frac{\overline{F}(x)}{\mu}
+\]
+
+We have
+
+\[
+\E(X_e) = \int_0^\infty x  dF_e(x) = \int_0^\infty x \frac{\overline{F}(x)}{\mu} dx = \int_0^\infty \frac{x}{\mu} \int_x^\infty dF(y) dx = \text{(by Fubini's Theorem) }  \int_0^\infty  \int_0^y \frac{x}{\mu}  dx dF(y)
+\]
+
+\[
+=  \int_0^\infty  \frac{y^2}{2 \mu} dF(y) = \frac{\E(X^2)}{2 \mu}
+\]
+
+
+\end{proof}
+
+
+\begin{proposition}[\textbf{Problem on homework 7; inspection paradox}]
+
+\[
+\Pr(X_{N(t)+1} > x) > \overline{F}(x).
+\]
+
+\end{proposition}
+
+\subsubsection{Equilibrium renewal processes}
+
+
+\begin{definition}[\textbf{Equilibrium renewal process}]
+Suppose we have a delayed renewal process where \(X_1\sim F_e\), \(X_i \sim F \ \forall \ i > 1\). Then \(\{N_e(t), t \geq 0 \}\) is called an \textbf{equilibrium renewal process}. (the time until the first event has the equilibrium distribution.) We let \(m_e(t) = \E(N_e(t))\).
+
+\end{definition}
+
+\begin{example}
+Suppose you arrive at some time \(t\) during a renewal process with finite expected renewal time \(\mu\). Then you will have to wait \(Y(t)\) time until the next renewal. Let \(F_t\) be the distribution function of \(Y(t)\). After that first arrival, all of the other arrival times will have distribution \(F\). If the time \(t\) at which you start observing is very large, you observe an equilibrium renewal process (because \(F_t \to F_e\) as \(t \to \infty\)).
+
+\end{example}
+
+\begin{proposition}[\textbf{Theorem 3.5.2 from \textit{Stochastic Processes}}]\label{stoch.ross.sp.thm.3.5.2}Let \(\{N_e(t), t \geq 0 \}\) be an equilibrium renewal process. Let the excess at time \(t\) of \(\{N_e(t)\) be \(Y_e(t)\).
+
+\begin{enumerate}[(1)]
+
+\item  \(Y_e(t) \sim F_e\) for all \(t\).
+
+\item \(N_e(t+s) - N_e(t)\) has the same distribution for all \(t\) (this counting process has stationary increments---see Definition \ref{stoch.stationary.increments.def}).
+
+\item \(m_e(t) = t/\mu\).
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}[Proof (More of an intuitive argument than a complete proof)]
+
+\begin{enumerate}[(1)]
+
+\item  Consider an ordinary renewal process with interarrival times distributed as \(F\). Suppose we start observing at a very large time \(t'\), so we are observing an equilibrium renewal process. That is, the time until the first event is distributed as \(F_e\). We'd like to know the time until the next event after you've waited a time \(t\). We have
+
+\[
+Y_e(t) = Y(t + t') \sim F_e
+\]
+
+since \(t'\) is very very large.
+
+\item Similar argument---after arriving after a very large amount of time, the distribution is in equilibrium, so it makes no difference when you start watching, just matters how large \(s\) is.
+
+%\[
+%N_e(t+s) - N_e(t) = 
+%\]
+
+\item
+
+\[
+N_e(t+s) = N_e(t+s) - N_e(t) + N_e(t)
+\]
+
+\[
+\iff \E(N_e(t+s) )= \E [ N_e(t+s) - N_e(t)] + \E[ N_e(t) ] \iff m_e(t+s) = m_e(s) + m_e(t)
+\]
+
+where \( \E(N_e(t+s) ) = m_e(t+s)\) by definition, \(\E [ N_e(t+s) - N_e(t)] =  m_e(s)\) by the result from part (2), and \( \E[ N_e(t) ]  = m_e(t)\) by definition.  It is the case that \(f(x+y) = f(x) + f(y) \implies f(x) = c x\) for some constant \(c\) if \(f\) is measurable. Because of that, we have that 
+
+\[
+m_e(t) = ct
+\]
+
+where \(c\) is some constant. By the Elementary Renewal Theorem (Theorem \ref{stoch.elem.renew.thm}),
+
+\[
+\frac{m_e(t)}{t} \to \frac{1}{\mu}
+\]
+
+which implies that \(c\) is \(\mu^{-1}\).
+
+\end{enumerate}
+
+\end{proof}
+
+Proving that the previous statement is true for any measurable function requires measure theory, but it is easy to prove it is true if \(f\) is differentiable. 
+
+\begin{lemma}
+If \(f\) is differentiable, \(f(x+h) = f(x) + f(h)\).
+\end{lemma}
+
+\begin{proof}
+
+Note that
+
+\[
+\lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = f'(x) 
+\]
+
+Note that
+
+\[
+ \lim_{h \to 0} \frac{f(h)}{h} = f'(0)
+\]
+
+Then \(f'(x) = c\), \(f(x) = cx + k\), so \(f(x) = cx\).
+
+\end{proof}
+
+\begin{theorem}[\textbf{Blackwell's Theorem (Theorem 3.4.1 in \textit{Stochastic Processes}, p.110)}]
+
+
+\begin{enumerate}[(i)]
+
+\item If \(F\) is not lattice, then 
+
+\[
+m(t+a) - m(t) \to \frac{a}{\mu} \text{ as } t \to \infty
+\]
+
+\item If \(F\) is lattice with period \(d\), then 
+
+\[
+\E( \text{number of renewals at } nd) \to \frac{d}{\mu} \text{ as } n \to \infty.
+\]
+
+\begin{remark}If \(\Pr(X_i = 0) = 0\) then then this means that \(\Pr(\text{renewal at } nd) \to d/\mu\) as \(n \to \infty\).
+
+\end{remark}
+
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof (intuitive; rigorous proof is quite technical)]
+
+\begin{enumerate}[(i)]
+
+\item If you arrive at time \(t\), then \(\{N(s), s \geq 0\}\) is a delayed renewal process. That is, \(X_1\) has the distribution of \(Y(t) \sim F_t\), and the remaining \(X_i \sim F\). So
+
+\[
+m(t+a) - m(t) \ = \E[N_t(a)].
+\]
+
+We already know that as \(t \to \infty\), \(F_t \to F_e\). So as \(t \to \infty\), \(m(t+a) - m(t) \ = \E[N_t(a)] \to \E[N_e(a)]\). But by Proposition \ref{stoch.ross.sp.thm.3.5.2}, \textbf{the result follows (??).}
+
+\item Suppose we have a renewal process where
+
+\[
+\sum_{i=0}^\infty \Pr(X =i) = 1.
+\]
+
+Then \(m(n)\) is the expected number of renewals by time \(n\). That is,
+
+\[
+m(n) = \E \sum_{i=0}^n (\text{number of renewals at } i) = \sum_{i=0}^n \E  (\text{number of renewals at } i)
+\]
+
+Then by the Elementary Renewal Theorem (Theorem \ref{stoch.elem.renew.thm}),
+
+\[
+\frac{m(n)}{n} = \frac{1}{n}  \sum_{i=0}^n \E  (\text{number of renewals at } i) \to  \frac{1}{\mu}
+\]
+
+In general, this does not imply that 
+
+\[
+\E( \text{number of renewals at } nd) \to \frac{d}{\mu} \text{ as } n \to \infty.
+\]
+
+For example, consider the discrete random variable
+
+\[
+X_i = \begin{cases}
+2 & \text{with probability } 1/2 \\
+4 & \text{with probability } 1/2
+\end{cases}
+\]
+
+
+Then
+
+\[
+\E( \text{number of renewals at } n) = m(n) = \frac{1}{n} \sum_{i=1}^n  \E  (\text{number of renewals at } i) \to \frac{1}{\mu}
+\]
+
+But of course all of these sums are 0 when \(i\) is odd. So we could also write this as 
+
+\[
+m(n) =\sum_{i=1}^(n/2)   \frac{1}{n} \E  (\text{number of renewals at } 2i) \to \frac{1}{\mu}
+\]
+
+\[
+\iff m(n) = \frac{1}{2} \sum_{i=1}^(n/2)   \frac{1}{n/2}\E  (\text{number of renewals at } 2i) \to \frac{1}{\mu}
+\]
+
+\[
+\iff m(n) =\sum_{i=1}^(n/2)   \frac{1}{n/2}\E  (\text{number of renewals at } 2i) \to \frac{2}{\mu}
+\]
+
+\[
+\vdots
+\]
+
+You get pointwise convergence in the lattice case with period \(d\) when \(d\) is the period.
+
+\end{enumerate}
+
+\end{proof}
+
+Recall Proposition \ref{stoch.long.run.age.excess}: The average age and average excess both equal \(\E(X^2)/(2 \E(X_e))\), where \(X_e \sim F_e\).
+
+\begin{theorem}[\textbf{Proposition 3.4.6 in \textit{Stochastic Processes}}] If \(F\) is not lattice,
+
+\[
+\lim_{t \to \infty} \E(A(t)) = \lim_{t \to \infty} \E(Y(t)) = \frac{ \E(X^2)}{2 \E(X)}.
+\]
+
+\end{theorem}
+
+\begin{proof}Won't prove; requires Key Renewal Theorem, which is beyond scope of this course. Some notes: we know that \(F_{Y(t)} \to F_e\), or \(Y(t) \to Y(\infty)\) where \(Y(\infty) \sim F_e\). Then
+
+\[
+\lim \E(Y(t)) = \text{(? can't justify now) } \E(\lim (Y(t))) = \E(X_\infty)
+\]
+
+\end{proof}
+
+\begin{corollary}[\textbf{Corollary 3.4.7 in \textit{Stochastic Processes}, p. 121}]
+
+If \(\E(X^2) < \infty\) and \(F\) is nonlattice, then
+
+\[
+ m(t) - \frac{t}{\mu} \to \frac{\E(X^2)}{2 \mu^2} - 1 \text{ as } t \to \infty
+\]
+
+
+\end{corollary}
+
+\begin{proof}
+
+Recall that by Wald's Equation (Theorem \ref{stoch.wald.eqn}),
+
+\[
+\E \bigg( \sum_{i=1}^{N(t) + 1} X_i \bigg) = \mu (m(t) + 1)
+\]
+
+So
+
+\[
+\mu(m(t) + 1) = \E(t + Y(t)) = t + \E(Y(t)) \iff  m(t) + 1 =  \frac{t}{\mu} + \frac{\E(Y(t)) }{\mu} \iff m(t) - \frac{t}{\mu} = \frac{\E(Y(t))}{\mu} - 1
+\]
+
+\[
+\implies m(t) - \frac{t}{\mu} \to \frac{\E(X^2)}{2 \mu^2} - 1 \text{ as } t \to \infty
+\]
+
+\[
+\implies m(t) \approx \frac{t}{\mu} +  \frac{\E(X^2)}{2 \mu^2} - 1 
+\]
+
+\end{proof}
+
+\begin{theorem}[\textbf{Central Limit Theorem for Renewal Processes; Theorem 7.3 in \textit{Introduction to Probability Models}}]
+
+Let \(N(t)\) be a renewal process. Then
+
+\[
+N(t) \xrightarrow{d} \mathcal{N} \bigg( \frac{t}{\mu}, \frac{t \sigma^2}{\mu^3} \bigg)
+\]
+
+where \(\mu = \E(X_i)\) and \(\sigma^2 = \Var(X_i)\).
+
+\end{theorem}
+
+\begin{remark}If the renewal process is a Poisson process with rate \(\lambda\), then \(F(x) = 1 - e^{-\lambda x}\). Then \(\mu = \E(X) = \lambda^{-1}\), \(\sigma^2 = \Var(X) = \lambda^{-2}\), \(t/\mu = \lambda t\), \(t \sigma^2/\mu^2 = t \lambda^3/\lambda^2 = \lambda t\), which implies the limiting distribution is \(\mathcal{N}(\lambda t, \lambda t)\), as expected.
+
+\end{remark}
+
+
+\begin{proof} Note that \(N(t) < n \) if and only if the \(n\)th event occurred after \(t\), or \(X_1 + \ldots + X_n > t\). So
+
+\[
+\Pr(N(t) < n) = \Pr(X_1 + \ldots + X_n > t) 
+\]
+
+Then by the Central Limit Theorem, 
+
+\[
+X_1 + \ldots + X_n \sim \mathcal{N}(n \mu, n \sigma^2) \text{ (approximately)}
+\]
+
+\[
+\vdots
+\]
+
+\end{proof}
+
+\subsubsection{Regenerative Processes}
+
+\begin{theorem}[\textbf{Theorem 3.7.1 in \textit{Stochastic Processes}}] Let \(\{X(t), t \geq 0\}\) be a stochastic process with state space \(\{0, 1, 2, \ldots\}\) having the property that there exist time points at which the state restarts itself (with probability 1). Let \(S_1, S_2, \ldots\) constitute the event times of a renewal process. We call \(X(t)\) a \textbf{regenerative process}. So \(\{S_1, S_2, \ldots \}\) constitute the event times of a renewal process. We say a cycle is completed every time a renewal occurs. Let \(N(t) = \max \{n: S_n \leq t\}\) denote the number of cycles by time \(t\).
+
+\
+
+If \(F\), the distribution of a cycle, has a density over some interval, and if \(\E(S_1) < \infty\), then
+
+\[
+P_j = \lim_{t \to \infty} \Pr(X(t) = j) = \frac{\E(\text{amount of time in state } j \text{ in a cycle})}{\E(\text{time of a cycle})}.
+\]
+
+\end{theorem}
+
+\subsubsection{Example of Renewal Reward Processes to Patterns}
+
+\begin{example}[\textbf{Seems to be similar to Section 7.9.2 in \textit{Introduction to Probability Models})}]Suppose we have i.i.d. data. Number \(i\) appears with probability \(p_i\).We want to see the mean time until we see the pattern 1213121. An event is when the pattern appears. The next event is the next time the pattern appears, but we can't use data from the last event. Earn \(\$1\) whenever the last 7 values are 1313121 (so you \textit{are} allowed to use previous values for the reward process). That is, if the cycle is 
+
+\[
+\ldots 1213121 \mid 312 \textbf{1} \ldots 1213121 \mid
+\]
+
+the events happen at the \(\mid\) marks, but in between there were two rewards (one at the second event, one at the bold 1). So this is a delayed renewal reward process \((X_i, R_i), i \geq 2\). Note that the limiting results will be the same for the delayed renewal process as for the normal one. So the expected average reward per unit time is the expected reward during the cycle divided by the expected time of a cycle;
+
+\[
+\E( \text{average reward per unit time}) = \frac{ \E( \text{reward during the cycle}) }{\E(T)}
+\]
+
+We want \(\E(T)\), the expected length of a cycle. We know \(\E( \text{average reward per unit time})\) is 
+
+\[
+\E( \text{average reward per unit time}) =p_1^4 p_2^2 p_3
+\]
+
+Now we want \( \E( \text{reward during the cycle}) \). Suppose a cycle just ended (the pattern just appeared). Then we could earn a reward after 4 values (if the last 4 terms of the pattern appear again) after 6 values (if the last 6 terms of the pattern appear again). And we will earn a reward when the cycle ends (after the full pattern appears again). So if \(Y_i\) is the reward earned during after \(i\) new values,
+
+\[
+\text{reward during the cycle} = Y_4 + Y_6 + 1 \implies \E(\text{reward during the cycle} ) = \E(Y_4) + \E(Y_6) + 1  =p_1^2p_2 p_3 + p_1^3p_2^2p_3 + 1 
+\]
+
+\[
+\implies \E(T) = \frac{p_1^2p_2 p_3 + p_1^3p_2^2p_3 + 1 }{p_1^4 p_2^2 p_3 } = \frac{1}{p_1^2 p_2} + \frac{1}{p_1} + \frac{1}{p_1^4 p_2^2 p_3 }
+\]
+
+Note that the mean time between renewals is \(\frac{1}{p_1^4 p_2^2 p_3 }\), the mean time to get \(121\) is \(\frac{1}{p_1^2 p_2}\), and the mean time to get \(1\) is \(\frac{1}{p_1}\).
+
+\end{example}
+
+\begin{example}[\textbf{Similar to example 7.38 in \textit{Introduction to Probability Models}}]Suppose we are flipping coins, probability of flipping heads is \(p\). The pattern is \(n\) heads in a row. Cycle is. a pattern without using data from last cycle. Get a reward of 1 each time the last \(n\) values were all heads. Then
+
+\[
+p^n = \E( \text{average reward per unit time})  =  \frac{ \E( \text{reward during the cycle}) }{\E(T)}
+\]
+
+Note that
+
+\[
+\text{reward during the cycle} = Y_1 + \ldots + Y_{n-1} + 1 \implies \E(\text{reward during the cycle} ) = \sum_{i=1}^{n-1} \E(Y_i) + 1  
+\]
+
+\[
+ = \sum_{i=1}^{n-1} p^i + 1  
+\]
+
+\[
+\implies p^n = \frac{ 1}{\E(T)} \Bigg( \sum_{i=1}^{n-1} p^i + 1  \Bigg) \implies \E(T) = p^{-n} \Bigg(  \sum_{i=1}^{n-1} p^i + 1 \Bigg) = \bigg( \frac{1}{p} \bigg)^n + \bigg( \frac{1}{p} \bigg)^{n-1} + \ldots + \frac{1}{p}
+\]
+
+\end{example}
+
+\subsection{Markov Chains (Chapter 4 of \textit{Stochastic Processes}; Chapter 4 of \textit{Introduction to Probability Models})}
+
+Suppose we have \(X_0, X_1, X_2, \ldots\), where \(X_n\) is the state of the system at time \(n\). The set of possible values of states are the nonnegative integers (the number of possible states will be either finite or countable). In a Markov chain, the probability of reaching state \(j\) given that you are currently in state \(i\) is \(P_{ij}\); that is,
+
+\[
+\Pr(X_{n+1} = j \mid X_n =i, X_{n-1} = i_{n-1}, \ldots, X_0 = i_0) = P_{ij}
+\]
+
+That is, the next state depends only on the current state, not any of the previous states (all the information is contained in the current state). In other words, every starts over again when you reach state \(i\); so there is a renewal every time you reach state \(i\). We say a system has the \textbf{Markovian property} if given the present state \(X_n\), the next state \(X_{n+1}\) is independent of the past \(X_{n-1}, X_{n-2}, \ldots\).
+
+\begin{definition}[\textbf{Markov chain}] Let \(S\) be the set of possible values of a system. \(S\) must be either finite or countably infinite (in general we will take \(S = \mathbb{N}\)). Then \(\{X_0, X_1, \ldots \}\) is said to be a \textbf{Markov chain} with transition probabilities \( \Pr(X_{n+1}=j \mid X_{n }=i) P_{i,j}\), \(i, j \in S\) if
+
+\[
+\Pr(X_{n+1}=j \mid X_n=i, X_{n-1}=i_{n-1}, \ldots, X_0 = i_0) = \Pr(X_{n+1}=j \mid X_{n }=i) = P_{ij}.
+\]
+
+We call the matrix
+
+\[
+P = \begin{bmatrix}P_{ij} \end{bmatrix}
+\]
+
+the \textbf{transition probability matrix.} Note that \(\sum_j P_{ij} = 1\), so the the rows of the transition probability matrix all add to 1.
+
+\end{definition}
+
+\begin{remark}Given the initial state \(\Pr(X_0 = i_0)\) and the probability transition matrix, all probabilities about \(X_0, X_1, \ldots\) can (in theory) be determined. That is,
+
+\end{remark}
+
+Note that 
+
+\[
+\Pr(X_n = i_n) = \sum_{i_0, i_1, \ldots, i_{n-1}} \Pr(X_0 = i_0) P_{i_0,i} P_{i_1, i_2} \ldots, P_{i_{n-1}, i_n}.
+\]
+
+\begin{example}[\textbf{Examples 4.1 and 4.4 in \textit{Introduction to Probability Models}}] Suppose we have a state based on weather today and yesterday. Then probability of rain tomorrow is the following:
+
+\[
+\begin{cases}
+dd \to r & \text{with probability } 0.3 \\
+rd \to r & \text{with probability } 0.4 \\
+dr \to r & \text{with probability } 0.6 \\
+rr \to r & \text{with probability } 0.7 
+\end{cases}
+\]
+
+The the transition matrix looks as follows:
+
+\[
+P = \begin{bmatrix}
+ & dd & rd & dr & rr \\
+ dd & 0.7 & 0&0.3 &0 \\
+ rd & 0.6 & 0& 0.4 &0 \\
+ dr &0 & 0.4 & 0& 0.6\\
+ rr & 0& 0.3&0 & 0.7
+ \end{bmatrix}
+\]
+
+\end{example}
+
+\begin{example}[\textbf{Random walk; examples 4.5 and 4.6 in \textit{Introduction to Probability Models}}] 
+
+\[
+P_{i,i+1} = p, P_{i, i-1} = 1 - p, \qquad S= \mathbb{Z}
+\]
+
+One example is Gambler's Ruin: \(X_0 =i\), stop when fortune is either 0 or \(N\). (See Example \ref{stoch.gamb.ruin} and several solutions in Grimmett and Stirzaker.)
+
+\end{example}
+
+\begin{example}[\textbf{Similar to example 4.10 in \textit{Introduction to Probability Models}, similar to homework problem from Math 505A}]  Urn with 2 balls, red and blue. Each period, choose ball from urn at random. If red then replace with blue. If blue then replace with red with probability 0.7, with blue with probability 0.3. What is the long-run proportion of time the chosen ball is red?
+
+\end{example}
+
+\begin{solution} Let \(X_n\) be an indicator variable for the \(n\)th ball chosen to be red. Note that if you just chose a red ball, it is not clear what the probability of choosing a red ball next is, because it depends on what color the other ball in the urn is. So consider the state of the Markov chain to be the number of red balls in the urn, and let \(X_n\) be the number of red balls in the urn before the \(n\)th withdrawal. Then we have the following transition matrix:
+
+\[
+P = \begin{bmatrix}
+P_{00} & P_{01} & P_{02} \\
+P_{10} & P_{11} & P_{12} \\
+P_{20} & P_{21} & P_{22} 
+\end{bmatrix} = \begin{bmatrix}
+0.3 & 0.7 & 0 \\
+0.5 & 0.5 \cdot 0.3 & 0.5 \cdot 0.7 \\
+0 & 1 & 0
+\end{bmatrix}
+\]
+
+Let \(\pi_j\) be the long-run proportion of the time the system is in state \(j\). Note that every time we reach state \(j\) everything starts all over again, so that's a renewal (ordinary renewal process) if you are certain to eventually return to state \(j\) (we will assume this is true for now). We have
+
+\[
+\pi_0 \cdot 0 + \pi_1 \cdot \frac{1}{2} + \pi_2 = \pi_2 + \frac{1}{2} \pi_1
+\]
+
+is the long-run probability of choosing a red ball.
+
+\end{solution}
+
+\begin{example}[\textbf{Embedded Markov chain; example 4.1(a) in \textit{Stochastic Processes}}] \(M/G/1\) queueing process. The number of people currently in the system is not Markovian, but it would be if the service time were exponential (since then it wouldn't matter how long the customer had been in service). But the number of people in the system immediately after the \(n\)th service completion is Markovian. (Called an \textbf{embedded Markov chain} because it is a Markov chain if you only look at it at certain times.) 
+
+\
+
+Note that 
+\[
+P_{0j} = a_j = \Pr(j \text{ arrivals during service time}) = \int_0^\infty  \Pr(j \text{ arrivals during service time } t) dG(t)
+\]
+
+\[
+= \int_0^\infty e^{-\lambda t} \frac{ (\lambda t)^j }{j!} dG(t)
+\]
+
+More generally, note that for \(i > 0, j \geq i - 1\)
+
+\[
+P_{ij} = a_{j-i+1} = \Pr(j - i + 1 \text{ arrivals during service time}) = \int_0^\infty  \Pr(j - i + 1  \text{ arrivals during service time } t) dG(t)
+\]
+
+\[
+= \int_0^\infty e^{-\lambda t} \frac{ (\lambda t)^(j - i + 1 ) }{(j - i + 1 )!} dG(t).
+\]
+
+%\
+%
+%The transition probabilities are
+%
+%\[
+%P = \begin{bmatrix}
+%P_{00} & P_{01} & P_{02} & \ldots \\
+%P_{10} & P_{11} & P_{12} & \ldots\\
+%P_{20} & P_{21} & P_{22} & \ldots \\
+%\vdots & \vdots & \vdots & \ldots 
+%\end{bmatrix} = \begin{bmatrix}
+%P_{00} & P_{01} & P_{02} & \ldots \\
+%P_{10} & P_{11} & P_{12} & \ldots\\
+%P_{20} & P_{21} & P_{22} & \ldots \\
+%\vdots & \vdots & \vdots & \ldots 
+%\end{bmatrix} 
+%\]
+
+\end{example}
+
+\begin{example}[\textbf{Example 4.1(b) in \textit{Stochastic Processes}}] if \(X_n\) is the number of people in the system as seen by the \(n\)th arrival, then this is an (embedded) Markov chain.
+
+\[
+\vdots
+\]
+
+We want \(P_{ij}, j > 0\). If \(n\) is the number of people served, then 
+
+\[
+i + 1 - n = j \iff n = i + 1 - j
+\]
+
+Then
+
+\[
+P_{ij} = \int \Pr(i + 1 - j \text{ services in time } T \mid T = s) dF(s) = \int e^{- \mu s} \frac{(\mu s)^{i+1-j}}{(1+1-j)!} dF(s) 
+\]
+
+\(P_{i0}\) is different because if we end with 0 people, all of the previous people had to depart. But they could have departed at any time before the next person arrived. Imagine that when all the customers leave, the server keeps serving ``imaginary" customers. Then \(P_{i0}\) is the probability of at least \(i+1\) customers (real or imaginary) being served.
+
+\end{example}
+
+
+\begin{definition}[\textbf{\(n\)-step transition probabilities}]
+
+\[
+P_{ij}^n = \Pr(X_n = j \mid X_0 = i)
+\]
+
+\end{definition}
+
+\subsubsection{Chapman-Kolmogorov Equations---section 4.2 of \textit{Introduction to Probability Models}, section 4.2 of \textit{Stochastic Processes} (p. 178 of pdf)}
+
+\begin{proposition}[\textbf{Chapman-Kolmogorov Equations}]
+
+\end{proposition}
+
+\begin{definition}[\textbf{Matrix of \(n\)-step transition probabilities}]
+
+\[
+\boldsymbol{P}^{(n)} = \begin{bmatrix}P_{ij}^n \end{bmatrix}
+\]
+
+\end{definition}
+
+\begin{example}[\textbf{Similar to example 4.10 in \textit{Introduction to Probability Models}}]
+
+Urn initially has 1 red ball 1 blue. At each stage choose a ball at random. If red, replace with blue. If blue, replace with blue with probability \(1/3\) or red with probability \(2/3\). What is the probability that the 5th ball selected is red?
+\end{example}
+
+\begin{solution} Note that per the example from last time, knowing the ball you just drew is not sufficient to have a Markov chain (need to know color of other ball in urn to get probabilities of next state). So let \(X_n\) be the number of red balls in the urn after you draw the \(n\)th ball, and note that \(X_0 =1\). Note that there are three states. The probability transition matrix is
+
+\[
+P = \begin{bmatrix}
+P_{00} & P_{01} & P_{02}  \\
+P_{10} & P_{11} & P_{12} \\
+P_{20} & P_{21} & P_{22} 
+\end{bmatrix} = \begin{bmatrix}
+\frac{1}{3} & \frac{2}{3} & 0  \\
+\frac{1}{2} & \frac{1}{3} & \frac{1}{3} \\
+0 & 1 & 0
+\end{bmatrix} 
+\]
+
+Note that the probability the 5th ball selected is red is equal to
+
+\[
+\sum_{i=1}^2 \Pr(5th \text{ ball is red } \mid X_4 = i) P_{1i}^4 = 0 \cdot P_{10}^4 + \frac{1}{2}P_{11}^4 + 1 \cdot P_{12}^4 
+\]
+
+Now we calculate \(P^4\).
+
+\[
+P^2 = \begin{bmatrix}
+\frac{1}{3} & \frac{2}{3} & 0  \\
+\frac{1}{2} & \frac{1}{3} & \frac{1}{3} \\
+0 & 1 & 0
+\end{bmatrix}  \begin{bmatrix}
+\frac{1}{3} & \frac{2}{3} & 0  \\
+\frac{1}{2} & \frac{1}{3} & \frac{1}{3} \\
+0 & 1 & 0
+\end{bmatrix}  = \begin{bmatrix}
+\frac{4}{9} & \frac{3}{9} & \frac{2}{9}  \\
+\frac{3}{12} & \frac{25}{36} & \frac{2}{36} \\
+\frac{1}{2} & \frac{1}{6} & \frac{1}{3}
+\end{bmatrix} 
+\]
+
+\[
+P^4 = P^2 P^2 = \begin{bmatrix}
+\frac{4}{9} & \frac{3}{9} & \frac{2}{9}  \\
+\frac{3}{12} & \frac{25}{36} & \frac{2}{36} \\
+\frac{1}{2} & \frac{1}{6} & \frac{1}{3}
+\end{bmatrix}  \begin{bmatrix}
+\frac{4}{9} & \frac{3}{9} & \frac{2}{9}  \\
+\frac{3}{12} & \frac{25}{36} & \frac{2}{36} \\
+\frac{1}{2} & \frac{1}{6} & \frac{1}{3}
+\end{bmatrix} = \ldots
+\]
+
+\end{solution}
+
+\begin{example}[\textbf{Example 4.12 from \textit{Introduction to Probability Models}}]
+
+Part (c) (not in book): \(N\) is the number of flips until either a run of 3 heads or 3 tails. \(\Pr(N = 8)\)?
+
+\end{example}
+
+\begin{solution} Say start at state 0, state \(i\) if you are on a run of \(i\) heads for \(i = 1, 2, 3\), and state \(i\) if you are on a state of \(i-3\) tails, \(i = 4, 5, 6\). Then we have
+
+\[
+P = \begin{bmatrix}
+P_{00} & P_{01} & P_{02} & P_{03} & P_{04} & P_{05} & P_{06}  \\
+P_{10} & P_{11} & P_{12}  & P_{13} & P_{14} & P_{15} & P_{16} \\
+P_{20} & P_{21} & P_{22}  & P_{23} & P_{24} & P_{25} & P_{26} \\
+P_{30} & P_{31} & P_{32}  & P_{33} & P_{34} & P_{35} & P_{36} \\
+P_{40} & P_{41} & P_{42}  & P_{43} & P_{44} & P_{45} & P_{46} \\
+P_{50} & P_{51} & P_{52}  & P_{53} & P_{54} & P_{55} & P_{56} \\
+P_{60} & P_{61} & P_{62}  & P_{63} & P_{64} & P_{65} & P_{66}
+\end{bmatrix} = \begin{bmatrix}
+0 & p & 0 &0 & 1-p & 0& 0 \\
+0 & 0 & p  & 0 & 1-p & 0 &0\\
+0 &0 & 0  &p & 1-p& 0& 0 \\
+0 & 0 & 0 &1 & 0 & 0 & 0 \\
+0 &p & 0  & 0 & 0&1-p &0 \\
+0 & p & 0 &0 & 0 & 0&1-p \\
+0 & 0 & 0  &0 & 0 & 0 &1
+\end{bmatrix}
+\]
+
+\end{solution}
+
+In general, if \(T_i\) is the number of transitions to enter state \(i\) even state 0 is 0, we can change state \(i\) into an absorbing state.
+
+\subsubsection{Classification of States (Section 4.3 of \textit{Introduction to Probability Models})}
+
+We say state \(j\) is \textit{accessible} from state \(i\) if for some \(n \geq 0\) \(P_{ij}^n > 0\). Note that \(P_{ij}^n=\Pr(X_n = j \mid X_0 = i)\). So \(j\) is accessible from \(i\) if and only if starting in \(i\) it is possible that the Markov chain is every in \(j\). So if \(j\) is not accessible from \(i\)
+
+\[
+\Pr(\text{ever in } j \mid X_0 = i) = \Pr \bigg( \bigcup_{n} \{X_n = j \} \mid X_0 = i \bigg) \leq \sum_{n} \Pr \big( \{X_n = j \} \mid X_0 = i \big) = 0
+\]
+
+Two states \(i\) and \(j\) that are accessible to each other are said to \textit{communicate}, and we write \(i \leftrightarrow j\). Two states that communicate are said to be in the same \textit{class}.
+
+A Markov chain is \textbf{irreducible} if there is only one class.
+
+\begin{example}
+
+\[
+P = \begin{bmatrix}
+0.2 & 0.8 & 0 & 0 & 0 \\
+0.3 & 0.7 & 0 & 0 & 0\\
+0.2 & 0.2 & 0.2 & 0.2 & 0.2 \\
+0 & 0 & 0& 0.1 & 0.9 \\
+0 & 0 & 0& 0.5 & 0.5 
+\end{bmatrix}
+\]
+
+Then the classes are \(\{0, 1\}\), \(\{2\}\), and \(\{3, 4\}\). Note that for the classes \(\{0, 1\}\) and  \(\{3, 4\}\) you will stay there forever---they are essentially Markov chains themselves. But if you start in state 2 you will eventually go to one of the other states and never go back. In contrast consider
+
+\[
+P = \begin{bmatrix}
+0.2 & 0.8 & 0 & 0 & 0 \\
+0.3 & 0.7 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0& 0.1 & 0.9 \\
+0 & 0 & 0& 0.5 & 0.5 
+\end{bmatrix}
+\]
+
+where all three states have this property. We can merge classes \(\{2\}\) and \(\{3, 4\}\) like this:
+
+\[
+P = \begin{bmatrix}
+0.2 & 0.8 & 0 & 0 & 0 \\
+0.3 & 0.7 & 0 & 0 & 0\\
+0.2 & 0.2 & 0.2 & 0.2 & 0.2 \\
+0 & 0 & 0& 0.1 & 0.9 \\
+0 & 0 & 0.1& 0.5 & 0.4 
+\end{bmatrix}
+\]
+
+\end{example}
+
+Let \(N_k\) be the number of transitions until you first enter state \(k\). (discussion on p. 195 - 196 of \textit{Introduction to Probability Models}.)
+
+\begin{example}[\textbf{Example 4.12 in \textit{Introduction to Probability Models}}]
+
+\[
+\Pr(N=8) = P_{02}^7 p = P_{00}^5 p^3
+\]
+
+\end{example}
+
+\begin{definition} For any states \(i\) and \(j\) in a Markov process, let \(f_{ij}^n\) be the probability that starting in \(i\) the first transition into \(j\) occurs at time \(n\). Formally,
+
+\[
+f_{ij}^0 = 0, \qquad f_{ij}^n = \Pr(X_n = j, X_k \neq j, k = 1, \ldots, n-1 \mid X_0 = i).
+\]
+
+Let 
+
+\[
+f_{ij} = \sum_{n=1}^\infty f_{ij}^n.
+\]
+
+Then \(f_{ij}\) denotes the probability of ever making a transition into state \(j\) given that the process starts in \(i\).
+
+\end{definition}
+
+\begin{proposition}[\textbf{Homework problem; Problem 4.4 in \textit{Stochastic Processes}}]
+
+\[
+P_{ij}^n =   \sum_{k=0}^n f_{ij}^k P_{jj}^{n-k}.
+\]
+
+\end{proposition}
+
+\begin{proof} Recall that \(P_{ij}^n\) is the probability that a process in state \(i\) will be in state \(j\) after \(n\) additional transitions. Also, \(f_{ij}^n\) is the probability that starting in \(I\) the first transition into \(j\) occurs at time \(n\). Note that
+
+\[
+P_{ij}^n =  \sum_{k=0}^n \Pr(\text{first reach } j \text{ at time } k) \cdot \Pr(\text{end at } j \text{ starting from } j \text{ in } n-j \text{ steps}) = \sum_{k=0}^n f_{ij}^k P_{jj}^{n-k}.
+\]
+
+
+\end{proof}
+
+\begin{proposition}[\textbf{Homework problem; Problem 4.5 in \textit{Stochastic Processes}}] Let
+
+\[
+P_{ij/k} = \Pr(X_n = j, X_\ell \neq k, \ell = 1, \ldots, n-1 \mid X_0 = i).
+\]
+
+(This is the probability that at time \(n\) we are in state \(j\) and we never reached state \(k\) between time 0 and \(n\), given that we started in state \(i\).) Then for \( i \neq j\), 
+
+\[
+P_{ij}^n = \sum_{k=0}^n P_{ii}^k P_{ij/i}^{n-k}.
+\]
+
+\end{proposition}
+
+\begin{proof} There are two classes of ways we can reach \(j\) starting from \(i\): we either go back to \(i\) at some point and then end up at \(j\), or we go straight to \(j\) without ever going back to \(i\). If we go back to \(i\) for the last time at time \(k  \in \{1, \ldots, n-1\}\), we can end up at \(j\) at time \(n\) with probability \(P_{ij/i}^{n-k}\). We end up back at state \(i\) for the last time at time \(k\) before time \(n\) (regardless of what happened before time \(k\)) with probability \(P_{ii}^k\). Therefore,
+
+\[
+ \text{ for } i \neq j, P_{ij}^n = \sum_{k=0}^n P_{ii}^k P_{ij/i}^{n-k}.
+\]
+
+\end{proof}
+
+
+\begin{definition}[\textbf{Recurrent state}] We call state \(i\) \textbf{recurrent} if starting in \(i\) the Markov Chain returns to \(i\) with probability 1.
+
+\end{definition}
+
+\begin{definition}[\textbf{Transient state}] We call state \(i\) \textbf{transient} if starting in \(i\) the probability the Markov Chain returns to \(i\) is less than 1.
+
+\end{definition}
+
+\begin{proposition}[\textbf{Proposition 4.1 in \textit{Introduction to Probability Models}, Proposition 4.2.3 in \textit{Stochastic Processes}}] In a Markov chain, state \(i\) is recurrent if 
+
+\[
+\sum_{n=1}^\infty P_{ii}^n = \infty
+\]
+
+and transient if
+
+\[
+\sum_{n=1}^\infty P_{ii}^n < \infty.
+\]
+
+\end{proposition}
+
+\begin{proof}State \(i\) is recurrent if with probability 1 a process starting at \(i\) will eventually return to \(i\). However, by the Markovian property it follows that this process will return again to \(i\) with probability 1, and so on. There is no last term, so with probability 1, the number of visits to \(i\) will be infinite. 
+
+\
+
+On the other hand, suppose \(i\) is transient. Then each time the process returns to \(i\) there is a positive probability \(1 - f_{ii}\) that it will never again return. That is,the probaiblity the total time in \(i\) is \(n\) periods given you start in \(i\) is 
+
+\[
+f_{ii}^{n_i-1}(1 - f_{ii}).
+\]
+
+Therefore the number of visits is geometric with finite mean \((1 - f_{ii})^{-1}\). Let \(I_n\) be an indicator variable for \(X_n = i\). Then the total number of visits to state \(i\) is \(\sum_{n=0}^\infty I_n\) and the expected number of visits if we start at \(i\) is 
+
+\[
+\E \sum_{n=0}^\infty \{I_n = 1 \mid X_0 = i\} =  \sum_{n=0}^\infty \E \{I_n = 1 \mid X_0 = i\} =  \sum_{n=0}^\infty \Pr \{X_n = i \mid X_0 = i\}
+\]
+
+\end{proof}
+
+\begin{corollary}[\textbf{Corollary 4.2 in \textit{Introduction to Probability Models}, Corollary 4.2.4 in \textit{Stochastic Processes}}]\label{stoch.sp.cor.4.2.4}  If state \(i\) is recurrent and state \(i\) communicates with state \(j\), then state \(j\) is recurrent.
+
+\end{corollary}
+
+\begin{proof}Let \(m\) and \(n\) be such that \(P_{ij}^n < 0\), \(P_{ji}^m>0\) (these values exist since \(i\) and \(j\) communicate). Then for any \(s  \geq 0\),
+
+\[
+P_{jj}^{m+n+s} \geq P_{ji}^m P_{ii}^sP_{ij}^n.
+\]
+
+Therefore
+
+\[
+\sum_{s=0}^\infty P_{jj}^{m+n+s} \geq P_{ji}^m P_{ij}^n \sum_{s=0}^\infty P_{ii}^s = \infty \implies \sum_{n=0}^\infty P_{jj}^n = \infty
+\]
+
+where \( \sum_{s=0}^\infty P_{ii}^s= \infty\) by definition of \(i\) being recurrent.
+
+\end{proof}
+
+\begin{corollary}[\textbf{Corollary 4.2.5 in \textit{Stochastic Processes}}]  If state \(i\) is recurrent and state \(i\) communicates with state \(j\), then
+
+\[
+f_{ij} = \Pr(\text{ever enter }j \mid X_0 =i) = 1
+\]
+
+\end{corollary}
+
+\begin{proof} Suppose \(X_0 = i\), and let \(n\) be such that \(P_{ij}^n > 0\). Say that we miss opportunity 1 if \(X_n \neq j\). If we miss opportunity 1, then let \(T_1\) denote the next time we enter \(i\). Note that \(T_1\) is finite with probability 1 by Corollary \ref{stoch.sp.cor.4.2.4}. Say we miss opportunity 2 if \(X_{T_1 + n} \neq j\). If opportunity 2 is missed, let \(T_2\) denote the next time we enter \(i\) and say we miss opportunity 3 if \(X_{T_2 + n} \neq j\), and so on. It is easy to see that the opportunity number of the first success is a geometric random variable with mean \(1/P_{ij}^n\), and is thus finite with probability 1. The result follows since \(i\) being recurrent implies that the number of potential opportunities is infinite.
+
+\end{proof}
+
+So we have the recurrence and transience are class properties (if one element in the class has them, they all do). 
+
+\begin{example}[\textbf{Simple random walk; example 4.18 in \textit{Introduction to Probability Models}}]
+
+\[
+\frac{(2n)!}{n!n!} ~ \frac{(2n)^{2n+1/2} e^{-2n} \sqrt{2 \pi}}{n^{2n+1} e^{-2n} 2 \pi} = \frac{4^n}{\sqrt{n \pi}}
+\]
+
+\end{example}
+
+Homework problem: If \(R\) is a recurrent class, \(i \in R\), \(j \notin R\), then \(P_{ij}=0\). Why? Suppose \(P_{ij}>0\). But since \(i\) doesn't communicate with \(j\), \(P_{ij}^n=0\) for all \(n\). Contradiction. 
+
+\subsubsection{Long-Run Proportions and Limiting Probabilities (Limit Theorems) (4.4 in \textit{Introduction to Probability Models}, 4.3 in \textit{Stochastic Processes}}
+
+Let \(\pi_j\) be the long-run proportion of the time you are in state \(j\). That is,
+
+\[
+\pi_j = \lim_{n \to \infty} \frac{N_n(j)}{n} 
+\]
+
+where \(N_n(j)\) is the time in \(j\) during the first \(n\) periods. Then this equals \(1/m_j\) where \(m_j\) is the expected time to re-enter \(j\) given that we started in \(j\) if state \(j\) is recurrent.
+
+\
+
+Bad approach to find:
+\[
+m_j = \sum_k \E [\text{return to } j \mid X_1 = k] P_{jk} = P_{jj} + \sum_{k \neq j} (i + m_{kj}) P_{jk} = 1 + \sum_{k \neq j} m_{kj} P_{jk}
+\]
+
+\[
+m_{ij} = 1 + \sum_{k \neq j} P_{ik} m_{kj} 
+\]
+
+for \(|S|\) states.
+
+\begin{proposition}[\textbf{Proposition 4.4 in \textit{Introduction to Probability Models}}]
+
+If the Markov chain is irreducible and recurrent, then for any initial state,
+
+\[
+\pi_j =\frac{1}{m_j}.
+\]
+
+\end{proposition}
+
+\begin{proposition}[\textbf{Proposition 4.5 in \textit{Introduction to Probability Models}}]
+
+
+
+\end{proposition}
+
+\begin{theorem}[\textbf{Theorem 4.1 in \textit{Introduction to Probability Models}}]In an irreducible Markov chain is positive recurrent, then the long-run proportions are the unique solution of the equations
+
+\[
+\pi_j = \sum_i \pi_i P_{ij}, \qquad j \geq 1
+\]
+
+\[
+\sum_j \pi_j = 1.
+\]
+
+Moreover, if there is no solution of the preceding linear equations, then the Markov chain is either transient or null recurrent and all \(pi_j = 0\).
+
+\end{theorem}
+
+\begin{proof} \(\pi_i\) is the long-run proportion of time you are in state \(i\); think of it as the long-run proportion of transitions that come from \(i\). These transitions go to \(j\) with probability \(P_{ij}\). So \(\pi_i P_{ij} \) is the long-run proportion of transitions that go from \(i\) to \(j\). If we sum over all \(i\) then we get the long-run proportion of transitions that go into \(j\), which is the same as the proportion of time you're in \(j\). So
+
+\[
+\pi_j = \sum_i \pi_i P_{ij}
+\]
+
+\end{proof}
+
+For an irreducible Markov chain, let \(N_n(j) \) be the number of transitions into \(j\) by time \(n\). Every time we reach state \(j\) we have a renewal. By the Strong Law for Renewal Processes (Theorem \ref{stoch.strong.law.renew.proc}), 
+
+\[
+\frac{N_n(t)}{n}  \xrightarrow{a.s.} \frac{1}{m_{jj}}
+\]
+
+where \(m_{jj}\) is the expected number of transitions returning to \(j\) given that \(X_0 = j\). By the Elementary Renewal Theorem (Theorem \ref{stoch.elem.renew.thm}),
+
+\[
+\lim_{s \to \infty} \frac{\E(N_n(s))}{n} = \frac{1}{m_{jj}} .
+\]
+
+Note that
+
+\[
+N_n(j) = \sum_{k=1}^n I_k
+\]
+
+where \(I_k\) is an indicator variable for \(X_k = j\).
+
+\[
+\implies  \frac{1}{n} \sum_{k=1}^n \Pr(X_k = j) \xrightarrow{a.s.} \frac{1}{m_{jj}}.
+\]
+
+Let \(\pi_j = \frac{1}{m_{jj}}\).
+
+\begin{definition}If state \(j\) is recurrent, call it \textbf{positive recurrent} if \(m_{jj}<\infty\) and \textbf{null recurrent} if \(m_{jj}=\infty\).
+
+\end{definition}
+
+\begin{remark}Being positive recurrent is equivalent to \(\pi_j >0\).
+
+\end{remark}
+
+\begin{proposition}[\textbf{Proposition 4.3.2 in \textit{Stochastic Processes} (p.185 of pdf)}]Positive (null) recurrence is a class property.
+
+\end{proposition}
+
+\begin{proof}Suppose state \(i\) is positive recurrent; that is \(\pi_i > 0\). We will show that if it communicates with another state \(j\), that state must be recurrent. Let \(n\) be such that \(P_{ij}^n > 0\); such an \(n\) exists since \(i\) and \(j\) communicate.. Then \(\pi_i P_{ij}^n\) is the long-run proportion of the time the chain is in state \(i\) and will be in state \(j\) \(n\) time periods later (or the proportion of time that the Markov chain is in state \(j\) and was in state \(i\) \(n\) time periods earlier). Since this is less than or equal to the proportion of time the Markov chain is in state \(j\), we have
+
+\[
+\pi_i P_{ij}^n \leq \pi_j
+\]
+
+But since \(\pi_i > 0\), we have
+
+\[
+0 < \pi_i P_{ij}^n \leq \pi_j \implies \pi_j > 0.
+\]
+
+\end{proof}
+
+\begin{remark}This also shows that null recurrence is a class property (because if one element of the class is not positive recurrent, it must be that they are all not positive recurrent).
+
+\end{remark}
+
+
+
+Note that if we have a Markov chain with \(m < \infty\) states. we have to have
+
+\[
+\sum_{j=1}^m N_n(0) = n \iff  \frac{1}{m} \sum_{j=1}^m N_n(0) =1
+\]
+
+\[
+\implies 1 = \lim_{n \to \infty} \frac{1}{n} \sum_{j=1}^m N_n(0) =  \sum_{j=1}^m \lim_{n \to \infty} \frac{N_n(0)}{n}    =  \sum_{j=1}^m \pi_j
+\]
+
+so all the \(\pi_j\) have to add up to 1. 
+
+\begin{definition}\label{stoch.stat.probs}The non-negative numbers \(x_j, j \in S\) are said to be \textbf{stationary probabilities} of a Markov chain if 
+
+\[
+x_j = \sum_i x_i P_{ij}, \qquad i \in S
+\]
+
+\[
+\sum_{j \in S} x_j = 1.
+\]
+
+\end{definition}
+
+\begin{definition}[\textbf{p. 185 of \textit{Stochastic Processes} pdf}] A probability distribution \(\{P_j, j \geq 0\}\) is said to be \textbf{stationary} for the Markov chain if
+
+\[
+P_j = \sum_{i=0}^\infty P_i P_{ij}, \qquad j \geq 0.
+\]
+
+\end{definition}
+
+\begin{lemma}\label{stoch.stat.lemma}Suppose \(\{x_i, i \in S\}\) is a stationary probability vector for a Markov chain. If \(\Pr(X_0 = i) = x_i, i \in S\) \(\Pr(X_n = j) = x_j, j \in S\) for all \(n\).
+
+\end{lemma}
+
+\begin{proof} We will prove this by induction on \(n\) for \(X_n\). The case \(n=0\) is true by assumption. Assume \(\Pr(X_n = i) = x_i, i \in S\). Then
+
+\[
+\Pr(X_{n+1} = j) = \sum_{i \in S} \Pr(X_{n+1} = j \mid X_n = i) \Pr(X_n = i)   = \sum_{i \in S} P_{ij} x_i = x_j
+\]
+
+where the last step follows by Definition \ref{stoch.stat.probs}.
+\end{proof}
+
+By the Elementary Renewal Theorem (Theorem \ref{stoch.elem.renew.thm}),
+
+\[
+\sum_{k=1}^n \frac{1}{n} \Pr(X_k = j) \xrightarrow{a.s.} \frac{1}{m_{jj}}.
+\]
+
+Suppose the initial state is chosen randomly according to the probability vector. 
+
+\begin{proposition}[\textbf{Stationary probability vector is \(\pi_j\)}] If \(x_j\) is a stationary probability vector then \(x_j = \pi_j\), \(j \in S\).
+
+\end{proposition}
+
+\begin{proof}Let \(x_j\) be a stationary probability vector. Suppose \(\Pr(X_0 = i) = x_i, i \in S\). Then \(\Pr(X_k = j) = x_j\) for all \(k\) by Lemma \ref{stoch.stat.lemma}. By the Elementary Renewal Theorem (Theorem \ref{stoch.elem.renew.thm}),
+
+\[
+\frac{1}{n} \Pr(X_k = j) \xrightarrow{a.s.} \pi_j.
+\]
+
+But also
+
+\[
+\lim_{n \to \infty} \frac{1}{n} \Pr(X_k = j) = x_j
+\]
+
+so \(\pi_j = x_j\).
+
+\end{proof}
+
+\begin{definition}[\textbf{Ergodic Markov chain state; p.174 of pdf of \textit{Stochastic Processes}}]A positive recurrent, aperiodic state is called \textbf{ergodic}.
+
+\end{definition}
+
+
+\begin{definition}[\textbf{Ergodic Markov chain; p.188 of pdf of \textit{Stochastic Processes}}]\label{stoch.def.ergodic}We say a Markov chain is \textbf{ergodic} if all states are positive recurrent; that is,
+
+\[
+\pi_j = \lim_{n \to \infty}P_{ij}^n > 0.
+\]
+
+In this case, \(\{\pi_j, j = 0, 1, 2, \ldots\}\) is a stationary distribution and there exists no other stationary distribution.
+
+\end{definition}
+
+\begin{definition}A Markov chain that can only return to a state in a multiple of \(d > 1\) steps is said to be \textbf{periodic} and does not have limiting probabilities. That is, \(P_{ij}^n = 0\) except when \(n\) is a multiple of \(d\) and \(d\) is the largest such integer.
+
+An irreducible chain that is not periodic is said to be \textbf{aperiodic}. 
+
+\end{definition}
+
+\begin{lemma}Periodicity is a class property. That is, if \(i\) communicates with \(j\) then \(i\) and \(j\) have the same period. 
+
+\end{lemma}
+
+\begin{proof}Requires non-trivial results from algebra to prove.
+
+\end{proof}
+
+Also, \(P_{jj}^{nd} \to d/m_{jj}\). For an aperiodic irreducible Marko chain, \(P_{ij}^n \to 1/m_{jj} = \pi_j\). (Related to Blackwell's Theorem.)
+
+\begin{example}[\textbf{Example 4.18 in \textit{Introduction to Probability Models}}]\label{stoch.ex.cont} Stopping time:
+
+\[
+N = \min \{n: X_1, + \ldots + X_n = 1\} \implies 1 = X_1 + \ldots + X_N
+\]
+
+Apply Wald's Equation (Theorem \ref{stoch.wald.eqn}):
+
+\[
+1 = \E[ X_1 + \ldots + X_N] = \E(X) \E(N) = 0
+\]
+
+So Wald's equation leads to a contradiction, meaning its assumptions weren't satisfied, which must be because \(\E(N) = \infty\). See also Example \ref{prob.ex.cont.sum.ex} in the Probability notes.
+
+\end{example}
+
+\begin{example}[\textbf{Example 4.24 in \textit{Introduction to Probability Models}}] Not an alternating renewal process because in general it depends on which ``up" state you enter into. Typically use renewal reward processes to find average length of ``up" and ``down" periods.
+
+\end{example}
+
+\begin{theorem}[\textbf{Theorem 4.3.3 in \textit{Stochastic Processes}, p. 186 of pdf}]
+Suppose we have an irreducible aperiodic Markov chain. If it is either transient or null recurrent, then there are no solutions of the equations
+
+\[
+x_j = \sum_{i \in S} x_i P_{ij}, \qquad j \in S,
+\]
+
+\[
+\sum_j X_j = 1.
+\]
+
+If it is positive recurrent, then \(\{\pi_j, j \in S\}\) uniquely satisfy the preceding equations. (There is no irreducible finite state Markov chain.)
+
+
+\end{theorem}
+
+\begin{proof}Suppose a Markov chain is positive recurrent. Fix a state 0 and consider the Markov chain to start a new cycle each time it transitions into state 0. Think of this as a renewal reward process: suppose you earn 1 each time a transition into state \(j\) occurs (renewal each time you reach state 0 again). Then the average reward per unit time is \(\pi_j\). But this also equals
+
+\[
+\frac{\E(N_j)}{\E(N)}
+\]
+
+where \(N_j\) is the number of transitions into state \(j\) during a cycle and \(N\) is the number of transitions in a cycle, so \(N = \sum_j N_j\). Let \(N_{ij}\) be the number of transitions from state \(i\) to \(j\) in a cycle, so \(N_j = \sum_{i \in S} N_{ij}\). Then we have
+
+\[
+\E(N_j) = \sum_{i \in S} \E(N_{ij}) 
+\]
+
+%Note that 
+%
+%\[
+%N_{ij} = N_i \boldsymbol{1}_{ij}
+%\]
+%
+%where \( \boldsymbol{1}_{ij} \) is an indicator variable for transitioning from state \(i\) to \(j\). Taking expectations yields \(\E(N_{ij}) = \E(N_i)P_{ij}\). [
+%
+%
+%Or: 
+
+Let \(I_k\) is an indicator variable for transitioning from \(i\) to \(j\) with \(\E(I_k) = P_{ij}\). Then \(N_{ij} = \sum_{k=1}^{N_i} I_k\). Note that \(N_i\) is a stopping time for \(I_1, I_2, \ldots\) because it depends on what happened before but not on the future. Therefore by Wald's Equation (Theorem \ref{stoch.wald.eqn}),
+
+\[
+\E(N_{ij}) = \E \sum_{k=1}^{N_i} I_k = \E(I_k) \E(N_i) = \E(N_i)P_{ij}.
+\]
+
+ Using that we have
+
+\[
+\E(N_j) = \sum_{i \in S} \E(N_{ij}) =  \sum_{i \in S} \E(N_i)P_{ij}
+\]
+
+\[
+\implies \frac{\E(N_j) }{\E(N)} =  \sum_{i \in S} \frac{\E(N_i)}{\E(N)} P_{ij} \iff \pi_j = \sum_i \pi_i P_{ij}.
+\]
+
+Also note that
+
+\[
+\sum_j \pi_j = \sum_j \frac{\E(N_j)}{\E(N)} =  \frac{\sum_j \E(N_j)}{\sum_j \E(N_j)} = 1.
+\]
+
+\end{proof}
+
+\begin{example}[\textbf{Similar to section 4.1.1 in \textit{Introduction to Probability Models}}] Suppose we have a 2 state Markov chain for the weather. 0 means dry, 1 means rain.  dry to dry with probability 0.7, rain to rain with probability 0.6. So 
+
+\[
+P = \begin{bmatrix}
+0.7 & 0.3 \\
+0.4 & 0.6
+\end{bmatrix}
+\]
+
+Then \(\pi_j\) are the unique solutions to
+
+\[
+\pi_j = \sum_i \pi_i P_{ij}, \qquad \sum_j \pi_j = 1.
+\]
+
+So we have
+
+\[
+\pi_0 = \pi_0 P_{00} + \pi_1 P_{10}, \qquad \pi_1 = \pi_0 P_{01} + \pi_1 P_{11}, \qquad \pi_0 + \pi_1 = 1.
+\]
+
+\[
+\implies \begin{bmatrix}
+(1 - P_{00}) & - P_{10} \\
+-P_{01} & (1 - P_{11}) \\
+1 & 1 \\ 
+\end{bmatrix} \begin{bmatrix} \pi_0 \\ \pi_1 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix}
+\]
+
+Solving yields \(\pi_0 = 4/7\), \(\pi_1 = 3/7\).
+
+\end{example}
+
+\begin{definition}A Markov chain is said to be \textbf{doubly stochastic} if the sums of the columns of the transition probability matrix also add to 1 (the rows must always add to 1). That is,
+
+\[
+\sum_i P_{ij} = 1, \qquad \forall \ j \in S
+\]
+
+\end{definition}
+
+\begin{proposition}
+Suppose you have an irreducible Markov chain with \(m < \infty\) states that is doubly stochastic. Then 
+
+\[
+\pi_j = \frac{1}{m}, \qquad j = 1, \ldots, m
+\]
+
+That is, all the long-run proportions are the same.
+\end{proposition}
+
+\begin{proof}Recall that \(\pi_j\) is the unique solution to \(\pi_j = \sum_i \pi_i P_{ij}\) and that \(\sum_j \pi_j = 1\). For \(\pi_j = 1/m\), clearly the second condition is satisfied, so we need to verify the first state. That is we need to verify that
+
+\[
+\frac{1}{m} = \frac{1}{m} \sum_i P_{ij} \iff  \sum_i P_{ij}  = 1
+\]
+
+which is true if the Markov chain is doubly stochastic.
+
+\end{proof}
+
+\begin{remark}In practice if there is a Markov chain with more than three states and you are asked to find the long-run proportions, it is likely a doubly-stochastic Markov chain.
+
+\end{remark}
+
+\begin{example}[\textbf{Example 4.25 in \textit{Introduction to Probability Models}}]Hotel, number of new guests every day is Poisson with mean \(\lambda\). Each guest that stays the night will independently check out the next day with probability \(p = 1 -\alpha\). (So the number of days each guest stays are independent geometric random variables.)
+
+\[
+X_n = i \implies X_{n+1} = \operatorname{Bin}(i, \alpha) * \operatorname{Poisson}(\lambda)
+\]
+
+where \(*\) is being used for a sum to stress the independence of the random variables.
+
+\[
+P_{ij} = \Pr( \operatorname{Bin}(i, \alpha) + \operatorname{Poisson}(\lambda) = j) 
+\]
+
+\[
+\vdots
+\]
+
+Part (c): Suppose the number of people initially there \(X_0\) is distributed \(\operatorname{Poisson}(\beta)\). Then the number of that cohort who remains the next day is \(\operatorname{Poisson}(\alpha \beta)\). So \(X_1 \sim \operatorname{Poisson(\alpha \beta + \lambda)}\). So to find the limiting distribution (where it's the same every day from now on), we need
+
+\[
+\beta = \lambda + \alpha \beta \iff \beta =  \left. \frac{\lambda}{1- \alpha} \implies \pi_j = \exp \bigg(- \frac{\lambda}{1 - \alpha} \bigg) \bigg( \frac{\lambda}{1 - \alpha} \bigg)^j    \middle/ j! \right.
+\]
+
+\end{example}
+
+\begin{proposition}[\textbf{Proposition 4.4.2 in \textit{Stochastic Processes}; relevant to Gambler's Ruin}]If \(j\) is a recurrent state in a Markov chain, then the set of probabilities \(\{f_{ij}, i \in T\}\) satisfies
+
+\[
+f_{ij} = \sum_{k \in T} P_{ik} f_{kj} + \sum_{k \in R} P_{ik}, \qquad i \in T
+\]
+
+where \(R\) denotes the set of states communicating with \(j\).
+
+\end{proposition}
+
+
+\begin{example}[\textbf{Gambler's Ruin; Section 4.5.1 of \textit{Introduction to Probability Models}, Example 4.4(A) in \textit{Stochastic Processes} (p. 197 of pdf)}]\label{stoch.gamb.ruin}
+
+Also discussed drug testing example immediately afterward in section 4.5.1 of \textit{Introduction to Probability Models}, and what happens as \(N \to \infty\) (p. 199 of pdf of \textit{Stochastic Processes}).
+\end{example}
+
+\subsubsection{Branching Processes (Section 4.7 of \textit{Introduction to Probability Models}, Section 4.5 of \textit{Stochastic Processes}}
+
+\begin{proposition}[\textbf{Theorem 4.5.1 in \textit{Stochastic Processes} (p. 203 of pdf)}]\label{stoch.sp.4.5.1}
+(i) If \(\mu \leq 1\), then \(\pi_0 = 1\). (ii) If \(\mu > 1\), \(\pi_0 < 1\). (iii) \(\pi_0\) is the smallest positive number satisfying 
+
+\[
+\pi_0 = \sum_{j =0}^\infty \pi_0^j P_j.
+\]
+\end{proposition}
+
+\begin{proof}
+
+\begin{enumerate}[(i)]
+
+\item Using 
+
+\[
+X_n = \sum_{i=1}^{X_{n-1}} Z_i,
+\]
+
+we have
+
+\[
+\E(X_n \mid X_{n-1}) = X_{n-1} \cdot \sum_{j=0}^\infty j P_j = X_{n-1} \mu
+\]
+
+\[
+\implies \E(X_n) = \mu \E(X_{n-1}) = \mu^2 \E(X_{n-2}) = \ldots = \mu^n \E(X_0) = \mu^n.
+\]
+
+Suppose \(\mu < 1\). By Markov's Inequality (Lemma \ref{asym.markov}),
+
+\[
+\Pr(X_n \geq 1) \leq \E(X_n) = \mu^n  \implies \lim_{n \to \infty} \Pr(X_n \geq 1) = 0.
+\]
+
+When \(\mu = 1\), can prove using a convexity argument and constraints \(P_0 > 0, P_0 + P_1 < 1\) (see \textit{Stochastic Processes}).
+
+\item In \textit{Stochastic Processes}.
+
+\item Suppose \(x > 0\) satisfies
+
+\[
+x = \sum_{j =0}^\infty x^j P_j.
+\]
+
+We will show by induction that \(x \geq \Pr(X_n = 0 \mid X_0 = 1) \) for all \(n\). To start we need to show that  \(x \geq \Pr(X_n = 0 \mid X_0 = 1)\). But 
+
+\[
+\Pr(X_01 = 0 \mid X_0 = 1) = P_0 \leq \sum_{j =0}^\infty x^j P_j = x
+\]
+
+so that follows. Now we assume \(x \geq \Pr(X_n = 0 \mid X_0 = 1)\). We would like to show that this implies \(x \geq \Pr(X_{n+1} = 0 \mid X_0 =1)\). Note that
+
+\[
+\Pr(X_{n+1} = 0 \mid X_0 =1) = \sum_{j=0}^\infty \Pr(X_{n+1} = 0 \mid X_1 = j, X_0 =1)  = \sum_{j=0}^\infty \Pr(X_{n+1} = 0 \mid X_1 = j) P_j 
+\]
+
+But \(\Pr(X_{n+1} = 0 \mid X_1 = j) = (\Pr(X_{n+1} = 0 \mid X_1 = 1) )^j\) for the following reason: if there are \(j\) people to begin with, imagine they each had their own independent branching process. The probability that you reach 0 eventually is equal to the joint probability that all \(j\) processes reach 0 eventually. So we have
+
+\[
+\sum_{j=0}^\infty \Pr(X_{n+1} = 0 \mid X_1 = j) P_j = \sum_{j=0}^\infty P_j  (\Pr(X_{n+1} = 0 \mid X_1 = 1) )^j \leq \sum_{j=0}^\infty P_j x^j = x
+\]
+where the second to last step follows by the inductive hypothesis.
+
+
+\end{enumerate}
+
+\end{proof}
+
+\subsubsection{A Markov Chain Model of Algorithmic Efficiency (Section 4.6.1 of \textit{Stochastic Processes})}
+
+\begin{definition}
+
+A set of events \(A_2, A_2, \ldots\) is said to be an \textbf{increasing sequence} if \(A_n \subseteq A_{n+1}\) and a \textbf{decreasing sequence} if \(A_n \supseteq A_{n+1}\). If \(A_n, n \geq 1 \) is increasing, define
+
+\[
+\lim_{n \to \infty} A_n = \bigcup_{n=1}^\infty A_n.
+\]
+
+If \(A_n, n \geq 1 \) is decreasing, define
+
+\[
+\lim_{n \to \infty} A_n = \bigcap_{n=1}^\infty A_n.
+\]
+
+The \textbf{limit infimum} is the set of all points contained in all but a finite number of \(A_1, A_2, \ldots,\). The \textbf{limit supremum} is the set of all points contained in an infinite number of \(A_1, A_2, \ldots\). Note that for an increasing sequence the limit infimum is a subset of the limit supremum.
+
+\end{definition}
+
+\begin{lemma}\label{stoch.ross.inclass.simp.lemma}For any events \(A_1, A_2, \ldots\) there are events \(B_1, B_2, \ldots\) that are mutually exclusive (\(B_i \cap B_j = \emptyset, i \neq j\)) such that 
+
+\[
+ B_i \cap B_j = \emptyset, \qquad   \bigcup_{i=1}^n B_i = (\bigcup_{i=1}^n A_i \text{ for } n = 1, 2, \ldots , \qquad \bigcup_{i=1}^\infty B_i = (\bigcup_{i=1}^\infty A_i . 
+\]
+
+\end{lemma}
+
+\begin{proof}
+Let \(B_1 = A_1\), \(B_2 = A_2 \setminus A_1\), \(B_3 = A_3 \setminus \{A_1 \cup A_2\}, \ldots, B_n = A_n \setminus \{A_1 \cup \ldots \cup A_n\} = A_n \setminus \left\{  \bigcup_{i=1}^{n-1} A_i \right\}\).
+\end{proof}
+
+\begin{theorem}\label{stoch.prob.set.func}Probability is a continuous set function. That is, if \(A_n\) is an increasing or decreasing sequence then
+
+\[
+\lim_{n \to \infty} \Pr(A_n) = \Pr \bigg( \bigcup_{n=1}^\infty A_n \bigg) = \Pr \Big(\lim_{n \to \infty} A_n \Big).
+\]
+
+\end{theorem}
+
+\begin{proof}Let \(A_1, A_2, \ldots\) be events. Per Lemma \ref{stoch.ross.inclass.simp.lemma}, define \(B_1, B_2, \ldots\) such that \(B_i \cap B_j = \emptyset\) and \(\bigcup_{i=1}^n B_i = (\bigcup_{i=1}^n A_i\) for \(n = 1, 2, \ldots\) , \(\bigcup_{i=1}^\infty B_i = (\bigcup_{i=1}^\infty A_i \). Suppose \(A_n\) is increasing, so that \(A_n \subseteq A_{n+1}\). Then
+
+\[ 
+\Pr \Big(\lim_{n \to \infty}A_n \Big) = \Pr \bigg( \bigcup_{i=1}^\infty A_i \bigg) = \Pr \bigg( \bigcup_{i=1}^\infty B_i \bigg) = \sum_{i=1}^\infty \Pr(B_i) 
+\]
+
+where the last equality follows since the \(B_i\) are disjoint. Continuing we have
+
+\[
+= \lim_{n \to \infty} \sum_{i=1}^n \Pr(B_i) = \lim_{n \to \infty} \Pr \bigg( \bigcup_{i=1}^n B_i \bigg)  = \lim_{n \to \infty} \Pr \bigg( \bigcup_{i=1}^n A_i \bigg)  = \lim_{n \to \infty} \Pr (A_n)
+\]
+
+where the last step follows since \(A_n\) is an increasing sequence.
+
+\end{proof}
+
+\begin{remark}Can prove Boole's Inequality by a similar logic:
+
+\[
+\Pr \bigg( \bigcup_{i=1}^n A_i \bigg) = \Pr \bigg( \bigcup_{i=1}^n B_i \bigg) = \sum_{i=1}^n \Pr(B_i) \leq \sum_{i=1}^n \Pr(A_i)
+\]
+
+where the last step follows since \(B_i \subseteq A_i\). 
+
+\end{remark}
+
+\begin{remark}
+Consider the Gambler's Ruin problem (Example \ref{stoch.gamb.ruin}). Let \(A_N \) be the event of reaching 0 before \(N\) given \(X_0 =i\). Note that \(A_N \subseteq A_{N+1}\). So we have
+
+\[
+\lim_{N \to \infty} \Pr(A_N) = \Pr \bigg( \lim_{N \to \infty} A_n \bigg) =  \Pr \bigg( \bigcup_{N =1}^ { \infty} A_n \bigg) 
+\]
+
+where the last quantity is clearly the probability that the gambler eventually goes to 0, matching our interpretation in Example \ref{stoch.gamb.ruin}.
+
+Similarly, in the proof of Proposition \ref{stoch.sp.4.5.1} for branching processes, we claimed 
+
+\[
+\Pr(\text{population dies out}) = \lim_{n \to \infty} \Pr(X_n = 0) .
+\]
+
+Note that \(\{X_n = 0\} \subset \{X_{n+1} = 0\}\) so
+
+\[
+\lim_{n \to \infty} \{ X_n =0\} = \bigcup_{n=1}^\infty \{X_n = 0\}
+\]
+
+again matching what we assumed.
+\end{remark}
+
+\subsubsection{Time Reversible Markov Chains (Section 4.8 of \textit{Introduction to Probability Models}, Section 4.7 of \textit{Stochastic Processes}}
+
+\begin{proposition}[\textbf{Unlabeled at beginning of each section}]Given a stationary Markov chain \\ \(X_n, X_{n+1}, X_{n+2}, \ldots\), the reverse process \(X_n, X_{n-1}. X_{n-2}, \ldots\) is a Markov chain with transition probabilities
+
+\[
+Q_{ij} = P_{ij}^* = \frac{ \pi_j P_{ji}}{\pi_i}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+Q_{ij} = \Pr(X_m = j \mid X_{m+1} = i) = \frac{ \Pr(X_m = j \cap X_{m+1} = i) }{\Pr(X_{m+1} = i)} = \frac{ \Pr(X_m = j ) \Pr( X_{m+1} = i \mid X_m=j) }{\Pr(X_{m+1} = i)}
+\]
+
+\begin{equation}\label{stoch.time.reversible.trans.prob}
+= \frac{\pi_j P_{ji}}{\pi_i}.
+\end{equation}
+
+\end{proof}
+
+\begin{definition}[\textbf{Time reversible Markov chain}]Suppose for a Markov chain, the reverse transition probabilities \(Q_{ij}\) equal the corresponding forward transition probabilities \(P_{ij}\) for all \(i, j\). Then the Markov chain is said to be \textbf{time reversible.} The condition \(Q_{ij} = P_{ij}\) can also be written (per (\ref{stoch.time.reversible.trans.prob})) as
+
+\[
+\pi_i P_{ij} = \pi_j P_{ji}, \qquad \forall \ i,j.
+\]
+
+\end{definition}
+
+\begin{theorem}[\textbf{Theorem 4.7.2 in \textit{Stochastic Processes} (p. 220 of pdf)}]A stationary Markov chain is time reversible if and only if starting in state \(i\), any path back to \(i\) has the same probability as the reverse path, for all \(i\). That is, if 
+
+\[
+P_{i,i_1}P_{i_1,i_2} \cdots P_{i_k,i} = P_{i,i_k} P_{i_k,i_{k-1}} \cdots P_{i_1, i}
+\]
+
+for all states \(i, i_1, \ldots, i_k\).
+
+\end{theorem}
+
+\begin{theorem}[\textbf{Theorem 4.2 in \textit{Introduction to Probability Models}}]An ergodic (all states positive recurrent; see Definition \ref{stoch.def.ergodic}) Markov chain for which \(P_{ij}=0\) whenever \(P_{ji}=0\) is time reversible if and only if starting in state \(i\), any path back to \(i\) has the same probability as the reverse path, for all \(i\). That is, if 
+
+\[
+P_{i,i_1}P_{i_1,i_2} \cdots P_{i_k,i} = P_{i,i_k} P_{i_k,i_{k-1}} \cdots P_{i_1, i}
+\]
+
+for all states \(i, i_1, \ldots, i_k\).
+
+\end{theorem}
+
+\begin{proposition}[\textbf{Proposition 4.9 in \textit{Introduction to Probability Models}, Theorem 4.7.3 in \textit{Stochastic Processes} (p. 222 of pdf)}]Consider an irreducible Markov chain \(\{X_n\}\) with transition probabilities \(P_{ij}\). If \(\{X_j, j \in S\}\) is stationary, and there exist positive numbers \(x_i, i \geq 0\) and a transition probability matrix \(Q\) such that
+
+\[
+x_i P_{ij} = x_j Q_{ji}, \qquad i \neq j
+\]
+
+\[
+\sum x_i = 1
+\]
+
+then the Markov chain is reversible, \(\pi_j = x_j\) are the stationary probabilities for both the original and the reversed chain, and the \(Q_{ij}\) are the transition probabilities of the reversed chain.
+
+\end{proposition}
+
+\begin{proof}
+Assume the above. we have
+
+\[
+\sum_i x_i P_{ij} = \sum_i x_j P_{ji} = x_j 
+\]
+
+so these \(x_j\) satisfy the stationarity equations and the solution is unique, so \(x_j = \pi_j\).
+\end{proof}
+
+\begin{example}[\textbf{Similar to Example 4.35 in \textit{Introduction to Probability Models}, Gambler's Ruin-type problem}]
+
+\end{example}
+
+\begin{example}[\textbf{Similar to Example 4.36 in \textit{Introduction to Probability Models}, Proposition 4.7.1 in \textit{Stochastic Processes} (p. 217 of pdf; weighted graph problem)}]
+
+\end{example}
+
+\begin{example}[\textbf{Example 4.37 in \textit{Introduction to Probability Models}, Example 4.7(b) in \textit{Stochastic Processes} (p. 221 of pdf; list, items requested, then move up one position in the list; average position)}]
+
+Note the similarity to \textit{Introduction to Probability Models} problem 4.26 (from Homework 10).
+
+\end{example}
+
+\subsubsection{Semi-Markov Processes (Section 4.8 of \textit{Stochastic Processes} (p. 224 of pdf), Section 7.6 of \textit{Introduction to Probability Models}}
+
+\begin{definition}[\textbf{Semi-Markov Process}]Suppose the stochastic process \(\{X(t), t \geq 0\}\) takes on values \(\{0, 1, \ldots, M\}\). Then \(\{X(t), t \geq 0\}\) is called a \textbf{semi-Markov process}. 
+
+\end{definition}
+
+Why semi-Markov? What happens next doesn't just depend on your current state, it also depends on how long you're been there. But it's semi-Markov because just after a transition you know everything.
 \subsection{ISE 620}
+
 
 \begin{exercise} \textbf{(``Best Prize" problem.)} There are \(n\) prizes that are presented one at a time in a random order. Each prize has a defined value, and there is a defined ordering of the value of the prizes. Each time you see a prize, you only know the value of that prize relative to the prizes already seen---the value of later prizes remains unknown. Each time a prize is presented, we either accept it or reject it. You only get one prize, so once you accept it, you're done. Once you reject a prize, you can't get it back. Your goal is to maximize the probability of accepting the best prize. What do you do (what is the optimal policy)?
 
@@ -2044,7 +4790,7 @@ where \(w(a)\) is a Wiener process. Note that when \(a = 1\), \(R_T(1) = 1/\sqrt
 
 \end{theorem}
 
-Similar (Theorem 2.1 in  Phillips and Durlaf (1986)): Let \(\{u_t\}\) be a sequence satisfying \(\E(u_t) = 0\), \( \gamma(0) = \E(T^{-1}S_t ^2) \to \sigma^2 < \infty \text{ as } T \to \infty\), \(\{u_t\}\) is square summable, \(\sup_t \{ \E( |u_t|^\beta) \} < \infty\) for some \(2 \leq \beta < \infty\) and all \(t\), \(\gamma(h) = \E(T^{-1}(y_t - y_{t-h})^2) \to K_h < \infty\) as \(\min \{h, T\} \to \infty\). Then \(X_T(t) \implies W(t)\) as \(T \to \infty\), where \(W(t)\) is a Wiener process.
+Similar (Theorem 2.1 in \citet{Phillips1986}): Let \(\{u_t\}\) be a sequence satisfying \(\E(u_t) = 0\), \( \gamma(0) = \E(T^{-1}S_t ^2) \to \sigma^2 < \infty \text{ as } T \to \infty\), \(\{u_t\}\) is square summable, \(\sup_t \{ \E( |u_t|^\beta) \} < \infty\) for some \(2 \leq \beta < \infty\) and all \(t\), \(\gamma(h) = \E(T^{-1}(y_t - y_{t-h})^2) \to K_h < \infty\) as \(\min \{h, T\} \to \infty\). Then \(X_T(t) \implies W(t)\) as \(T \to \infty\), where \(W(t)\) is a Wiener process.
 
 \begin{theorem}\label{stoch.cont.map} \textbf{Continuous Mapping Theorem (Theorem 44 of Pesaran in 15.6.3).} Let \(a \in [0, 1)\), \(i \in [0, n]\), and suppose \((J-1)/n \leq a < J/n, J = 1, 2, \ldots, n\). Define \(R_n(a) = n^{-1/2} S_{\big[ n \cdot a \big] }\). If \(f(\cdot)\) is continuous over \([0, 1)\), then 
 
@@ -2067,6 +4813,10 @@ f[R_n(a)] \xrightarrow{d} f[w(a)]
 %
 %
 
+
+
+%\bibliographystyle{abbrvnat}
+%\bibliography{mybib2fin}
 %\end{document}
 
 

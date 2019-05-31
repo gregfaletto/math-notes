@@ -22,6 +22,8 @@
 %    linktoc=all,     %set to all if you want both sections and subsections linked
 %    linkcolor=black,  %choose some color if you want links to stand out
 %}
+%\usepackage{import}
+%\usepackage{natbib}
 %
 %\usetikzlibrary{automata,positioning}
 %
@@ -98,6 +100,8 @@
 %\theoremstyle{definition}
 %\newtheorem{theorem}{Theorem}
 %\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
 %\newtheorem{proposition}[theorem]{Proposition}
 %\theoremstyle{definition}
 %\newtheorem{lemma}[theorem]{Lemma}
@@ -143,7 +147,7 @@
 
 \section{Linear Regression}
 
-These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran and coursework for Economics 613: Economic and Financial Time Series I at USC taught by M. Hashem Pesaran, DSO 607 at USC taught by Jinchi Lv, Statistics 100B at UCLA taught by Nicolas Christou, and the Coursera MOOC ``Econometrics: Methods and Applications" from Erasmus University Rotterdam. I also borrowed from some other sources which I mention when I use them.
+These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran \citep{pesaran-2015-text} and coursework for Economics 613: Economic and Financial Time Series I at USC taught by M. Hashem Pesaran, DSO 607 at USC taught by Jinchi Lv, Statistics 100B at UCLA taught by Nicolas Christou, and the Coursera MOOC ``Econometrics: Methods and Applications" from Erasmus University Rotterdam. I also borrowed from some other sources which I mention when I use them.
 
 %\section{Linear Regression}
 
@@ -651,6 +655,10 @@ Since \(x_i\) and \(\beta_1\) are non-random and \(\epsilon_i\) are independent,
 
 \end{proof}
 
+\begin{remark}More details on this problem available in Math 541A Homework 7.
+
+\end{remark}
+
 %%%%%%%%%%% Multiptle Regression %%%%%%%%%%%%%
 \subsection{Chapter 2: Multiple Regression}
 
@@ -902,7 +910,7 @@ Generalized linear models:
 f_n(z, \beta) = \prod_{i=1}^n \exp \big[ \theta_i z_i - b(\theta_i) h(z_i) \big], \ \ z = (z_1, \ldots, z_n)^T
 \]
 
-Natural parameter \(\theta_i\): \(\theta_i = x_i^T \beta\), \(x_i = 9x_{ij}: j \in \mathscr{M}\)
+Natural parameter \(\theta_i\): \(\theta_i = x_i^T \beta\), \(x_i = \{x_{ij}: j \in \mathscr{M} \}\)
 
 \(h(z_i)\): normalization constant
 
@@ -933,7 +941,26 @@ Like MLE, maximizing \(\ell_n(y, \beta)\) with respect to \(\beta\) gives the qu
 
 \subsubsection{AIC and BIC}\label{linreg.aic.bic}
 
-KL Divergence:
+AIC: proposed by Akaike to choose a model by minimizing the Kullback-Leibler (KL) divergence of the fitted model from the true model (or equivalently, maximize the expected log-likelihood).
+
+KL Divergence of density \(f\) from density \(g\):
+
+\[
+I(g_n; f_n(\cdot, \beta)) = \int[\log g(z)] g(z) dz - \int [\log f(z)] g(z) dz
+\]
+
+\citet{Akaike1973} found that up to an additive constant, the KL divergence of the fitted model from the true model can be asymptotically expanded as 
+
+\[
+-\ell_n(\hat{\theta}) + \lambda \operatorname{dim}(\hat{\theta}) = -\ell_n(\hat{\theta}) + \lambda \sum_{j=1}^p \boldsymbol{1}_{\{\hat{\theta}_j \neq 0 \}}
+\]
+
+where \(\ell_n(\theta)\) is the log-likelihood function and \(\lambda =1\). This leads to the Akaike information criterion (AIC) for comparing models:
+
+\[
+AIC(\hat{\theta}) = -2 \ell_n(\hat{\theta}) + 2 \lVert \hat{\theta} \rVert_0
+\]
+
 \[
 I(g_n; f_n(\cdot, \beta)) = \sum_{i=1}^n \bigg[ \int \bigg]
 \]
@@ -954,6 +981,28 @@ the inverse of the Fisher information matrix is the covariance of the MLE (?).
 \[
 \vdots
 \]
+A typical Bayesian model selection procedure is to first give nonzero prior probability \(\alpha_M\) om each model \(M\) and then prescribe a prior distribution \(\mu_M\) for the parameter vector in the corresponding model. The Bayesian principle of model selection is to choose the most probable model \textit{a posteriori}; that is, to choose a model that maximizes the log-marginal likelihood (or the Bayes factor)
+
+\[
+\log \int \alpha_M \exp [ \ell_n (\theta)] d \mu_m(\theta).
+\]
+
+\citet{Schwarz1978} took a Bayesian approach with prior distributions that have nonzero prior probabilities on some lower dimensional subspaces of \(\mathbb{R}^p\) and showed that the negative log-marginal likelihood can be asymptotically expanded as 
+
+\[
+-\ell_n(\hat{\theta}) + \lambda \lVert \hat{\theta} \rVert_0
+\]
+
+where \(\lambda = (\log n)/2\). This asymptotic expansion leads to the Bayesian information criterion (BIC) for comparing models:
+
+\[
+BIC(\hat{\theta}) = -2 \ell_n (\hat{\theta}) + (\log n) \lVert \hat{\theta} \rVert_0.
+\]
+
+\[
+\vdots
+\]
+
 
 \[
 B_n^{1/2} A_n(\hat{\beta}_n - \beta_{n,0} ) = W_n \xrightarrow{D} \mathcal{N}(0, I_d)
@@ -1086,7 +1135,52 @@ which equals (\ref{linreg.aic.ftest.proof.b}). Our condition for preferring a re
 
 \end{proof}
 
+\subsection{Ridge Regression}
+
+\begin{proposition}[\textbf{Math 541A Homework Problem}] Suppose $\boldsymbol{\beta}\in\mathbb{R}^{k}$ is an unknown vector, and for all $1\leq i\leq n$, there are known vectors $x^{(1)},\ldots,x^{(n)}\in\mathbb{R}^{k}$.  Our observed data are $\boldsymbol{y} = (y_{1},\ldots,y_{n})\in\mathbb{R}^n$. Let $\boldsymbol{X}$ be the $n\times k$ matrix so that the $i^{th}$ row of $\boldsymbol{X}$ is the row vector $x^{(i)}$.  Assume that $k\leq n$ and the matrix $\boldsymbol{X}$ has full rank. Let $\lambda>0$ and consider the quantity
+
+\begin{equation}\label{math541a.hw7.3.eq1}
+ \sum_{i=1}^{n}\left(y_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda\lVert \boldsymbol{\beta}\rVert_2^{2}
+\end{equation}
+
+Then the value of $\hat{\boldsymbol{\beta}}\in\mathbb{R}^{k}$ that minimizes (\ref{math541a.hw7.3.eq1}) is \(\hat{\boldsymbol{\beta}} = (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k)^{-1}\boldsymbol{X}^TX\).
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+ \sum_{i=1}^{n}\left(y_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda\lVert \boldsymbol{\beta}\rVert ^{2} = (\boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta})^T(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta}) + \lambda \boldsymbol{\beta}^T\boldsymbol{\beta}
+\]
+
+\[
+= \boldsymbol{y}^T\boldsymbol{y} - \boldsymbol{y}^T\boldsymbol{X}\boldsymbol{\beta} - \boldsymbol{\beta}^T\boldsymbol{X}^T\boldsymbol{y}+\boldsymbol{\beta}^T\boldsymbol{X}^T\boldsymbol{X}\boldsymbol{\beta} + \lambda \boldsymbol{\beta}^T\boldsymbol{\beta} = \boldsymbol{y}^T\boldsymbol{y} - 2\boldsymbol{y}^T\boldsymbol{X}\boldsymbol{\beta} +\boldsymbol{\beta}^T\boldsymbol{X}^T\boldsymbol{X}\boldsymbol{\beta} + \lambda \boldsymbol{\beta}^T\boldsymbol{\beta}
+\]
+
+where \(\boldsymbol{y}^T\boldsymbol{X}\boldsymbol{\beta} =\boldsymbol{\beta}^T\boldsymbol{X}^T\boldsymbol{y}\) because a scalar equals its transpose. Differentiating with respect to \(\boldsymbol{\beta}\) yields
+
+\[
+-2\boldsymbol{y}^T\boldsymbol{X} + 2\boldsymbol{\beta}^T \boldsymbol{X}^T\boldsymbol{X} + 2\lambda \boldsymbol{\beta}^T = 0 \iff \boldsymbol{\beta}^T(2\boldsymbol{X}^T\boldsymbol{X} + 2\lambda \boldsymbol{I}_k) = 2 \boldsymbol{y}^T\boldsymbol{X}
+\]
+
+\[
+ \iff (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k) \boldsymbol{\beta}=  \boldsymbol{X}^T\boldsymbol{y} \iff \hat{\boldsymbol{\beta}} = (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k)^{-1}\boldsymbol{X}^T\boldsymbol{y}
+ \]
+ 
+ where \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k\) is invertible by the following argument. \(\boldsymbol{X}^T\boldsymbol{X}\) must be positive semidefinite. In fact, it is positive definite because \( \boldsymbol{X} \in \mathbb{R}^{n \times k}\) has full rank; that is, \(\operatorname{rank}(\boldsymbol{X}) = k\), so \(\boldsymbol{X}^T\boldsymbol{X} \in \mathbb{R}^{k \times k}\) has rank \(k\) (full rank) and is invertible. So \(\boldsymbol{X}^T\boldsymbol{X}\) is positive definite (all positive eigenvalues). Then since \(\Tr(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k) > \Tr(\boldsymbol{X}^T\boldsymbol{X})\), the eigenvalues of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k\) are also all positive, which means the determinant of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k\) is nonzero, which means it is invertible.
+
+\end{proof}
+
+\begin{remark} The term $\lVert \boldsymbol{\beta} \rVert_2^{2}$ penalizes $\boldsymbol{\beta}$ from having large entries.  By Lagrange Multipliers, a critical point $\boldsymbol{\beta}$ of the constrained minimization problem
+$$\mbox{minimize}\,\,\sum_{i=1}^{n}(\boldsymbol{y}_{i}-\langle x^{(i)},\boldsymbol{\beta}\rangle)^{2}\quad \mbox{subject}\,\,\mbox{to}\,\,\lVert \boldsymbol{\beta}\rVert_2^{2}\leq 1$$
+is equivalent to the existence of a $\lambda\in\mathbb{R}$ such that $\boldsymbol{\beta}$ is a critical point of (\ref{math541a.hw7.3.eq1}).
+\end{remark}
+
 \subsection{Lasso}
+
+From KKT theory, the correlation between all selected features and residual will be \(\lambda\).
+
+\
 
 Consider the linear regression model \(y = X \beta + \epsilon\). If we assume the errors \(\epsilon\) have a multivariate Gaussian distribution, that is,
 
@@ -1130,7 +1224,7 @@ So we can consider the univariate penalized least squares function
 \hat{\theta}(z) = \arg \min_{\theta \in \mathbb{R}} \{ \frac{1}{2}(z - \theta)^2 + p_\lambda(|\theta|).
 \]
 
-Antoniadis and Fan (2001) showed that the PLS estimator \(\hat{\theta}\) possesses the following properties:
+\citet{Antoniadis2001} showed that the PLS estimator \(\hat{\theta}\) possesses the following properties:
 
 \begin{itemize}
 
@@ -1142,8 +1236,69 @@ Antoniadis and Fan (2001) showed that the PLS estimator \(\hat{\theta}\) possess
 
 \end{itemize}
 
-In general, the singularity of the penalty function at the origin (i.e., \(p'_\lambda(0+) < 0\)) is needed for generating sparsity in variable selection and the concavity is needed to reduce the bias.
+In general, the singularity of the penalty function at the origin (i.e., \(p'_\lambda(0+) < 0\)) is needed for generating sparsity in variable selection and the concavity is needed to reduce the bias. 
 
+To recap: constrained version:
+
+%\[
+%\hat{\beta} = \arg \min \frac{1}{2n} \lVert y - X \beta \rVert_2^2 \text{ s.t. } \lVert \beta \rVert_2 \leq t
+%\]
+
+\[
+\begin{aligned}
+\hat{\beta}_{\text{lasso}} =  & {\underset {\beta \in \mathbb{R}^p}{\arg \min}}
+& &\frac{1}{2n} \lVert y - X \beta \rVert_2^2  \\
+& \text{subject to}
+& & \lVert \beta \rVert_1 \leq t 
+\end{aligned}
+\]
+
+Unconstrained version:
+
+\[
+\hat{\beta}_{\text{lasso}} = \arg \min \{ \frac{1}{2n} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1 \}
+\]
+
+Use \(1/n\) to rescale RSS due to \(\lVert 1 \rVert-2 = \sqrt{n}\).
+
+\begin{proposition}[\textbf{Math 541A Homework Problem}] Suppose $\boldsymbol{\beta}\in\mathbb{R}^{k}$ is an unknown vector, and for all $1\leq i\leq n$, there are known vectors $x^{(1)},\ldots,x^{(n)}\in\mathbb{R}^{k}$.  Our observed data are $\boldsymbol{y} = (y_{1},\ldots,y_{n})\in\mathbb{R}^n$. Let $\boldsymbol{X}$ be the $n\times k$ matrix so that the $i^{th}$ row of $\boldsymbol{X}$ is the row vector $x^{(i)}$.  Assume that $k\leq n$ and the matrix $\boldsymbol{X}$ has full rank. Let $\lambda>0$ and consider the quantity
+
+\begin{equation}\label{math541a.hw7.3.eq2}
+\sum_{i=1}^{n}\left(\boldsymbol{y}_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda\sum_{i=1}^{k} | \boldsymbol{\beta}_{i}|
+\end{equation}
+Then there exists a $\hat{\boldsymbol{\beta}}\in\mathbb{R}^{k}$ that minimizes this quantity (this $\hat{\boldsymbol{\beta}}$ is known as the LASSO, or least absolute shrinkage and selection operator).  
+
+\end{proposition}
+
+\begin{proof} 
+
+We can write (\ref{math541a.hw7.3.eq2}) as
+
+\[
+\sum_{i=1}^{n}\left(\boldsymbol{y}_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda \sum_{i=1}^k |\boldsymbol{\beta}_i| = \lVert \boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\rVert_2^2+\lambda \lVert \boldsymbol{\beta}\rVert_1 
+\]
+
+\begin{equation}\label{math541a.hw7.3a}
+= \lVert \boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\rVert_2^2+ \lambda \lVert \boldsymbol{\beta}\rVert_1 
+\end{equation}
+
+By Proposition \ref{cvx.least.squares.cvx}, \( \lVert \boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\rVert_2^2\) is convex, and by Proposition \ref{cvx.norm.cvx}, \(\lambda  \lVert \boldsymbol{\beta}\rVert_1 \) is convex. Therefore by Proposition \ref{cvx.sum.cvx.cvx}, (\ref{math541a.hw7.3a}) is convex. Differentiating and setting equal to 0 yields
+
+\begin{equation}\label{math541a.hw7.3b}
+-2\boldsymbol{y}^T\boldsymbol{X} + 2\boldsymbol{\beta}^T \boldsymbol{X}^T\boldsymbol{X} + \lambda \begin{bmatrix} \operatorname{sgn}(\boldsymbol{\beta}_i) \end{bmatrix} = 0
+\end{equation}
+
+where \(\begin{bmatrix} \operatorname{sgn}(\boldsymbol{\beta}_i) \end{bmatrix}\) is vector resulting from the \(\operatorname{sgn}\) function being applied elementwise to \(\boldsymbol{\beta}\). Since (\ref{math541a.hw7.3b}) is linear in \(\boldsymbol{\beta}\), it has one solution. Since (\ref{math541a.hw7.3a}) is convex, the unique solution to (\ref{math541a.hw7.3b}) minimizes (\ref{math541a.hw7.3.eq2}).
+
+
+\end{proof}
+
+\begin{remark}
+The $L_{1}$ penalization term in (\ref{math541a.hw7.3.eq2}) is better at penalizing large entries of $\boldsymbol{\beta}$ (a similar observation applies in the compressed sensing literature).  Unfortunately, there is no closed form solution to (\ref{math541a.hw7.3.eq2}) in general.  The constrained minimization problem
+$$\mbox{minimize}\,\,\sum_{i=1}^{n}(\boldsymbol{y}_{i}-\langle x^{(i)},\boldsymbol{\beta}\rangle)^{2}\quad \mbox{subject}\,\,\mbox{to}\,\,\sum_{i=1}^{n}|\boldsymbol{\beta}_{i}|\leq 1$$
+is morally equivalent to (\ref{math541a.hw7.3.eq2}), but technically Lagrange Multipliers does not apply since the constraint is not differentiable everywhere.
+
+\end{remark}
 
 \subsubsection{Soft Thresholding}
 
@@ -1158,7 +1313,7 @@ Suppose we wish to recover an unknown function \(f\) on \([0,1]\) from noisy dat
 d_i = f(t_i) + \sigma z_i, \ \ \ \ i=0, \ldots, n-1
 \]
 
-where \(t_i = i/n\) and \(z_i \sim \mathcal{N}(0,1)\). The term de-noising is to optimize the mean squared error \(n^{-1}\ E \lVert \hat{f} - f \rVert_2^2\). Donoho and Johnstone (1994) proposed a soft-thresholding estimator
+where \(t_i = i/n\) and \(z_i \sim \mathcal{N}(0,1)\). The term de-noising is to optimize the mean squared error \(n^{-1}\ E \lVert \hat{f} - f \rVert_2^2\). \citet{Donoho1994} proposed a soft-thresholding estimator
 
 \[
 \hat{\beta}_j = \operatorname{sgn}(\hat{\beta}_j^0) (| \hat{\beta}_j^0| - \gamma)_+
@@ -1220,7 +1375,7 @@ The contours (level sets) are elliptical and centered at the OLS estimates. If t
 
 \subsubsection{Non-Negative Garotte}
 
-This idea inspired the lasso. Proposed by Breiman (1995). It minimizes
+This idea inspired the lasso. Proposed by \citet{Breiman1995}. It minimizes
 
 \[
 \sum_{i=1}^n (y_i - \alpha - \sum_{j=1}^p c_j \hat{\beta}_j^o x_{ij})^2 \text{ subject to } c_j \geq 0, \sum_{j=1}^p c_j \leq t
@@ -1378,8 +1533,233 @@ where the last step follows because \(\E(X^2)\) is independent of \(t\). This ex
 
 \end{proof}
 
+\subsubsection{Feature Selection properties}
+
+Model selection consistency: \(\Pr(\operatorname{supp}(\hat{\beta}) = \operatorname{supp}(\beta_0) ) \to 1\).
+
+Oracle property: model selection consistency, asymptotic efficiency as efficient as if true model were known (``efficiency" having to do with the variance given \(n\)).
+
+The lasso problem is convex but not necessarily strictly convex if \(p > n\). That is, there is some flat region, so the minimizer may not be unique. Consider the KKT conditions from convex optimization:
+
+\[
+g(\beta) = \arg \min \{ \frac{1}{2n} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1 \} = f_1(\beta) + f_2(\beta)
+\]
+
+Then \(\hat{\beta}\) is a lasso solution if and only if 0 is in the subdifferential of \(g(\hat{\beta})\). Note that 
+
+\[
+\partial g(\hat{\beta}) = \nabla f_1 + \partial f_2 = \frac{1}{n} X^T(X \beta - y) + \lambda \begin{bmatrix}  \vdots \\ \partial | \beta_j | \\ \vdots \end{bmatrix} = \frac{1}{n} X^T(X \beta - y) + \lambda \begin{bmatrix}  \vdots \\ \begin{cases}  \operatorname{sgn}(\beta_j) & \beta_j \neq 0 \\ [-1, 1] & \beta_j = 0 \end{cases} \\ \vdots \end{bmatrix}
+\]
+
+Now assume \(\operatorname{supp}(\hat{\beta}) = \operatorname{supp}(\beta_0)\) (that is, assume lasso recovers the correct support). Suppose the first \(s\) features are nonzero and consider one of them (so we know that we should have \(\hat{\beta_j} \neq 0\):
+
+\[
+0 \in \partial g(\hat{\beta}) \implies 0 \in \partial_j g(\hat{\beta}) = \bigg[ \frac{1}{n} X^T(X \beta - y) \bigg]_j + \lambda \operatorname{sgn}(\hat{\beta}_j) 
+\]
+
+Therefore
+
+\begin{equation}\label{linreg.lasso.first.cond}
+\frac{1}{n} X_A^T(X \hat{\beta} - y) + \lambda  \operatorname{sgn}(\hat{\beta}_j) = 0
+\end{equation}
+
+where \(X_A\) is a submatrix of \(X\) containing the columns corresponding to the features in the true support, is our first condition. Next, consider what happens for \(j > s\) (features not in the true support). We have
+
+\[
+0 \in \partial g(\hat{\beta}) \implies 0 \in \partial_j g(\hat{\beta}) = \bigg[ \frac{1}{n}X^T(X \beta - y) \bigg] + \lambda [-1, 1]
+\]
+
+\begin{equation}\label{linreg.lasso.bound.cond}
+\implies \lVert \frac{1}{n} X_{A^C}^T (X \hat{\beta} - y) \rVert_\infty \leq \lambda
+\end{equation}
+
+where \(X_{A^C}\) is a submatrix of \(X\) containing the columns corresponding to the features not in the true support, is our boundary condition. Recall the true model
+
+\[
+y = X \beta_0 + \epsilon
+\]
+
+and consider the case \(X = \begin{bmatrix}X_1 & X_1 \end{bmatrix}\) where \(X_1\) are the features in the true model and \(X_2\) are noise features; that is, \(\beta_0 = \begin{bmatrix} \beta_1 \\ 0 \end{bmatrix}\). Then we are assuming
+
+\[
+\hat{\beta}_{\text{lasso}} = \begin{bmatrix} \hat{\beta_1} \\ 0 \end{bmatrix}.
+\]
+
+We have from (\ref{linreg.lasso.first.cond})
+
+\[
+0 = \frac{1}{n} X_1^T(X \hat{\beta} - y) + \lambda  \operatorname{sgn}(\hat{\beta}_1) = \frac{1}{n} X_1^T(X_1 \hat{\beta}_1 - X_1 \beta_1 - \epsilon) + \lambda  \operatorname{sgn}(\hat{\beta}_1) 
+\]
+
+\[
+ = \frac{1}{n}(  X_1^TX_1 \hat{\beta}_1 - X_1^TX_1 \beta_1 - X_1^T \epsilon) + \lambda  \operatorname{sgn}(\hat{\beta}_1) \iff \frac{1}{n} X_1^TX_1 (\hat{\beta}_1 - \beta_1)  =  \frac{1}{n} X_1^T \epsilon - \lambda  \operatorname{sgn}(\hat{\beta}_1)
+ \]
+ 
+ Let's assume that \(\operatorname{sgn}(\hat{\beta}) = \operatorname{sgn}(\beta_0)\) (sign consistency).
+ 
+ \[
+  \iff \frac{1}{n} X_1^TX_1 (\hat{\beta}_1 - \beta_1)  =  \frac{1}{n} X_1^T \epsilon - \lambda  \operatorname{sgn}(\beta_1)
+  \]
+  
+  which is linear in \(\hat{\beta}\). Solving, we have
+  
+\begin{equation}\label{linreg.lasso.first.cond.solved}
+  \iff  \hat{\beta}_1 - \beta_1  =  ( X_1^TX_1)^{-1} \big( X_1^T \epsilon - n  \lambda  \operatorname{sgn}(\beta_1)\big)   \iff  \hat{\beta}_1   = \beta_1 +   ( n^{-1}X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -   \lambda  \operatorname{sgn}(\beta_1) \big)
+\end{equation}
+
+Looking at the second (boundary) condition (\ref{linreg.lasso.bound.cond}), we have
+
+\begin{equation}\label{linreg.lasso.bound.cond.cont}
+\lVert \frac{1}{n} X_{2}^T (X \hat{\beta} - y) \rVert_\infty \leq \lambda
+\end{equation}
+
+Consider that 
+
+\[
+X \hat{\beta}- y = X_1 \hat{\beta}_1 - X_1 \beta_1 - \epsilon = X_1(\hat{\beta}_1 - \beta_1) - \epsilon
+\]
+
+Substituting in the result from (\ref{linreg.lasso.first.cond.solved}) yields
+
+\[
+= X_1\big[  ( n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big] - \epsilon
+\]
+
+which when we plug into (\ref{linreg.lasso.bound.cond.cont}) yields
+
+\[
+\lVert \frac{1}{n} X_{2}^T \bigg( X_1\big[  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big] - \epsilon\bigg)  \rVert_\infty \leq \lambda.
+\]
+
+\[
+\lVert \frac{1}{n} X_{2}^T \bigg( X_1\big[  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big]  \bigg) -  \frac{1}{n} X_{2}^T \epsilon \rVert_\infty \leq \lambda.
+\]
+
+Using the Triangle Inequality, we have
+
+\[
+\lVert \frac{1}{n} X_{2}^T \bigg( X_1\big[  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big]  \bigg) -  \frac{1}{n} X_{2}^T \epsilon \rVert_\infty 
+\]
+
+\[
+\leq \lVert \frac{1}{n} X_{2}^T \bigg( X_1\big[  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big]  \bigg) \rVert_\infty + \lVert  \frac{1}{n} X_{2}^T \epsilon \rVert_\infty 
+\]
+
+\begin{equation}\label{linreg.lasso.bound.cond.cont.more}
+\leq \lVert \frac{1}{n} X_{2}^T  X_1\big[  (n^{-1} X_1^TX_1)^{-1} \rVert_\infty \cdot \lVert \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big]  \bigg) \rVert_\infty + \lVert  \frac{1}{n} X_{2}^T \epsilon \rVert_\infty 
+\end{equation}
+
+Assume that the \(j\)th column of \(X\) has \(L_2\) norm \(n^{1/2}\) (as it would if all entries equaled 1). We have
+
+\[
+\lVert n^{-1} X_1^T \epsilon \rVert_\infty \leq \lambda/2, \qquad \lVert n^{-1} X_2^T \epsilon \rVert_\infty \leq \lambda/2
+\]
+
+\[
+\lVert n^{-1} X^T \epsilon \rVert_\infty \leq \lambda/2 \text{ with large probability}
+\]
+
+Recall that \(\lambda = \sigma \sqrt{ \frac{c \log p }{n} } \) for some \(c >2\). Then we have (continuing from (\ref{linreg.lasso.bound.cond.cont.more})), and using \( \lVert n^{-1}X_2^T \epsilon \rVert \leq \lambda/2\), 
+
+\[
+\leq \lVert n^{-1} X_1^T \epsilon \rVert_\infty + \lVert \lambda \operatorname{sgn}(\beta_1)   \rVert_\infty
+\]
+
+\[
+ \lVert n^{-1} X_2^T X_1(n^{-1}X_1^T X_1)^{-1} \rVert_\infty \cdot \underbrace{ \lVert \cdot \rVert_\infty}_{3/2 \lambda} + \underbrace{\lVert \cdot \rVert_\infty}_{\lambda/2} \leq \lambda
+\]
+
+\begin{equation}\label{linreg.lasso.irrep}
+ \lVert \underbrace{n^{-1} X_2^T X_1}_{\text{corr. between noise and true}}( \underbrace{n^{-1}X_1^T X_1}_{\text{sample covariance matrix}})^{-1} \rVert_\infty  \leq 1/3
+\end{equation}
+
+It turns out we're fine as long as it's less than or equal to 1. This is known as the \textbf{irrepresentable condition}. Note that the sample covariance matrix is the same as the sample correlation since the columns are standardized. So this is the correlation between the true variables. Note that this matrix has dimension \((p-s) \times s\) where \(s\) is the dimension of the true support. Note that
+
+\[
+n^{-1} X_2^T X_1( n^{-1}X_1^T X_1)^{-1} = (X_2^T X_1 (X_1^T X_1)^{-1}]^T =(X_1^T X_1)^T X_1^T X_2
+ \]
+ 
+which is ordinary least squares for regressing \(X_2\) on \(X_1\). In the end, the irrepresentable condition says the correlation between the noise and true variables can't be too high.
+
+\subsection{Dantzig Selector}
+
+Dantzig selector:
+
+%\[
+%\min_{\beta \in \mathbb{R}^p} \lVert \beta \rVert_1 \text{ s.t. } \lVert n^{-1} X^t(y - X \beta) \rVert_\infty \leq \lambda
+%\]
+
+\[
+\begin{aligned}
+\hat{\beta}_{\text{Dantzig}}  =  & {\underset {\beta \in \mathbb{R}^p}{\arg \min}}
+& &  \lVert \beta \rVert_1 \\
+& \text{subject to}
+& &  \lVert n^{-1} X^T(y - X \beta) \rVert_\infty \leq \lambda
+\end{aligned}
+\]
+
+Can be recast as a linear program:
+
+\begin{equation}\label{linreg.dantzig.lp}
+\begin{aligned}
+\hat{\beta}_{\text{Dantzig}} =  & {\underset {u \in \mathbb{R}^p}{\arg \min}}
+& & \sum_{i=1}^p u_i  \\
+& \text{subject to}
+& & -u \leq \beta \leq u \\
+& & & -\lambda_p \sigma \boldsymbol{1} \leq n^{-1} X^T(y - X \beta) \leq \lambda_p \sigma \boldsymbol{1}
+\end{aligned}
+\end{equation}
+
+where \(|u|\) denotes the absolute value of \(u\) componentwise. (This is a benefit because linear programming is easy to use and very popular in industry and other applications.) Note that \( n^{-1} X^t(y - X \beta) \) corresponds to the correlations between the residuals and the design matrix. Recall that in OLS this correlation is 0---the design matrix is orthogonal to the residuals. In the Dantzig selector we relax this, bounding the \(L_\infty\) norm by \(\lambda\). Recall that the gradient of the log-likelihood is the \textbf{score function}, in this case \(n^{-1} X6t(y - X \beta)\). For example, the score equation in linear regression is \(n^{-1} X^Ty = n^{-1} X^T X \beta\). Note:
+
+\[
+ \nabla \bigg( \frac{1}{2n} \lVert y - X \beta \rVert_2^2  \bigg) = \frac{1}{n} X^T (X \beta - y)
+\]
+
+Note for Theorem 1: in original paper, assumed columns had \(L_2\) norm 1, resulting in \(\lambda_p = \sqrt{2 \log p}\). We are instead assuming each column has \(L_2\) norm \(\sqrt{n}\), which results in \(\lambda = \sigma \cdot \sqrt{\frac{c \log p}{n}}\). Intuition of \(\log p\) term: 
 
 
+By a theorem in \citet{James2009}, the lasso and Dantzig selector estimates equal each other under certain conditions:
+
+\begin{theorem}\label{linreg.lasso.dantzig.thm1} Let \(I_l\) be the support of the lasso estimate \(\hat{\beta}_{\text{lasso}}\). Let \(\boldsymbol{X}_L\) be the \(n \times | I_L|\) matrix constructed by taking \(\boldsymbol{X}_{I_L}\) and multiplying its columns by the signs of the corresponding coefficients in \(\hat{\beta}_{\text{lasso}}\). Suppose that \(\lambda_{\text{lasso}} = \lambda_{\text{Dantzig}}\). Then \(\hat{\beta}_{\text{lasso}} = \hat{\beta}_{\text{Dantzig}}\) if \(\boldsymbol{X}_L\) has full rank and 
+
+\[
+\boldsymbol{u} = \big( \boldsymbol{X}_L^T \boldsymbol{X}_L \big)^{-1} \boldsymbol{1} \succeq 0 \text{ and } \lVert \boldsymbol{X}^T \boldsymbol{X}_L \boldsymbol{u} \rVert_\infty \leq 1
+\]
+
+where \(\boldsymbol{1} \) is an \(| I_L|\)-vector of ones and the vector inequality is understood componentwise.
+
+\end{theorem}
+
+\begin{corollary} If \(\boldsymbol{X}\) is orthonormal (\(\boldsymbol{X}^T \boldsymbol{X} = \boldsymbol{I}_p\)), then the entire lasso and Dantzig selector coefficient paths are identical.
+
+\end{corollary}
+
+\begin{proof} For each index set \(\boldsymbol{I}\), \(\boldsymbol{X}^T \boldsymbol{X} = \boldsymbol{I}_{| \boldsymbol{I} |}\), so clearly both of the conditions of Theorem \ref{linreg.lasso.dantzig.thm1} are satisfied.
+
+\end{proof}
+
+
+The entire paths can be identical under another condition presented in the same paper.
+
+\begin{theorem}
+Suppose that all pairwise correlations between the columns of \(\boldsymbol{X}\) are equal to the same value \(\rho\) where \(0 \leq \rho < 1\). Then the entire Lasso and Dantzig selector coefficient paths are identical. In addition, when \(p=2\), the same holds for every \(\rho \in (-1, 1)\).
+
+\end{theorem}
+
+\subsection{Coordinate Descent}
+
+Start with \(\beta_1\) varying and all other \(\beta\)s fixed. Optimize \(\beta_1\). Then cycle through each \(\beta_j\), run until convergence.
+
+\subsection{Nonconvex Learning}
+
+\subsection{Yinfei Kong---Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}
+
+
+\subsection{Total Variational Distance}
+
+
+
 %
 %
 %
@@ -1390,6 +1770,8 @@ where the last step follows because \(\E(X^2)\) is independent of \(t\). This ex
 %
 %
 
+%\bibliographystyle{abbrvnat}
+%\bibliography{mybib2fin}
 %\end{document}
 
 

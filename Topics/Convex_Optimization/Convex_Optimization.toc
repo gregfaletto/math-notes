@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Convex Optimization}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Convex Functions}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Schur Complement Trick}{14}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Definition}{14}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}The Trick}{14}{subsubsection.1.2.2}
+\contentsline {subsubsection}{\numberline {1.2.3}Example 1: Last Year's Final, Question 2(b)}{14}{subsubsection.1.2.3}
+\contentsline {subsubsection}{\numberline {1.2.4}Example 2: Last Year's Final, Question 4(b)}{15}{subsubsection.1.2.4}
+\contentsline {subsection}{\numberline {1.3}Duality}{15}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}MLE estimates}{16}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Practice Final (2017 Final)}{16}{subsection.1.5}

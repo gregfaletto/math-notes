@@ -1,0 +1,486 @@
+
+
+
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage[document]{ragged2e}
+\usepackage{textcomp}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{import}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+
+\usetikzlibrary{automata,positioning}
+
+
+% Basic Document Settings
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\setlength{\parskip}{1em}
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+
+\newcommand{\hmwkTitle}{Math 541A Midterm 2 Cheat Sheet}
+\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+
+
+%%%%% Title Page
+
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{ \hmwkTitle}}\\
+}
+
+\author{Gregory Faletto}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+%%%%% Various Helper Commands
+
+
+%%%%% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+%%%%% For derivatives
+\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+%%%%% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+%%%%% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+%%%%% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+%%%%% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+%%%%% Tilde
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+%\tableofcontents
+
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+
+
+
+\newpage
+%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%%
+%%% Probability
+
+\begin{remark}Unlike Exam 1, Exam 2 will have a reference sheet at the beginning of the exam, where the following definitions will be stated: sufficient statistic, minimal sufficient, ancillary, complete, and the definition of conditional expectation as a random variable.
+
+\end{remark}
+
+\textbf{Exercises to do (in relevant parts of lecture notes but not assigned in HW):} 6.22 in lecture notes; problems 1 - 3 in HW6.
+
+\section{Data Reduction}
+
+\subsection{Sufficient Statistics}
+
+\textbf{How to show sufficiency:} either use the definition (as we did in some examples; show that conditional density does not depend on \(\theta\)), or use the Factorization Theorem:
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{theorem}[\textbf{Factorization Theorem, Theorem 5.4 in 541A notes}]\label{mathstats.factorization.thm} Suppose \(X = (X_1, \ldots, X_n)\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of probability density functions or probability mass functions.  Let \(t: \mathbb{R}^n \to \mathbb{R}^k\), so \(Y:= t(X_1, \ldots, X_n)\) is a statistic. Then \(Y\) is sufficient for \(\theta\) if and only if there exists a nonnegative \(\{g_\theta: \theta \in \Theta\}\), \(h: \mathbb{R}^n \to \mathbb{R}\), \(g_\theta: \mathbb{R}^k \to \mathbb{R}\) such that
+
+\begin{equation}\label{mathstats.factorization.thm}
+f_\theta(x) = g_\theta(t(x)) h(x), \ \ \ \forall \ x \in \mathbb{R}^n, \ \ \forall \theta \in \Theta.
+\end{equation}
+
+
+\end{theorem}
+}
+}
+
+\textbf{How to prove a minimal sufficient statistic exists:} pretty much always exists by Proposition 5.12.
+
+\textbf{How to show minimal sufficiency:} typically, use Theorem 5.8:
+
+\noindent\fbox{
+\parbox{\textwidth}{
+
+\begin{theorem}[\textbf{Theorem 5.8 in 541A notes}]\label{mathstats.thm.5.8} Let \(\{f_\theta: \theta \in \Theta\}\) be a family of probability density functions or probability mass functions. Let \(X_1, \ldots, X_n\) be a random sample from a member of the family. Let \(t: \mathbb{R}^n \to \mathbb{R}^m\) and define \(Y:= t(X_1, \ldots, X_n)\). \(Y\) is minimal sufficient if and only if the following condition holds for every \(x, y \in \mathbb{R}^n\):
+
+
+\begin{center}
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\[
+\text{There exists } c(x,y) \in \mathbb{R} \text{ that does not depend on } \theta \text{ such that } f_\theta(x) = c(x,y) f_\theta(y) \ \ \ \forall \ \theta \in \Theta 
+\]
+
+\[
+\text{if and only if}
+\]
+
+\[
+t(x) = t(y).
+\]
+}
+}
+\end{center}
+\end{theorem}
+}
+}
+
+\begin{remark}If a minimal sufficient exists, it is unique up to an invertible transformation. By this uniqueness, the converse of Theorem 5.8 also holds.
+
+\end{remark}
+
+\subsection{Ancillary Statistics}
+
+\textbf{How to show a statistic is complete:} Use the definition (difficult except for discrete random variables where you can express expectation without \(\theta\), as in binomial).
+
+\textbf{Why do we care if a statistic is complete?}
+
+\begin{enumerate}[(1)]
+
+\item \textbf{Complete sufficiency implies minimal sufficiency:}
+
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\begin{theorem}[\textbf{Bahadur's Theorem; Theorem 5.25 in Math 541A notes}] If \(Y\) is a complete sufficient statistic for a family \(\{f_\theta: \theta \in \Theta\}\) of probability densities or probability mass functions, then \(Y\) is a minimal sufficient statistic for \(\theta\).
+
+\end{theorem}
+
+}
+}
+
+\begin{remark}Because it is true that if a minimal sufficient exists, it is unique up to an invertible transformation, from Bahadur's Theorem we also know that a complete sufficient statistic is unique up to an invertible mapping. However, the converse of Bahadur's Theorem is false.
+
+\end{remark}
+
+\item \textbf{Complete sufficient statistics are independent from ancillary statistics:}
+
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\begin{theorem}[\textbf{Basu's Theorem, Theorem 5.27 in Math 541A notes}] Let \(Y: \Omega \to \mathbb{R}^k\) and \(Z: \Omega \to \mathbb{R}^m\) be statistics. If \(Y\) is a complete sufficient statistic for \(\{f_\theta: \theta \in \Theta\}\) and \(Z\) is ancillary for \(\theta\), then for all \(\theta \in \Theta\), \(Y\) and \(Z\) are independent with respect to \(f_\theta\).
+
+\end{theorem}
+}
+}
+
+\item \textbf{With a complete sufficient statistic (and any unbiased estimator), we can find a UMRU/UMVU estimator} (see Lehmann-Scheffe below).
+
+\end{enumerate}
+
+\section{Point Estimation}
+
+\subsection{Evaluating Estimators}
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{definition}[\textbf{UMVU, sometimes called MVUE (minimum variance unbiased estimator); Definition 6.3 in Math 541A Notes}]Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) from a family of distributions \(\{f_\theta: \theta \in \Theta\}\). Let \(g: \Theta \to \mathbb{R}\). Let \(t: \mathbb{R}^n \to \mathbb{R}\) and let \(Y:= t(X_1, \ldots, X_n)\) be an unbiased estimator for \(g(\theta)\). We say that \(Y\) is \textbf{uniformly minimum variance unbiased (UMVU)} if, for any other unbiased estimator \(Z\) for \(g(\theta)\), we have \(\Var_\theta(Y) \leq \Var_\theta(Z)\) for all \(\theta \in \Theta\).
+
+\end{definition}
+}
+}
+
+\begin{remark}The ``uniform" property has to do with the fact that this inequality must hold for every \(\theta \in \Theta\) (as opposed to for a particular \(\theta\), or averaged over all \(\theta \in \Theta\), or something like that).
+
+\end{remark}
+
+\begin{remark}[\textbf{Remark 6.14 in Math 541A notes}] Let \(Z: \Omega \to \mathbb{R}^k\) be a complete sufficient statistic for \(\{f_\theta: \theta \in \Theta\}\) and let \(h: \mathbb{R}^k \to \mathbb{R}^m\). Let \(g(\theta) := \E_\theta h(Z)\) for all \(\theta \in \Theta\). Then \(h(Z)\) is unbiased for \(g(\theta)\), since \(\E_\theta h(Z) = g(\theta) = \E_\theta (g(\theta)) \). Applying Theorem \ref{mathstats.lehmann.scheffe} (Lehmann-Scheffe, Theorem 6.13 in Math 541A notes), we have
+
+\[
+W := \E_\theta(h(Z) \mid Z) = \E_\theta ( \E_\theta[h(Z) \mid h(Z)] \mid Z ) =  \E_\theta[h(Z) \mid h(Z)] = h(Z).
+\]
+
+Therefore by Theorem \ref{mathstats.lehmann.scheffe} (Lehmann-Scheffe, Theorem 6.13 in Math 541A notes), \(h(Z)\) is UMVU for \(g(\theta)\). That is, \textbf{any function of a complete sufficient statistic is UMVU for its expected value}. So one way to find a UMVU is to come up with a function of a complete sufficient statistic that is unbiased for a given function \(g(\theta)\).
+
+\end{remark}
+
+More generally, given a family of distributions \(\{f_{\tilde{\theta}}: \tilde{\theta} \in \Theta\}\), we could be given a \textbf{loss function} \(\ell(\theta, y): \Theta \times \mathbb{R}^k \to \mathbb{R}\) and be asked to minimize the \textbf{risk function} \(r(\theta, Y) := \E_{\tilde{\theta}} \big( \ell(\theta, Y) \big) \) over all possible estimators \(Y\). In the case of mean squared error loss, we have \(\ell(\theta,y) := (y - g(\theta))^2\) for all \(y, \theta \in \mathbb{R}\).
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{definition}[\textbf{Definition 6.4 in 541A notes}]Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) from a family of distributions \(\{f_\theta: \theta \in \Theta\}\). Let \(g: \Theta \to \mathbb{R}\). Let \(t: \mathbb{R}^n \to \mathbb{R}\) and let \(Y:= t(X_1, \ldots, X_n)\) be an unbiased estimator for \(g(\theta)\). We say \(Y\) is \textbf{uniformly minimum risk unbiased} (UMRU) if for any other unbiased estimator \(Z\) for \(g(\theta)\),
+
+\[
+r(\theta, Y) \leq r(\theta, z), \qquad \forall \ \theta \in \Theta
+\]
+
+\end{definition}
+}
+}
+
+The Rao-Blackwell Theorem says that we can lower the risk of an estimator \(Y\) by conditioning on a sufficient statistic \(Z\).
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{theorem}[\textbf{Rao-Blackwell; Theorem 6.4 in Math 541A notes}] Let \(Z\) be a sufficient statistic for \(\{f_\theta:\theta \in \Theta\}\) and let \(Y\) be an estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). Let \(\theta \in \Theta\). Then
+
+
+
+\[
+\Var_\theta(W) \leq \Var_\theta (Y).
+\]
+
+Further, let \(r(\theta, y) < \infty\) and such that \(\ell(\theta, y)\) is convex in \(y\). Then
+
+\[
+r(\theta, W) \leq r(\theta, Y).
+\]
+
+\end{theorem}
+}
+}
+
+In practice, if \(Z\) is not complete then we might not see an improvement. 
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{theorem}[\textbf{Lehmann-Scheffe, Theorem 6.13 in Math 541A notes}]\label{mathstats.lehmann.scheffe} Let \(Z\) be a complete sufficient statistic for a family of distributions \(\{f_\theta: \theta \in \Theta\}\). Let \(Y\) be an unbiased estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). (Since \(Z\) is sufficient, \(W\) does not depend on \(\theta\).) Then \(W\) is UMRU for \(g(\theta)\). Further, if \(\ell(\theta, y)\) is strictly convex in \(y\) for all \(\theta \in \Theta\), then \(W\) is unique. In particular, \(W\) is the unique UMVU for \(g(\theta)\).
+
+\end{theorem}
+
+}
+}
+
+What if we don't have a complete sufficient statistic but we still want the UMVU?
+
+\noindent\fbox{
+\parbox{\textwidth}{
+
+\begin{theorem}[\textbf{Alternate Characterization of UMVU; Theorem 6.18 in Math 541A notes}] Let \(f \in \{f_\theta: \theta \in \Theta \}\) be a family of distributions and let \(g:\Theta \to \mathbb{R}\). Let \(W\) be an unbiased estimator for \(g(\theta)\) (note that the existence of an unbiased estimator is a nontrival assumption). Let \(L_2(\Omega)\) be the set of statistics with finite second moment. Then \(W \in L_2(\Omega)\) is UMVU for \(g(\theta)\) if and only if for any \(\theta \in \Theta\), 
+\[
+\E_\theta( WU) = 0 , \qquad \forall U \in L_2(\Omega) \text{ that are unbiased estimators of } 0
+\]
+
+Thinking of this as an inner product, we have to be orthogonal to all such \(U\).
+
+\end{theorem}
+
+}
+}
+
+\begin{remark} If we have a complete sufficient statistic, better to use the earlier methods in general (unless it is really complicated to work with). If we don't have a complete sufficient statistic, use this theorem.
+
+\end{remark}
+
+\textbf{Summary of methods for finding a UMVU estimator for \(g(\theta)\):}
+
+\begin{enumerate}[(1)]
+
+\item If we have a complete sufficient statistic \(Z\):
+
+\begin{enumerate}[(a)]
+
+\item \textbf{(Condition method/Rao-Blackwell):} Follow Theorem \ref{mathstats.lehmann.scheffe} (Lehmann-Scheffe, Theorem 6.13 in Math 541A notes): find an unbiased \(Y\) and let \(W:= \E_\theta(Y \mid Z)\); this is UMVU. (problem: can be hard to find an unbiased \(Y\).)
+
+\item Solve for \(h: \mathbb{R}^k \to \mathbb{R}\) satisfying
+
+ \begin{equation}\label{mathstats.541a.summ.methods.umvu}
+\E_\theta h(Z) = g(\theta)
+\end{equation}
+
+by the above remark, \(h(Z)\) is UMVU for \(g(\theta)\). By ``solve", consider that we have \(g\) and \(Z\) and somehow solve for the \(h\) satisfying (\ref{mathstats.541a.summ.methods.umvu}). For example if \(Z\) is binomial the left side of (\ref{mathstats.541a.summ.methods.umvu}) will be the sum of a bunch of numbers. Find the \(h\) values that satisfy (\ref{mathstats.541a.summ.methods.umvu}), if possible.
+
+%\item \textbf{(Luck method):} Somehow guess the \(h\) such that (\ref{mathstats.541a.summ.methods.umvu}) is satisfied.
+
+\end{enumerate}
+
+\item If we don't have a complete sufficient statistic:
+
+\begin{enumerate}[(a)]
+
+\item For a one-parameter family of distributions, follow the equality case of Theorem \ref{mathstats.cramer.rao} (Cramer-Rao/Information Inequality, Theorem 6.23 in Math 541A Notes). That is, an unbiased estimator \(Y\) that is a constant multiple of \(\deriv{}{\theta}  \log f_\theta (X) \) is UMVU. (Note that this avoids any discussion of complete sufficient statistics, but it's generally not easy to do.)
+
+\item For a multiple-parameter family of distributions, apply Theorem 6.18 in Math 541A notes, but it will probably be difficult to apply.
+
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\subsection{Efficiency of an Estimator}
+
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{definition}[\textbf{Fisher Information, Definition 6.19 in Math 541A notes}] Let \(f \in \{f_\theta: \theta \in \Theta \}\) be a family of multivariate probability densities or probability mass functions. Assume \(\Theta \subseteq \mathbb{R}\) (this is a one-parameter situation). Let \(X\) be a random variable with distribution \(f_\theta\). Define the \textbf{Fisher information} of the family to be
+
+\[
+I(\theta) = I_X(\theta) := \E_\theta \bigg( \deriv{}{\theta} \log f_\theta (X) \bigg)^2, \qquad \forall \theta \in \Theta
+\]
+
+if this quantity exists and is finite.
+
+\end{definition}
+}
+}
+
+\begin{remark} Note that if \(X\) is continuous, 
+
+\[
+\E_\theta \bigg( \deriv{}{\theta} \log f_\theta (X) \bigg) = \int_{\mathbb{R}^n} \frac{1}{f_\theta(x)} \deriv{}{\theta} f_\theta(x) \cdot f_\theta(x) dx = \int_{\mathbb{R}^n} \deriv{}{\theta} f_\theta(x) dx = \deriv{}{\theta} \int_{\mathbb{R}^n} f_\theta(x) dx = \deriv{}{\theta} 1   = 0.
+\]
+
+So we could have equivalently defined the Fisher information as 
+
+\[
+I_X(\theta) = \Var_\theta \bigg( \deriv{}{\theta} \log f_\theta (X) \bigg)
+\]
+
+\end{remark}
+
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{theorem}[\textbf{Cramer-Rao/Information Inequality, Theorem 6.23 in Math 541A Notes}]\label{mathstats.cramer.rao} Let \(X: \Omega \to \mathbb{R}^n\) be a random variable with distribution from a family of multivariable probability densities or probability mass functions \(\{f_\theta: \theta \in \Theta\}\) with \(\Theta \subseteq \mathbb{R}\). Let \(t: \mathbb{R}^n \to \mathbb{R}\) and let \(Y:= t(X)\) be a statistic. For any \(\theta \in \Theta\) let \(g(\theta) := \E_\theta Y\). Then
+
+\[
+\Var_\theta(Y) \geq \frac{ |g'(\theta)|^2}{I_X(\theta)}, \qquad \forall \theta \in \Theta.
+\]
+
+In particular, if \(Y\) is unbiased for \(\theta\), then \(g(\theta) = \theta\), so,
+
+\[
+\Var_\theta(Y) \geq \frac{ 1}{I_X(\theta)}, \qquad \forall \theta \in \Theta.
+\]
+
+Equality occurs for some \(\theta \in \Theta\) only when \(\deriv{}{\theta} \log f_\theta(x) \) and \(Y - \E_\theta Y\) are multiples of each other. 
+
+\end{theorem}
+}
+}
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{definition}[\textbf{Efficiency, Defintion 6.25 in Math 541A notes}] Let \(X: \Omega \to \mathbb{R}\) be a random variable with distribution from a family of multivariable probability densities or probability mass functions \(\{f_\theta: \theta \in \Theta\}\) with \(\Theta \in \mathbb{R}\). Let \(t: \mathbb{R}^n \to \mathbb{R}\) and let \(Y:= t(X)\) be a statistic. Define the \textbf{efficiency} of \(Y\) to be
+
+\[
+\frac{1}{I_X(\theta) \Var_\theta (Y)}, \qquad \forall \theta \in \Theta
+\]
+
+if this quantity exists and is finite. If \(Z\) is another statistic, we define the \textbf{relative efficiency} of \(Y\) to \(Z\) to be
+
+\[
+\frac{I_X(\theta) \Var_\theta(Z)}{I_X(\theta) \Var_\theta(Y)} = \frac{\Var_\theta(Z)}{\Var_\theta(Y)}, \qquad \forall \theta \in \Theta.
+\]
+
+\end{definition}
+}
+}
+
+\subsection{Bayes Estimation}
+
+In Bayes estimation, the parameter \(\theta \in \Theta\) is regarded as a random variable \(\Psi\). The distribution of \(\Psi\) reflects our prior knowledge about the probable values of \(\Psi\). Then, given that \(\Psi = \theta\), the conditional distribution of \(X \mid \Psi= \theta\) is assumed to be \(\{f_\theta: \theta \in \Theta \}\), where \(f_\theta: \mathbb{R}^n \to [0, \infty)\). Suppose \(t: \mathbb{R}^n \to \mathbb{R}^k\) and we have a statistic \(Y := t(X)\) and a loss function \(\ell: \mathbb{R}^k \times \mathbb{R}^k \to \mathbb{R}\). Let \(g: \Theta \to \mathbb{R}^k\).
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{definition}[\textbf{Bayes estimator, Defintion 6.26 in Math 541A notes}] A \textbf{Bayes estimator} \(Y\) for \(g(\theta)\) with respect to \(\Psi\) is defined such that
+
+\[
+\E \ell(g(\Psi), Y) \leq \E \ell(g(\Psi), Z)
+\]
+
+for all estimators \(Z\). Here the expectation is with respect to both \(\Psi\) and \(Y\). Note that we have not made any assumptions about bias for \(Y\) or \(Z\).
+
+\end{definition}
+
+\begin{remark} \(t(X)\) can depend on \(\Psi\).
+
+\end{remark}
+}
+}
+
+In order to find a Bayes estimator, it is sufficient to minimize the conditional risk.
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{proposition}[\textbf{Proposition 6.27 in Math 541A notes}] Suppose there exists \(t: \mathbb{R}^k \to \mathbb{R}\) such that for almost every \(x \in \mathbb{R}^n\), \(Y := t(X) \) minimizes
+
+\[
+\E( \ell(g(\Psi), Z) \mid X = x)
+\]
+
+over all estimators \(Z\). Then \(t(X)\) is a Bayes estimator for \(g(\theta)\) with respect to \(\Psi\).
+
+\end{proposition}
+}
+}
+
+\end{document}

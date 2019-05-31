@@ -1,0 +1,11 @@
+The in-class part will take place on June the 17th at 8:30AM-1:00PM. It consists of five questions: 
+Q1. Probability & Real analysis
+Q2-3. Two questions on mathematical statistics
+Q4. High-dimensional statistics
+Q5. Optimization
+ 
+The take home part will be 48 hours from 5PM 6/17 to 5PM 6/19.
+ 
+Q6. Applied statistics/statistical computation.
+
+

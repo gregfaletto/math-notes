@@ -1,15 +1,26 @@
-\contentsline {section}{\numberline {1}Mathematical Statistics}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Order Statistics (ISE 620)}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Random Samples}{5}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}The Delta Method}{18}{subsubsection.1.2.1}
-\contentsline {subsubsection}{\numberline {1.2.2}Simulation of Random Variables}{21}{subsubsection.1.2.2}
-\contentsline {subsection}{\numberline {1.3}Data Reduction}{22}{subsection.1.3}
-\contentsline {subsubsection}{\numberline {1.3.1}Sufficient Statistics}{22}{subsubsection.1.3.1}
-\contentsline {subsubsection}{\numberline {1.3.2}Minimal Sufficient Statistics}{26}{subsubsection.1.3.2}
-\contentsline {subsection}{\numberline {1.4}Point Estimation}{29}{subsection.1.4}
-\contentsline {subsubsection}{\numberline {1.4.1}Method of Moments}{29}{subsubsection.1.4.1}
-\contentsline {subsubsection}{\numberline {1.4.2}Maximum likelihood estimator}{29}{subsubsection.1.4.2}
-\contentsline {subsubsection}{\numberline {1.4.3}Bayes estimator}{36}{subsubsection.1.4.3}
-\contentsline {subsubsection}{\numberline {1.4.4}EM Alglorithm}{36}{subsubsection.1.4.4}
-\contentsline {subsubsection}{\numberline {1.4.5}Comparison of estimators}{36}{subsubsection.1.4.5}
-\contentsline {subsection}{\numberline {1.5}Hypothesis Testing}{36}{subsection.1.5}
+\contentsline {section}{\numberline {1}Mathematical Statistics}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Order Statistics}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Random Samples}{8}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}The Delta Method}{20}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Simulation of Random Variables}{23}{subsubsection.1.2.2}
+\contentsline {subsection}{\numberline {1.3}Data Reduction}{25}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Sufficient Statistics}{25}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Minimal Sufficient Statistics}{29}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}Ancillary Statistics}{35}{subsubsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.4}Complete Statistics}{36}{subsubsection.1.3.4}
+\contentsline {subsection}{\numberline {1.4}Point Estimation}{43}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Heuristic Principles for Finding Good Estimators}{43}{subsubsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.2}Evaluating Estimators}{43}{subsubsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.3}Efficiency of an Estimator}{50}{subsubsection.1.4.3}
+\contentsline {subsubsection}{\numberline {1.4.4}Bayes Estimation}{53}{subsubsection.1.4.4}
+\contentsline {subsubsection}{\numberline {1.4.5}Method of Moments}{55}{subsubsection.1.4.5}
+\contentsline {subsubsection}{\numberline {1.4.6}Maximum likelihood estimator}{56}{subsubsection.1.4.6}
+\contentsline {subsubsection}{\numberline {1.4.7}Bayes estimator}{66}{subsubsection.1.4.7}
+\contentsline {subsubsection}{\numberline {1.4.8}EM Algorithm}{66}{subsubsection.1.4.8}
+\contentsline {subsubsection}{\numberline {1.4.9}Comparison of estimators}{66}{subsubsection.1.4.9}
+\contentsline {subsection}{\numberline {1.5}Resampling and Bias Reduction}{66}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Jackknife Resampling}{66}{subsubsection.1.5.1}
+\contentsline {subsubsection}{\numberline {1.5.2}Bootstrapping}{67}{subsubsection.1.5.2}
+\contentsline {subsection}{\numberline {1.6}Some Concentration of Measure}{67}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Concentration for Independent Sums}{67}{subsubsection.1.6.1}
+\contentsline {subsection}{\numberline {1.7}Hypothesis Testing}{68}{subsection.1.7}

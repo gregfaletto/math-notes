@@ -21,6 +21,8 @@
 %    linktoc=all,     %set to all if you want both sections and subsections linked
 %    linkcolor=black,  %choose some color if you want links to stand out
 %}
+%\usepackage{import}
+%\usepackage{natbib}
 %
 %\usetikzlibrary{automata,positioning}
 %
@@ -146,9 +148,9 @@
 
 \section{Mathematical Statistics}
 
-These are my notes from taking Math 541A at USC taught by Steven Heilman as well as \textit{Statistical Inference} (2nd edition) by Casella and Berger, Statistics 100B at UCLA taught by Nicolas Christou, ISE 620 at USC taught by Sheldon Ross, and a few other sources I cite within the text.
+These are my notes from taking Math 541A at USC taught by Steven Heilman as well as \textit{Statistical Inference} (2nd edition) by Casella and Berger \citep{CaseBerg:01}, Statistics 100B at UCLA taught by Nicolas Christou, ISE 620 at USC taught by Sheldon Ross, Math 505A at USC taught by Sergey Lototsky, and a few other sources I cite within the text.
 
-\subsection{Order Statistics (ISE 620)}
+\subsection{Order Statistics}
 
 \begin{definition}[\textbf{Order statistics (from Math 541A, more precise)}] Let \(X:\Omega\to\mathbb{R}\) be a random variable.  Let $X_{1},\ldots,X_{n}$ be a random sample of size $n$ from $X$.  Define $X_{(1)}:=\min_{1\leq i\leq n}X_{i}$, and for any $2\leq i\leq n$, inductively define
 $$X_{i}:=\min\Big\{\{X_{1},\ldots,X_{n}\}\setminus\{X_{(1)},\ldots,X_{(i-1)}\}\Big\},$$
@@ -218,7 +220,7 @@ f_{X_{(1)}, \ldots, X_{(n)}}(x_1, \ldots, x_n) = n! \prod_{i=1}^n f(x_i).
 
 \end{proof}
 
-\begin{proposition}[\textbf{Distribution of order statistics of uniform random variable; from 541A}]\label{mathstats.orders.unif.dist}Let $X$ be a random variable uniformly distributed in $[0,1]$. Then for any $1\leq j\leq n$, $X_{(j)}$ is a beta distributed random variable with parameters $j$ and $n-j$. 
+\begin{proposition}[\textbf{Distribution of order statistics of uniform random variable; from 541A}]\label{mathstats.orders.unif.dist}Let $X$ be a random variable uniformly distributed in $[0,1]$. Then for any $1\leq j\leq n$, $X_{(j)}$ is a beta distributed random variable with parameters $j$ and $n+1-j$. 
 \end{proposition}
 
 \begin{proof} Note that for a uniform distribution on \([0,1]\), \(f_X(x) = 1, x \in [0,1]\) and \(F_X(x) = x, x \in [0,1]\). Therefore by Corollary \ref{mathstats.order.stats.density.541a} we have
@@ -246,11 +248,11 @@ which is the pdf for a beta distribution with parameters \(j\) and \(n + 1 -j\).
 
 \begin{proposition}[\textbf{Result from 541A}] Let $a,b\in\mathbb{R}$ with $a<b$.  Let $U$ be the number of indices $1\leq j\leq n$ such that $X_{j}\leq a$.  Let $V$ be the number of indices $1\leq j\leq n$ such that $a<X_{j}\leq b$.  Then the vector $(U,V,n-U-V)$ is a multinomial random variable, so that for any nonnegative integers $u,v$ with $u+v\leq n$, we have
     \begin{flalign*}
-    &\P(U=u,V=v,n-U-V=n-u-v)\\
+    &\mathbb{P}(U=u,V=v,n-U-V=n-u-v)\\
     &\qquad=\frac{n!}{u!v!(n-u-v)!}F_{X}(a)^{u}(F_{X}(b)-F_{X}(a))^{v}(1-F_{X}(v))^{n-u-v}.
     \end{flalign*}
     Consequently, for any $1\leq i,j\leq n$,
-    $$\P(X_{(i)}\leq a,X_{(j)}\leq b)=\P(U\geq i,U+V\geq j)=\sum_{k=i}^{j-1}\sum_{m=j-k}^{n-k}\P(U=k,V=m)+\P(U\geq j).$$
+    $$\mathbb{P}(X_{(i)}\leq a,X_{(j)}\leq b)=\mathbb{P}(U\geq i,U+V\geq j)=\sum_{k=i}^{j-1}\sum_{m=j-k}^{n-k}\mathbb{P}(U=k,V=m)+\mathbb{P}(U\geq j).$$
     So, it is possible to write an explicit formula for the joint distribution of $X_{(i)}$ and $X_{(j)}$.
     
     \end{proposition}
@@ -270,6 +272,70 @@ we have in this case
     as desired.
     
     \end{proof}
+    
+\begin{definition}[\textbf{Median; Math 505A defintion}] The real number \(m\) is called a \textbf{median} of a random variable \(X\) if
+
+\[
+\Pr(X \leq m) \geq 1/2, \qquad \Pr(X \geq m) \geq 1/2.
+\]
+
+\end{definition}
+
+\begin{proposition}[\textbf{Math 505A homework problem}] 
+
+\begin{enumerate}[(a)]
+
+\item Every random variable has at least one median. 
+
+\item The set of all medians is a closed interval of the real line.
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof} 
+
+\begin{enumerate}[(a)]
+
+\item Suppose the cdf of \(X\), \(F_X: \mathbb{R} \to [0, 1]\), is continuous. Because \(F_X(x) = \Pr(X \leq x)\) is a cdf, it is also monotonically increasing. By the Intermediate Value Theorem, there exists at least one \(m \in \mathbb{R}\) such that \(F_X(m) = 1/2\). Because \(\Pr(X \leq m) = 1/2 \geq 1/2\) and \(\Pr(X \geq m) = 1 - \Pr(X < m) = 1 - 1/2 \geq 1/2\), \(m\) is a median.
+
+\
+
+Suppose \(F_X\) is not continuous. If it contains \(1/2\) in its range, then \(m\) such that \(F_X(m) = 1/2\) is a median. If there is no \(m \in \mathbb{R}\) such that \(F_X(m) = 1/2\), then \(m = \inf( \{x \mid F_X(x) \geq 1/2 \} )\) is a median. To see why, note first that \( \Pr(X \leq m) = F_X(m) \geq 1/2\). Second, 
+
+\[
+\Pr(X \geq m) = 1 - \Pr(X < m) = 1 - \lim_{x \to m^-} F_X(x) \geq 1 - 1/2 = 1/2
+\]
+
+because \(F_X\) is right continuous. Therefore \(m\) is a median of \(X\).
+
+\item We show that all medians of \(X\) must be in one interval by contradiction. Suppose \(a\) and \(b\) are medians of \(X\) but \( c\) is not, where \(a < c < b\). By the definition of median, \(F_X(a) \geq 1/2\) and \(F_X(b) \geq 1/2\). Because \(c\) is not a median, \(F_X(c) < 1/2\). This implies that \(F_X\) is decreasing on the interval from \(a\) to \(c\), which contradicts the fact that the distribution function \(F_X\) monotonically increases.
+
+\
+
+Finally we prove that all medians of \(X\) are in a closed interval. Let \(\mathcal{A}\) be the set of all medians of \(X\); that is, \(\mathcal{A} = \{ x \mid  \Pr(X \leq x) \geq 1/2, \Pr(X \geq x) \geq 1/2 \}\) =  \( \{ x \mid  F_X(x) \geq 1/2, \lim_{y \to x^-}F_X(y) \leq 1/2 \}\). We will show that \(\mathcal{A}\) contains its infimum and its supremum. The argument above shows that \(a = \inf( \{x \mid F_X(x) \geq 1/2 \} )\) satisfies \( \lim_{y \to a^-}F_X(y) \leq 1/2 \); that is, \(a \in \mathcal{A}\). Since there is no lower value \(k\) which satisfies \(F_X(k) \geq 1/2\), \(a = \inf(\mathcal{A})\), so \(\mathcal{A}\) contains its infimum. 
+
+\
+
+Let \(b = \sup\{x \mid \lim_{y \to x^-}F_X(y) \leq 1/2\}\). Because \(b\) is the supremum of a set containing \(a\), \(b \geq a\). Therefore because \(F_X\) is nondecreasing, \(F_X(b) \geq F_X(a) \geq 1/2\), which shows that \(b \in \mathcal{A}\). Since \(b\) is the supremum of the set of all values satisfying \(\lim_{y \to x^-}F_X(y) \leq 1/2\), \(b\) is the supremum of \(\mathcal{A}\). Therefore \(\mathcal{A}\) contains its infimum and supremum, and the set of all medians of \(X\) is closed.
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{remark} One example of a random variable which has a median of length \(L\): \(X\) is a discrete random variable with the following mass function:
+
+\[
+\Pr(X = 0) = 0.5
+\]
+
+\[
+\Pr(X = L) = 0.5
+\]
+
+Then \(m \in [0, L]\) are medians.
+
+\end{remark}
 
 \subsection{Random Samples}
 
@@ -1244,9 +1310,49 @@ where the third equality uses the definition of a uniform probability law on \((
 
 \end{proof}
 
-\begin{remark} If \(F^{-1}\) does not exist, it can still work if you construct a generalized inverse of \(F\). See Exercise 4.20 in the Math 541A notes.
+\begin{remark} If \(F^{-1}\) does not exist, it can still work if you construct a generalized inverse of \(F\) as follows:
 
 \end{remark}
+
+\begin{proposition}[\textbf{Exercise 4.20 in Math 541A notes}] Let \(X: \Omega\to\mathbb{R}\) be a random variable on a sample space $\Omega$ equipped with a probability law \(\mathbb{P}\).  For any $t\in\mathbb{R}$ let $F(t):= \mathbb{P}(X\leq t)$.  For any $s\in(0,1)$ define
+
+\[
+Y(s):=\sup\{t\in\mathbb{R} : F(t)<s\}.
+\]
+
+So $Y$ is a random variable on $(0,1)$ with the uniform probability law on $(0,1)$. Then $X$ and $Y$ are equal in distribution. That is, $\mathbb{P}(Y\leq t)= F(t)$ for all $t\in\mathbb{R}$.
+
+\end{proposition}
+
+\begin{proof} Note that since \(F\) is a cumulative distribution function, \(F\) is nondecreasing and \(F\) is right-continuous. So we have
+
+%if \(F\) is continuous,
+
+\[
+\sup\{t\in\mathbb{R}: F(t)<s\}  = \begin{cases}
+ F^{-1}(s) & \text{ if } F \text{ is strictly increasing (i.e. invertible) near } s \\
+\inf \{ x: F(x) = F(s) \} & \text{ if } F \text{ is constant near } s
+ \end{cases}
+ \]
+ 
+% when \(F\) is continuous, 
+ 
+That is, the only time this quantity is different from \(F^{-1}(s)\) is when \(F^{-1}(\cdot)\) is undefined because \(F\) is constant on some interval around \(s\). But if that is the case, \(F(\sup\{t\in\mathbb{R}: F(t)<s\} )  = F( \inf \{ x: F(x) = F(s) \} ) = s\) anyway. With that in mind we proceed:
+
+\[
+\mathbb{P}(Y \leq t) = \mathbb{P}(s \in (0,1): Y(s) \leq t) = \mathbb{P}(s \in (0,1): \sup\{t'\in\mathbb{R}: F(t')<s\} \leq t)  
+\]
+
+\[
+= \mathbb{P}(s \in (0,1): F \big( \sup\{t'\in\mathbb{R}: F(t')<s\}) \leq F(t) \big)   = \mathbb{P}(s \in (0,1): s \leq F(t) \big)   
+\]
+
+\[
+= \mathbb{P}(s \in (0,1): F(t) > s) = F(t) = \Pr( \omega \in \Omega: X(\omega) \leq t).
+\]
+
+
+\end{proof}
 
 \begin{example}[\textbf{Example 4.22 in Math 541A notes}] Let \(X\) be an exponential random variable with parameter 1.
 
@@ -1394,11 +1500,15 @@ Because \(\mu\) does not appear in this expression, \(Y\) is sufficient for \(\m
 
 \end{proof}
 
-\begin{theorem}[\textbf{Factorization Theorem, Theorem 5.4 in 541A notes}]Suppose \(X = (X_1, \ldots, X_n)\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of probability density functions or probability mass functions.  Let \(t: \mathbb{R}^n \to \mathbb{R}^k\), so \(Y:= t(X_1, \ldots, X_n)\) is a statistic. Then \(Y\) is sufficient for \(\theta\) if and only if there exists a nonnegative \(\{g_\theta: \theta \in \Theta\}\), \(h: \mathbb{R}^n \to \mathbb{R}\), \(g_\theta: \mathbb{R}^k \to \mathbb{R}\) such that
+\begin{theorem}[\textbf{Theorem 6.2.2 in Casella and Berger; not in 541A lecture notes}] If \(p(x \mid \theta)\) is the joint pdf or pmf of a random sample \(\boldsymbol{X} = X_1, \ldots, X_n\) and \(q(t\mid \theta)\) is the pdf or pmf of the statistic \(T(\boldsymbol{X})\), then \(T(\boldsymbol{X})\) is a sufficient statistic for \(\theta\) if, for every \(\boldsymbol{x} = x_1, \ldots, x_n\) in the sample space, the ratio \(p(\boldsymbol{x} \mid \theta)/q(T(\boldsymbol{x} \mid \theta)\) is constant as a function of \(\theta\).
 
-\[
+\end{theorem}
+
+\begin{theorem}[\textbf{Factorization Theorem, Theorem 5.4 in 541A notes}]\label{mathstats.factorization.thm} Suppose \(X = (X_1, \ldots, X_n)\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of probability density functions or probability mass functions.  Let \(t: \mathbb{R}^n \to \mathbb{R}^k\), so \(Y:= t(X_1, \ldots, X_n)\) is a statistic. Then \(Y\) is sufficient for \(\theta\) if and only if there exists a nonnegative \(\{g_\theta: \theta \in \Theta\}\), \(h: \mathbb{R}^n \to \mathbb{R}\), \(g_\theta: \mathbb{R}^k \to \mathbb{R}\) such that
+
+\begin{equation}\label{mathstats.factorization.thm}
 f_\theta(x) = g_\theta(t(x)) h(x), \ \ \ \forall \ x \in \mathbb{R}^n, \ \ \forall \theta \in \Theta.
-\]
+\end{equation}
 
 
 \end{theorem}
@@ -1413,7 +1523,7 @@ Suppose \(Y\) is sufficient. Let \(x \in \mathbb{R}^n\). Note that by definition
 f_\theta(x) = \mathbb{P}_\theta (X = x) = \mathbb{P}_\theta (X = x \cap t(X) = t(x)) = \mathbb{P}_\theta ( Y = t(x))   \mathbb{P}_\theta (X = x \mid Y = t(x)) 
 \]
 
-By sufficiency, \( \mathbb{P}_\theta (X = x \mid Y = t(x)) \) does not depend on \(\theta\). Therefore we have found the equation in the theorem with \(g_\theta(t(x)) = \mathbb{P}_\theta ( Y = t(x))  \), \(h(x) = \mathbb{P}_\theta (X = x \mid Y = t(x))  \), so the factorization holds.
+By sufficiency, \( \mathbb{P}_\theta (X = x \mid Y = t(x)) \) does not depend on \(\theta\). Therefore we can satisfy (\ref{mathstats.factorization.thm}) with \(g_\theta(t(x)) = \mathbb{P}_\theta ( Y = t(x))  \), \(h(x) = \mathbb{P}_\theta (X = x \mid Y = t(x))  \), so the factorization holds.
 
 \
 
@@ -1423,7 +1533,7 @@ Now suppose there exists a nonnegative \(\{g_\theta: \theta \in \Theta\}\), \(h:
 f_\theta(x) = g_\theta(t(x)) h(x), \ \ \ \forall \ x \in \mathbb{R}^n, \ \ \forall \theta \in \Theta.
 \]
 
-Define \(r_\theta(z) := \mathbb{P}_\theta(t(X) = z)  \ \ \forall \ z \in \mathbb{R}^k\).  Also define \(t^{-1} t(x) := \{y \in \mathbb{R}6n; t(y) = t(x) \} \ \ \forall x \in \mathbb{R}^n\). To show sufficiency, we need to show that \(\mathbb{P}_\theta (X = x \mid Y = t(x))\) does not depend on \(\theta\). Note that
+Define \(r_\theta(z) := \mathbb{P}_\theta(t(X) = z)  \ \ \forall \ z \in \mathbb{R}^k\) (the probability mass function for \(t(X)\)).  Also define \(t^{-1} t(x) := \{y \in \mathbb{R}^n; t(y) = t(x) \} \ \ \forall x \in \mathbb{R}^n\). To show sufficiency, we need to show that \(\mathbb{P}_\theta (X = x \mid Y = t(x))\) does not depend on \(\theta\). Note that
 
 \[
 \mathbb{P}_\theta (X = x \mid Y = t(x)) = \frac{f_\theta(x)}{f_Y(t(x))}= \frac{f_\theta(x)}{r_\theta(t(x))}
@@ -1438,10 +1548,10 @@ Using our assumption and the Total Probability Theorem, we have
 By definition of \(t^{-1}t(z)\), we we can write this as
 
 \[
-= \frac{ g_\theta(t(x)) h(x)}{\sum_{z \in t^{-1} t(x)}  g_\theta(t(x)) h(z) } = \frac{  h(x)}{\sum_{z \in t^{-1} t(x)}   h(z) }
+= \frac{ g_\theta(t(x)) h(x)}{\sum_{z \in t^{-1} t(x)}  g_\theta(t(x)) h(z) }= \frac{ g_\theta(t(x)) h(x)}{g_\theta(t(x))\sum_{z \in t^{-1} t(x)}   h(z) }  = \frac{  h(x)}{\sum_{z \in t^{-1} t(x)}   h(z) }
 \]
 
-Since this expression does not contain \(\theta\), \(Y\) is sufficient.
+where the second-to-last step follows since \(t(x)\) is constant for all \(z \in t^{-1} t(x)\). Since this expression does not contain \(\theta\), \(Y\) is sufficient for \(\theta\).
 
 \end{proof}
 
@@ -1449,6 +1559,7 @@ Since this expression does not contain \(\theta\), \(Y\) is sufficient.
 
 \end{remark}
 
+To use the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}) to find a sufficient statistic, we factor the joint pdf of the sample into two parts, with one part not depending on \(\theta\). The other part, the one that depends on \(\theta\), usually depends on the sample only through the function \(t(x)\), and this function is a sufficient statistic for \(\theta\).
 
 \begin{exercise} Suppose \(X_1, X_2, \ldots, X_n \sim\) i.i.d. \(\mathcal{N}(0,1)\). So density is 
 
@@ -1466,7 +1577,7 @@ e^{-1/2(x^2 -2x \theta + \theta^2)} =
 f_\theta(x) = \bigg( \frac{1}{2\pi} \bigg)^{n/2} e^{2/12 \sum_i X_i^2} e^{\theta \sum X_i - n\theta^2/2}
 \]
 
-so if \(t(x) = \sum_{i=1}^n X_i\), \(h(x) =  \bigg( \frac{1}{2\pi} \bigg)^{n/2} e^{2/12 \sum_i X_i^2} \), \(g_\theta(t(x)) =  e^{\theta \sum X_i - n\theta^2/2}\), then by the Factorization Theorem this (\(\overline{x}\)) is a sufficient statistic.
+so if \(t(x) = \sum_{i=1}^n X_i\), \(h(x) =  \bigg( \frac{1}{2\pi} \bigg)^{n/2} e^{2/12 \sum_i X_i^2} \), \(g_\theta(t(x)) =  e^{\theta \sum X_i - n\theta^2/2}\), then by the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}) this (\(\overline{x}\)) is a sufficient statistic.
 
 \end{exercise}
 
@@ -1509,7 +1620,7 @@ Define
 
 So
 
-\(f_\theta(x) = \tilde{g}_\theta(u(x)) h(x) \ \ \forall x \in \mathbb{R}^n\). So \(Z\) is sufficient for \(\theta\) by the Factorization Theorem.
+\(f_\theta(x) = \tilde{g}_\theta(u(x)) h(x) \ \ \forall x \in \mathbb{R}^n\). So \(Z\) is sufficient for \(\theta\) by the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}).
 
 \end{proof}
 
@@ -1517,26 +1628,49 @@ So
 
 \end{definition}
 
-\begin{remark} Minimal sufficient statistics are not in general unique (because if you take any one-to-one function you get another one), but they are unique up to invertible transformations. (This is true because if \(Y\) and \(Z\) are both minimal sufficient, \(Y = r(Z)\) and \( Z = s(Y)\), so \(Y = r(s(Y)), Z = s(r(Z))\)). They exist under mild assumptions.
+\begin{remark} Minimal sufficient statistics are not in general unique (because if you take any one-to-one function you get another one), but they are unique up to invertible transformations. (This is true because if \(Y\) and \(Z\) are both minimal sufficient, \(Y = r(Z)\) and \( Z = s(Y)\), so \(Y = r(s(Y)), Z = s(r(Z))\)). They exist under mild assumptions (for a family of densities or probability mass functions).
 
 \end{remark}
 
-\begin{theorem}[\textbf{Theorem 5.8 in 541A notes}] Let \(\{f_\theta: \theta \in \Theta\}\) be a family of probability density functions or probability mass functions. Let \(X_1, \ldots, X_n\) be a random sample from a member of the family. Let \(t: \mathbb{R}^n \to \mathbb{R}^m\) and define \(Y:= t(X_1, \ldots, X_n)\). Assume that \(Y\) is sufficient for \(\theta\). \(Y\) is minimal sufficient if and only if the following condition holds for every \(x, y \in \mathbb{R}^n\):
+\begin{proposition}[\textbf{Proposition Larry Goldstein gave in class; Proposition 5.12 in notes}]\label{mathstats.prop.5.12} Suppose \(X_1, \ldots, X_n\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\), is a family of probability density functions or probability mass functions (\(\Theta \in \mathbb{R}^n\)). (In the case of probability mass functions, we also assume that the set \(\cup_{\theta \in \Theta} \{x \in \mathbb{R}^n: f_\theta(x) > 0\}\) is countable.) Then there exists a statistic \(Y\) that is minimal sufficient for \(\theta\).
+
+\end{proposition}
+
+\begin{proof}[Proof where \(\theta\) is countable] By relabeling, let \(\Theta = \{1, 2, \ldots\}\). We say for \(x, y \) sequences, we define the equivalence relation \(x \sim y \text{ if } \exists \ \alpha \in \mathbb{R} \text{ such that } x = \alpha y\). Finite
+
+\[
+t: \mathbb{R}^n \to \mathbb{R}^m/\sim, \ \ \ \ \ \Theta = \{1, \ldots, m\}
+\]
+
+\[
+t(x) = (f_1(x), f_2(x), \ldots, f_m(x))
+\]
+
+these likelihood are multiples of each other where \(\alpha\) is a constant. The likelihood ratio is a constant not depending on \(\theta\). If they have the same \(t(x)\) then we have that.
+
+\end{proof}
 
 
+\begin{theorem}[\textbf{Theorem 5.8 in 541A notes}]\label{mathstats.thm.5.8} Let \(\{f_\theta: \theta \in \Theta\}\) be a family of probability density functions or probability mass functions. Let \(X_1, \ldots, X_n\) be a random sample from a member of the family. Let \(t: \mathbb{R}^n \to \mathbb{R}^m\) and define \(Y:= t(X_1, \ldots, X_n)\). Assume that \(Y\) is sufficient for \(\theta\). \(Y\) is minimal sufficient if and only if the following condition holds for every \(x, y \in \mathbb{R}^n\):
+
+
+\begin{center}
 \noindent\fbox{
-\parbox{\textwidth}{
+\parbox{0.9\textwidth}{
 \[
 \text{There exists } c(x,y) \in \mathbb{R} \text{ that does not depend on } \theta \text{ such that } f_\theta(x) = c(x,y) f_\theta(y) \ \ \ \forall \ \theta \in \Theta 
 \]
 
-if and only if
+\[
+\text{if and only if}
+\]
 
 \[
 t(x) = t(y).
 \]
 }
 }
+\end{center}
 
 \end{theorem}
 
@@ -1568,13 +1702,13 @@ But now by the assumption, we have
 %\frac{f_\theta(x)}{f_\theta(y_{t(x)})} = c(x,y_{t(x)})
 %\]
 
-Then note that if \(h(x) =  c(x,y_{t(x)})\), \(g_\theta(t) = f_\theta(y_t) \iff g_\theta(t(x)) =  f_\theta(y_{t(x)})\), we meet the conditions for the Factorization Theorem. So using the Factorization Theorem, \(Y\) is sufficient.
+Then note that if \(h(x) =  c(x,y_{t(x)})\), \(g_\theta(t) = f_\theta(y_t) \iff g_\theta(t(x)) =  f_\theta(y_{t(x)})\), we meet the conditions for the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}). So using the Factorization Theorem, \(Y\) is sufficient.
 
 \[
 \vdots
 \]
 
-\textbf{Part we did in class on Friday 02/15: evidently (according to Goldstein) this shows that the statistic is minimal but not necessarily sufficient.} Let \(Z = u(X_1, \ldots, X_n)\) be any other sufficient statistic. We need to eventually show that \(Y\) is a function of \(Z\). By the Factorization Theorem, there exists \(h: \mathbb{R}^m \to \mathbb{R}, g_\theta; \mathbb{R}^n \to \mathbb{R}\) such that for all \(\theta \in \Theta\), 
+\textbf{Part we did in class on Friday 02/15: evidently (according to Goldstein) this shows that the statistic is minimal but not necessarily sufficient.} Let \(Z = u(X_1, \ldots, X_n)\) be any other sufficient statistic. We need to eventually show that \(Y\) is a function of \(Z\). By the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}), there exists \(h: \mathbb{R}^m \to \mathbb{R}, g_\theta; \mathbb{R}^n \to \mathbb{R}\) such that for all \(\theta \in \Theta\), 
 
 \[
 f_\theta(x) = g_\theta'(u(x))h'(x), \ \ \ \forall \ x \in \mathbb{R}^n.
@@ -1610,29 +1744,1324 @@ For any \(z \in \{t(x): x \in \mathbb{R}^n\}\), let \(x_z\) be any element of \(
 
 \end{proof}
 
-\begin{proposition}[\textbf{Proposition Larry Goldstein gave in class}] If \(\{f_\theta: \theta \in \Theta\}\), \(\Theta \in \mathbb{R}^n\), \(f_\theta\) all densities or all mass functions. Then a minimal sufficient statistic exists.
+\begin{proposition}[\textbf{Exercise 5.10 in Math 541A notes}] Let $\{f_{\theta}:\theta\in\Theta\}$ be a $k$-parameter exponential family $\{f_{\theta}:\theta\in \Theta,\,a(w(\theta))<\infty\}$ of probability density functions or probability mass functions, where
+$$f_{\theta}(x):= h(x)\exp\Big(\sum_{i=1}^{k}w_{i}(\theta)t_{i}(x)-a(w(\theta))\Big),\qquad\forall\,x\in\mathbb{R}.$$ For any $\theta\in\Theta$, let $w(\theta);= (w_{1}(\theta),\ldots,w_{k}(\theta))$.  
+Assume that the following subset of $\mathbb{R}^{k}$ is $k$-dimensional:
+$$\{(w_{1}(\theta),\ldots,w_{k}(\theta))\in\mathbb{R}^{k}:\theta\in\Theta\}.$$
+That is, if $x\in\mathbb{R}^{k}$ satisfies $\langle x,y\rangle=0$ for all $y$ in this set, then $x=0$.  
+
+Let $X=(X_{1},\ldots,X_{n})$ be a random sample of size $n$ from $f_{\theta}$.  Define $t:\mathbb{R}^{n}\to\mathbb{R}^{n}$ by
+$$t(X):=\sum_{j=1}^{n}\left(t_{1}(X_{j}),\ldots,t_{n}(X_{j})\right).$$
+Then $t(X)$ is minimal sufficient for $\theta$.
+
+
+
+
+
 
 \end{proposition}
 
-\begin{proof}[Proof where \(\theta\) is countable] By relabeling, let \(\Theta = \{1, 2, \ldots\}\). We say for \(x, y \) sequences, we define the equivalence relation \(x \sim y \text{ if } \exists \ \alpha \in \mathbb{R} \text{ such that } x = \alpha y\). Finite
+\begin{proof} First note that \(t(X)\) is sufficient by the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}) because we have for any \(x = (x_1, \ldots, x_n) \in \mathbb{R}^n\)
 
 \[
-t: \mathbb{R}^n \to \mathbb{R}^m/\sim, \ \ \ \ \ \Theta = \{1, \ldots, m\}
+f_{\theta}(x) =  \prod_{j=1}^n \Bigg[ h(x_j)\exp\Bigg(\sum_{i=1}^{k}w_{i}(\theta)t_{i}(x_j)-a(w(\theta))\Bigg) \Bigg] =  \exp\Bigg(\sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta)t_{i}(x_j)-n \cdot a(w(\theta))\Bigg)  \prod_{j=1}^n h(x_j)  
 \]
 
 \[
-t(x) = (f_1(x), f_2(x), \ldots, f_m(x))
+= g_\theta(t(x)) h(x),\qquad\forall\,x\in\mathbb{R}^n
 \]
 
-these likelihood are multiples of each other where \(\alpha\) is a constant. The likelihood ratio is a constant not depending on \(\theta\). If they have the same \(t(x)\) then we have that.
+where
+
+\[
+h(x) = \prod_{j=1}^n h(x_j), \qquad g_\theta(t(x)) =  \exp\Bigg(\sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta)t_{i}(x_j) \Bigg) .
+\]
+
+Now we will show minimal sufficiency using Theorem 5.8 from the lecture notes (Theorem \ref{mathstats.thm.5.8}). We seek to show that for every \(x, y \in \mathbb{R}^n\), the likelihood ratio \(\frac{f_\theta(x)}{f_\theta(y)}\) is constant (the constant may depend on \(x\) and \(y\)) if and only if \(t(x) = t(y)\). Let \(x, y \in \mathbb{R}^n \). Suppose there is some constant \(c(x,y) > 0\) that may depend on \(x\) and \(y\) but not \(\theta\) such that
+
+\[
+ \exp\Bigg(\sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta)t_{i}(x_j)-n \cdot a(w(\theta))\Bigg)  \prod_{j=1}^n h(x_j)  
+ \]
+ 
+ \[
+ = c(x,y)  \exp\Bigg(\sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta)t_{i}(y_j)-n \cdot a(w(\theta))\Bigg)  \prod_{j=1}^n h(y_j) 
+ \]
+ 
+ \[
+ \iff  \exp\Bigg(\sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta)t_{i}(x_j) \Bigg)  = c_1(x,y)  \exp\Bigg(\sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta)t_{i}(y_j)\Bigg) 
+ \]
+ 
+ (where cancellation of the \(h\) functions is permissible since they depend only on \(x\) and \(y\), so we can let \(c_1(x,y) = c(x,y) \cdot \prod_{j=1}^n h(y_j)  / \prod_{j=1}^n h(x_j)  > 0 \))
+ 
+  \[
+ \iff \sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta)t_{i}(x_j)   = c_2(x,y)  + \sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta)t_{i}(y_j)
+ \]
+
+
+where \(c_2(x,y) = \log \big( c_1(x,y) \big)\). Then if \(\theta_0, \theta_1\) are any two points in \(\Theta\),
+
+\[
+\sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta_0)t_{i}(x_j)  - \sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta_1)t_{i}(x_j)  = \sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta_0)t_{i}(y_j) - \sum_{j=1}^n \sum_{i=1}^{k}w_{i}(\theta_1)t_{i}(y_j)
+\]
+
+(where the \(c_2(x,y)\) terms cancel since \((x,y)\) is held fixed.)
+
+
+
+\[
+\iff \sum_{j=1}^n \sum_{i=1}^{k}[w_{i}(\theta_0)  - w_{i}(\theta_1)] t_{i}(x_j)  = \sum_{j=1}^n \sum_{i=1}^{k}[w_{i}(\theta_0)- w_{i}(\theta_1)] t_{i}(y_j)
+\]
+
+\[
+\iff \sum_{j=1}^n \sum_{i=1}^{k}[w_{i}(\theta_0)  - w_{i}(\theta_1)] [t_{i}(x_j) -  t_{i}(y_j)] = 0.
+\]
+
+
+
+This equation holds for all \(\theta \in \Theta\) if and only if \(t_{i}(x_j) -  t_{i}(y_j) = 0, i = 1, \ldots, k, j = 1, \ldots, n\); that is, it holds if and only if \(t(x) = t(y)\). Therefore we have shown that \(t(\cdot)\) is minimal sufficient by Theorem \ref{mathstats.thm.5.8}.
+
+\end{proof}
+
+
+
+
+
+\begin{remark} Note that the assumption of the exercise is always satisfied for an exponential family in canonical form. From this proposition we can conclude that if we sample from a Gaussian with unknown mean $\mu$ and variance $\sigma^{2}>0$, 
+then $\overline{X}$ is minimal sufficient for $\theta$ and $(\overline{X},S)$ is minimal sufficient for $(\mu,\sigma^{2})$.
+\end{remark}
+
+\begin{proposition}[\textbf{Exercise 5.13 in Math 541A notes}]
+
+Let $\mathbb{P}_{1},\mathbb{P}_{2}$ be two probability laws on the sample space $\Omega=\mathbb{R}$.  Suppose these laws have densities $f_{1},f_{2}:\mathbb{R}\to[0,\infty)$ so that
+$$\mathbb{P}_{i}(A)=\int_{A}f_{i}(x)dx,\qquad\forall\,i=1,2,\qquad\forall\,A\subseteq\mathbb{R}.$$ Then
+
+\begin{enumerate}[(a)]
+
+\item
+$$\sup_{A\subseteq\mathbb{R}}|\mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)|=\frac{1}{2}\int_{\mathbb{R}}|f_{1}(x)-f_{2}(x)|dx.$$
+
+\item If $\mathbb{P}_{1},\mathbb{P}_{2}$ are probability laws on $\Omega=\mathbb{Z}$
+$$\sup_{A\subseteq\mathbb{Z}}|\mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)|=\frac{1}{2}\sum_{z\in\mathbb{Z}}|\mathbb{P}_{1}(z)-\mathbb{P}_{2}(z)|.$$
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+%
+%
+%%% 8 (a)
+
+\item Note that \(\sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)|\) returns the difference in areas under \(f_1\) and \(f_2\) in the region \(A \subset \mathbb{R}\) where that difference is positive. Suppose without loss of generality that 
+
+\begin{equation}\label{prob.541a.hw4.8}
+\sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| = \sup_{A\subseteq\mathbb{R}} \{\mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)\}.
+\end{equation}
+
+ (There is no loss of generality because in the case that \(\sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| = \sup_{A\subseteq\mathbb{R}} \{ \mathbb{P}_{2}(A)-\mathbb{P}_{1}(A)\}\), we can simply switch the names of \(\mathbb{P}_1\) and \(\mathbb{P}_2\) to get the desired result.) Then the region \(A\) which maximizes the quantity on the right side of (\ref{prob.541a.hw4.8}) is the suggested region, \(A:=\{x\in\mathbb{R}:f_{1}(x)> f_{2}(x)\}\). That is,
+ 
+ \[
+ \sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| =  \int_{A}(f_{1}(x)-f_{2}(x))dx.
+ \]
+ 
+ Note that
+ 
+ \[
+ \int_{\mathbb{R}}|f_{1}(x)-f_{2}(x)|dx  =  \int_{A}|f_{1}(x)-f_{2}(x)|dx  +  \int_{\mathbb{R} \setminus A}|f_{1}(x)-f_{2}(x)|dx   
+ \]
+ 
+\begin{equation}\label{prob.541a.hw4.8a}
+\iff  \int_{\mathbb{R}}|f_{1}(x)-f_{2}(x)|dx  =  \int_{A}(f_{1}(x)-f_{2}(x))dx +  \int_{\mathbb{R} \setminus A}(f_{2}(x)-f_{1}(x))dx .
+\end{equation}
+ 
+Since we already have \(  \int_{A}(f_{1}(x)-f_{2}(x))dx  = \sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| \), if it is also true that \( \int_{\mathbb{R} \setminus A}(f_{2}(x)-f_{1}(x))dx  =  \sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| \) we are done by (\ref{prob.541a.hw4.8a}), so this is what we will show next. Let \(\int_A f_2(x) dx = a_2\) and let \(\int_A f_1(x) dx = a_1\), so that 
+
+\[
+\sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)|  = \int_{A}(f_{1}(x)-f_{2}(x))dx = a_1 - a_2.
+\]
+
+Note that 
+
+\[
+1 = \int_{\mathbb{R}} f_2(x) dx =   \int_{A}f_2(x) dx +  \int_{\mathbb{R} \setminus A} f_2(x) dx =   a_2 +  \int_{\mathbb{R} \setminus A} f_2(x) dx \iff  \int_{\mathbb{R} \setminus A} f_2(x) dx = 1 - a_2,
+\]
+
+and similarly \( \int_{\mathbb{R} \setminus A} f_1(x) dx = 1 - a_1\). Therefore
+
+\[
+ \int_{\mathbb{R} \setminus A}(f_{2}(x)-f_{1}(x))dx  =  \int_{\mathbb{R} \setminus A}f_{2}(x)dx -  \int_{\mathbb{R} \setminus A}f_{1}(x)dx = 1 - a_2 - (1 - a_1) = a_1 - a_2 = \sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| .
+\]
+
+So by (\ref{prob.541a.hw4.8a}), we have
+
+\[
+\int_{\mathbb{R}}|f_{1}(x)-f_{2}(x)|dx  = 2  \sup_{A\subseteq\mathbb{R}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| \iff  \sup_{A\subset\mathbb{R}}|\P_{1}(A)-\P_{2}(A)|=\frac{1}{2}\int_{\mathbb{R}}|f_{1}(x)-f_{2}(x)|dx.
+\]
+
+%
+%
+%%% 8 (b)
+\item Analogous to the proof of (a). Note that \(\sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)|\) returns the difference in probabilities for those numbers in the set \(A \subset \mathbb{Z}\) where that difference is positive. Suppose without loss of generality that 
+
+\begin{equation}\label{prob.541a.hw4.8c}
+\sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| = \sup_{A\subseteq\mathbb{Z}} \{\mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)\}.
+\end{equation}
+
+ (There is no loss of generality because in the case that \(\sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| = \sup_{A\subseteq\mathbb{Z}} \{ \mathbb{P}_{2}(A)-\mathbb{P}_{1}(A)\}\), we can simply switch the names of \(\mathbb{P}_1\) and \(\mathbb{P}_2\) to get the desired result.) Then the set \(A\) which maximizes the quantity on the right side of (\ref{prob.541a.hw4.8c}) can be defined as (similarly to part (a)) \(A:=\{z\in\mathbb{Z}: \mathbb{P}_1(z) > \mathbb{P}_{2}(z)\}\). That is,
+ 
+ \[
+ \sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| =  \sum_{z \in A}\mathbb{P}_1(z) - \mathbb{P}_2(z).
+ \]
+ 
+Note that
+ 
+ \[
+ \sum_{z \in \mathbb{Z}}|\mathbb{P}_1(z) - \mathbb{P}_2(z)| =  \sum_{z \in A}|\mathbb{P}_{1}(z)-\mathbb{P}_{2}(z)|  +  \sum_{z \in \{\mathbb{Z} \setminus A\}}|\mathbb{P}_{1}(z)-\mathbb{P}_{2}(z)|   
+ \]
+ 
+\begin{equation}\label{prob.541a.hw4.8d}
+\iff  \sum_{z \in \mathbb{Z}}|\mathbb{P}_1(z) - \mathbb{P}_2(z)| =  \sum_{z \in A}\mathbb{P}_1(z) - \mathbb{P}_2(z) +  \sum_{z \in \{\mathbb{Z} \setminus A\}}(\mathbb{P}_{2}(z)-\mathbb{P}_{1}(z)) .
+\end{equation}
+ 
+Since we already have \(  \sum_{z \in A}\mathbb{P}_1(z) - \mathbb{P}_2(z)  = \sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| \), if it is also true that \( \sum_{z \in \{\mathbb{Z} \setminus A\}}(\mathbb{P}_{2}(z)-\mathbb{P}_{1}(z))  =  \sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| \) we are done by (\ref{prob.541a.hw4.8d}), so this is what we will show next. Let \(\sum_{z \in A} \mathbb{P}_2(z) = a_2\) and let \(\sum_{z \in A} \mathbb{P}_1(z) = a_1\), so that 
+
+\[
+\sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)|  = \sum_{z \in A}\mathbb{P}_1(z) - \mathbb{P}_2(z) = a_1 - a_2.
+\]
+
+Note that 
+
+\[
+1 = \sum_{z \in Z} \mathbb{P}_2(z) =   \sum_{z \in A} \mathbb{P}_2(z) +  \sum_{z \in \{\mathbb{Z} \setminus A\}} \mathbb{P}_2(z)  =   a_2 +  \sum_{z \in \{\mathbb{Z} \setminus A\}} \mathbb{P}_2(z) \iff  \sum_{z \in \{\mathbb{Z} \setminus A\}} \mathbb{P}_2(z)  = 1 - a_2,
+\]
+
+and similarly \( \sum_{z \in \{\mathbb{Z} \setminus A\}} \mathbb{P}_1(z) = 1 - a_1\). Therefore
+
+\[
+ \sum_{z \in \{\mathbb{Z} \setminus A\}}(\mathbb{P}_{2}(z)-\mathbb{P}_{1}(z))  =  \sum_{z \in \{\mathbb{Z} \setminus A\}}\mathbb{P}_{2}(z) -  \sum_{z \in \{\mathbb{Z} \setminus A\}}\mathbb{P}_{1}(z)= 1 - a_2 - (1 - a_1) = a_1 - a_2 = \sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| .
+\]
+
+So by (\ref{prob.541a.hw4.8d}), we have
+
+\[
+\sum_{z \in \mathbb{Z}}|\mathbb{P}_1(z) - \mathbb{P}_2(z)| = 2  \sup_{A\subseteq\mathbb{Z}}| \mathbb{P}_{1}(A)-\mathbb{P}_{2}(A)| \iff  \sup_{A\subset\mathbb{Z}}|\P_{1}(A)-\P_{2}(A)|=\frac{1}{2}\sum_{z \in \mathbb{Z}}|\mathbb{P}_1(z) - \mathbb{P}_2(z)|.
+\]
+
+\end{enumerate}
+
+
+\end{proof}
+
+\subsubsection{Ancillary Statistics}
+
+\begin{definition}[\textbf{Ancillary Statistic}] Suppose \(X_1, \ldots, X_n\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of distributions. A statistic \(Y = t(X_1, \ldots, X_n), t: \mathbb{R}^n \to \mathbb{R}^m\) is \textbf{ancillary} for \(\theta\) if the distribution of \(Y\) does not depend on \(\theta\).
+
+\end{definition}
+
+\begin{example}[\textbf{Example 5.15 from 541A notes}] Let \(X_1, \ldots, X_n\) be random sample of size \(n\) from the location family for the Cauchy distribution:
+
+\[
+f_\theta(x) := \prod_{i=1}^n \frac{1}{\pi} \frac{1}{1 + (x_i - \theta)^2}, \qquad \forall \ x = (x_1, \ldots, x_n) \in \mathbb{R}^n, \ \ \forall \theta \in \mathbb{R}.
+\]
+
+Then the order statistics \(X_{(1)} \leq \ldots \leq X_{(n)}\) are minimal sufficient for \(\theta\). 
+
+\begin{proof} Sufficiency follows by the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}, Theorem 5.4 in Math 541A notes) (\textbf{usually the easiest way to prove sufficiency}) since if \(t(x) := (x_{(1)}, \ldots, x_{(n)})\), then \(f_\theta(t(x)) = f_\theta(x)\) (because \(t(x)\) is just a permutation so the product won't change).
+
+\
+
+To get minimal sufficiency, apply Theorem \ref{mathstats.thm.5.8} (Theorem 5.8 in 541A notes). Recall we have minimal sufficiency if the following condition holds for every \(x, y \in \mathbb{R}^n\):
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\[
+\text{There exists } c(x,y) \in \mathbb{R} \text{ that does not depend on } \theta \text{ such that } f_\theta(x) = c(x,y) f_\theta(y) \ \ \ \forall \ \theta \in \Theta 
+\]
+
+if and only if
+
+\[
+t(x) = t(y).
+\]
+}
+}
+
+Let's try to show it.
+
+\begin{equation}\label{mathstats.example.5.15.proof}
+\frac{f_\theta(x)}{f_\theta(y)} = \left. \prod_{i=1}^n \frac{1}{\pi} \frac{1}{1 + (x_i - \theta)^2} \middle/  \prod_{i=1}^n \frac{1}{\pi} \frac{1}{1 + (y_i - \theta)^2} \right. = \left. \prod_{i=1}^n[ 1 + (y_i - \theta)^2] \middle/  \prod_{i=1}^n[1 + (x_i - \theta)^2] \right.
+\end{equation}
+
+Keep \(x, y\) fixed, \(\theta \in \mathbb{R}\) variable. Then the likelihood ratio (\ref{mathstats.example.5.15.proof}) does not depend on \(\theta\) if and only if the roots in \(\theta\) on top are equal to the roots on bottom. Roots on top: \(\theta = y_i \pm \sqrt{-i}, 1 \leq i \leq n\). Roots on bottom: \(\theta = x_i \pm \sqrt{-i}, 1 \leq i \leq n\). So we can see this is true if and only if the vector \((x_1, \ldots, x_n)\) is a permutation of \((y_1, \ldots, y_n)\), which is exactly the case if \(t(x) = t(y)\).
+
+\end{proof}
+
+However, this statistic has ancillary information. Specifically, \(X_{(n)} - X_{(1)}\) is ancillary (its distribution does not depend on \(\theta\)).
+
+\begin{proof} Let \(Z_1, \ldots, Z_n\) be independent centered Cauchy random variables; that is, they all have density \(\frac{1}{\pi} \frac{1}{1+a^2}, a \in \mathbb{R}\). Then \(X_i = Z_i + \theta, \ \forall 1 \leq i \leq n, \forall \theta \in \mathbb{R}\). Also, \(X_{(i)} = Z_{(i)} + \theta\). So \(X_{(n)} - X_{(1)} = Z_{(n)} - Z_{(1)}\) does not depend on \(\theta \in \mathbb{R}\). So, \(X_{(n)} - X_{(1)}\) is ancillary for \(\theta\). That is, there exists a constant \(c\) that does not depend on \(\theta\) such that \(\E_\theta[X_{(n)} - X_{(1)} - c] = 0\) for all \(\theta \in \mathbb{R}\). 
+
+\
+
+Let \(f: \mathbb{R}^n \to \mathbb{R}\), \(f(x_1, \ldots, x_n) = x_n - x_1 - c \ \forall \ (x_1, \ldots, x_n) \in \mathbb{R}^n\). Then \(\E_\theta f(Y) = 0, \ \forall \theta \in \Theta, Y  = (X_{(1)}, \ldots, X_{(n)})\). Note that \(f \neq 0\) (in fact \(f(Y) \neq 0\) with probability 1).
+
+\end{proof}
+
+\end{example}
+
+\subsubsection{Complete Statistics}
+
+\begin{definition}[\textbf{Complete statistic; definition 5.16 in 541A notes}]Suppose \(X_1, \ldots, X_n\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of distributions. A statistic \(Y = t(X_1, \ldots, X_n), t: \mathbb{R}^n \to \mathbb{R}^k\) is \textbf{complete} for \(\theta\) if the following holds:
+
+\[
+\text{For any } f: \mathbb{R}^k \to \mathbb{R} \text{ such that } \E_\theta f(Y) = 0 \ \forall \ \theta \in \Theta, \text{ it holds that } f(Y) = 0.
+\]
+
+Intuition: \(Y\) has no ``excess information."
+
+\end{definition}
+
+\begin{remark} If a statistic has ancillary information, then it is not complete. Therefore if a statistic is complete, it is not ancillary. Minimal sufficient statistics pretty much always exist, but a complete sufficient statistic might not exist (\textbf{see example from homework 4}).
+\end{remark}
+
+\begin{remark}A complete statistic may not be sufficient (example: a constant).
+
+\end{remark}
+
+\begin{example}[\textbf{Exercise 5.19 in Math 541A notes}] The following is an example of a statistic \(Y\) that is complete and nonconstant, but not sufficient. Suppose \(X_1, \ldots, X_n\) is a random sample of known size \(n\) from a Bernoulli distribution with unknown probability parameter \(\theta \in (0,1)\). Let
+
+\[
+Y = t(X_1, \ldots, X_n) =  \sum_{i=1}^{n-1} X_i.
+\]
+
+Then \(Y\) is complete for \(\mu\) because for any \(f: \mathbb{R}^m \to \mathbb{R}\), suppose
+
+%f\bigg( \frac{1}{n-1}\sum_{i=1}^{n-1} X_i \bigg) 
+
+\[
+0 = \E_\theta f(Y)  = \sum_{j=0}^{n-1} f(j)\Pr(Y = j \mid \theta) = \sum_{j=0}^{n-1} f(j) \binom{n-1}{j} \theta^j(1 - \theta)^{n-1-j}, \qquad \forall \theta \in (0,1).
+\]
+
+%\[
+%\vdots
+%\]
+%
+%Let \(f: \mathbb{R} \to \mathbb{R}\) with \(\E_\theta f(Y) = 0 \ \  \forall \theta \in \Theta\). Since \(Y\) is binomial, 
+%
+%\[
+%0 = \E_\theta f(Y) = \sum_{j=0}^n f(j) \binom{n}{j} \theta^j (1- \theta)^{n-j}, \qquad \forall \theta \in (0,1)
+%\]
+
+Divide by \((1-\theta)^{n-1}\) and let \(\alpha = \theta/(1-\theta)\) for notational ease. (Note that since \(\theta \in (0,1)\), \(\alpha > 0\).)
+
+\[
+0 = \sum_{j=0}^{n-1} f(j) \binom{n-1}{j} \theta^j \frac{(1 - \theta)^{n-1-j} }{(1 - \theta)^{n-1}} = \sum_{j=0}^{n-1} f(j) \binom{n-1}{j} \bigg( \frac{\theta}{1-\theta} \bigg) ^j  = \sum_{j=0}^{n-1} f(j) \binom{n-1}{j} \alpha ^j    , \qquad \forall \alpha > 0.
+\]
+
+%\[
+%0 =  \sum_{j=0}^n f(j) \binom{n}{j} \alpha^j, \qquad \forall \alpha > 0.
+%\]
+
+The sum on the right side is a polynomial in \(\alpha > 0\). That means the sum on the right can only equal 0 if every coefficient on the polynomial equals zero. \(\binom{n}{j}\) is of course nonzero for all \(j \in 0, \ldots, n-1\). Therefore for all \(\alpha > 0\) we have that \(\E_\theta f(Y) = 0\) only if \(f(Y) = 0\), so \(Y\) is complete.
+
+\
+
+However, \(Y\) is not sufficient for \(\mu\). Using the definition of conditional probability, 
+
+%\[
+%\vdots
+%\]
+%
+%Let \(x_1, \ldots, x_n \in [0,1]\). Let \(0 \leq y \leq n\) be an integer. Then \(Y\) is binomial with parameters \(n\) and \(\theta\). We may assume \(y = x_1 + \ldots + x_n\), otherwise there is nothing to show. 
+
+\[
+\Pr\big( (X_1, \ldots, X_n) = (x_1, \ldots, x_n) \mid Y = y \big) = \frac{1}{\Pr(Y=y)} \cdot \Pr\big( (X_1, \ldots, X_n) = (x_1, \ldots, x_n) \cap Y = y \big) 
+\]
+
+\[
+= \frac{1}{\Pr(Y=y)} \cdot \Pr\big( (X_1, \ldots, X_n) = (x_1, \ldots, x_n) \big) 
+\]
+
+Using independence and the definition of a binomial distribution, we have
+
+\[
+= \frac{1}{\binom{n-1}{y} \theta^y (1 - \theta)^{n-1-y}} \cdot \prod_{i=1}^n \Pr\big( X_i = x_i \big)  =  \frac{1}{\binom{n-1}{y} \theta^y (1 - \theta)^{n-1-y}}  \cdot \prod_{i=1}^n \theta^{x_i} (1- \theta)^{1-x_i}
+\]
+
+\[
+=  \frac{1}{\binom{n-1}{y} \theta^y (1 - \theta)^{n-1-y}} \cdot \theta^{y} (1- \theta)^{n-y} = \frac{1-\theta}{\binom{n-1}{y}}.
+\]
+
+Because \(\Pr\big( (X_1, \ldots, X_n) = (x_1, \ldots, x_n) \mid Y = y \big)  = (1-\theta)/\binom{n-1}{y} \) depends on \(\theta\), \(Y\) is not sufficient for \(\theta\).
+
+\end{example}
+
+\begin{exercise}[\textbf{Exercise 5.20 in Math 541A notes}]
+This exercise shows that a complete sufficient statistic might not exist.
+
+Let $X_{1},\ldots,X_{n}$ be a random sample of size $n$ from the uniform distribution on the three points $\{\theta,\theta+1,\theta+2\}$, where $\theta\in \mathbb{Z}$.
+\begin{enumerate}[(a)]
+\item Show that the vector $Y:= (X_{(1)},X_{(n)})$ is minimal sufficient for $\theta$.
+\item Show that $Y$ is not complete by considering $X_{(n)}-X_{(1)}$.
+\item Using minimal sufficiency, conclude that any sufficient statistic for $\theta$ is not complete.
+\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item First we need to show that \(Y\) is sufficient for \(\theta\). Informally, it makes sense that this would be the case because there are three possibilities:
+
+\begin{enumerate}[(1)]
+
+\item If \(\theta\) and \(\theta + 2\) appear in the data set, we can identify \(\theta\) with certainty as the smallest of them. Simply observing \(x_{(1)}\) and \(x_{(n)}\) would show us the smallest and largest observations, which would be 2 units apart. Then we would known that the these observations are \(\theta\) and \(\theta + 2\), and we could identify \(\theta\) with certainty. (Note that it doesn't matter in this case whether we observe \(\theta + 1\).)
+
+\item If only the values \(\{\theta, \theta + 1\}\) or \(\{ \theta + 1, \theta + 2\}\) appear in the data set, we have to guess which one of these pairs we observed. If we guess that we have observed \(\theta + 1\) and \(\theta + 2\) and subtract one from the smallest observation to estimate \(\theta\), or we can guess that we have observed \(\theta\) and \(\theta + 1\) and use the smallest value as our estimate for \(\theta\). (Or we can hedge and take the mean of these values.) In any case, simply observing \(x_{(1)}\) and \(x_{(n)}\) would show us the smallest and largest observations, which would be 1 apart, leaving us in the same position as if we had all the data.
+
+\item If only one value appears, we have to guess if it is \(\theta\), \(\theta+ 1\), or \(\theta + 2\) in a way similar to if we only observe two values. But if we observe that the smallest and largest values are equal, we are observing the same information and we are in the same position for estimating \(\theta\) as if we had all of the data.
+
+\end{enumerate}
+
+
+We can formally show that \(Y\) is sufficient using the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}). Note that because on each trial we observe \(\theta, \theta+1 \), or \(\theta + 2\) with equal probability, the mass function for the unordered observations \(f_{u,\theta}: \mathbb{Z}^n \to \mathbb{R}\) is the same as that of a multinomial distribution with three outcomes with equal probabilities. That is, if \(n_0 = \sum_{i=1}^n \boldsymbol{1}_{\{x_i = \theta\}}\) (where \(\boldsymbol{1}_{\{x_i = \theta\}}\) is an indicator variable for the \(i\)th observation having value \(\theta\)), \(n_1 = \sum_{i=1}^n \boldsymbol{1}_{\{x_i = \theta = 1\}}\), and \(n_2 = \sum_{i=1}^n \boldsymbol{1}_{\{x_i = \theta + 2\}}\), we have
+
+\[
+f_{u,\theta}(x) = \binom{n}{n_0, n_1, n_2}  \bigg( \frac{1}{3} \bigg)^n = \frac{n!}{n_0! n_1! n_2!}  \bigg( \frac{1}{3} \bigg)^n.
+\]
+
+But taking into account the order in which we observe the samples, the probability of observing any one sample of size \(n\) (\(x = (x_1, \ldots, x_n)\)) is simply
+
+\[
+f_\theta(x) =  \begin{cases}
+\big( \frac{1}{3} \big)^n & x_1 \in \{\theta, \theta +1, \theta + 2\}, \ldots, x_n \in  \{\theta, \theta +1, \theta + 2\} \\
+0 & \text{otherwise.}
+\end{cases}
+\]
+
+We have \(t: \mathbb{Z}^n \to \mathbb{Z}^2\) is given by
+
+\[
+t(X_1, \ldots, X_n) = (X_{(1)}, X_{(n)}).
+\]
+
+Choose
+
+\begin{equation}\label{mathstats.541a.hw4.10a}
+h(x) = (1/3)^n, \qquad g_\theta(t(x)) = \begin{cases}
+1 & t(x) \in  \{\theta, \theta + 1, \theta + 2\} \times \{\theta, \theta +1, \theta + 2\} \\
+0 & \text{otherwise}.
+\end{cases}
+\end{equation}
+
+Then we have \(f_\theta(x) = g_\theta(t(x)) h(x)\), as desired. Now we will use Theorem \ref{mathstats.thm.5.8} (Theorem 5.8 from the lecture notes) to show that \(Y\) is not only sufficient, but is also minimal sufficient. Let \(x, z \in \mathbb{Z}^n\), and let \(y_x = (x_{(1)}, x_{(n)})\), \(y_z = (z_{(1)}, z_{(n)})\). We seek to show that for every \(x, z \in \mathbb{Z}^n\), the likelihood ratio \(\frac{f_\theta(x)}{f_\theta(z)}\) is constant (the constant may depend on \(x\) and \(z\)) if and only if \(y_x = y_z\). (We only need to consider \(x, z \in \mathbb{Z}^n\) rather than all of \(\mathbb{R}^n\) because since \(\theta \in \mathbb{Z}\), \(X_i \in \mathbb{Z} \ \forall i \in \{1, \ldots, n\}, \ \forall \theta \in \Theta\).) Using the expressions in  (\ref{mathstats.541a.hw4.10a}), we can write the equation in (\ref{mathstats.541a.hw4.10b}) as
+
+\begin{equation}\label{mathstats.541a.hw4.10b}
+f_\theta(x) = c(x,y) f_\theta(z) \iff g_\theta(t(x)) \bigg( \frac{1}{3} \bigg)^n  =  c(x,z) g_\theta(t(z)) \bigg( \frac{1}{3} \bigg)^n \iff g_\theta(t(x))  =  c(x,z) g_\theta(t(z)) 
+\end{equation}
+
+I will argue that the equality in (\ref{mathstats.541a.hw4.10b}) only holds for some \(c(x,z) \in \mathbb{R}\) if \(t(x) = t(z)\). Suppose we have observed data \(x\) and \(z\) from a distribution with a specific \(\theta_0\). There are three cases to consider:
+
+\begin{enumerate}[(1)]
+
+\item \textbf{\(t(x) = \{\theta_0, \theta_0 + 2\}\) (full information):} Then the only \(\theta\) for which \(g_\theta(t(x)) \neq 0\) is \(\theta = \theta_0\). (This corresponds to situation (1) above.)
+
+\item \textbf{\(t(x) = \{\theta_0, \theta_0 + 1\}\) or \( \{\theta_0, \theta_0 + 1\}\):} Then \(g_\theta(t(x)) \neq 0\) for two values of \(\theta\). In the first case, those two values will be \(\theta_0 - 1\) and \(\theta_0\). In the second case, those two values will be \(\theta_0 \) and \(\theta_0 + 1\). (This corresponds to situation (2) above.)
+
+\item  \textbf{\(t(x) = \{\theta_0, \theta_0\}\), \( \{\theta_0 + 1, \theta_0 + 1\}\), or \( \{\theta_0 + 2, \theta_0 + 2\}\):} Then \(g_\theta(t(x)) \neq 0\) for three values of \(\theta\). In the first case, those three values will be \(\theta_0 - 2\), \(\theta_0 - 1\), and \(\theta_0\). In the second case, those three values will be  \(\theta_0 - 1\), \(\theta_0 \), and \(\theta_0 + 1\). In the last case, those three values will be  \(\theta_0\), \(\theta_0 + 1 \), and \(\theta_0 + 2\). (This corresponds to situation (3) above.)
+
+\end{enumerate}
+
+I have enumerated all possible values of \(t(x)\) or \(t(z)\) for a given true \(\theta = \theta_0\), and note that there is no overlap among any of the possibilities for what values of \(\theta\) will yield identical values of \(g_\theta(t(x))\) and \(g_\theta(t(z))\) for all \(\theta\). That is, that is true (and (\ref{mathstats.541a.hw4.10b}) holds for all \(\theta \in \Theta = \mathbb{Z}\)) if and only if \(t(x) = t(z)\), which is what we were trying to show. So \(Y\) is minimal sufficient.
+
+% Part (b)
+\item Recall the definition of a complete statistic:
+
+\noindent\fbox{
+\parbox{\textwidth}{
+\begin{definition}[\textbf{Complete statistic; definition 5.16 in 541A notes}]Suppose \(X_1, \ldots, X_n\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of distributions. A statistic \(Y = t(X_1, \ldots, X_n), t: \mathbb{R}^n \to \mathbb{R}^k\) is \textbf{complete} for \(\theta\) if the following holds:
+
+\[
+\text{For any } f: \mathbb{R}^k \to \mathbb{R} \text{ such that } \E_\theta f(Y) = 0 \ \forall \ \theta \in \Theta, \text{ it holds that } f(Y) = 0.
+\]
+
+\end{definition}
+}
+}
+
+\
+
+We will show that \(Y\) is not complete by showing that \(Y\) contains ancillary information. Specifically, we will show that \(\E_\theta [f(Y)] \neq 0\) where \(f(Y) = X_{(n)} - X_{(1)} - c\) for some \(c \in \mathbb{Z}\).
+
+\
+
+Let \(Z_1, \ldots, Z_n\) be a random sample of size \(n\) from the uniform distribution on the three points \( \{ 0, 1, 2\}\). Then \(X_i = Z_i + \theta, \ \forall \ 1 \leq i \leq n, \forall \ \theta \in \mathbb{Z}\). Also, \(X_{(i)} = Z_{(i)} + \theta\). So \(X_{(n)} - X_{(1)} = Z_{(n)} - Z_{(1)}\) does not depend on \(\theta \in \mathbb{Z}\). So, \(X_{(n)} - X_{(1)}\) is ancillary for \(\theta\). That is, there exists a constant \(c \in \mathbb{Z}\) that does not depend on \(\theta\) such that \(\E_\theta[X_{(n)} - X_{(1)} - c] = 0\) for all \(\theta \in \mathbb{Z}\). 
+
+\
+
+Define this \(c\) and let \(f: \mathbb{Z}^2 \to \mathbb{Z}\) be \(f(x_1, x_n) := x_n - x_1 - c \ \forall \ (x_1, x_n) \in \mathbb{R}^n\). Then \(\E_\theta f(Y) = 0, \ \forall \theta \in \Theta, Y  = (X_{(1)}, X_{(n)})\). 
+
+%Note that \(f \neq 0\) (in fact \(f(Y) \neq 0\) with probability 1).
+
+% Part (c)
+\item Let \(S\) be any sufficient statistic for \(\theta\). Since \(Y\) is minimal sufficient, there exists a function \(\phi\) such that \(Y = \phi(\theta)\). Therefore \(S\) is not complete because \(\E_\theta(f(\phi(S)) = \E_\theta(f(Y)) = 0\) for all \(\theta \in \mathbb{Z}\). So any sufficient statistic for \(\theta\) is not complete.
+
+\end{enumerate}
+
+\end{proof}
+
+
+
+
+\begin{example}[\textbf{Discrete RV example, Example 5.21 in Math 541A notes; return to Example \ref{mathstats.541a.ex.5.2}}] Suppose we take a sample of size \(n\) from a Bernoulli distribution with parameter \(0 < \theta < 1\). We already showed \(Y:= X_1 + \ldots + X_n\) is sufficient for \(\theta\). Now we show \(Y\) is complete. 
+
+\begin{proof}
+
+Let \(f: \mathbb{R} \to \mathbb{R}\) with \(\E_\theta f(Y) = 0 \ \  \forall \theta \in \Theta\). Since \(Y\) is binomial, 
+
+\[
+0 = \E_\theta f(Y) = \sum_{j=0}^n f(j) \binom{n}{j} \theta^j (1- \theta)^{n-j}, \qquad \forall \theta \in (0,1)
+\]
+
+Let \(\alpha = \theta/(1-\theta)\) and divide by \((1-\theta)^n\);
+
+\[
+0 =  \sum_{j=0}^n f(j) \binom{n}{j} \alpha^j, \qquad \forall \alpha > 0.
+\]
+
+The sum on the right side is a polynomial in \(\alpha > 0\). That means the sum on the right can only equal 0 if every coefficient on the polynomial equals zero. \(\binom{n}{j}\) is of course nonzero for all \(j \in 0, \ldots, n-1\). Therefore for all \(\alpha > 0\) we have that \(\E_\theta f(Y) = 0\) only if we have \(f(j) = 0\) for all \(0 \leq j  \leq n\), so \(f(Y) = 0\) so \(Y\) is complete.
+
+\end{proof}
+
+\end{example}
+
+\begin{example}[\textbf{Continuous RV example; return to Example \ref{mathstats.541a.ex.5.3}}] For a random sample from a Gaussian distribution with known variance \(\sigma^2 > 0\) and unknown \(\mu \in \mathbb{R}\), we showed that \(Y = (X_1 + \ldots + X_n)/n\) is sufficient for \(\mu\). Now we will show it is complete.
+
+\begin{proof} \textbf{Found this proof confusing} For simplicity, let \(\sigma = 1, n=1\). Let \(f: \mathbb{R} \to \mathbb{R}\) with \(\E_\mu |f(Y) | < \infty\) for all \(\mu \in \mathbb{R}\). Then
+
+\[
+0 = \E_\mu(f(Y)) = \int_{-\infty}^\infty f(y) \exp \bigg(- \frac{(y-\mu)^2}{2}  \bigg) \frac{1}{\sqrt{2\pi}} dy, \qquad \forall \mu \in \mathbb{R}
+\]
+
+Multiplying both sides by \(e^{\mu^2/2}\sqrt{2\pi}\) yields
+
+ \begin{equation}\label{mathstats.541a.ex.5.3.a}
+0 = \int_{-\infty}^\infty f(y) e^{-y^2/2} e^{y\mu} dy, \qquad \forall \mu \in \mathbb{R}
+\end{equation}
+
+If \(f(y) \geq 0\), we are done since (\ref{mathstats.541a.ex.5.3.a}) is the moment generating function of a random variable with density
+
+\[
+\frac{f(y)e^{-y^2/2}}{\int_\mathbb{R} f(x)e^{-x^2/2}dx}
+\]
+
+Then by Theorem 9.2 from the appendix of the Math 541A notes (uniqueness of moment-generating functions), this describes a unique random variable. But this is a contradiction because we can't divide by 0. \textbf{(???)}
+
+\
+
+In the case that \(f\) is positive and negative at different points, we write \(f = f_+ - f_-\) where \(f_+(x) :=\max\{f(x), 0 \}\) and \(f_-(x) :=\max\{-f(x), 0 \}\). use (\ref{mathstats.541a.ex.5.3.a}) for any \(\mu\) and divide by case \(\mu=0\),
+
+\[
+ \int_{-\infty}^\infty f_-(y) e^{-y^2/2} e^{y\mu} dy, \qquad  \int_{-\infty}^\infty f_-(y) e^{-y^2/2} dy
+\]
+
+which yields
+
+\[
+\left. \int_{-\infty}^\infty f_+(y) e^{-y^2/2} e^{y\mu} dy \middle/ \int_{-\infty}^\infty f_-(y) e^{-y^2/2} dy \right.
+\]
+
+so we are done again by Theorem 9.2. So \(f_y = f_-\), \(f = f_+ - f_- = 0\).
+
+\
+
+So basically we started by assuming that the expression equals zero and concluded that \(f\) must equal 0; therefore the statistic is complete.
+
+\end{proof}
+
+\end{example}
+
+\begin{remark}Later we will show that complete and sufficient statistics are minimal sufficient. 
+\end{remark}
+
+\begin{exercise}[\textbf{Conditional expectation exercise relevant to proof of Bahadur's Theorem}]\label{mathstats.ex.5.24} Let \(X, Y: \Omega \to \mathbb{R}\) both be discrete or both continuous. For all \(y\) in the range of \(Y\), define \(g(y) := \E(X \mid Y=y)\). Define the conditional expectation of \(X\) given \(Y\), denoted \(\E(X \mid Y\)), as the random variable \(g(Y)\). 
+
+\end{exercise}
+
+Solution: Theorem \ref{prob.541Ahw.condexp.thm}
+
+\begin{theorem}[\textbf{Bahadur's Theorem; Theorem 5.25 in Math 541A notes}] If \(Y\) is a complete sufficient statistic for a family \(\{f_\theta: \theta \in \Theta\}\) of probability densities or probability mass functions, then \(Y\) is a minimal sufficient statistic for \(\theta\).
+
+\end{theorem}
+
+\begin{remark}By Remark 5.11 in Math 541A notes, a complete sufficient statistic is unique up to an invertible map. Also by Example 5.15 in Math 541A notes, the converse of Bahadur's Theorem is false.
+
+\end{remark}
+
+\begin{proof} By Proposition \ref{mathstats.prop.5.12} (Proposition 5.12 in Math 541A notes), there exists a minimal sufficient statistic \(Z\) for \(\theta\). To show that \(Y\) is minimal sufficient, it suffices to find a function \(r\) such that \(Y = r(Z)\). Define \(r(Z) = \E_\theta(Y \mid Z)\). Since \(Z\) is minimal sufficient and \(Y\) is sufficient by assumption, there exists a function \(u\) such that \(Z = u(Y)\). By conditioning on \(Y\) we have by Exercise \ref{mathstats.ex.5.24} (Exercise 5.24 in the Math 541A notes)
+
+\[
+\E_\theta(r(u(Y)) = \E_\theta(r(Z)) = \E_\theta [\E_\theta(r(Z) \mid Y)]  = \E_\theta [\E_\theta( \E_\theta(Y \mid Z) \mid Y)] = \E_\theta [\E_\theta( \E_\theta(Y \mid u(Y)) \mid Y)]
+\]
+
+\[
+= \E_\theta [\E_\theta(Y \mid u(Y))] = \E_\theta(Y).
+\]
+
+That is, \(\E_\theta(r(u(Y) - Y) = 0\) for all \(\theta \in \Theta\). Since \(Y\) is complete, we conclude that \(r(u(Y)) = Y\), and since \(r(u(Y)) = r(Z)\), we have \(r(Z) = Y\), as desired. 
+
+\end{proof}
+
+Basu's theorem tells us that a complete sufficient statistic implies independence from any ancillary statistic. So complete sufficient statistics have no ancillary information, unlike minimal sufficient statistics.
+
+\begin{theorem}[\textbf{Basu's Theorem, Theorem 5.27 in Math 541A notes}] Let \(Y: \Omega \to \mathbb{R}^k\) and \(Z: \Omega \to \mathbb{R}^m\) be statistics. If \(Y\) is a complete sufficient statistic for \(\{f_\theta: \theta \in \Theta\}\) and \(Z\) is ancillary for \(\theta\), then for all \(\theta \in \Theta\), \(Y\) and \(Z\) are independent with respect to \(f_\theta\).
+
+\end{theorem}
+
+\begin{proof} Let \(A \subseteq \mathbb{R}^k\) and \(B \subseteq \mathbb{R}^m\). We need to show that 
+
+\[
+\mathbb{P}_\theta (Y \in A, Z \in B) = \mathbb{P}_\theta (Y \in A) \mathbb{P}_\theta (Z \in B), \qquad \forall \theta \in \Theta.
+\]
+
+Note that
+
+\[
+\mathbb{P}_\theta (Y \in A, Z \in B) = \E_\theta \boldsymbol{1}_{\{Y \in A \}} \boldsymbol{1}_{\{Z \in B\}} =  \E_\theta  \E_\theta(\boldsymbol{1}_{\{Y \in A \}} \boldsymbol{1}_{\{Z \in B\}}  \mid Y) = \E_\theta [  \boldsymbol{1}_{\{Y \in A \}}\E_\theta( \boldsymbol{1}_{\{Z \in B\}}  \mid Y) ].
+\]
+
+Let \(g(Y) := \E_\theta( \boldsymbol{1}_{\{Z \in B\}} \mid Y ) \). Then
+
+ \begin{equation}\label{mathstats.541a.basu.proof}
+\E_\theta (g(Y)) = \E_\theta (\E_\theta( \boldsymbol{1}_{\{Z \in B\}}) = \E_\theta( \boldsymbol{1}_{\{Z \in B\}}) = \mathbb{P}_\theta ( Z \in B).
+\end{equation}
+
+Let \(c:= \mathbb{P}_\theta ( Z \in B) = \E_\theta (g(Y))  = \E_\theta [\E_\theta( \boldsymbol{1}_{\{Z \in B\}} \mid Y )] \). Then \(c\) does not depend on \(\theta\) since \(Z\) is ancillary by assumption. Then \(\E_\theta(g(Y) - c) = 0, \forall \ \theta \in \Theta\) for all \(\theta \in \Theta\). Note that  \(g(Y) := \E_\theta( \boldsymbol{1}_{\{Z \in B\}} \mid Y) \) does not depend on \(\theta\) since \(Y\) is sufficient. Since \(Y\) is complete, \(g(Y) - c - 0 \iff g(Y) = c\), so \(Y\) is constant. Therefore by (\ref{mathstats.541a.basu.proof})
+
+\[
+c = \E_\theta(c) = \E_\theta(g(Y) = \mathbb{P}_\theta ( Z \in B),
+\]
+
+so we have
+
+\[
+\mathbb{P}_\theta (Y \in A, Z \in B) = \mathbb{P}_\theta (Y \in A)g(Y) = \mathbb{P}_\theta (Y \in A)c  = \mathbb{P}_\theta (Y \in A)\mathbb{P}_\theta ( Z \in B)  , \qquad \forall \theta \in \Theta.
+\]
+
+as desired.
 
 \end{proof}
 
 \subsection{Point Estimation}
 
+\begin{definition}[\textbf{Point estimator}] Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) from a family of distribution \(\{f_\theta: \theta \in \Theta\}\). If \(Y\) is a statistic that is used to estimate the parameter \(\theta\) that fits the data at hand, we then refer to \(Y\) as a \textbf{point estimator} or \textbf{estimator}.
+
+\end{definition}
+
+\subsubsection{Heuristic Principles for Finding Good Estimators}
+
+\begin{definition}[\textbf{Likelihood, Definition 6.1 in Math 541A notes}]Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) from a family of distributions \(\{f_\theta: \theta \in \Theta\}\). If we have data \(x \in \mathbb{R}^n\), then the function \(L: \Theta \to [0, \infty)\) defined by \(L(\theta):= f_\theta(x)\) is called the \textbf{likelihood function}.
+
+\end{definition}
+
+
+
+\begin{itemize}
+
+\item \textbf{Likelihood principle:} All data relevant to estimating the parameter \(\theta\) is contained in the likelihood function.
+
+\item \textbf{Sufficiency principle:} If \(Y = t(X_1, \ldots, X_n)\) is a sufficient statistic and if we have two results \(x, y \in \mathbb{R}^n\) from an experiment with the same statistics \(t(x) = t(y)\), then our estimate of the parameter \(\theta\) should be the same for either experimental result.
+
+\item \textbf{Equivariance principle:} If the family of distributions \(\{f_\theta: \theta \in \Theta\}\)  is invariant under some symmetry, then the estimator of \(\theta\) should respect the same symmetry. (For example, a location family is invariant under translation, so an estimator for the location parameter should commute with translations.)
+
+\end{itemize}
+
+\subsubsection{Evaluating Estimators}
+
+We can enumerate several desirable properties for estimators.
+
+\begin{definition}[\textbf{Unbiasedness, Definition 6.2 in Math 541A notes}]Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) from a family of distributions \(\{f_\theta: \theta \in \Theta\}\). Let \(t: \mathbb{R}^n \to \mathbb{R}^k\) and let \(Y:= t(X_1, \ldots, X_n\) be an estimator for \(g(\theta)\). Let \(g:\Theta \to \mathbb{R}^k\). We say that \(Y\) is \textbf{unbiased} for \(g(\theta)\) if \(\E_\theta Y = g(\theta)\) for all \(\theta \in \Theta\).
+
+\end{definition}
+
+One common way to check the quality of an estimator is the mean squared error, or squared \(L_2\) norm, of the estimator minus \(\theta\), \(\E_\theta(Y- g(\theta))^2\). If the estimator is unbiased, this quantity is equal to the variance of \(Y\).
+
+\begin{definition}[\textbf{UMVU, sometimes called MVUE (minimum variance unbiased estimator); Definition 6.3 in Math 541A Notes}]Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) from a family of distributions \(\{f_\theta: \theta \in \Theta\}\). Let \(g: \Theta \to \mathbb{R}\). Let \(t: \mathbb{R}^n \to \mathbb{R}\) and let \(Y:= t(X_1, \ldots, X_n)\) be an unbiased estimator for \(g(\theta)\). We say that \(Y\) is \textbf{uniformly minimum variance unbiased (UMVU)} if, for any other unbiased estimator \(Z\) for \(g(\theta)\), we have \(\Var_\theta(Y) \leq \Var_\theta(Z)\) for all \(\theta \in \Theta\).
+
+\end{definition}
+
+\begin{remark}The ``uniform" property has to do with the fact that this inequality must hold for every \(\theta \in \Theta\) (as opposed to for a particular \(\theta\), or averaged over all \(\theta \in \Theta\), or something like that).
+
+\end{remark}
+
+More generally, given a family of distributions \(\{f_{\tilde{\theta}}: \tilde{\theta} \in \Theta\}\), we could be given a \textbf{loss function} \(L(\theta, y): \Theta \times \mathbb{R}^k \to \mathbb{R}\) and be asked to minimize the \textbf{risk function} \(r(\theta, Y) := \E_{\tilde{\theta}} \big( \ell(\theta, Y) \big)  \) over all possible estimators \(Y\). In the case of mean squared error loss, we have \(L(\theta,y) := (y - g(\theta))^2\) for all \(y, \theta \in \mathbb{R}\).
+
+\
+
+The Rao-Blackwell Theorem says that if \(L(\theta, y)\) is convex in \(y\) then we can create an optimal estimator for \(g(\theta)\) from a sufficient statistic and any estimator for \(g(\theta)\) (we can lower the risk of an estimator \(Y\) by conditioning on a sufficient statistic \(Z\).).
+
+\begin{theorem}[\textbf{Rao-Blackwell; Theorem 6.4 in Math 541A notes}] Let \(Z\) be a sufficient statistic for \(\{f_\theta:\theta \in \Theta\}\) and let \(Y\) be an estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). Let \(\theta \in \Theta\). Then
+
+
+
+\[
+\Var_\theta(W) \leq \Var_\theta (Y).
+\]
+
+Further, let \(r(\theta, y) < \infty\) and such that \(\ell(\theta, y)\) is convex in \(y\). Then
+
+\[
+r(\theta, W) \leq r(\theta, Y).
+\]
+
+\end{theorem}
+
+\begin{proof} Note that since \(Z\) is sufficient, \(W\) does not depend on \(\theta\). By the Conditional Jensen's Inequality (Theorem \ref{cvx.541A.exercise5.89}) and using the convexity of \(\ell(\theta, y)\) in \(y\),
+
+\[
+\ell(\theta, w) = \ell(\theta, \E_{\tilde{\theta}}(Y \mid Z)) \leq \E_{\tilde{\theta}} [ \ell(\theta, Y) \mid Z].
+\]
+
+Take expectations of both sides to get
+
+\[
+\E_{\tilde{\theta}} \ell(\theta, w) =  r(\theta, W)  \leq \E_{\tilde{\theta}} \E_{\tilde{\theta}} [ \ell(\theta, Y) \mid Z] = \E_{\tilde{\theta}} \ell(\theta, Y) = r(\theta, Y).
+\]
+
+\end{proof}
+
+\begin{definition}[\textbf{Definition 6.4 in 541A notes; MISSED SOME NOTES TODAY}]We say \(Y\) is \textbf{uniformly minimum risk unbiased} (UMRU) if for any other unbiased estimator \(Z\) for \(g(\theta)\),
+
+\[
+r(\theta, Y) \leq r(\theta, z), \qquad \forall \ \theta \in \Theta
+\]
+
+\end{definition}
+
+\begin{remark} Unfortunately, UMRU or UMVU may not exist. More fundamentally, an unbiased estimator for \(g(\theta)\) may not exist. For example, let \(X\) be a binomial random variable with known \(n\), unknwon \(0 < \theta < 1\), and \(g(\theta) = \theta/(1-\theta)\). Then no unbiased estimator exists for \(g(\theta)\). Why?
+
+\[
+\E_\theta t(X) = \sum_{j=0}^n t(j) \binom{n}{j}\theta^j(1 -\theta)^{n-j}, \qquad \forall \theta \in \Theta, \text{ by definition of } X.
+\]
+
+where the summation is a polynomial of degree at most \(n\) in \(\theta\). Then it is impossible to have \(\E_\theta t(x) = g(\theta)\) when \(g(\theta) = \theta/(1-\theta)\).
+
+\end{remark}
+
+Recall the definition of strict convexity (Definition \ref{cvx.defn.strictly.convex}). 
+
+\begin{theorem}[\textbf{Rao-Blackwell restated; Theorem 6.7 in Math 541A notes}] Let \(Z\) be a sufficient statistic for \(\{f_\theta:\theta \in \Theta\}\) and let \(Y\) be an estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). Let \(\theta \in \Theta\) with \(r(\theta, y) < \infty\) and such that \(\ell(\theta, y)\) is convex in \(y\). Then
+
+\[
+r(\theta, W) \leq r(\theta, Y).
+\]
+
+Further, if  \(\ell(\theta, y)\) is strictly convex in \(y \in \mathbb{R}\), then \(r(\theta, W) < r(\theta, Y)\) unless \(W = Y\) (that is, there is a unique minimizer of the risk).
+
+\end{theorem}
+
+So \(Z\) makes the estimator better. Question: can we construct \(\E_\theta(Y \mid Z)\) to be UMRU?
+
+\begin{remark}[\textbf{Remark 6.9 in Math 541A notes}] \(\E_\theta W = \E_\theta \E_\theta(Y \mid Z) = \E_\theta Y.\) So if \(Y\) is unbiased for \(g(\theta)\), then so is \(W\).
+
+\end{remark}
+
+\begin{remark} What happens if \(Z\) is constant in Rao-Blackwell? Then in general \(Z\) will not be sufficient, so \(W\) might depend on \(\theta\) which is not allowed. Put another way, if \(Z\) has insufficient information, then \(W\) gets messed up \textbf{(???)}.
+
+\end{remark}
+
+\begin{example} Let \(X_1, \ldots, X_n\) be a random sample with unknown mean \(\mu \in \mathbb{R}\). We want to construct an estimator for \(\mu\) using Rao-Blackwell. Let \(t: \mathbb{R}^n \to \mathbb{R}\) so that \(t(x_1, \ldots, x_n) = x_1\) for all \(x = (x_1, \ldots, x_n) \in \mathbb{R}^n\).  Let \(Y = t(X_1, \ldots, X_n) = X_1\). Note that \(Y\) is unbiased. First use of Rao-Blackwell: use \(Z = (X_1, \ldots, X_n)\). Then by Exercise 5.24,
+
+\[
+W:= \E_\mu(X_1 \mid(X_1, \ldots, X_n)) = \E(X_1 \mid X_1) = X_1.
+\]
+
+We can think of this as failing to improve the estimator because we used ``too much" information. Second try: use \(Z = \sum_{i=1}^n X_i \). Note that in the Gaussian case \(Z\) is sufficient for \(\mu\) and unbiased for \(n \mu\). Since \(X_1, \ldots, X_n\) are i.i.d. for all \(1 \leq k \leq \ell \leq n\) the joint distribution of \((X_k, \sum_{i=1}^n X_i)\) is the same as the joint distribution of \((X_\ell, \sum_{i=1}^n X_i)\). So 
+
+\[
+\E(X_k \mid \sum_{i=1}^n X_i) = \E(X_\ell \mid \sum_{i=1}^n X_i).
+\]
+
+So we have
+
+\[
+W:= \E_\mu \bigg(X_1 \mid \sum_{i=1}^n X_i \bigg) = \frac{1}{n}\sum_{j=1}^n \E_\mu \bigg(X_j \mid \sum_{i=1}^n X_i \bigg) = \frac{1}{n} \E_\mu \bigg(\sum_{j=1}^n X_j \mid \sum_{i=1}^n X_i \bigg) = \frac{1}{n} \sum_{i=1}^n X_i.
+\]
+
+So we started with a trivial estimator \(X_1\) and ended up with the sample mean using Rao-Blackwell.
+
+\end{example}
+
+\begin{theorem}[\textbf{Lehmann-Scheffe, Theorem 6.13 in Math 541A notes}]\label{mathstats.lehmann.scheffe} Let \(Z\) be a complete sufficient statistic for a family of distributions \(\{f_\theta: \theta \in \Theta\}\). Let \(Y\) be an unbiased estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). (Since \(Z\) is sufficient, \(W\) does not depend on \(\theta\).) Then \(W\) is UMRU for \(g(\theta)\). Further, if \(\ell(\theta, y)\) is strictly convex in \(y\) for all \(\theta \in \Theta\), then \(W\) is unique. In particular, \(W\) is the unique UMVU for \(g(\theta)\).
+
+\end{theorem}
+
+\begin{proof} \(W\) is unbiased by Remark 6.10 in math 541A notes (``\(\E_\theta W = \E_\theta \E_\theta(Y \mid Z) = \E_\theta Y.\) So if \(Y\) is unbiased for \(g(\theta)\), then so is \(W\).") We first show \(W\) does not depend on \(Y\). Let \(Y'\) be an unbiased estimator for \(g(\theta)\). We show that \(\E_\theta(Y \mid Z) = \E_\theta(Y' \mid Z) \) for all \(\theta \in \Theta\). Note that
+
+\[
+\E_\theta( \E_\theta(Y \mid Z) - \E_\theta(Y' \mid Z)) = \E_\theta(Y - Y') = g(\theta) - g(\theta) = 0, \ \forall \ \theta \in \Theta
+\]
+
+Note that \( \E_\theta(Y \mid Z) \) and \(\E_\theta(Y' \mid Z)\) are functions of \(Z\). Therefore since \(Z\) is complete, \(\E_\theta(Y \mid Z)  = \E_\theta(Y' \mid Z)\) for all \(\theta \in \Theta\).
+
+\
+
+Next, by Rao Blackwell,
+
+\[
+r(\theta, Y') = r(\theta, \E_\theta(Y' \mid Z)) =  r(\theta, \E_\theta(Y \mid Z)) = r(\theta, W), \ \forall \theta \in \Theta.
+\]
+
+\end{proof}
+
+\begin{remark}[\textbf{Remark 6.14 in Math 541A notes, Theorem 7.3.23 in Casella and Berger}] Let \(Z: \Omega \to \mathbb{R}^k\) be a complete sufficient statistic for \(\{f_\theta: \theta \in \Theta\}\) and let \(h: \mathbb{R}^k \to \mathbb{R}^m\). Let \(g(\theta) := \E_\theta h(Z)\) for all \(\theta \in \Theta\). Then \(h(Z)\) is unbiased for \(g(\theta)\), since \(\E_\theta h(Z) = g(\theta) = \E_\theta (g(\theta)) \). Applying Theorem \ref{mathstats.lehmann.scheffe}, we have
+
+\[
+W := \E_\theta(h(Z) \mid Z) = \E_\theta ( \E_\theta[h(Z) \mid h(Z)] \mid Z ) =  \E_\theta[h(Z) \mid h(Z)] = h(Z).
+\]
+
+Therefore by Theorem \ref{mathstats.lehmann.scheffe}, \(h(Z)\) is UMVU for \(g(\theta)\). That is, any function of a complete sufficient statistic is UMVU for its expected value. So one way to find a UMVU is to come up with a function of a complete sufficient statistic that is unbiased for a given function \(g(\theta)\).
+
+\end{remark}
+
+\textbf{Summary of methods for finding UMVU (given a complete sufficient statistic \(Z\), want to estimate \(g(\theta)\)}
+
+\begin{enumerate}[(1)]
+
+\item \textbf{(Condition method/Rao-Blackwell):} Follow Theorem \ref{mathstats.lehmann.scheffe}: find an unbiased \(Y\) and let \(W:= \E_\theta(Y \mid Z)\). (problem: can be hard to find an unbiased \(Y\).)
+
+\item Solve for \(h: \mathbb{R}^k \to \mathbb{R}\) satisfying
+
+ \begin{equation}\label{mathstats.541a.summ.methods.umvu}
+\E_\theta h(Z) = g(\theta)
+\end{equation}
+
+by the above remark, (\ref{mathstats.541a.summ.methods.umvu}) will also give you the UMVU. Then \(h(Z)\) is UMVU for \(g(\theta)\). By ``solve", consider that we have \(g\) and \(Z\) and somehow solve for the \(h\) satisfying (\ref{mathstats.541a.summ.methods.umvu}). For example if \(Z\) is binomial the left side of (\ref{mathstats.541a.summ.methods.umvu}) will be the sum of a bunch of numbers. Find the \(h\) values that satisfy (\ref{mathstats.541a.summ.methods.umvu}), if possible.
+
+\item \textbf{(Luck method):} Somehow guess the \(h\) such that (\ref{mathstats.541a.summ.methods.umvu}) is satisfied.
+
+\end{enumerate}
+
+\begin{example} Suppose we are sampling from a Gaussian distribution with unknown mean and variance. By the Factorization Theorem and Exercise 5.23 (\textbf{on homework 4}), we know \((\overline{X}, S^2)\) is complete sufficient of \((\mu, \sigma^2)\) (sufficiency follows by the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}), completeness follows by the exercise). For example, using method (2) above, \(\overline{X}\) is UMVU for \(\mu\) (with finite \(\sigma\)) by method (3) above, since \(\overline{X}\) is a function of \((\overline{X}, S^2)\), \(h(x,y):= x\), \(g(\mu, \sigma^2) := \mu\) (then (\ref{mathstats.541a.summ.methods.umvu}) is satisfied). Similarly, \(S^2\) is UMVU for \(\sigma^2\) be (3) using \(h(x,y) := y\), \(g(\mu, \sigma^2) := \sigma^2\) (then (\ref{mathstats.541a.summ.methods.umvu}) is satisfied).
+
+\
+
+Suppose we want a UMVU for \(\mu^2\). Try guessing \((\overline{X})^2\) as an estimator. Note that 
+
+\[
+\E[(\overline{X})^2] = \E \bigg( \frac{1}{n} \sum_{i=1}^n X_i \bigg)^2 = \frac{1}{n^2} \bigg( \sum_{i=1}^n \E X_i^2 + 2 \sum_{1 \leq i < j \leq n} \E X_i \E X_j \bigg) = \ldots =  \mu^2 + \sigma^2/n
+\]
+
+So,
+
+\[
+\E \bigg( \overline{X}^2 - S^2/n \bigg) = \mu^2
+\]
+
+which means that \( \overline{X}^2 - S^2/n\) is UMVU since it is a function of \((\overline{X}, S^2)\).
+
+\end{example}
+
+\begin{example} Try Method (2). Let \(X\) be a binomial random variable with known parameter \(n\) and unknown \(0 < \theta < 1\). Suppose we want to estimate \(g(\theta) := \theta(1-\theta)\). Solve (\ref{mathstats.541a.summ.methods.umvu}): find the \(h\) satisfying
+
+\[
+\theta(1 -\theta) = \E_\theta h(X) 
+\]
+
+\[
+\iff \theta(1 -\theta) =  \sum_{j=0}^n h(j) \binom{n}{j} \theta^j(1 - \theta)^{n-j}, \qquad \forall \theta \in (0,1)
+\]
+
+For convenience, let \(a:= \theta/(1-\theta)\), so that \(a(1-\theta) = \theta \iff \theta = a/(1+a)\), \(1 - \theta = 1/(1+a)\). Then we have
+
+ \begin{equation}\label{mathstats.541a.summ.methods.umvu.ex.2}
+(1 - \theta)^{-n} = \sum_{j=0}^n h(j) \binom{n}{j} a^j =  \theta(1 -\theta)^{1-n} = \frac{a}{1+a} \bigg( \frac{1}{1+a} \bigg)^{1-n} = a(1+a)^{n-2}
+\end{equation}
+
+So we want to solve for \(h(j)\) so that for all \(a > 0\),
+
+\[
+ \sum_{j=0}^n h(j) \binom{n}{j} a^j =a(1+a)^{n-2} = \text{ (RHS of (\ref{mathstats.541a.summ.methods.umvu.ex.2}), by binomial theorem) }  a \sum_{j=0}^{n-2} \binom{n-2}{j} a^j = \sum_{j=1}^{n-1} \binom{n-2}{j}-1 a^j 
+\]
+
+We need the coefficients to match up one by one. So \(h(0) = h(n) = 0\), and then it works if \(h(j)\binom{n}{j} = \binom{n-2}{j-1}\) for all \(j \in 1, \ldots, n-1\). So
+
+\[
+h(j) = \frac{\binom{n-2}{j-1}}{\binom{n}{j}} = \frac{(n-2)!}{n!} \frac{(n-j)! j!}|{(n-j-1)!(j-1)!} = \frac{(n-j)j }{n(n-1)}
+\]
+
+So in fact, 
+
+\[
+h(j) = \frac{(n-j)j}{n(n-1)}, \qquad \forall \ 0 \leq j \leq n
+\]
+
+Therefore the UMVU for \(\theta(1-\theta)\) is 
+
+\[
+\frac{X(n-X)}{n(n-1)}.
+\]
+
+\end{example}
+
+\begin{example}Try Method (1). Suppose we have \(n\) independent samples \(X_1, \ldots, X_n\) from a Bernoulli distribution with unknown \(\theta \in (0,1)\). From Example \ref{prob.math541a.ex.3.15} (Example 3.15 in Math 541A notes) and Exercise 5.23 in Math 541A notes, a complete sufficient statistic is \(Z := \sum_{i=1}^n X_i\) is complete and sufficient for \(\theta\). Also, \((1/n) \sum_{i=1}^n X_i\) is unbiased for \(\theta\). So, \((1/n) \sum_{i=1}^n X-i\) is UMVU for \(\theta\). Suppose we want to estimate \(\theta^2\). We need an unbiased estimator \(Y\) for \(\theta^2\). Let \(Y = X_1 X_2\). Then \(\E(Y) = \E(X_1) \E(X_2) = \theta^2\). By Theorem \ref{mathstats.lehmann.scheffe}, \(W:= \E_\theta(Y \mid Z)\) is UMVU for \(\sigma^2\). Note, \(Y=1\) when \(X_1 = X_2 =1\) and 0 otherwise. So
+
+\[
+\E_\theta(Y \mid Z= z) = \E_\theta(\boldsymbol{1}_{\{X_1 = X_2 = 1\}} \mid Z= z)= \mathbb{P}_\theta (X_1 = X_2 = 1 \mid Z =z ) = \mathbb{P}_\theta(X_1 = X_2 = 1 \mid \sum_{i=1}^n X_i = z)
+\]
+
+\[
+= \frac{1}{\mathbb{P}_\theta \bigg( \sum_{i=1}^n X_i = z\bigg) } \cdot \mathbb{P}_\theta \bigg(X_1 = X_2 = 1 \cap \sum_{i=1}^n X_i = z \bigg) 
+\]
+
+\[
+= \frac{1}{\mathbb{P}_\theta \bigg( \sum_{i=1}^n X_i = z\bigg) } \cdot \mathbb{P}_\theta \bigg(X_1 = X_2 = 1 \cap \sum_{i=3}^n X_i = z - 2 \bigg) 
+\]
+
+\[
+= \frac{\theta^2 \binom{n-2}{z-2} \theta^{z-2} (1 - \theta)^{n-z}}{\binom{n}{z}  \theta^z (1 - \theta)^{n-z}} = \frac{ \binom{n-z}{z-2}  }{ \binom{n}{z}   } = \frac{(n-z)!(n-z)! z!}{n!(n-z)!(z-2)!} = \frac{z(z-1)}{n(n-1)}
+\]
+
+So we have shown that for all \(0 \leq Z \leq n\), 
+
+\[
+\E_\theta(Y \mid Z =z) = \frac{z(z-1)}{n(n-1)}.
+\]
+
+So, by Theorem \ref{mathstats.lehmann.scheffe},
+
+\[
+W := \E_\theta(Y \mid Z) = \frac{Z(Z-1)}{n(n-1)} 
+\]
+
+is UMVU for \(\theta^2\).
+
+\end{example}
+
+\textbf{Question:} If \(W_1\) is UMVU for \(g_1(\theta)\) and \(W_2\) is UMVU for \(g_2(\theta)\), is \(W_1 + W_2\) UMVU for \(g_1(\theta) + g_2(\theta)\)? If there is a complete sufficient statistic, then by Lehmann-Scheffe (Theorem \ref{mathstats.lehmann.scheffe}), \(W_1 = \E_\theta(Y_1 \mid Z)\), \(W_2 = \E(Y _2 \mid Z)\) where \(Y_1\) is unbiased for \(g_1\), \(Y_2\) is unbiased for \(g_2\). Then
+
+\[
+W_1 + W_2 = \E_\theta(Y_1 + Y_2 \mid Z).
+\]
+
+Note: \(\E_\theta(Y-1 + Y_2) = \E_\theta Y_1 + \E_\theta Y_2 = g_1(\theta) = g_Z2(\theta)\). So \(W_1 + W_2\) is UMVU by Lehmann-Scheffe (Theorem \ref{mathstats.lehmann.scheffe}) for \(g_1(\theta) + g_2(\theta)\). But is it true if we don't have a complete sufficient statistic (and this argument doesn't apply)? \textbf{yes, by the theorem below; this condition will clearly hold across sums.}
+
+\begin{theorem}[\textbf{Alternate Characterization of UMVU; Theorem 6.18 in Math 541A notes}] Let \(f \in \{f_\theta: \theta \in \Theta \}\) be a family of distributions and let \(g:\Theta \to \mathbb{R}\). Let \(W\) be an unbiased estimator for \(g(\theta)\) (note that the existence of an unbiased estimator is a nontrival assumption). Let \(L_2(\Omega)\) be the set of statistics with finite second moment. Then \(W \in L_2(\Omega)\) is UMVU for \(g(\theta)\) if and only if for any \(\theta \in \Theta\), 
+\[
+\E_\theta( WU) = 0 , \qquad \forall U \in L_2(\Omega) \text{ that are unbiased estimators of } 0
+\]
+
+Thinking of this as an inner product, we have to be orthogonal to all such \(U\).
+
+\end{theorem}
+
+\begin{proof} Assume \(W\) is UMVU for \(g(\theta)\). Let \(U\) be an unbiased estimator of \(0\). Let \(s \in \mathbb{R}\), consider \(W + sU\). Note that \(W + sU\) is also unbiased for \(g(\theta)\). Since \(W\) is UMVU,
+
+\[
+\Var_\theta (W) \leq \Var_\theta(W + sU) = \Var_\theta(W) + s^2 \Var_\theta(U) + 2s \Cov_\theta(W, U)
+\]
+
+\[
+= \Var_\theta(W) + s^2 \Var(U) + 2s \E_\theta[(W- \E_\theta(W) )U ] , \qquad \forall \theta \in \Theta.
+\]
+
+Note that we have equality when \(s = 0\). Also, the derivative of the right side with respect to \(s\) must be 0 when \(s=0\) or else the inequality does not hold (the minimum value occurs at \(s=0\) if and only if the derivative of the right side in \(s\) is 0 at \(s=0\)). Note that the derivative of the right side is
+
+\[
+0 = 2 \E_\theta [(W - \E_\theta W) U ] = 2 \E_\theta(WU).
+\]
+
+The converse is also true because this reasoning can be reversed, since if \(Y\) is any unbiased estimator for \(g(\theta)\), then \(U:= W - Y\) is an unbiased estimator for 0, and \(Y = W + sU\) with \(s=1\). We have
+
+\[
+\Var_\theta(Y) = \Var_\theta(W - U) = \Var_\theta W + \Var_\theta U + 2 \Cov_\theta(W, U)  = \Var_\theta W + \Var_\theta U + 2 \E_\theta(WU) 
+\]
+
+So \(\Var_\theta Y \geq \Var_\theta W\) for all \(\theta \in \Theta\).
+%
+%\[
+%=\E_\theta[ (W+ sU)- \E_\theta(W)]^2 
+%\]
+
+\end{proof}
+
+\begin{remark} If we have a complete sufficient statistic, better to use the earlier methods in general (unless it is really complicated to work with). If we don't have a complete sufficient statistic, use this theorem.
+
+\end{remark}
+
+\subsubsection{Efficiency of an Estimator} Another desirable property of an estimator is high efficiency---``good" with a small number of samples. One way to quantify this notion is to define a notion of ``information" and try to maximize the information content of the estimator.
+
+\begin{definition}[\textbf{Fisher Information, Definition 6.19 in Math 541A notes}] Let \(f \in \{f_\theta: \theta \in \Theta \}\) be a family of multivariate probability densities or probability mass functions. Assume \(\Theta \subseteq \mathbb{R}\) (this is a one-parameter situation). Let \(X\) be a random variable with distribution \(f_\theta\). Define the \textbf{Fisher information} of the family to be
+
+\[
+I(\theta) = I_X(\theta) := \E_\theta \bigg( \deriv{}{\theta} \log f_\theta (X) \bigg)^2, \qquad \forall \theta \in \Theta
+\]
+
+if this quantity exists and is finite.
+
+\end{definition}
+
+\begin{remark} Note that if \(X\) is continuous, 
+
+\[
+\E_\theta \bigg( \deriv{}{\theta} \log f_\theta (X) \bigg) = \int_{\mathbb{R}^n} \frac{1}{f_\theta(x)} \deriv{}{\theta} f_\theta(x) \cdot f_\theta(x) dx = \int_{\mathbb{R}^n} \deriv{}{\theta} f_\theta(x) dx = \deriv{}{\theta} \int_{\mathbb{R}^n} f_\theta(x) dx = \deriv{}{\theta} 1   = 0.
+\]
+
+So we could have equivalently defined the Fisher information as 
+
+\[
+I_X(\theta) = \Var_\theta \bigg( \deriv{}{\theta} \log f_\theta (X) \bigg)
+\]
+
+\end{remark}
+
+\begin{example}[\textbf{Example 6.20 in Math 541A notes}] Let \(\theta > 0\), let 
+
+\[
+f_\theta(x) := \frac{1}{\sigma \sqrt{2 \pi}} \exp\bigg( - \frac{(x-\theta)^2}{2 \sigma^2} \bigg), \qquad \forall \theta \in \mathbb{R} = \Theta, \ \forall x \in \mathbb{R}.
+\]
+
+Then
+
+\[
+I(\theta) = \Var_\theta \bigg( \deriv{}{\theta} - \frac{(x- \theta)^2}{2 \sigma^2} \bigg) = \frac{1}{\sigma^4} \Var_\theta(x-\theta) = \frac{\sigma^2}{\sigma^4} = \frac{1}{\sigma^2}.
+\]
+
+Observe that a small \(\sigma\) means large \(I(\theta)\) in this case.
+
+\end{example}
+
+\begin{proposition}[\textbf{Proposition 6.21 in Math 541A notes}]\label{mathstats.541.prop.6.21} Let \(X\) be a random variable with distribution from \(\{f_\theta: \theta \in \Theta\}\) (densities or mass functions). Let \(Y\) be a random variable with distribution from \(\{g_\theta: \theta \in \Theta\}\) (densities or mass functions. Assume \(\Theta \subseteq \mathbb{R}\) (one parameter in \(\theta\)). If \(X\) and \(Y\) are independent, then
+
+\[
+I_{(X,Y)}(\theta) = I_X(\theta) I_Y(\theta).
+\]
+
+\end{proposition}
+
+
+
+\begin{proof} This proof will just be for the case of densities (continuous random variables; the case for probability mass functions is similar). Since \(X\) and \(Y\) are independent, \((X,Y)\) has a distribution with density \(f_\theta(x) g_\theta(y)\), for all \(x, y \in \mathbb{R}\). Also, \(\deriv{}{\theta} \log f_\theta(X)\) and \(\deriv{}{\theta} \log g_\theta(Y)\) are independent for all \(\theta \in \Theta\). So,
+
+\[
+I_{(X,Y)}(\theta) = \Var_\theta \bigg( \deriv{}{\theta} \log [f_\theta(X) g_\theta(Y)] \bigg)  = \Var_\theta \bigg( \deriv{}{\theta} \log [f_\theta(X) ] +  \deriv{}{\theta}  \log[ g_\theta(Y)] \bigg)  
+\]
+
+By independence we can write
+
+\[
+ = \Var_\theta \bigg( \deriv{}{\theta} \log [f_\theta(X) ] \bigg) +  \Var_\theta \bigg( \deriv{}{\theta}  \log[ g_\theta(Y)] \bigg)  = I_X(\theta) + I_Y(\theta).
+ \]
+
+\end{proof}
+
+\begin{remark}This is consistent with a notion of ``information" since if variables are independent, the information is the sum of the information of each variable. This proof also shows the main reason why the logarithm is in the definition of the Fisher information---it brings a product to a sum.
+
+\end{remark}
+
+\begin{proposition}[\textbf{Exercise 6.22 in Math 541A notes}]Let \(X\) be a random variable with distribution from \(\{f_\theta:\theta \in \Theta\}\) (densities or mass functions). Let \(Y\) be a random variable with distribution from \(\{g_\theta:\theta \in \Theta\}\) (densities or mass functions). Then
+
+\[
+I_{(X,Y)}(\theta) = I_X(\theta) + I_{Y\mid X =x}(\theta), \qquad \forall \theta \in \Theta, x \in \mathbb{R}.
+\]
+
+\end{proposition}
+
+\begin{proof}Recall that \(Y \mid X\) has density \(f_{X,Y}(x,y)/f_X(x)\) for any fixed \(x\). And if \(X, Y\) are discrete random variables, recall that \(Y\mid X\) has mass function \(\mathbb{P}(X=x, Y=y) /\mathbb{P}(Y=y)\).
+
+\[
+I_{(X,Y)}(\theta) = \Var_\theta \bigg( \deriv{}{\theta} \log [f_{\theta(X, Y)} (x,y)] \bigg)   = \Var_\theta \bigg( \deriv{}{\theta} \log [f_{\theta} (x) f_{\theta(Y \mid X=x)} (y)] \bigg)  
+\]
+
+
+\[
+ = \Var_\theta \bigg( \deriv{}{\theta} \log [f_\theta(X) ] +  \deriv{}{\theta}  \log[  f_{\theta(Y \mid X=x)} (y)] \bigg)  
+\]
+
+Note that \(Y \mid X =x\) is independent of \(X\) (because we have conditioned out the dependence). Therefore we have
+
+\[
+ = \Var_\theta \bigg( \deriv{}{\theta} \log [f_\theta(X) ] \bigg) +  \Var_\theta \bigg( \deriv{}{\theta}  \log[ f_{\theta(Y \mid X=x)} (y)] \bigg)  = I_X(\theta) + I_{Y \mid X = x}(\theta).
+ \]
+
+
+%\[
+% = \Var_\theta \bigg( \deriv{}{\theta} \log [f_\theta(X) ] \bigg) +  \Var_\theta \bigg( \deriv{}{\theta}  \log[ g_\theta(Y)] \bigg)  + 2 \Cov_\theta  \bigg( \deriv{}{\theta} \log [f_\theta(X) ] , \deriv{}{\theta}  \log[ g_\theta(Y)]\bigg)
+% \]
+% 
+% \[
+% = I_X(\theta) +  I_Y(\theta) + 2 \E_\theta  \bigg( \deriv{}{\theta} \log [f_\theta(X) ]  \cdot  \deriv{}{\theta}  \log[ g_\theta(Y)]\bigg) - 2 \E_\theta\bigg( \deriv{}{\theta} \log [f_\theta(X) ]   \bigg) \E_\theta \bigg( \deriv{}{\theta}  \log[ g_\theta(Y)]\bigg)
+% \]
+% 
+%  \[
+% = I_X(\theta) +  I_Y(\theta) + 2 \E_\theta  \bigg( \deriv{}{\theta} \log [f_\theta(X) ]  \cdot  \deriv{}{\theta}  \log[ g_\theta(Y)]\bigg) 
+% \]
+
+\end{proof}
+
+\begin{theorem}[\textbf{Cramer-Rao/Information Inequality, Theorem 6.23 in Math 541A Notes}]\label{mathstats.cramer.rao} Let \(X: \Omega \to \mathbb{R}^n\) be a random variable with distribution from a family of multivariable probability densities or probability mass functions \(\{f_\theta: \theta \in \Theta\}\) with \(\Theta \subseteq \mathbb{R}\). Let \(t: \mathbb{R}^n \to \mathbb{R}\) and let \(Y:= t(X)\) be a statistic. For any \(\theta \in \Theta\) let \(g(\theta) := \E_\theta Y\). Then
+
+\[
+\Var_\theta(Y) \geq \frac{ |g'(\theta)|^2}{I_X(\theta)}, \qquad \forall \theta \in \Theta.
+\]
+
+In particular, if \(Y\) is unbiased for \(\theta\), then \(g(\theta) = \theta\), so,
+
+\[
+\Var_\theta(Y) \geq \frac{ 1}{I_X(\theta)}, \qquad \forall \theta \in \Theta.
+\]
+
+Equality occurs for some \(\theta \in \Theta\) only when \(\deriv{}{\theta} \log f_\theta(x) \) and \(Y - \E_\theta Y\) are multiples of each other. 
+
+\end{theorem}
+
+\begin{remark}For a one-parameter family of distributions, the equality case of Theorem \ref{mathstats.cramer.rao} gives a new way to find a UMVU that avoids any discussion of complete sufficient statistics. This is another way to find a UMVU (\(\deriv{}{\theta}  \log f_\theta (X) \)) that sidesteps the need for a complete sufficient statistic. That is, to find a UMVU. we look for affine functions of \(\deriv{}{\theta}  \log f_\theta (X) \).
+
+\end{remark}
+
+\begin{proof}
+
+\[
+|g'(\theta)| = \left| \deriv{}{\theta} \int_{\mathbb{R}} f_\theta(x) t(x) dx \right| = \left|  \int_{\mathbb{R}} \big( \deriv{}{\theta} \log f_\theta(x) \big) t(x) f_\theta(x) dx \right| = \left| \E_\theta \deriv{}{\theta} \log f_\theta(X)t(X) \right|
+\]
+
+Note that \(\E_\theta \deriv{}{\theta} \log f_\theta(X) = 0\), so this can be written as 
+
+\[
+ = \left| \Cov_\theta \bigg(\deriv{}{\theta} \log f_\theta(X), t(X) \bigg) \right|
+\]
+
+Then by Remark 1.63 in math 541A notes, by the Cauchy-Schwarz inequality,
+
+\[
+\E[ (X - \E X)(Y - \E Y) ] \leq \sqrt{ \Var_\theta(X) \Var_\theta(Y)},
+\]
+
+so we have
+
+\[
+ \left| \Cov_\theta \bigg(\deriv{}{\theta} \log f_\theta(X), t(X) \bigg) \right| \leq \sqrt{ \Var_\theta \bigg( \deriv{}{\theta} \log f_\theta(X) \bigg) \Var_\theta(Y) } = \sqrt{I_X(\theta)} \sqrt{\Var_\theta(Y)}
+\]
+
+\[
+\iff |g'(\theta)| ^2 \leq I_X(\theta) \Var_\theta(Y) \iff \Var_\theta(Y) \geq \frac{ |g'(\theta)|^2}{I_X(\theta)}, \qquad \forall \theta \in \Theta.
+\]
+
+Recall that equality occurs in the Cauchy-Schwarz inequality if and only if \(\deriv{}{\theta} \log f_\theta(x) \) is a constant multiple of \(Y - \E_\theta Y\)  with probability 1.
+
+\end{proof}
+
+\begin{example}[\textbf{Example 6.24}] Suppose \(f_\theta(x) := \theta x^{\theta - 1} \boldsymbol{1}_{0 < x < 1} \) for all \(x \in \mathbb{R}, \theta > 0\). (This is a beta distribution with \(\beta = 1\).) We have
+
+\[
+\deriv{}{\theta} \log f_\theta(x) = \frac{1}{\theta} + \log x, \qquad \forall 0 < x < 1.
+\]
+
+A vector \(X = (X_1, \ldots, X_n)\) of \(n\) independent samples from \(f_\theta\) is distributed according to the product \(\prod_{i=1}^n f_\theta(x_i),\) so that 
+
+\[
+\deriv{}{\theta} \log \prod_{i=1}^n f_\theta(x_i) = \deriv{}{\theta}   \sum_{i=1}^n \log  f_\theta(x_i) = \sum_{i=1}^n \bigg( \frac{1}{\theta} + \log x_i \bigg) = n \bigg( \frac{1}{\theta} + \frac{1}{n} \log \prod_{i=1}^n x_i \bigg), \qquad \forall 0 < x_i < 1, 1 \leq i \leq n.
+\]
+
+Then by Theorem \ref{mathstats.cramer.rao} (Theorem 6.23 in Math 541A notes), any function of \(\deriv{}{\theta} \log \prod_{i=1}^n f_\theta(X_i) \) (plus a constant) is UMVU of its expectation. So, e.g.
+
+\[
+Y:= - \frac{1}{n} \log \prod_{i=1}^n X_i
+\]
+
+is UMVU of its expectation, and \(\E_\theta Y = \theta^{-1}\) since \(\E_\theta \deriv{}{\theta} \log \prod_{i=1}^n f_\theta(X_i) = \E  n \bigg( \frac{1}{\theta} + \frac{1}{n} \log \prod_{i=1}^n x_i \bigg) = 0\).
+
+\end{example}
+
+\begin{definition}[\textbf{Efficiency, Defintion 6.25 in Math 541A notes}] Let \(X: \Omega \to \mathbb{R}\) be a random variable with distribution from a family of multivariable probability densities or probability mass functions \(\{f_\theta: \theta \in \Theta\}\) with \(\Theta \in \mathbb{R}\). Let \(t: \mathbb{R}^n \to \mathbb{R}\) and let \(Y:= t(X)\) be a statistic. Define the \textbf{efficiency} of \(Y\) to be
+
+\[
+\frac{1}{I_X(\theta) \Var_\theta (Y)}, \qquad \forall \theta \in \Theta
+\]
+
+if this quantity exists and is finite. If \(Z\) is another statistic, we define the \textbf{relative efficiency} of \(Y\) to \(Z\) to be
+
+\[
+\frac{I_X(\theta) \Var_\theta(Z)}{I_X(\theta) \Var_\theta(Y)} = \frac{\Var_\theta(Z)}{\Var_\theta(Y)}, \qquad \forall \theta \in \Theta.
+\]
+
+\end{definition}
+
+\subsubsection{Bayes Estimation}
+
+In Bayes estimation, the parameter \(\theta \in \Theta\) is regarded as a random variable \(\Psi\). The distribution of \(\Psi\) reflects our prior knowledge about the probable values of \(\Psi\). Then, given that \(\Psi = \theta\), the conditional distribution of \(X \mid \Psi= \theta\) is assumed to be \(\{f_\theta: \theta \in \Theta \}\), where \(f_\theta: \mathbb{R}^n \to [0, \infty)\). Suppose \(t: \mathbb{R}^n \to \mathbb{R}^k\) and we have a statistic \(Y := t(X)\) and a loss function \(\ell: \mathbb{R}^k \times \mathbb{R}^k \to \mathbb{R}\). Let \(g: \Theta \to \mathbb{R}^k\).
+
+\begin{definition}[\textbf{Bayes estimator, Defintion 6.26 in Math 541A notes}] A \textbf{Bayes estimator} \(Y\) for \(g(\theta)\) with respect to \(\Psi\) is defined such that
+
+\[
+\E \ell(g(\Psi), Y) \leq \E \ell(g(\Psi), Z)
+\]
+
+for all estimators \(Z\). Here the expectation is with respect to both \(\Psi\) and \(Y\). Note that we have not made any assumptions about bias for \(Y\) or \(Z\). To find a Bayes estimator, it is sufficient to minimize the conditional risk.
+
+\end{definition}
+
+\begin{remark} \(t(X)\) can depend on \(\Psi\).
+
+\end{remark}
+
+\begin{proposition}[\textbf{Proposition 6.27 in Math 541A notes}] Suppose there exists \(t: \mathbb{R}^k \to \mathbb{R}\) such that for almost every \(x \in \mathbb{R}^n\), \(Y := t(X) \) minimizes
+
+\[
+\E( \ell(g(\Psi), Z) \mid X = x)
+\]
+
+over all estimators \(Z\). Then \(t(X)\) is a Bayes estimator for \(g(\theta)\) with respect to \(\Psi\).
+
+\end{proposition}
+
+\begin{proof} By assumption,
+
+\[
+\E( \ell(g(\Psi), t(X)) \mid X = x) \leq \E( \ell(g(\Psi), Y) \mid X = x)
+\]
+
+for any estimator \(Y\) and for almost every \(x\). Taking expected values of both sides, we get
+
+\[
+\E \ell(g(\Psi, t(X)) \leq \E \ell(g(\Psi, Y). 
+\]
+
+\end{proof}
+
+\begin{example}[\textbf{Example 6.29 in Math 541A notes}] Suppose \(n=1, g(\theta) = \theta\), and \(\ell(\Psi, Y) = (\Psi - Y)^2\). The minimum value of 
+
+%\[
+%\E[ (\Psi - Y(X))^2 \mid X = x] = \E[(\Psi - Y(x))^2 \mid X = x] = [ \E( \Psi \mid X = x) - Y(x)]^2
+%\]
+
+\[
+\E[ (\Psi - Y(X))^2 \mid X = x] = \E( \Psi^2 - 2 \Psi t(X) + (t(X))^2 \mid X = x) 
+\]
+
+\[
+= \E( \Psi^2 \mid X =x) - 2 t(X)\E(\Psi  \mid X =x)  + (t(X))^2 
+\]
+
+(where we remove expressions with \(x\) from the expectation because we take \(x\) to be fixed) occurs when \(t(x) = \E(\Psi \mid X = x)\). So in this specific case the Bayes estimator is \(Y =t (X) = \E(\Psi \mid X )\).
+
+\
+
+Given that \(\Psi = \theta < 0\), suppose \(X\) is uniform on the interval \([0, \theta]\). (Suppose \(X\) is a single sample \(n=1\) from this distribution.) Also assume that \(\Psi\) has the gamma distribution with parameters \(\alpha =2\) and \(\beta = 1\), so that \(\Psi\) has density \(\theta e^{-\theta} \boldsymbol{1}_{\{\theta > 0\}}\). The joint distribution of \(X\) and \(\Psi\) is then
+
+\[
+f_{\Psi, X}(\theta, x) := \frac{1}{\theta} \boldsymbol{1}_{\{0 < x < \theta\}} \theta e^{-\theta} \boldsymbol{1}_{\{\theta > 0\}} = \boldsymbol{1}_{\{0 < x < \theta\}} e^{-\theta}.
+\]
+
+The marginal distribution of \(X\) is then
+
+\[
+f_X(x) = \boldsymbol{1}_{\{x > 0 \}} \int_{-\infty}^\infty f_{\Psi, X}(\theta, x) d\theta =  \boldsymbol{1}_{\{x > 0 \}} \int_{x}^\infty e^{-\theta} d\theta =  \boldsymbol{1}_{\{x > 0 \}}e^{-x}.
+\]
+
+So the conditional distribution of \(\Psi\) given \(X\) is
+
+\[
+ f_{\Psi \mid X =x} (\theta \mid x) = \frac{f_{\Psi, X}(\theta, x)}{f_X(x)} = \frac{e^{-\theta} \boldsymbol{1}_{\{0 < x < \theta\}}}{e^{-x}\boldsymbol{1}_{\{x>0\}}} = e^{x-\theta} \boldsymbol{1}_{\{0 < x < \theta\}}.
+\]
+
+So,
+
+\[
+\E(\Psi \mid X =x) = \int_{-\infty}^\infty \theta f_{\Psi \mid X =x} (\theta \mid x) d \theta = e^x \int_x^\infty \theta e^{ -\theta} d \theta = e^x((x+1)e^{-x}) = x+1.
+\]
+
+So the Bayes estimator is \(Y = t(X) = \E(\Psi \mid X) = X + 1\). This estimator minimizes \(\E(Y-Z)^2\) over all estimators \(Z\). (\(\ell(a,b) = (a- b)^2, g(\theta) =\theta, \E \ell(g(\Psi), Z)\)).
+
+\
+
+In contrast, the UMVU for one sample is \(2X\) by Theorem \ref{mathstats.lehmann.scheffe}, since \(2X\) is complete sufficient and unbiased for \(\theta\) and \(\E_\theta(2X \mid 2X) = 2X\). (\(X\) uniform on \([0, \theta]\), \(\theta\) unknown, \(\E_\theta X = \theta/2, \forall \ \theta < 0\).) 
+
+\
+
+(Not obvious) For \(n\) samples, \((1 + n^{-1}) X_{(n)}\) is the UMVU for \(\theta\). Note that \(2X\) is recovered when \(n=1\). Remarks: this estimator seems to be sufficient because you could factorize it as in the Factorization Theorem (Theorem \ref{mathstats.factorization.thm}). 
+
+\end{example}
+
 \subsubsection{Method of Moments}
 
+\begin{definition}[\textbf{Consistency, Definition 6.30 in Math 541A notes}] Let \(\{f_\theta: \theta \in \Theta\}\) be a family of distributions. Let \(Y_1, Y_2, \ldots\) be a sequence of estimators of \(g(\theta)\). We say that \(Y_1, Y_2, \ldots\) is \textbf{consistent} for \(g(\theta)\) if for any \(\theta \in \Theta\), \(Y_1, Y_2, \ldots\) converges in probability to the constant value \(g(\theta)\) with respect to the probability distribution \(f_\theta\). That is, \(Y_n \xrightarrow{p} g(\theta)\). (Typically we will take \(Y_n\) to be a function of a random sample of size \(n\) for all \(n \geq 1\).) 
+
+\end{definition}
+
+\begin{example}[\textbf{Example 6.31 in Math 541A notes}] Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) with distribution \(f_\theta\). The Weak Law of Large Numbers (Theorem \ref{asym.wlln}) says that the sample mean is consistent when \(\E_\theta |X_1| M \infty\) for all \(\theta \in \Theta\). More generally, if \(j \geq 1\) is a positive integer such that \(\E_\theta |X_1|^j < \infty\) for all \(\theta \in \Theta\), then the \(j\)th sample moment
+
+\[
+M_j = M_{j,n}(\theta) := \frac{1}{n} \sum_{i=1}^n X_i^j
+\]
+
+is a consistent estimator for \(\mu_j(\theta) := \E X_1^j\).
+
+\end{example}
+
+\begin{definition}[\textbf{Method of Moments, Definition 6.32 in Math 541A notes}] Let \(g:\Theta \to \mathbb{R}^k\). Suppose we want to estimate \(g(\theta)\) for any \(\theta \in \Theta\). Suppose there exists \(h: \mathbb{R}^j \to \mathbb{R}^k\) such that \(g(\theta) = h(\mu_1, \ldots, \mu_j)\). Then the estimator
+
+\[
+h(M_1, \ldots, M_j)
+\]
+
+is a \textbf{method of moments} estimator for \(g(\theta)\), where \(M_j\) is the \(j\)th sample moment
+
+\[
+M_j = M_{j,n}(\theta) := \frac{1}{n} \sum_{i=1}^n X_i^j
+\]
+
+\end{definition}
+
+\begin{example}[\textbf{Example 6.33 in Math 541A notes}] Recall that the standard deviation is
+
+\[
+\sqrt{\Var(X)} = \sqrt{\E(X^2) - [\E(X)]^2}.
+\]
+
+To estimate the standard deviation, we can use \(\Theta = \mathbb{R} \times (0, \infty) = \{(\mu_1, \mu_2): \mu_1 \in \mathbb{R}, \mu_2 > 0\}, j=2\), and \(h(\mu_1, \mu_2) = \sqrt{\mu_2 - \mu_1^2}\), so that the method of moments estimator of the standard deviation is \(\sqrt{M_2 - M_1^2}\).
+
+\end{example}
+
+\begin{remark}The method of moments estimator is not necessarily unbiased.
+
+\end{remark}
+
 \subsubsection{Maximum likelihood estimator}
+
+\begin{remark}Under some reasonable assumptions, the maximum likelihood estimator is consistent. See Keener for details.
+
+\end{remark}
+
+\begin{proposition}[\textbf{Math 541A Proposition 6.40}] For all \(i \in 1, \ldots, n\), if \(\Theta \to f_\theta(x_i)\) is strictly log-concave, then \(\ell(\theta)\) has at most one maximum value.
+
+\end{proposition}
+
+\begin{remark}One example of a function whose log likelihood has no maximum value is \(\exp(-e^{-\theta})\) (as in an extreme value distribution). 
+
+\end{remark}
+
+\begin{remark} Intuition of Lemma 6.50 in Math 541A: if distribution follows \(\theta\) then it is more likely to match distribution function of \(f_\theta\) than \(f_\omega\).
+
+\end{remark}
+
+Note on Theorem 6.53: exponential family is an example of a family that satisfies condition (a).
+
+Note from proof:
+
+\[
+\sqrt{n}\ell_n(\theta) = \frac{1}{\sqrt{n}} \bigg( \sum_{i=1}^n \log f_\theta(x_i) -  \E( \log f_\theta(x_i) ) \bigg) \xrightarrow{d} \mathcal{N} \bigg (0, \frac{1}{I_{X_1}(\theta)} \bigg)
+\]
+
+by the Central Limit Theorem (and Assumption 3 for the variance) since \( \E( \log f_\theta(x_i) ) = 0\). Also,
+
+\[
+\ell_n''(\theta') = \frac{1}{n} \sum_{i=1}^n \deriv{^2}{[\theta']^2} \log f_{\theta'}(x_i)
+\]
+
+which explains the applicability of the Weak Law of Large Numbers.
 
 \begin{proposition}[\textbf{Stats 100B homework problem}] Suppose \(X_1, X_2, \ldots, X_n\) is a random sample from a \(\operatorname{Bernoulli}(p)\) distribution. Let \(X =\sum_{i=1}^n X_i\). Then
 
@@ -1644,7 +3073,7 @@ these likelihood are multiples of each other where \(\alpha\) is a constant. The
 
 \item The maximum likelihood estimator is a consistent estimator for \(p\).
 
-\item \( \frac{\hat{p}(1-\hat{p})}{n-1}\) is an unbiased estimator for \(\Var(\hat{p} = p(1-p)/n\). 
+\item \( \frac{\hat{p}(1-\hat{p})}{n-1}\) is an unbiased estimator for \(\Var(\hat{p}) = p(1-p)/n\). 
 
 \end{enumerate}
 
@@ -1928,7 +3357,7 @@ Therefore \(\hat{\lambda}\) is a consistent estimator of \(\lambda\).
 \end{enumerate}
 \end{proof}
 
-\begin{proposition}[\textbf{Stats 100B homework problem}] Suppose \(X_1, X_2, \ldots, X_n\) is a random sample from a \(\operatorname{Exponential}(\lambda)\) distribution. Then the maximum likelihood estimator of \(\lambda\) is
+\begin{proposition}[\textbf{Stats 100B homework problem, similar to Math 541A example 6.47}] Suppose \(X_1, X_2, \ldots, X_n\) is a random sample from a \(\operatorname{Exponential}(\lambda)\) distribution. Then the maximum likelihood estimator of \(\lambda\) is
 
 \[
 \hat{\lambda} = n / \sum_{i=1}^n X_i = \frac{1}{\bar{X}}.
@@ -1964,7 +3393,7 @@ L = \prod_{i=1}^n \lambda e^{-\lambda X_i} = \lambda^n \exp(-\lambda \sum_{i=1}^
 
 \end{proof}
 
-\begin{proposition}[\textbf{Stats 100B homework problem}] Let \(X_1, X_2, \ldots, X_n\) be an i.i.d. random sample from a normal population with mean zero and unknown variance \(\sigma^2\). Then
+\begin{proposition}[\textbf{Stats 100B homework problem; similar to Math 541A Example 6.45}] Let \(X_1, X_2, \ldots, X_n\) be an i.i.d. random sample from a normal population with mean zero and unknown variance \(\sigma^2\). Then
 
 \begin{enumerate}[(a)]
 
@@ -1974,7 +3403,7 @@ L = \prod_{i=1}^n \lambda e^{-\lambda X_i} = \lambda^n \exp(-\lambda \sum_{i=1}^
 \hat{\sigma^2} = \frac{1}{n} \sum_{i=1}^n X_i^2.
 \]
 
-\item The maximum likelihood estimator of \(\sigma^2\) is unbiased.
+\item The maximum likelihood estimator of \(\sigma^2\) is biased, but asymptotically unbiased.
 
 \item The maximum likelihood estimator of \(\sigma^2\) has variance
 
@@ -1985,6 +3414,14 @@ L = \prod_{i=1}^n \lambda e^{-\lambda X_i} = \lambda^n \exp(-\lambda \sum_{i=1}^
 and is consistent.
 
 \item The variance of the maximum likelihood estimator of \(\sigma^2\) reaches the Cramer-Rao lower bound.
+
+\item The maximum likelihood estimator of \(\mu\) is
+
+\[
+\hat{\mu} = \frac{1}{n} \sum_{i=1}^n X_i
+\]
+
+and it is unbiased and UMVU/MVUE.
 
 \end{enumerate}
 
@@ -1998,28 +3435,28 @@ and is consistent.
 \item Since sample is i.i.d. \(\mathcal{N}(0, \sigma^2) \):
 
 \[
-L = \prod_{i=1}^n \frac{1}{\sigma \sqrt{2 \pi}} \exp\bigg(- \frac{1}{2} \bigg[\frac{X_i}{\sigma}\bigg]^2 \bigg) = (2 \pi\sigma^2)^{-n/2} \exp\bigg(- \frac{1}{2 \sigma^2} \sum_{i=1}^n X_i^2 \bigg)
+L = \prod_{i=1}^n \frac{1}{\sigma \sqrt{2 \pi}} \exp\bigg(- \frac{1}{2} \bigg[\frac{X_i - \mu}{\sigma}\bigg]^2 \bigg) = (2 \pi\sigma^2)^{-n/2} \exp\bigg(- \frac{1}{2 \sigma^2} \sum_{i=1}^n (X_i - \mu)^2 \bigg)
 \]
 
 \[
-\log(L) = -\frac{n}{2} \log(2 \pi\sigma^2) - \frac{1}{2 \sigma^2} \sum_{i=1}^n X_i^2 =  -\frac{n}{2} \log(2 \pi) - \frac{n}{2} \log(\sigma^2) - (\sigma^2)^{-1} \frac{1}{2} \sum_{i=1}^n X_i^2
+\log(L) = -\frac{n}{2} \log(2 \pi\sigma^2) - \frac{1}{2 \sigma^2} \sum_{i=1}^n (X_i - \mu)^2 =  -\frac{n}{2} \log(2 \pi) - \frac{n}{2} \log(\sigma^2) - (\sigma^2)^{-1} \frac{1}{2} \sum_{i=1}^n (X_i - \mu)^2
 \]
 
 \[
-\pderiv{\log(L)}{\sigma^2} = -\frac{n}{2} \frac{1}{\sigma^2} +   ({\sigma^2})^{-2} \frac{1}{2}  \sum_{i=1}^n X_i^2 = 0
+\pderiv{\log(L)}{\sigma^2} = -\frac{n}{2} \frac{1}{\sigma^2} +   ({\sigma^2})^{-2} \frac{1}{2}  \sum_{i=1}^n (X_i - \mu)^2 = 0
 \]
 
 \[
-\frac{\sum_{i=1}^n X_i^2}{(\hat{\sigma^2})^2}  = \frac{n}{\hat{\sigma^2}}
+\frac{\sum_{i=1}^n (X_i - \mu)^2}{(\hat{\sigma^2})^2}  = \frac{n}{\hat{\sigma^2}}
 \]
 
 \[
-\hat{\sigma^2} = \frac{1}{n} \sum_{i=1}^n X_i^2
+\hat{\sigma^2} = \frac{1}{n} \sum_{i=1}^n (X_i - \mu)^2
 \]
 
 
 % 12b
-\item 
+\item \textbf{something wrong with this part}
 
 \[
 \E \bigg(  \frac{1}{n} \sum_{i=1}^n X_i^2 \bigg) = \frac{1}{n} \E \bigg(  \sum_{i=1}^n X_i^2 \bigg)
@@ -2050,6 +3487,11 @@ Therefore
 \E \bigg(  \frac{1}{n} \sum_{i=1}^n X_i^2 \bigg) = \frac{1}{n}   \sum_{i=1}^n \ \sigma^2 = \frac{1}{n} n \sigma^2 = \boxed{\sigma^2}
 \]
 
+However it is asymptotically biased: that is,
+
+\[
+\lim_{n \to \infty} \frac{\E( \hat{\sigma}^2)}{\sigma^2} = 1
+\]
 
 
 % 12c
@@ -2122,15 +3564,285 @@ So this is a consistent estimator of \(\sigma^2\).
 
 Therefore the variance of this estimator is equal to the Cramer-Rao lower bound.
 
+\
+
+Alternative solution (Math 541A):
+
+\[
+I_X(\sigma) = I_{(X_1, \ldots, X_n)}(\sigma) = \text{(by Proposition \ref{mathstats.541.prop.6.21} (Proposition 6.21 in Math 541A notes)) }  n I_{X_1}(\sigma)
+\]
+
+\[
+= n \Var_\sigma \bigg( \deriv{}{\sigma} \log \bigg( \frac{1}{\sigma \sqrt{2\pi}} \exp \bigg(- \frac{(X_1 - \mu)^2}{2 \sigma^2} \bigg) \text{ (by definition of Fisher information)}
+\]
+
+
+\[
+= n \Var_\sigma \bigg[ - \frac{1}{\sigma} - \deriv{}{\sigma} \bigg( \frac{(-X_1 - \mu)^2}{2 \sigma^2} \bigg)  \bigg] = n \sigma^{-6} \Var_\sigma \big( (X_1 - \mu)^2 \big) 
+\]
+
+\[
+= n \sigma^{-6} \big( \E(X_1 - \mu)^4 - \big[ \E(X_1 - \mu)^2 \big]^2 \big) = n \sigma^{-6} \sigma^4(3 - 1) = \frac{2n}{\sigma^2}.
+\]
+
+
+By Cramer-Rao,
+
+\[
+\Var_{\sigma}(z) \geq \frac{|g'(0)|^2}{I_X(0)}
+\]
+
+Note that \(g(\sigma) = \E Y = \frac{n-1}{n} \sigma^2\) and that \(\E \sum_{j=1}^n (X_j - \overline{X})^2 = \sigma^2(n-1)\). If \(Z\) is unbiased for \(\sigma^2\),
+
+\[
+g'(\sigma) = \frac{2 \sigma (n-1)}{n} |g'(\sigma)|^2 = \frac{4 \sigma^2 (n-1)^2}{n^2}
+\]
+
+So,
+
+\[
+\Var_{\sigma}(z) \geq \frac{4 \sigma^2(n-1)^2}{n^2 2 n \sigma^{-2}} = \frac{2 (n-1)^2 \sigma^4}{n^3}.
+\]
+
+Note that
+
+\[
+frac{n-1}{\sigma^2} \sum_{j=1}^n (X_j  - \overline{X})^2  \sim \chi_{n-1}^2
+\]
+
+%\[
+%\Var(Y) =  \Var \bigg( \frac{1}{\sigma^2} \sum_{j=1}^n (X_j  - \overline{X})^2 \bigg)
+%\]
+
+%\[
+%\Var_\sigma( \hat{\sigma}^2) \geq \frac{1}{I_X(\sigma)} = \frac{\sigma^2}{2n}
+%\]
+
+\[
+\vdots
+\]
+
+Note that
+
+\[
+\frac{(n-1)S_n^2}{\sigma^2} \sim \chi_n^2 \implies \Var( \frac{1}{\sigma^2} \sum_{i=1}^n (X_i - \overline{X})^2) = (n-1) \cdot 2
+\]
+
+
+\[
+\implies \Var(\hat{\sigma}^2) = \Var_\sigma ( \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^2)  = \frac{1}{n^2} \sigma^4 \Var_\sigma(\sigma^{-2} \sum_{i=1}^n (X_i - \overline{X})^2) = \frac{2 \sigma^4(n-1)}{n^2}
+\]
+\item 
+
+\[
+\log(L) = -\frac{n}{2} \log(2 \pi) - \frac{n}{2} \log(\sigma^2) - (\sigma^2)^{-1} \frac{1}{2} \sum_{i=1}^n X_i^2
+\]
+
+\[
+\pderiv{\log(L)}{\mu} = \sum_{i=1}^n \frac{x_i - \mu}{\sigma^2} = 0 \iff n \mu = \sum_{i=1}^n x_i \iff \mu = \frac{1}{n}  \sum_{i=1}^n x_i 
+\]
+
+%\[
+%\frac{\sum_{i=1}^n X_i^2}{(\hat{\sigma^2})^2}  = \frac{n}{\hat{\sigma^2}}
+%\]
+
+\[
+\implies \hat{\mu} = \frac{1}{n} \sum_{i=1}^n X_i
+\]
+
+Also note that 
+
+\[
+\E( \hat{\mu}) = \E  \frac{1}{n} \sum_{i=1}^n X_i = \frac{1}{n} \cdot n \mu = \mu.
+\]
+
 \end{enumerate}
+
+\end{proof}
+
+\begin{example}[\textbf{Example 6.46, Math 541A notes}] Alternative solution at \url{https://math.stackexchange.com/questions/49543/maximum-estimator-method-more-known-as-mle-of-a-uniform-distribution}
+
+\end{example}
+
+\begin{proposition}[\textbf{Functional Equivariance of the MLE; Proposition 6.49 from Lecture Notes, Theorem 7.2.10 in Casella and Berger}]Let \(g:\Theta \to \Theta'\) be a bijection. Suppose \(Y\) is the MLE of \(\theta\). Then \(g(Y)\) is the MLE of \(g(\theta)\).
+
+\end{proposition}
+
+\begin{proof}[Proof (case when \(g\) is invertible)]Note that if \(\ell(\theta)\) is the likelihood function for \(\theta\), then the likelihood function for \(g(\theta)\) can be expressed as 
+
+\[
+\ell(g(\theta)) = \prod_{i=1}^n f_\theta(x_i \mid g^{-1}(g(\theta))) = \ell(g^{-1}(g(\theta))) = \ell(g^{-1}(\theta'))
+\]
+
+where \(\theta' = g(\theta)\). By definition of the MLE, \(Y = t(X_1, \ldots, X_n)\) achieves the maximum value of \(\theta \mapsto \ell(\theta)\). Therefore we can equivalently say \(g(Y) = g(t(X_1, \ldots, X_n))\) achieves the maximum value of \(\theta' \mapsto \ell(g^{-1}(\theta'))\).
+
+(For a proof when \(g\) is not invertible, see Theorem 7.2.10 in Casella and Berger (p.320).)
+
+\end{proof}
+
+\begin{proposition}[\textbf{Math 541A Homework Problem}]
+Let $X_{1},\ldots,X_{n}$ be a random sample of size $n$, so that $X_{1}$ has the Laplace density $\frac{1}{2}e^{-|x-\theta|}$ for all $x\in\mathbb{R}$, where $\theta\in\mathbb{R}$ is unknown. Then the MLE of $\theta$ is the mdiean.
+\end{proposition}
+
+\begin{proof}
+
+\[
+f(x_i; \theta) = \frac{1}{2}e^{-|x_i-\theta|}
+\]
+
+\[
+\implies L = \prod_{i=1}^n  \frac{1}{2}e^{-|x_i-\theta|} = 2^{-n}  \exp \bigg(- \sum_{i=1}^n  |x_i-\theta|\bigg)
+\]
+
+\[
+\implies \log(L) = -n \log (2) - \sum_{i=1}^n  |x_i-\theta|  \implies  \deriv{\log(L)}{\theta} = - \sum_{i=1}^n  \deriv{}{\theta} |x_i-\theta| = - \sum_{i=1}^n \operatorname{sgn} (x_i-\theta)
+\]
+
+since  \(\deriv{|x|}{x} =  \operatorname{sgn}(x)\). Next set this equal to 0 and solve:
+
+\[
+ - \sum_{i=1}^n \operatorname{sgn} (x_i-\hat{\theta}_{MLE}) = 0 
+ \]
+ 
+Notice that if \(n\) is even then the median set as \(\hat{\theta}_{MLE}\) satisfies the above equation. If \(n\) is odd, the median is still the best we can do. So the MLE is the median.
+
+%\[
+%\implies 
+%\hat{\theta}_{MLE} = \frac{1}{n} \sum_{i=1}^n X_i = \overline{x}.
+%\]
+%
+%\[
+%\vdots
+%\]
+%
+%
+%\[
+%\vdots
+%\]
+
 
 \end{proof}
 
 \subsubsection{Bayes estimator}
 
-\subsubsection{EM Alglorithm}
+\subsubsection{EM Algorithm}
+
+\begin{remark}[\textbf{Correction to Remark 6.57}]If \(Y\) is constant, the algorithm just outputs \(\theta_0\) in one step by the Likelihood Inequality (Lemma 6.50 in lecture notes):
+
+\[
+\E_\theta  \log \left( \frac{f_\theta(X) }{f_{\omega}(X) }  \right) \geq 0 \iff \E_\theta \log f_\theta(X) - \E_\theta \log f_\omega(X) \geq 0
+\]
+
+has equality only when \(\omega = \theta\) (if \(\mathbb{P}_\theta \neq \mathbb{P}_\omega \ \forall \theta \neq \omega\)). So
+
+\[
+\E_\theta \log f_\theta(X) \geq \E_\theta \log f_\omega(X).
+\]
+
+\end{remark}
+
+\begin{remark}[\textbf{note on proof of Lemma 6.58}]
+
+\[
+Y = t(X), \qquad f_{X,Y}(x,.y) = f_X(x) \boldsymbol{1}_{y=t(x)}.
+\]
+
+\end{remark}
 
 \subsubsection{Comparison of estimators}
+
+\subsection{Resampling and Bias Reduction}
+
+\subsubsection{Jackknife Resampling}
+
+\[
+Z_n :=  Y_n + (n-1) \bigg(Y_n - \frac{1}{n} \sum_{i=1}^n t_{n-1}(X_1, \ldots, X_{i-1}, X_{i+1}, \ldots, X_n) \bigg) 
+\]
+
+\subsubsection{Bootstrapping}
+
+\subsection{Some Concentration of Measure}
+
+\subsubsection{Concentration for Independent Sums}
+
+Can generate similar results for other random variables---just need different bound on moment-generating function (generally is fine as long as values of random variable are bounded between two real numbers, but more work to prove). However, doesn't work when values aren't bounded (e.g. for Gaussian random variables).
+
+\begin{itemize}
+
+\item What about other unbounded random variables?
+
+\item What about dependent random variables?
+
+\end{itemize}
+
+General question: \textbf{how far is a random variable from its mean?} Will first address functions of independent Gaussian random variables.
+
+\begin{definition}[\textbf{Lipschitz functions}]A real-valued function \(f:\mathbb{R}^n \to \mathbb{R}\) is called \textbf{Lipschitz continuous} or \textbf{\(L\)-Liptschitz} if there exists a positive real constant \(L\) such that for all \(x_1, x_2 \in \mathbb{R}^n\), 
+
+\[
+|f(x_1) - f(x_2)| \leq L \lVert x_1 - x_2 \rVert_2.
+\]
+
+\end{definition}
+
+\begin{theorem}[\textbf{Theorem 8.5 in 541A notes}]
+
+Note from proof: use the fact that since \(f\) is 1-Lipschitz, \( \lVert \deriv{f(X)}{x_i} \rVert_2^2 \leq 1\).
+
+\end{theorem}
+
+\begin{theorem}[\textbf{Theorem 8.6 in 541A notes}]
+
+Notes from proof: change bounds on integral to \(8a/\pi\). Then since \(u \geq 8a/\pi \iff -a \geq - \pi u/8\), we have
+
+\[
+\lVert \Pi(X) \rVert  > u \implies \lVert \Pi(X) \rVert - a > u - a \geq u - \pi/8 u > u/2.
+\]
+
+Therefore 
+\[
+\Pr(\lVert \Pi (X) \rVert > u) = \Pr(\lVert \Pi( X) \rVert > u)  \geq \Pr( | \lVert \Pi(x) \rVert -a | > u/2) .
+\]
+
+\[
+\vdots
+\]
+
+Loose bound: \(a^2 e^{-a^2} \leq 10\) for all \(a > 0\). (\(k > 1\)).
+
+\[
+\vdots
+\]
+
+\[
+\E \lVert \Pi(X) \rVert ^4 \leq 2^{12} a^4 + 10^6 k^2
+\]
+
+then by Jensen's Inequality, 
+
+\[
+a^4 = ( \E \lVert \Pi(X) \rVert)^4 \leq ( \E \lVert \Pi(X) \rVert^2)^2
+\]
+
+So \(2^{12} a^4 \leq 2^{12}  ( \E \lVert \Pi(X) \rVert^2)^2\). Then we chose \(10^{10}\) to make things easy and say
+
+\[
+2^{12}a^4 + 10^6 k^2 \leq 10^{10} ( \E \lVert \Pi(X) \rVert^2)^2.
+\]
+
+Summary:
+
+\[
+Z:= \lVert \Pi(X) \rVert^2, \qquad \E(Z^2) = k, \qquad \E (Z^4) \leq 10^{10} (\E (Z^2))^2.
+\]
+
+\[
+\vdots
+\]
+
+Union bound (Boole's Inequality)
+
+\end{theorem}
 
 \subsection{Hypothesis Testing}
 
@@ -2191,7 +3903,8 @@ as the form for our critical region.
 
 
 
-
+%\bibliographystyle{abbrvnat}
+%\bibliography{mybib2fin}
 %\end{document}
 
 
