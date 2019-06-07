@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  30 MAY 2019 17:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  7 JUN 2019 15:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -828,63 +828,112 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 198.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (18.72131pt too wide) detected at line 222
+ \OMS/cmsy/m/n/10 ([])  [] [] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[]  \OMS/c
+msy/m/n/10 ([])  [] [] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[]
+ []
 
-Overfull \hbox (1.77472pt too wide) detected at line 418
+[2] [3]
+Overfull \hbox (1.77472pt too wide) detected at line 467
 \U/msb/m/n/10 E [] \OT1/cmr/m/n/10 = \U/msb/m/n/10 E [] \OT1/cmr/m/n/10 = \U/ms
 b/m/n/10 E [] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 t\OT1/cmr/
 m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )\U/msb/m/n/10 E [] \OT1/cmr/m/n/10 +
  \OML/cmm/m/it/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )[]
  []
 
-[4] [5]
-Overfull \hbox (6.73524pt too wide) in paragraph at lines 590--591
+[4] [5] [6]
+Overfull \hbox (1.74573pt too wide) in paragraph at lines 661--662
+[]\OT1/cmr/m/n/10 Continue un-til con-ver-gence; that is, un-til the av-er-age 
+ab-so-lute change in $[]$ is less than $\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^A
+ [] j\OML/cmm/m/it/10 S[]\OMS/cmsy/m/n/10 j$\OT1/cmr/m/n/10 , 
+ []
+
+[7] [8]
+Overfull \hbox (6.73524pt too wide) in paragraph at lines 792--793
 []\OT1/cmr/m/n/10 where $\U/msb/m/n/10 I[]$ \OT1/cmr/m/n/10 is an in-di-ca-tor 
 func-tion. No-tice that when $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 is neg-a-
 tive, if $[] = 
  []
 
 
-Overfull \hbox (3.56546pt too wide) in paragraph at lines 590--591
+Overfull \hbox (3.56546pt too wide) in paragraph at lines 792--793
 \OT1/cmr/m/n/10 when $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 is neg-a-tive the
  in-fi-mum is 0. When $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 is pos-i-tive, i
 f $[] = []$ 
  []
 
-[6] [7] [8] [9] (./2018 In-Class Exam.bbl) [10] (./2018 In-Class Exam.aux) ) 
+[9] [10] [11] [12] (./2018 In-Class Exam.bbl
+Underfull \hbox (badness 2564) in paragraph at lines 9--14
+\OT1/cmr/m/it/10 Jour-nal of Econo-met-rics\OT1/cmr/m/n/10 , 147:186--197, 2008
+.  doi: 10.1016/j.jeconom.2008.09.017.  URL 
+ []
+
+
+Underfull \hbox (badness 2529) in paragraph at lines 16--22
+\OT1/cmr/m/n/10 i-cal lasso.  \OT1/cmr/m/it/10 Bio-statis-tics\OT1/cmr/m/n/10 ,
+ 9(3):432--441, 2008.  doi: 10.1093/bio-statis-tics/kxm045.  URL 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--31
+[]\OT1/cmr/m/n/10 M. E. Muller.  A Note on a Uni-formly Method for Gen-er-at-in
+g Points on N- 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--31
+\OT1/cmr/m/n/10 Dimensional Spheres.  \OT1/cmr/m/it/10 Com-mu-ni-ca-tions of th
+e ACM\OT1/cmr/m/n/10 , 2:19--20, 1959.  URL 
+ []
+
+
+Overfull \hbox (149.23972pt too wide) in paragraph at lines 24--31
+\OT1/cmtt/m/n/10 http://delivery.acm.org.libproxy1.usc.edu/10.1145/380000/37794
+6/p19-muller.pdf?ip=132.174.255.3&id=377946&acc=ACTIVE 
+ []
+
+
+Overfull \hbox (223.41681pt too wide) in paragraph at lines 24--31
+\OT1/cmtt/m/n/10 SERVICE&key=B63ACEF81C6334F5.C52804B674E616B8.4D4702B0C3E38B35
+.4D4702B0C3E38B35&[][]acm[][]=1559508442[]3ad6c8548bc08a0694a945e1d7f5e5e5\OT1/
+cmr/m/n/10 .  
+ []
+
+) [13] (./2018 In-Class Exam.aux) ) 
 Here is how much of TeX's memory you used:
- 14582 strings out of 492649
- 289519 string characters out of 6129622
- 346945 words of memory out of 5000000
- 18145 multiletter control sequences out of 15000+600000
+ 14596 strings out of 492649
+ 289821 string characters out of 6129622
+ 352125 words of memory out of 5000000
+ 18159 multiletter control sequences out of 15000+600000
  14819 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,14n,66p,1157b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
-</u
-sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></u
-sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/20
-18/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
-18/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "2018 In-Class Exam.pdf" (10 pages, 235416 bytes).
+</usr/local/texlive/2018/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
+/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsl10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/sym
+bols/msbm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msbm7.pfb>
+Output written on "2018 In-Class Exam.pdf" (13 pages, 261542 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 130 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

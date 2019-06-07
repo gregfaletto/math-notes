@@ -1,149 +1,149 @@
-%\documentclass{article}
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage[document]{ragged2e}
+\usepackage{textcomp}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{import}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+\usepackage{import}
+\usepackage{natbib}
+
+\usetikzlibrary{automata,positioning}
+
+
+% Basic Document Settings
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\setlength{\parskip}{1em}
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+
+\newcommand{\hmwkTitle}{Math Review Notes---Linear Regression}
+\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+
+
+% Title Page
+
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{ \hmwkTitle}}\\
+}
+
+\author{Gregory Faletto}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+% Various Helper Commands
+
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+ %Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+ %Tilde
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+
+\
+
+\
+
+\begin{center}
+Last updated \today
+\end{center}
+
+
+
+\newpage
+
 %
-%\usepackage{fancyhdr}
-%\usepackage{extramarks}
-%\usepackage{amsmath}
-%\usepackage{amsthm}
-%\usepackage{amsfonts}
-%\usepackage{mathrsfs}
-%\usepackage{tikz}
-%\usepackage{enumerate}
-%\usepackage{graphicx}
-%\graphicspath{ {images/} }
-%\usepackage[plain]{algorithm}
-%\usepackage{algpseudocode}
-%\usepackage[document]{ragged2e}
-%\usepackage{textcomp}
-%\usepackage{color}   %May be necessary if you want to color links
-%\usepackage{import}
-%\usepackage{hyperref}
-%\hypersetup{
-%    colorlinks=true, %set true if you want colored links
-%    linktoc=all,     %set to all if you want both sections and subsections linked
-%    linkcolor=black,  %choose some color if you want links to stand out
-%}
-%\usepackage{import}
-%\usepackage{natbib}
-%
-%\usetikzlibrary{automata,positioning}
-%
-%
-%% Basic Document Settings
-%
-%
-%\topmargin=-0.45in
-%\evensidemargin=0in
-%\oddsidemargin=0in
-%\textwidth=6.5in
-%\textheight=9.0in
-%\headsep=0.25in
-%\setlength{\parskip}{1em}
-%
-%\linespread{1.1}
-%
-%\pagestyle{fancy}
-%\lhead{\hmwkAuthorName}
-%\lfoot{\lastxmark}
-%\cfoot{\thepage}
-%
-%\renewcommand\headrulewidth{0.4pt}
-%\renewcommand\footrulewidth{0.4pt}
-%
-%\setlength\parindent{0pt}
-%
-%
-%\newcommand{\hmwkTitle}{Math Review Notes---Linear Regression}
-%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
-%
-%
-%% Title Page
-%
-%
-%\title{
-%    \vspace{2in}
-%    \textmd{\textbf{ \hmwkTitle}}\\
-%}
-%
-%\author{Gregory Faletto}
-%\date{}
-%
-%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
-%
-%
-%% Various Helper Commands
-%
-%
-%% Useful for algorithms
-%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
-%
-%% For derivatives
-%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
-%
-%% For partial derivatives
-%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
-%
-%% Integral dx
-%\newcommand{\dx}{\mathrm{d}x}
-%
-%% Alias for the Solution section header
-%\newcommand{\solution}{\textbf{\large Solution}}
-%
-% %Probability commands: Expectation, Variance, Covariance, Bias
-%\newcommand{\E}{\mathbb{E}}
-%\newcommand{\Var}{\mathrm{Var}}
-%\newcommand{\Cov}{\mathrm{Cov}}
-%\newcommand{\Bias}{\mathrm{Bias}}
-%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
-%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
-%\DeclareMathOperator{\Tr}{Tr}
-%
-%\theoremstyle{definition}
-%\newtheorem{theorem}{Theorem}
-%\theoremstyle{definition}
-%\newtheorem{corollary}{Corollary}[theorem]
-%\theoremstyle{definition}
-%\newtheorem{proposition}[theorem]{Proposition}
-%\theoremstyle{definition}
-%\newtheorem{lemma}[theorem]{Lemma}
-%\theoremstyle{definition}
-%\newtheorem{definition}{Definition}[section]
-%\newtheorem*{remark}{Remark}
-%\theoremstyle{definition}
-%\newtheorem{example}{Example}[section]
-%
-% %Tilde
-%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
-%
-%\begin{document}
-%
-%\maketitle
-%
-%\pagebreak
-%
-%\tableofcontents
-%
-%\
-%
-%\
-%
-%\begin{center}
-%Last updated \today
-%\end{center}
 %
 %
 %
-%\newpage
 %
-%%
-%%
-%%
-%%
-%%
-%%
-%%
-%%
 %
-%% Econometrics and Linear Regression
+%
+%
+
+% Econometrics and Linear Regression
 
 \section{Linear Regression}
 
@@ -1136,14 +1136,19 @@ which equals (\ref{linreg.aic.ftest.proof.b}). Our condition for preferring a re
 \end{proof}
 
 \subsection{Ridge Regression}
-
-\begin{proposition}[\textbf{Math 541A Homework Problem}] Suppose $\boldsymbol{\beta}\in\mathbb{R}^{k}$ is an unknown vector, and for all $1\leq i\leq n$, there are known vectors $x^{(1)},\ldots,x^{(n)}\in\mathbb{R}^{k}$.  Our observed data are $\boldsymbol{y} = (y_{1},\ldots,y_{n})\in\mathbb{R}^n$. Let $\boldsymbol{X}$ be the $n\times k$ matrix so that the $i^{th}$ row of $\boldsymbol{X}$ is the row vector $x^{(i)}$.  Assume that $k\leq n$ and the matrix $\boldsymbol{X}$ has full rank. Let $\lambda>0$ and consider the quantity
+Suppose $\boldsymbol{\beta}\in\mathbb{R}^{p}$ is an unknown vector, and for all $1\leq i\leq n$, there are known vectors $x^{(1)},\ldots,x^{(n)}\in\mathbb{R}^{p}$.  Our observed data are $\boldsymbol{y} = (y_{1},\ldots,y_{n})\in\mathbb{R}^n$. Let $\boldsymbol{X}$ be the $n\times p$ matrix so that the $i^{th}$ row of $\boldsymbol{X}$ is the row vector $x^{(i)}$.  Assume that $p\leq n$ and the matrix $\boldsymbol{X}$ has full rank. Let $\lambda>0$ and consider the quantity
 
 \begin{equation}\label{math541a.hw7.3.eq1}
- \sum_{i=1}^{n}\left(y_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda\lVert \boldsymbol{\beta}\rVert_2^{2}
+ \sum_{i=1}^{n}\left(y_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda\lVert \boldsymbol{\beta}\rVert_2^{2} = \lVert \boldsymbol{y} - \boldsymbol{X} \boldsymbol{\beta} \rVert_2^2 +\lambda\lVert \boldsymbol{\beta}\rVert_2^{2}
 \end{equation}
 
-Then the value of $\hat{\boldsymbol{\beta}}\in\mathbb{R}^{k}$ that minimizes (\ref{math541a.hw7.3.eq1}) is \(\hat{\boldsymbol{\beta}} = (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k)^{-1}\boldsymbol{X}^TX\).
+ The term $\lVert \boldsymbol{\beta} \rVert_2^{2}$ penalizes $\boldsymbol{\beta}$ from having large entries.  By Lagrange Multipliers, a critical point $\boldsymbol{\beta}$ of the constrained minimization problem
+$$\mbox{minimize}\,\,\sum_{i=1}^{n}(\boldsymbol{y}_{i}-\langle x^{(i)},\boldsymbol{\beta}\rangle)^{2}\quad \mbox{subject}\,\,\mbox{to}\,\,\lVert \boldsymbol{\beta}\rVert_2^{2}\leq 1$$
+is equivalent to the existence of a $\lambda\in\mathbb{R}$ such that $\boldsymbol{\beta}$ is a critical point of (\ref{math541a.hw7.3.eq1}). We call the \(\hat{\beta}\) that minimizes (\ref{math541a.hw7.3.eq1}) the \textbf{ridge regression} estimator for \(\beta\).
+
+\begin{proposition}[\textbf{Math 541A Homework Problem}]
+
+The value of $\hat{\boldsymbol{\beta}}\in\mathbb{R}^{p}$ that minimizes (\ref{math541a.hw7.3.eq1}) is \(\hat{\boldsymbol{\beta}}_{\text{ridge}} = (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p)^{-1}\boldsymbol{X}^T \boldsymbol{y}\).
 
 \end{proposition}
 
@@ -1160,32 +1165,89 @@ Then the value of $\hat{\boldsymbol{\beta}}\in\mathbb{R}^{k}$ that minimizes (\r
 where \(\boldsymbol{y}^T\boldsymbol{X}\boldsymbol{\beta} =\boldsymbol{\beta}^T\boldsymbol{X}^T\boldsymbol{y}\) because a scalar equals its transpose. Differentiating with respect to \(\boldsymbol{\beta}\) yields
 
 \[
--2\boldsymbol{y}^T\boldsymbol{X} + 2\boldsymbol{\beta}^T \boldsymbol{X}^T\boldsymbol{X} + 2\lambda \boldsymbol{\beta}^T = 0 \iff \boldsymbol{\beta}^T(2\boldsymbol{X}^T\boldsymbol{X} + 2\lambda \boldsymbol{I}_k) = 2 \boldsymbol{y}^T\boldsymbol{X}
+-2\boldsymbol{y}^T\boldsymbol{X} + 2\boldsymbol{\beta}^T \boldsymbol{X}^T\boldsymbol{X} + 2\lambda \boldsymbol{\beta}^T = 0 \iff \boldsymbol{\beta}^T(2\boldsymbol{X}^T\boldsymbol{X} + 2\lambda \boldsymbol{I}_p) = 2 \boldsymbol{y}^T\boldsymbol{X}
 \]
 
 \[
- \iff (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k) \boldsymbol{\beta}=  \boldsymbol{X}^T\boldsymbol{y} \iff \hat{\boldsymbol{\beta}} = (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k)^{-1}\boldsymbol{X}^T\boldsymbol{y}
+ \iff (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p) \boldsymbol{\beta}=  \boldsymbol{X}^T\boldsymbol{y} \iff \hat{\boldsymbol{\beta}}_{\text{ridge}} = (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p)^{-1}\boldsymbol{X}^T\boldsymbol{y}
  \]
  
- where \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k\) is invertible by the following argument. \(\boldsymbol{X}^T\boldsymbol{X}\) must be positive semidefinite. In fact, it is positive definite because \( \boldsymbol{X} \in \mathbb{R}^{n \times k}\) has full rank; that is, \(\operatorname{rank}(\boldsymbol{X}) = k\), so \(\boldsymbol{X}^T\boldsymbol{X} \in \mathbb{R}^{k \times k}\) has rank \(k\) (full rank) and is invertible. So \(\boldsymbol{X}^T\boldsymbol{X}\) is positive definite (all positive eigenvalues). Then since \(\Tr(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k) > \Tr(\boldsymbol{X}^T\boldsymbol{X})\), the eigenvalues of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k\) are also all positive, which means the determinant of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_k\) is nonzero, which means it is invertible.
+ where \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) is invertible by the following argument. \(\boldsymbol{X}^T\boldsymbol{X}\) must be positive semidefinite. In fact, it is positive definite because \( \boldsymbol{X} \in \mathbb{R}^{n \times p}\) has full rank; that is, \(\operatorname{rank}(\boldsymbol{X}) = p\), so \(\boldsymbol{X}^T\boldsymbol{X} \in \mathbb{R}^{p \times p}\) has rank \(p\) (full rank) and is invertible. So \(\boldsymbol{X}^T\boldsymbol{X}\) is positive definite (all positive eigenvalues). Then since \(\Tr(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p) > \Tr(\boldsymbol{X}^T\boldsymbol{X})\), the eigenvalues of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) are also all positive, which means the determinant of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) is nonzero, which means it is invertible.
 
 \end{proof}
 
-\begin{remark} The term $\lVert \boldsymbol{\beta} \rVert_2^{2}$ penalizes $\boldsymbol{\beta}$ from having large entries.  By Lagrange Multipliers, a critical point $\boldsymbol{\beta}$ of the constrained minimization problem
-$$\mbox{minimize}\,\,\sum_{i=1}^{n}(\boldsymbol{y}_{i}-\langle x^{(i)},\boldsymbol{\beta}\rangle)^{2}\quad \mbox{subject}\,\,\mbox{to}\,\,\lVert \boldsymbol{\beta}\rVert_2^{2}\leq 1$$
-is equivalent to the existence of a $\lambda\in\mathbb{R}$ such that $\boldsymbol{\beta}$ is a critical point of (\ref{math541a.hw7.3.eq1}).
-\end{remark}
+%\begin{remark}
+%\end{remark}
+
+\begin{proposition}[\textbf{DSO 607 Homework Problem}]\label{linreg.dso.607.hw2} Suppose \(\boldsymbol{y} = \boldsymbol{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}\) where \(\boldsymbol{\epsilon} \sim \mathcal{N}(\boldsymbol{0}, \sigma^2 \boldsymbol{I}_n)\).
+
+\begin{enumerate}[(a)]
+
+\item The asymptotic behavior of the ridge estimator is as follows: as \(\lambda \to \infty\), \(\hat{\boldsymbol{\beta}}_{\text{ridge}} \to \boldsymbol{0} \), and as \(\lambda \to 0\), \(\hat{\boldsymbol{\beta}}_{\text{ridge}} \to X^{\dagger}(X \beta + \epsilon)\).
+
+\item For any fixed \(\lambda > 0\), 
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+
+
+\begin{enumerate}[(a)]
+
+% 1b
+\item Since \(X\) is fixed, as \(\lambda \to \infty\) we have
+
+\[
+\hat{\beta}_{\text{ridge}} = (X^TX + \lambda I_p)^{-1}X^Ty \to (\lambda I_p)^{-1} X^Ty = \frac{1}{\lambda} I_p X^T(X \beta + \epsilon) = \frac{1}{\lambda} (X^TX \beta + X^T\epsilon)  \to \boldsymbol{0}
+\]
+
+where \(\boldsymbol{0}\) is a \(p\)-dimensional vector of zeroes. As \(\lambda \to 0^{+}\) we have
+
+\[
+\hat{\beta}_{\text{ridge}} = (X^TX + \lambda I_p)^{-1}X^Ty \to X^{\dagger}y = X^{\dagger}(X \beta + \epsilon)
+\]
+
+% (X^TX)^{\dagger} X^Ty = (X^TX)^{\dagger} X^T(X \beta + \epsilon)
+
+where we substitute the pseudoinverse instead of the inverse because since \(X^TX\) is rank deficient, \((X^TX)^{-1}\) does not exist. 
+
+%so as \(\lambda\) approaches 0, the OLS estimator is recovered (if it exists). If the OLS estimator does not exist, then at least one eigenvalue of \(X^TX + \lambda I_p\) approaches 0, so the inverse approaches infinity, and at least one term of \(\hat{\beta}_{\text{ridge}} \to \infty\). 
+
+% 1c
+\item We have 
+
+\[
+\hat{\beta}_{\text{ridge}} = (X^TX + \lambda I_p)^{-1}X^Ty = (X^TX + \lambda I_p)^{-1}X^T(X \beta + \epsilon) = (X^TX + \lambda I_p)^{-1}X^TX \beta + (X^TX + \lambda I_p)^{-1}X^T  \epsilon
+\]
+
+Let \(e_i\) be a selection vector, with the \(i\)th entry equal to 1 and all other entries equal to 0. Let the \(i\)th entry of \(\hat{\beta}_{\text{ridge}} \) be \(\hat{\beta}_{\text{ridge}}^{(i)} = e_i^T \hat{\beta}_{\text{ridge}}  \). We have
+
+\[
+\Pr(\hat{\beta}_{\text{ridge}}^{(i)}  = 0) = \Pr \big( e_i^T  [(X^TX + \lambda I_p)^{-1}X^TX \beta + (X^TX + \lambda I_p)^{-1}X^T  \epsilon] = 0 \big)
+\]
+
+\[
+= \Pr \big( e_i^T (X^TX + \lambda I_p)^{-1}X^T  \epsilon = -e_i^T  (X^TX + \lambda I_p)^{-1}X^TX \beta \big)
+\]
+
+Since every entry of \(\epsilon\) is distributed continuously, the probability of it equaling a particular value is 0. Therefore the probability that each component of the ridge estimator equals 0 is 0. (For an intuitive argument as to why this is, see Figure \ref{linreg.lasso.level.set.figure}.)
+
+\end{enumerate}
+
+\end{proof}
 
 \subsection{Lasso}
 
-From KKT theory, the correlation between all selected features and residual will be \(\lambda\).
+From KKT theory, the correlation between all selected features and residual will be \(\lambda\) (see the remark in Section {lars.prelims} for an explanation why).
 
 \
 
 Consider the linear regression model \(y = X \beta + \epsilon\). If we assume the errors \(\epsilon\) have a multivariate Gaussian distribution, that is,
 
 \[
-f_\epsilon(t) = \bigg( \frac{1}{2 \sqrt{\pi \sigma^2}}   \bigg)^n \exp \bigg( - \frac{t^T t}{2 \sigma^2} \bigg) , \ \ \ t = (t_1, \ldots, t_n)^T
+f_\epsilon(t) = \bigg( \frac{1}{ \sqrt{2\pi \sigma^2}}   \bigg)^n \exp \bigg( - \frac{t^T t}{2 \sigma^2} \bigg) , \ \ \ t = (t_1, \ldots, t_n)^T
 \]
 
 then the log likelihood is
@@ -1197,31 +1259,31 @@ then the log likelihood is
 Suppose we want the MLE estimator. When we maximize the log likelihood, we can disregard the first term which does not include \(t\) (it is constant). So we seek
 
 \[
-\arg \max_{\beta} -t^Tt/(2 \sigma^2) = \arg \max_{\beta} - \lVert y - X \beta \rVert_2^2 /(2 \sigma^2)
+\underset{\beta \in \mathbb{R}^p}{\arg \max} \left\{ -t^Tt/(2 \sigma^2) \right\} = \underset{\beta \in \mathbb{R}^p}{\arg \max}  \left\{- \lVert y - X \beta \rVert_2^2 /(2 \sigma^2) \right\}
 \]
 
 which is the same as
 
 \[
- \arg \min_{\beta} \lVert y - X \beta \rVert_2^2 /(2 \sigma^2)
+\underset{\beta \in \mathbb{R}^p}{\arg \min} \left\{ \lVert y - X \beta \rVert_2^2 /(2 \sigma^2) \right\}
 \]
 
 We commonly scale this with an \(n\) in the denominator to match the empirical risk; note that this does not affect the arguments which minimize the quantity. When the design matrix \(X\) multiplied by \(n^{-1/2}\) is orthonormal (\(X^TX = nI_p\)), the penalized least squares reduces to the minimization of 
 
 \[
-\min_{\beta \in \mathbb{R}^p} \{ \ \ \frac{1}{2n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{1}{2} \lVert \hat{\beta} - \beta \rVert_2^2 + \sum_{j=1}^p p_\lambda ( | \beta_j|)   \ \ \}
+\min_{\beta \in \mathbb{R}^p} \left\{ \frac{1}{2n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{1}{2} \lVert \hat{\beta} - \beta \rVert_2^2 + \sum_{j=1}^p p_\lambda ( | \beta_j|)    \right\}
 \]
 
 where \(\hat{\beta} = (X^TX)^{-1}X^Ty = nX^T y\) is the OLS estimator. Disregarding the first term which does not contain \(\beta\), we have a \textbf{separable} loss function (we can solve for one parameter at a time):
 
 \[
-\min_{\beta \in \mathbb{R}^p} \{ \ \ \frac{1}{2} \lVert \hat{\beta} - \beta \rVert_2^2 + \sum_{j=1}^p p_\lambda ( | \beta_j|)   \ \ \}.
+\min_{\beta \in \mathbb{R}^p} \left\{  \frac{1}{2} \lVert \hat{\beta} - \beta \rVert_2^2 + \sum_{j=1}^p p_\lambda ( | \beta_j|)   \right\}.
 \]
 
 So we can consider the univariate penalized least squares function
 
 \[
-\hat{\theta}(z) = \arg \min_{\theta \in \mathbb{R}} \{ \frac{1}{2}(z - \theta)^2 + p_\lambda(|\theta|).
+\hat{\theta}(z) = \arg \min_{\theta \in \mathbb{R}} \left\{ \frac{1}{2}(z - \theta)^2 + p_\lambda(|\theta|)) \right\}.
 \]
 
 \citet{Antoniadis2001} showed that the PLS estimator \(\hat{\theta}\) possesses the following properties:
@@ -1256,17 +1318,17 @@ To recap: constrained version:
 Unconstrained version:
 
 \[
-\hat{\beta}_{\text{lasso}} = \arg \min \{ \frac{1}{2n} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1 \}
+\hat{\beta}_{\text{lasso}} = \arg \min \left\{ \frac{1}{2n} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1 \right\}
 \]
 
 Use \(1/n\) to rescale RSS due to \(\lVert 1 \rVert-2 = \sqrt{n}\).
 
-\begin{proposition}[\textbf{Math 541A Homework Problem}] Suppose $\boldsymbol{\beta}\in\mathbb{R}^{k}$ is an unknown vector, and for all $1\leq i\leq n$, there are known vectors $x^{(1)},\ldots,x^{(n)}\in\mathbb{R}^{k}$.  Our observed data are $\boldsymbol{y} = (y_{1},\ldots,y_{n})\in\mathbb{R}^n$. Let $\boldsymbol{X}$ be the $n\times k$ matrix so that the $i^{th}$ row of $\boldsymbol{X}$ is the row vector $x^{(i)}$.  Assume that $k\leq n$ and the matrix $\boldsymbol{X}$ has full rank. Let $\lambda>0$ and consider the quantity
+\begin{proposition}[\textbf{Math 541A Homework Problem}] Suppose $\boldsymbol{\beta}\in\mathbb{R}^{p}$ is an unknown vector, and for all $1\leq i\leq n$, there are known vectors $x^{(1)},\ldots,x^{(n)}\in\mathbb{R}^{p}$.  Our observed data are $\boldsymbol{y} = (y_{1},\ldots,y_{n})^T\in\mathbb{R}^n$. Let $\boldsymbol{X}$ be the $n\times p$ matrix so that the $i^{th}$ row of $\boldsymbol{X}$ is the row vector $x^{(i)}$.  Assume that $p\leq n$ and the matrix $\boldsymbol{X}$ has full rank. Let $\lambda>0$ and consider the quantity
 
 \begin{equation}\label{math541a.hw7.3.eq2}
-\sum_{i=1}^{n}\left(\boldsymbol{y}_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda\sum_{i=1}^{k} | \boldsymbol{\beta}_{i}|
+\sum_{i=1}^{n}\left(\boldsymbol{y}_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda\sum_{i=1}^{p} | \boldsymbol{\beta}_{i}|
 \end{equation}
-Then there exists a $\hat{\boldsymbol{\beta}}\in\mathbb{R}^{k}$ that minimizes this quantity (this $\hat{\boldsymbol{\beta}}$ is known as the LASSO, or least absolute shrinkage and selection operator).  
+Then there exists a $\hat{\boldsymbol{\beta}}\in\mathbb{R}^{p}$ that minimizes this quantity (this $\hat{\boldsymbol{\beta}}$ is known as the LASSO, or least absolute shrinkage and selection operator).  
 
 \end{proposition}
 
@@ -1275,7 +1337,7 @@ Then there exists a $\hat{\boldsymbol{\beta}}\in\mathbb{R}^{k}$ that minimizes t
 We can write (\ref{math541a.hw7.3.eq2}) as
 
 \[
-\sum_{i=1}^{n}\left(\boldsymbol{y}_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda \sum_{i=1}^k |\boldsymbol{\beta}_i| = \lVert \boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\rVert_2^2+\lambda \lVert \boldsymbol{\beta}\rVert_1 
+\sum_{i=1}^{n}\left(\boldsymbol{y}_{i}-{x^{(i)}}^T\boldsymbol{\beta} \right )^{2}+\lambda \sum_{i=1}^p |\boldsymbol{\beta}_i| = \lVert \boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\rVert_2^2+\lambda \lVert \boldsymbol{\beta}\rVert_1 
 \]
 
 \begin{equation}\label{math541a.hw7.3a}
@@ -1302,7 +1364,7 @@ is morally equivalent to (\ref{math541a.hw7.3.eq2}), but technically Lagrange Mu
 
 \subsubsection{Soft Thresholding}
 
-Classical ideas of nonparametric models: kernels (locally constant/linear), splines (smooth basic functions). But wavelets are non-smooth. Why is this beneficial? Some real life functions are non-smooth. (example; image data with noise. There will be non-smooth edges to objects.) Also, the wavelet basis functions are orthonormal (which is closely related to the assumption we made above about the orthonormal design matrix). So when working with wavelets, we have a separable optimization problem. Soft thresholding is something like the lasso idea for wavelets (but before the lasso was developed).
+Classical ideas of nonparametric models: kernels (locally constant/linear), splines (smooth basis functions). But wavelets are non-smooth. Why is this beneficial? Some real life functions are non-smooth. (example; image data with noise. There will be non-smooth edges to objects.) Also, the wavelet basis functions are orthonormal (which is closely related to the assumption we made above about the orthonormal design matrix). So when working with wavelets, we have a separable optimization problem. Soft thresholding is something like the lasso idea for wavelets (but before the lasso was developed).
 
 
 \
@@ -1368,33 +1430,54 @@ where \(\gamma \geq 0\) is determined by the condition \(\sum_{j=1}^p |\beta_j| 
 Geometry: the criterion \(\sum_{i=1}^n (y_i - \sum_{j=1}^p \beta_j x_{ij})^2\) equals the quadratic function (plus a constant)
 
 \[
-(\beta - \hat{\beta}^00^TX^T X(\beta - \hat{\beta}^0).
+(\beta - \hat{\beta}^0)^TX^T X(\beta - \hat{\beta}^0).
 \]
 
-The contours (level sets) are elliptical and centered at the OLS estimates. If the constraint region does not have corners, zero solutions result with probability zero (see DSO 607 homework 2).
+\begin{proof}
+
+\[
+\sum_{i=1}^n \left(y_i - \sum_{j=1}^p \beta_j x_{ij} \right)^2 = \sum_{i=1}^n \left(y_i - X_i \hat{\beta}\right)^2 = (\boldsymbol{y} - \boldsymbol{X}\hat{\beta})^T (\boldsymbol{y} - \boldsymbol{X}\hat{\beta}) = [ \boldsymbol{X}(\beta^0 -\hat{\beta})]^T [ \boldsymbol{X}(\beta^0 -\hat{\beta})]
+\]
+
+\[
+ = (\beta^0 -\hat{\beta})^T \boldsymbol{X}^T  \boldsymbol{X}(\beta^0 -\hat{\beta})
+\]
+
+\end{proof}
+
+The contours (level sets) are therefore elliptical and centered at the OLS estimates. If the constraint region does not have corners, as in ridge regression, zero solutions result with probability zero (see Proposition \ref{linreg.dso.607.hw2} and Figure \ref{linreg.lasso.level.set.figure}).
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.35]{linreg_lasso_level_set.png}
+\caption{Level sets of least squares loss function with feasible sets for (a) lasso and (b) ridge regression in the case of \(\beta \in \mathbb{R}^2\).}
+\label{linreg.lasso.level.set.figure}
+\end{center}
+\end{figure}
+
 
 \subsubsection{Non-Negative Garotte}
 
 This idea inspired the lasso. Proposed by \citet{Breiman1995}. It minimizes
 
 \[
-\sum_{i=1}^n (y_i - \alpha - \sum_{j=1}^p c_j \hat{\beta}_j^o x_{ij})^2 \text{ subject to } c_j \geq 0, \sum_{j=1}^p c_j \leq t
+\sum_{i=1}^n \left(y_i - \alpha - \sum_{j=1}^p c_j \hat{\beta}_j^o x_{ij} \right)^2 \text{ subject to } c_j \geq 0, \sum_{j=1}^p c_j \leq t
 \]
 
 It starts with OLS estimates and shrinks them by non-negative factors whose sum is constrained. It depends on both the sign and magnitude of OLS estimates. In contrast, lasso avoids the explicit use of OLS estimates.
 
-\subsubsection{LARS---Preliminaries and Intuition}
+\subsubsection{LARS---Preliminaries and Intuition}\label{lars.prelims}
 
 Intuition: the algorithm takes steps from a model where all coefficients are 0 to the biggest model (the unpenalized OLS model). Covariates are considered from the highest correlation with \(y\) to the least. (The variable most highly correlated with \(y\) is the one at the ``least angle" from \(y\).) Recall the original definition of the lasso estimator:
 
 \begin{equation}\label{linreg.lasso.constrained}
-\hat{\beta}_{lasso} = \arg \min_\beta \{ \frac{1}{2n}\lVert y - X \beta \rVert_2^2 \} \text{ subject to } \lVert \beta \rVert_1 \leq t
+\hat{\beta}_{lasso} = \underset{\beta \in \mathbb{R}^p}{\arg \min}\left\{ \frac{1}{2n}\lVert y - X \beta \rVert_2^2 \right\} \text{ subject to } \lVert \beta \rVert_1 \leq t
 \end{equation}
 
 The more common version now:
 
 \begin{equation}\label{linreg.lasso.lagrangian}
-\hat{\beta}_{lasso} = \arg \min_\beta \{ \frac{1}{2n}\lVert y - X \beta \rVert_2^2   + \lambda \lVert \beta \rVert_1\}
+\hat{\beta}_{lasso} =\underset{\beta \in \mathbb{R}^p}{\arg \min} \left\{ \frac{1}{2n}\lVert y - X \beta \rVert_2^2   + \lambda \lVert \beta \rVert_1 \right\}
 \end{equation}
 
 One form can be changed to the other by applying Lagrangians\footnote{However, the correspondence between \(t\) and \(\lambda\) is \textbf{not} one-to-one. Because with \(t = \infty\), \(\lambda =0\). But a slightly smaller \(t\) would result in the same solution.}. Have to be careful because this is a convex program (quadratic with ``linear" constraint---use a slack variable). 
@@ -1445,12 +1528,12 @@ Note that
 
 so we have
 
-\[
+\begin{equation}\label{linreg.lasso.soln.cond}
 0 \in - \frac{1}{n} X^T(y - X \beta) + \lambda \cdot \begin{bmatrix} \begin{cases}
 \operatorname{sgn}(\beta_j) & t \neq 0 \\
 [-1, 1] & \beta_j = 0 
 \end{cases} \end{bmatrix}
-\]
+\end{equation}
 
 where 
 
@@ -1461,8 +1544,11 @@ where
 \end{cases} \end{bmatrix} \in \mathbb{R}^p
 \]
 
+is a vector with each entry as specified.
+
+\begin{remark}
 \begin{enumerate}[(1)]
-\item Examining the \(j\)th component of this separable equation, if \(\beta_j \neq 0\), we have
+\item Examining the \(j\)th component of the separable equation (\ref{linreg.lasso.soln.cond}), if \(\beta_j \neq 0\), we have
 
 \[
 0 = -\frac{1}{n} X_j^T(y - X \beta) + \lambda \cdot
@@ -1472,7 +1558,7 @@ where
 
 Note that the left side contains the correlation between \(X_j\) and \(e = y - X \beta\), the residual vector. \textbf{So if lasso chooses \(k\) variables, all \(k\) of them will have the same correlation with the residual (\(\lambda\)).}
 
-\item If \(\beta_j \neq 0\), we have
+\item If \(\beta_j =0\), we have
 
 \[
 0 \in - \frac{1}{n} X^T(y - X \beta) + \lambda \cdot 
@@ -1482,6 +1568,8 @@ Note that the left side contains the correlation between \(X_j\) and \(e = y - X
 \textbf{So for unselected features, the (absolute) correlation should be bounded by \(\lambda\).}
 
 \end{enumerate}
+
+\end{remark}
 
 These two conditions relate to the KKT conditions (first order conditions).
 
@@ -1502,7 +1590,7 @@ So if we start with \(\lambda\) very large and gradually decrease it, we will le
 
 In Figure \ref{fig:lars_2d}, note that we choose feature \(X_1\) first because it has the highest correlation with \(y\). As the coefficient on \(X_1\) increases, the correlation between \(X_1\) and the residual with \(y\) decreases, while the correlation between \(X_2\) and the residual remains constant (\textbf{increases?}). When the correlation between \(X_1\) and the residual becomes equal to the correlation between \(X_2\) and the residual, \(X_2\) enters the lasso path.
 
-\begin{remark} Just like in lasso, in LARS the correlation between all included features and the residual are equal. However, LARS is a stepwise procedure---once we add a feature, it stays in the model. In the lasso, features can be dropped later in the path after they are selected---whenever \(\beta_j\) becomes 0, it is dropped from the current active set. A feature's sign cannot change in lasso---it is not possible. If we modify the LARS algorithm to have this property (``lasso modfiication"), then the result is the lasso estimator.
+\begin{remark} Just like in lasso, in LARS the correlation between all included features and the residual are equal (see the remark in Section \ref{lars.prelims}). However, LARS is a stepwise procedure---once we add a feature, it stays in the model. In the lasso, features can be dropped later in the path after they are selected---whenever \(\beta_j\) becomes 0, it is dropped from the current active set. A feature's sign cannot change in lasso---it is not possible. If we modify the LARS algorithm to have this property (``lasso modification"), then the result is the lasso estimator.
 
 \end{remark}
 
@@ -1539,10 +1627,22 @@ Model selection consistency: \(\Pr(\operatorname{supp}(\hat{\beta}) = \operatorn
 
 Oracle property: model selection consistency, asymptotic efficiency as efficient as if true model were known (``efficiency" having to do with the variance given \(n\)).
 
+\begin{definition}[\textbf{Oracle property}] Let \(\beta^0\) denote the true parameter vector for data generated from a linear model. Let \(S_0\) be the true support; that is, \(S_0 = \{j: \beta_j^0 \neq 0, j = 1, \ldots, p\}\). Denote \(\hat{\beta}(\delta)\) the coefficient estimator for fitting procedure \(\delta\). We call \(\delta\) an \textbf{oracle procedure} if \(\hat{\beta}(\delta)\) asymptotically has the following properties:
+
+\begin{itemize}
+
+\item Identifies the right subset model (consistency): \(\{j: \hat{\beta}_j \neq 0\} = S_0\).
+
+\item Has the optimal estimation rate: \(\sqrt{n}(\beta(\delta)_{S_0} - \beta_{S_0}^0) \xrightarrow{d} \mathcal{N}(0, \Sigma_0)\) where \(\Sigma_0\) is the covariance matrix knowing the true subset model.
+
+\end{itemize}
+
+\end{definition}
+
 The lasso problem is convex but not necessarily strictly convex if \(p > n\). That is, there is some flat region, so the minimizer may not be unique. Consider the KKT conditions from convex optimization:
 
 \[
-g(\beta) = \arg \min \{ \frac{1}{2n} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1 \} = f_1(\beta) + f_2(\beta)
+g(\beta) = \arg \min \left\{ \frac{1}{2n} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1 \right\} =  \arg \min \left\{ f_1(\beta) + f_2(\beta) \right\}
 \]
 
 Then \(\hat{\beta}\) is a lasso solution if and only if 0 is in the subdifferential of \(g(\hat{\beta})\). Note that 
@@ -1770,9 +1870,9 @@ Start with \(\beta_1\) varying and all other \(\beta\)s fixed. Optimize \(\beta_
 %
 %
 
-%\bibliographystyle{abbrvnat}
-%\bibliography{mybib2fin}
-%\end{document}
+\bibliographystyle{abbrvnat}
+\bibliography{mybib2fin}
+\end{document}
 
 
 

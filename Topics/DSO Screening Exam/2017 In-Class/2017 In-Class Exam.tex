@@ -206,8 +206,28 @@
 % 1a
 \item
 
+\[
+\dot{Z}(t) =  \pderiv{}{t} \sum_{i=1}^k \gamma_i(t) X_i =   \sum_{i=1}^k   \pderiv{\gamma_i(t) }{t} X_i 
+\]
+
+\[
+\implies \E \left( \dot{Z}(t)  \right) =    \sum_{i=1}^k   \E \left( \pderiv{\gamma_i(t) }{t} X_i \right) = 0
+\]
+
+\[
+\implies \Cov(Z(t), \dot{Z}(t)) = \E \big[ (Z(t) - \E[ Z(t)])(\dot{Z}(t)  - \E[\dot{Z}(t) ]) \big]  = \E \big[ Z(t) \dot{Z}(t)  \big]  
+\]
+
+\[
+= \E \left[  \left(  \sum_{i=1}^k \gamma_i(t) X_i   \right) \left( \sum_{i=1}^k   \pderiv{\gamma_i(t) }{t} X_i  \right)  \right] = \sum_{i=1}^k \E \left( \gamma_i(t)  \pderiv{\gamma_i(t) }{t}  X_i^2 \right) + 0 = \sum_{i=1}^k \gamma_i(t)  \pderiv{\gamma_i(t) }{t} 
+\]
+
 % 1b
 \item
+
+\[
+\ddot{Z}(t) =  \sum_{i=1}^k   \pderiv{^2\gamma_i(t) }{t^2} X_i 
+\]
 
 \end{enumerate}
 
@@ -234,7 +254,21 @@
 \begin{enumerate}[(a)]
 
 % 3a
-\item
+\item Let \(u_j = \exp(\theta_j)\). In the \(n=1\) case we have
+
+\[
+I(m, \lambda) = \int_{\mathbb{R}} \frac{ \exp(\lambda \theta_1m_1) }{(1 + \exp(\theta_1) ) ^{\lambda}} d \theta_1 = \int_{\mathbb{R}} \frac{ \exp( \theta_1)^{\lambda m_1} }{(1 + \exp(\theta_1) ) ^{\lambda}} d \theta_1
+\]
+
+Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
+
+\[
+= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
+\]
+
+\[
+= \ldots = \frac{\Gamma(\lambda (1 - m_1)) \Gamma(\lambda m_1)}{\Gamma(\lambda)}  = \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1)}{\Gamma(\lambda)}
+\]
 
 % 3b
 \item
@@ -256,10 +290,30 @@
 \begin{enumerate}[(a)]
 
 % 5a
-\item
+\item If \(p > n\), then even if \(\boldsymbol{X}\) is full rank, it has a nullspace with nonzero entries. That is, the columns of \(\boldsymbol{X}\) must be linearly dependent, so there are infinitely many non-zero vectors \(\boldsymbol{v}\) such that \(\boldsymbol{X}\boldsymbol{v} = \boldsymbol{0}\)). Therefore for any solution \(\hat{\boldsymbol{\beta}}\) satisfying 
+
+\[
+\hat{\boldsymbol{\beta}} \in \underset{\boldsymbol{\beta} \in \mathbb{R}^p}{\arg \min} \lVert \boldsymbol{y} - \boldsymbol{X} \boldsymbol{\beta} \rVert_2^2 
+\]
+
+and any vector \(\boldsymbol{v}\) in the nullspace of \(\boldsymbol{X}\), \(\hat{\boldsymbol{\beta}} + \boldsymbol{v}\) is also a solution since
+
+\[
+ \underset{\boldsymbol{\beta} \in \mathbb{R}^p}{\min} \lVert \boldsymbol{y} - \boldsymbol{X} \boldsymbol{\beta} \rVert_2^2 =  \lVert \boldsymbol{y} - \boldsymbol{X} \hat{\boldsymbol{\beta}} \rVert_2^2  =  \lVert \boldsymbol{y} - \boldsymbol{X} \hat{\boldsymbol{\beta}} - \boldsymbol{0} \rVert_2^2  =  \lVert \boldsymbol{y} - \boldsymbol{X} (\hat{\boldsymbol{\beta}} + \boldsymbol{v}) \rVert_2^2 
+ \]
+ 
+ \[
+ \iff \boldsymbol{\beta} + \boldsymbol{v} \in \underset{\boldsymbol{\beta} \in \mathbb{R}^p}{\arg \min} \lVert \boldsymbol{y} - \boldsymbol{X} \boldsymbol{\beta} \rVert_2^2 .
+\]
 
 % 5b
-\item
+\item If we assume that \( \lVert \boldsymbol{\beta}_0 \rVert_0 = s \leq n\), then it may be that there is only one \(\boldsymbol{v}\) in the nullspace of \(\boldsymbol{X}\) such that \(\lVert \hat{\boldsymbol{\beta}}\rVert_0 = s\). Intuitively, this makes sense because as long as the features with zero coefficients in \(\boldsymbol{\beta}_0\) are sufficiently uncorrelated with the features with nonzero coefficients and the true coefficients are not too small, it is very unlikely that it is possible to construct another \(s\)-sparse vector with equally low empirical risk by replacing one of the true features with only one of the other features (or some combination thereof). (We would also hope that \(\operatorname{rank}(\boldsymbol{X} > s\). Otherwise, it is either the case that features in the true model are linearly dependent, in which case the true model is not identifiable, or some of the noise features are linearly dependent with some of the true features, which could also preclude identifiability.)
+
+% 5c
+\item \textbf{Solution in Section 1.9.1 of Linear Regression notes.}
+
+% 5d
+\item \textbf{Solution in Section 1.9.1 of Linear Regression notes.}
 
 \end{enumerate}
 

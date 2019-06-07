@@ -1,6 +1,8 @@
 # setwd("/Users/gregfaletto/Google Drive/Data Science/GRE Math Subject Test/Notes/Topics/DSO Screening Exam/2018 Take Home")
 # dev.off()
 
+library(ggplot2)
+
 # Set seed for reproducibility
 set.seed(54343)
 
@@ -8,7 +10,6 @@ set.seed(54343)
 n <- 1000
 # grid of values of p
 p.vec <- (0:99)/99
-
 
 simulateGame <- function(p){
 	# Simulates a game of tennis given a value of p that the server wins a
@@ -52,7 +53,30 @@ simulateNGames <- function(p, n){
 	return(num.wins/n)
 }
 
+probWinning <- function(p){
+	# Analytical probability of winning, according to work done earlier
+	return(p^4+4*p^4*(1-p)+10*p^4*(1-p)^2+20*p^5*(1-p)^3/(1-2*p*(1-p)))
+}
+
 # Calculate number of wins for each p
 
 prob.winning <- sapply(p.vec, simulateNGames, n=n)
+
+# Provide a plot with p on the x-axis and the probability of winning the game on
+# the y-axis. 
+
+data.plot <- data.frame(p.vec, prob.winning)
+colnames(data.plot) <- c("p", "Prob.winning")
+
+# plot <- ggplot(data.plot, aes(x=p, y=Prob.winning)) + geom_point()
+plot <- ggplot(data.plot, aes(x=p, y=Prob.winning)) + geom_point() +
+	layer(stat = "function",
+          fun = probWinning,
+          mapping = aes(color = "fun.1")
+          )
+
+print(plot)
+
+
+# p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) + stat_function(fun = fun.1) + xlim(-5,5)
 

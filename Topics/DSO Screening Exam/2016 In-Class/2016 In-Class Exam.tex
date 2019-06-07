@@ -14,6 +14,8 @@
 \usepackage[document]{ragged2e}
 \usepackage{textcomp}
 % \usepackage{amssymb}
+\usepackage{import}
+\usepackage{natbib}
 
 \usetikzlibrary{automata,positioning}
 
@@ -206,7 +208,49 @@
 % 1a
 \item
 
+\[
+n^{-1} \log W_n = \frac{\log \left[(qr + (1-q)V_n) W_{n-1} \right]}{n}  = \frac{\log \left[qr + (1-q)V_n  \right]}{n} + \frac{ \log W_{n-1}}{n}
+\]
+
+%= \frac{\log \left[qrW_{n-1} + (1-q)V_n W_{n-1} \right]}{n}
+
+Note that for \(q\) and \(r\) fixed, \(\log [qr + (1-q)V_n ] \) are i.i.d. random variables with mean \(\E \left( \log [qr + (1-q)V_1 ]  \right)\). Since \( \E \left| \log [qr + (1-q)V_1 ]  \right| < \infty\), by the Strong Law of Large Numbers
+
+\[
+\frac{\log \left[qr + (1-q)V_n  \right]}{n} \xrightarrow{a.s.} \E \log[qr + (1-q)V_1] = w(q).
+\]
+
+So the result follows if \(n^{-1}  \log W_{n-1} \xrightarrow{a.s.} 0 \). Note that
+
+\[
+ \frac{ \log W_{n-1}}{n} =  \frac{ \log  \left[(qr + (1-q)V_{n-1}) W_{n-2} \right] }{n} 
+\]
+
 % 1b
+\item
+
+\[
+w(q) =  \E \log[qr + (1-q)V_1] =  \E \log[q(r - V_1) + V_1] 
+\]
+
+Let \(t \in (0,1)\). Let \(q_1, q_2 \in (0,1]\), and suppose without loss of generality \(q_1 \leq q_2\). We wish to show that
+
+\begin{equation}\label{cvx.541a.hw6.5a}
+w(tq_1+(1-t)q_2)\geq t w(q_1)+(1-t) w(q_2)
+\end{equation}
+
+\[
+ \iff      \E \log[(tq_1+(1-t)q_2) r + [1-(tq_1+(1-t)q_2) ]V_1]  \geq t   \E \log[q_1r + (1-q_1)V_1]  +(1-t)  \E \log[q_2r + (1-q_2)V_1] 
+ \]
+ 
+ \[
+ \iff      \E \log[tq_1r+(1-t)q_2 r + V_1  - tq_1V_1 -(1-t)q_2) V_1]  \geq t   \E \log[q_1r + (1-q_1)V_1]  +(1-t)  \E \log[q_2r + (1-q_2)V_1] 
+ \]
+
+
+
+
+% 1c
 \item
 
 \end{enumerate}
@@ -259,19 +303,79 @@
 \end{exercise}
 
 % Problem 5
-\begin{exercise}[\textbf{High-Dimensional Statistics}]
+\begin{exercise}[\textbf{High-Dimensional Statistics}] \textbf{Double-check solutions, comments from Jinchi grading homework}
 
 \begin{enumerate}[(a)]
 
-% 5a
-\item
+% 1a
+\item Let 
 
-% 5b
-\item
+\[
+\boldsymbol{X} = \begin{bmatrix} \boldsymbol{x}_1^T \\ \vdots \\  \boldsymbol{x}_n^T   \end{bmatrix} \in \mathbb{R}^{n \times p}
+\]
+
+be the design matrix. Given that the mean is known to be 0, the covariance matrix is defined as 
+
+\[
+\boldsymbol{\Sigma} = \E \big(  \boldsymbol{X}^T \boldsymbol{X} \big)
+\]
+
+A natural unbiased estimator for \(\boldsymbol{\Sigma}\) is the sample covariance
+
+\[
+\widehat{\boldsymbol{\Sigma}} = \frac{1}{n} \big(\boldsymbol{X}^T \boldsymbol{X} \big).
+\]
+
+% 1b
+\item We have different issues in each of these regimes.
+
+\begin{enumerate}[(1)]
+
+\item \textbf{\(p \leq n\) and \(p\) is roughly of the same order as \(n\):} there can be significant sampling error in estimating \(\widehat{\boldsymbol{\Sigma}}\) in this regime. \citet{Fan2008} showed that under Frobenius norm this estimator has a very slow convergence rate even if \(p < n\). Further, the expected value of its inverse is
+
+\[
+\E  \big(\widehat{\boldsymbol{\Sigma}}^{-1}\big) = \frac{n}{n-p-2}  \boldsymbol{\Sigma}^{-1}
+\] 
+
+\citep{Bai2011}, so this bias can be quite large if \(p \approx n\), even if \(p < n\). (A better method for estimating \( \boldsymbol{\Sigma}^{-1}\) directly is presented by \citet{Fan2008}.)
+
+\item \textbf{\(p > n\) or even \(p \gg n\):} in that case \(\widehat{\boldsymbol{\Sigma}} = \frac{1}{n} \big(\boldsymbol{X}^T \boldsymbol{X} \big)\) will be rank-deficient and singular, even though the true covariance matrix will be nonsingular (and positive definite), so clearly \(\widehat{\boldsymbol{\Sigma}}\) will not be an ideal estimate. 
 
 \end{enumerate}
+
+
+% 1c
+\item 
+
+% Week 1 slides
+
+\citet{Geman1980} showed that in the case of \(\boldsymbol{\Sigma} = I_p\),
+
+\[
+\lambda_{\text{max}} \big( \widehat{\boldsymbol{\Sigma}}  \big) \xrightarrow{a.s.} (1 + \gamma^{-1/2})^2 \text{ as } n/p \to \gamma \geq 1.
+\]
+
+Further, numerical studies that that \(\lambda_{\text{max}} \big( \widehat{\boldsymbol{\Sigma}}  \big) \) for \(n = 100\) typically ranges between 1.2 - 1.5 for \(p=5\), between 2.6 and 3 for \(p=50\), and between 10 and 10.5 for \(p = 500\). Of course, the correct maximum eigenvalue is 1 (since all eigenvalues of \( I_p\) are 1), so we see that covariance matrix estimation gets increasing unstable and inaccurate as \(p \gg n\). 
+
+\
+
+Regarding the limiting distribution of the largest eigenvalue \(\lambda_{\text{max}} \big( \widehat{\boldsymbol{\Sigma}}  \big)\), \citet{Johnstone2001} showed that
+
+\[
+\frac{n\lambda_{\text{max}} \big( \widehat{\boldsymbol{\Sigma}}  \big)  - \mu_{np} }{\sigma_{np}} \xrightarrow{D} \text{ Tracy-Widom law of order 1 as } n/p \to \gamma \geq 1
+\]
+
+where 
+
+\[
+\mu_{np} = ( \sqrt{n-1} + \sqrt{p})^2, \qquad \sigma_{np} = ( \sqrt{n-1} + \sqrt{p})(1/\sqrt{n-1} + 1/\sqrt{p})^{1/3}.
+\]
+
+\end{enumerate} 
 
 \end{exercise}
 
 
+\bibliographystyle{abbrvnat}
+\bibliography{mybib2fin}
 \end{document}
