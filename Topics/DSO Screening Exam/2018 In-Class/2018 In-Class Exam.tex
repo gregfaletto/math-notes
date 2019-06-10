@@ -16,6 +16,13 @@
 % \usepackage{amssymb}
 \usepackage{import}
 \usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
 
 \usetikzlibrary{automata,positioning}
 
@@ -94,6 +101,8 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{definition}
 \newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem{proposition}[theorem]{Proposition}
 
 %
 % Homework Details
@@ -211,41 +220,70 @@
 \begin{enumerate}[(i)]
 
 % 1(a)i
-\item We have
+\item 
+
+%We have
+
+%\[
+%e^{-y} T(y) \xrightarrow{d} \operatorname{Exponential}(\lambda) \iff \lim_{y \to \infty} \Pr(e^{-y} T(y) \leq t) = 1 - e^{-\lambda t} 
+%\]
+%
+%\[
+%\iff \lim_{y \to \infty} \Pr \left( \frac{  \inf \{x \geq 0: M(x) \geq y\} }{e^y}  > t \right) = e^{-\lambda t} \iff \lim_{y \to \infty} \Pr \left(  e^ { \log \left( \inf \{x \geq 0: M(x) \geq y\} \right)  - y }  > t \right) = e^{-\lambda t}
+%\]
+%
+%\[
+%\iff \lim_{y \to \infty} \Pr \left(  e^ { \log \left( \inf \{x \geq 0: M(x) \geq y\} \right)  - y }  > t \right) = 1 - \lambda t +\frac{\lambda^2t^2}{2!} - \frac{\lambda^3t^3}{3!} + \ldots + \frac{(-\lambda t)^n}{n!} + \ldots 
+%\]
+%
+%\[
+%\vdots
+%\]
+%
+%\[
+%\lim_{y \to \infty} e^{-y}  \inf \{x \geq 0: M(x) \geq y\}  =  \lambda e^{- \lambda t} 
+%\]
+%
+%\[
+%\vdots
+%\]
+%
+%So as \(y \to \infty\), \(\Pr \left(  e^ { \log \left( \inf \{x \geq 0: M(x) \geq y\} \right)  - y }  > t \right) \) converges to an \(\operatorname{Exponential}(\lambda)\) random variable. That is, the probability that the ratio of the first hit time for \(y\) (\(T(y)\)) and \(e^y\) exceeds \(t\) has a memoryless distribution in \(t\) as \(y\) grows without bound.
+%
+%\[
+%\vdots
+%\]
+
+We have
 
 \[
-e^{-y} T(y) \xrightarrow{d} \operatorname{Exponential}(\lambda) \iff \lim_{y \to \infty} \Pr(e^{-y} T(y) \leq t) = 1 - e^{-\lambda t} 
+T(y) = \inf \{x \geq 0 : M(x) \geq y \}; \qquad \lim_{y \to \infty} \Pr \left( e^{-y} T(y) \leq a \right) = 1 - e^{-\lambda a} \qquad \forall a \geq 0.
+\]
+
+Note that
+
+\[
+ \lim_{y \to \infty} \Pr \left( e^{-y} T(y) \leq a \right) = \lim_{y \to \infty} \Pr(T(y) \leq a e^y) 
+\]
+
+Because \(T(y) = \inf \{x \geq 0 : M(x) \geq y \}\) and \(M(\cdot)\) is montonically increasing, we have the inequality \(M(z) \geq y\) for all \(z \geq x\). Therefore \(T(y) \leq ae^y \iff M(ae^y) \geq y\). Let \(z = ae^y \implies y = \log(z/a)\); then we have
+
+\[
+\lim_{y \to \infty} \Pr(T(y) \leq a e^y)  = \lim_{y \to \infty} \Pr( M(ae^y) \geq y)  = \lim_{z \to \infty} \Pr( M(z) \geq \log(z) - \log(a)) 
+\]
+
+Let \(b = \log a\) to get 
+
+\[
+= \lim_{z \to \infty} \Pr( M(z) - \log(z) \geq   b) = 1 - e^{-\lambda a} \implies  \lim_{z \to \infty} \Pr( M(z) - \log(z) \geq  b)  = 1 - e^{-\lambda e^{-b}}
 \]
 
 \[
-\iff \lim_{y \to \infty} \Pr \left( \frac{  \inf \{x \geq 0: M(x) \geq y\} }{e^y}  > t \right) = e^{-\lambda t} \iff \lim_{y \to \infty} \Pr \left(  e^ { \log \left( \inf \{x \geq 0: M(x) \geq y\} \right)  - y }  > t \right) = e^{-\lambda t}
+ \iff \lim_{z \to \infty} \Pr( M(z) - \log(z) \leq  b)  = e^{-\lambda e^{-b}}
 \]
-
-\[
-\iff \lim_{y \to \infty} \Pr \left(  e^ { \log \left( \inf \{x \geq 0: M(x) \geq y\} \right)  - y }  > t \right) = 1 - \lambda t +\frac{\lambda^2t^2}{2!} - \frac{\lambda^3t^3}{3!} + \ldots + \frac{(-\lambda t)^n}{n!} + \ldots 
-\]
-
-\[
-\vdots
-\]
-
-\[
-\lim_{y \to \infty} e^{-y}  \inf \{x \geq 0: M(x) \geq y\}  =  \lambda e^{- \lambda t} 
-\]
-
-\[
-\vdots
-\]
-
-So as \(y \to \infty\), \(\Pr \left(  e^ { \log \left( \inf \{x \geq 0: M(x) \geq y\} \right)  - y }  > t \right) \) converges to an \(\operatorname{Exponential}(\lambda)\) random variable. That is, the probability that the ratio of the first hit time for \(y\) (\(T(y)\)) and \(e^y\) exceeds \(t\) has a memoryless distribution in \(t\) as \(y\) grows without bound.
-
-\[
-\vdots
-\]
-
 
 % 1(a)ii
-\item
+\item The distribution function is \(F(x) = e^{-\lambda e^{-x}}\), a Gumbel distribution with parameter \(\lambda\).
 
 \end{enumerate}
 
@@ -255,96 +293,159 @@ So as \(y \to \infty\), \(\Pr \left(  e^ { \log \left( \inf \{x \geq 0: M(x) \ge
 Using hint:
 
 \[
-\int_0^1 t^x  \ dt = \frac{1}{x+1}
+\int_0^1 t^x  \ dt = \left[ \frac{t^{x+1}}{x+1} \right]_0^1 =  \frac{1}{x+1}
 \]
 
 \[
- \iff \E \int_0^1 t^x  \ dt = \E \left( \frac{1}{x+1} \right)  \iff \int_0^1f \E ( t^x)  \ dt = \E \left( \frac{1}{x+1} \right)
+ \iff \E \left[ \int_0^1 t^X  \ dt \right] = \E \left( \frac{1}{X+1} \right)  \iff \int_0^1 \E ( t^X)  \ dt = \E \left( \frac{1}{X+1} \right)
 \]
 
 \[
-\vdots
+\iff \int_0^1 \sum_{i=0}^n t^i \Pr(X = i) \ dt = \E \left( \frac{1}{X+1} \right) \iff \int_0^1 \sum_{i=0}^n t^i \binom{n}{i} p^i (1-p)^{n-i} \ dt = \E \left( \frac{1}{X+1} \right)
 \]
 
 \[
-X \sim \operatorname{Bin}(n, p)
-\]
-
-Recall that 
-
-\[
-\E(X) = np \iff \sum_{x=0}^n x \cdot \binom{n}{x} p^x(1-p)^{n-x} =  (1-p)^n\sum_{x=0}^n x \binom{n}{x} \left( \frac{p}{1-p} \right)^x
+ \iff (1-p)^n \int_0^1 \sum_{i=0}^n \binom{n}{i} \left( \frac{tp}{1-p} \right) ^i  \ dt = \E \left( \frac{1}{X+1} \right)
 \]
 
 \[
-=  (1-p)^n\sum_{x=0}^n \frac{n!}{(n-x)!(x-1)!} \left( \frac{p}{1-p} \right)^x  = np.
-\]
-
-Then we have
-
-\[
-\E \left[ \frac{1}{1 + X} \right] = \sum_{x=0}^\infty \frac{1}{1 + x} \cdot \Pr(X=x) = \sum_{x=0}^n \frac{1}{1 + x} \cdot \binom{n}{x} p^x(1-p)^{n-x} = (1-p)^n\sum_{x=0}^n \frac{1}{1 + x} \cdot \binom{n}{x} \left( \frac{p}{1-p} \right)^x
+ \iff (1-p)^n \int_0^1 \left( 1 + \frac{tp}{1-p} \right)^n  \ dt = \E \left( \frac{1}{X+1} \right)
 \]
 
 \[
-= (1-p)^n\sum_{x=0}^n  \frac{n!}{(n-x)!(x+1)!}\left( \frac{p}{1-p} \right)^x  = (1-p)^n\sum_{x=0}^n \frac{1}{(x+1)x} \frac{n!}{(n-x)!(x-1)!}\left( \frac{p}{1-p} \right)^x
+ \iff  \int_0^1 \left( 1 - p + tp  \right)^n  \ dt = \E \left( \frac{1}{X+1} \right)
 \]
 
-
+Let \(u = 1 - p + tp \implies du = p \ dt\). Then we can write
 
 \[
-\vdots
+\frac{1}{p} \int_{1-p}^1 u^n  \ du = \E \left( \frac{1}{X+1} \right) \iff \frac{1}{p} \left[ \frac{u^{n+1}}{n+1} \right]_{1-p}^1= \E \left( \frac{1}{X+1} \right)  \iff \E \left( \frac{1}{X+1} \right) = \frac{1}{p} \left[ \frac{1 - (1-p)^{n+1}}{n+1} \right]
 \]
 
-\[
-\E \left[ \frac{1}{1 + X} \right] = \int_{0}^\infty \Pr\left( [X+1]^{-1} > x \right) dx = \int_{0}^{1} \Pr\left( \frac{1}{X+1} > x \right)  dx  = \int_{0}^{1} \Pr\left( X < \frac{1}{x} - 1\right)   dx
-\]
+Now we consider \(\E \left[ \frac{1}{X+2} \right] \). 
 
 \[
-= \lim_{a \to 0^+} \int_{a}^{1} \Pr \left( X < \lceil x^{-1} - 1\rceil \right) dx
+\int_0^1 t^{x+1}  \ dt = \left[ \frac{t^{x+2}}{x+2} \right]_0^1 =  \frac{1}{x+2}
 \]
 
 \[
- = \lim_{a \to 0^+} \int_{a}^{(n+1)^{-1}} \Pr \left( X < \lceil x^{-1} - 1\rceil \right) dx + \int_{(n+1)^{-1}}^{1} \Pr \left( X < \lceil x^{-1} - 1\rceil \right) dx 
- \]
- 
- \[
- = \frac{1}{n+1} \cdot 1 + \int_{(n+1)^{-1}}^{1} \Pr \left( X < \lceil x^{-1} - 1\rceil \right) dx 
- \]
+ \iff \E \left[ \int_0^1 t^{X+1}  \ dt \right] = \E \left( \frac{1}{X+2} \right)  \iff \int_0^1 \E ( t^{X+1})  \ dt = \E \left( \frac{1}{X+2} \right)
+\]
 
+\[
+\iff \int_0^1 \sum_{i=0}^n t^{i+1} \Pr(X = i) \ dt = \E \left( \frac{1}{X+2} \right) \iff \int_0^1 \sum_{i=0}^n t^{i+1} \binom{n}{i} p^i (1-p)^{n-i} \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+\[
+ \iff (1-p)^n \int_0^1 t\sum_{i=0}^n \binom{n}{i} \left( \frac{tp}{1-p} \right) ^i  \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+\[
+ \iff (1-p)^n \int_0^1t \left( 1 + \frac{tp}{1-p} \right)^n  \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+\[
+ \iff  \int_0^1 t\left( 1 - p + tp  \right)^n  \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+Let \(u = 1 - p + tp \implies du = p \ dt\) and \(t = (u + p - 1)/p\). Then we can write
+
+\[
+\frac{1}{p^2} \int_{1-p}^1 u^n (u + p - 1) \ du = \E \left( \frac{1}{X+2} \right) \iff  \frac{1}{p^2} \int_{1-p}^1 [u^{n+1} + (p - 1)u^n] \ du = \E \left( \frac{1}{X+2} \right) 
+\]
+
+\[
+\iff  \frac{1}{p^2} \left[\frac{u^{n+2}}{n+2} + (p - 1)\frac{u^{n+1}}{n+1} \right]_{1-p}^1 = \E \left( \frac{1}{X+2} \right) 
+\]
+
+\[
+\iff   \E \left( \frac{1}{X+2} \right)  = \frac{1}{p^2} \left[\frac{1 - (1-p)^{n+2}}{n+2} - (1 - p)\frac{1 - (1-p)^{n+1}}{n+1} \right]_{1-p}^1
+\]
+
+%
 %\[
-%= \lim_{a \to 0^+} \int_{a}^{1}  \left[ \sum_{j=0}^{\lceil x^{-1} - 1\rceil} \Pr\left( X = j  \right) \right]  dx = \lim_{a \to 0^+} \int_{a}^{1}  \left[ \sum_{j=0}^{\lfloor x^{-1} \rfloor} \binom{n}{j} p^j(1-p)^{n-j} \right]  dx
+%\vdots
 %\]
 %
 %\[
-%= \lim_{a \to 0^+} \int_{a}^{1}  \left[ \sum_{j=0}^{\min \{\lfloor x^{-1} \rfloor, n\}} \binom{n}{j} p^j(1-p)^{n-j} \right]  dx = \frac{1}{n} \cdot 1 + \int_{n^{-1}}^{1}  \left[ \sum_{j=0}^{\lfloor x^{-1} \rfloor} \binom{n}{j} p^j(1-p)^{n-j} \right]  dx
+%X \sim \operatorname{Bin}(n, p)
 %\]
-
-This is simply the area under \(n\) rectangles with heights \(1, \Pr(X \leq n-1), \Pr(X \leq n- 2), \ldots, \Pr(X =0)\) and bases \((n+1)^{-1}, n^{-1} - (n+1)^{-1}, (n-1)^{-1} - n^{-1},  \ldots, 1/2\). That is, we can write this as
-
-\[
-\E \left[ \frac{1}{1 + X} \right] = \frac{1}{n+1} \cdot 1 + \left( \frac{1}{n} - \frac{1}{n+1} \right) \cdot \Pr(X \leq n-1) + \left( \frac{1}{n-1} - \frac{1}{n} \right) \cdot \Pr(X \leq n-2) 
-\]
-
-\[
-+ \ldots  + \left( \frac{1}{2} - \frac{1}{3} \right)  \cdot \Pr(X\leq 1)  + \frac{1}{2} \cdot \Pr(X=0) 
-\]
-
-%= \sum_{x=0}^{n-1} \sum_{j=x+1}^n  \binom{n}{j} p^j(1-p)^{1-j}
+%
+%Recall that 
 %
 %\[
-% = (1-p) \sum_{x=0}^{n-1} \sum_{j=x+1}^n  \binom{n}{j} \left( \frac{p}{1-p} \right) ^j
+%\E(X) = np \iff \sum_{x=0}^n x \cdot \binom{n}{x} p^x(1-p)^{n-x} =  (1-p)^n\sum_{x=0}^n x \binom{n}{x} \left( \frac{p}{1-p} \right)^x
 %\]
-
-\[
-\vdots
-\]
-
-Recall that 
-
-\[
-\E(X) = np \iff \sum_{x=0}^{n-1} \sum_{j=x+1}^n  \binom{n}{j} p^j(1-p)^{n-j}   =  (1-p) ^n\sum_{x=0}^{n-1} \sum_{j=x+1}^n  \binom{n}{j} \left( \frac{p}{1-p} \right) ^j= np.
-\]
+%
+%\[
+%=  (1-p)^n\sum_{x=0}^n \frac{n!}{(n-x)!(x-1)!} \left( \frac{p}{1-p} \right)^x  = np.
+%\]
+%
+%Then we have
+%
+%\[
+%\E \left[ \frac{1}{1 + X} \right] = \sum_{x=0}^\infty \frac{1}{1 + x} \cdot \Pr(X=x) = \sum_{x=0}^n \frac{1}{1 + x} \cdot \binom{n}{x} p^x(1-p)^{n-x} = (1-p)^n\sum_{x=0}^n \frac{1}{1 + x} \cdot \binom{n}{x} \left( \frac{p}{1-p} \right)^x
+%\]
+%
+%\[
+%= (1-p)^n\sum_{x=0}^n  \frac{n!}{(n-x)!(x+1)!}\left( \frac{p}{1-p} \right)^x  = (1-p)^n\sum_{x=0}^n \frac{1}{(x+1)x} \frac{n!}{(n-x)!(x-1)!}\left( \frac{p}{1-p} \right)^x
+%\]
+%
+%
+%
+%\[
+%\vdots
+%\]
+%
+%\[
+%\E \left[ \frac{1}{1 + X} \right] = \int_{0}^\infty \Pr\left( [X+1]^{-1} > x \right) dx = \int_{0}^{1} \Pr\left( \frac{1}{X+1} > x \right)  dx  = \int_{0}^{1} \Pr\left( X < \frac{1}{x} - 1\right)   dx
+%\]
+%
+%\[
+%= \lim_{a \to 0^+} \int_{a}^{1} \Pr \left( X < \lceil x^{-1} - 1\rceil \right) dx
+%\]
+%
+%\[
+% = \lim_{a \to 0^+} \int_{a}^{(n+1)^{-1}} \Pr \left( X < \lceil x^{-1} - 1\rceil \right) dx + \int_{(n+1)^{-1}}^{1} \Pr \left( X < \lceil x^{-1} - 1\rceil \right) dx 
+% \]
+% 
+% \[
+% = \frac{1}{n+1} \cdot 1 + \int_{(n+1)^{-1}}^{1} \Pr \left( X < \lceil x^{-1} - 1\rceil \right) dx 
+% \]
+%
+%%\[
+%%= \lim_{a \to 0^+} \int_{a}^{1}  \left[ \sum_{j=0}^{\lceil x^{-1} - 1\rceil} \Pr\left( X = j  \right) \right]  dx = \lim_{a \to 0^+} \int_{a}^{1}  \left[ \sum_{j=0}^{\lfloor x^{-1} \rfloor} \binom{n}{j} p^j(1-p)^{n-j} \right]  dx
+%%\]
+%%
+%%\[
+%%= \lim_{a \to 0^+} \int_{a}^{1}  \left[ \sum_{j=0}^{\min \{\lfloor x^{-1} \rfloor, n\}} \binom{n}{j} p^j(1-p)^{n-j} \right]  dx = \frac{1}{n} \cdot 1 + \int_{n^{-1}}^{1}  \left[ \sum_{j=0}^{\lfloor x^{-1} \rfloor} \binom{n}{j} p^j(1-p)^{n-j} \right]  dx
+%%\]
+%
+%This is simply the area under \(n\) rectangles with heights \(1, \Pr(X \leq n-1), \Pr(X \leq n- 2), \ldots, \Pr(X =0)\) and bases \((n+1)^{-1}, n^{-1} - (n+1)^{-1}, (n-1)^{-1} - n^{-1},  \ldots, 1/2\). That is, we can write this as
+%
+%\[
+%\E \left[ \frac{1}{1 + X} \right] = \frac{1}{n+1} \cdot 1 + \left( \frac{1}{n} - \frac{1}{n+1} \right) \cdot \Pr(X \leq n-1) + \left( \frac{1}{n-1} - \frac{1}{n} \right) \cdot \Pr(X \leq n-2) 
+%\]
+%
+%\[
+%+ \ldots  + \left( \frac{1}{2} - \frac{1}{3} \right)  \cdot \Pr(X\leq 1)  + \frac{1}{2} \cdot \Pr(X=0) 
+%\]
+%
+%%= \sum_{x=0}^{n-1} \sum_{j=x+1}^n  \binom{n}{j} p^j(1-p)^{1-j}
+%%
+%%\[
+%% = (1-p) \sum_{x=0}^{n-1} \sum_{j=x+1}^n  \binom{n}{j} \left( \frac{p}{1-p} \right) ^j
+%%\]
+%
+%\[
+%\vdots
+%\]
+%
+%Recall that 
+%
+%\[
+%\E(X) = np \iff \sum_{x=0}^{n-1} \sum_{j=x+1}^n  \binom{n}{j} p^j(1-p)^{n-j}   =  (1-p) ^n\sum_{x=0}^{n-1} \sum_{j=x+1}^n  \binom{n}{j} \left( \frac{p}{1-p} \right) ^j= np.
+%\]
 
 \end{enumerate}
 
@@ -528,7 +629,17 @@ f_{X, \mu}(x, m) = f_{X \mid \mu = m}(x \mid m) f_\mu(m) =
 \begin{enumerate}[(a)]
 
 % 4a
-\item \textbf{Sparsity in the covariance matrix does not imply sparsity in the precision matrix.} For example, suppose the covariance matrix is the following:
+\item \textbf{Sparsity in the covariance matrix does not imply sparsity in the precision matrix.} For a simple example, consider a sequence of \(p\) Gaussian random variables generated in the following way:
+
+\[
+X_1 \sim \mathcal{N}(0, 1), \qquad X_i = X_{i-1} + Z, i = 2, \ldots, p
+\]
+
+where \(Z \sim \mathcal{N}(0,1)\). Then for all \(i \neq j \in \{1, \ldots, p\}\), \(\Cov(X_i, X_j) \neq 0\), so the covariance matrix \(\boldsymbol{\Sigma} \in \mathbb{R}^{p \times p}\) is dense with no zero entries. However, for any \(i \neq j \in \{1, \ldots, p\}\), \(\Cov(X_i, X_j \mid \boldsymbol{X}_{-i-j}\) (where \(\boldsymbol{X}_{-i-j}\) contains all of the \(X_k\) except \(X_i and X_j\); that is, \(\Cov(X_i, X_j \mid \boldsymbol{X}_{-i-j}\) is the covariance of \(X_i\) and \(X_j\) conditional on all of the other \(X_k\)) is zero for all \(j\) except \(i-1\) and \(i+1\). Since the precision matrix contains in entry \(\sigma_{ij}\) the covariance of \(X_i\) and \(X_j\) conditional on all the other \(p-2\) variables (see the discussion in part (b)), the precision matrix is sparse, with mostly 0 entries except for the diagonal and a band of nonzero entries on each side of the diagonal.
+
+Of course, since the precision matrix and covariance matrix are inverses, had the covariance matrix been sparse except the diagonal and a band of nonzero entries on each side of the diagonal, in general the precision matrix would be dense.
+
+For a more complicated example, suppose the covariance matrix is the following:
 
 \[
 \boldsymbol{\Sigma} := \begin{pmatrix}
@@ -600,18 +711,69 @@ Applying the Sherman-Morrison-Woodbury formula  with \(A = \tau^2 \boldsymbol{I}
 By the same argument as in part (a), if \(\omega_{jk} = 0\) holds it does not necessarily hold that \(\sigma_{jk} =0\), since \(\boldsymbol{\Sigma}\) is the inverse of \(\boldsymbol{\Omega}\).
 
 % 4c
-\item \textbf{double-check that this actually works for \(p > n\). Also, consider instead using method from \citet{Fan2008}.} I would estimate the precision matrix using the graphical lasso \citep{Friedman2008}. Let \(\hat{\Sigma}\) be an estimate for the covariance matrix \(\Sigma\). Let \(S\) by the empirical covariance matrix; that is,
+\item \textbf{consider instead using method from \citet{Fan2008}.} I would estimate the precision matrix using the graphical lasso \citep{Friedman2008}. Let \(\boldsymbol{\hat{\Sigma}}\) be an estimate for the covariance matrix \(\Sigma\). Let \(S\) by the empirical covariance matrix; that is,
 
 \[
 S := \frac{1}{n} \sum_{i=1}^n (X^{(i)} - \overline{X})(X^{(i)} - \overline{X})^T
 \]
 
-where \(X^{(i)}\) is the \(i\)th row of \(X\) and \(\overline{X} = n^{-1}\sum_{i=1}^n X^{(i)}\). We will make use of the following partitions of \(\hat{\Sigma}\) and \(S\):
+where \(X^{(i)}\) is the \(i\)th row of \(X\) and \(\overline{X} = n^{-1}\sum_{i=1}^n X^{(i)}\). In our case, we assume the mean vector is known to be \(\boldsymbol{0}\), so we can instead use 
+
+\[
+S := \frac{1}{n} \sum_{i=1}^n X^{(i)}\left(X^{(i)}\right)^T.
+\]
+
+To find the function to optimize, we will find the likelihood function. Note that the density for a multivariate \(p\)-dimensional Gaussian distribution with known mean \(\boldsymbol{0}\) is
+
+\[
+f_{\boldsymbol{X}}(x_1, \ldots, x_p) = (2 \pi)^{-p/2} | \boldsymbol{\Sigma}|^{-1/2} \cdot \exp \left(- \frac{1}{2}\boldsymbol{x} ^T \boldsymbol{\Sigma}^{-1} \boldsymbol{x} \right).
+\]
+
+The likelihood function for \(n\) observations from this distribution is given by
+
+\[
+\mathcal{L}(\boldsymbol{\Sigma}^{-1}) = \prod_{i=1}^n f_{\boldsymbol{X_i}}(x_{1i}, \ldots, x_{pi}) = (2 \pi)^{-np/2} | \boldsymbol{\Sigma}|^{-n/2} \cdot \exp \left(- \frac{1}{2} \sum_{i=1}^n\left(\boldsymbol{X}^{(i)}\right)^T \boldsymbol{\Sigma}^{-1} \boldsymbol{X}^{(i)}\right)
+\]
+
+\[
+= (2 \pi)^{-np/2} | \boldsymbol{\Sigma}|^{-n/2} \cdot \exp \left(- \frac{1}{2} \sum_{i=1}^n \Tr \left[ \left(\boldsymbol{X}^{(i)}\right)^T \boldsymbol{\Sigma}^{-1} \boldsymbol{X}^{(i)} \right]\right) \]
+
+\[
+= (2 \pi)^{-np/2} | \boldsymbol{\Sigma}|^{-n/2} \cdot \exp \left(- \frac{1}{2} \sum_{i=1}^n \Tr \left[ \boldsymbol{X}^{(i)} \left(\boldsymbol{X}^{(i)}\right)^T \boldsymbol{\Sigma}^{-1}  \right]\right)
+\]
+
+\[
+= (2 \pi)^{-np/2} | \boldsymbol{\Sigma}|^{-n/2} \cdot \exp \left(- \frac{1}{2} \Tr \left[ \sum_{i=1}^n  \boldsymbol{X}^{(i)} \left(\boldsymbol{X}^{(i)}\right)^T \boldsymbol{\Sigma}^{-1}  \right]\right)
+\]
+
+\[
+= (2 \pi)^{-np/2} | \boldsymbol{\Sigma}|^{-n/2} \cdot \exp \left(- \frac{1}{2} \Tr \left[ nS \boldsymbol{\Sigma}^{-1}  \right]\right) = (2 \pi)^{-np/2} \left| \boldsymbol{\Sigma}^{-1} \right|^{n/2} \cdot \exp \left(- \frac{n}{2} \Tr \left[ S \boldsymbol{\Sigma}^{-1}  \right]\right)
+\]
+
+Take the logarithm of this expression to get the log likelihood function:
+
+\[
+\log \mathcal{L}(\boldsymbol{\Sigma}^{-1})  = - \frac{np}{2} \log (2 \pi) + \frac{n}{2}  \log \left| \boldsymbol{\Sigma}^{-1} \right| - \frac{n}{2} \Tr \left( S \boldsymbol{\Sigma}^{-1}  \right)\
+\]
+
+Since we are only concerned with the arguments maximizing the log likelihood function, we can disregard the first constant term and the multiplicative constants, leaving a simpler expression maximized by the same matrix
+
+\[
+\log \mathcal{L}(\boldsymbol{\Sigma}^{-1})  \propto \log \left| \boldsymbol{\Sigma}^{-1} \right| - \Tr \left( S \boldsymbol{\Sigma}^{-1}  \right)\
+\]
+
+Lastly, to impose sparsity we will add an \(\ell_1\) penalty. We will optimize the \(\ell_1\)-penalized log likelihood function
+
+\begin{equation}\label{2018.screen.4.c.objective}
+\hat{\Omega} := \underset{\Omega \in \mathcal{S}^+}{\arg \max} \left\{ \log \left| \Omega \right| - \Tr(S \Omega) + \lambda \lVert \Omega \rVert_1 \right\}
+\end{equation}
+
+where \( \mathcal{S}^+\) is the set of nonnegative definite \(p \times p\) matrices and \(\lambda > 0\) is a penalty parameter. Next, we will discuss the algorithm to optimize this function. We will make use of the following partitions of \(\boldsymbol{\hat{\Sigma}}\) and \(S\):
 
 \begin{equation}\label{2018.screen.4.c.partitions}
-\hat{\Sigma} = \begin{pmatrix} 
-\hat{\Sigma}_{11} & \hat{\sigma}_{12} \\
-\hat{\sigma}_{12}^T & \hat{\sigma}_{22}
+\boldsymbol{\hat{\Sigma}} = \begin{pmatrix} 
+\hat{\Sigma}_{11} & \hat{\Sigma}_{12} \\
+\hat{\Sigma}_{12}^T & \hat{\sigma}_{22}
 \end{pmatrix}, \qquad S = \begin{pmatrix} 
 S_{11} & S_{12} \\
 S_{12}^T & S_{22}
@@ -636,31 +798,25 @@ as well as the constraint
 \end{pmatrix}
 \end{equation}
 
-suggested by \(\Sigma \Omega = \boldsymbol{I}_p\). We will optimize the following objective:
-
-\begin{equation}\label{2018.screen.4.c.objective}
-\hat{\Omega} := \underset{\Omega \in \mathcal{S}^+}{\arg \max} \left\{ \log \det (\Omega) - \Tr(S \Omega) + \lambda \lVert \Omega \rVert_1 \right\}
-\end{equation}
-
-where \( \mathcal{S}^+\) is the set of nonnegative definite \(p \times p\) matrices and \(\lambda > 0\) is a penalty parameter. The proposed procedure to optimize (\ref{2018.screen.4.c.objective}) is as follows:
+suggested by the identity \(\Sigma \Omega = \boldsymbol{I}_p\). The proposed procedure to optimize (\ref{2018.screen.4.c.objective}) is the following coordinate descent algorithm:
 
 \begin{enumerate}[1.]
 
-\item Initialize the algorithm with estimate \(\hat{\Sigma} = S + \lambda \boldsymbol{I}_p\). (The diagonal of \(\hat{\Sigma}\) remains unchanged for the rest of the algorithm.)
+\item Initialize the algorithm with estimate \(\boldsymbol{\hat{\Sigma}} = S + \lambda \boldsymbol{I}_p\). (The diagonal of \(\boldsymbol{\hat{\Sigma}}\) remains unchanged for the rest of the algorithm.)
 
-\item For each \(j = 1, 2, \ldots, p, 1, 2, \ldots, p, \ldots, \) switch the rows and columns of \(\hat{\Sigma}\) so that the row and column corresponding to feature \(j\) come last, as in partition  (\ref{2018.screen.4.c.partitions}). Then solve the lasso problem
+\item For each \(j = 1, 2, \ldots, p, 1, 2, \ldots, p, \ldots, \) switch the rows and columns of \(\boldsymbol{\hat{\Sigma}}\) so that the row and column corresponding to feature \(j\) come last, as in partition  (\ref{2018.screen.4.c.partitions}). Then solve the lasso problem
 
-\begin{equation}
-\hat{\beta} = \underset{\beta \in \mathbb{R}^{p-1}}{\arg \min} \left\{ \frac{1}{2} \lVert \hat{\Sigma}_{11}^{1/2} \beta - \hat{\Sigma}_{11}^{-1/2}s_{12}  \rVert_2^2 + \lambda \lVert \beta \rVert_1 \right\}
+\begin{equation}\label{2008.screen.4.c.lasso.prob}
+\hat{\beta} = \underset{\beta \in \mathbb{R}^{p-1}}{\arg \min} \left\{ \frac{1}{2} \left\lVert \hat{\Sigma}_{11}^{1/2} \beta - \hat{\Sigma}_{11}^{-1/2}s_{12}  \right\rVert_2^2 + \lambda \lVert \beta \rVert_1 \right\}
 \end{equation}
 
-Note that this problem takes as input the inner products \(\hat{\Sigma}_{11}\) and \(s_{12}\). 
+%Note that this problem takes as input the inner products \(\hat{\Sigma}_{11}\) and \(s_{12}\). 
 
-\item Fill in the corresponding row and column of \(\hat{\Sigma}\) using \(\hat{\sigma}_{12} = \hat{\Sigma}_{11} \hat{\beta}\). (Again, the diagonal term \(\hat{\sigma}_{22}\) remains as it was after step 1.)
+\item Fill in the corresponding row and column of \(\boldsymbol{\hat{\Sigma}}\) using \(\hat{\sigma}_{12} = \hat{\Sigma}_{11} \hat{\beta}\). (Again, the diagonal term \(\hat{\sigma}_{22}\) remains as it was after step 1.)
 
-\item Continue until convergence; that is, until the average absolute change in \(\hat{\Sigma}\) is less than \(t \cdot \operatorname{ave} | S^{- \text{diag}} |\), where \( S^{- \text{diag}}\) are the off-diagonal elements of \(S\) and \(t\) is a fixed threshold (\(t = 0.001\) is recommended by \citep{Friedman2008}).
+\item Continue until convergence; that is, until the average absolute change in \(\boldsymbol{\hat{\Sigma}}\) is less than \(t \cdot \operatorname{ave} | S^{- \text{diag}} |\), where \( S^{- \text{diag}}\) are the off-diagonal elements of \(S\) and \(t\) is a fixed threshold (\(t = 0.001\) is recommended by \citet{Friedman2008}).
 
-\item Estimate \(\hat{\Omega}\) by using \(\hat{\Sigma}\) to compute \(\hat{\omega}_{22}\) for each feature and filling in the corresponding row of \(\hat{\Omega}\) as in (\ref{2018.screen.4.c.partitions}) using the formulae
+\item Estimate \(\hat{\Omega}\) by using \(\boldsymbol{\hat{\Sigma}}\) to compute \(\hat{\omega}_{22}\) for each feature and filling in the corresponding row of \(\hat{\Omega}\) as in (\ref{2018.screen.4.c.partitions}) using the formulae
 
 \begin{equation}\label{2018.screen.4.c.precision.matrix.formula}
 \hat{\omega}_{22} = 1/ \left( \hat{\sigma}_{22} - \hat{\sigma}_{12}^T \hat{\beta}\right), \qquad \hat{\omega}_{12} = - \hat{\beta}\hat{\omega}_{22}.
@@ -668,6 +824,18 @@ Note that this problem takes as input the inner products \(\hat{\Sigma}_{11}\) a
 
 \end{enumerate}
 
+
+\begin{remark}
+Formula (\ref{2008.screen.4.c.lasso.prob}) is justified as follows: \citet{Banerjee2008} show that \(\hat{\Sigma}_{12}\) satisfies
+
+\begin{equation}\label{2018.screen.4.c.lasso.primal}
+\hat{\Sigma}_{12} = \underset{y}{\arg \min} \left\{y^T \boldsymbol{\hat{\Sigma}}^{-1}y: \lVert y - S_{12} \rVert_\infty \leq p \right\}.
+\end{equation}
+
+Using strong duality, they then show that the dual problem (\ref{2008.screen.4.c.lasso.prob}) is equivalent; specifically, if \(\hat{\beta}\) solves (\ref{2008.screen.4.c.lasso.prob}) then \(\hat{\sigma}_{12} = \hat{\Sigma}_{11}\hat{\beta}\) solves (\ref{2018.screen.4.c.lasso.primal}).
+\end{remark}
+
+\begin{remark}
 Formulae (\ref{2018.screen.4.c.precision.matrix.formula}) are justified as follows: from (\ref{2018.screen.4.c.constraint}) we have the following identities
 
 \[
@@ -681,7 +849,7 @@ These yield
 \]
 
 Then using \(\hat{\sigma}_{12} = \hat{\Sigma}_{11} \hat{\beta} \iff \hat{\beta} =  \hat{\Sigma}_{11} ^{-1} \hat{\sigma}_{12}\), we have (\ref{2018.screen.4.c.precision.matrix.formula}).
-
+\end{remark}
 
 % 4d
 \item
@@ -730,89 +898,89 @@ We will also refer to another expression of the lasso optimization problem,
 for some \(t >0\). The Lagrangian of (\ref{2018.screen.5.a.objective.alt}) is
 
 \[
-\mathcal{L}(\beta, z, \nu) = \frac{1}{2} \lVert y - z \rVert_2^2 + \lambda \lVert \beta \rVert_1 + \nu^T(z - X \beta),
+\mathcal{L}(\beta, z, u) = \frac{1}{2} \lVert y - z \rVert_2^2 + \lambda \lVert \beta \rVert_1 + u^T(z - X \beta),
 \]
 
 so the Lagrange dual function is
 
 \[
-\inf_{\beta, z} \left\{ \mathcal{L}(x, \nu)\right\}  = \inf_{\beta, z} \left\{\frac{1}{2} \lVert y - z \rVert_2^2 + \lambda \lVert \beta \rVert_1 + \nu^T(z - X \beta)  \right\}
+\inf_{\beta, z} \left\{ \mathcal{L}(x, u)\right\}  = \inf_{\beta, z} \left\{\frac{1}{2} \lVert y - z \rVert_2^2 + \lambda \lVert \beta \rVert_1 + u^T(z - X \beta)  \right\}
 \]
 
 \[
-= \inf_{\beta, z} \left\{\frac{1}{2} (y-z)^T(y-z) + \nu^T z + \lambda \lVert \beta \rVert_1  - \nu^T X \beta  \right\} 
+= \inf_{\beta, z} \left\{\frac{1}{2} (y-z)^T(y-z) + u^T z + \lambda \lVert \beta \rVert_1  - u^T X \beta  \right\} 
 \]
 
 This minimization is separable:
 
 \begin{equation}\label{2018.screen.5.a.a}
-= \inf_{z} \left\{\frac{1}{2} \left(y^Ty - 2 y^Tz + z^Tz \right) + \nu^T z \right\} + \inf_{\beta} \left\{ \lambda \lVert \beta \rVert_1  - \nu^T X \beta  \right\}
+= \inf_{z} \left\{\frac{1}{2} \left(y^Ty - 2 y^Tz + z^Tz \right) + u^T z \right\} + \inf_{\beta} \left\{ \lambda \lVert \beta \rVert_1  - u^T X \beta  \right\}
 \end{equation}
 
 We will handle each part of (\ref{2018.screen.5.a.a}) separately. First, the left side:
 
 \[
- \inf_{z} \left\{\frac{1}{2} \left(y^Ty - 2 y^Tz + z^Tz \right) + \nu^T z \right\} = \inf_{z} \left\{\frac{1}{2}z^Tz  + (\nu - y)^Tz + \frac{1}{2} y^Ty   \right\} 
+ \inf_{z} \left\{\frac{1}{2} \left(y^Ty - 2 y^Tz + z^Tz \right) + u^T z \right\} = \inf_{z} \left\{\frac{1}{2}z^Tz  + (u - y)^Tz + \frac{1}{2} y^Ty   \right\} 
 \]
 
 Since this is a convex quadratic form, differentiate with respect to \(z\) and set equal to zero:
 
 \begin{equation}\label{other.part.result}
-z + (\nu - y) = 0 \implies z = y - \nu
+z + (u - y) = 0 \implies z = y - u
 \end{equation}
 
 \[
- \implies \inf_{z} \left\{\frac{1}{2}z^Tz  + (\nu - y)^Tz + \frac{1}{2} y^Ty   \right\} =  \frac{1}{2}(y - \nu) ^T(y - \nu)  + (\nu - y)^T(y - \nu) + \frac{1}{2} y^Ty 
+ \implies \inf_{z} \left\{\frac{1}{2}z^Tz  + (u - y)^Tz + \frac{1}{2} y^Ty   \right\} =  \frac{1}{2}(y - u) ^T(y - u)  + (u - y)^T(y - u) + \frac{1}{2} y^Ty 
 \]
 
 \[
-=  \frac{1}{2}\left(y^Ty -2 \nu^Ty + \nu^T\nu \right)  + 2\nu^Ty - y^Ty - \nu^T\nu + \frac{1}{2} y^Ty  = -\frac{1}{2}\nu^T\nu   + \nu^Ty = \frac{1}{2} y^Ty - \frac{1}{2}y^Ty  + \nu^Ty - \frac{1}{2} \nu^T\nu 
+=  \frac{1}{2}\left(y^Ty -2 u^Ty + u^Tu \right)  + 2u^Ty - y^Ty - u^Tu + \frac{1}{2} y^Ty  = -\frac{1}{2}u^Tu   + u^Ty = \frac{1}{2} y^Ty - \frac{1}{2}y^Ty  + u^Ty - \frac{1}{2} u^Tu 
 \]
 
 \[
-= \frac{1}{2} y^Ty - \frac{1}{2}(y^Ty - 2\nu^Ty + \nu^T\nu ) = \frac{1}{2} y^Ty - \frac{1}{2}(y - \nu)^T(y - \nu)= \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \nu \rVert_2^2 
+= \frac{1}{2} y^Ty - \frac{1}{2}(y^Ty - 2u^Ty + u^Tu ) = \frac{1}{2} y^Ty - \frac{1}{2}(y - u)^T(y - u)= \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2 
 \]
 
 Next we will minimize the right side of (\ref{2018.screen.5.a.a}):
 
 \[
- \inf_{\beta} \left\{ \lambda \lVert \beta \rVert_1  - \nu^T X \beta  \right\} =  \inf_{\beta} \left\{ \lambda \sum_{i=1}^p | \beta_i| - \sum_{i=1}^p \begin{bmatrix} \nu^T X \end{bmatrix}_i  \beta_i  \right\}  =  \inf_{\beta} \left\{ \sum_{i=1}^p  \left( \lambda  | \beta_i| -  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \beta_i \right)  \right\} 
+ \inf_{\beta} \left\{ \lambda \lVert \beta \rVert_1  - u^T X \beta  \right\} =  \inf_{\beta} \left\{ \lambda \sum_{i=1}^p | \beta_i| - \sum_{i=1}^p \begin{bmatrix} u^T X \end{bmatrix}_i  \beta_i  \right\}  =  \inf_{\beta} \left\{ \sum_{i=1}^p  \left( \lambda  | \beta_i| -  \begin{bmatrix} u^T X \end{bmatrix}_i  \beta_i \right)  \right\} 
  \]
  
 % \[
 % = \begin{cases}
-%   \inf_{\beta} \left\{ \sum_{i=1}^p  \left( \lambda  | \beta_i| -  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \beta_i \right)  \right\} & \beta_i 
+%   \inf_{\beta} \left\{ \sum_{i=1}^p  \left( \lambda  | \beta_i| -  \begin{bmatrix} u^T X \end{bmatrix}_i  \beta_i \right)  \right\} & \beta_i 
 %   \end{cases}
 % \]
  
  \[
- =  \inf_{\beta} \left\{ \sum_{i=1}^p  \left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \right)    \beta_i  \right\}   =  \sum_{i=1}^p  \inf_{\beta_i} \left\{ \left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \right)    \beta_i  \right\} 
+ =  \inf_{\beta} \left\{ \sum_{i=1}^p  \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right)    \beta_i  \right\}   =  \sum_{i=1}^p  \inf_{\beta_i} \left\{ \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right)    \beta_i  \right\} .
  \]
  
-where \(\mathbb{I}{\{\beta_i < 0\}}\) is an indicator function. Notice that when \(\beta_i\) is negative, if \(\left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \right) =  -\left(\lambda+  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \right)\) is positive there is no lower bound on the quantity we are minimizing; otherwise, when \(\beta_i\) is negative the infimum is 0. When \(\beta_i\) is positive, if  \(\left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \right) =  \left(\lambda-  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \right)\) is negative there is no lower bound on the quantity we are minimizing; otherwise, when \(\beta_i\) is negative the infimum is 0. That is, the only dual feasible points satisfy for all \(i\)
+Notice that when \(\beta_i\) is negative, if \(\left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right) =  -\left(\lambda+  \begin{bmatrix} u^T X \end{bmatrix}_i  \right)\) is positive there is no lower bound on the quantity we are minimizing; otherwise, when \(\beta_i\) is negative the infimum is 0. When \(\beta_i\) is positive, if  \(\left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right) =  \left(\lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right)\) is negative there is no lower bound on the quantity we are minimizing; otherwise, when \(\beta_i\) is negative the infimum is 0. That is, the only dual feasible points satisfy for all \(i\)
 
 \[
-  -\left(\lambda+  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \right) \leq 0, \qquad \lambda-  \begin{bmatrix} \nu^T X \end{bmatrix}_i   \geq 0 \iff \begin{bmatrix} \nu^TX\end{bmatrix}_i \geq -\lambda, \qquad \begin{bmatrix} \nu^TX\end{bmatrix}_i \leq \lambda
+  -\left(\lambda+  \begin{bmatrix} u^T X \end{bmatrix}_i  \right) \leq 0, \qquad \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i   \geq 0 \iff \begin{bmatrix} u^TX\end{bmatrix}_i \geq -\lambda, \qquad \begin{bmatrix} u^TX\end{bmatrix}_i \leq \lambda
 \]
 
 which is equivalent to the condition
 \[
-\lVert \nu^TX \rVert_\infty \leq \lambda.
+\lVert u^TX \rVert_\infty \leq \lambda.
 \]
 
 Therefore the Lagrange dual function is
 
-%The function we are minimizing is linear in \(\beta\) whenever \(\beta_i < 0 \) for any \(i\), so it decreases without bound if there exists any \(i\) such that \(\beta_i < 0\) and \(\lambda-  \begin{bmatrix} \nu^T X \end{bmatrix}_i  < 0\). That is, the infimum does not exist unless for all \(i \in \{1, \ldots, p\}\)
+%The function we are minimizing is linear in \(\beta\) whenever \(\beta_i < 0 \) for any \(i\), so it decreases without bound if there exists any \(i\) such that \(\beta_i < 0\) and \(\lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  < 0\). That is, the infimum does not exist unless for all \(i \in \{1, \ldots, p\}\)
 
 %\[
-%\lambda-  \begin{bmatrix} \nu^T X \end{bmatrix}_i  \geq 0 \iff \lambda \geq  \begin{bmatrix} \nu^T X \end{bmatrix}_i
+%\lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \geq 0 \iff \lambda \geq  \begin{bmatrix} u^T X \end{bmatrix}_i
 %\]
  
 
 %The function we are minimizing is convex in \(\beta\). Differentiate and set equal to 0:
 %
 %\[
-%\lambda \begin{bmatrix} \operatorname{sgn}(\beta_i) \end{bmatrix} - \nu^T X = 0 \iff \begin{bmatrix} \operatorname{sgn}(\beta_i) \end{bmatrix}  = \frac{1}{\lambda} \nu^T X 
+%\lambda \begin{bmatrix} \operatorname{sgn}(\beta_i) \end{bmatrix} - u^T X = 0 \iff \begin{bmatrix} \operatorname{sgn}(\beta_i) \end{bmatrix}  = \frac{1}{\lambda} u^T X 
 %\]
 %
 %where \(\begin{bmatrix} \operatorname{sgn}(\beta_i) \end{bmatrix} \) denotes the vector resulting from operating the \(\operatorname{sgn}(\cdot)\) function elementwise on \(\beta\).
@@ -822,28 +990,21 @@ Therefore the Lagrange dual function is
 % \]
 
 \begin{equation}\label{2018.screen.5.a.dual}
- \inf_{\beta, z} \left\{ \mathcal{L}(x, \nu)\right\}  = \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \nu \rVert_2^2 
+ \inf_{\beta, z} \left\{ \mathcal{L}(x, u)\right\}  = \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2 
 \end{equation}
 
-subject to the constraint
+subject to the constraint \(\lVert u^TX \rVert_\infty \leq \lambda\). This quantity represents a lower bound on the minimum value of the original optimization problem for all \(u \in \mathbb{R}^p\). The dual problem is to find the best lower bound by maximizing over \(u\); that is, the dual problem is
 
-\[
-\lVert \nu^TX \rVert_\infty \leq \lambda.
-\]
-
-
-This quantity represents a lower bound on the minimum value of the original optimization problem for all \(\nu \in \mathbb{R}^p\). The dual problem is to find the best lower bound by maximizing over \(\nu\); that is, the dual problem is
-
-\[
+\begin{equation}\label{2018.screen.5.a.dual.ans}
 \begin{aligned}
-& \underset{\nu \in \mathbb{R}^p}{\text{maximize}}
-& & \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \nu \rVert_2^2  \\
+& \underset{u \in \mathbb{R}^p}{\text{maximize}}
+& & \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2  \\
 & \text{subject to}
-& & \lVert \nu^TX \rVert_\infty \leq \lambda.
+& & \lVert u^TX \rVert_\infty \leq \lambda.
 \end{aligned}
-\]
+\end{equation}
 
-\textbf{still need to finish; actually trivial based on (\ref{other.part.result}):} Lastly, suppose \(\hat{\beta}\) and \(\hat{\nu}\) satisfy
+Lastly, suppose \(\hat{\beta}\) and \(\hat{u}\) satisfy
 
 \[
 \hat{\beta} = 
@@ -854,24 +1015,22 @@ This quantity represents a lower bound on the minimum value of the original opti
 \]
 
 \[
- \qquad \hat{\nu} = 
+ \qquad \hat{u} = 
 \begin{aligned}
-& \underset{\nu \in \mathbb{R}^p}{\arg \max}
-& & \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \nu \rVert_2^2  \\
+& \underset{u \in \mathbb{R}^p}{\arg \max}
+& & \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2  \\
 & \text{subject to}
-& & \lVert \nu^TX \rVert_\infty \leq \lambda
+& & \lVert u^TX \rVert_\infty \leq \lambda
 \end{aligned} = 
 \begin{aligned}
-& \underset{\nu \in \mathbb{R}^p}{\arg \min}
-& & -\frac{1}{2} \lVert y \rVert_2^2 + \frac{1}{2} \lVert y - \nu \rVert_2^2  \\
+& \underset{u \in \mathbb{R}^p}{\arg \min}
+& & -\frac{1}{2} \lVert y \rVert_2^2 + \frac{1}{2} \lVert y - u \rVert_2^2  \\
 & \text{subject to}
-& & \lVert \nu^TX \rVert_\infty \leq \lambda
+& & \lVert u^TX \rVert_\infty \leq \lambda
 \end{aligned}
 \]
 
-\[
-\vdots
-\]
+Then by (\ref{other.part.result}) and strong duality we have \(\hat{u} = y - X \hat{\beta}\).
 
 % 5b
 \item
@@ -879,24 +1038,69 @@ This quantity represents a lower bound on the minimum value of the original opti
 \begin{enumerate}[(i)]
 
 % 5(b)i
-\item \textbf{Not necessarily unique.} Per \citet{Tibshirani2013}, if \(\operatorname{rank}(X) < p\), the lasso solution is not necessarily unique. Intuitively, this is because the columns of \(X\) are linearly dependent, so there may exist more than one linear combination of the columns that minimizes (\ref{2018.screen.5.a.objective}). \textbf{jacob suggestion: counterexample. X is two columns that are equal; then convex combinations of two solutions are equal as long as same sign (can't be opposite sign because then \(\ell_1\) could be smaller by setting one equal to 0.}
+\item \textbf{Not necessarily unique.} Per \citet{Tibshirani2013}, if \(\operatorname{rank}(X) < p\), the lasso solution is not necessarily unique. Intuitively, this is because the columns of \(X\) are linearly dependent, so there may exist more than one linear combination of the columns that minimizes (\ref{2018.screen.5.a.objective}). \textbf{Jacob's suggestion: counterexample. X is two columns that are equal; then convex combinations of two solutions are equal as long as same sign (can't be opposite sign because then \(\ell_1\) could be smaller by setting one equal to 0.}
 
 % 5(b)ii
-\item \textbf{Necessarily unique.} \textbf{flesh out more} By a result from part (a), \(\hat{u} = y - X \hat{\beta}\). By part (iii), even though \(\hat{\beta}\) is not unique, \(X \hat{\beta}\) is (see also Lemma 1 in \citet{Tibshirani2013}). Therefore \(\hat{u}\) is unique.
+\item \textbf{Necessarily unique.} The dual problem (\ref{2018.screen.5.a.dual.ans}) is strictly concave, so the value \(\hat{u}\) that maximizes it is unique.
 
-\textbf{Jacob's solution: strictly convex optimization problem, so argument maximizing is unique. dual is always convex; } 
+%  \textbf{flesh out more} By a result from part (a), \(\hat{u} = y - X \hat{\beta}\). By part (iii), even though \(\hat{\beta}\) is not unique, \(X \hat{\beta}\) is (see also Lemma 1 in \citet{Tibshirani2013}). Therefore \(\hat{u}\) is unique.
+
+%\textbf{Jacob's solution: strictly convex optimization problem, so argument maximizing is unique. dual is always convex; } 
 
 % 5(b)iii
 \item \textbf{Necessarily unique} (except in the trivial case \(\lambda=0\)). Per part 5(b)(iv), \(\lVert \hat{\beta} \rVert_1\) is unique. (\ref{2018.screen.5.a.objective}) is convex, so the minimum \(\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1\) is unique. Therefore \( \lVert y - X \hat{\beta} \rVert_2^2\) must be unique.
 
-\textbf{Jacob's solution: if \(\hat{\nu}\) is unique then its \(\ell_2\) norm is unique.}
+\textbf{Jacob's solution:} Since \(\hat{u}\) is unique and by (\ref{other.part.result}) \(\hat{u} = y - X \hat{\beta}\), we must have that \(\lVert \hat{u} \rVert = \lVert y - X \hat{\beta} \rVert\) is unique.
 
 %\textbf{Necessarily unique.} The optimization problem is convex in \(\beta\), so it has a unique minimum value \(\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1\). 
 
 % 5(b)iv
-\item \textbf{Necessarily unique} \textbf{change this argument: if you solve 1 and take the norm of that and choose that value for \(t\) then you will get the same solution. because if there existed a better solution then it would have made the objective function 1 better.} (except in the trivial case \(\lambda=0\)). Whenever \(\lambda > 0\), the lasso objective function (\ref{2018.screen.5.a.objective}) is the dual of (\ref{2018.screen.5.a.objective.orig}) with \(t\) less than the \(\ell_1\) norm of the OLS solution (if it exists). (\ref{2018.screen.5.a.objective.orig}) is convex and Slater's condition holds because every point \(\{\beta \in \mathbb{R}^p \mid \lVert \beta \rVert_1 < t\}\) is feasible. Therefore for this dual function, strong duality holds; that is, the optimal values of (\ref{2018.screen.5.a.objective}) and  (\ref{2018.screen.5.a.objective.orig}) are equal. Further, they are optimized over the same variable and they are both convex, so the solution set of (\ref{2018.screen.5.a.objective}) is identical to the solution set of (\ref{2018.screen.5.a.objective.orig}).
+\item \textbf{Necessarily unique} (except in the trivial case \(\lambda=0\)). Whenever \(\lambda > 0\), the lasso objective function (\ref{2018.screen.5.a.objective}) is the Lagrangian of (\ref{2018.screen.5.a.objective.orig}). We will prove a useful lemma about the relationship between these functions.
 
-Since the objective function of (\ref{2018.screen.5.a.objective.orig}) is continuous and the feasible region \(\lVert \beta \rVert_1 \leq t\) is compact, a minimum is guaranteed to exist. Since (\ref{2018.screen.5.a.objective.orig}) is convex and the global minimum lies outside the region \textbf{for \(t < t_0\)}, the minimum will lie on the boundary; that is, \(\lVert \hat{\beta} \rVert_1 = t\) for (\ref{2018.screen.5.a.objective.orig}) and therefore for (\ref{2018.screen.5.a.objective}). See \citet{Osborne2000} for details.
+\begin{lemma}\label{2018.screen.5.b.iv.relation}
+For a given \(\lambda >0\), let \(\hat{\beta}\) minimize (\ref{2018.screen.5.a.objective}). Then there is exactly one \(t = \lVert \hat{\beta} \rVert_1\) such that any \(\hat{\beta}\) minimizing (\ref{2018.screen.5.a.objective}) also minimizes (\ref{2018.screen.5.a.objective.orig}).
+
+\end{lemma}
+
+\begin{proof}
+This must be true by contradiction. First of all, since the objective function of (\ref{2018.screen.5.a.objective.orig}) is continuous and the feasible region \(\lVert \beta \rVert_1 \leq t\) is compact, a minimum of (\ref{2018.screen.5.a.objective.orig}) is guaranteed to exist. Now suppose \(\hat{\beta}\) minimizes (\ref{2018.screen.5.a.objective}) for a fixed \(\lambda\), with \(\lVert \hat{\beta} \rVert_1 = t\), but there is a different solution \(\hat{\beta}^*\) that is feasible for (\ref{2018.screen.5.a.objective.orig}) and achieves a lower value. That is,
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta}^* \rVert_2^2  < \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2
+\]
+
+and \(\lVert\hat{\beta}^*\rVert_1 \leq \lVert\hat{\beta}\rVert_1 = t\). Since \(\lambda > 0\), \(\lVert\hat{\beta}\rVert_1 < \lVert \hat{\beta}_{global} \rVert_1\), where \(\hat{\beta}_{global}\) is a global minimum for \(\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2\). Since (\ref{2018.screen.5.a.objective.orig}) is convex and all global minima lie outside the feasible region, \(\hat{\beta}^*\) lies on the boundary; that is, \(\lVert \hat{\beta}^* \rVert_1 = \lVert\hat{\beta}\rVert_1 = t\). But then
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta}^* \rVert_2^2  < \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 \iff \frac{1}{2} \lVert y - X \hat{\beta}^* \rVert_2^2 + \lambda \lVert\hat{\beta}^* \rVert_1 < \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 +  \lambda \lVert\hat{\beta} \rVert_1
+\]
+
+which contradicts the fact that \(\hat{\beta}\) minimizes (\ref{2018.screen.5.a.objective}). 
+
+\end{proof}
+
+Now the result follows in a simple way:
+
+\begin{proposition}
+Let \(\mathcal{B}\) be the set of all \(\hat{\beta}\) that minimize (\ref{2018.screen.5.a.objective}) for some fixed \(\lambda > 0\). Then for any two \(\hat{\beta}_1, \hat{\beta}_2 \in \mathcal{B}\), \(\lVert \hat{\beta}_1 \rVert_1 = \lVert \hat{\beta}_2 \rVert_1\). That is, \(\lVert \hat{\beta} \rVert_1\) is unique.
+\end{proposition}
+
+\begin{proof}
+Suppose \(\hat{\beta}_1\) and \(\hat{\beta}_2\) both minimize (\ref{2018.screen.5.a.objective}), and (without loss of generality) \(\lVert \hat{\beta}_1 \rVert_1 < \lVert \hat{\beta}_2 \rVert_1\). By Lemma \ref{2018.screen.5.b.iv.relation}, these values both minimize (\ref{2018.screen.5.a.objective.orig}) with \(t =  \lVert \hat{\beta}_2 \rVert_1\) (we cannot choose \(t =  \lVert \hat{\beta}_1 \rVert_1\) because \(\hat{\beta}_1\) is not feasible for that problem). But \(\hat{\beta}_1\) does not lie on the boundary of the feasible region of (\ref{2018.screen.5.a.objective.orig}), so \(\hat{\beta}_1\) minimizing (\ref{2018.screen.5.a.objective.orig}) contradicts the convexity of (\ref{2018.screen.5.a.objective.orig}) (and the fact that the global minimum lies outside the feasible region). Therefore \(\lVert \hat{\beta}_1 \rVert_1 = \lVert \hat{\beta}_2 \rVert_1\).
+\end{proof}
+
+(See \citet{Osborne2000} for more details.)
+
+%for (\ref{2018.screen.5.a.objective.orig}) and therefore for (\ref{2018.screen.5.a.objective}). 
+
+
+%
+
+% \textbf{change this argument: if you solve 1 and take the norm of that and choose that value for \(t\) then you will get the same solution. because if there existed a better solution then it would have made the objective function 1 better.}
+ 
+% Further, they are optimized over the same variable and they are both convex, so the solution set of (\ref{2018.screen.5.a.objective}) is identical to the solution set of (\ref{2018.screen.5.a.objective.orig}).
+
+%(\ref{2018.screen.5.a.objective.orig}) is convex and Slater's condition holds because every point \(\{\beta \in \mathbb{R}^p \mid \lVert \beta \rVert_1 < t\}\) is feasible. Therefore for this dual function, strong duality holds; that is, the optimal values of (\ref{2018.screen.5.a.objective}) and  (\ref{2018.screen.5.a.objective.orig}) are equal. 
 
 \end{enumerate}
 
@@ -914,205 +1118,287 @@ Since the objective function of (\ref{2018.screen.5.a.objective.orig}) is contin
 
 
 % 5(c)ii
-\item From part (a), since the optimal value of the dual (\ref{2018.screen.5.a.dual}) is a lower bound for the optimal value of the primal (\ref{2018.screen.5.a.objective}), we have
+\item
 
-\begin{equation}\label{2018.screen.5.c.d}
- \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \hat{\nu} \rVert_2^2  \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1.
+% \textbf{Jacob's solution: plug in \(\epsilon\) for \(u\) in the lower bound equation, then you get \(X \beta^*\)}
+
+We know that the expression in the dual problem (\ref{2018.screen.5.a.dual.ans}) is a lower bound for the solution of the primal problem (\ref{2018.screen.5.a.objective}) for any \(u\) feasible for (\ref{2018.screen.5.a.dual.ans}) (that is, any \(u\) satisfying \(\lVert u^TX \rVert_\infty \leq \lambda\)). Therefore we have
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 \geq  \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2.
+\]
+
+Since by assumption \(\lambda \geq \lVert X^T \epsilon \rVert_\infty\), \(\epsilon\) is feasible for (\ref{2018.screen.5.a.dual.ans}). Therefore we have
+
+\begin{equation}\label{2018.screen.5.c.ii.result}
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 \geq  \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \epsilon \rVert_2^2 =  \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \beta^* \rVert_2^2
 \end{equation}
 
-\textbf{Jacob's solution: plug in \(\epsilon\) for \(\nu\) in the lower bound equation, then you get \(X \beta^*\)}
+as desired.
 
-so we are done if \(\lVert X \beta^* \rVert_2^2 \geq \lVert y - \hat{\nu} \rVert_2^2\). Also by part (a), \(\hat{\nu} = y - X \hat{\beta}\), so \( \lVert y - \hat{\nu} \rVert_2^2 = \lVert X \hat{\beta} \rVert_2^2 \), so we are done if \(\lVert X \beta^* \rVert_2^2 \geq \lVert X \hat{\beta} \rVert_2^2 \). From part (c)(i), we have
-
-\[
- \frac{1}{2}\left[  ( y - X \hat{\beta})^T( y - X \hat{\beta})  - ( y - X \beta^*)^T( y - X \beta^*)  \right] \leq \lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1)
-\]
-
-\[
-\iff 2 y^T X (\beta^* -  \hat{\beta} ) +  (\hat{\beta})^TX^TX\hat{\beta} - (\beta^*)^TX^TX\beta^* \leq 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1)
-\]
-
-\begin{equation}\label{2018.screen.5.c.c}
-\iff \lVert X \beta^* \rVert_2^2  -  \lVert X \hat{\beta} \rVert_2^2   \geq  2 y^T X ( \beta^* - \hat{\beta} )  - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) 
-\end{equation}
-
-So (\ref{2018.screen.5.c.c}) is a sufficient condition for the result. Examining the right side of the right side of (\ref{2018.screen.5.c.c}), we have
-
-\begin{equation}\label{2018.screen.5.c.a}
-2 y^T X ( \beta^* - \hat{\beta} )  - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) =  2y^T (y - \epsilon -X \hat{\beta} ) - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1)  
-\end{equation}
-
-
-%Again, note that \(\lambda > 0\) corresponds to a problem with constraint \(\lVert \beta \rVert_1 \leq t \leq \lVert \beta^*\rVert\) (see the explanation in problem 5(b)(iv)). So \(\lVert \hat{\beta} \rVert_1 = t \leq \lVert \beta^*\rVert\). 
-
-Borrowing notation from \citet{Osborne2000}, note that the subdifferential of (\ref{2018.screen.5.a.objective}) is given by
-
-\[
-\partial_\beta \mathcal{L}(\beta, \lambda) = \partial_\beta  \left(  \frac{1}{2}(y - X \beta)^T(y - X \beta) + \lambda \lVert \beta \rVert_1\right) = \partial_\beta  \left(  \frac{1}{2}(y^Ty - 2 y^TX \beta + \beta^T X^T X \beta) + \lambda \lVert \beta \rVert_1\right) 
-\]
-
-\[
-= -y^TX + X^TX \beta+ \lambda v = -X^T(y - X \beta) + \lambda v
-\]
-
-where \(v = (v_1, \dots, v_p)^T\) with \(v_i = \operatorname{sgn}(\beta_i)\) if \(\beta_i \neq 0\) and \(v_i \in [-1, 1]\) if \(\beta_i  =0\). By the convexity of (\ref{2018.screen.5.a.objective}), for \(\hat{\beta}\) minimizing (\ref{2018.screen.5.a.objective}) it must hold that 
-
-\[
-0 = -X^T(y - X \beta) + \lambda v \iff  \lambda v^T \hat{\beta} = (y - X \hat{\beta}) ^TX \hat{\beta} \iff \lambda = \frac{(y - X \hat{\beta})^TX \hat{\beta}}{\lVert \hat{\beta} \rVert_1}
-\]
-
-\begin{equation}\label{2018.screen.5.c.b}
-\iff \lVert \hat{\beta} \rVert_1 = \frac{(y - X \hat{\beta})^TX \hat{\beta}}{\lambda}
-\end{equation}
-
-where we used \(v^T \hat{\beta} = \lVert \hat{\beta} \rVert_1 \). Substituting (\ref{2018.screen.5.c.b}) into (\ref{2018.screen.5.c.a}), we have
+%\[
+%\vdots
+%\]
 %
-%Substituting this identity and (\ref{2018.screen.5.c.b}) into (\ref{2018.screen.5.c.d}), we have that a sufficient condition to prove our result is 
+%%From part (a), since the optimal value of the dual (\ref{2018.screen.5.a.dual}) is a lower bound for the optimal value of the primal (\ref{2018.screen.5.a.objective}), we have
+%%
+%%\begin{equation}\label{2018.screen.5.c.d}
+%% \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \hat{u} \rVert_2^2  \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1.
+%%\end{equation}
+%%
+%%
+%%
+%%so we are done if \(\lVert X \beta^* \rVert_2^2 \geq \lVert y - \hat{u} \rVert_2^2\). Also by part (a), \(\hat{u} = y - X \hat{\beta}\), so \( \lVert y - \hat{u} \rVert_2^2 = \lVert X \hat{\beta} \rVert_2^2 \), so we are done if \(\lVert X \beta^* \rVert_2^2 \geq \lVert X \hat{\beta} \rVert_2^2 \). 
+%
+%%From part (c)(i), we have
+%%
+%%\[
+%% \frac{1}{2}\left[  ( y - X \hat{\beta})^T( y - X \hat{\beta})  - ( y - X \beta^*)^T( y - X \beta^*)  \right] \leq \lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1)
+%%\]
+%%
+%%\[
+%%\iff 2 y^T X (\beta^* -  \hat{\beta} ) +  (\hat{\beta})^TX^TX\hat{\beta} - (\beta^*)^TX^TX\beta^* \leq 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1)
+%%\]
+%%
+%%\begin{equation}\label{2018.screen.5.c.c}
+%%\iff \lVert X \beta^* \rVert_2^2  -  \lVert X \hat{\beta} \rVert_2^2   \geq  2 y^T X ( \beta^* - \hat{\beta} )  - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) 
+%%\end{equation}
+%%
+%%So (\ref{2018.screen.5.c.c}) is a sufficient condition for the result. Examining the right side of the right side of (\ref{2018.screen.5.c.c}), we have
+%%
+%%\begin{equation}\label{2018.screen.5.c.a}
+%%2 y^T X ( \beta^* - \hat{\beta} )  - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) =  2y^T (y - \epsilon -X \hat{\beta} ) - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1)  
+%%\end{equation}
+%%
+%%
+%%%Again, note that \(\lambda > 0\) corresponds to a problem with constraint \(\lVert \beta \rVert_1 \leq t \leq \lVert \beta^*\rVert\) (see the explanation in problem 5(b)(iv)). So \(\lVert \hat{\beta} \rVert_1 = t \leq \lVert \beta^*\rVert\). 
+%
+%Borrowing notation from \citet{Osborne2000}, note that the subdifferential of (\ref{2018.screen.5.a.objective}) is given by
 %
 %\[
-% \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \hat{\nu} \rVert_2^2  \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + (y - X \hat{\beta})^TX \hat{\beta}
+%\partial_\beta \mathcal{L}(\beta, \lambda) = \partial_\beta  \left(  \frac{1}{2}(y - X \beta)^T(y - X \beta) + \lambda \lVert \beta \rVert_1\right) = \partial_\beta  \left(  \frac{1}{2}(y^Ty - 2 y^TX \beta + \beta^T X^T X \beta) + \lambda \lVert \beta \rVert_1\right) 
+%\]
+%
+%\[
+%= -y^TX + X^TX \beta+ \lambda v = -X^T(y - X \beta) + \lambda v
+%\]
+%
+%where \(v = (v_1, \dots, v_p)^T\) with \(v_i = \operatorname{sgn}(\beta_i)\) if \(\beta_i \neq 0\) and \(v_i \in [-1, 1]\) if \(\beta_i  =0\). By the convexity of (\ref{2018.screen.5.a.objective}), for \(\hat{\beta}\) minimizing (\ref{2018.screen.5.a.objective}) it must hold that 
+%
+%\[
+%0 = -X^T(y - X \beta) + \lambda v \iff  \lambda v^T \hat{\beta} = (y - X \hat{\beta}) ^TX \hat{\beta} \iff \lambda = \frac{(y - X \hat{\beta})^TX \hat{\beta}}{\lVert \hat{\beta} \rVert_1}
+%\]
+%
+%\begin{equation}\label{2018.screen.5.c.b}
+%\iff \lVert \hat{\beta} \rVert_1 = \frac{(y - X \hat{\beta})^TX \hat{\beta}}{\lambda}
+%\end{equation}
+%
+%where we used \(v^T \hat{\beta} = \lVert \hat{\beta} \rVert_1 \). Substituting (\ref{2018.screen.5.c.b}) into (\ref{2018.screen.5.c.a}), we have
+%%
+%%Substituting this identity and (\ref{2018.screen.5.c.b}) into (\ref{2018.screen.5.c.d}), we have that a sufficient condition to prove our result is 
+%%
+%%\[
+%% \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \hat{u} \rVert_2^2  \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + (y - X \hat{\beta})^TX \hat{\beta}
+%% \]
+%% 
+%% \[
+%%\iff  \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \hat{\beta} \rVert_2^2  \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + (y - X \hat{\beta})^TX \hat{\beta}
+%% \]
+%% 
+%%  \[
+%%\iff  \frac{1}{2} y^Ty - \frac{1}{2} ( \hat{\beta})^T X^TX \hat{\beta}  \leq \frac{1}{2} \left(y^Ty - 2 y^T X \hat{\beta} + (\hat{\beta})^TX^TX\hat{\beta} \right) +y^T X \hat{\beta} - (\hat{\beta})^TX^T X \hat{\beta}
+%% \]
+%% 
+%%   \[
+%%\iff 0 \leq \frac{1}{2} \left(- 2 y^T X \hat{\beta}  \right) +y^T X \hat{\beta}  = 0
+%% \]
+% 
+%
+%%\[
+%%\vdots
+%%\]
+%
+%
+%
+%\[
+%2y^T (y - \epsilon -X \hat{\beta} ) -  2\lambda \left(\lVert \beta^* \rVert_1 - \frac{(y - X \hat{\beta})^TX \hat{\beta}}{\lambda} \right)  
+%\]
+%
+%\[
+%=2 y^T y - 2y^T \epsilon - 2y^TX \hat{\beta}  -2 \lambda\lVert \beta^* \rVert_1  + 2y^TX \hat{\beta}  -2  \hat{\beta}^T X^T X \hat{\beta} = 2y^T (y -  \epsilon)  -2 \lambda\lVert \beta^* \rVert_1   -  2\hat{\beta}^T X^T X \hat{\beta}
+%\]
+%
+%\[
+%= 2y^T X \beta^* - 2\lambda\lVert \beta^* \rVert_1   -  2\lVert X \hat{\beta} \rVert_2^2  =  2(X \beta^* + \epsilon)^T X \beta^*  - 2 \lambda\lVert \beta^* \rVert_1   - 2\lVert X \hat{\beta} \rVert_2^2
+%\]
+%
+%\[
+%= 2 \lVert X \beta^* \rVert_2^2 + 2\epsilon^T X \beta^* - 2\lambda\lVert \beta^* \rVert_1   - 2 \lVert X \hat{\beta} \rVert_2^2  = 2 \left( \lVert X \beta^* \rVert_2^2  - \lVert X \hat{\beta} \rVert_2^2\right)  - 2 \left( \lambda\lVert \beta^* \rVert_1  -   \epsilon^T X \beta^* \right)
+%\]
+%
+%\[
+%= 2 \left( \lVert X \beta^* \rVert_2^2  - \lVert X \hat{\beta} \rVert_2^2\right)  - 2 \sum_{i=1}^p \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^* 
+%\]
+%
+%Because \(\lambda \geq \lVert X^T \epsilon \rVert_\infty\) (that is, for all \(i \in \{1, \ldots, p\}\), \(\lambda -  \left| \begin{bmatrix} X^T \epsilon \end{bmatrix}_i \right| \geq 0 \) ) we have that for all \(i \in \{1, \ldots, p\}\),
+%
+%
+%%\(\epsilon^T X \preceq \lambda \boldsymbol{1}^T \)
+%
+%\[
+% \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^*  \geq 0
 % \]
+% 
+% by the following argument. If \(\beta_i^* = 0\), the result is trivial. If \(\beta_i^* > 0\), we have
 % 
 % \[
-%\iff  \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \hat{\beta} \rVert_2^2  \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + (y - X \hat{\beta})^TX \hat{\beta}
-% \]
-% 
+%  \operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i  =   \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i  \geq \lambda -  \left| \begin{bmatrix} X^T \epsilon \end{bmatrix}_i \right|  \geq 0
+%  \]
+%  
 %  \[
-%\iff  \frac{1}{2} y^Ty - \frac{1}{2} ( \hat{\beta})^T X^TX \hat{\beta}  \leq \frac{1}{2} \left(y^Ty - 2 y^T X \hat{\beta} + (\hat{\beta})^TX^TX\hat{\beta} \right) +y^T X \hat{\beta} - (\hat{\beta})^TX^T X \hat{\beta}
-% \]
-% 
+%   \implies  \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^*  \geq 0.
+%  \]
+%  
+%  Lastly, if \(\beta_i^* < 0\), we have
+%  
 %   \[
-%\iff 0 \leq \frac{1}{2} \left(- 2 y^T X \hat{\beta}  \right) +y^T X \hat{\beta}  = 0
-% \]
- 
-
-%\[
-%\vdots
-%\]
-
-
-
-\[
-2y^T (y - \epsilon -X \hat{\beta} ) -  2\lambda \left(\lVert \beta^* \rVert_1 - \frac{(y - X \hat{\beta})^TX \hat{\beta}}{\lambda} \right)  
-\]
-
-\[
-=2 y^T y - 2y^T \epsilon - 2y^TX \hat{\beta}  -2 \lambda\lVert \beta^* \rVert_1  + 2y^TX \hat{\beta}  -2  \hat{\beta}^T X^T X \hat{\beta} = 2y^T (y -  \epsilon)  -2 \lambda\lVert \beta^* \rVert_1   -  2\hat{\beta}^T X^T X \hat{\beta}
-\]
-
-\[
-= 2y^T X \beta^* - 2\lambda\lVert \beta^* \rVert_1   -  2\lVert X \hat{\beta} \rVert_2^2  =  2(X \beta^* + \epsilon)^T X \beta^*  - 2 \lambda\lVert \beta^* \rVert_1   - 2\lVert X \hat{\beta} \rVert_2^2
-\]
-
-\[
-= 2 \lVert X \beta^* \rVert_2^2 + 2\epsilon^T X \beta^* - 2\lambda\lVert \beta^* \rVert_1   - 2 \lVert X \hat{\beta} \rVert_2^2  = 2 \left( \lVert X \beta^* \rVert_2^2  - \lVert X \hat{\beta} \rVert_2^2\right)  - 2 \left( \lambda\lVert \beta^* \rVert_1  -   \epsilon^T X \beta^* \right)
-\]
-
-\[
-= 2 \left( \lVert X \beta^* \rVert_2^2  - \lVert X \hat{\beta} \rVert_2^2\right)  - 2 \sum_{i=1}^p \left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^* 
-\]
-
-Because \(\lambda \geq \lVert X^T \epsilon \rVert_\infty\) (that is, for all \(i \in \{1, \ldots, p\}\), \(\lambda -  \left| \begin{bmatrix} X^T \epsilon \end{bmatrix}_i \right| \geq 0 \) ) we have that for all \(i \in \{1, \ldots, p\}\),
-
-
-%\(\epsilon^T X \preceq \lambda \boldsymbol{1}^T \)
-
-\[
- \left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^*  \geq 0
- \]
- 
- by the following argument. If \(\beta_i^* = 0\), the result is trivial. If \(\beta_i^* > 0\), we have
- 
- \[
-  (-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i  =   \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i  \geq \lambda -  \left| \begin{bmatrix} X^T \epsilon \end{bmatrix}_i \right|  \geq 0
-  \]
-  
-  \[
-   \implies  \left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^*  \geq 0.
-  \]
-  
-  Lastly, if \(\beta_i^* < 0\), we have
-  
-   \[
-  (-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i  =   - \left( \lambda +   \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right)  \leq - \left( \lambda -  \left| \begin{bmatrix} X^T \epsilon \end{bmatrix}_i \right|  \right) \leq 0
-  \]
-  
-  \[
-   \implies  \left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^*  \geq 0.
-  \]
-  
-  Therefore we have
-  
-  \[
-2 \left( \lVert X \beta^* \rVert_2^2  - \lVert X \hat{\beta} \rVert_2^2\right)  - 2 \sum_{i=1}^p \left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^*  \leq 2 \left( \lVert X \beta^* \rVert_2^2  - \lVert X \hat{\beta} \rVert_2^2\right) 
-\]
-
-\[
-\vdots
-\]
-
-\[
-\lVert X \beta^* \rVert_2^2  -  \lVert X \hat{\beta} \rVert_2^2   \geq  2 y^T X ( \beta^* - \hat{\beta} )  - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) 
-\]
-
-\[
-\iff \lVert X \beta^* \rVert_2^2  -  \lVert X \hat{\beta} \rVert_2^2   \geq  2 (X \beta^* + \epsilon)^T X \beta^* - 2 y^T X\hat{\beta}   - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) 
-\]
-
-\[
-\iff \lVert X \beta^* \rVert_2^2  -  \lVert X \hat{\beta} \rVert_2^2   \geq   2\lVert X \beta^* \rVert_2^2 + 2 \epsilon^T X \beta^* - 2 y^T X\hat{\beta}   - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) 
-\]
-
-%\[
-%\epsilon^T X \preceq \lambda \boldsymbol{1}^T  \iff  \ldots \iff  \sum_{i=1}^p \left((-1)^{\mathbb{I}{\{\beta_i < 0\}}} \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^* 
-%\]
-%
-%\[
-%\iff | \epsilon^T X \beta^* | \leq | \lambda \boldsymbol{1}^T \beta^* |= \lambda \lVert \beta^* \rVert_1.
-%\]
-
-
-% Therefore \(\lambda\lVert \beta^* \rVert_1  -  \epsilon^T X \beta^* \geq 0\), so we have that \(\lVert X \beta^* \rVert_2^2 \geq  \lVert X \hat{\beta} \rVert_2^2\) is a sufficient condition to prove the result.
-
-%which proves the result by (\ref{2018.screen.5.c.d}).
-
-%\[
-%\vdots
-%\]
-%
-%Further, if \(\hat{\beta} \neq 0\) then \(\lVert v \rVert_\infty = 1\), so from (\ref{2018.screen.5.c.b}) we have
-%
-%\[
-%\lambda = \frac{(y - X \hat{\beta})^TX \hat{\beta}}{\lVert \hat{\beta} \rVert_1} = \lVert X^T(y - X \hat{\beta}) \rVert_\infty.
+%  \operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i  =   - \left( \lambda +   \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right)  \leq - \left( \lambda -  \left| \begin{bmatrix} X^T \epsilon \end{bmatrix}_i \right|  \right) \leq 0
+%  \]
+%  
+%  \[
+%   \implies  \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^*  \geq 0.
+%  \]
+%  
+%  Therefore we have
+%  
+%  \[
+%2 \left( \lVert X \beta^* \rVert_2^2  - \lVert X \hat{\beta} \rVert_2^2\right)  - 2 \sum_{i=1}^p \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^*  \leq 2 \left( \lVert X \beta^* \rVert_2^2  - \lVert X \hat{\beta} \rVert_2^2\right) 
 %\]
 %
 %\[
 %\vdots
 %\]
-
-% \(\lVert y - 
+%
+%\[
+%\lVert X \beta^* \rVert_2^2  -  \lVert X \hat{\beta} \rVert_2^2   \geq  2 y^T X ( \beta^* - \hat{\beta} )  - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) 
+%\]
+%
+%\[
+%\iff \lVert X \beta^* \rVert_2^2  -  \lVert X \hat{\beta} \rVert_2^2   \geq  2 (X \beta^* + \epsilon)^T X \beta^* - 2 y^T X\hat{\beta}   - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) 
+%\]
+%
+%\[
+%\iff \lVert X \beta^* \rVert_2^2  -  \lVert X \hat{\beta} \rVert_2^2   \geq   2\lVert X \beta^* \rVert_2^2 + 2 \epsilon^T X \beta^* - 2 y^T X\hat{\beta}   - 2\lambda (\lVert \beta^* \rVert_1 - \lVert \hat{\beta} \rVert_1 ) 
+%\]
+%
+%%\[
+%%\epsilon^T X \preceq \lambda \boldsymbol{1}^T  \iff  \ldots \iff  \sum_{i=1}^p \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} \epsilon^T X \end{bmatrix}_i \right) \beta_i^* 
+%%\]
+%%
+%%\[
+%%\iff | \epsilon^T X \beta^* | \leq | \lambda \boldsymbol{1}^T \beta^* |= \lambda \lVert \beta^* \rVert_1.
+%%\]
+%
+%
+%% Therefore \(\lambda\lVert \beta^* \rVert_1  -  \epsilon^T X \beta^* \geq 0\), so we have that \(\lVert X \beta^* \rVert_2^2 \geq  \lVert X \hat{\beta} \rVert_2^2\) is a sufficient condition to prove the result.
+%
+%%which proves the result by (\ref{2018.screen.5.c.d}).
+%
+%%\[
+%%\vdots
+%%\]
+%%
+%%Further, if \(\hat{\beta} \neq 0\) then \(\lVert v \rVert_\infty = 1\), so from (\ref{2018.screen.5.c.b}) we have
+%%
+%%\[
+%%\lambda = \frac{(y - X \hat{\beta})^TX \hat{\beta}}{\lVert \hat{\beta} \rVert_1} = \lVert X^T(y - X \hat{\beta}) \rVert_\infty.
+%%\]
+%%
+%%\[
+%%\vdots
+%%\]
+%
+%% \(\lVert y - 
 
 % 5(c)iii
-\item \textbf{haven't finished, but this is just a bonus question} We already have from part (c)(i)
+\item 
 
+%We already have from part (c)(i)
+%
+%%\[
+%%\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \leq \frac{1}{2} \lVert\epsilon \rVert_2^2 + \lambda \lVert \beta^* \rVert_1
+%%\]
+%%
+%%Note that
+%%
+%%\[
+%%\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta^* \rVert_1 
+%%\]
+%%
+%%\[
+%%\vdots
+%%\]
+%
+%From part c(ii) we have
+%
+%\[
+%\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \geq \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \beta^* \rVert_2^2 
+%\]
+
+We can rewrite the right side of (\ref{2018.screen.5.c.ii.result}) as 
+
+\begin{equation}\label{2018.screen.5.c.ii.result.rewritten}
+\frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \beta^* \rVert_2^2 = \frac{1}{2} \lVert X \beta^* \rVert_2^2 + \frac{1}{2} \lVert \epsilon \rVert_2^2 + \epsilon^T X \beta^* - \frac{1}{2} \lVert X \beta^* \rVert_2^2  =  \frac{1}{2} \lVert \epsilon \rVert_2^2 + \epsilon^T X \beta^*. 
+\end{equation}
+
+By assumption, we have 
 \[
-\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \leq \frac{1}{2} \lVert\epsilon \rVert_2^2 + \lambda \lVert \beta^* \rVert_1
+\lambda \geq \lVert X^T \epsilon \rVert_\infty \iff \lambda \boldsymbol{1}  - X^T \epsilon \succeq 0 \implies \lambda \boldsymbol{1} \beta^*  - X^T \epsilon \beta^* \succeq 0 
 \]
 
-Note that
+\[
+\iff - \lambda \lVert \beta^* \rVert_1 \leq \epsilon^T X \beta^* \leq \lambda \lVert \beta^* \rVert_1.
+\]
+
+By H\"{o}lder's Inequality, we have for any two vectors \(u, v \in \mathbb{R}^n\), \( | u^Tv | \leq \lVert u \rVert_\infty \lVert v \rVert_1\). Therefore
 
 \[
-\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta^* \rVert_1 
+| \epsilon^T X \beta^*| = | (X^T \epsilon)^T \beta^* | \leq \lVert X^T \epsilon \rVert_\infty \lVert \beta^* \rVert_1 \leq \lambda \lVert \beta^* \rVert_1
 \]
+
+where the last step used the assumption \(\lVert X^T \epsilon \rVert_\infty \leq \lambda\). So we have 
+
+\[
+ \frac{1}{2} \lVert \epsilon \rVert_2^2 +\lambda \lVert \beta^* \rVert_1 \leq \frac{1}{2} \lVert \epsilon \rVert_2^2 + \epsilon^T X \beta^* .
+\]
+
+Substituting in to (\ref{2018.screen.5.c.ii.result}) and using the identity in (\ref{2018.screen.5.c.ii.result.rewritten}) yields
+
+\[
+ \frac{1}{2} \lVert \epsilon \rVert_2^2 +\lambda \lVert \beta^* \rVert_1 \leq \frac{1}{2} \lVert \epsilon \rVert_2^2 + \epsilon^T X \beta^* = \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \beta^* \rVert_2^2  \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 
+\]
+
+as desired.
 
 % 5(c)iv
-\item  \textbf{haven't finished, but this is just a bonus question} 
+\item  We see from parts (i) and (iii) that
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 - \lambda \lVert \beta^* \rVert_1  \leq \frac{1}{2} \lVert \epsilon \rVert_2^2 \leq  \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 + \lambda \lVert \beta^* \rVert_1 
+\]
+
+\[
+\iff \frac{1}{n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{2}{n} \lambda \lVert \beta \rVert_1 - \frac{2}{n}\lambda \lVert \beta^* \rVert_1  \leq \frac{1}{n} \lVert \epsilon \rVert_2^2 \leq  \frac{1}{n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{2}{n}\lambda \lVert \beta \rVert_1 +\frac{2}{n} \lambda \lVert \beta^* \rVert_1 
+\]
+
+that is, we can lower bound and upper bound \(\frac{1}{n} \lVert \epsilon \rVert_2^2 \) by taking the quantity \(\frac{1}{n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{2}{n} \lambda \lVert \beta \rVert_1\) and adding or subtracting \(\frac{2}{n}\lambda \lVert \beta^* \rVert_1\). Therefore it seems that the quantity in the middle of this interval,  \(\frac{1}{n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{2}{n} \lambda \lVert \beta \rVert_1\), is a reasonable estimator for \(\sigma^2 = \E \left[ n^{-1} \lVert \epsilon \rVert_2^2 \right]\).
 
 \end{enumerate}
 
 % 5d
 
 \item 
+
 
 \begin{proof}
 

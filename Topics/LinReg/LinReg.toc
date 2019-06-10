@@ -17,7 +17,7 @@
 \contentsline {subsubsection}{\numberline {1.8.5}LARS}{29}{subsubsection.1.8.5}
 \contentsline {subsection}{\numberline {1.9}Quadratic Loss}{29}{subsection.1.9}
 \contentsline {subsubsection}{\numberline {1.9.1}Feature Selection properties}{29}{subsubsection.1.9.1}
-\contentsline {subsection}{\numberline {1.10}Dantzig Selector}{32}{subsection.1.10}
+\contentsline {subsection}{\numberline {1.10}Dantzig Selector}{33}{subsection.1.10}
 \contentsline {subsection}{\numberline {1.11}Coordinate Descent}{34}{subsection.1.11}
 \contentsline {subsection}{\numberline {1.12}Nonconvex Learning}{34}{subsection.1.12}
 \contentsline {subsection}{\numberline {1.13}Yinfei Kong---Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{34}{subsection.1.13}

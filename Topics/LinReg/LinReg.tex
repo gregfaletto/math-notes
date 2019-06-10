@@ -1633,7 +1633,7 @@ Oracle property: model selection consistency, asymptotic efficiency as efficient
 
 \item Identifies the right subset model (consistency): \(\{j: \hat{\beta}_j \neq 0\} = S_0\).
 
-\item Has the optimal estimation rate: \(\sqrt{n}(\beta(\delta)_{S_0} - \beta_{S_0}^0) \xrightarrow{d} \mathcal{N}(0, \Sigma_0)\) where \(\Sigma_0\) is the covariance matrix knowing the true subset model.
+\item Has the optimal estimation rate: \(\sqrt{n}(\hat{\beta}(\delta)_{S_0} - \beta_{S_0}^0) \xrightarrow{d} \mathcal{N}(0, \Sigma_0)\) where \(\Sigma_0\) is the covariance matrix knowing the true subset model.
 
 \end{itemize}
 
@@ -1651,7 +1651,7 @@ Then \(\hat{\beta}\) is a lasso solution if and only if 0 is in the subdifferent
 \partial g(\hat{\beta}) = \nabla f_1 + \partial f_2 = \frac{1}{n} X^T(X \beta - y) + \lambda \begin{bmatrix}  \vdots \\ \partial | \beta_j | \\ \vdots \end{bmatrix} = \frac{1}{n} X^T(X \beta - y) + \lambda \begin{bmatrix}  \vdots \\ \begin{cases}  \operatorname{sgn}(\beta_j) & \beta_j \neq 0 \\ [-1, 1] & \beta_j = 0 \end{cases} \\ \vdots \end{bmatrix}
 \]
 
-Now assume \(\operatorname{supp}(\hat{\beta}) = \operatorname{supp}(\beta_0)\) (that is, assume lasso recovers the correct support). Suppose the first \(s\) features are nonzero and consider one of them (so we know that we should have \(\hat{\beta_j} \neq 0\):
+Now assume \(\operatorname{supp}(\hat{\beta}) = \operatorname{supp}(\beta_0)\) (that is, assume lasso recovers the correct support). Suppose the first \(s\) features are nonzero and consider one of them (so we know that we should have \(\hat{\beta_j} \neq 0\)):
 
 \[
 0 \in \partial g(\hat{\beta}) \implies 0 \in \partial_j g(\hat{\beta}) = \bigg[ \frac{1}{n} X^T(X \beta - y) \bigg]_j + \lambda \operatorname{sgn}(\hat{\beta}_j) 
@@ -1670,7 +1670,7 @@ where \(X_A\) is a submatrix of \(X\) containing the columns corresponding to th
 \]
 
 \begin{equation}\label{linreg.lasso.bound.cond}
-\implies \lVert \frac{1}{n} X_{A^C}^T (X \hat{\beta} - y) \rVert_\infty \leq \lambda
+\implies \left\lVert \frac{1}{n} X_{A^C}^T (X \hat{\beta} - y) \right\rVert_\infty \leq \lambda
 \end{equation}
 
 where \(X_{A^C}\) is a submatrix of \(X\) containing the columns corresponding to the features not in the true support, is our boundary condition. Recall the true model
@@ -1679,7 +1679,7 @@ where \(X_{A^C}\) is a submatrix of \(X\) containing the columns corresponding t
 y = X \beta_0 + \epsilon
 \]
 
-and consider the case \(X = \begin{bmatrix}X_1 & X_1 \end{bmatrix}\) where \(X_1\) are the features in the true model and \(X_2\) are noise features; that is, \(\beta_0 = \begin{bmatrix} \beta_1 \\ 0 \end{bmatrix}\). Then we are assuming
+and consider the case \(X = \begin{bmatrix}X_1 & X_2 \end{bmatrix}\) where \(X_1\) are the features in the true model and \(X_2\) are noise features; that is, \(\beta_0 = \begin{bmatrix} \beta_1 \\ 0 \end{bmatrix}\). Then we are assuming
 
 \[
 \hat{\beta}_{\text{lasso}} = \begin{bmatrix} \hat{\beta_1} \\ 0 \end{bmatrix}.
@@ -1690,9 +1690,9 @@ We have from (\ref{linreg.lasso.first.cond})
 \[
 0 = \frac{1}{n} X_1^T(X \hat{\beta} - y) + \lambda  \operatorname{sgn}(\hat{\beta}_1) = \frac{1}{n} X_1^T(X_1 \hat{\beta}_1 - X_1 \beta_1 - \epsilon) + \lambda  \operatorname{sgn}(\hat{\beta}_1) 
 \]
-
+% = \frac{1}{n}(  X_1^TX_1 \hat{\beta}_1 - X_1^TX_1 \beta_1 - X_1^T \epsilon) + \lambda  \operatorname{sgn}(\hat{\beta}_1)
 \[
- = \frac{1}{n}(  X_1^TX_1 \hat{\beta}_1 - X_1^TX_1 \beta_1 - X_1^T \epsilon) + \lambda  \operatorname{sgn}(\hat{\beta}_1) \iff \frac{1}{n} X_1^TX_1 (\hat{\beta}_1 - \beta_1)  =  \frac{1}{n} X_1^T \epsilon - \lambda  \operatorname{sgn}(\hat{\beta}_1)
+ \iff \frac{1}{n} X_1^TX_1 (\hat{\beta}_1 - \beta_1)  =  \frac{1}{n} X_1^T \epsilon - \lambda  \operatorname{sgn}(\hat{\beta}_1)
  \]
  
  Let's assume that \(\operatorname{sgn}(\hat{\beta}) = \operatorname{sgn}(\beta_0)\) (sign consistency).
@@ -1710,7 +1710,7 @@ We have from (\ref{linreg.lasso.first.cond})
 Looking at the second (boundary) condition (\ref{linreg.lasso.bound.cond}), we have
 
 \begin{equation}\label{linreg.lasso.bound.cond.cont}
-\lVert \frac{1}{n} X_{2}^T (X \hat{\beta} - y) \rVert_\infty \leq \lambda
+\left\lVert \frac{1}{n} X_{2}^T (X \hat{\beta} - y) \right\rVert_\infty \leq \lambda.
 \end{equation}
 
 Consider that 
@@ -1722,55 +1722,55 @@ X \hat{\beta}- y = X_1 \hat{\beta}_1 - X_1 \beta_1 - \epsilon = X_1(\hat{\beta}_
 Substituting in the result from (\ref{linreg.lasso.first.cond.solved}) yields
 
 \[
-= X_1\big[  ( n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big] - \epsilon
+X \hat{\beta}- y  = X_1\big[  ( n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big] - \epsilon
 \]
 
 which when we plug into (\ref{linreg.lasso.bound.cond.cont}) yields
 
 \[
-\lVert \frac{1}{n} X_{2}^T \bigg( X_1\big[  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big] - \epsilon\bigg)  \rVert_\infty \leq \lambda.
+\left\lVert \frac{1}{n} X_{2}^T \left[X_1  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big) - \epsilon\right] \right\rVert_\infty \leq \lambda.
 \]
 
 \[
-\lVert \frac{1}{n} X_{2}^T \bigg( X_1\big[  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big]  \bigg) -  \frac{1}{n} X_{2}^T \epsilon \rVert_\infty \leq \lambda.
+\iff \left\lVert \frac{1}{n} X_{2}^T X_1 (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)    -  \frac{1}{n} X_{2}^T \epsilon \right\rVert_\infty \leq \lambda.
 \]
 
 Using the Triangle Inequality, we have
 
 \[
-\lVert \frac{1}{n} X_{2}^T \bigg( X_1\big[  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big]  \bigg) -  \frac{1}{n} X_{2}^T \epsilon \rVert_\infty 
+\left\lVert \frac{1}{n} X_{2}^T X_1 (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)    -  \frac{1}{n} X_{2}^T \epsilon \right\rVert_\infty 
 \]
 
 \[
-\leq \lVert \frac{1}{n} X_{2}^T \bigg( X_1\big[  (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big]  \bigg) \rVert_\infty + \lVert  \frac{1}{n} X_{2}^T \epsilon \rVert_\infty 
+\leq \left\lVert \frac{1}{n} X_{2}^T X_1 (n^{-1} X_1^TX_1)^{-1} \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)  \right\rVert_\infty + \left\lVert  \frac{1}{n} X_{2}^T \epsilon \right\rVert_\infty 
 \]
 
 \begin{equation}\label{linreg.lasso.bound.cond.cont.more}
-\leq \lVert \frac{1}{n} X_{2}^T  X_1\big[  (n^{-1} X_1^TX_1)^{-1} \rVert_\infty \cdot \lVert \big( n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)\big)   \big]  \bigg) \rVert_\infty + \lVert  \frac{1}{n} X_{2}^T \epsilon \rVert_\infty 
+\leq \left\lVert \frac{1}{n} X_{2}^T  X_1 (n^{-1} X_1^TX_1)^{-1} \right\rVert_\infty \cdot \left\lVert  n^{-1} X_1^T \epsilon -  \lambda  \operatorname{sgn}(\beta_1)    \right\rVert_\infty + \left\lVert  \frac{1}{n} X_{2}^T \epsilon \right\rVert_\infty 
 \end{equation}
 
 Assume that the \(j\)th column of \(X\) has \(L_2\) norm \(n^{1/2}\) (as it would if all entries equaled 1). We have
 
 \[
-\lVert n^{-1} X_1^T \epsilon \rVert_\infty \leq \lambda/2, \qquad \lVert n^{-1} X_2^T \epsilon \rVert_\infty \leq \lambda/2
+\left\lVert n^{-1} X_1^T \epsilon \right\rVert_\infty \leq \lambda/2, \qquad \left\lVert n^{-1} X_2^T \epsilon \right\rVert_\infty \leq \lambda/2
 \]
 
 \[
-\lVert n^{-1} X^T \epsilon \rVert_\infty \leq \lambda/2 \text{ with large probability}
+\left\lVert n^{-1} X^T \epsilon \right\rVert_\infty \leq \lambda/2 \text{ with large probability}
 \]
 
-Recall that \(\lambda = \sigma \sqrt{ \frac{c \log p }{n} } \) for some \(c >2\). Then we have (continuing from (\ref{linreg.lasso.bound.cond.cont.more})), and using \( \lVert n^{-1}X_2^T \epsilon \rVert \leq \lambda/2\), 
+Recall that \(\lambda = \sigma \sqrt{ \frac{c \log p }{n} } \) for some \(c >2\). Then we have (continuing from (\ref{linreg.lasso.bound.cond.cont.more})), and using \( \left\lVert n^{-1}X_2^T \epsilon \right\rVert \leq \lambda/2\), 
 
 \[
-\leq \lVert n^{-1} X_1^T \epsilon \rVert_\infty + \lVert \lambda \operatorname{sgn}(\beta_1)   \rVert_\infty
+\leq \left\lVert n^{-1} X_1^T \epsilon \right\rVert_\infty + \left\lVert \lambda \operatorname{sgn}(\beta_1)   \right\rVert_\infty
 \]
 
 \[
- \lVert n^{-1} X_2^T X_1(n^{-1}X_1^T X_1)^{-1} \rVert_\infty \cdot \underbrace{ \lVert \cdot \rVert_\infty}_{3/2 \lambda} + \underbrace{\lVert \cdot \rVert_\infty}_{\lambda/2} \leq \lambda
+ \left\lVert n^{-1} X_2^T X_1(n^{-1}X_1^T X_1)^{-1} \right\rVert_\infty \cdot \underbrace{ \left\lVert \cdot \right\rVert_\infty}_{3/2 \lambda} + \underbrace{\left\lVert \cdot \right\rVert_\infty}_{\lambda/2} \leq \lambda
 \]
 
 \begin{equation}\label{linreg.lasso.irrep}
- \lVert \underbrace{n^{-1} X_2^T X_1}_{\text{corr. between noise and true}}( \underbrace{n^{-1}X_1^T X_1}_{\text{sample covariance matrix}})^{-1} \rVert_\infty  \leq 1/3
+ \left\lVert \underbrace{n^{-1} X_2^T X_1}_{\text{corr. between noise and true}}( \underbrace{n^{-1}X_1^T X_1}_{\text{sample covariance matrix}})^{-1} \right\rVert_\infty  \leq 1/3
 \end{equation}
 
 It turns out we're fine as long as it's less than or equal to 1. This is known as the \textbf{irrepresentable condition}. Note that the sample covariance matrix is the same as the sample correlation since the columns are standardized. So this is the correlation between the true variables. Note that this matrix has dimension \((p-s) \times s\) where \(s\) is the dimension of the true support. Note that
@@ -1786,7 +1786,7 @@ which is ordinary least squares for regressing \(X_2\) on \(X_1\). In the end, t
 Dantzig selector:
 
 %\[
-%\min_{\beta \in \mathbb{R}^p} \lVert \beta \rVert_1 \text{ s.t. } \lVert n^{-1} X^t(y - X \beta) \rVert_\infty \leq \lambda
+%\min_{\beta \in \mathbb{R}^p} \lVert \beta \right\rVert_1 \text{ s.t. } \lVert n^{-1} X^t(y - X \beta) \right\rVert_\infty \leq \lambda
 %\]
 
 \[

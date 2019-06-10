@@ -14,6 +14,15 @@
 \usepackage[document]{ragged2e}
 \usepackage{textcomp}
 % \usepackage{amssymb}
+\usepackage{import}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
 
 \usetikzlibrary{automata,positioning}
 
@@ -222,6 +231,16 @@
 = \E \left[  \left(  \sum_{i=1}^k \gamma_i(t) X_i   \right) \left( \sum_{i=1}^k   \pderiv{\gamma_i(t) }{t} X_i  \right)  \right] = \sum_{i=1}^k \E \left( \gamma_i(t)  \pderiv{\gamma_i(t) }{t}  X_i^2 \right) + 0 = \sum_{i=1}^k \gamma_i(t)  \pderiv{\gamma_i(t) }{t} 
 \]
 
+\[
+\vdots
+\]
+
+\[
+\E \left[ \sum_i \gamma_i \deriv{\gamma_i}{t} \right] = 0 
+\]
+
+because
+
 % 1b
 \item
 
@@ -307,17 +326,154 @@ and any vector \(\boldsymbol{v}\) in the nullspace of \(\boldsymbol{X}\), \(\hat
 \]
 
 % 5b
-\item If we assume that \( \lVert \boldsymbol{\beta}_0 \rVert_0 = s \leq n\), then it may be that there is only one \(\boldsymbol{v}\) in the nullspace of \(\boldsymbol{X}\) such that \(\lVert \hat{\boldsymbol{\beta}}\rVert_0 = s\). Intuitively, this makes sense because as long as the features with zero coefficients in \(\boldsymbol{\beta}_0\) are sufficiently uncorrelated with the features with nonzero coefficients and the true coefficients are not too small, it is very unlikely that it is possible to construct another \(s\)-sparse vector with equally low empirical risk by replacing one of the true features with only one of the other features (or some combination thereof). (We would also hope that \(\operatorname{rank}(\boldsymbol{X} > s\). Otherwise, it is either the case that features in the true model are linearly dependent, in which case the true model is not identifiable, or some of the noise features are linearly dependent with some of the true features, which could also preclude identifiability.)
+\item If we assume that \( \lVert \boldsymbol{\beta}_0 \rVert_0 = s \leq n\), then it may be that there is only one \(\boldsymbol{v}\) in the nullspace of \(\boldsymbol{X}\) such that \(\lVert \hat{\boldsymbol{\beta}}\rVert_0 = s\). Intuitively, this makes sense because as long as the features with zero coefficients in \(\boldsymbol{\beta}_0\) are sufficiently uncorrelated with the features with nonzero coefficients and the true coefficients are not too small, it is very unlikely that it is possible to construct another \(s\)-sparse vector with equally low empirical risk by replacing one of the true features with only one of the other features (or some combination thereof). (We would also hope that \(\operatorname{rank}(\boldsymbol{X}) > s\). Otherwise, it could either be the case that features in the true model are linearly dependent, in which case the true model is not identifiable, or some of the noise features are linearly dependent with some of the true features, which could also preclude identifiability.)
 
 % 5c
 \item \textbf{Solution in Section 1.9.1 of Linear Regression notes.}
 
+We will follow the analysis from  \citet{Zhao2006}. The lasso problem is convex but not necessarily strictly convex if \(p > n\). That is, there is some flat region, so the minimizer may not be unique. Consider the KKT conditions from convex optimization:
+
+\[
+g(\beta) = \arg \min \left\{ \frac{1}{2n} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1 \right\} =  \arg \min \left\{ f_1(\beta) + f_2(\beta) \right\}
+\]
+
+Then \(\hat{\beta}\) is a lasso solution if and only if 0 is in the subdifferential of \(g(\hat{\beta})\). Note that 
+
+\[
+\partial g(\hat{\beta}) = \nabla f_1 + \partial f_2 = \frac{1}{n} X^T(X \beta - \boldsymbol{y}) + \lambda \begin{bmatrix}  \vdots \\ \partial | \beta_j | \\ \vdots \end{bmatrix} = \frac{1}{n} X^T(X \beta - \boldsymbol{y}) + \lambda \begin{bmatrix}  \vdots \\ \begin{cases}  \operatorname{sgn}(\beta_j) & \beta_j \neq 0 \\ [-1, 1] & \beta_j = 0 \end{cases} \\ \vdots \end{bmatrix}
+\]
+
+Now assume \(\operatorname{supp}(\hat{\beta}) = \operatorname{supp}(\beta_0)\) (that is, assume lasso recovers the correct support). Suppose the first \(s\) features are nonzero and consider one of them (so we know that we should have \(\hat{\beta_j} \neq 0\)):
+
+\[
+0 \in \partial g(\hat{\beta}) \implies 0 \in \partial_j g(\hat{\beta}) = \bigg[ \frac{1}{n} X^T(X \beta - \boldsymbol{y}) \bigg]_j + \lambda \operatorname{sgn}(\hat{\beta}_j) 
+\]
+
+Therefore
+
+\begin{equation}\label{linreg.lasso.first.cond}
+\frac{1}{n} X_A^T(\boldsymbol{X} \boldsymbol{\hat{\beta}} - \boldsymbol{y}) + \lambda  \operatorname{sgn}(\hat{\beta}_j) = 0
+\end{equation}
+
+where \(X_A\) is a submatrix of \(\boldsymbol{X}\) containing the columns corresponding to the features in the true support, is our first condition. Next, consider what happens for \(j > s\) (features not in the true support). We have
+
+\[
+0 \in \partial g(\hat{\beta}) \implies 0 \in \partial_j g(\hat{\beta}) = \bigg[ \frac{1}{n}X^T(X \beta - \boldsymbol{y}) \bigg] + \lambda [-1, 1]
+\]
+
+\begin{equation}\label{linreg.lasso.bound.cond}
+\implies \left\lVert \frac{1}{n} X_{A^C}^T (\boldsymbol{X} \boldsymbol{\hat{\beta}} - \boldsymbol{y}) \right\rVert_\infty \leq \lambda
+\end{equation}
+
+where \(X_{A^C}\) is a submatrix of \(\boldsymbol{X}\) containing the columns corresponding to the features not in the true support, is our boundary condition. Recall the true model
+
+\[
+y = X \beta_0 + \boldsymbol{\epsilon}
+\]
+
+and consider the case \(X = \begin{bmatrix}\boldsymbol{X}_1 & \boldsymbol{X}_2 \end{bmatrix}\) where \(\boldsymbol{X}_1\) are the features in the true model and \(\boldsymbol{X}_2\) are noise features; that is, \(\beta_0 = \begin{bmatrix} \boldsymbol{\beta}_1 \\ 0 \end{bmatrix}\). Then we are assuming
+
+\[
+\hat{\beta}_{\text{lasso}} = \begin{bmatrix} \hat{\boldsymbol{\beta}_1} \\ 0 \end{bmatrix}.
+\]
+
+We have from (\ref{linreg.lasso.first.cond})
+
+\[
+0 = \frac{1}{n} \boldsymbol{X}_1^T(\boldsymbol{X} \boldsymbol{\hat{\beta}} - \boldsymbol{y}) + \lambda  \operatorname{sgn}(\boldsymbol{\hat{\beta}}_1) = \frac{1}{n} \boldsymbol{X}_1^T(\boldsymbol{X}_1 \boldsymbol{\hat{\beta}}_1 - \boldsymbol{X}_1 \boldsymbol{\beta}_1 - \boldsymbol{\epsilon}) + \lambda  \operatorname{sgn}(\boldsymbol{\hat{\beta}}_1) 
+\]
+% = \frac{1}{n}(  \boldsymbol{X}_1^T\boldsymbol{X}_1 \boldsymbol{\hat{\beta}}_1 - \boldsymbol{X}_1^T\boldsymbol{X}_1 \boldsymbol{\beta}_1 - \boldsymbol{X}_1^T \boldsymbol{\epsilon}) + \lambda  \operatorname{sgn}(\boldsymbol{\hat{\beta}}_1)
+\[
+ \iff \frac{1}{n} \boldsymbol{X}_1^T\boldsymbol{X}_1 (\boldsymbol{\hat{\beta}}_1 - \boldsymbol{\beta}_1)  =  \frac{1}{n} \boldsymbol{X}_1^T \boldsymbol{\epsilon} - \lambda  \operatorname{sgn}(\boldsymbol{\hat{\beta}}_1)
+ \]
+ 
+ Let's assume that \(\operatorname{sgn}(\hat{\beta}) = \operatorname{sgn}(\beta_0)\) (sign consistency).
+ 
+ \[
+  \iff \frac{1}{n} \boldsymbol{X}_1^T\boldsymbol{X}_1 (\boldsymbol{\hat{\beta}}_1 - \boldsymbol{\beta}_1)  =  \frac{1}{n} \boldsymbol{X}_1^T \boldsymbol{\epsilon} - \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1)
+  \]
+  
+  which is linear in \(\hat{\beta}\). Solving, we have
+  
+\begin{equation}\label{linreg.lasso.first.cond.solved}
+  \iff  \boldsymbol{\hat{\beta}}_1 - \boldsymbol{\beta}_1  =  ( \boldsymbol{X}_1^T\boldsymbol{X}_1)^{-1} \big( \boldsymbol{X}_1^T \boldsymbol{\epsilon} - n  \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1)\big)   \iff  \boldsymbol{\hat{\beta}}_1   = \boldsymbol{\beta}_1 +   ( n^{-1}\boldsymbol{X}_1^T\boldsymbol{X}_1)^{-1} \big( n^{-1} \boldsymbol{X}_1^T \boldsymbol{\epsilon} -   \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1) \big)
+\end{equation}
+
+Looking at the second (boundary) condition (\ref{linreg.lasso.bound.cond}), we have
+
+\begin{equation}\label{linreg.lasso.bound.cond.cont}
+\left\lVert \frac{1}{n} \boldsymbol{X}_{2}^T (\boldsymbol{X} \boldsymbol{\hat{\beta}} - \boldsymbol{y}) \right\rVert_\infty \leq \lambda.
+\end{equation}
+
+Consider that 
+
+\[
+\boldsymbol{X} \boldsymbol{\hat{\beta}}- \boldsymbol{y} = \boldsymbol{X}_1 \boldsymbol{\hat{\beta}}_1 - \boldsymbol{X}_1 \boldsymbol{\beta}_1 - \boldsymbol{\epsilon} = \boldsymbol{X}_1(\boldsymbol{\hat{\beta}}_1 - \boldsymbol{\beta}_1) - \boldsymbol{\epsilon}
+\]
+
+Substituting in the result from (\ref{linreg.lasso.first.cond.solved}) yields
+
+\[
+\boldsymbol{X} \boldsymbol{\hat{\beta}}- \boldsymbol{y}  = \boldsymbol{X}_1\big[  ( n^{-1} \boldsymbol{X}_1^T\boldsymbol{X}_1)^{-1} \big( n^{-1} \boldsymbol{X}_1^T \boldsymbol{\epsilon} -  \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1)\big)   \big] - \boldsymbol{\epsilon}
+\]
+
+which when we plug into (\ref{linreg.lasso.bound.cond.cont}) yields
+
+\[
+\left\lVert \frac{1}{n} \boldsymbol{X}_{2}^T \left[\boldsymbol{X}_1  (n^{-1} \boldsymbol{X}_1^T\boldsymbol{X}_1)^{-1} \big( n^{-1} \boldsymbol{X}_1^T \boldsymbol{\epsilon} -  \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1)\big) - \boldsymbol{\epsilon}\right] \right\rVert_\infty \leq \lambda.
+\]
+
+\[
+\iff \left\lVert \frac{1}{n} \boldsymbol{X}_{2}^T \boldsymbol{X}_1 (n^{-1} \boldsymbol{X}_1^T\boldsymbol{X}_1)^{-1} \big( n^{-1} \boldsymbol{X}_1^T \boldsymbol{\epsilon} -  \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1)\big)    -  \frac{1}{n} \boldsymbol{X}_{2}^T \boldsymbol{\epsilon} \right\rVert_\infty \leq \lambda.
+\]
+
+Using the Triangle Inequality, we have
+
+\[
+\left\lVert \frac{1}{n} \boldsymbol{X}_{2}^T \boldsymbol{X}_1 (n^{-1} \boldsymbol{X}_1^T\boldsymbol{X}_1)^{-1} \big( n^{-1} \boldsymbol{X}_1^T \boldsymbol{\epsilon} -  \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1)\big)    -  \frac{1}{n} \boldsymbol{X}_{2}^T \boldsymbol{\epsilon} \right\rVert_\infty 
+\]
+
+\[
+\leq \left\lVert \frac{1}{n} \boldsymbol{X}_{2}^T \boldsymbol{X}_1 (n^{-1} \boldsymbol{X}_1^T\boldsymbol{X}_1)^{-1} \big( n^{-1} \boldsymbol{X}_1^T \boldsymbol{\epsilon} -  \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1)\big)  \right\rVert_\infty + \left\lVert  \frac{1}{n} \boldsymbol{X}_{2}^T \boldsymbol{\epsilon} \right\rVert_\infty 
+\]
+
+\begin{equation}\label{linreg.lasso.bound.cond.cont.more}
+\leq \left\lVert \frac{1}{n} \boldsymbol{X}_{2}^T  \boldsymbol{X}_1 (n^{-1} \boldsymbol{X}_1^T\boldsymbol{X}_1)^{-1} \right\rVert_\infty \cdot \left\lVert  n^{-1} \boldsymbol{X}_1^T \boldsymbol{\epsilon} -  \lambda  \operatorname{sgn}(\boldsymbol{\beta}_1)    \right\rVert_\infty + \left\lVert  \frac{1}{n} \boldsymbol{X}_{2}^T \boldsymbol{\epsilon} \right\rVert_\infty 
+\end{equation}
+
+\[
+\vdots
+\]
+
 % 5d
-\item \textbf{Solution in Section 1.9.1 of Linear Regression notes.}
+\item \textbf{Solution in Section 1.9.1 of Linear Regression notes.} Theorem 4 from \citet{Zhao2006} states that if \(\boldsymbol{\epsilon} \sim \mathcal{N}(\boldsymbol{0}, \sigma^2 \boldsymbol{I}_n)\) for some \(\sigma^2 > 0\) and some other regularity conditions hold, then the Strong Irrepresentable Condition implies the lasso has sign consistency (which implies model selection consistency) with high probability for \(\lambda\) satisfying
+
+\[
+\lambda(n) \propto n^{(1+c_4)/2}
+\]
+
+where \(c_4\) is a constant between 0 and 1 and smaller than \(c_2 - c_1\), where \(c_1\) is a constant governing how large the true model can be with \(0 \leq c_1\) and \(c_2\) is a constant governing the minimum size of the coefficients in the true model with \(c_1 < c_2 \leq 1\).
+
+Recall that the Strong Irrepresentable Condition is the following: if as in part 5(c) \(\boldsymbol{X}_1 \in \mathbb{R}^{n \times q}\) is a matrix containing only the \(q\) columns of \(\boldsymbol{X}\) corresponding to features in the true model and \(\boldsymbol{X}_2 \in \mathbb{R}^{n \times p - q}\) contains only the \(p - q\) columns of \(\boldsymbol{X}\) corresponding to irrelevant features, the Strong Irrepresentable Condition is
+
+\[
+\left\lVert \frac{1}{n} \boldsymbol{X}_2^T \boldsymbol{X}_1 \left(\frac{1}{n} \boldsymbol{X}_1^T \boldsymbol{X}_1 \right)^{-1} \operatorname{sgn} \left(\boldsymbol{\beta}_{(1)}^n \right) \right\rVert_\infty \leq \boldsymbol{1} - \boldsymbol{\eta}
+\]  
+
+\[
+\iff \left\lVert  \left( \boldsymbol{X}_1^T \boldsymbol{X}_1 \right)^{-1}  \boldsymbol{X}_1^T \boldsymbol{X}_2 \right\rVert_\infty \leq \boldsymbol{1} - \boldsymbol{\eta}
+\]  
+
+for some \(\boldsymbol{\eta} \in \mathbb{R}^n\) with \(\boldsymbol{\eta} \succeq \boldsymbol{0}\), where \(\boldsymbol{\beta}_{(1)}^n\) are the coefficients of \(\boldsymbol{X}_1\) in the true model. That is, a regression of the variables in \(\boldsymbol{X}_2\) against the variables in \(\boldsymbol{X}_1\) may not have any coefficients that are larger in absolute value than \(1 - \eta\) for some \(\eta > 0\). This implies that the features in \(\boldsymbol{X}_2\) are not too strongly correlated with the features in \(\boldsymbol{X}_1\) (the features of \(\boldsymbol{X}_2\) are ``irrepresentable" by the features in \(\boldsymbol{X}_1\)).
+
+%\(p_n\) is the number of features in the design matrix; the \(n\) in the subscript indicates that \(p_n\) is allowed to grow asymptotically with \(n\).
+
+(Roughly speaking, the required regularity conditions are that the number of features in the design matrix \(p_n\) is not excessively large, the eigenvalues of \(\boldsymbol{X}_1\) are not too small, the coefficients of the relevant features in the true model are not too small, and the model is sufficiently sparse. The conditions of this theorem allow \(p_n\) to grow asymptotically with \(n\); the requirements for lower bounded eigenvalues and coefficients on the true coefficients are consequences of allowing \(p_n\) to grow with \(n\).)
 
 \end{enumerate}
 
 \end{exercise}
 
-
+\bibliographystyle{abbrvnat}
+\bibliography{mybib2fin}
 \end{document}

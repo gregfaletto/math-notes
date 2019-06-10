@@ -293,17 +293,63 @@ w(tq_1+(1-t)q_2)\geq t w(q_1)+(1-t) w(q_2)
 \begin{enumerate}[(a)]
 
 % 4a
-\item
+\item Notice that the first constraint implies \(x_1 \leq 0\) (since \(x_1^2 + x_2^2 \geq 0\) for all \(x_1, x_2 \in \mathbb{R}\)). Also, \(h_2(x) = 0 \iff x_1^2 + x_2^2 + 2x_1x_2 = 0 \iff x_1^2 + x_2^2 = -2x_1x_2\). So we could also write this problem as
+
+\[
+\begin{aligned}
+& \underset{(x_1, x_2) \in \mathbb{R}^2}{\text{minimize}}
+& & -2x_1 x_2  \\
+& \text{subject to}
+& & \frac{x_1}{-2x_1 x_2} \leq 0
+\end{aligned}
+\]
+
+or
+
+\[
+\begin{aligned}
+& \underset{(x_1, x_2) \in \mathbb{R}^2}{\text{minimize}}
+& & -2x_1 x_2  \\
+& \text{subject to}
+& & x_2 \geq 0 \\
+& & & x_1 \leq 0
+\end{aligned}
+\]
 
 % 4b
 \item
+
+Since \(f\) and \(g\) are convex, we have
+
+\[
+f(tx+(1-t)y) \leq t f(x)+(1-t)f(y), \qquad g(tx+(1-t)y) \leq t g(x)+(1-t)g(y)
+\]
+
+%Similarly, 
+%
+%\[
+%g(tx+(1-t)y)\leq t g(x)+(1-t)g(y).
+%\]
+
+We make use of these inequalities to show that \(c_1 f + c_2 g\) satisfies (\ref{cvx.541a.hw6.5a}) for any \(x,y \in \mathbb{R}^n\) and any \(t \in [0,1]\):
+
+\[
+[c_f + c_2 g](tx+(1-t)y) = f(tx+(1-t)y) + g(tx+(1-t)y)   \leq t f(x)+(1-t)f(y) +  t g(x)+(1-t)g(y)
+\]
+\[
+= t [f(x) + g(x)]+ (1-t) [f(x) + g(x)] =t[c_f + c_2 g](x)+(1-t)[c_f + c_2 g](y)
+\]
+
+which proves the result. (Note that if the initial inequality is strict then strict convexity follows.)
+
+
 
 \end{enumerate}
 
 \end{exercise}
 
 % Problem 5
-\begin{exercise}[\textbf{High-Dimensional Statistics}] \textbf{Double-check solutions, comments from Jinchi grading homework}
+\begin{exercise}[\textbf{High-Dimensional Statistics}] \textbf{Double-check solutions, comments from Jinchi grading homework 7}
 
 \begin{enumerate}[(a)]
 

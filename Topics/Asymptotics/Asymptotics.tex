@@ -1,151 +1,151 @@
-%\documentclass{article}
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage[document]{ragged2e}
+\usepackage{textcomp}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{import}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+\usepackage{import}
+\usepackage{natbib}
+
+\usetikzlibrary{automata,positioning}
+
+%%%%%%
+%%%%%% Basic Document Settings
+%%%%%%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\setlength{\parskip}{1em}
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+
+\newcommand{\hmwkTitle}{Math Review Notes---Asymptotics and Convergence}
+\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+
+%%%%%%
+%%%%%% Title Page
+%%%%%%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{ \hmwkTitle}}\\
+}
+
+\author{Gregory Faletto}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%%%%%%
+%%%%%% Various Helper Commands
+%%%%%%
+
+%%%%%% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+%%%%%% For derivatives
+\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+%%%%%% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+%%%%%% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+%%%%%% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+%%%%%% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+%%%%%% Tilde
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+
+\
+
+\
+
+\begin{center}
+Last updated \today
+\end{center}
+
+
+
+\newpage
+
 %
-%\usepackage{fancyhdr}
-%\usepackage{extramarks}
-%\usepackage{amsmath}
-%\usepackage{amsthm}
-%\usepackage{amsfonts}
-%\usepackage{tikz}
-%\usepackage{enumerate}
-%\usepackage{graphicx}
-%\graphicspath{ {images/} }
-%\usepackage[plain]{algorithm}
-%\usepackage{algpseudocode}
-%\usepackage[document]{ragged2e}
-%\usepackage{textcomp}
-%\usepackage{color}   %May be necessary if you want to color links
-%\usepackage{import}
-%\usepackage{hyperref}
-%\hypersetup{
-%    colorlinks=true, %set true if you want colored links
-%    linktoc=all,     %set to all if you want both sections and subsections linked
-%    linkcolor=black,  %choose some color if you want links to stand out
-%}
-%\usepackage{import}
-%\usepackage{natbib}
-%
-%\usetikzlibrary{automata,positioning}
-%
-%%%%%%%
-%%%%%%% Basic Document Settings
-%%%%%%%
-%
-%\topmargin=-0.45in
-%\evensidemargin=0in
-%\oddsidemargin=0in
-%\textwidth=6.5in
-%\textheight=9.0in
-%\headsep=0.25in
-%\setlength{\parskip}{1em}
-%
-%\linespread{1.1}
-%
-%\pagestyle{fancy}
-%\lhead{\hmwkAuthorName}
-%\lfoot{\lastxmark}
-%\cfoot{\thepage}
-%
-%\renewcommand\headrulewidth{0.4pt}
-%\renewcommand\footrulewidth{0.4pt}
-%
-%\setlength\parindent{0pt}
-%
-%
-%\newcommand{\hmwkTitle}{Math Review Notes---Asymptotics and Convergence}
-%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
-%
-%%%%%%%
-%%%%%%% Title Page
-%%%%%%%
-%
-%\title{
-%    \vspace{2in}
-%    \textmd{\textbf{ \hmwkTitle}}\\
-%}
-%
-%\author{Gregory Faletto}
-%\date{}
-%
-%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
-%
-%%%%%%%
-%%%%%%% Various Helper Commands
-%%%%%%%
-%
-%%%%%%% Useful for algorithms
-%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
-%
-%%%%%%% For derivatives
-%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
-%
-%%%%%%% For partial derivatives
-%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
-%
-%%%%%%% Integral dx
-%\newcommand{\dx}{\mathrm{d}x}
-%
-%%%%%%% Alias for the Solution section header
-%\newcommand{\solution}{\textbf{\large Solution}}
-%
-%%%%%%% Probability commands: Expectation, Variance, Covariance, Bias
-%\newcommand{\E}{\mathbb{E}}
-%\newcommand{\Var}{\mathrm{Var}}
-%\newcommand{\Cov}{\mathrm{Cov}}
-%\newcommand{\Bias}{\mathrm{Bias}}
-%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
-%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
-%\DeclareMathOperator{\Tr}{Tr}
-%
-%\theoremstyle{definition}
-%\newtheorem{theorem}{Theorem}
-%\theoremstyle{definition}
-%\newtheorem{proposition}[theorem]{Proposition}
-%\theoremstyle{definition}
-%\newtheorem{lemma}[theorem]{Lemma}
-%\theoremstyle{definition}
-%\newtheorem{corollary}{Corollary}[theorem]
-%\theoremstyle{definition}
-%\newtheorem{definition}{Definition}[section]
-%\newtheorem*{remark}{Remark}
-%\theoremstyle{definition}
-%\newtheorem{exercise}{Exercise}
-%\theoremstyle{definition}
-%\newtheorem{example}{Example}[section]
-%
-%%%%%%% Tilde
-%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
-%
-%\begin{document}
-%
-%\maketitle
-%
-%\pagebreak
-%
-%\tableofcontents
-%
-%\
-%
-%\
-%
-%\begin{center}
-%Last updated \today
-%\end{center}
 %
 %
 %
-%\newpage
 %
-%%
-%%
-%%
-%%
-%%
-%%
-%%
-%%
-%%
 %
-%%%% Chapter 8
+%
+%
+%
+
+%%% Chapter 8
 \section{Asymptotics and Convergence}
 
 These notes are based on my notes from chapter 8 of \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran \citep{pesaran-2015-text} and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as Math 505A and Math 541A at USC and chapter 7 from \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition \citep{grimmett2001probability}.
@@ -513,6 +513,15 @@ The equality case happens only if \(X\) is a constant multiple of \(Y\) with pro
 Integrating we have...
  
 \end{proof}
+
+\begin{theorem}[\textbf{H\"{o}lder (vector form)}] For any \(u, v \in \mathbb{R}^n\),
+
+\[
+| u^T v | \leq \lVert u \rVert_p \lVert v \rVert_q
+\]
+for any \(p, q \in [0, \infty]\) satisfying \(1/p + 1/q = 1\).
+
+\end{theorem}
 
 \item \begin{theorem} \textbf{Minkowski} (Grimmett and Stirzaker p. p. 143) For \(p \geq 1\),
 
@@ -1624,6 +1633,6 @@ Lyapunov (?) condition: can prove central limit theorem if we check 3rd moment. 
 %
 %
 
-%\bibliographystyle{abbrvnat}
-%\bibliography{mybib2fin}
-%\end{document}
+\bibliographystyle{abbrvnat}
+\bibliography{mybib2fin}
+\end{document}
