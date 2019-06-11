@@ -1,149 +1,149 @@
-\documentclass{article}
-
-\usepackage{fancyhdr}
-\usepackage{extramarks}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{mathrsfs}
-\usepackage{tikz}
-\usepackage{enumerate}
-\usepackage{graphicx}
-\graphicspath{ {images/} }
-\usepackage[plain]{algorithm}
-\usepackage{algpseudocode}
-\usepackage[document]{ragged2e}
-\usepackage{textcomp}
-\usepackage{color}   %May be necessary if you want to color links
-\usepackage{import}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true, %set true if you want colored links
-    linktoc=all,     %set to all if you want both sections and subsections linked
-    linkcolor=black,  %choose some color if you want links to stand out
-}
-\usepackage{import}
-\usepackage{natbib}
-
-\usetikzlibrary{automata,positioning}
-
-
-% Basic Document Settings
-
-
-\topmargin=-0.45in
-\evensidemargin=0in
-\oddsidemargin=0in
-\textwidth=6.5in
-\textheight=9.0in
-\headsep=0.25in
-\setlength{\parskip}{1em}
-
-\linespread{1.1}
-
-\pagestyle{fancy}
-\lhead{\hmwkAuthorName}
-\lfoot{\lastxmark}
-\cfoot{\thepage}
-
-\renewcommand\headrulewidth{0.4pt}
-\renewcommand\footrulewidth{0.4pt}
-
-\setlength\parindent{0pt}
-
-
-\newcommand{\hmwkTitle}{Math Review Notes---Linear Regression}
-\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
-
-
-% Title Page
-
-
-\title{
-    \vspace{2in}
-    \textmd{\textbf{ \hmwkTitle}}\\
-}
-
-\author{Gregory Faletto}
-\date{}
-
-\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
-
-
-% Various Helper Commands
-
-
-% Useful for algorithms
-\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
-
-% For derivatives
-\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
-
-% For partial derivatives
-\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
-
-% Integral dx
-\newcommand{\dx}{\mathrm{d}x}
-
-% Alias for the Solution section header
-\newcommand{\solution}{\textbf{\large Solution}}
-
- %Probability commands: Expectation, Variance, Covariance, Bias
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\Var}{\mathrm{Var}}
-\newcommand{\Cov}{\mathrm{Cov}}
-\newcommand{\Bias}{\mathrm{Bias}}
-\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
-\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
-\DeclareMathOperator{\Tr}{Tr}
-
-\theoremstyle{definition}
-\newtheorem{theorem}{Theorem}
-\theoremstyle{definition}
-\newtheorem{corollary}{Corollary}[theorem]
-\theoremstyle{definition}
-\newtheorem{proposition}[theorem]{Proposition}
-\theoremstyle{definition}
-\newtheorem{lemma}[theorem]{Lemma}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem*{remark}{Remark}
-\theoremstyle{definition}
-\newtheorem{example}{Example}[section]
-
- %Tilde
-\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
-
-\begin{document}
-
-\maketitle
-
-\pagebreak
-
-\tableofcontents
-
-\
-
-\
-
-\begin{center}
-Last updated \today
-\end{center}
-
-
-
-\newpage
-
+%\documentclass{article}
+%
+%\usepackage{fancyhdr}
+%\usepackage{extramarks}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{mathrsfs}
+%\usepackage{tikz}
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\graphicspath{ {images/} }
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[document]{ragged2e}
+%\usepackage{textcomp}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{import}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=black,  %choose some color if you want links to stand out
+%}
+%\usepackage{import}
+%\usepackage{natbib}
+%
+%\usetikzlibrary{automata,positioning}
+%
+%
+%% Basic Document Settings
+%
+%
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%\setlength{\parskip}{1em}
+%
+%\linespread{1.1}
+%
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+%
+%\renewcommand\headrulewidth{0.4pt}
+%\renewcommand\footrulewidth{0.4pt}
+%
+%\setlength\parindent{0pt}
+%
+%
+%\newcommand{\hmwkTitle}{Math Review Notes---Linear Regression}
+%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+%
+%
+%% Title Page
+%
+%
+%\title{
+%    \vspace{2in}
+%    \textmd{\textbf{ \hmwkTitle}}\\
+%}
+%
+%\author{Gregory Faletto}
+%\date{}
+%
+%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%
+%% Various Helper Commands
+%
+%
+%% Useful for algorithms
+%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+%
+%% For derivatives
+%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%
+%% For partial derivatives
+%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+%
+%% Integral dx
+%\newcommand{\dx}{\mathrm{d}x}
+%
+%% Alias for the Solution section header
+%\newcommand{\solution}{\textbf{\large Solution}}
+%
+% %Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\Var}{\mathrm{Var}}
+%\newcommand{\Cov}{\mathrm{Cov}}
+%\newcommand{\Bias}{\mathrm{Bias}}
+%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+%\DeclareMathOperator{\Tr}{Tr}
+%
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem*{remark}{Remark}
+%\theoremstyle{definition}
+%\newtheorem{example}{Example}[section]
+%
+% %Tilde
+%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+%
+%\begin{document}
+%
+%\maketitle
+%
+%\pagebreak
+%
+%\tableofcontents
+%
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
 %
 %
 %
+%\newpage
 %
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
 %
-%
-%
-%
-
-% Econometrics and Linear Regression
+%% Econometrics and Linear Regression
 
 \section{Linear Regression}
 
@@ -1870,9 +1870,9 @@ Start with \(\beta_1\) varying and all other \(\beta\)s fixed. Optimize \(\beta_
 %
 %
 
-\bibliographystyle{abbrvnat}
-\bibliography{mybib2fin}
-\end{document}
+%\bibliographystyle{abbrvnat}
+%\bibliography{mybib2fin}
+%\end{document}
 
 
 

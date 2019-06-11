@@ -135,74 +135,74 @@
 \contentsline {subsection}{\numberline {10.6}DSO 607}{317}{subsection.10.6}
 \contentsline {subsubsection}{\numberline {10.6.1}AIC and BIC}{317}{subsubsection.10.6.1}
 \contentsline {subsection}{\numberline {10.7}Ridge Regression}{321}{subsection.10.7}
-\contentsline {subsection}{\numberline {10.8}Lasso}{322}{subsection.10.8}
-\contentsline {subsubsection}{\numberline {10.8.1}Soft Thresholding}{324}{subsubsection.10.8.1}
-\contentsline {subsubsection}{\numberline {10.8.2}Lasso theory}{325}{subsubsection.10.8.2}
-\contentsline {subsubsection}{\numberline {10.8.3}Non-Negative Garotte}{326}{subsubsection.10.8.3}
-\contentsline {subsubsection}{\numberline {10.8.4}LARS---Preliminaries and Intuition}{326}{subsubsection.10.8.4}
-\contentsline {subsubsection}{\numberline {10.8.5}LARS}{328}{subsubsection.10.8.5}
-\contentsline {subsection}{\numberline {10.9}Quadratic Loss}{329}{subsection.10.9}
-\contentsline {subsubsection}{\numberline {10.9.1}Feature Selection properties}{330}{subsubsection.10.9.1}
-\contentsline {subsection}{\numberline {10.10}Dantzig Selector}{333}{subsection.10.10}
-\contentsline {subsection}{\numberline {10.11}Coordinate Descent}{334}{subsection.10.11}
-\contentsline {subsection}{\numberline {10.12}Nonconvex Learning}{334}{subsection.10.12}
-\contentsline {subsection}{\numberline {10.13}Yinfei Kong---Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{334}{subsection.10.13}
-\contentsline {subsection}{\numberline {10.14}Total Variational Distance}{334}{subsection.10.14}
-\contentsline {section}{\numberline {11}Time Series}{335}{section.11}
-\contentsline {subsection}{\numberline {11.1}Chapter 6: ARDL Models}{335}{subsection.11.1}
-\contentsline {subsection}{\numberline {11.2}Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{335}{subsection.11.2}
-\contentsline {subsubsection}{\numberline {11.2.1}Worked Examples}{337}{subsubsection.11.2.1}
-\contentsline {subsection}{\numberline {11.3}Some time series and their properties}{338}{subsection.11.3}
-\contentsline {subsubsection}{\numberline {11.3.1}White noise process:}{338}{subsubsection.11.3.1}
-\contentsline {subsubsection}{\numberline {11.3.2}MA(1) process:}{338}{subsubsection.11.3.2}
-\contentsline {subsubsection}{\numberline {11.3.3}MA(\(\infty \)) process:}{339}{subsubsection.11.3.3}
-\contentsline {subsubsection}{\numberline {11.3.4}AR(1) process:}{339}{subsubsection.11.3.4}
-\contentsline {subsubsection}{\numberline {11.3.5}AR(2) process:}{340}{subsubsection.11.3.5}
-\contentsline {subsubsection}{\numberline {11.3.6}AR(\(p\)) process:}{341}{subsubsection.11.3.6}
-\contentsline {subsubsection}{\numberline {11.3.7}ARMA(1, 1) process:}{341}{subsubsection.11.3.7}
-\contentsline {subsection}{\numberline {11.4}Chapter 14: Estimation of Stationary Time Series Processes}{343}{subsection.11.4}
-\contentsline {subsubsection}{\numberline {11.4.1}Sufficient conditions for ergodicity of mean. (Book section 14.2.1)}{343}{subsubsection.11.4.1}
-\contentsline {subsubsection}{\numberline {11.4.2}Estimation of autocovariances (Book section 14.2.2).}{344}{subsubsection.11.4.2}
-\contentsline {subsubsection}{\numberline {11.4.3}Worked examples}{345}{subsubsection.11.4.3}
-\contentsline {subsection}{\numberline {11.5}Chapter 15: Unit Root Processes}{351}{subsection.11.5}
-\contentsline {subsubsection}{\numberline {11.5.1}Worked Problems}{351}{subsubsection.11.5.1}
-\contentsline {subsection}{\numberline {11.6}Chapter 17: Introduction to Forecasting}{358}{subsection.11.6}
-\contentsline {subsubsection}{\numberline {11.6.1}17.7: Iterated and direct multi-step AR methods}{358}{subsubsection.11.6.1}
-\contentsline {subsubsection}{\numberline {11.6.2}Worked Problems}{359}{subsubsection.11.6.2}
-\contentsline {subsection}{\numberline {11.7}Chapter 18: Measurement and Modeling of Volatility}{362}{subsection.11.7}
-\contentsline {subsubsection}{\numberline {11.7.1}Higher order GARCH models (Pesaran Section 18.4.2)}{362}{subsubsection.11.7.1}
-\contentsline {subsubsection}{\numberline {11.7.2}Testing for GARCH effects (Pesaran Section 18.5.1)}{363}{subsubsection.11.7.2}
-\contentsline {subsubsection}{\numberline {11.7.3}Worked Problems}{363}{subsubsection.11.7.3}
-\contentsline {subsection}{\numberline {11.8}Chapter 21: Vector Autoregressive Models}{366}{subsection.11.8}
-\contentsline {subsubsection}{\numberline {11.8.1}Worked Problems}{366}{subsubsection.11.8.1}
-\contentsline {subsection}{\numberline {11.9}Chapter 22: Cointegration Analysis}{371}{subsection.11.9}
-\contentsline {subsubsection}{\numberline {11.9.1}22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}{372}{subsubsection.11.9.1}
-\contentsline {subsubsection}{\numberline {11.9.2}Worked Problems}{373}{subsubsection.11.9.2}
-\contentsline {subsection}{\numberline {11.10}Chapter 23: VARX Modeling}{373}{subsection.11.10}
-\contentsline {subsubsection}{\numberline {11.10.1}Worked Problems}{373}{subsubsection.11.10.1}
-\contentsline {subsection}{\numberline {11.11}Chapter 24: Impulse Response Analysis}{373}{subsection.11.11}
-\contentsline {subsubsection}{\numberline {11.11.1}Worked Problems}{373}{subsubsection.11.11.1}
-\contentsline {subsection}{\numberline {11.12}Chapter 33: Theory and Practice of GVAR Modeling}{376}{subsection.11.12}
-\contentsline {section}{\numberline {12}Convex Optimization}{377}{section.12}
-\contentsline {subsection}{\numberline {12.1}Convex Functions}{377}{subsection.12.1}
-\contentsline {subsection}{\numberline {12.2}Schur Complement Trick}{388}{subsection.12.2}
-\contentsline {subsubsection}{\numberline {12.2.1}Definition}{388}{subsubsection.12.2.1}
-\contentsline {subsubsection}{\numberline {12.2.2}The Trick}{388}{subsubsection.12.2.2}
-\contentsline {subsubsection}{\numberline {12.2.3}Example 1: Last Year's Final, Question 2(b)}{388}{subsubsection.12.2.3}
-\contentsline {subsubsection}{\numberline {12.2.4}Example 2: Last Year's Final, Question 4(b)}{389}{subsubsection.12.2.4}
-\contentsline {subsection}{\numberline {12.3}Duality}{389}{subsection.12.3}
-\contentsline {subsection}{\numberline {12.4}MLE estimates}{390}{subsection.12.4}
-\contentsline {subsection}{\numberline {12.5}Practice Final (2017 Final)}{390}{subsection.12.5}
-\contentsline {section}{\numberline {13}Abstract Algebra}{395}{section.13}
-\contentsline {subsection}{\numberline {13.1}Chapter 1: Binary Operations}{395}{subsection.13.1}
-\contentsline {subsection}{\numberline {13.2}Chapter 2: Groups}{398}{subsection.13.2}
-\contentsline {subsection}{\numberline {13.3}Chapter 3: The Symmetric Groups}{399}{subsection.13.3}
-\contentsline {subsection}{\numberline {13.4}Chapter 4: Subgroups}{402}{subsection.13.4}
-\contentsline {subsection}{\numberline {13.5}Chapter 5: The Group of Units of \(\mathbb {Z}_n\)}{404}{subsection.13.5}
-\contentsline {subsection}{\numberline {13.6}Chapter 6: Direct Products of Groups}{404}{subsection.13.6}
-\contentsline {subsection}{\numberline {13.7}Chapter 7: Isomorphism of Groups}{405}{subsection.13.7}
-\contentsline {subsection}{\numberline {13.8}Chapter 8: Cosets and Lagrange's Theorem}{407}{subsection.13.8}
-\contentsline {subsection}{\numberline {13.9}Chapter 9: Introduction to Ring Theory}{409}{subsection.13.9}
-\contentsline {section}{\numberline {14}Miscellaneous}{411}{section.14}
-\contentsline {subsection}{\numberline {14.1}Set Theory}{411}{subsection.14.1}
-\contentsline {subsection}{\numberline {14.2}Other}{411}{subsection.14.2}
+\contentsline {subsection}{\numberline {10.8}Lasso}{323}{subsection.10.8}
+\contentsline {subsubsection}{\numberline {10.8.1}Soft Thresholding}{325}{subsubsection.10.8.1}
+\contentsline {subsubsection}{\numberline {10.8.2}Lasso theory}{326}{subsubsection.10.8.2}
+\contentsline {subsubsection}{\numberline {10.8.3}Non-Negative Garotte}{327}{subsubsection.10.8.3}
+\contentsline {subsubsection}{\numberline {10.8.4}LARS---Preliminaries and Intuition}{328}{subsubsection.10.8.4}
+\contentsline {subsubsection}{\numberline {10.8.5}LARS}{331}{subsubsection.10.8.5}
+\contentsline {subsection}{\numberline {10.9}Quadratic Loss}{331}{subsection.10.9}
+\contentsline {subsubsection}{\numberline {10.9.1}Feature Selection properties}{331}{subsubsection.10.9.1}
+\contentsline {subsection}{\numberline {10.10}Dantzig Selector}{335}{subsection.10.10}
+\contentsline {subsection}{\numberline {10.11}Coordinate Descent}{336}{subsection.10.11}
+\contentsline {subsection}{\numberline {10.12}Nonconvex Learning}{336}{subsection.10.12}
+\contentsline {subsection}{\numberline {10.13}Yinfei Kong---Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{336}{subsection.10.13}
+\contentsline {subsection}{\numberline {10.14}Total Variational Distance}{336}{subsection.10.14}
+\contentsline {section}{\numberline {11}Time Series}{337}{section.11}
+\contentsline {subsection}{\numberline {11.1}Chapter 6: ARDL Models}{337}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{337}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}Worked Examples}{339}{subsubsection.11.2.1}
+\contentsline {subsection}{\numberline {11.3}Some time series and their properties}{340}{subsection.11.3}
+\contentsline {subsubsection}{\numberline {11.3.1}White noise process:}{340}{subsubsection.11.3.1}
+\contentsline {subsubsection}{\numberline {11.3.2}MA(1) process:}{340}{subsubsection.11.3.2}
+\contentsline {subsubsection}{\numberline {11.3.3}MA(\(\infty \)) process:}{341}{subsubsection.11.3.3}
+\contentsline {subsubsection}{\numberline {11.3.4}AR(1) process:}{341}{subsubsection.11.3.4}
+\contentsline {subsubsection}{\numberline {11.3.5}AR(2) process:}{342}{subsubsection.11.3.5}
+\contentsline {subsubsection}{\numberline {11.3.6}AR(\(p\)) process:}{343}{subsubsection.11.3.6}
+\contentsline {subsubsection}{\numberline {11.3.7}ARMA(1, 1) process:}{343}{subsubsection.11.3.7}
+\contentsline {subsection}{\numberline {11.4}Chapter 14: Estimation of Stationary Time Series Processes}{345}{subsection.11.4}
+\contentsline {subsubsection}{\numberline {11.4.1}Sufficient conditions for ergodicity of mean. (Book section 14.2.1)}{345}{subsubsection.11.4.1}
+\contentsline {subsubsection}{\numberline {11.4.2}Estimation of autocovariances (Book section 14.2.2).}{346}{subsubsection.11.4.2}
+\contentsline {subsubsection}{\numberline {11.4.3}Worked examples}{347}{subsubsection.11.4.3}
+\contentsline {subsection}{\numberline {11.5}Chapter 15: Unit Root Processes}{353}{subsection.11.5}
+\contentsline {subsubsection}{\numberline {11.5.1}Worked Problems}{353}{subsubsection.11.5.1}
+\contentsline {subsection}{\numberline {11.6}Chapter 17: Introduction to Forecasting}{360}{subsection.11.6}
+\contentsline {subsubsection}{\numberline {11.6.1}17.7: Iterated and direct multi-step AR methods}{360}{subsubsection.11.6.1}
+\contentsline {subsubsection}{\numberline {11.6.2}Worked Problems}{361}{subsubsection.11.6.2}
+\contentsline {subsection}{\numberline {11.7}Chapter 18: Measurement and Modeling of Volatility}{364}{subsection.11.7}
+\contentsline {subsubsection}{\numberline {11.7.1}Higher order GARCH models (Pesaran Section 18.4.2)}{364}{subsubsection.11.7.1}
+\contentsline {subsubsection}{\numberline {11.7.2}Testing for GARCH effects (Pesaran Section 18.5.1)}{365}{subsubsection.11.7.2}
+\contentsline {subsubsection}{\numberline {11.7.3}Worked Problems}{365}{subsubsection.11.7.3}
+\contentsline {subsection}{\numberline {11.8}Chapter 21: Vector Autoregressive Models}{368}{subsection.11.8}
+\contentsline {subsubsection}{\numberline {11.8.1}Worked Problems}{368}{subsubsection.11.8.1}
+\contentsline {subsection}{\numberline {11.9}Chapter 22: Cointegration Analysis}{373}{subsection.11.9}
+\contentsline {subsubsection}{\numberline {11.9.1}22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}{374}{subsubsection.11.9.1}
+\contentsline {subsubsection}{\numberline {11.9.2}Worked Problems}{375}{subsubsection.11.9.2}
+\contentsline {subsection}{\numberline {11.10}Chapter 23: VARX Modeling}{375}{subsection.11.10}
+\contentsline {subsubsection}{\numberline {11.10.1}Worked Problems}{375}{subsubsection.11.10.1}
+\contentsline {subsection}{\numberline {11.11}Chapter 24: Impulse Response Analysis}{375}{subsection.11.11}
+\contentsline {subsubsection}{\numberline {11.11.1}Worked Problems}{375}{subsubsection.11.11.1}
+\contentsline {subsection}{\numberline {11.12}Chapter 33: Theory and Practice of GVAR Modeling}{378}{subsection.11.12}
+\contentsline {section}{\numberline {12}Convex Optimization}{379}{section.12}
+\contentsline {subsection}{\numberline {12.1}Convex Functions}{379}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}Schur Complement Trick}{390}{subsection.12.2}
+\contentsline {subsubsection}{\numberline {12.2.1}Definition}{390}{subsubsection.12.2.1}
+\contentsline {subsubsection}{\numberline {12.2.2}The Trick}{390}{subsubsection.12.2.2}
+\contentsline {subsubsection}{\numberline {12.2.3}Example 1: Last Year's Final, Question 2(b)}{390}{subsubsection.12.2.3}
+\contentsline {subsubsection}{\numberline {12.2.4}Example 2: Last Year's Final, Question 4(b)}{391}{subsubsection.12.2.4}
+\contentsline {subsection}{\numberline {12.3}Duality}{391}{subsection.12.3}
+\contentsline {subsection}{\numberline {12.4}MLE estimates}{392}{subsection.12.4}
+\contentsline {subsection}{\numberline {12.5}Practice Final (2017 Final)}{392}{subsection.12.5}
+\contentsline {section}{\numberline {13}Abstract Algebra}{397}{section.13}
+\contentsline {subsection}{\numberline {13.1}Chapter 1: Binary Operations}{397}{subsection.13.1}
+\contentsline {subsection}{\numberline {13.2}Chapter 2: Groups}{400}{subsection.13.2}
+\contentsline {subsection}{\numberline {13.3}Chapter 3: The Symmetric Groups}{401}{subsection.13.3}
+\contentsline {subsection}{\numberline {13.4}Chapter 4: Subgroups}{404}{subsection.13.4}
+\contentsline {subsection}{\numberline {13.5}Chapter 5: The Group of Units of \(\mathbb {Z}_n\)}{406}{subsection.13.5}
+\contentsline {subsection}{\numberline {13.6}Chapter 6: Direct Products of Groups}{406}{subsection.13.6}
+\contentsline {subsection}{\numberline {13.7}Chapter 7: Isomorphism of Groups}{407}{subsection.13.7}
+\contentsline {subsection}{\numberline {13.8}Chapter 8: Cosets and Lagrange's Theorem}{409}{subsection.13.8}
+\contentsline {subsection}{\numberline {13.9}Chapter 9: Introduction to Ring Theory}{411}{subsection.13.9}
+\contentsline {section}{\numberline {14}Miscellaneous}{413}{section.14}
+\contentsline {subsection}{\numberline {14.1}Set Theory}{413}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Other}{413}{subsection.14.2}
