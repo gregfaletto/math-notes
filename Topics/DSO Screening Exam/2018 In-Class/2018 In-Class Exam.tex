@@ -622,9 +622,9 @@ The second row is the integral over \(\mathbb{R}^n\) of an \(n\)-dimensional mul
 f_{\boldsymbol{X}}(\boldsymbol{x})  =\frac{1}{\sqrt{(2 \pi )^n}}  \frac{1}{k^{n/2}}\exp \left(- \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}   \right)\left( \frac{k}{k+1} \right)^{n/2}
 \]
 
-\[
+\begin{equation}\label{2018.screen.3.d.marginal.x.gaussian}
 =\frac{1}{\sqrt{(2 \pi )^n}} \left[ \left( k+1 \right)^n \right]^{-1/2} \exp \left(- \frac{1}{2} \boldsymbol{x}^T \left( (k+1) \boldsymbol{I}_n \right)^{-1} \boldsymbol{x}   \right)
-\]
+\end{equation}
 
 which is the density of an \(n\)-dimensional multivariate Gaussian random variable with mean \(\boldsymbol{0}\) and covariance \((k+1)\boldsymbol{I}_n\). Therefore the posterior distribution of \(\boldsymbol{\mu}\) is
 
@@ -741,13 +741,123 @@ So,
 
 So,
 
-\[
+\begin{equation}\label{2018.screen.3.c.flat.unbiased.difference}
 \hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} = 1 + \boldsymbol{X}^T\boldsymbol{X} - \left( \boldsymbol{X}^T\boldsymbol{X} - n \right) = 1 + n.
-\]
+\end{equation}
 
 
 % 3d
-\item
+\item If the true distribution of \(\boldsymbol{\mu}\) is the prior from part (b), then the marginal distribution of \(\boldsymbol{X}\) is (\ref{2018.screen.3.d.marginal.x.gaussian}):
+
+\[
+=\frac{1}{\sqrt{(2 \pi )^n}} \left[ \left( k+1 \right)^n \right]^{-1/2} \exp \left(- \frac{1}{2} \boldsymbol{x}^T \left( (k+1) \boldsymbol{I}_n \right)^{-1} \boldsymbol{x}   \right);
+\]
+
+that is, \(\boldsymbol{X} \sim \mathcal{N} (\boldsymbol{0}, (k+1)\boldsymbol{I}_n)\). (Note that this means \( (k+1)^{-1} X_i \) is standard Gaussian and i.i.d. for all \(i \in \{1, \ldots, n\}\).) Per the suggestion, let 
+
+\[
+\hat{D} = \hat{\delta}_{\text{proper}}  - \hat{\delta}_{\text{unbiased}} =  \left[ \frac{k}{k+1} \right]^2 \left(1   +     \boldsymbol{X}^T \boldsymbol{X} \right) - \left( \boldsymbol{X}^T\boldsymbol{X} - n \right) = \frac{k^2 - (k^2 + 2k + 1)}{(k+1)^2}  \boldsymbol{X}^T\boldsymbol{X} + \left[ \frac{k}{k+1} \right]^2 + n
+\]
+
+\begin{equation}
+= -\frac{2k + 1}{(k+1)^2}  \boldsymbol{X}^T\boldsymbol{X} + \left[ \frac{k}{k+1} \right]^2 + n
+\end{equation}
+
+
+
+Since from  (\ref{2018.screen.3.c.flat.unbiased.difference}) we have
+
+\[
+\E \left( \hat{\delta}_{\text{proper}}  - \hat{\delta}_{\text{unbiased}} \right)^2 = n^2 + 2n + 1,
+\]
+
+we seek
+
+\[
+\E \left( \hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} \right)^2= \E( \hat{D}^2) = \Var(\hat{D}) + \left[\E(\hat{D}) \right]^2.
+\]
+
+Note that since \((k+1)^{-1} X_i \overset{i.i.d.}{\sim} \mathcal{N}(0,1)\) for all \(i \in \{1, \ldots, n\}\), 
+
+\[
+\sum_{i=1}^n \left( (k+1)^{-1} X_i \right)^2 \sim \chi_n^2,
+\]
+
+so
+
+\[
+\E \left[ \sum_{i=1}^n \left( \frac{1}{k+1} X_i \right)^2  \right] = n \iff \frac{1}{(k+1)^2} \E \left[ \sum_{i=1}^n X_i ^2  \right] = n \iff  \E \left[ \sum_{i=1}^n X_i ^2  \right] = n(k+1)^2,
+\]
+
+and
+
+\[
+\Var \left[ \sum_{i=1}^n \left( \frac{1}{k+1} X_i \right)^2  \right] = 2n \iff \frac{1}{(k+1)^4} \Var \left[ \sum_{i=1}^n X_i ^2  \right] = 2n \iff  \Var \left[ \sum_{i=1}^n X_i ^2  \right] = 2n(k+1)^4.
+\]
+
+Under the unconditional distribution of \(\boldsymbol{X}\),
+
+\[
+\E \left(\hat{D} \right) = \E \left( -\frac{2k + 1}{(k+1)^2}  \boldsymbol{X}^T\boldsymbol{X} + \left[ \frac{k}{k+1} \right]^2 + n \right)  =  - \frac{2k +1}{(k+1)^2}\E \left(  \boldsymbol{X}^T\boldsymbol{X}  \right) + \left[ \frac{k}{k+1} \right]^2 + n
+\]
+
+\[
+=  - \frac{2k +1}{(k+1)^2}\E \left(  \sum_{i=1}^n X_i^2  \right) + \left[ \frac{k}{k+1} \right]^2 + n =  - \frac{2k +1}{(k+1)^2} n(k+1)^2 + \left[ \frac{k}{k+1} \right]^2 + n
+\]
+
+\[
+=  -n \frac{(2k +1)(k^2 + 2k + 1) + k^2}{(k+1)^2}   + n =  n \left[ \frac{k^2 + 2k + 1}{(k+1)^2} - \frac{2k^3 + 4k^2 + 2k + k^2 + 2k + 1 + k^2}{(k+1)^2} \right]
+\]
+
+\[
+=  n \left[  \frac{-2k^3 -5k^2-2k }{(k+1)^2} \right] =  -n \left[  \frac{2k^3  + 5k^2 + 2k }{(k+1)^2} \right]
+\]
+
+
+%\[
+%=n \cdot \frac{(k^2 - k - 1)(k^2 + 2k + 1)}{(k+1)^2}  + \left[ \frac{k}{k+1} \right]^2 + n
+%\]
+
+%\[
+%\E \left(\hat{D} \right) =  - \frac{2k +1}{(k+1)^2} \cdot (k+1)^2 + \left[ \frac{k}{k+1} \right]^2 + n = \frac{(k^2 - k - 1)(k^2 + 2k + 1)}{(k+1)^2}  + \left[ \frac{k}{k+1} \right]^2 + n
+%\]
+%\[
+%= k^2 - k - 1  + \left[ \frac{k}{k+1} \right]^2 + n
+%\]
+
+
+%\[
+%= \frac{k^4 + 2k^3 + k^2 - k^3 -2k^2 -k - k^2 -2k - 1 + k^2}{(k+1)^2}  + n = \frac{k^4 + k^3  - k^2    -3k - 1 }{(k+1)^2}  + n
+%\]
+
+Next,
+
+\[
+\Var (\hat{D}) = \Var \left( - \frac{2k +1}{(k+1)^2}  \boldsymbol{X}^T\boldsymbol{X} + \left[ \frac{k}{k+1} \right]^2 + n  \right) = \frac{(2k +1)^2}{(k+1)^4}   \Var \left( \sum_{i=1}^n  X_i ^2   \right)
+\]
+
+\[
+= \frac{(2k +1)^2}{(k+1)^4}   2n(k+1)^4 = 2n (2k+1)^2
+\]
+
+
+So
+
+\[
+\E \left( \hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} \right)^2 =  2n (2k+1)^2 + \left(-n \left[  \frac{2k^3  + 5k^2 + 2k }{(k+1)^2} \right] \right)^2 = n^2  \left[  \frac{2k^3  + 5k^2 + 2k }{(k+1)^2} \right] ^2 + n \cdot 2(2k+1)^2
+\]
+
+\[
+\approx 4k^2 n^2 + 8k^2 n,
+\]
+
+so in general when \(k \geq 1\) and \(n\) is large,, \(\E \left( \hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} \right)^2 > \E \left( \hat{\delta}_{\text{proper}}  - \hat{\delta}_{\text{unbiased}} \right)^2 \); that is, the flat prior Bayes estimator is further from the unbiased estimator than the proper prior Bayes estimator.
+
+%\[
+%\approx k^2 + n,
+%\]
+%
+%so in general roughly when \(k \geq 1\) this quantity is higher in expectation than \(\hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} \), (\ref{2018.screen.3.c.flat.unbiased.difference}). 
 
 % \textbf{Try using information here: section 3.4, page 62} \begin{verbatim}http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf\end{verbatim} 
 %
