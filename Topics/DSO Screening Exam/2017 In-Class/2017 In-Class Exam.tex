@@ -351,14 +351,14 @@ Since both distributions are Gaussian, we have
 I(m, \lambda) = \int_{\mathbb{R}} \frac{ \exp(\lambda \theta_1m_1) }{(1 + \exp(\theta_1) ) ^{\lambda}} d \theta_1 = \int_{\mathbb{R}} \frac{ \exp( \theta_1)^{\lambda m_1} }{(1 + \exp(\theta_1) ) ^{\lambda}} d \theta_1
 \]
 
-%Let \(u_1=  \exp(\theta_1) \implies d_{u_1} =\exp(\theta_1) \ d_{\theta_1} \iff d_{\theta_1} = \frac{1}{u_1} d_{u_1}\). 
+%Let \(u_1=  \exp(\theta_1) \implies du_1 =\exp(\theta_1) \ d\theta_1 \iff d\theta_1 = \frac{1}{u_1} du_1\). 
 %
 %%Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
 %%
 %%\[
 %%= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
 %%\]
-%%
+%
 %
 %\[
 %\implies I(m, \lambda) =\int_{0}^\infty \frac{ u_1^{\lambda m_1} }{ (u_1 + 1)  ^{\lambda}} \ \frac{ d u_1}{u_1} =\int_{0}^\infty  u_1 ^{\lambda m_1 - 1} (u_1 + 1)  ^{-\lambda} \ d u_1
@@ -378,7 +378,7 @@ I(m, \lambda) = \int_{\mathbb{R}} \frac{ \exp(\lambda \theta_1m_1) }{(1 + \exp(\
 %B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Gamma(z_2)}{\Gamma(z_1 + z_2)}
 %\]
 
-Let \(u_1= 1 + \exp(\theta_1) \implies d_{u_1} =\exp(\theta_1) \ d_{\theta_1} \iff d_{\theta_1} = \frac{1}{u_1- 1} d_{u_1 }\). 
+Let \(u_1= 1 + \exp(\theta_1) \implies du_1 =\exp(\theta_1) \ d\theta_1 \iff d\theta_1 = \frac{1}{u_1- 1} d_{u_1 }\). 
 
 %Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
 %
@@ -406,7 +406,7 @@ B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Ga
 \]
 
 % 3b
-\item
+\item \textbf{not sure about the last step on this problem}
 
 \[
 \lim_{\lambda \to 0} \lambda^n I(m, \lambda) = \lim_{\lambda \to 0} \lambda^n \cdot   \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_n)}{\Gamma(\lambda)} = \lim_{\lambda \to 0}  \frac{ \Gamma(\lambda m_0) }{\Gamma(\lambda)} \cdot  [\lambda  \Gamma(\lambda m_1)] \cdots[ \lambda \Gamma(\lambda m_n)]
@@ -415,24 +415,71 @@ B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Ga
 \[
 = \lim_{\lambda \to 0}  \frac{ \Gamma(\lambda m_0) }{\Gamma(\lambda)}\cdot \frac{\Gamma(\lambda m_1)}{\Gamma(\lambda)} \cdots \frac{\Gamma(\lambda m_n)}{\Gamma(\lambda)}  \cdot  [\lambda  \Gamma(\lambda )] \cdots[ \lambda \Gamma(\lambda )]
 \]
+%= \lim_{\lambda \to 0}  \frac{ \Gamma(\lambda m_0) }{\Gamma(\lambda)}\cdot \frac{\Gamma(\lambda m_1)}{\Gamma(\lambda)} \cdots \frac{\Gamma(\lambda m_n)}{\Gamma(\lambda)}  
+%\[
+% =  \frac{  \lim_{\lambda \to 0}  \Gamma(\lambda m_0) } { \lim_{\lambda \to 0}  \Gamma(\lambda)}\cdot  \frac{  \lim_{\lambda \to 0}\Gamma(\lambda m_1)}{ \lim_{\lambda \to 0}  \Gamma(\lambda)} \cdots \frac{   \lim_{\lambda \to 0}\Gamma(\lambda m_n)}{ \lim_{\lambda \to 0} \Gamma(\lambda)}  
+%\]
+
+%\[
+% = \frac{1}{m_0}  \frac{  \lim_{\lambda \to 0} \lambda m_0 \Gamma(\lambda m_0) } { \lim_{\lambda \to 0}   \lambda \Gamma(\lambda)}\cdot  \frac{1}{m_1} \frac{  \lim_{\lambda \to 0} \lambda m_1 \Gamma(\lambda m_1)}{ \lambda \lim_{\lambda \to 0}  \Gamma(\lambda)} \cdots \frac{1}{m_n} \frac{   \lim_{\lambda \to 0} \lambda m_n\Gamma(\lambda m_n)}{ \lim_{\lambda \to 0} \lambda \Gamma(\lambda)}  
+%\]
 
 \[
-= \lim_{\lambda \to 0}  \frac{ \Gamma(\lambda m_0) }{\Gamma(\lambda)}\cdot \frac{\Gamma(\lambda m_1)}{\Gamma(\lambda)} \cdots \frac{\Gamma(\lambda m_n)}{\Gamma(\lambda)}  
+ = \frac{  \lim_{\lambda \to 0} \lambda  \Gamma(\lambda m_0) } { \lim_{\lambda \to 0}   \lambda \Gamma(\lambda)}\cdot  \frac{  \lim_{\lambda \to 0} \lambda  \Gamma(\lambda m_1)}{ \lambda \lim_{\lambda \to 0}  \Gamma(\lambda)} \cdots  \frac{   \lim_{\lambda \to 0} \lambda \Gamma(\lambda m_n)}{ \lim_{\lambda \to 0} \lambda \Gamma(\lambda)}  = 1.
 \]
 
-\item Stirling's formula: 
+
+%Notice that
+%
+%\[
+%\lim_{\lambda \to 0} \Gamma(\lambda) = \lim_{\lambda \to 0} \int_0^\infty x^{\lambda-1} e^{-x} \ dx = \lim_{\lambda \to 0} \int_0^\infty x^{\lambda-1} e^{-x} \ dx
+%\]
+
+%= \lim_{\lambda \to 0}   \frac{ \Gamma(\lambda m_0) } {\Gamma(\lambda)}\cdot  \lim_{\lambda \to 0} \frac{ \Gamma(\lambda m_1)}{ \Gamma(\lambda)} \cdots \lim_{\lambda \to 0}\frac{  \Gamma(\lambda m_n)}{ \Gamma(\lambda)}  
+%Using the formula 
+%
+%\[
+%\lim_{n \to \infty} \frac{\Gamma(n+z)}{\Gamma(n) n^z} = 1,
+%\]
+%
+%we can write
+
+% 3c
+\item \textbf{again, not sure about last part} Stirling's formula: 
 
 \[
 \lambda! \sim \lambda^\lambda e^{-\lambda} \sqrt{2\pi \lambda} = \lambda^{\lambda + 1/2} e^{-\lambda} \sqrt{2\pi } \iff \lim_{\lambda \to \infty} \frac{ \Gamma(\lambda+1) e^\lambda}{\lambda^{\lambda + 1/2}  \sqrt{2\pi }} = 1 \iff \lim_{\lambda \to \infty} \frac{\lambda \Gamma(\lambda) e^\lambda}{\lambda^{\lambda + 1/2}  \sqrt{2\pi }} = 1
 \]
-
+% \iff \lim_{\lambda \to \infty} \frac{ \Gamma(\lambda) e^\lambda}{\lambda^{\lambda - 1/2}  } = \sqrt{2\pi } 
 \[
- \iff \lim_{\lambda \to \infty} \frac{ \Gamma(\lambda) e^\lambda}{\lambda^{\lambda - 1/2}  } = \sqrt{2\pi }
+ \iff \lim_{\lambda \to \infty} \frac{ \lambda^{1/2} \Gamma(\lambda) e^\lambda}{\lambda^{\lambda}  } = \sqrt{2\pi }  \iff \lim_{\lambda \to \infty} \frac{ \lambda^{n/2} \left( \Gamma(\lambda) \right)^n e^{n\lambda}}{\lambda^{n\lambda}  } = (2\pi )^{n/2}
 \]
+
+%\[
+%\Gamma(n+1) \sim n^ne^{-n} \sqrt{2\pi n}
+%\]
+%
+%That is,
+%
+%\[
+%\lim_{n \to \infty} \frac {n^ne^{-n} \sqrt{2\pi n}}{\Gamma(n +1)} = 1.
+%\]
 
 
 \[
 \lim_{\lambda \to \infty} \lambda^{n/2} I(m, \lambda) = \lim_{\lambda \to \infty} \lambda^{n/2} \cdot \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_n)}{\Gamma(\lambda)} 
+\]
+
+\[
+= \lim_{\lambda \to \infty} \frac{ \lambda^{n/2} \left( \Gamma(\lambda) \right)^n e^{n \lambda}}{\lambda^{n\lambda}  }  \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_n)}{(\Gamma(\lambda))^{n+1}} \frac{\lambda^{n \lambda}}{e^{n \lambda}}
+\]
+
+\[
+= \lim_{\lambda \to \infty}  \left( \frac{ \lambda^{n/2} \left( \Gamma(\lambda) \right)^n e^{n \lambda}}{\lambda^{n\lambda}  }  \right) \lim_{\lambda \to \infty}  \left( \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_n)}{(\Gamma(\lambda))^{n+1}} \right) \lim_{\lambda \to \infty}  \left( \frac{\lambda}{e} \right) ^{n \lambda}
+\]
+
+\[
+= (2\pi )^{n/2} \cdot 1 \cdot \infty = \infty.
 \]
 
 \item

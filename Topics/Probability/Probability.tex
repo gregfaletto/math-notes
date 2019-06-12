@@ -4284,6 +4284,50 @@ B(z_1, z_2): = \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Ga
 
 (in particular, for any integer \(n \geq 1\), \(\Gamma(n) = (n-1)!\).)
 
+\item \(\Gamma(1/2) = \sqrt{\pi}\).
+
+\item Using integration by parts, one can find the identity
+
+\[
+\int_0^\infty x^a e^{-b x} dx = \frac{\Gamma(a+1)}{b^{a + 1}}.
+\]
+
+\item \textbf{Euler's Reflection Formula}: For \(z \notin \mathbb{Z}\),
+
+\[
+\Gamma(1-z)\Gamma(z) = \frac{\pi}{\sin(\pi z)}
+\]
+
+\item \textbf{Legendre Duplication Formula:}
+
+\[
+\Gamma(z) \Gamma \left( z + \frac{1}{2} \right) = 2^{1 - 2z} \sqrt{\pi} \Gamma(2z)
+\]
+
+\item For all \(z \in \mathbb{C}\),
+
+\[
+\lim_{n \to \infty} \frac{\Gamma(n+z)}{\Gamma(n) n^z} = 1.
+\]
+
+\item From 2018 DSO Statistics Screening Exam:
+
+\[
+\lim_{x \to 0} x \Gamma(x) = 1
+\]
+
+\item See Theorem \ref{prob.stirling} (Stirling's Formula)
+
+\[
+\Gamma(n+1) \sim n^ne^{-n} \sqrt{2\pi n}
+\]
+
+That is,
+
+\[
+\lim_{n \to \infty} \frac {n^ne^{-n} \sqrt{2\pi n}}{\Gamma(n +1)} = 1.
+\]
+
 \end{itemize}
 
 \end{proposition}
@@ -4867,23 +4911,29 @@ f_X(x) = \frac{1}{2 \pi \sigma_2 \sigma_2 \sqrt{1 - \rho^2}} \exp \bigg[ - \frac
 for \(x \in \mathbb{R}^2\).
 \end{definition}
 
-
-
-\begin{definition} \textbf{(From Heilman Math 541A; Vector-valued Gaussian random variables.)} \(Z:= (Z_1, \ldots, Z_d) \in \mathbb{R}^d\) is a \textbf{Gaussian random vector} if for all \(v \in \mathbb{R}^d\), \(\langle v, Z\rangle\) is a Gaussian random variable (in the usual sense). Equivalently, any linear comibnation of \(Z_1, \ldots, Z_d\) is a Gaussian random variable. Also, t\(Z\) has covariance matrix \(a_{ij} = \E \big[(Z_i - \E(Z_i)) (Z_j - \E(Z_j)\big], 1 \leq i < j \leq d\).
+\begin{definition} \textbf{(From Heilman Math 541A; Vector-valued Gaussian random variables.)} \(Z:= (Z_1, \ldots, Z_d) \in \mathbb{R}^d\) is a \textbf{Gaussian random vector} if for all \(v \in \mathbb{R}^d\), \(\langle v, Z\rangle\) is a Gaussian random variable (in the usual sense). Equivalently, any linear combination of \(Z_1, \ldots, Z_d\) is a Gaussian random variable. Also, t\(Z\) has covariance matrix \(a_{ij} = \E \big[(Z_i - \E(Z_i)) (Z_j - \E(Z_j)\big], 1 \leq i < j \leq d\).
 
 \end{definition}
 
-\begin{remark} For a multivariate normal distribution with IID members (say \(\epsilon \sim \mathcal{N}(0, \sigma^2 I_n)\), we have
+\begin{definition} A random vector \(\boldsymbol{X} = (X_1, X_2, \ldots, X_p)\) is Gaussian with mean \(\boldsymbol{\mu} = (\mu_1, \mu_2, \ldots, \mu_p)\) and covariance matrix \(\boldsymbol{\Sigma} = \begin{bmatrix} \boldsymbol{\sigma}_{ij} \end{bmatrix}\) if it has a joint pdf of the form
 
 \[
-f(t) = \bigg( \frac{1}{2 \sqrt{\pi \sigma^2}}   \bigg)^n \exp \bigg( - \frac{t^T t}{2 \sigma^2} \bigg) , \ \ \ t = (t_1, \ldots, t_n)^T
+f_{\boldsymbol{\mu}, \boldsymbol{\Sigma}}(\boldsymbol{x}) = (2 \pi)^{-p/2} | \boldsymbol{\Sigma} |^{-1/2} \cdot \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  \boldsymbol{\Sigma}^{-1} (\boldsymbol{x} - \boldsymbol{\mu}) \right).
 \]
 
-\end{remark}
+\end{definition}
 
-\begin{proposition}\label{prob.cond.bivar.norm.dist}
+%\begin{remark} For a multivariate normal distribution with IID members \(\mathcal{N}(0, \sigma^2 I_n)\), we have
+%
+%\[
+%f(t) = \bigg( \frac{1}{2 \sqrt{\pi \sigma^2}}   \bigg)^n \exp \bigg( - \frac{t^T t}{2 \sigma^2} \bigg) , \ \ \ t = (t_1, \ldots, t_n)^T
+%\]
+%
+%\end{remark}
 
-From \url{http://pluto.huji.ac.il/~pchiga/teaching/MathStat/SIAnotes2013.pdf} (Proposition 3c1): Let \(X\) be a Gaussian random variable in \(\mathbb{R}^2\) such that
+\begin{proposition}\label{prob.cond.bivar.norm.dist}[\textbf{Conditional distribution of one Gaussian random variable on another. From \url{http://pluto.huji.ac.il/~pchiga/teaching/MathStat/SIAnotes2013.pdf} (Proposition 3c1)}]
+
+Let \(X\) be a Gaussian random variable in \(\mathbb{R}^2\) such that
 
 \[
 \begin{bmatrix} X_1 \\ X_2 \end{bmatrix}  \sim \mathcal{N}\left(\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & \rho \sigma_1 \sigma_2 \\  \rho \sigma_1 \sigma_2 & \sigma_2^2 \end{bmatrix}  \right) =  \mathcal{N}\left(\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 &\sigma_{12}^2 \\  \sigma_{12}^2 & \sigma_2^2 \end{bmatrix}  \right)

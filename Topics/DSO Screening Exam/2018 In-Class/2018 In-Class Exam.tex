@@ -547,7 +547,7 @@ X \mid \mu \sim \mathcal{N}(\mu, \boldsymbol{I}_n)
 Let \(X = (X_1, \ldots, X_n)^T\) and let \(\mu = (\mu_1, \ldots, \mu_n)^T\). Notice that
 
 \[
-\E(X^TX) = \E[ \E(X^TX \mid \mu)] =  \E \left[ \E \left( X_1^2 + X_2^2 + \ldots + X_n^2 \right)  \right] = \E \left[ \sum_{i=1}^n \E (X_i^2)  \right] 
+\E(\boldsymbol{X}^T\boldsymbol{X}) = \E[ \E(\boldsymbol{X}^T\boldsymbol{X} \mid \mu)] =  \E \left[ \E \left( X_1^2 + X_2^2 + \ldots + X_n^2 \right)  \right] = \E \left[ \sum_{i=1}^n \E (X_i^2)  \right] 
 \]
 
 \[
@@ -555,113 +555,297 @@ Let \(X = (X_1, \ldots, X_n)^T\) and let \(\mu = (\mu_1, \ldots, \mu_n)^T\). Not
 \]
 
 \[
-\implies \E(X^TX - n) =  \lVert \mu \rVert_2^2 
+\implies \E(\boldsymbol{X}^T\boldsymbol{X} - n) =  \lVert \mu \rVert_2^2 
 \]
 
-Therefore \(\boxed{X^TX - n}\) is unbiased for \(\lVert \mu \rVert_2^2\).
+Therefore \(\boxed{ \hat{\delta}_{\text{unbiased}} = \boldsymbol{X}^T\boldsymbol{X} - n}\) is unbiased for \(\lVert \mu \rVert_2^2\).
 
 % 3b
-\item \textbf{Try using information here: section 3.4, page 62} \begin{verbatim}http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf\end{verbatim} 
-
-\textbf{maybe this is what I'm supposed to do for part (d)?} Because the prior distribution for \(\mu\) is Gaussian and the conditional distribution of \(X\) given \(\mu\) is Gaussian, that means the unconditional distribution for \(X\) is Gaussian. That is, we can use the formula for conditioning one set of Gaussian random variables on another to learn about the unconditional distribution of \(X\).
-
-\begin{center}
-\noindent\fbox{
-\parbox{0.9\textwidth}{
-\begin{proposition}\label{prob.cond.multivar.norm.dist} Suppose 
+\item We will begin by finding the posterior distribution of \(\mu\). The prior distribution of \(\mu\) is
 
 \[
-\boldsymbol{X} = \begin{bmatrix} \boldsymbol{X}_1 \\ \boldsymbol{X}_2 \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} \boldsymbol{\mu}_1 \\ \boldsymbol{\mu}_2 \end{bmatrix}, \begin{bmatrix}  \boldsymbol{\Sigma}_{11} & \boldsymbol{\Sigma}_{12} \\ \boldsymbol{\Sigma}_{12}^T & \boldsymbol{\Sigma}_{22} \end{bmatrix} \right)
+f(\boldsymbol{\mu}) = (2 \pi)^{-n/2} | k\boldsymbol{I}_n|^{-1/2} \cdot \exp \left(- \frac{1}{2} \boldsymbol{\mu} ^T ( k\boldsymbol{I}_n)^{-1} \boldsymbol{\mu} \right) = \frac{1}{\sqrt{(2 \pi k)^n}} \exp \left(- \frac{1}{2k}\boldsymbol{\mu} ^T  \boldsymbol{\mu} \right).
 \]
 
-where \(\boldsymbol{\mu}_1 \in \mathbb{R}^q\), \(\boldsymbol{\mu}_2 \in \mathbb{R}^{p - q}\), \(\boldsymbol{\Sigma}_{11} \in \mathbb{R}^{q \times q}\), \( \boldsymbol{\Sigma}_{12} \in \mathbb{R}^{(p-q) \times q}\), and \( \boldsymbol{\Sigma}_{22} \in \mathbb{R}^{(p-q) \times (p-q)}\). Then
 
-\begin{equation}\label{prob.mult.gaussian.cond.dist.gen}
-\{\boldsymbol{X}_1 \mid \boldsymbol{X}_2\} \sim \mathcal{N} \left(  \boldsymbol{\mu}_1 +  \boldsymbol{\Sigma}_{12} \boldsymbol{\Sigma}_{22}^{-1} \left(\boldsymbol{X}_2 - \boldsymbol{\mu}_2\right), \boldsymbol{\Sigma}_{11} - \boldsymbol{\Sigma}_{12} \boldsymbol{\Sigma}_{22}^{-1} \boldsymbol{\Sigma}_{12}^T \right)
+The likelihood is
+
+\[
+f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) = (2 \pi)^{-n/2} | \boldsymbol{I}_n|^{-1/2} \cdot \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T ( \boldsymbol{I}_n)^{-1} (\boldsymbol{x} - \boldsymbol{\mu} ) \right)
+\]
+
+\[
+= (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  (\boldsymbol{x} - \boldsymbol{\mu} ) \right).
+\]
+
+So the unconditional distribution of \(\boldsymbol{X}\) is
+
+\[
+f_{\boldsymbol{X}}(\boldsymbol{x})  = \int_{\mathbb{R}^n} f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) f(\boldsymbol{\mu}) \ d \boldsymbol{\mu} 
+\]
+
+\[
+= \int_{\mathbb{R}^n}  (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  (\boldsymbol{x} - \boldsymbol{\mu} ) \right)  \cdot \frac{1}{\sqrt{(2 \pi k)^n}} \exp \left(- \frac{1}{2k}\boldsymbol{\mu} ^T  \boldsymbol{\mu} \right) \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(- \frac{1}{2}\left[  \boldsymbol{\mu} ^T\boldsymbol{\mu}  + \frac{1}{k}\boldsymbol{\mu} ^T  \boldsymbol{\mu}  - 2 \boldsymbol{x} ^T\boldsymbol{\mu}   + \boldsymbol{x}^T \boldsymbol{x}  \right]  \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(-  \frac{k+1}{2k} \left[  \boldsymbol{\mu} ^T\boldsymbol{\mu}   -  \frac{2k}{k+1} \boldsymbol{x} ^T\boldsymbol{\mu}   \right] - \frac{1}{2}  \boldsymbol{x}^T \boldsymbol{x}   \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(-  \frac{k+1}{2k} \left[  \boldsymbol{\mu} ^T\boldsymbol{\mu}   -  \frac{2k}{k+1} \boldsymbol{x} ^T\boldsymbol{\mu} + \left(\frac{k}{k+1} \right)^2 \boldsymbol{x}^T \boldsymbol{x}    \right] - \left(-  \frac{k+1}{2k} \right) \left(\frac{k}{k+1} \right)^2 \boldsymbol{x}^T \boldsymbol{x} - \frac{1}{2}  \boldsymbol{x}^T \boldsymbol{x}   \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(-  \frac{k+1}{2k} \left[  \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T\left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right) \right] - \frac{1}{2} \left[ -\left(\frac{k}{k+1} \right) \boldsymbol{x}^T \boldsymbol{x}  + \frac{k+1}{k+1}  \boldsymbol{x}^T \boldsymbol{x}   \right] \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(-  \frac{k+1}{2k} \left[  \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T\left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right) \right] \right) \exp \left(- \frac{1}{2} \frac{1}{k+1}  \boldsymbol{x}^T \boldsymbol{x}   \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{\sqrt{(2 \pi k )^n}} \exp \left(- \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}   \right)\left( \frac{k}{k+1} \right)^{n/2}
+\]
+
+\[
+\cdot \int_{\mathbb{R}^n}  \frac{1}{\sqrt{(2 \pi)^n}}  \cdot \left( \frac{k}{k+1} \right)^{-n/2}   \exp \left(-  \frac{1}{2}   \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T \left( \frac{k}{k+1}\boldsymbol{I}_n \right)^{-1} \left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right)  \right)   \ d \boldsymbol{\mu}
+\]
+
+The second row is the integral over \(\mathbb{R}^n\) of an \(n\)-dimensional multivariate Gaussian distribution with mean \(k/(k+1) \boldsymbol{x}\) and covariance \(k/(k+1) \boldsymbol{I}_n\), so it equals 1. Then we are left with
+
+\[
+f_{\boldsymbol{X}}(\boldsymbol{x})  =\frac{1}{\sqrt{(2 \pi )^n}}  \frac{1}{k^{n/2}}\exp \left(- \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}   \right)\left( \frac{k}{k+1} \right)^{n/2}
+\]
+
+\[
+=\frac{1}{\sqrt{(2 \pi )^n}} \left[ \left( k+1 \right)^n \right]^{-1/2} \exp \left(- \frac{1}{2} \boldsymbol{x}^T \left( (k+1) \boldsymbol{I}_n \right)^{-1} \boldsymbol{x}   \right)
+\]
+
+which is the density of an \(n\)-dimensional multivariate Gaussian random variable with mean \(\boldsymbol{0}\) and covariance \((k+1)\boldsymbol{I}_n\). Therefore the posterior distribution of \(\boldsymbol{\mu}\) is
+
+\[
+f_{\boldsymbol{\mu} \mid \boldsymbol{X}}(\boldsymbol{\mu} \mid \boldsymbol{x}) = \frac{f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) f(\boldsymbol{\mu})}{f_{\boldsymbol{X}}(\boldsymbol{x})}
+\]
+
+\[
+= \left[   \frac{1}{(2 \pi \sqrt{k})^n  }  \exp \left(- \frac{1}{2}\left[  \boldsymbol{\mu} ^T\boldsymbol{\mu}  + \frac{1}{k}\boldsymbol{\mu} ^T  \boldsymbol{\mu}  - 2 \boldsymbol{x} ^T\boldsymbol{\mu}   + \boldsymbol{x}^T \boldsymbol{x}  \right]  \right)  \Bigg] \middle/  \Bigg[ \frac{1}{\sqrt{(2 \pi )^n}} \left[ \left( k+1 \right)^n \right]^{-1/2} \exp \left(- \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}   \right) \right]
+\]
+
+\[
+=  \frac{1}{\sqrt{(2\pi)^n}} \left( \frac{k+1}{k} \right)^{n/2} \exp  \left(-  \frac{k+1}{2k} \left[  \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T\left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right) \right] - \frac{1}{2} \frac{1}{k+1}  \boldsymbol{x}^T \boldsymbol{x}  + \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}\right)  
+\]
+
+\[
+=  \frac{1}{\sqrt{(2\pi)^n}} \left( \frac{k+1}{k} \right)^{n/2} \exp  \left(-  \frac{k+1}{2k}  \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T\left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right)\right)  
+\]
+
+\[
+=
+ \frac{1}{\sqrt{(2 \pi)^n}}  \cdot \left( \frac{k}{k+1} \right)^{-n/2}   \exp \left(-  \frac{1}{2}   \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T \left( \frac{k}{k+1}\boldsymbol{I}_n \right)^{-1} \left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right)  \right)
+ \]
+ 
+which is an \(n\)-dimensional multivariate Gaussian distribution with mean \(k/(k+1) \boldsymbol{x}\) and covariance \(k/(k+1) \boldsymbol{I}_n\). That is, conditional on \(\boldsymbol{X}\), \(\boldsymbol{\mu} = (\mu_1, \ldots, \mu_n)\), where
+
+\[
+\mu_i \mid \boldsymbol{X}  \overset{i.i.d.}{\sim} \mathcal{N} \left( \frac{k}{k+1} X_i, \frac{k}{k+1}\right).
+\]
+
+\[
+\iff \left( \mu_i - \frac{k}{k+1}  X_i \right) \frac{k+1}{k}  \mid \boldsymbol{X}\overset{i.i.d.}{\sim} \mathcal{N} \left(0, 1\right) \iff \frac{k+1}{k} \mu_i -   X_i  \mid \boldsymbol{X} \overset{i.i.d.}{\sim} \mathcal{N} \left(0, 1\right)
+\]
+
+\begin{equation}
+\implies  \E \left( \left[ \frac{k+1}{k} \mu_i -   X_i \right]^2  \mid \boldsymbol{X}  \right) = 1  \iff   \E \left( \left[ \frac{k+1}{k} \right]^2 \mu_i  ^2  + X_i^2 - 2 \frac{k+1}{k} \mu_i X_i  \mid \boldsymbol{X}  \right) = 1 
 \end{equation}
 
-\end{proposition}
-}
-}
-\end{center}
-
-\
-
-In this case, we know
+So,
 
 \[
-\mu \sim \mathcal{N}(0, k \boldsymbol{I}_n), \qquad X \mid \mu \sim \mathcal{N}(\mu,  \boldsymbol{I}_n)
-\]
-
-which implies that if \(X \sim \mathcal{N}(\boldsymbol{\mu}_1 , \boldsymbol{\Sigma}_{11})\), 
-
-\[
-\mu =  \boldsymbol{\mu}_1 +  \boldsymbol{\Sigma}_{12} \left( k \boldsymbol{I}_n \right)^{-1} \left(\mu - 0\right) \iff  \boldsymbol{\mu}_1 = \mu - \frac{1}{k} \boldsymbol{\Sigma}_{12}\mu = \left( \boldsymbol{I}_n -  \frac{1}{k} \boldsymbol{\Sigma}_{12} \right) \mu 
-\]
-
-and
-
-\[
-\boldsymbol{I}_n = \boldsymbol{\Sigma}_{11} - \boldsymbol{\Sigma}_{12}\left( k \boldsymbol{I}_n \right)^{-1} \boldsymbol{\Sigma}_{12}^T \iff  \boldsymbol{\Sigma}_{11} = \boldsymbol{I}_n  + \frac{1}{k} \boldsymbol{\Sigma}_{12} ^2
-\]
-
-(since \(\boldsymbol{\Sigma}_{12}\) is symmetric).
-
-\[
-\E\left[ \left( \lVert \mu \rVert_2^2 - t(X)  \right)^2 \mid X\right] = \E\left[  \lVert \mu \rVert_2^4 -2 \lVert \mu \rVert_2^2 t(X)   + t(X)^2 \mid X\right] = \E\left[  \lVert \mu \rVert_2^4\mid X\right]  -2t (X) \E \left[ \lVert \mu \rVert_2^2 \mid X\right]    + t(X)^2 
-\]
-
-The estimator minimizing this is \(t(X) = \E \left[ \lVert \mu \rVert_2^2 \mid X\right] = \E \left[ \mu^T\mu\mid X\right] \), which we need to find. We have that \(\mu \sim \mathcal{N}(0, k \boldsymbol{I}_n)\), so
-%\[
-% \Pr(\mu^T\mu = t \mid X) 
-% \]
-
-\[
-f_{\mu^T\mu}( t ) = f_{\sum_{i=1}^n \mu_i^2 }( t ) = f_{\sum_{i=1}^n \left[ \frac{\mu_i}{k} \right] ^2} \left( \frac{t}{k^2} \right) = f_{\chi_n^2} \left( \frac{t}{k^2} \right) 
-\]
-
-where \( f_{\chi_n^2} \) is the density of a \(\chi^2\) random variable with \(n\) degrees of freedom. Also, the set of vectors \(\{\mu' \in \mathbb{R}^n \mid \mu'^T\mu' = \lVert \mu \rVert_2^2\}\) is a hypersphere of radius \(\lVert \mu \rVert_2\) in \(\mathbb{R}^n\), so the conditional density of \(\mu'\) given \(\mu^T\mu\) is uniform over the surface of this hypersphere. Per \citet{Muller1959}, this can be generated by drawing \(n\) standard Gaussian random variables then dividing each by the \(\ell_2\) norm of all of them, then in this case multiplying by the desired \(\ell_2\) norm \(\lVert \mu \rVert_2\). That is,
-
-\[
- f_{\mu \mid \mu^T\mu} (m \mid t) =  f_{\mu \mid \mu^T\mu} \big((m_1, \ldots, m_n) \mid t \big) =  f_{\mu \mid \mu^T\mu} \big((m_1, \ldots, m_n) \mid t \big)
-\]
-
-%http://mathworld.wolfram.com/HyperspherePointPicking.html
-
-\[
-\implies f_{\mu^T\mu \mid X} (t \mid x) =  \frac{f_{\mu^T\mu , X}(t, x)}{f_X(x)} =  \frac{f_{\mu^T\mu}(t) f_{\mu \mid \mu^T\mu} (m \mid t) f_{X \mid \mu}(x \mid m)}{f_X(x)} 
+\hat{\delta}_{\text{proper}} = \E \left( \lVert \boldsymbol{\mu} \rVert_2^2 \mid \boldsymbol{X} \right) = \E \left( \sum_{i=1}^n \mu_i^2 \mid \boldsymbol{X}  \right) = \left[ \frac{k}{k+1} \right]^2 \E \left( \sum_{i=1}^n \left[ \frac{k+1}{k} \right]^2 \mu_i^2 \mid \boldsymbol{X}  \right)
 \]
 
 \[
-\implies \E(\mu^T\mu \mid X) = \int_0^\infty t \Pr(\mu^T\mu = t \mid X) dt
-\]
+= \left[ \frac{k}{k+1} \right]^2 \E \left( \sum_{i=1}^n \left[ \frac{k+1}{k} \right]^2 \mu_i  ^2  + X_i^2 - 2 \frac{k+1}{k} \mu_i X_i  \mid \boldsymbol{X}  \right)  -  \left[ \frac{k}{k+1} \right]^2 \E \left( \sum_{i=1}^n X_i^2 - 2 \frac{k+1}{k} \mu_i X_i  \mid \boldsymbol{X}  \right) 
+\] 
 
 \[
-\vdots
-\]
-
-Given \(\mu\), we have 
+= \left[ \frac{k}{k+1} \right]^2  - \left[ \frac{k}{k+1} \right]^2 \sum_{i=1}^n X_i^2 + 2 \frac{k+1}{k} \left[ \frac{k}{k+1} \right]^2   \sum_{i=1}^n X_i   \E \left( \mu_i \mid \boldsymbol{X}  \right) 
+\] 
 
 \[
-X \mid \mu  \sim \mathcal{N} (\mu, \boldsymbol{I}_n) \implies (X - \mu)^T(X- \mu) \mid \mu \sim \chi_n^2 \iff X^TX - 2 \mu^TX + \mu^T\mu \mid \mu \sim \chi_n^2. 
-\]
+= \left[ \frac{k}{k+1} \right]^2  - \left[ \frac{k}{k+1} \right]^2 \sum_{i=1}^n X_i^2 + 2 \frac{k}{k+1} \sum_{i=1}^n    X_i   \cdot \frac{k}{k+1} X_i
+\] 
 
 \[
-\vdots
-\]
+= \left[ \frac{k}{k+1} \right]^2   + 2 \left[ \frac{k}{k+1}\right]^2    \sum_{i=1}^n  X_i ^2  - \left[ \frac{k}{k+1} \right]^2 \sum_{i=1}^n X_i^2 = \left[ \frac{k}{k+1} \right]^2 \left(1   +     \boldsymbol{X}^T \boldsymbol{X} \right).  
+\] 
 
-
-Also, we have that \(\mu \sim \mathcal{N}(0, k \boldsymbol{I}_n)\). The joint distribution of \(X\) and \(\mu\) is then
-
-\[
-f_{X, \mu}(x, m) = f_{X \mid \mu = m}(x \mid m) f_\mu(m) = 
-\]
 
 % 3c
-\item
+\item We will again begin by finding the posterior distribution of \(\mu\). The (improper) prior distribution of \(\mu\) is constant; that is, for some \(c\in \mathbb{R}\),
+
+\[
+f(\boldsymbol{\mu}) = c, \qquad \forall \boldsymbol{\mu} \in \mathbb{R}^n.
+\]
+
+The likelihood is
+
+\[
+f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) = (2 \pi)^{-n/2} | \boldsymbol{I}_n|^{-1/2} \cdot \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T ( \boldsymbol{I}_n)^{-1} (\boldsymbol{x} - \boldsymbol{\mu} ) \right)
+\]
+
+\[
+= (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  (\boldsymbol{x} - \boldsymbol{\mu} ) \right).
+\]
+
+So the unconditional distribution of \(\boldsymbol{X}\) is
+
+\[
+f_{\boldsymbol{X}}(\boldsymbol{x})  = \int_{\mathbb{R}^n} f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) f(\boldsymbol{\mu}) \ d \boldsymbol{\mu} = c \int_{\mathbb{R}^n}  (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  (\boldsymbol{x} - \boldsymbol{\mu} ) \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= c \int_{\mathbb{R}^n}  (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(  \boldsymbol{\mu} - \boldsymbol{x}) ^T  (\boldsymbol{\mu} - \boldsymbol{x}) \right)  \ d \boldsymbol{\mu}
+\]
+
+The expression inside the integral is the density of a Gaussian random variable with mean \(\boldsymbol{x}\) and covariance \(\boldsymbol{I}_n\), so the integral evaluates to 1. Therefore the unconditional distribution of \(\boldsymbol{X}\) is also flat. Therefore the posterior distribution of \(\boldsymbol{\mu}\) is the same as the likelihood:
+
+\[
+f_{\boldsymbol{\mu} \mid \boldsymbol{X}}(\boldsymbol{\mu} \mid \boldsymbol{x}) = \frac{f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) f(\boldsymbol{\mu})}{f_{\boldsymbol{X}}(\boldsymbol{x})} = (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{\mu} - \boldsymbol{x} ) ^T  ( \boldsymbol{\mu} - \boldsymbol{x}) \right);
+\]
+
+that is, conditional on \(\boldsymbol{X}\), \(\boldsymbol{\mu}\) is normally distributed with mean \(\boldsymbol{X}\) and covariance \(\boldsymbol{I}_n\). So  conditional on \(\boldsymbol{X}\), \(\boldsymbol{\mu} = (\mu_1, \ldots, \mu_n)\), where
+
+\[
+\mu_i  \mid \boldsymbol{X} \overset{i.i.d.}{\sim} \mathcal{N} \left(  X_i, 1 \right).
+\]
+
+\begin{equation}
+ \iff  \mu_i -  X_i  \mid \boldsymbol{X} \overset{i.i.d.}{\sim} \mathcal{N} \left(0, 1\right)  \implies  \E \left( \left[ \mu_i -   X_i \right]^2  \mid \boldsymbol{X}  \right) = 1 \iff   \E \left(  \mu_i  ^2  + X_i^2 -  2\mu_i X_i  \mid \boldsymbol{X}  \right) = 1 
+\end{equation}
+
+So,
+
+\[
+\hat{\delta}_{\text{flat}} = \E \left( \lVert \boldsymbol{\mu} \rVert_2^2 \mid \boldsymbol{X} \right) = \E \left( \sum_{i=1}^n \mu_i^2 \mid \boldsymbol{X}  \right) = \E \left( \sum_{i=1}^n  \mu_i  ^2  + X_i^2 -  2\mu_i X_i  \mid \boldsymbol{X}  \right) -  \E \left( \sum_{i=1}^n  X_i^2 - 2 \mu_i X_i  \mid \boldsymbol{X}  \right)
+\]
+
+\[
+= 1 -  \sum_{i=1}^n  X_i^2  + 2 \sum_{i=1}^n  X_i  \E \left( \mu_i  \mid \boldsymbol{X}  \right)  = 1 -  \sum_{i=1}^n  X_i^2  + 2 \sum_{i=1}^n  X_i^2  = 1 + \boldsymbol{X}^T\boldsymbol{X}.  
+\]
+
+So,
+
+\[
+\hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} = 1 + \boldsymbol{X}^T\boldsymbol{X} - \left( \boldsymbol{X}^T\boldsymbol{X} - n \right) = 1 + n.
+\]
+
 
 % 3d
 \item
+
+% \textbf{Try using information here: section 3.4, page 62} \begin{verbatim}http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf\end{verbatim} 
+%
+%\textbf{maybe this is what I'm supposed to do for part (d)?} Because the prior distribution for \(\mu\) is Gaussian and the conditional distribution of \(X\) given \(\mu\) is Gaussian, that means the unconditional distribution for \(X\) is Gaussian. That is, we can use the formula for conditioning one set of Gaussian random variables on another to learn about the unconditional distribution of \(X\).
+%
+%\begin{center}
+%\noindent\fbox{
+%\parbox{0.9\textwidth}{
+%\begin{proposition}\label{prob.cond.multivar.norm.dist} Suppose 
+%
+%\[
+%\boldsymbol{X} = \begin{bmatrix} \boldsymbol{X}_1 \\ \boldsymbol{X}_2 \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} \boldsymbol{\mu}_1 \\ \boldsymbol{\mu}_2 \end{bmatrix}, \begin{bmatrix}  \boldsymbol{\Sigma}_{11} & \boldsymbol{\Sigma}_{12} \\ \boldsymbol{\Sigma}_{12}^T & \boldsymbol{\Sigma}_{22} \end{bmatrix} \right)
+%\]
+%
+%where \(\boldsymbol{\mu}_1 \in \mathbb{R}^q\), \(\boldsymbol{\mu}_2 \in \mathbb{R}^{p - q}\), \(\boldsymbol{\Sigma}_{11} \in \mathbb{R}^{q \times q}\), \( \boldsymbol{\Sigma}_{12} \in \mathbb{R}^{(p-q) \times q}\), and \( \boldsymbol{\Sigma}_{22} \in \mathbb{R}^{(p-q) \times (p-q)}\). Then
+%
+%\begin{equation}\label{prob.mult.gaussian.cond.dist.gen}
+%\{\boldsymbol{X}_1 \mid \boldsymbol{X}_2\} \sim \mathcal{N} \left(  \boldsymbol{\mu}_1 +  \boldsymbol{\Sigma}_{12} \boldsymbol{\Sigma}_{22}^{-1} \left(\boldsymbol{X}_2 - \boldsymbol{\mu}_2\right), \boldsymbol{\Sigma}_{11} - \boldsymbol{\Sigma}_{12} \boldsymbol{\Sigma}_{22}^{-1} \boldsymbol{\Sigma}_{12}^T \right)
+%\end{equation}
+%
+%\end{proposition}
+%}
+%}
+%\end{center}
+%
+%\
+%
+%In this case, we know
+%
+%\[
+%\mu \sim \mathcal{N}(0, k \boldsymbol{I}_n), \qquad X \mid \mu \sim \mathcal{N}(\mu,  \boldsymbol{I}_n)
+%\]
+%
+%which implies that if \(X \sim \mathcal{N}(\boldsymbol{\mu}_1 , \boldsymbol{\Sigma}_{11})\), 
+%
+%\[
+%\mu =  \boldsymbol{\mu}_1 +  \boldsymbol{\Sigma}_{12} \left( k \boldsymbol{I}_n \right)^{-1} \left(\mu - 0\right) \iff  \boldsymbol{\mu}_1 = \mu - \frac{1}{k} \boldsymbol{\Sigma}_{12}\mu = \left( \boldsymbol{I}_n -  \frac{1}{k} \boldsymbol{\Sigma}_{12} \right) \mu 
+%\]
+%
+%and
+%
+%\[
+%\boldsymbol{I}_n = \boldsymbol{\Sigma}_{11} - \boldsymbol{\Sigma}_{12}\left( k \boldsymbol{I}_n \right)^{-1} \boldsymbol{\Sigma}_{12}^T \iff  \boldsymbol{\Sigma}_{11} = \boldsymbol{I}_n  + \frac{1}{k} \boldsymbol{\Sigma}_{12} ^2
+%\]
+%
+%(since \(\boldsymbol{\Sigma}_{12}\) is symmetric).
+%
+%\[
+%\E\left[ \left( \lVert \mu \rVert_2^2 - t(X)  \right)^2 \mid X\right] = \E\left[  \lVert \mu \rVert_2^4 -2 \lVert \mu \rVert_2^2 t(X)   + t(X)^2 \mid X\right] = \E\left[  \lVert \mu \rVert_2^4\mid X\right]  -2t (X) \E \left[ \lVert \mu \rVert_2^2 \mid X\right]    + t(X)^2 
+%\]
+%
+%The estimator minimizing this is \(t(X) = \E \left[ \lVert \mu \rVert_2^2 \mid X\right] = \E \left[ \mu^T\mu\mid X\right] \), which we need to find. We have that \(\mu \sim \mathcal{N}(0, k \boldsymbol{I}_n)\), so
+%%\[
+%% \Pr(\mu^T\mu = t \mid X) 
+%% \]
+%
+%\[
+%f_{\mu^T\mu}( t ) = f_{\sum_{i=1}^n \mu_i^2 }( t ) = f_{\sum_{i=1}^n \left[ \frac{\mu_i}{k} \right] ^2} \left( \frac{t}{k^2} \right) = f_{\chi_n^2} \left( \frac{t}{k^2} \right) 
+%\]
+%
+%where \( f_{\chi_n^2} \) is the density of a \(\chi^2\) random variable with \(n\) degrees of freedom. Also, the set of vectors \(\{\mu' \in \mathbb{R}^n \mid \mu'^T\mu' = \lVert \mu \rVert_2^2\}\) is a hypersphere of radius \(\lVert \mu \rVert_2\) in \(\mathbb{R}^n\), so the conditional density of \(\mu'\) given \(\mu^T\mu\) is uniform over the surface of this hypersphere. Per \citet{Muller1959}, this can be generated by drawing \(n\) standard Gaussian random variables then dividing each by the \(\ell_2\) norm of all of them, then in this case multiplying by the desired \(\ell_2\) norm \(\lVert \mu \rVert_2\). That is,
+%
+%\[
+% f_{\mu \mid \mu^T\mu} (m \mid t) =  f_{\mu \mid \mu^T\mu} \big((m_1, \ldots, m_n) \mid t \big) =  f_{\mu \mid \mu^T\mu} \big((m_1, \ldots, m_n) \mid t \big)
+%\]
+%
+%%http://mathworld.wolfram.com/HyperspherePointPicking.html
+%
+%\[
+%\implies f_{\mu^T\mu \mid X} (t \mid x) =  \frac{f_{\mu^T\mu , X}(t, x)}{f_X(x)} =  \frac{f_{\mu^T\mu}(t) f_{\mu \mid \mu^T\mu} (m \mid t) f_{X \mid \mu}(x \mid m)}{f_X(x)} 
+%\]
+%
+%\[
+%\implies \E(\mu^T\mu \mid X) = \int_0^\infty t \Pr(\mu^T\mu = t \mid X) dt
+%\]
+%
+%\[
+%\vdots
+%\]
+%
+%Given \(\mu\), we have 
+%
+%\[
+%X \mid \mu  \sim \mathcal{N} (\mu, \boldsymbol{I}_n) \implies (X - \mu)^T(X- \mu) \mid \mu \sim \chi_n^2 \iff X^TX - 2 \mu^TX + \mu^T\mu \mid \mu \sim \chi_n^2. 
+%\]
+%
+%\[
+%\vdots
+%\]
+%
+%
+%Also, we have that \(\mu \sim \mathcal{N}(0, k \boldsymbol{I}_n)\). The joint distribution of \(X\) and \(\mu\) is then
+%
+%\[
+%f_{X, \mu}(x, m) = f_{X \mid \mu = m}(x \mid m) f_\mu(m) = 
+%\]
+%
+%
 
 \end{enumerate}
 

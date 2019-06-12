@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  11 JUN 2019 17:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  12 JUN 2019 14:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -935,46 +935,53 @@ Overfull \hbox (3.7734pt too wide) detected at line 323
  []
 
 [2] [3] [4]
-Overfull \hbox (1.77472pt too wide) detected at line 612
-\U/msb/m/n/10 E [] \OT1/cmr/m/n/10 = \U/msb/m/n/10 E [] \OT1/cmr/m/n/10 = \U/ms
-b/m/n/10 E [] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 t\OT1/cmr/
-m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )\U/msb/m/n/10 E [] \OT1/cmr/m/n/10 +
- \OML/cmm/m/it/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )[]
+Overfull \hbox (36.42pt too wide) detected at line 601
+\OT1/cmr/m/n/10 = [] [][] [] []  \OML/cmm/m/it/10 d[]
  []
 
-[5] [6] [7] [8]
-Overfull \hbox (2.82901pt too wide) in paragraph at lines 861--862
+
+Overfull \hbox (13.40172pt too wide) detected at line 605
+\OT1/cmr/m/n/10 = [] [][] [] []  \OML/cmm/m/it/10 d[]
+ []
+
+[5]
+Overfull \hbox (19.39444pt too wide) detected at line 637
+\OT1/cmr/m/n/10 = []
+ []
+
+[6] [7] [8] [9]
+Overfull \hbox (2.82901pt too wide) in paragraph at lines 1045--1046
 []\OT1/cmr/m/n/10 Continue un-til con-ver-gence; that is, un-til the av-er-age 
 ab-so-lute change in $[]$ is less than $\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^A
  [] j\OML/cmm/m/it/10 S[]\OMS/cmsy/m/n/10 j$\OT1/cmr/m/n/10 , 
  []
 
-[9] [10]
-Overfull \hbox (1.70355pt too wide) in paragraph at lines 1004--1005
+[10] [11]
+Overfull \hbox (1.70355pt too wide) in paragraph at lines 1188--1189
 \OT1/cmr/m/n/10 lower bound on the quan-tity we are min-i-miz-ing; oth-er-wise,
  when $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 is neg-a-tive the in-fi-mum is 0
 . When 
  []
 
-[11] [12] [13] (./2018 In-Class Exam.bbl [14]) [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1559.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1559.
+[12] [13] [14] [15] (./2018 In-Class Exam.bbl) [16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1743.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1743.
  (./2018 In-Class Exam.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1559.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1559.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1743.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1743.
 
 Package rerunfilecheck Info: File `"2018 In-Class Exam".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1559.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1743.
  ) 
 Here is how much of TeX's memory you used:
- 18111 strings out of 492649
- 343016 string characters out of 6129622
- 429800 words of memory out of 5000000
- 21578 multiletter control sequences out of 15000+600000
+ 18110 strings out of 492649
+ 342963 string characters out of 6129622
+ 431759 words of memory out of 5000000
+ 21576 multiletter control sequences out of 15000+600000
  14819 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,15n,66p,1160b,629s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,66p,1160b,675s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -997,10 +1004,10 @@ al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local
 texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
 al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "2018 In-Class Exam.pdf" (15 pages, 292309 bytes).
+Output written on "2018 In-Class Exam.pdf" (16 pages, 297765 bytes).
 PDF statistics:
- 316 PDF objects out of 1000 (max. 8388607)
- 274 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 500000)
+ 319 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
