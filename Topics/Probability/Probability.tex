@@ -1130,6 +1130,8 @@ which is the usual definition for a discrete random variable.
 
 \end{theorem}
 
+\item For the conditional expectation of one Gaussian random variable on another when the covariance or correlation between them is known, see Proposition \ref{prob.cond.bivar.norm.dist}. For the conditional expectation of a set of Gaussian random variables on another set when the covariance matrix is known, see Proposition \ref{prob.cond.multivar.norm.dist}. 
+
 \end{itemize}
 
 \item Variance
@@ -1206,6 +1208,8 @@ Adding together (\ref{prob.ltv.proof.1}) and (\ref{prob.ltv.proof.2}) yields
 
 \item \begin{proposition}\label{prob.const.var}If \(c \in \mathbb{R}\), then \(\Var(c) = 0\).
 \end{proposition}
+
+\item  For the conditional variance of one Gaussian random variable on another when the covariance or correlation between them is known, see Proposition \ref{prob.cond.bivar.norm.dist}. For the conditional variance of a set of Gaussian random variables on another set when the covariance matrix is known, see Proposition \ref{prob.cond.multivar.norm.dist}. 
 
 \end{itemize}
 
@@ -1628,7 +1632,13 @@ e^x = \lim_{n \to \infty} \bigg( 1 + \frac{x}{n}\bigg)^n
 \begin{theorem} \label{prob.stirling} \textbf{Stirling's Formula}: 
 
 \[
-n! \approx n^ne^{-n} \sqrt{2\pi n}
+n! \sim n^ne^{-n} \sqrt{2\pi n}
+\]
+
+That is,
+
+\[
+\lim_{n \to \infty} \frac {n^ne^{-n} \sqrt{2\pi n}}{n!} = 1.
 \]
 \end{theorem}
 
@@ -4248,6 +4258,36 @@ which is the same as the moment-generating function for a \(\Gamma(\sum_{i=1}^n 
 \]
 \end{proof}
 
+\begin{proposition}[\textbf{Some useful formulae and integrals related to the gamma function}]
+
+\
+
+\begin{itemize}
+
+\item Definition:
+
+\[
+\Gamma(z) = \int_0^\infty x^{z-1} e^{-x} \ dx
+\]
+
+\item Beta function (see also the information on the Beta distribution):
+
+\[
+B(z_1, z_2): = \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Gamma(z_2)}{\Gamma(z_1 + z_2)}
+\]
+
+\item Generalization of the factorial function:
+
+\[
+\Gamma(z + 1) = z \Gamma(z)
+\]
+
+(in particular, for any integer \(n \geq 1\), \(\Gamma(n) = (n-1)!\).)
+
+\end{itemize}
+
+\end{proposition}
+
 \textbf{\(\chi_n^2\)}: special case of a gamma distribution: \(\Gamma(n/2, 2)\). Also the sum of \(n\) independent standard normally distributed variables.
 
 \begin{itemize}
@@ -4349,7 +4389,7 @@ f(x) = \frac{1}{\pi(1 + x^2)} \text{ (standard Cauchy) }, f(x) = \frac{1}{\pi \s
 \textbf{Beta}: Recall:
 
 \[
-B(\alpha, \beta) = \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha + \beta)}
+B(\alpha, \beta) := \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha + \beta)}
 \]
 
 \[
@@ -4846,27 +4886,45 @@ f(t) = \bigg( \frac{1}{2 \sqrt{\pi \sigma^2}}   \bigg)^n \exp \bigg( - \frac{t^T
 From \url{http://pluto.huji.ac.il/~pchiga/teaching/MathStat/SIAnotes2013.pdf} (Proposition 3c1): Let \(X\) be a Gaussian random variable in \(\mathbb{R}^2\) such that
 
 \[
-\begin{bmatrix} X_1 \\ X_2 \end{bmatrix}  \sim \mathcal{N}\bigg(\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & \rho \sigma_1 \sigma_2 \\  \rho \sigma_1 \sigma_2 & \sigma_2^2 \end{bmatrix}  \bigg)
+\begin{bmatrix} X_1 \\ X_2 \end{bmatrix}  \sim \mathcal{N}\left(\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & \rho \sigma_1 \sigma_2 \\  \rho \sigma_1 \sigma_2 & \sigma_2^2 \end{bmatrix}  \right) =  \mathcal{N}\left(\begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 &\sigma_{12}^2 \\  \sigma_{12}^2 & \sigma_2^2 \end{bmatrix}  \right)
 \]
 
 Then \(f_{X_1 \mid X_2}(x_1; x_2)\) is Gaussian with the (conditional) mean
 
 \[
-\E(X_1 \mid X_2 = x_2) = \mu_1 + \frac{\rho \sigma_1}{\sigma_2} (x_2 - \mu_2)
+\E(X_1 \mid X_2 = x_2) = \mu_1 + \frac{\rho \sigma_1}{\sigma_2} (x_2 - \mu_2) = \mu_1 + \frac{\sigma_{12}^2}{ \sigma_2^2} (x_2 - \mu_2)
 \]
 
 and the (conditional) variance
 
 \[
-\Var(X_1 \mid X_2 = x_2) = \sigma_1^2 (1 - \rho^2)
+\Var(X_1 \mid X_2 = x_2) = \sigma_1^2 (1 - \rho^2) =  \sigma_1^2 - \frac{\sigma_{12}^4}{ \sigma_2^2}
 \]
 
-That is, the conditional distribution of \(X_1\) given \(X_2\) is
+That is, the conditional distribution of \(X_1\) given \(X_2 = x_2\) is
 
 \[
-X_1 \mid X_2 = x_2 \sim \mathcal{N} \bigg( \mu_1 + \rho \frac{\sigma_1}{\sigma_2}(x_2 - \mu_2), (1 - \rho^2)\sigma_1^2 \bigg) 
+X_1 \mid X_2 = x_2 \sim \mathcal{N} \left( \mu_1 + \rho \frac{\sigma_1}{\sigma_2}(x_2 - \mu_2), (1 - \rho^2)\sigma_1^2 \right) = \mathcal{N} \left( \mu_1 + \frac{\sigma_{12}^2}{ \sigma_2^2} (x_2 - \mu_2), \sigma_1^2 - \frac{\sigma_{12}^4}{ \sigma_2^2} \right)
 \]
 \end{proposition} 
+
+\begin{proposition}[\textbf{Generalization of Proposition \ref{prob.cond.bivar.norm.dist}; from \url{https://en.wikipedia.org/wiki/Multivariate_normal_distribution}}]\label{prob.cond.multivar.norm.dist} Suppose 
+
+\[
+\boldsymbol{X} = \begin{bmatrix} \boldsymbol{X}_1 \\ \boldsymbol{X}_2 \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} \boldsymbol{\mu}_1 \\ \boldsymbol{\mu}_2 \end{bmatrix}, \begin{bmatrix}  \boldsymbol{\Sigma}_{11} & \boldsymbol{\Sigma}_{12} \\ \boldsymbol{\Sigma}_{12}^T & \boldsymbol{\Sigma}_{22} \end{bmatrix} \right)
+\]
+
+where \(\boldsymbol{\mu}_1 \in \mathbb{R}^q\), \(\boldsymbol{\mu}_2 \in \mathbb{R}^{p - q}\), \(\boldsymbol{\Sigma}_{11} \in \mathbb{R}^{q \times q}\), \( \boldsymbol{\Sigma}_{12} \in \mathbb{R}^{(p-q) \times q}\), and \( \boldsymbol{\Sigma}_{22} \in \mathbb{R}^{(p-q) \times (p-q)}\). Then
+
+\begin{equation}\label{prob.mult.gaussian.cond.dist.gen}
+\{\boldsymbol{X}_1 \mid \boldsymbol{X}_2\} \sim \mathcal{N} \left(  \boldsymbol{\mu}_1 +  \boldsymbol{\Sigma}_{12} \boldsymbol{\Sigma}_{22}^{-1} \left(\boldsymbol{X}_2 - \boldsymbol{\mu}_2\right), \boldsymbol{\Sigma}_{11} - \boldsymbol{\Sigma}_{12} \boldsymbol{\Sigma}_{22}^{-1} \boldsymbol{\Sigma}_{12}^T \right)
+\end{equation}
+
+\end{proposition}
+
+\begin{remark}
+Note that the conditional covariance matrix in (\ref{prob.mult.gaussian.cond.dist.gen}) is the Schur complement (see Sections \ref{cvx.schur.sec} and \ref{linalg.mat.decomp}) of \(\boldsymbol{\Sigma}_{22}\) in \(\boldsymbol{\Sigma}\).
+\end{remark}
 
 \begin{remark} A similar Berry-Esseen theorem (Theorem \ref{asym.berry.esseen}) exists for multivariate Gaussian distributions.
 
@@ -4956,7 +5014,7 @@ satisfies \(\int_{\mathbb{R}^n} f_w(x) d \mu(s) = 1\) (by the definition of \(a(
  More generally, let \(\Theta \in \mathbb{R}^k\) be any set an let \(w: \Theta \to \mathbb{R}^k\). We define a \textbf{\(k\)-parameter exponential family} to be a set of functions \(\{f_{\theta}: \theta \in \Theta\}\), where
  
  \[
- f_{\theta}(x) := h(x) \exp \bigg( \sum_{i=1}^k w_i(\theta0 t_i(x) - a(w(\theta))\bigg), \ \ \ \ \forall x \in \mathbb{R}^n
+ f_{\theta}(x) := h(x) \exp \bigg( \sum_{i=1}^k w_i(\theta) t_i(x) - a(w(\theta))\bigg), \ \ \ \ \forall x \in \mathbb{R}^n
  \]
  
  satisfies 
@@ -6106,7 +6164,7 @@ F_U(u)=\int_0^\infty f_Z(z) \int_{-\infty}^{uz} f_W(w) dw dz - \int_{-\infty}^0 
 %
 %
 %
-
+%
 %\bibliographystyle{abbrvnat}
 %\bibliography{mybib2fin}
 %\end{document}

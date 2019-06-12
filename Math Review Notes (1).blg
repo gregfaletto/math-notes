@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Math Review Notes.aux
+The style file: abbrvnat.bst
+Database file #1: mybib2fin.bib
+Warning--can't use both volume and number fields in grimmett2001probability
+You've used 17 entries,
+            2773 wiz_defined-function locations,
+            738 strings with 8359 characters,
+and the built_in function-call counts, 7015 in all, are:
+= -- 672
+> -- 293
+< -- 18
++ -- 103
+- -- 86
+* -- 518
+:= -- 1125
+add.period$ -- 84
+call.type$ -- 17
+change.case$ -- 72
+chr.to.int$ -- 17
+cite$ -- 35
+duplicate$ -- 354
+empty$ -- 614
+format.name$ -- 115
+if$ -- 1483
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 27
+newline$ -- 120
+num.names$ -- 70
+pop$ -- 142
+preamble$ -- 1
+purify$ -- 62
+quote$ -- 0
+skip$ -- 246
+stack$ -- 0
+substring$ -- 216
+swap$ -- 30
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 137
+warning$ -- 1
+while$ -- 67
+width$ -- 0
+write$ -- 285
+(There was 1 warning)

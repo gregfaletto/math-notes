@@ -216,11 +216,11 @@
 \item
 
 \[
-\dot{Z}(t) =  \pderiv{}{t} \sum_{i=1}^k \gamma_i(t) X_i =   \sum_{i=1}^k   \pderiv{\gamma_i(t) }{t} X_i 
+\dot{Z}(t) =  \pderiv{}{t} \sum_{i=1}^k \gamma_i(t) X_i =   \sum_{i=1}^k   \dot{\gamma}_i(t) X_i 
 \]
 
 \[
-\implies \E \left( \dot{Z}(t)  \right) =    \sum_{i=1}^k   \E \left( \pderiv{\gamma_i(t) }{t} X_i \right) = 0
+\implies \E \left( \dot{Z}(t)  \right) =    \sum_{i=1}^k   \E \left( \dot{\gamma}_i(t) X_i \right) = 0
 \]
 
 \[
@@ -228,32 +228,104 @@
 \]
 
 \[
-= \E \left[  \left(  \sum_{i=1}^k \gamma_i(t) X_i   \right) \left( \sum_{i=1}^k   \pderiv{\gamma_i(t) }{t} X_i  \right)  \right] = \sum_{i=1}^k \E \left( \gamma_i(t)  \pderiv{\gamma_i(t) }{t}  X_i^2 \right) + 0 = \sum_{i=1}^k \gamma_i(t)  \pderiv{\gamma_i(t) }{t} 
+= \E \left[  \left(  \sum_{i=1}^k \gamma_i(t) X_i   \right) \left( \sum_{i=1}^k   \dot{\gamma}_i(t) X_i  \right)  \right] = \sum_{i=1}^k \E \left( \gamma_i(t)  \dot{\gamma}_i(t)  X_i^2 \right) + 0 = \sum_{i=1}^k \gamma_i(t)  \dot{\gamma}_i(t) 
 \]
 
-\[
-\vdots
-\]
+since \(\E(X_i^2) = 1\). But 
 
-\[
-\E \left[ \sum_i \gamma_i \deriv{\gamma_i}{t} \right] = 0 
-\]
+\begin{equation}\label{2017.screen.1.a.deriv.id}
+\sum_{i=1}^k \gamma_i \dot{\gamma}_i(t) = 0 
+\end{equation}
 
 because
+
+\[
+\sum_{i=1}^k \gamma_i^2(t) = 1 \iff  \pderiv{}{t} \left( \sum_{i=1}^k \gamma_i^2(t) \right) = 0 \iff 2 \sum_{i=1}^k \gamma_i(t) \dot{\gamma}_i(t) = 0,
+\]
+
+so the conclusion follows.
 
 % 1b
 \item
 
 \[
-\ddot{Z}(t) =  \sum_{i=1}^k   \pderiv{^2\gamma_i(t) }{t^2} X_i 
+Z(t) =  \sum_{i=1}^k   \gamma_i(t)  X_i \implies Z(t) \sim \mathcal{N} \left(0, \sum_{i=1}^k \gamma_i^2(t)  \right) = \mathcal{N} \left(0,1 \right)
 \]
+
+\[
+\ddot{Z}(t) =  \sum_{i=1}^k   \ddot{\gamma}_i(t)  X_i \implies \ddot{Z}(t) \sim \mathcal{N} \left(0, \sum_{i=1}^k \ddot{\gamma}_i^2(t)  \right)
+\]
+
+Also, we have
+
+%Therefore \(Z(t) \indep \ddot{Z}(t)\), so \(\E(Z(t) \mid \ddot{Z}(t)) = \E(Z(t)) = 0\).
+%
+%\[
+%\vdots
+%\]
+
+%\[
+%\E(\ddot{Z}(t)) = \sum_{i=1}^k \ddot{\gamma}_i(t) \E(X_i) = 0 
+%\]
+
+\[
+\Cov(Z(t), \ddot{Z}(t)) = \E \big[ (Z(t) - \E[ Z(t)])(\ddot{Z}(t)  - \E[\ddot{Z}(t) ]) \big]  = \E \big[ Z(t) \ddot{Z}(t)  \big]  
+\]
+
+\[
+= \E \left[  \left(  \sum_{i=1}^k \gamma_i(t) X_i   \right) \left( \sum_{i=1}^k   \ddot{\gamma}_i(t) X_i  \right)  \right] = \sum_{i=1}^k \E \left( \gamma_i(t)  \ddot{\gamma}_i(t)  X_i^2 \right) + 0 = \sum_{i=1}^k \gamma_i(t)  \ddot{\gamma}_i(t) = -\sum_{i=1}^k \dot{\gamma}_i^2(t) 
+\]
+ 
+because  differentiating (\ref{2017.screen.1.a.deriv.id}) yields
+
+\[
+\pderiv{}{t} \sum_{i=1}^k \gamma_i \dot{\gamma}_i(t) = 0  \iff \sum_{i=1}^k \left( \dot{\gamma}_i^2(t) + \gamma_i(t) \ddot{\gamma}_i(t) \right) = 0 \iff  \sum_{i=1}^k  \gamma_i(t) \ddot{\gamma}_i(t) = -\sum_{i=1}^k \dot{\gamma}_i^2(t) .
+\]
+
+Since both distributions are Gaussian, we have
+
+\[
+ \E(Z(t) \mid \ddot{Z}(t)) =  \E[Z(t)] + \frac{\Cov[ Z(t), \ddot{Z}(t)] }{ \Var[\ddot{Z}(t)]} ( \ddot{Z}(t) - \E[ \ddot{Z}(t)] )  =  \left[ \sum_{i=1}^k \ddot{\gamma}_i^2(t) \right]^{-1} \cdot \left[ -\sum_{i=1}^k \dot{\gamma}_i^2(t) \right]  \ddot{Z}(t).
+ \]
+ 
+% \[
+% = 0 + \left[ \sum_{i=1}^k \ddot{\gamma}_i^2(t) \right]^{-1} \cdot \left[ -\sum_{i=1}^k \dot{\gamma}_i^2(t) \right]  \ddot{Z}(t)
+% \]
+%
+%\[
+%\vdots
+%\]
+%
+%\[
+%\E(Z(t) \mid \ddot{Z}(t) = \ddot{z}) = \int_{-\infty}^\infty z \cdot f_{Z \mid \ddot{Z}}(z \mid \ddot{z}) \ dz
+%\]
+%
+%\[
+%= \int_0^\infty \Pr(Z(t) \geq z \mid \ddot{Z}(t) = \ddot{z}) \ dz
+%\]
+%
+%Note that
+%
+%\[
+% f_{Z \mid \ddot{Z}}(z \mid \ddot{z}) = \frac{f_{Z, \ddot{Z}}(z, \ddot{z}) }{f_{\ddot{Z}}(\ddot{z})}
+% \]
+%
+%Differentiating again, we have
+%
+%\[
+% \pderiv{}{t} \left(   \sum_{i=1}^k\dot{\gamma}_i^2(t) \right) = \pderiv{}{t} \left(  - \sum_{i=1}^k  \gamma_i(t) \ddot{\gamma}_i(t) \right) \iff \sum_{i=1}^k 2 \dot{\gamma}_i(t) \ddot{\gamma}_i(t) = - \sum_{i=1}^k \left( \dot{\gamma}_i(t) \ddot{\gamma}_i(t) + \gamma_i(t) \dddot{\gamma}_i(t) \right)
+%\]
+%
+%\[
+% \iff 3\sum_{i=1}^k  \dot{\gamma}_i(t) \ddot{\gamma}_i(t) = - \sum_{i=1}^k  \gamma_i(t) \dddot{\gamma}_i(t)
+%\]
 
 \end{enumerate}
 
 \end{exercise}
 
 % Problem 2
-\begin{exercise}[\textbf{Mathematical statistics; hypothesis test. so maybe don't worry about?}]
+\begin{exercise}[\textbf{Mathematical statistics; hypothesis test. so don't worry about}]
 
 \begin{enumerate}[(a)]
 
@@ -273,24 +345,161 @@ because
 \begin{enumerate}[(a)]
 
 % 3a
-\item Let \(u_j = \exp(\theta_j)\). In the \(n=1\) case we have
+\item In the \(n=1\) case we have
 
 \[
 I(m, \lambda) = \int_{\mathbb{R}} \frac{ \exp(\lambda \theta_1m_1) }{(1 + \exp(\theta_1) ) ^{\lambda}} d \theta_1 = \int_{\mathbb{R}} \frac{ \exp( \theta_1)^{\lambda m_1} }{(1 + \exp(\theta_1) ) ^{\lambda}} d \theta_1
 \]
 
-Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
+%Let \(u_1=  \exp(\theta_1) \implies d_{u_1} =\exp(\theta_1) \ d_{\theta_1} \iff d_{\theta_1} = \frac{1}{u_1} d_{u_1}\). 
+%
+%%Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
+%%
+%%\[
+%%= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
+%%\]
+%%
+%
+%\[
+%\implies I(m, \lambda) =\int_{0}^\infty \frac{ u_1^{\lambda m_1} }{ (u_1 + 1)  ^{\lambda}} \ \frac{ d u_1}{u_1} =\int_{0}^\infty  u_1 ^{\lambda m_1 - 1} (u_1 + 1)  ^{-\lambda} \ d u_1
+%\]
+%
+%\[
+%= \ldots   = \int_0^1 u_1^{ - \lambda (m_1 - 1) - 1} (1-u_1)^{\lambda m_1 - 1} \ du_1 = \int_0^1 u_1^{\lambda(1 - m_1)- 1} (1-u_1)^{\lambda m_1 - 1} \ du_1= \frac{\Gamma(\lambda (1 - m_1)) \Gamma(\lambda m_1)}{\Gamma(\lambda [1 - m_1] + \lambda m_1)}  
+%\]
+%
+%\[
+%= \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1)}{\Gamma(\lambda)}
+%\]
+%
+%where we used the definition of the Beta function:
+%
+%\[
+%B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Gamma(z_2)}{\Gamma(z_1 + z_2)}
+%\]
+
+Let \(u_1= 1 + \exp(\theta_1) \implies d_{u_1} =\exp(\theta_1) \ d_{\theta_1} \iff d_{\theta_1} = \frac{1}{u_1- 1} d_{u_1 }\). 
+
+%Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
+%
+%\[
+%= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
+%\]
+%
 
 \[
-= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
+\implies I(m, \lambda) =\int_{0}^\infty \frac{ (u_1 - 1)^{\lambda m_1} }{ u_1  ^{\lambda}} \ \frac{ d u_1}{u_1 - 1} =\int_{0}^\infty  (u_1 - 1)^{\lambda m_1 - 1} u_1  ^{-\lambda} \ d u_1
 \]
 
 \[
-= \ldots = \frac{\Gamma(\lambda (1 - m_1)) \Gamma(\lambda m_1)}{\Gamma(\lambda)}  = \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1)}{\Gamma(\lambda)}
+= \ldots   = \int_0^1 u_1^{ - \lambda (m_1 - 1) - 1} (1-u_1)^{\lambda m_1 - 1} \ du_1 = \int_0^1 u_1^{\lambda(1 - m_1)- 1} (1-u_1)^{\lambda m_1 - 1} \ du_1= \frac{\Gamma(\lambda (1 - m_1)) \Gamma(\lambda m_1)}{\Gamma(\lambda [1 - m_1] + \lambda m_1)}  
+\]
+
+\[
+= \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1)}{\Gamma(\lambda)}
+\]
+
+where we used the definition of the Beta function:
+
+\[
+B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Gamma(z_2)}{\Gamma(z_1 + z_2)}
 \]
 
 % 3b
 \item
+
+\[
+\lim_{\lambda \to 0} \lambda^n I(m, \lambda) = \lim_{\lambda \to 0} \lambda^n \cdot   \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_n)}{\Gamma(\lambda)} = \lim_{\lambda \to 0}  \frac{ \Gamma(\lambda m_0) }{\Gamma(\lambda)} \cdot  [\lambda  \Gamma(\lambda m_1)] \cdots[ \lambda \Gamma(\lambda m_n)]
+\]
+
+\[
+= \lim_{\lambda \to 0}  \frac{ \Gamma(\lambda m_0) }{\Gamma(\lambda)}\cdot \frac{\Gamma(\lambda m_1)}{\Gamma(\lambda)} \cdots \frac{\Gamma(\lambda m_n)}{\Gamma(\lambda)}  \cdot  [\lambda  \Gamma(\lambda )] \cdots[ \lambda \Gamma(\lambda )]
+\]
+
+\[
+= \lim_{\lambda \to 0}  \frac{ \Gamma(\lambda m_0) }{\Gamma(\lambda)}\cdot \frac{\Gamma(\lambda m_1)}{\Gamma(\lambda)} \cdots \frac{\Gamma(\lambda m_n)}{\Gamma(\lambda)}  
+\]
+
+\item Stirling's formula: 
+
+\[
+\lambda! \sim \lambda^\lambda e^{-\lambda} \sqrt{2\pi \lambda} = \lambda^{\lambda + 1/2} e^{-\lambda} \sqrt{2\pi } \iff \lim_{\lambda \to \infty} \frac{ \Gamma(\lambda+1) e^\lambda}{\lambda^{\lambda + 1/2}  \sqrt{2\pi }} = 1 \iff \lim_{\lambda \to \infty} \frac{\lambda \Gamma(\lambda) e^\lambda}{\lambda^{\lambda + 1/2}  \sqrt{2\pi }} = 1
+\]
+
+\[
+ \iff \lim_{\lambda \to \infty} \frac{ \Gamma(\lambda) e^\lambda}{\lambda^{\lambda - 1/2}  } = \sqrt{2\pi }
+\]
+
+
+\[
+\lim_{\lambda \to \infty} \lambda^{n/2} I(m, \lambda) = \lim_{\lambda \to \infty} \lambda^{n/2} \cdot \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_n)}{\Gamma(\lambda)} 
+\]
+
+\item
+
+\
+
+\begin{center}
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\begin{definition}[\textbf{Exponential Family}]\label{prob.defn.exp.fams} Let \(n, k\) be positive integers and let \(\mu\) be a measure on \(\mathbb{R}^n\). Let \(t_1, \ldots, t_k : \mathbb{R}^n \to \mathbb{R}\). Let \(h: \mathbb{R}^n \to [0, \infty]\), and assume \(h\) is not identically zero. For any \(w = (w_1, \ldots, w_k) \in \mathbb{R}^k\), define
+
+\[
+a(w) := \log \bigg[ \int_{\mathbb{R}^n} h(x) \exp \bigg( \sum_{i=1}^k w_i t_i(x) \bigg) d \mu(x) \bigg], \ \ \ \forall x \in \mathbb{R}^n
+\]
+
+The set \(\{w \in \mathbb{R}^k\}\) is called the \textbf{natural parameter space}. On this set, the function
+
+\[
+f_w(x) := h(x) \exp \bigg( \sum_{i=1}^k w_i t_i(x) - a(w) \bigg), \ \ \ \forall x \in \mathbb{R}^n
+\]
+
+satisfies \(\int_{\mathbb{R}^n} f_w(x) d \mu(s) = 1\) (by the definition of \(a(w)\)). The set of functions (which can be interpreted as probability density functions, or as probability mass functions according to \(\mu\)) \(\{f_w: \theta \in \Theta: a(w(\theta)) < \infty \}\) is called a \textbf{\(k\)-parameter exponential family in canonical form.} 
+ 
+% \
+% 
+% More generally, let \(\Theta \in \mathbb{R}^k\) be any set an let \(w: \Theta \to \mathbb{R}^k\). We define a \textbf{\(k\)-parameter exponential family} to be a set of functions \(\{f_{\theta}: \theta \in \Theta\}\), where
+% 
+% \[
+% f_{\theta}(x) := h(x) \exp \bigg( \sum_{i=1}^k w_i(\theta) t_i(x) - a(w(\theta))\bigg), \ \ \ \ \forall x \in \mathbb{R}^n
+% \]
+ 
+\end{definition}
+}
+}
+\end{center}
+
+Let \(X_{p_0, \ldots, p_j}: \Omega \to \mathbb{R}^n\) be the random variable described by this distribution, parameterized by \(p_0, \ldots, p_j\) and with \(\delta_{e_0}, \ldots, \delta_{e_n}\) fixed (otherwise this is not an exponential family, for reasons described below). Then we have
+
+\[
+f_{p_0, \ldots, p_j} (x) = \mathbb{P}(X_{p_0, \ldots, p_j} = x) = \begin{cases}
+p_j/\sum_{i=0}^n p_i & x = \delta_{e_j} \\
+0 & \text{otherwise}
+\end{cases} =  I(x = \delta_{e_{k}}) p_{k}, k \in \{ 0, 1, \ldots, n\}.
+\]
+
+Let
+
+\[
+h(x) := \begin{cases}
+1 & x \in \{\delta_{e_0}, \ldots, \delta_{e_n}\} \\
+0 & \text{otherwise.}
+\end{cases}
+\]
+
+Let \(k = n+1\), and let \(t_i(x) := I(x = \delta_{e_{i-1}})\) (an indicator function that equals 1 if \(x =  \delta_{e_{i-1}}\) and 0 otherwise). Let \(w_i := \log(p_{i-1})\), and let \(a(w) := 0\). Then
+
+\[
+ h(x) \exp \left( \sum_{i=1}^k w_i t_i(x) - a(w) \right) =  I(x \in \{\delta_{e_0}, \ldots, \delta_{e_n}\}) \exp \left( \sum_{i=1}^k I(x = \delta_{e_{i-1}}) \log(p_{i-1})  \right)
+ \]
+ 
+ \[
+  = I(x = \delta_{e_{i-1}}) p_{i-1}, i \in \{ 1, \ldots, n + 1\} =  I(x = \delta_{e_{k}}) p_{k}, k \in \{ 0, 1, \ldots, n\} = f_{p_0, \ldots, p_j} (x),
+\] 
+
+so \(F\) is an exponential family. (Where the mass function equals 0 depends on \(\delta_{e_0}, \ldots, \delta_{e_n}\). So if these are not fixed and are instead parameters of the distribution, then where the mass function equals 0 depends on the parameters of the distribution, which is not allowed in an exponential family; \(h(x)\) determines where the mass function equals 0, and it may only depend on \(x\), not the parameters of the distribution.)
+
+\textbf{stuff with conjugate prior has to do with Bayesian statistics; not our concern.}
 
 \end{enumerate}
 

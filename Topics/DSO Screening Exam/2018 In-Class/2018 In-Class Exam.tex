@@ -359,7 +359,7 @@ Let \(u = 1 - p + tp \implies du = p \ dt\) and \(t = (u + p - 1)/p\). Then we c
 \]
 
 \[
-\iff   \E \left( \frac{1}{X+2} \right)  = \frac{1}{p^2} \left[\frac{1 - (1-p)^{n+2}}{n+2} - (1 - p)\frac{1 - (1-p)^{n+1}}{n+1} \right]_{1-p}^1
+\iff   \E \left( \frac{1}{X+2} \right)  = \frac{1}{p^2} \left[\frac{1 - (1-p)^{n+2}}{n+2} - (1 - p)\frac{1 - (1-p)^{n+1}}{n+1} \right]
 \]
 
 %
@@ -547,21 +547,65 @@ X \mid \mu \sim \mathcal{N}(\mu, \boldsymbol{I}_n)
 Let \(X = (X_1, \ldots, X_n)^T\) and let \(\mu = (\mu_1, \ldots, \mu_n)^T\). Notice that
 
 \[
-\E(X^TX \mid \mu) = \E \left( X_1^2 + X_2^2 + \ldots + X_n^2 \right) = \sum_{i=1}^n \E (X_i^2) = \sum_{i=1}^n \left( \Var(X_i) + \E(X_i)^2 \right) = \sum_{i=1}^n \left( 1+ \mu_i^2 \right)
+\E(X^TX) = \E[ \E(X^TX \mid \mu)] =  \E \left[ \E \left( X_1^2 + X_2^2 + \ldots + X_n^2 \right)  \right] = \E \left[ \sum_{i=1}^n \E (X_i^2)  \right] 
 \]
 
 \[
-= n + \lVert \mu \rVert_2^2 \implies \E(X^TX - n\mid \mu) =  \lVert \mu \rVert_2^2 
+= \E \left[ \sum_{i=1}^n \Var(X_i) + \E(X_i)^2  \right]  =  \E \left[ \sum_{i=1}^n 1+ \mu_i^2 \right] = n + \lVert \mu \rVert_2^2 
 \]
 
-Therefore given \(\mu\), \(\boxed{X^TX - n}\) is unbiased for \(\lVert \mu \rVert_2^2\).
+\[
+\implies \E(X^TX - n) =  \lVert \mu \rVert_2^2 
+\]
+
+Therefore \(\boxed{X^TX - n}\) is unbiased for \(\lVert \mu \rVert_2^2\).
 
 % 3b
-\item We have
+\item \textbf{Try using information here: section 3.4, page 62} \begin{verbatim}http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf\end{verbatim} 
+
+\textbf{maybe this is what I'm supposed to do for part (d)?} Because the prior distribution for \(\mu\) is Gaussian and the conditional distribution of \(X\) given \(\mu\) is Gaussian, that means the unconditional distribution for \(X\) is Gaussian. That is, we can use the formula for conditioning one set of Gaussian random variables on another to learn about the unconditional distribution of \(X\).
+
+\begin{center}
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\begin{proposition}\label{prob.cond.multivar.norm.dist} Suppose 
 
 \[
-\mu \sim \mathcal{N}(0, k \boldsymbol{I}_n)
+\boldsymbol{X} = \begin{bmatrix} \boldsymbol{X}_1 \\ \boldsymbol{X}_2 \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} \boldsymbol{\mu}_1 \\ \boldsymbol{\mu}_2 \end{bmatrix}, \begin{bmatrix}  \boldsymbol{\Sigma}_{11} & \boldsymbol{\Sigma}_{12} \\ \boldsymbol{\Sigma}_{12}^T & \boldsymbol{\Sigma}_{22} \end{bmatrix} \right)
 \]
+
+where \(\boldsymbol{\mu}_1 \in \mathbb{R}^q\), \(\boldsymbol{\mu}_2 \in \mathbb{R}^{p - q}\), \(\boldsymbol{\Sigma}_{11} \in \mathbb{R}^{q \times q}\), \( \boldsymbol{\Sigma}_{12} \in \mathbb{R}^{(p-q) \times q}\), and \( \boldsymbol{\Sigma}_{22} \in \mathbb{R}^{(p-q) \times (p-q)}\). Then
+
+\begin{equation}\label{prob.mult.gaussian.cond.dist.gen}
+\{\boldsymbol{X}_1 \mid \boldsymbol{X}_2\} \sim \mathcal{N} \left(  \boldsymbol{\mu}_1 +  \boldsymbol{\Sigma}_{12} \boldsymbol{\Sigma}_{22}^{-1} \left(\boldsymbol{X}_2 - \boldsymbol{\mu}_2\right), \boldsymbol{\Sigma}_{11} - \boldsymbol{\Sigma}_{12} \boldsymbol{\Sigma}_{22}^{-1} \boldsymbol{\Sigma}_{12}^T \right)
+\end{equation}
+
+\end{proposition}
+}
+}
+\end{center}
+
+\
+
+In this case, we know
+
+\[
+\mu \sim \mathcal{N}(0, k \boldsymbol{I}_n), \qquad X \mid \mu \sim \mathcal{N}(\mu,  \boldsymbol{I}_n)
+\]
+
+which implies that if \(X \sim \mathcal{N}(\boldsymbol{\mu}_1 , \boldsymbol{\Sigma}_{11})\), 
+
+\[
+\mu =  \boldsymbol{\mu}_1 +  \boldsymbol{\Sigma}_{12} \left( k \boldsymbol{I}_n \right)^{-1} \left(\mu - 0\right) \iff  \boldsymbol{\mu}_1 = \mu - \frac{1}{k} \boldsymbol{\Sigma}_{12}\mu = \left( \boldsymbol{I}_n -  \frac{1}{k} \boldsymbol{\Sigma}_{12} \right) \mu 
+\]
+
+and
+
+\[
+\boldsymbol{I}_n = \boldsymbol{\Sigma}_{11} - \boldsymbol{\Sigma}_{12}\left( k \boldsymbol{I}_n \right)^{-1} \boldsymbol{\Sigma}_{12}^T \iff  \boldsymbol{\Sigma}_{11} = \boldsymbol{I}_n  + \frac{1}{k} \boldsymbol{\Sigma}_{12} ^2
+\]
+
+(since \(\boldsymbol{\Sigma}_{12}\) is symmetric).
 
 \[
 \E\left[ \left( \lVert \mu \rVert_2^2 - t(X)  \right)^2 \mid X\right] = \E\left[  \lVert \mu \rVert_2^4 -2 \lVert \mu \rVert_2^2 t(X)   + t(X)^2 \mid X\right] = \E\left[  \lVert \mu \rVert_2^4\mid X\right]  -2t (X) \E \left[ \lVert \mu \rVert_2^2 \mid X\right]    + t(X)^2 
@@ -1086,7 +1130,7 @@ Let \(\mathcal{B}\) be the set of all \(\hat{\beta}\) that minimize (\ref{2018.s
 \end{proposition}
 
 \begin{proof}
-Suppose \(\hat{\beta}_1\) and \(\hat{\beta}_2\) both minimize (\ref{2018.screen.5.a.objective}), and (without loss of generality) \(\lVert \hat{\beta}_1 \rVert_1 < \lVert \hat{\beta}_2 \rVert_1\). By Lemma \ref{2018.screen.5.b.iv.relation}, these values both minimize (\ref{2018.screen.5.a.objective.orig}) with \(t =  \lVert \hat{\beta}_2 \rVert_1\) (we cannot choose \(t =  \lVert \hat{\beta}_1 \rVert_1\) because \(\hat{\beta}_1\) is not feasible for that problem). But \(\hat{\beta}_1\) does not lie on the boundary of the feasible region of (\ref{2018.screen.5.a.objective.orig}), so \(\hat{\beta}_1\) minimizing (\ref{2018.screen.5.a.objective.orig}) contradicts the convexity of (\ref{2018.screen.5.a.objective.orig}) (and the fact that the global minimum lies outside the feasible region). Therefore \(\lVert \hat{\beta}_1 \rVert_1 = \lVert \hat{\beta}_2 \rVert_1\).
+Suppose \(\hat{\beta}_1\) and \(\hat{\beta}_2\) both minimize (\ref{2018.screen.5.a.objective}), and (without loss of generality) \(\lVert \hat{\beta}_1 \rVert_1 < \lVert \hat{\beta}_2 \rVert_1\). By Lemma \ref{2018.screen.5.b.iv.relation}, these values both minimize (\ref{2018.screen.5.a.objective.orig}) with \(t =  \lVert \hat{\beta}_2 \rVert_1\) (we cannot choose \(t =  \lVert \hat{\beta}_1 \rVert_1\) because \(\hat{\beta}_1\) is not feasible for that problem). Because the global minimum of (\ref{2018.screen.5.a.objective.orig}) lies outside the feasible region and  (\ref{2018.screen.5.a.objective.orig}) is convex, all solutions to (\ref{2018.screen.5.a.objective.orig}) lie on the boundary of the feasible region. But \(\lVert\hat{\beta}_1 \rVert_1 < \lVert \hat{\beta}_2 \rVert_1\), so \(\hat{\beta}_1\) is not on the boundary of the feasible region, contradiction. Therefore \(\lVert \hat{\beta}_1 \rVert_1 = \lVert \hat{\beta}_2 \rVert_1\) for all solutions \(\hat{\beta}_1\), \(\hat{\beta}_2\) to (\ref{2018.screen.5.a.objective}); that is,  \(\lVert \hat{\beta} \rVert_1\) is unique.
 \end{proof}
 
 (See \citet{Osborne2000} for more details.)
