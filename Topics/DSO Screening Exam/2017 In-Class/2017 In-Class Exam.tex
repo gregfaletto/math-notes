@@ -351,18 +351,18 @@ Since both distributions are Gaussian, we have
 I(m, \lambda) = \int_{\mathbb{R}} \frac{ \exp(\lambda \theta_1m_1) }{(1 + \exp(\theta_1) ) ^{\lambda}} d \theta_1 = \int_{\mathbb{R}} \frac{ \exp( \theta_1)^{\lambda m_1} }{(1 + \exp(\theta_1) ) ^{\lambda}} d \theta_1
 \]
 
-%Let \(u_1=  \exp(\theta_1) \implies du_1 =\exp(\theta_1) \ d\theta_1 \iff d\theta_1 = \frac{1}{u_1} du_1\). 
-%
-%%Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
-%%
-%%\[
-%%= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
-%%\]
-%
+Let \(u_1=  \exp(\theta_1) \implies du_1 =\exp(\theta_1) \ d\theta_1 \iff d\theta_1 = \frac{1}{u_1} du_1\). 
+
+%Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
 %
 %\[
-%\implies I(m, \lambda) =\int_{0}^\infty \frac{ u_1^{\lambda m_1} }{ (u_1 + 1)  ^{\lambda}} \ \frac{ d u_1}{u_1} =\int_{0}^\infty  u_1 ^{\lambda m_1 - 1} (u_1 + 1)  ^{-\lambda} \ d u_1
+%= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
 %\]
+
+
+\[
+\implies I(m, \lambda) =\int_{0}^\infty \frac{ u_1^{\lambda m_1} }{ (u_1 + 1)  ^{\lambda}} \ \frac{ d u_1}{u_1} =\int_{0}^\infty  u_1 ^{\lambda m_1 - 1} (u_1 + 1)  ^{-\lambda} \ d u_1
+\]
 %
 %\[
 %= \ldots   = \int_0^1 u_1^{ - \lambda (m_1 - 1) - 1} (1-u_1)^{\lambda m_1 - 1} \ du_1 = \int_0^1 u_1^{\lambda(1 - m_1)- 1} (1-u_1)^{\lambda m_1 - 1} \ du_1= \frac{\Gamma(\lambda (1 - m_1)) \Gamma(\lambda m_1)}{\Gamma(\lambda [1 - m_1] + \lambda m_1)}  
@@ -378,31 +378,103 @@ I(m, \lambda) = \int_{\mathbb{R}} \frac{ \exp(\lambda \theta_1m_1) }{(1 + \exp(\
 %B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Gamma(z_2)}{\Gamma(z_1 + z_2)}
 %\]
 
-Let \(u_1= 1 + \exp(\theta_1) \implies du_1 =\exp(\theta_1) \ d\theta_1 \iff d\theta_1 = \frac{1}{u_1- 1} d_{u_1 }\). 
-
-%Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
+%Let \(u_1= 1 + \exp(\theta_1) \implies du_1 =\exp(\theta_1) \ d\theta_1 \iff d\theta_1 = \frac{1}{u_1- 1} d_{u_1 }\). 
+%
+%%Let \(u_1 = 1 + \exp(\theta_1) \implies \partial u_1 = \exp(\theta_1)  \partial \theta_1\).
+%%
+%%\[
+%%= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
+%%\]
+%%
 %
 %\[
-%= \int_{\mathbb{R}} \frac{ (u_1 - 1)^{\lambda m_1 - 1} }{u_1^{\lambda}} d u_1
+%\implies I(m, \lambda) =\int_{0}^\infty \frac{ (u_1 - 1)^{\lambda m_1} }{ u_1  ^{\lambda}} \ \frac{ d u_1}{u_1 - 1} =\int_{0}^\infty  (u_1 - 1)^{\lambda m_1 - 1} u_1  ^{-\lambda} \ d u_1
 %\]
-%
+
+Let \(x = (u_1 + 1)^{-1} \iff u_1 = x^{-1} - 1 \implies dx = -(u_1 + 1)^{-2} du_1 \iff du_1 = -x^{-2} \ dx  \).
 
 \[
-\implies I(m, \lambda) =\int_{0}^\infty \frac{ (u_1 - 1)^{\lambda m_1} }{ u_1  ^{\lambda}} \ \frac{ d u_1}{u_1 - 1} =\int_{0}^\infty  (u_1 - 1)^{\lambda m_1 - 1} u_1  ^{-\lambda} \ d u_1
+\implies I(m, \lambda)  =\int_{x=1}^0 \left( \frac{1}{x} - 1 \right) ^{\lambda m_1 - 1} x  ^{\lambda}(-x^{-2}) \ d x =\int_{0}^1 ( 1 - x) ^{\lambda m_1 - 1} x  ^{\lambda - 2 - \lambda m_1 + 1} \ d x
+\]
+%  = \int_0^1 x^{ - \lambda (m_1 - 1) - 1} (1-x)^{\lambda m_1 - 1} \ dx 
+\[
+= \int_0^1 x^{\lambda(1 - m_1)- 1} (1-x)^{\lambda m_1 - 1} \ dx = \frac{\Gamma(\lambda (1 - m_1)) \Gamma(\lambda m_1)}{\Gamma(\lambda [1 - m_1] + \lambda m_1)}   = \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1)}{\Gamma(\lambda)}
 \]
 
-\[
-= \ldots   = \int_0^1 u_1^{ - \lambda (m_1 - 1) - 1} (1-u_1)^{\lambda m_1 - 1} \ du_1 = \int_0^1 u_1^{\lambda(1 - m_1)- 1} (1-u_1)^{\lambda m_1 - 1} \ du_1= \frac{\Gamma(\lambda (1 - m_1)) \Gamma(\lambda m_1)}{\Gamma(\lambda [1 - m_1] + \lambda m_1)}  
-\]
-
-\[
-= \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1)}{\Gamma(\lambda)}
-\]
 
 where we used the definition of the Beta function:
 
 \[
-B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Gamma(z_2)}{\Gamma(z_1 + z_2)}
+B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Gamma(z_2)}{\Gamma(z_1 + z_2)}.
+\]
+
+Now we do an induction on \(n\). Suppose for some \(n \in \mathbb{N}\), we have
+
+\begin{equation}\label{2017.screen.3.a.inductive.hypothesis}
+\int_{\mathbb{R}^n} \exp \left( \lambda \left[ \sum_{i=1}^n \theta_i x_i \right] \right) \left(1 + \sum_{i=1}^n \exp(\theta_i) \right)^{-\lambda} \ d\theta = \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_n)}{\Gamma(\lambda)}.
+\end{equation}
+
+Then we will evaluate
+
+\[
+\int_{\mathbb{R}^{n+1}} \exp \left( \lambda \left[ \sum_{i=1}^{n+1} \theta_i m_i \right] \right) \left(1 + \sum_{i=1}^{n+1} \exp(\theta_i) \right)^{-\lambda} \ d\theta  
+= \int_{\mathbb{R}^{n+1}} \prod_{i=1}^{n+1} \exp(\theta_i)^{\lambda m_i}  \left(1 + \sum_{i=1}^{n+1} \exp(\theta_i) \right)^{-\lambda} \ d\theta 
+\]
+
+%\[
+%= \int_{\mathbb{R}^{n+1}} \exp \left( \lambda \theta^T x\right) \left(1 + \sum_{i=1}^{n+1} \exp(\theta_i) \right)^{-\lambda} \ d\theta 
+%\]
+
+Let \(u_i=  \exp(\theta_i) \implies du_i =\exp(\theta_i) \ d\theta_i \iff d\theta_i = \frac{1}{u_i} du_i \iff d\theta=  \prod_{i=1}^{n+1}\frac{1}{u_i} \ du    \).
+
+
+\[
+= \int_{\mathbb{R}^{n+1}_+} \prod_{i=1}^{n+1} u_i^{\lambda m_i}  \left(1 + \sum_{i=1}^{n+1} u_i \right)^{-\lambda} \prod_{i=1}^{n+1}\frac{1}{u_i} \ du = \int_{\mathbb{R}_+^{n+1}} \prod_{i=1}^{n+1} u_i^{\lambda m_i - 1}  \left(1 + \sum_{i=1}^{n+1} u_i \right)^{-\lambda}  \ du
+\]
+
+Let \(x_i = \left(u_i + \frac{1}{n+1} \right)^{-1} \iff u_i = \frac{1}{x_i} - \frac{1}{n+1} \implies dx_i = -\left(u_i + \frac{1}{n+1} \right)^{-2} du_i \iff du_i = -x_i^{-2} \ dx_i  \).
+
+\[
+=  \int_{x_{n+1}=1}^0   \int_{x_{n}=1}^0 \cdots \int_{x_1=1}^0  \prod_{i=1}^{n+1} \left( \frac{1}{x_i} - \frac{1}{n+1} \right)^{\lambda m_i - 1}  \left(1 + \sum_{i=1}^{n+1} \left[ \frac{1}{x_i} - \frac{1}{n+1} \right]\right)^{-\lambda} \prod_{i=1}^{n+1} -x_i^{-2}  \ dx_1 \cdots dx_n \ dx_{n+1}
+\]
+
+\[
+=  \int_{x_{n+1}=0}^1   \int_{x_{n}=0}^1 \cdots \int_{x_1=0}^1  \prod_{i=1}^{n+1} \left( \frac{1}{x_i} - \frac{1}{n+1} \right)^{\lambda m_i - 1}  \left( \sum_{i=1}^{n+1} \frac{1}{x_i}  \right)^{-\lambda} \prod_{i=1}^{n+1} x_i^{-2}  \ dx_1 \cdots dx_n \ dx_{n+1}
+\]
+
+\[
+=  \int_{x_{n+1}=0}^1   \int_{x_{n}=0}^1 \cdots \int_{x_1=0}^1  \prod_{i=1}^{n} \left( \frac{1}{x_i} - \frac{1}{n+1} \right)^{\lambda m_i - 1}  \left( \sum_{i=1}^{n+1} \frac{1}{x_i}  \right)^{-\lambda} \prod_{i=1}^{n} x_i^{-2}  \ dx_1 \cdots dx_n
+\]
+
+\begin{equation}
+\cdot  \left( \frac{1}{x_{n+1}} - \frac{1}{n+1} \right)^{\lambda m_{n+1} - 1} x_{n+1}^{-2}  \ dx_{n+1}
+\end{equation}
+
+
+We can rewrite the left side of the inductive hypothesis (\ref{2017.screen.3.a.inductive.hypothesis}) using analagous substitutions as 
+
+\[
+\int_{\mathbb{R}^n} \exp \left( \lambda \left[ \sum_{i=1}^n \theta_i x_i \right] \right) \left(1 + \sum_{i=1}^n \exp(\theta_i) \right)^{-\lambda} \ d\theta =  \int_{\mathbb{R}_+^n} \prod_{i=1}^n u_i^{\lambda m_i} \left(1 + \sum_{i=1}^n u_i \right)^{-\lambda} \prod_{i=1}^n u_i^{-1} \ du
+\]
+
+\[
+ =    \int_{x_{n}=1}^0 \cdots \int_{x_1=1}^0  \prod_{i=1}^n \left( \frac{1}{x_i} - \frac{1}{n}  \right) ^{\lambda m_i - 1} \left(1 + \sum_{i=1}^n  \left[ \frac{1}{x_i} - \frac{1}{n}  \right] \right)^{-\lambda} \prod_{i=1}^n -x_i^{-2} \ dx_1 \cdots dx_n
+\]
+
+\[
+ =    \int_{x_{n}=0}^1 \cdots \int_{x_1=0}^1  \prod_{i=1}^n \left( \frac{1}{x_i} - \frac{1}{n}  \right) ^{\lambda m_i - 1} \left(\sum_{i=1}^n   \frac{1}{x_i}  \right)^{-\lambda} \prod_{i=1}^n x_i^{-2} \ dx_1 \cdots dx_n
+\]
+
+%\[
+%= \int_\mathbb{R}  \left[ \int_{\mathbb{R}^n} \exp \left( \lambda \left[ \sum_{i=1}^n \theta_i x_i \right] \right) \left(1 + \sum_{i=1}^n \exp(\theta_i) \right)^{-\lambda} \ d\theta \right] \cdot  \exp \left(\lambda \theta_{n+1} x_{n+1} \right) 
+%\]
+
+\[
+\vdots
+\]
+
+\[
+\ldots =  \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_{n+1})}{\Gamma(\lambda)}.
 \]
 
 % 3b
