@@ -133,76 +133,77 @@
 \BOOKMARK [2][-]{subsection.10.4}{Chapter 4: Heteroskedasticity}{section.10}% 133
 \BOOKMARK [2][-]{subsection.10.5}{Chapter 5: Autocorrelated disturbances}{section.10}% 134
 \BOOKMARK [2][-]{subsection.10.6}{DSO 607}{section.10}% 135
-\BOOKMARK [3][-]{subsubsection.10.6.1}{AIC and BIC}{subsection.10.6}% 136
-\BOOKMARK [2][-]{subsection.10.7}{Ridge Regression}{section.10}% 137
-\BOOKMARK [2][-]{subsection.10.8}{Lasso}{section.10}% 138
-\BOOKMARK [3][-]{subsubsection.10.8.1}{Soft Thresholding}{subsection.10.8}% 139
-\BOOKMARK [3][-]{subsubsection.10.8.2}{Lasso theory}{subsection.10.8}% 140
-\BOOKMARK [3][-]{subsubsection.10.8.3}{Non-Negative Garotte}{subsection.10.8}% 141
-\BOOKMARK [3][-]{subsubsection.10.8.4}{LARS\204Preliminaries and Intuition}{subsection.10.8}% 142
-\BOOKMARK [3][-]{subsubsection.10.8.5}{LARS}{subsection.10.8}% 143
-\BOOKMARK [2][-]{subsection.10.9}{Quadratic Loss}{section.10}% 144
-\BOOKMARK [3][-]{subsubsection.10.9.1}{Feature Selection properties}{subsection.10.9}% 145
-\BOOKMARK [2][-]{subsection.10.10}{Dantzig Selector}{section.10}% 146
-\BOOKMARK [2][-]{subsection.10.11}{Coordinate Descent}{section.10}% 147
-\BOOKMARK [2][-]{subsection.10.12}{Nonconvex Learning}{section.10}% 148
-\BOOKMARK [2][-]{subsection.10.13}{Yinfei Kong\204Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{section.10}% 149
-\BOOKMARK [2][-]{subsection.10.14}{Total Variational Distance}{section.10}% 150
-\BOOKMARK [1][-]{section.11}{Time Series}{}% 151
-\BOOKMARK [2][-]{subsection.11.1}{Chapter 6: ARDL Models}{section.11}% 152
-\BOOKMARK [2][-]{subsection.11.2}{Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{section.11}% 153
-\BOOKMARK [3][-]{subsubsection.11.2.1}{Worked Examples}{subsection.11.2}% 154
-\BOOKMARK [2][-]{subsection.11.3}{Some time series and their properties}{section.11}% 155
-\BOOKMARK [3][-]{subsubsection.11.3.1}{White noise process:}{subsection.11.3}% 156
-\BOOKMARK [3][-]{subsubsection.11.3.2}{MA\(1\) process:}{subsection.11.3}% 157
-\BOOKMARK [3][-]{subsubsection.11.3.3}{MA\(\) process:}{subsection.11.3}% 158
-\BOOKMARK [3][-]{subsubsection.11.3.4}{AR\(1\) process:}{subsection.11.3}% 159
-\BOOKMARK [3][-]{subsubsection.11.3.5}{AR\(2\) process:}{subsection.11.3}% 160
-\BOOKMARK [3][-]{subsubsection.11.3.6}{AR\(p\) process:}{subsection.11.3}% 161
-\BOOKMARK [3][-]{subsubsection.11.3.7}{ARMA\(1, 1\) process:}{subsection.11.3}% 162
-\BOOKMARK [2][-]{subsection.11.4}{Chapter 14: Estimation of Stationary Time Series Processes}{section.11}% 163
-\BOOKMARK [3][-]{subsubsection.11.4.1}{Sufficient conditions for ergodicity of mean. \(Book section 14.2.1\)}{subsection.11.4}% 164
-\BOOKMARK [3][-]{subsubsection.11.4.2}{Estimation of autocovariances \(Book section 14.2.2\).}{subsection.11.4}% 165
-\BOOKMARK [3][-]{subsubsection.11.4.3}{Worked examples}{subsection.11.4}% 166
-\BOOKMARK [2][-]{subsection.11.5}{Chapter 15: Unit Root Processes}{section.11}% 167
-\BOOKMARK [3][-]{subsubsection.11.5.1}{Worked Problems}{subsection.11.5}% 168
-\BOOKMARK [2][-]{subsection.11.6}{Chapter 17: Introduction to Forecasting}{section.11}% 169
-\BOOKMARK [3][-]{subsubsection.11.6.1}{17.7: Iterated and direct multi-step AR methods}{subsection.11.6}% 170
-\BOOKMARK [3][-]{subsubsection.11.6.2}{Worked Problems}{subsection.11.6}% 171
-\BOOKMARK [2][-]{subsection.11.7}{Chapter 18: Measurement and Modeling of Volatility}{section.11}% 172
-\BOOKMARK [3][-]{subsubsection.11.7.1}{Higher order GARCH models \(Pesaran Section 18.4.2\)}{subsection.11.7}% 173
-\BOOKMARK [3][-]{subsubsection.11.7.2}{Testing for GARCH effects \(Pesaran Section 18.5.1\)}{subsection.11.7}% 174
-\BOOKMARK [3][-]{subsubsection.11.7.3}{Worked Problems}{subsection.11.7}% 175
-\BOOKMARK [2][-]{subsection.11.8}{Chapter 21: Vector Autoregressive Models}{section.11}% 176
-\BOOKMARK [3][-]{subsubsection.11.8.1}{Worked Problems}{subsection.11.8}% 177
-\BOOKMARK [2][-]{subsection.11.9}{Chapter 22: Cointegration Analysis}{section.11}% 178
-\BOOKMARK [3][-]{subsubsection.11.9.1}{22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}{subsection.11.9}% 179
-\BOOKMARK [3][-]{subsubsection.11.9.2}{Worked Problems}{subsection.11.9}% 180
-\BOOKMARK [2][-]{subsection.11.10}{Chapter 23: VARX Modeling}{section.11}% 181
-\BOOKMARK [3][-]{subsubsection.11.10.1}{Worked Problems}{subsection.11.10}% 182
-\BOOKMARK [2][-]{subsection.11.11}{Chapter 24: Impulse Response Analysis}{section.11}% 183
-\BOOKMARK [3][-]{subsubsection.11.11.1}{Worked Problems}{subsection.11.11}% 184
-\BOOKMARK [2][-]{subsection.11.12}{Chapter 33: Theory and Practice of GVAR Modeling}{section.11}% 185
-\BOOKMARK [1][-]{section.12}{Convex Optimization}{}% 186
-\BOOKMARK [2][-]{subsection.12.1}{Convex Functions}{section.12}% 187
-\BOOKMARK [2][-]{subsection.12.2}{Schur Complement Trick}{section.12}% 188
-\BOOKMARK [3][-]{subsubsection.12.2.1}{Definition}{subsection.12.2}% 189
-\BOOKMARK [3][-]{subsubsection.12.2.2}{The Trick}{subsection.12.2}% 190
-\BOOKMARK [3][-]{subsubsection.12.2.3}{Example 1: Last Year's Final, Question 2\(b\)}{subsection.12.2}% 191
-\BOOKMARK [3][-]{subsubsection.12.2.4}{Example 2: Last Year's Final, Question 4\(b\)}{subsection.12.2}% 192
-\BOOKMARK [2][-]{subsection.12.3}{Duality}{section.12}% 193
-\BOOKMARK [2][-]{subsection.12.4}{MLE estimates}{section.12}% 194
-\BOOKMARK [2][-]{subsection.12.5}{Practice Final \(2017 Final\)}{section.12}% 195
-\BOOKMARK [1][-]{section.13}{Abstract Algebra}{}% 196
-\BOOKMARK [2][-]{subsection.13.1}{Chapter 1: Binary Operations}{section.13}% 197
-\BOOKMARK [2][-]{subsection.13.2}{Chapter 2: Groups}{section.13}% 198
-\BOOKMARK [2][-]{subsection.13.3}{Chapter 3: The Symmetric Groups}{section.13}% 199
-\BOOKMARK [2][-]{subsection.13.4}{Chapter 4: Subgroups}{section.13}% 200
-\BOOKMARK [2][-]{subsection.13.5}{Chapter 5: The Group of Units of Zn}{section.13}% 201
-\BOOKMARK [2][-]{subsection.13.6}{Chapter 6: Direct Products of Groups}{section.13}% 202
-\BOOKMARK [2][-]{subsection.13.7}{Chapter 7: Isomorphism of Groups}{section.13}% 203
-\BOOKMARK [2][-]{subsection.13.8}{Chapter 8: Cosets and Lagrange's Theorem}{section.13}% 204
-\BOOKMARK [2][-]{subsection.13.9}{Chapter 9: Introduction to Ring Theory}{section.13}% 205
-\BOOKMARK [1][-]{section.14}{Miscellaneous}{}% 206
-\BOOKMARK [2][-]{subsection.14.1}{Set Theory}{section.14}% 207
-\BOOKMARK [2][-]{subsection.14.2}{Other}{section.14}% 208
+\BOOKMARK [3][-]{subsubsection.10.6.1}{Akaike Information Criterion \(AIC\)}{subsection.10.6}% 136
+\BOOKMARK [3][-]{subsubsection.10.6.2}{Bayesian Information Criterion \(BIC\)}{subsection.10.6}% 137
+\BOOKMARK [2][-]{subsection.10.7}{Ridge Regression}{section.10}% 138
+\BOOKMARK [2][-]{subsection.10.8}{Lasso}{section.10}% 139
+\BOOKMARK [3][-]{subsubsection.10.8.1}{Soft Thresholding}{subsection.10.8}% 140
+\BOOKMARK [3][-]{subsubsection.10.8.2}{Lasso theory}{subsection.10.8}% 141
+\BOOKMARK [3][-]{subsubsection.10.8.3}{Non-Negative Garotte}{subsection.10.8}% 142
+\BOOKMARK [3][-]{subsubsection.10.8.4}{LARS\204Preliminaries and Intuition}{subsection.10.8}% 143
+\BOOKMARK [3][-]{subsubsection.10.8.5}{LARS}{subsection.10.8}% 144
+\BOOKMARK [2][-]{subsection.10.9}{Quadratic Loss}{section.10}% 145
+\BOOKMARK [3][-]{subsubsection.10.9.1}{Feature Selection properties}{subsection.10.9}% 146
+\BOOKMARK [2][-]{subsection.10.10}{Dantzig Selector}{section.10}% 147
+\BOOKMARK [2][-]{subsection.10.11}{Coordinate Descent}{section.10}% 148
+\BOOKMARK [2][-]{subsection.10.12}{Nonconvex Learning}{section.10}% 149
+\BOOKMARK [2][-]{subsection.10.13}{Yinfei Kong\204Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{section.10}% 150
+\BOOKMARK [2][-]{subsection.10.14}{Total Variational Distance}{section.10}% 151
+\BOOKMARK [1][-]{section.11}{Time Series}{}% 152
+\BOOKMARK [2][-]{subsection.11.1}{Chapter 6: ARDL Models}{section.11}% 153
+\BOOKMARK [2][-]{subsection.11.2}{Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{section.11}% 154
+\BOOKMARK [3][-]{subsubsection.11.2.1}{Worked Examples}{subsection.11.2}% 155
+\BOOKMARK [2][-]{subsection.11.3}{Some time series and their properties}{section.11}% 156
+\BOOKMARK [3][-]{subsubsection.11.3.1}{White noise process:}{subsection.11.3}% 157
+\BOOKMARK [3][-]{subsubsection.11.3.2}{MA\(1\) process:}{subsection.11.3}% 158
+\BOOKMARK [3][-]{subsubsection.11.3.3}{MA\(\) process:}{subsection.11.3}% 159
+\BOOKMARK [3][-]{subsubsection.11.3.4}{AR\(1\) process:}{subsection.11.3}% 160
+\BOOKMARK [3][-]{subsubsection.11.3.5}{AR\(2\) process:}{subsection.11.3}% 161
+\BOOKMARK [3][-]{subsubsection.11.3.6}{AR\(p\) process:}{subsection.11.3}% 162
+\BOOKMARK [3][-]{subsubsection.11.3.7}{ARMA\(1, 1\) process:}{subsection.11.3}% 163
+\BOOKMARK [2][-]{subsection.11.4}{Chapter 14: Estimation of Stationary Time Series Processes}{section.11}% 164
+\BOOKMARK [3][-]{subsubsection.11.4.1}{Sufficient conditions for ergodicity of mean. \(Book section 14.2.1\)}{subsection.11.4}% 165
+\BOOKMARK [3][-]{subsubsection.11.4.2}{Estimation of autocovariances \(Book section 14.2.2\).}{subsection.11.4}% 166
+\BOOKMARK [3][-]{subsubsection.11.4.3}{Worked examples}{subsection.11.4}% 167
+\BOOKMARK [2][-]{subsection.11.5}{Chapter 15: Unit Root Processes}{section.11}% 168
+\BOOKMARK [3][-]{subsubsection.11.5.1}{Worked Problems}{subsection.11.5}% 169
+\BOOKMARK [2][-]{subsection.11.6}{Chapter 17: Introduction to Forecasting}{section.11}% 170
+\BOOKMARK [3][-]{subsubsection.11.6.1}{17.7: Iterated and direct multi-step AR methods}{subsection.11.6}% 171
+\BOOKMARK [3][-]{subsubsection.11.6.2}{Worked Problems}{subsection.11.6}% 172
+\BOOKMARK [2][-]{subsection.11.7}{Chapter 18: Measurement and Modeling of Volatility}{section.11}% 173
+\BOOKMARK [3][-]{subsubsection.11.7.1}{Higher order GARCH models \(Pesaran Section 18.4.2\)}{subsection.11.7}% 174
+\BOOKMARK [3][-]{subsubsection.11.7.2}{Testing for GARCH effects \(Pesaran Section 18.5.1\)}{subsection.11.7}% 175
+\BOOKMARK [3][-]{subsubsection.11.7.3}{Worked Problems}{subsection.11.7}% 176
+\BOOKMARK [2][-]{subsection.11.8}{Chapter 21: Vector Autoregressive Models}{section.11}% 177
+\BOOKMARK [3][-]{subsubsection.11.8.1}{Worked Problems}{subsection.11.8}% 178
+\BOOKMARK [2][-]{subsection.11.9}{Chapter 22: Cointegration Analysis}{section.11}% 179
+\BOOKMARK [3][-]{subsubsection.11.9.1}{22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}{subsection.11.9}% 180
+\BOOKMARK [3][-]{subsubsection.11.9.2}{Worked Problems}{subsection.11.9}% 181
+\BOOKMARK [2][-]{subsection.11.10}{Chapter 23: VARX Modeling}{section.11}% 182
+\BOOKMARK [3][-]{subsubsection.11.10.1}{Worked Problems}{subsection.11.10}% 183
+\BOOKMARK [2][-]{subsection.11.11}{Chapter 24: Impulse Response Analysis}{section.11}% 184
+\BOOKMARK [3][-]{subsubsection.11.11.1}{Worked Problems}{subsection.11.11}% 185
+\BOOKMARK [2][-]{subsection.11.12}{Chapter 33: Theory and Practice of GVAR Modeling}{section.11}% 186
+\BOOKMARK [1][-]{section.12}{Convex Optimization}{}% 187
+\BOOKMARK [2][-]{subsection.12.1}{Convex Functions}{section.12}% 188
+\BOOKMARK [2][-]{subsection.12.2}{Schur Complement Trick}{section.12}% 189
+\BOOKMARK [3][-]{subsubsection.12.2.1}{Definition}{subsection.12.2}% 190
+\BOOKMARK [3][-]{subsubsection.12.2.2}{The Trick}{subsection.12.2}% 191
+\BOOKMARK [3][-]{subsubsection.12.2.3}{Example 1: Last Year's Final, Question 2\(b\)}{subsection.12.2}% 192
+\BOOKMARK [3][-]{subsubsection.12.2.4}{Example 2: Last Year's Final, Question 4\(b\)}{subsection.12.2}% 193
+\BOOKMARK [2][-]{subsection.12.3}{Duality}{section.12}% 194
+\BOOKMARK [2][-]{subsection.12.4}{MLE estimates}{section.12}% 195
+\BOOKMARK [2][-]{subsection.12.5}{Practice Final \(2017 Final\)}{section.12}% 196
+\BOOKMARK [1][-]{section.13}{Abstract Algebra}{}% 197
+\BOOKMARK [2][-]{subsection.13.1}{Chapter 1: Binary Operations}{section.13}% 198
+\BOOKMARK [2][-]{subsection.13.2}{Chapter 2: Groups}{section.13}% 199
+\BOOKMARK [2][-]{subsection.13.3}{Chapter 3: The Symmetric Groups}{section.13}% 200
+\BOOKMARK [2][-]{subsection.13.4}{Chapter 4: Subgroups}{section.13}% 201
+\BOOKMARK [2][-]{subsection.13.5}{Chapter 5: The Group of Units of Zn}{section.13}% 202
+\BOOKMARK [2][-]{subsection.13.6}{Chapter 6: Direct Products of Groups}{section.13}% 203
+\BOOKMARK [2][-]{subsection.13.7}{Chapter 7: Isomorphism of Groups}{section.13}% 204
+\BOOKMARK [2][-]{subsection.13.8}{Chapter 8: Cosets and Lagrange's Theorem}{section.13}% 205
+\BOOKMARK [2][-]{subsection.13.9}{Chapter 9: Introduction to Ring Theory}{section.13}% 206
+\BOOKMARK [1][-]{section.14}{Miscellaneous}{}% 207
+\BOOKMARK [2][-]{subsection.14.1}{Set Theory}{section.14}% 208
+\BOOKMARK [2][-]{subsection.14.2}{Other}{section.14}% 209

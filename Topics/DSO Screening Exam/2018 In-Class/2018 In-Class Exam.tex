@@ -272,7 +272,7 @@ Because \(T(y) = \inf \{x \geq 0 : M(x) \geq y \}\) and \(M(\cdot)\) is montonic
 \lim_{y \to \infty} \Pr(T(y) \leq a e^y)  = \lim_{y \to \infty} \Pr( M(ae^y) \geq y)  = \lim_{z \to \infty} \Pr( M(z) \geq \log(z) - \log(a)) 
 \]
 
-Let \(b = \log a\) to get 
+Let \(b = -\log a\) to get 
 
 \[
 = \lim_{z \to \infty} \Pr( M(z) - \log(z) \geq   b) = 1 - e^{-\lambda a} \implies  \lim_{z \to \infty} \Pr( M(z) - \log(z) \geq  b)  = 1 - e^{-\lambda e^{-b}}
@@ -282,13 +282,17 @@ Let \(b = \log a\) to get
  \iff \lim_{z \to \infty} \Pr( M(z) - \log(z) \leq  b)  = e^{-\lambda e^{-b}}
 \]
 
+
+
 % 1(a)ii
-\item The distribution function is \(F(x) = e^{-\lambda e^{-x}}\), a Gumbel distribution with parameter \(\lambda\).
+\item The distribution function is \(F(x) = e^{-\lambda e^{-x}}\), a Gumbel distribution with parameter \(\lambda\). This is a proper cdf because \(\lim_{x \to \infty} F(x) = 1\) and \(\lim_{x \to -\infty} F(x) = 0\).
 
 \end{enumerate}
 
 % 1b
-\item \textbf{Mohammad:}
+\item 
+
+%\textbf{Mohammad:}
 
 Using hint:
 
@@ -547,18 +551,18 @@ X \mid \mu \sim \mathcal{N}(\mu, \boldsymbol{I}_n)
 Let \(X = (X_1, \ldots, X_n)^T\) and let \(\mu = (\mu_1, \ldots, \mu_n)^T\). Notice that
 
 \[
-\E(\boldsymbol{X}^T\boldsymbol{X}) = \E[ \E(\boldsymbol{X}^T\boldsymbol{X} \mid \mu)] =  \E \left[ \E \left( X_1^2 + X_2^2 + \ldots + X_n^2 \right)  \right] = \E \left[ \sum_{i=1}^n \E (X_i^2)  \right] 
+\E(\boldsymbol{X}^T\boldsymbol{X}) = \E[ \E(\boldsymbol{X}^T\boldsymbol{X} \mid \mu)] =  \E \left[ \E \left( X_1^2 + X_2^2 + \ldots + X_n^2 \mid \mu \right)  \right] = \E \left[ \sum_{i=1}^n \E (X_i^2 \mid \mu )  \right] 
 \]
 
 \[
-= \E \left[ \sum_{i=1}^n \Var(X_i) + \E(X_i)^2  \right]  =  \E \left[ \sum_{i=1}^n 1+ \mu_i^2 \right] = n + \lVert \mu \rVert_2^2 
+= \E \left[ \sum_{i=1}^n \Var(X_i \mid \mu) + \E(X_i \mid \mu)^2  \right]  =  \E \left[ \sum_{i=1}^n 1+ \mu_i^2 \right] = n + \E \lVert \mu \rVert_2^2 
 \]
 
 \[
-\implies \E(\boldsymbol{X}^T\boldsymbol{X} - n) =  \lVert \mu \rVert_2^2 
+\implies \E(\boldsymbol{X}^T\boldsymbol{X} - n) =  \E \lVert \mu \rVert_2^2 
 \]
 
-Therefore \(\boxed{ \hat{\delta}_{\text{unbiased}} = \boldsymbol{X}^T\boldsymbol{X} - n}\) is unbiased for \(\lVert \mu \rVert_2^2\).
+Therefore \(\boxed{ \hat{\delta}_{\text{unbiased}} = \boldsymbol{X}^T\boldsymbol{X} - n}\) is unbiased for \(\E \lVert \mu \rVert_2^2\) (and given \(\mu\) it is unbiased for \(\lVert \mu \rVert_2^2\)).
 
 % 3b
 \item We will begin by finding the posterior distribution of \(\mu\). The prior distribution of \(\mu\) is
@@ -1106,7 +1110,7 @@ Lastly, to impose sparsity we will add an \(\ell_1\) penalty. We will optimize t
 \hat{\Omega} := \underset{\Omega \in \mathcal{S}^+}{\arg \max} \left\{ \log \left| \Omega \right| - \Tr(S \Omega) + \lambda \lVert \Omega \rVert_1 \right\}
 \end{equation}
 
-where \( \mathcal{S}^+\) is the set of nonnegative definite \(p \times p\) matrices and \(\lambda > 0\) is a penalty parameter. Next, we will discuss the algorithm to optimize this function. We will make use of the following partitions of \(\boldsymbol{\hat{\Sigma}}\) and \(S\):
+where \( \mathcal{S}^+\) is the set of nonnegative definite \(p \times p\) matrices and \(\lambda > 0\) is a penalty parameter. Next, we will discuss the algorithm from \citet{Friedman2008} to optimize this function. We will make use of the following partitions of \(\boldsymbol{\hat{\Sigma}}\) and \(S\):
 
 \begin{equation}\label{2018.screen.4.c.partitions}
 \boldsymbol{\hat{\Sigma}} = \begin{pmatrix} 

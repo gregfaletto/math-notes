@@ -408,7 +408,58 @@ where we used the definition of the Beta function:
 B(z_1, z_2) := \int_0^1 t^{z_1 - 1} (1-t)^{z_2 - 1} \ dt= \frac{ \Gamma(z_1) \Gamma(z_2)}{\Gamma(z_1 + z_2)}.
 \]
 
-Now we do an induction on \(n\). Suppose for some \(n \in \mathbb{N}\), we have
+\textbf{Mohammad's attempt at induction step:} 
+
+\[
+\int_{\mathbb{R}^n} \frac{1}{\left(1 + e^{\theta_1} + \ldots + e^{\theta_n} \right)^\lambda} e^{\lambda(\theta_1 m_1 + \ldots + \theta_n m_n)} \ d \theta_1 \ldots d \theta_n 
+\]
+
+
+
+\begin{equation}\label{2017.screen.3.a.mohhamad.inductive}
+= \int_{\mathbb{R}^{n-1}} e^{\lambda(\theta_2 m_2 + \ldots + \theta_n m_n)} \left( \int_{\mathbb{R}} \frac{e^{\lambda \theta_1 m_1}}{\left(1 + e^{\theta_1} + \ldots + e^{\theta_n} \right)^\lambda}  \ d \theta_1 \right)  \ d\theta_2 \ldots d \theta_n
+\end{equation}
+
+Examining the inner integral in (\ref{2017.screen.3.a.mohhamad.inductive}), let \(c := 1 + e^{\theta_2} + \ldots + e^{\theta_n}\), then we can express this integral as
+
+\[
+ \int_{\mathbb{R}} \frac{e^{\lambda \theta_1 m_1}}{\left(c + e^{\theta_1} \right)^\lambda}  \ d \theta_1 =  \int_{\mathbb{R}} \frac{1}{c^\lambda} \frac{e^{\lambda \theta_1 m_1}}{\left(1 + e^{\theta_1}/c \right)^\lambda}  \ d \theta_1 =  \int_{\mathbb{R}} \frac{c^{\lambda m_1}}{c^\lambda} \frac{\left[e^{\theta_1}/c \right]^{\lambda  m_1}}{\left(1 + e^{\theta_1}/c \right)^\lambda}  \ d \theta_1
+\]
+
+Let \(u = \left(1 + e^{\theta_1}/c \right)^{-1} \iff  e^{\theta_1}/c =  u^{-1} - 1 \implies du = - \frac{e^{\theta_1}/c}{(1 + e^{\theta_1}/c )^{2} }  \ d \theta_1 \iff -\frac{du}{u^2(1/u - 1)} = d \theta_1\), so we can express this integral as
+% \iff \frac{du}{u - u^2} =d \theta_1 
+\[
+=  -c^{\lambda(m_1 - 1)} \int_{1}^0 \left[1/u - 1 \right]^{\lambda  m_1} u ^ \lambda \ \frac{du}{u^2(1/u - 1)} =  c^{\lambda(m_1 - 1)} \int_{0}^1 \left[1 - u \right]^{\lambda  m_1 - 1} u ^ {\lambda - 2 - \lambda m_1 + 1} \ du
+\]
+
+\[
+=  c^{\lambda(m_1 - 1)} \int_{0}^1 \left[1 - u \right]^{\lambda  m_1 - 1} u ^ {\lambda(1 - m_1) - 1} \ du =  c^{\lambda(m_1 - 1)} \frac{\Gamma(\lambda m_0)\Gamma(\lambda m_1)}{\Gamma(\lambda)}
+\]
+
+so (\ref{2017.screen.3.a.mohhamad.inductive}) becomes
+
+\[
+\int_{\mathbb{R}^{n-1}} e^{\lambda(\theta_2 m_2 + \ldots + \theta_n m_n)}  c^{\lambda(m_1 - 1)} \frac{\Gamma(\lambda m_0)\Gamma(\lambda m_1)}{\Gamma(\lambda)}  \ d\theta_2 \ldots d \theta_n
+\]
+
+\[
+ =  \frac{\Gamma(\lambda m_0)\Gamma(\lambda m_1)}{\Gamma(\lambda)}  \int_{\mathbb{R}^{n-1}} e^{\lambda(\theta_2 m_2 + \ldots + \theta_n m_n)}  \left( 1 + e^{\theta_2} + \ldots + e^{\theta_n} \right)^{\lambda(m_1 - 1)}  \ d\theta_2 \ldots d \theta_n 
+\]
+
+\[
+\vdots
+\]
+
+%Let \(u =  e^{\theta_1}/c  \iff   \implies du = \frac{e^{\theta_1}}{c} \ d \theta_1 \iff \frac{du}{u} = d \theta_1 \), so we can express this integral as
+
+%\[
+%=  c^{\lambda(m_1 - 1)}   \int_{0}^\infty\frac{u^{\lambda m_1}}{\left(1 + u \right)^\lambda}  \ \frac{du}{u} =  c^{\lambda(m_1 - 1)}   \int_{0}^\infty\frac{u^{\lambda m_1 - 1}}{\left(1 + u \right)^\lambda}  \ du
+%\]
+
+\
+
+
+\textbf{Greg's attempt at induction step:} Now we do an induction on \(n\). Suppose for some \(n \in \mathbb{N}\), we have
 
 \begin{equation}\label{2017.screen.3.a.inductive.hypothesis}
 \int_{\mathbb{R}^n} \exp \left( \lambda \left[ \sum_{i=1}^n \theta_i x_i \right] \right) \left(1 + \sum_{i=1}^n \exp(\theta_i) \right)^{-\lambda} \ d\theta = \frac{\Gamma(\lambda m_0) \Gamma(\lambda m_1) \cdots \Gamma(\lambda m_n)}{\Gamma(\lambda)}.

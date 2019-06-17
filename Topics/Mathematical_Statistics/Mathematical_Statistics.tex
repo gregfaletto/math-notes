@@ -2516,7 +2516,7 @@ r(\theta, Y') = r(\theta, \E_\theta(Y' \mid Z)) =  r(\theta, \E_\theta(Y \mid Z)
 
 \end{proof}
 
-\begin{remark}[\textbf{Remark 6.14 in Math 541A notes, Theorem 7.3.23 in Casella and Berger}] Let \(Z: \Omega \to \mathbb{R}^k\) be a complete sufficient statistic for \(\{f_\theta: \theta \in \Theta\}\) and let \(h: \mathbb{R}^k \to \mathbb{R}^m\). Let \(g(\theta) := \E_\theta h(Z)\) for all \(\theta \in \Theta\). Then \(h(Z)\) is unbiased for \(g(\theta)\), since \(\E_\theta h(Z) = g(\theta) = \E_\theta (g(\theta)) \). Applying Theorem \ref{mathstats.lehmann.scheffe}, we have
+\begin{remark}[\textbf{Remark 6.14 in Math 541A notes, Theorem 7.3.23 in \citet[p. 347]{CaseBerg:01}}] Let \(Z: \Omega \to \mathbb{R}^k\) be a complete sufficient statistic for \(\{f_\theta: \theta \in \Theta\}\) and let \(h: \mathbb{R}^k \to \mathbb{R}^m\). Let \(g(\theta) := \E_\theta h(Z)\) for all \(\theta \in \Theta\). Then \(h(Z)\) is unbiased for \(g(\theta)\), since \(\E_\theta h(Z) = g(\theta) = \E_\theta (g(\theta)) \). Applying Theorem \ref{mathstats.lehmann.scheffe}, we have
 
 \[
 W := \E_\theta(h(Z) \mid Z) = \E_\theta ( \E_\theta[h(Z) \mid h(Z)] \mid Z ) =  \E_\theta[h(Z) \mid h(Z)] = h(Z).
@@ -2849,7 +2849,7 @@ so we have
 \iff |g'(\theta)| ^2 \leq I_X(\theta) \Var_\theta(Y) \iff \Var_\theta(Y) \geq \frac{ |g'(\theta)|^2}{I_X(\theta)}, \qquad \forall \theta \in \Theta.
 \]
 
-Recall that equality occurs in the Cauchy-Schwarz inequality if and only if \(\deriv{}{\theta} \log f_\theta(x) \) is a constant multiple of \(Y - \E_\theta Y\)  with probability 1.
+Recall that equality occurs in the Cauchy-Schwarz inequality if and only if \(\deriv{}{\theta} \log f_\theta(x) \) is a constant multiple of \(Y - \E_\theta Y\)  with probability 1. (See also Corollary 7.3.15 in \citet[p. 341]{CaseBerg:01}.)
 
 \end{proof}
 

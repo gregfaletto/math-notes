@@ -939,11 +939,29 @@ Like MLE, maximizing \(\ell_n(y, \beta)\) with respect to \(\beta\) gives the qu
 (Intuition of score equation: the columns of \(X\) are all orthogonal to the errors (uncorrelated if \(X\) is random).
 
 
-\subsubsection{AIC and BIC}\label{linreg.aic.bic}
+\subsubsection{Akaike Information Criterion (AIC)}\label{linreg.aic.bic}
 
-AIC: proposed by Akaike to choose a model by minimizing the Kullback-Leibler (KL) divergence of the fitted model from the true model (or equivalently, maximize the expected log-likelihood).
+AIC: proposed by \citet{Akaike1973} to choose a model by minimizing the Kullback-Leibler (KL) divergence of the fitted model from the true model (or equivalently, maximize the expected log-likelihood). Recall the KL Divergence
 
-KL Divergence of density \(f\) from density \(g\):
+\[
+I(\theta; \theta_0) := 2\E_{\theta_0} \left[ \log \left( f(X \mid \theta_0) \right) \right] - 2 \E_{\theta_0} \left[ \log \left( f(X \mid \theta) \right) \right].
+\]
+
+We will try to maximizing the KL Divergence by estimating \(\theta_0\) as best as we can by maximizing the \textbf{probabilistic negentropy}
+
+ \[
+\E_Z I(\theta; \hat{\theta}_0(Z)) := 2\E_{\theta_0} \left[ \log \left( f(X \mid \theta_0 \right) \right] - 2 \E_{\theta_0, Z} \left[ \log \left( f \left(X \mid \hat{\theta}_0(Z) \right) \right) \right].
+\]
+
+Because the true model \(\theta_0\) is unknown we cannot carry out this maximization directly. Note that as the number of independent observations increases, the \textbf{mean log-likelihood ratio}
+
+\[
+\hat{I}(\theta; \theta_0) := \frac{2}{n} \sum_{i=1}^n \log \frac{f(x_i \mid \theta_0)}{ f(x_i \mid \theta)} \xrightarrow{p}I(\theta; \theta_0).
+\]
+
+Because of this, Akaike reasons that maximizing the mean log-likelihood ratio over \(\theta_0\) (i.e. computing the maximum likelihood estimate) tend to maximize the entropy. So the maximum likelihood estimate \(\hat{\theta}_0(Z)\) is substituted for the unknown \(\theta_0\).
+
+Way we wrote KL Divergence in DSO 607: density \(f\) from density \(g\):
 
 \[
 I(g_n; f_n(\cdot, \beta)) = \int[\log g(z)] g(z) dz - \int [\log f(z)] g(z) dz
@@ -958,8 +976,16 @@ I(g_n; f_n(\cdot, \beta)) = \int[\log g(z)] g(z) dz - \int [\log f(z)] g(z) dz
 where \(\ell_n(\theta)\) is the log-likelihood function and \(\lambda =1\). This leads to the Akaike information criterion (AIC) for comparing models:
 
 \[
-AIC(\hat{\theta}) = -2 \ell_n(\hat{\theta}) + 2 \lVert \hat{\theta} \rVert_0
+AIC \left(\hat{\theta}_k(Z) \right) := n \hat{I} \left(\hat{\theta}_k(Z; \hat{\theta}_0(Z) \right )   + 2\lVert \hat{\theta}_k(Z) \rVert_0 = 2 \sum_{i=1}^n \log \frac{f(x_i \mid  \hat{\theta}_0(Z))}{ f(x_i \mid \hat{\theta}_k(Z))}  + 2\lVert \hat{\theta}_k(Z) \rVert_0 
 \]
+
+Way we wrote this is DSO 607:
+
+\[
+AIC(\hat{\theta}) := -2 \ell_n(\hat{\theta}) + 2 \lVert \hat{\theta} \rVert_0
+\]
+
+Intuition: \(\log g(x)\) is the log likelihood. Penalty term can be interpreted as penalty, or as a bias correction since you are doing training and feature selection simultaneously on the same data.
 
 \[
 I(g_n; f_n(\cdot, \beta)) = \sum_{i=1}^n \bigg[ \int \bigg]
@@ -978,9 +1004,9 @@ the inverse of the Fisher information matrix is the covariance of the MLE (?).
 \]
 
 (For more information on KL Divergence, see Section \ref{prob.kl.divergence}). For AIC, we minimize the KL divergence. For BIC, we maximize the Bayes factor (posterior probability for the model).
-\[
-\vdots
-\]
+
+\subsubsection{Bayesian Information Criterion (BIC)}\label{linreg.bic}
+
 A typical Bayesian model selection procedure is to first give nonzero prior probability \(\alpha_M\) om each model \(M\) and then prescribe a prior distribution \(\mu_M\) for the parameter vector in the corresponding model. The Bayesian principle of model selection is to choose the most probable model \textit{a posteriori}; that is, to choose a model that maximizes the log-marginal likelihood (or the Bayes factor)
 
 \[
@@ -996,7 +1022,17 @@ A typical Bayesian model selection procedure is to first give nonzero prior prob
 where \(\lambda = (\log n)/2\). This asymptotic expansion leads to the Bayesian information criterion (BIC) for comparing models:
 
 \[
-BIC(\hat{\theta}) = -2 \ell_n (\hat{\theta}) + (\log n) \lVert \hat{\theta} \rVert_0.
+BIC(\hat{\theta}) := -2 \log \left(f( x \mid \hat{\theta}; \hat{\theta}_{MLE}) \right) + (\log n) \lVert \hat{\theta} \rVert_0.
+\]
+
+where \(f\) is the density function parameterized by \( \hat{\theta}_{MLE}\), the maximum likelihood estimate for the density given the data \(x\). 
+
+%One justification of this is as follows: suppose we have priors 
+
+Way we wrote this in DSO 607:
+
+\[
+BIC(\hat{\theta}) := -2 \ell_n (\hat{\theta}) + (\log n) \lVert \hat{\theta} \rVert_0.
 \]
 
 \[

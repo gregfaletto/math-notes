@@ -5450,13 +5450,36 @@ Left side:
 
 \subsection{KL Divergence (DSO 607)}\label{prob.kl.divergence}
 
-KL Divergence of density \(f\) (estimated) from density \(g\) (true model/distribution):
+Let \(f(\cdot \mid \theta): \mathbb{R}^k \to \mathbb{R}^n\) be a family of parameterized probability densities with \(\theta \in \Theta\). Suppose the true model is parameterized by \(\theta_0 \in \mathbb{R}^s\), and we are interested in comparing a different model parameterized by \(\theta \in \mathbb{R}^k\) to this model. The likelihood ratio \(\tau: \mathbb{R}^n \to \mathbb{R}\) defined by \(\tau(x; \theta, \theta_0) := f(x \mid \theta)/f(x \mid \theta_0)\) is a good tool for this comparison. Define the \textbf{discrimination} between \(\theta\) and \(\theta_0\) at \(x\) to be \(\Phi(\tau(x; \theta, \theta_0))\) for some function \(\Phi: \mathbb{R} \to \mathbb{R}\), and define the \textbf{mean discrimination} \(D(\theta; \theta_0): \mathbb{R}^k \to \mathbb{R}\) between \(\theta\) and \(\theta_0\) as
+
+\[
+D(\theta; \theta_0) := \int_{\mathbb{R}^n} \Phi(\tau(x; \theta, \theta_0)) \cdot f(x \mid \theta_0) \ dx = \E_{\theta_0} \left[ \Phi(\tau(X; \theta, \theta_0)) \right].
+\]
+
+To choose \(\Phi\) so that \(D(\theta; \theta_0)\) behaves like a distance, we would like \(\Phi(1) = 0\) since this covers the case where \(\theta = \theta_0\), because under the assumption that \(f(x \mid \theta) = f(x \mid \theta_0) \ \forall x \in \mathbb{R}^n \iff \theta = \theta_0\), we have \(\tau(x; \theta, \theta_0) = 1 \ \forall x \in \mathbb{R}^n  \iff \theta = \theta_0\). In particular, we would like this to be the minimum of the function; that is, \(\tau''(1; \theta, \theta_0) > 0\). Lastly, we would also like \(\tau'(x; \theta, \theta_0) > 0 \ \forall x \in \mathbb{R}^n\). One such choice is \(\Phi(t) := - 2 \log (t)\). This yields the \textbf{Kullback-Leibler (KL) divergence} \(I(\theta; \theta_0) : \mathbb{R}^k \to \mathbb{R}\)
+
+\[
+I(\theta; \theta_0) := -2\int_{\mathbb{R}^n} \log \left( \frac{f(x \mid \theta)}{f(x \mid \theta_0)} \right) \cdot f(x \mid \theta_0) \ dx = 2\int_{\mathbb{R}^n} \left[ \log \left( f(x \mid \theta_0) \right) - \log \left( f(x \mid \theta) \right) \right]\cdot f(x \mid \theta_0) \ dx \]
+
+\[
+= 2\E_{\theta_0} \left[ \log \left( f(X \mid \theta_0) \right) \right] - 2 \E_{\theta_0} \left[ \log \left( f(X \mid \theta) \right) \right].
+\]
+
+Of course, in practice we will estimate \(\theta_0\) as best as we can, by maximizing the \textbf{probabilistic negentropy}
+
+\[
+\E_Z I(\theta; \hat{\theta}_0(Z)) := 2\E_{\theta_0} \left[ \log \left( f(X \mid \theta_0 \right) \right] - 2 \E_{\theta_0, Z} \left[ \log \left( f \left(X \mid \hat{\theta}_0(Z) \right) \right) \right]
+\]
+
+where \(Z\) describes the probability distribution of the sample data and \(\hat{\theta}_0(Z)\) is our estimate of \(\theta_0\) from the data.
+
+Way we wrote this in DSO 607: KL Divergence of density \(f\) (estimated) from density \(g\) (true model/distribution):
 
 \[
 I(g; f) = \int[\log g(x) ] g(z) dz - \int [\log f(x)] g(z) dz = \E_g \log(g(z)) - \E_g(\log(f(z))
 \]
 
-Intuition: \(\log g(x)\) is the log likelihood. Penalty term can be interpreted as penalty, or as a bias correction since you are doing training and feature selection simultaneously on the same data.
+
 
 \
 

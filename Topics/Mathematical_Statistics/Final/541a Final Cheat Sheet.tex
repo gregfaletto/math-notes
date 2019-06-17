@@ -162,10 +162,10 @@
 \begin{theorem}\label{asym.thm.holder.ineq}[\textbf{H\"{o}lder (Grimmett and Stirzaker p. p. 143, 319; Theorem 1.99 in Math 541A lecture notes) Generalization of Cauchy-Schwarz}] Let \(X, Y : \Omega \to \mathbb{R}\) be random variables. For \(p, q \geq 1\) satisfying \(1/p + 1/q =1\) we have
 
 \[
-\E(|XY|) \leq (\E(|X^p|))^{1/p}(\E(|X^q|))^{1/q} = \lVert X \rVert_p \lVert Y \rVert_q.
+\E(|XY|) \leq (\E|X^p|)^{1/p}(\E|X^q|)^{1/q} = \lVert X \rVert_p \lVert Y \rVert_q.
 \]
 
-The equality case happens only if \(X\) is a constant multiple of \(Y\) with probability 1. Note that the case \(p=q=2\) recovers the Cauchy-Schwarz Inequality.
+The equality case happens only if \(X\) is a constant multiple of \(Y\) with probability 1 (see Corollary 7.3.15 in Casella and Berger). Note that the case \(p=q=2\) recovers the Cauchy-Schwarz Inequality.
 \end{theorem}
 
 \begin{definition} \textbf{Convergence in probability.} \(\{X_n\}\) is said to \textbf{converge in probability} to \(X\) if
@@ -341,6 +341,16 @@ satisfies \(\int_{\mathbb{R}^n} f_w(x) d \mu(s) = 1\) (by the definition of \(a(
 
 \subsubsection{Sufficient Statistics}
 
+\begin{center}
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\begin{definition}[\textbf{Sufficient Statistic; definition 5.1 in Math 541A notes}]\label{mathstats.defn.sufficient} Suppose \(X_1, \ldots, X_n\) is a sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta \}\) is a family of distributions (such as an exponential family). Let \(g: \mathbb{R}^n \to \mathbb{R}^k\) so that \(Y:= g(X_1, \ldots, X_n) \) is a statistic. We say that \(Y\) is a \textbf{sufficient statistic} for \(\theta\) if for every \(y \in \mathbb{R}^k\) and for every \(\theta \in \Theta\), the conditional distribution of \((X_1, \ldots, X_n)\) given \(Y=y\) (with respect to probabilities given by \(f_\theta\)) does not depend on \(\theta\). That is, \(Y\) provides sufficient information to determine \(\theta\) from \(X_1, \ldots, X_n\).
+
+\end{definition}
+}
+}
+\end{center}
+
 \textbf{How to show sufficiency:} either use the definition (as we did in some examples; show that conditional density does not depend on \(\theta\)), or use the Factorization Theorem:
 
 \noindent\fbox{
@@ -355,6 +365,20 @@ f_\theta(x) = g_\theta(t(x)) h(x), \ \ \ \forall \ x \in \mathbb{R}^n, \ \ \fora
 \end{theorem}
 }
 }
+
+\
+
+\begin{center}
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\begin{definition}[\textbf{Minimal sufficient statistic}] Suppose \(X = (X_1, \ldots, X_n)\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta \}\) is a family of probability density functions or probability mass functions. Let \(t: \mathbb{R}^n \to \mathbb{R}^k\). Let \(Y:= t(X_1, \ldots, X_n)\). Assume \(Y\) is sufficient of \(\theta\). Then \(Y\) is a \textbf{minimal sufficient statistic} for \(\theta\) if for every statistic \(Z: \Omega \to \mathbb{R}^m\) that is sufficient for \(\theta\) there exists a function \(\mathbb{R}^m \to \mathbb{R}^k\) such that \(Y = r(Z)\).
+
+\end{definition}
+}
+}
+\end{center}
+
+\
 
 \textbf{How to prove a minimal sufficient statistic exists:} pretty much always exists by Proposition 5.12.
 
@@ -393,6 +417,35 @@ t(x) = t(y).
 
 \subsubsection{Ancillary Statistics}
 
+\begin{center}
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\begin{definition}[\textbf{Ancillary Statistic}] Suppose \(X_1, \ldots, X_n\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of distributions. A statistic \(Y = t(X_1, \ldots, X_n), t: \mathbb{R}^n \to \mathbb{R}^m\) is \textbf{ancillary} for \(\theta\) if the distribution of \(Y\) does not depend on \(\theta\).
+
+\end{definition}
+
+}
+}
+\end{center}
+
+\
+
+\begin{center}
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+\begin{definition}[\textbf{Complete statistic; definition 5.16 in 541A notes}]Suppose \(X_1, \ldots, X_n\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of distributions. A statistic \(Y = t(X_1, \ldots, X_n), t: \mathbb{R}^n \to \mathbb{R}^k\) is \textbf{complete} for \(\theta\) if the following holds:
+
+\[
+\text{For any } f: \mathbb{R}^k \to \mathbb{R} \text{ such that } \E_\theta f(Y) = 0 \ \forall \ \theta \in \Theta, \text{ it holds that } f(Y) = 0.
+\]
+
+\end{definition}
+}
+}
+\end{center}
+
+\
+
 \textbf{How to show a statistic is complete:} Use the definition (difficult except for discrete random variables where you can express expectation without \(\theta\), as in binomial).
 
 \textbf{Why do we care if a statistic is complete?}
@@ -414,6 +467,8 @@ t(x) = t(y).
 
 \end{remark}
 
+\item \textbf{With a complete sufficient statistic (and any unbiased estimator), we can find a UMRU/UMVU estimator} (see Lehmann-Scheffe below).
+
 \item \textbf{Complete sufficient statistics are independent from ancillary statistics:}
 
 \noindent\fbox{
@@ -424,7 +479,7 @@ t(x) = t(y).
 }
 }
 
-\item \textbf{With a complete sufficient statistic (and any unbiased estimator), we can find a UMRU/UMVU estimator} (see Lehmann-Scheffe below).
+
 
 \end{enumerate}
 
@@ -441,16 +496,6 @@ t(x) = t(y).
 }
 
 \begin{remark}The ``uniform" property has to do with the fact that this inequality must hold for every \(\theta \in \Theta\) (as opposed to for a particular \(\theta\), or averaged over all \(\theta \in \Theta\), or something like that).
-
-\end{remark}
-
-\begin{remark}[\textbf{Remark 6.14 in Math 541A notes}] Let \(Z: \Omega \to \mathbb{R}^k\) be a complete sufficient statistic for \(\{f_\theta: \theta \in \Theta\}\) and let \(h: \mathbb{R}^k \to \mathbb{R}^m\). Let \(g(\theta) := \E_\theta h(Z)\) for all \(\theta \in \Theta\). Then \(h(Z)\) is unbiased for \(g(\theta)\), since \(\E_\theta h(Z) = g(\theta) = \E_\theta (g(\theta)) \). Applying Theorem \ref{mathstats.lehmann.scheffe} (Lehmann-Scheffe, Theorem 6.13 in Math 541A notes), we have
-
-\[
-W := \E_\theta(h(Z) \mid Z) = \E_\theta ( \E_\theta[h(Z) \mid h(Z)] \mid Z ) =  \E_\theta[h(Z) \mid h(Z)] = h(Z).
-\]
-
-Therefore by Theorem \ref{mathstats.lehmann.scheffe} (Lehmann-Scheffe, Theorem 6.13 in Math 541A notes), \(h(Z)\) is UMVU for \(g(\theta)\). That is, \textbf{any function of a complete sufficient statistic is UMVU for its expected value}. So one way to find a UMVU is to come up with a function of a complete sufficient statistic that is unbiased for a given function \(g(\theta)\).
 
 \end{remark}
 
@@ -497,12 +542,22 @@ In practice, if \(Z\) is not complete then we might not see an improvement.
 
 \noindent\fbox{
 \parbox{\textwidth}{
-\begin{theorem}[\textbf{Lehmann-Scheffe, Theorem 6.13 in Math 541A notes}]\label{mathstats.lehmann.scheffe} Let \(Z\) be a complete sufficient statistic for a family of distributions \(\{f_\theta: \theta \in \Theta\}\). Let \(Y\) be an unbiased estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). (Since \(Z\) is sufficient, \(W\) does not depend on \(\theta\).) Then \(W\) is UMRU for \(g(\theta)\). Further, if \(\ell(\theta, y)\) is strictly convex in \(y\) for all \(\theta \in \Theta\), then \(W\) is unique. In particular, \(W\) is the unique UMVU for \(g(\theta)\).
+\begin{theorem}[\textbf{Lehmann-Scheffe, Theorem 6.13 in Math 541A notes}]\label{mathstats.lehmann.scheffe} Let \(Z\) be a complete sufficient statistic for a family of distributions \(\{f_\theta: \theta \in \Theta\}\). Let \(Y\) be an unbiased estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). (Since \(Z\) is sufficient, \(W\) does not depend on \(\theta\); see Definition \ref{mathstats.defn.sufficient}.) Then \(W\) is UMRU for \(g(\theta)\). Further, if \(\ell(\theta, y)\) is strictly convex in \(y\) for all \(\theta \in \Theta\), then \(W\) is unique. In particular, \(W\) is the unique UMVU for \(g(\theta)\).
 
 \end{theorem}
 
 }
 }
+
+\begin{remark}[\textbf{Remark 6.14 in Math 541A notes}] Let \(Z: \Omega \to \mathbb{R}^k\) be a complete sufficient statistic for \(\{f_\theta: \theta \in \Theta\}\) and let \(h: \mathbb{R}^k \to \mathbb{R}^m\). Let \(g(\theta) := \E_\theta h(Z)\) for all \(\theta \in \Theta\). Then \(h(Z)\) is unbiased for \(g(\theta)\), since \(\E_\theta h(Z) = g(\theta) = \E_\theta (g(\theta)) \). Applying Theorem \ref{mathstats.lehmann.scheffe} (Lehmann-Scheffe, Theorem 6.13 in Math 541A notes), we have
+
+\[
+W := \E_\theta(h(Z) \mid Z) = \E_\theta ( \E_\theta[h(Z) \mid h(Z)] \mid Z ) =  \E_\theta[h(Z) \mid h(Z)] = h(Z).
+\]
+
+Therefore by Theorem \ref{mathstats.lehmann.scheffe} (Lehmann-Scheffe, Theorem 6.13 in Math 541A notes), \(h(Z)\) is UMVU for \(g(\theta)\). That is, \textbf{any function of a complete sufficient statistic is UMVU for its expected value} (see also Theorem 7.3.23 in Casella and Berger). So one way to find a UMVU is to come up with a function of a complete sufficient statistic that is unbiased for a given function \(g(\theta)\).
+
+\end{remark}
 
 %What if we don't have a complete sufficient statistic but we still want the UMVU?
 %
