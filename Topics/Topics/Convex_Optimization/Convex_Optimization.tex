@@ -1,0 +1,1467 @@
+%\documentclass{article}
+%
+%\usepackage{fancyhdr}
+%\usepackage{extramarks}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{tikz}
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\graphicspath{ {images/} }
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[document]{ragged2e}
+%\usepackage{textcomp}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{import}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=black,  %choose some color if you want links to stand out
+%}
+%\usepackage{import}
+%\usepackage{natbib}
+%
+%\usetikzlibrary{automata,positioning}
+%
+%
+%% Basic Document Settings
+%
+%
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%\setlength{\parskip}{1em}
+%
+%\linespread{1.1}
+%
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+%
+%\renewcommand\headrulewidth{0.4pt}
+%\renewcommand\footrulewidth{0.4pt}
+%
+%\setlength\parindent{0pt}
+%
+%
+%\newcommand{\hmwkTitle}{Math Review Notes---Convex Optimization}
+%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+%
+%
+%%%%%% Title Page
+%
+%
+%\title{
+%    \vspace{2in}
+%    \textmd{\textbf{ \hmwkTitle}}\\
+%}
+%
+%\author{Gregory Faletto}
+%\date{}
+%
+%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%
+%%%%%% Various Helper Commands
+%
+%
+%%%%%% Useful for algorithms
+%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+%
+%%%%%% For derivatives
+%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%
+%%%%%% For partial derivatives
+%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+%
+%%%%%% Integral dx
+%\newcommand{\dx}{\mathrm{d}x}
+%
+%%%%%% Alias for the Solution section header
+%\newcommand{\solution}{\textbf{\large Solution}}
+%
+%%%%%% Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\Var}{\mathrm{Var}}
+%\newcommand{\Cov}{\mathrm{Cov}}
+%\newcommand{\Bias}{\mathrm{Bias}}
+%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+%\DeclareMathOperator{\Tr}{Tr}
+%\DeclareMathOperator*{\argmax}{arg\,max}
+%\DeclareMathOperator*{\argmin}{arg\,min}
+%
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem*{remark}{Remark}
+%
+%%%%%% Tilde
+%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+%
+%\begin{document}
+%
+%\maketitle
+%
+%\pagebreak
+%
+%\tableofcontents
+%
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+%
+%
+%
+%\newpage
+%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%%
+%%% Convex Optimization
+
+\section{Convex Optimization}
+
+These are my notes from taking EE 588 at USC taught by Mahdi Soltanolkotabi and the textbook \textit{Convex Optimization} (Boyd and Vandenberghe) 7th printing \citep{boyd2004convex}, as well as Math 541A at USC taught by Steven Heilman.
+
+\textbf{Need to cover:}
+
+\begin{itemize}
+
+\item Update rules for optimization problems (e.g. gradient descent, be able to write down gradient, etc.)
+
+\item Know which algorithms are useful in which settings
+
+\item Homework-like problems from first part of class (no proofs though) (Boyd homework is good practice)
+
+\item Understand how to derive algorithms
+
+\item Understand how to calculate gradients, proximal functions, etc.
+
+\item Understand examples, how to run algorithms
+
+\item Only conceptual thing: duality question (write down dual)
+
+\item Formulate problems as convex optimization problems
+
+\end{itemize}
+
+\textbf{Do not need to cover:}
+
+\begin{itemize}
+
+\item ADMM
+
+\item Proofs from 2nd half of class (rates of convergence, etc.)
+
+\item Coding
+
+\end{itemize}
+
+\subsection{Convex Functions}\label{cvx.sec.jensen.etc}
+
+\begin{definition}[\textbf{Math 541A definition}]\label{cvx.defn.convex} Let $\phi:\mathbb{R}\to\mathbb{R}$.  We say that $\phi$ is \textbf{convex} if, for any $x,y\in\mathbb{R}$ and for any $t\in[0,1]$, we have
+$$\phi(tx+(1-t)y)\leq t\phi(x)+(1-t)\phi(y).$$
+
+\end{definition}
+
+\begin{definition}[\textbf{Strict convexity, Math 541A notes definition 6.6}]\label{cvx.defn.strictly.convex} Let $\phi:\mathbb{R}\to\mathbb{R}$.  We say that $\phi$ is \textbf{strictly convex} if, for any $x,y\in\mathbb{R}, x \neq y$ and for any $t\in(0,1)$, we have
+$$\phi(tx+(1-t)y)< t\phi(x)+(1-t)\phi(y).$$
+
+\end{definition}
+
+\begin{definition}[\textbf{Convex function in \(\mathbb{R}^n\), Math 541A Definition}]\label{cvx.defn.convex.multivar} Let $\phi:\mathbb{R}^n\to\mathbb{R}$.  We say that $\phi$ is \textbf{convex} if, for any $x,y\in\mathbb{R}^n$ and for any $t\in[0,1]$, we have
+
+\begin{equation}\label{cvx.541a.hw6.5a}
+\phi(tx+(1-t)y)\leq t\phi(x)+(1-t)\phi(y).
+\end{equation}
+
+\end{definition}
+
+\begin{lemma}[Result from Math 541A Homework 2]\label{cvx.slope.nondec} The slope of a convex function is nondecreasing. More formally, let \(\phi: \mathbb{R} \to \mathbb{R}\) be a convex function. For any \(x \in \mathbb{R}\), let 
+
+\[
+M_R:= \left\{ \frac{\phi(c) - \phi(x) }{c-x}  : c > x\right\}, \ \ \ \ M_L:= \left\{ \frac{\phi(x) - \phi(b) }{x - b}  : b > x\right\}
+\]
+
+be the slopes of the secant lines through \(\phi\) using points to the right and left of \(x\), respectively. Then for any \(m \in M_R\), \(p \in M_L\) we have \(m \geq p\).
+
+\end{lemma}
+
+\begin{proof} Fix \(x \in \mathbb{R}\). Let \(m \in M_R, p \in M_L\). By definition, there exist \(b < x < c\) such that 
+
+\[
+m =  \frac{\phi(c) - \phi(x) }{c-x}, \ \ \ p = \frac{\phi(x) - \phi(b) }{x - b}.
+\]
+
+Let \(t \in (0,1)\) such that 
+
+\begin{equation}\label{cvx.541.hw2.ex4a}
+tb + (1-t)c = x.
+\end{equation}
+
+Then we have
+
+\[
+m\geq p \iff  \frac{\phi(c) - \phi(x) }{c-x} \geq  \frac{\phi(x) - \phi(b) }{x - b} \iff (x-b)(\phi(c) - \phi(x) ) \geq (c-x) (\phi(x) - \phi(b) )
+\]
+
+\[
+\iff (x-b) \phi(c) + b \phi(x) \geq c \phi(x) - (c - x) \phi(b)
+\]
+
+From (\ref{cvx.541.hw2.ex4a}), we have \( x-b = tb + (1-t)c  - b = (t-1)b + (1-t)c = (1-t)(c-b)\) and \(t(b - c) = x - c \iff t(c-b) = c - x \). Therefore
+
+\[
+(x-b) \phi(c) + b \phi(x) \geq c \phi(x) - (c - x) \phi(b) \iff  (1-t)(c-b) \phi(c) + b \phi(x) \geq c \phi(x) - t(c - b)  \phi(b)
+\]
+
+\[
+\iff  (1-t)(c-b) \phi(c)  \geq (c-b) \phi(x) - t(c - b)  \phi(b) \iff  (1-t)\phi(c)  + t \phi(b) \geq  \phi(x) 
+\]
+
+But \(t \phi(b) + (1-t) \phi(c) \geq \phi(x)\) since \(\phi\) is convex. Therefore  \(m \geq p\).
+
+\end{proof}
+
+\begin{theorem}[\textbf{Result from 541A Homework 2; equivalent conditions for convexity}]\label{cvx.convex.tangent.line}
+Let $\phi:\mathbb{R}\to\mathbb{R}$. Then $\phi$ is convex if and only if: for any $y\in\mathbb{R}$, there exists a constant $a$ and there exists a function $L:\mathbb{R}\to\mathbb{R}$ defined by $L(x)=a(x-y)+\phi(y)$, $x\in\mathbb{R}$, such that $L(y)=\phi(y)$ and such that $L(x)\leq\phi(x)$ for all $x\in\mathbb{R}$.  (In the case that $\phi$ is differentiable, the latter condition says that $\phi$ lies above all of its tangent lines.)
+\end{theorem}
+
+\begin{proof} \(\implies\): As in Lemma \ref{cvx.slope.nondec}, let 
+
+\[
+M_R:= \{ \frac{\phi(c) - \phi(y) }{c-y}  : c > y\}, \ \ \ \ M_L:= \{ \frac{\phi(y) - \phi(b) }{y - b}  : b > y\}
+\]
+
+be the slopes of the secant lines through \(\phi\) using points to the right and left of \(y\), respectively. Then by Lemma \ref{cvx.slope.nondec}, for any \(m \in M_R\), \(p \in M_L\) we have \(m \geq p\), so we can choose some \(a_0 \in \mathbb{R}\) such that \(p \leq a_0 \leq m\) for all \(p \in M_L, m \in M_R\). Then let $L:\mathbb{R}\to\mathbb{R}$ be defined by $L(x)=a_0(x-y)+\phi(y)$, $x\in\mathbb{R}$. Note that $L(y)=\phi(y)$. 
+
+\
+
+We argue that $L(x)\leq\phi(x)$ for all $x\in\mathbb{R}$ by contradiction. Suppose there is some \(z \in \mathbb{R}\) with \(L(z) > \phi(z)\). Note that \( z \neq y\) because we have already shown that \(L(y) = \phi(y)\). Then we have
+
+%Suppose \(z > y\) (a similar argument can be formed if \(z < y\)).
+
+\begin{equation}\label{cvx.541.hw2.ex4b}
+L(z) > \phi(z) \iff a_0(z-y)+\phi(y) > \phi(z) 
+\end{equation}
+
+If \(z > y\), then we can solve (\ref{cvx.541.hw2.ex4b}) for \(a_0\) as follows:
+
+\[
+a_0 >  \frac{\phi(z) - \phi(y)}{z-y}
+\]
+
+But \(z \in M_R\), so we have \( \frac{\phi(z) - \phi(y) }{z-y} > a_0 \). Contradiction. If \(z < y\), we solve (\ref{cvx.541.hw2.ex4b}) for \(a_0\) as follows:
+
+\[
+a_0 <  \frac{\phi(z) - \phi(y)}{z-y} = \frac{\phi(y) - \phi(z) }{y-z} 
+\]
+
+But \(z \in M_L\), so we have \( \frac{\phi(y) - \phi(z) }{y-z} < a_0 \). Contradiction. Therefore for every \(z \in \mathbb{R}\) we have \(L(z) \leq \phi(z)\) as desired.
+
+\(\impliedby\): Now suppose that for any $y\in\mathbb{R}$ there exists a constant $a$ and a function $L:\mathbb{R}\to\mathbb{R}$ defined by $L(x)=a(x-y)+\phi(y)$, $x\in\mathbb{R}$, such that $L(y)=\phi(y)$ and such that $L(x)\leq\phi(x)$ for all $x\in\mathbb{R}$.
+
+\
+
+Fix \(b, c \in \mathbb{R}\) and let \(t \in (0,1)\). Set \(y:= tb + (1-t)c\). Then by assumption we can write
+
+\[
+a(b-y)+\phi(y) \leq \phi(b), \ \ \ \ \ a(c-y) + \phi(y) \leq \phi(c)
+\]
+
+Multiply by \(t > 0\) and \((1-t) > 0\) respectively to yield
+
+\begin{equation}\label{cvx.541.hw2.ex4c}
+ta(b-y)+ t\phi(y) \leq t\phi(b), \ \ \ \ \ (1-t)a(c-y) + (1-t)\phi(y) \leq (1-t)\phi(c)
+\end{equation}
+
+Note that 
+
+\[
+t a(b-y) + (1-t)a(c-y) = a(tb -ty + (c - y - ct + yt)) = a(tb  + c - y - ct )
+\]
+
+\[
+= a(tb  + c(1-t) - tb - (1-t)c) = 0
+\]
+
+So adding the inequalities in (\ref{cvx.541.hw2.ex4c}) yields
+
+\[
+ t\phi(y) +  (1-t)\phi(y) \leq t\phi(b) + (1-t)\phi(c) \iff \phi(y) \leq  t\phi(b) + (1-t)\phi(c) 
+\]
+
+\[
+\iff \phi( tb + (1-t)c  ) \leq  t\phi(b) + (1-t)\phi(c) .
+\]
+
+\end{proof}
+
+\begin{proof}[My original proof from submitted homework]
+
+If \(\phi\) is differentiable at \(y\), let \(a = \phi'(y)\). If not, let \(a\) be any subgradient of \(\phi\) at \(y\). Then \(L(x)\) is (a) tangent line to \(\phi\) at \(y\), which should be lesser than or equal to \(\phi\) for all \(x \in \mathbb{R}\) if \(\phi\) is convex. If and only if this is true at every \(y \in \mathbb{R}\) (the tangent line is a global underestimator at \(y\) for every \(y \in \mathbb{R}\)), then \(\phi\) must be convex. We proceed to show this formally:
+
+\
+
+\(\implies\): We will show that if \(\phi\) is convex; that is, if for any $x,y\in\mathbb{R}$ and for any $t\in[0,1]$, we have
+
+\begin{equation}\label{prob.ex4.1}
+\phi(tx+(1-t)y)\leq t\phi(x)+(1-t)\phi(y)
+\end{equation}
+
+then the inequality 
+
+\begin{equation}\label{prob.ex4.2}
+\phi'(y)(x-y) + \phi(y) \leq \phi(x) \ \ \forall x \in \mathbb{R}
+\end{equation}
+
+holds. Starting from (\ref{prob.ex4.1}) note that
+
+\[
+\phi(tx+(1-t)y)\leq t\phi(x)+(1-t)\phi(y) \implies  \phi(tx+(1-t)y) - \phi(x) \leq(1-t)(\phi(y)  - \phi(x))
+\]
+
+Suppose \( y > x\). Then  \( tx+(1-t)y - x = (1-t)(y-x) >0\), so we can divide by it on both sides:
+
+\[
+\implies  \frac{\phi(tx+(1-t)y) - \phi(x)}{ tx+(1-t)y - x } \leq \frac{(1-t)(\phi(y)  - \phi(x))}{  (1-t)(y-x) } \implies  \frac{\phi(tx+(1-t)y) - \phi(x)}{ tx+(1-t)y - x } \leq \frac{\phi(y)  - \phi(x)}{  y-x }
+\]
+
+Taking the limit as \(t \to 1\) yields
+
+\[
+\phi'(x) \leq \frac{\phi(y)  - \phi(x)}{  y-x }
+\]
+
+if \(\phi\) is differentiable, which is (equivalent to) what we hoped to prove. The case where \(x > y\) is analogous.
+
+\(\impliedby\): We will show that if (\ref{prob.ex4.2}) holds then \(\phi\) is convex; that is, (\ref{prob.ex4.1}) holds for any $x,y\in\mathbb{R}$ and for any $t\in[0,1]$. Starting from (\ref{prob.ex4.2}) note that
+
+\[
+\phi'(y)(x-y) + \phi(y) \leq \phi(x) \iff  \phi'(y)  \leq \frac{\phi(x)  - \phi(y)}{x-y} \ \ \forall \ x,y \in \mathbb{R}
+\]
+
+\end{proof}
+
+
+\begin{theorem}[\textbf{Global minimum of convex functions; Math 541A Homework problem}]\label{cvx.541a.exercise3.5}
+Let $f: \mathbb{R}^{n}\to\mathbb{R}$ be a convex function.  Let $x\in\mathbb{R}^{n}$ be a local minimum of $f$. Then
+
+\begin{enumerate}[(a)]
+
+\item $x$ is a global minimum of $f$.
+
+\item If $f$ is strictly convex, then there is at most one global minimum of $f$.
+
+\item  If $f$ is a $C^{1}$ function (all derivatives of $f$ exist and are continuous), and $x\in\mathbb{R}^{n}$ satisfies $\nabla f(x)=0$, then $x$ is a global minimum of $f$.
+
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item Since \(x\) is a local minimum, we have that there exists \(\epsilon > 0\) such that \(f(x) \leq f(y)  \ \forall \ y \in B(x, \epsilon)\) where \(B(x, \epsilon) \subseteq \mathbb{R}^n\) is an \(n\)-dimensional \(L_2\) ball of radius \(\epsilon\) centered at \(x\). Suppose there exists some \(z \in \mathbb{R}^n\) such that \(f(z) < f(x)\). Then by convexity of \(f\), for \(t \in [0, 1]\),
+
+\[
+f(tx + (1-t)z) \leq t f(x) + (1-t) f(z) <  t f(x) + (1-t) f(x) = f(x)
+\]
+
+which when \(t=1\) leads to the contradiction \(f(x) < f(x)\). (Also, for \(t = 1 -\delta\) with \(\delta\) sufficiently small, we get \(f(x') \leq t f(x) + (1-t) f(z) < f(x)\) where \(x' = tx + (1-t)z\) such that \(x' \in B(x, \epsilon)\), contradicting the fact that \(f(x)\) is a local minimum.) Therefore there is no \(z \in \mathbb{R}^n\) such that \(f(z) < f(x)\), so \(x\) is a global minimum.
+
+\item If \(f\) is strictly convex, for any \(z \in \{ \mathbb{R}^n \setminus x\}\) we have
+
+\begin{equation}\label{cvx.541a.hw6.4a}
+f(tx + (1-t)z) < t f(x) + (1-t) f(z) , \qquad \forall x, z \in \mathbb{R}^n, x \neq z
+\end{equation}
+
+We have already shown that there exists no \(z \in \{\mathbb{R}^n \setminus x\}\) such that \(f(z) < f(x)\). Suppose there is more than one global minimum of \(f\); that is, there exists \(z \in \{ \mathbb{R}^n \setminus x\}\) such that \(f(z) = f(x)\). That is, for all \(y  \in\{ \mathbb{R}^n \setminus \{x, z \} \}\), 
+
+\begin{equation}\label{cvx.541a.hw6.4b}
+f(x) = f(z) \leq f(y).
+\end{equation}
+
+ But then by strict convexity,
+
+\[
+f \bigg( \frac{x+z}{2} \bigg) < \frac{1}{2} f(x) + \frac{1}{2} f(z) =  \frac{1}{2} f(x) + \frac{1}{2} f(x) = f(x)
+\]
+
+which contradicts (\ref{cvx.541a.hw6.4b}) if \(y = (x+z)/2\). Therefore the global minimum of \(f\) is unique.
+
+%But letting \(t= 1\) in (\ref{cvx.541a.hw6.4a}) ,
+%
+%\[
+%f(tx + (1-t)z) < t f(x) + (1-t) f(z) 
+%\]
+
+
+\item Recall from Exercise 4 in Homework 2 that \(f\) is convex if and only if for any \( x\in \mathbb{R}^n\) there exists a constant \(a \in \mathbb{R}^n\) and a function \(L:\mathbb{R}^n \to \mathbb{R}\) defined by \(L(y) = a^T(y-x) + f(x), y \in \mathbb{R}^n\) such that \(L(x) = f(x)\) and \(L(y) \leq f(y)\) for all \(y \in \mathbb{R}^n\). Further, if \(f\) is a \(C^1\) function then this function exists for \(a = \nabla f(x)\). That is,
+
+\[
+f(y) \geq f(x) + \nabla f^T(x)(y-x), \ \forall y \in \mathbb{R}^n.
+\]
+
+Since \(\nabla f(x) = 0\), if we plug in \(y= x\) we get
+
+\[
+f(y) \geq f(x), \ \ \forall y \in \mathbb{R}^n.
+\]
+
+\end{enumerate}
+
+\end{proof}
+
+
+\begin{theorem}[\textbf{Jensen's Inequality, from Math 541A}]\label{cvx.jensen.general}Let $X:\Omega\to[-\infty,\infty]$ be a random variable.  Let $\phi:\mathbb{R}\to\mathbb{R}$ be convex.  Assume that $\E|X|<\infty$ and $\E|\phi(X)|<\infty$.  Then
+$$\phi(\E X)\leq \E \phi(X).$$
+\end{theorem}
+
+\begin{proof}Note that from Theorem \ref{cvx.convex.tangent.line}, for any \(y \in \mathbb{R}\) there exists a constant \(a\) and a function \(L\) such that
+
+\[
+a(x-y)+\phi(y) \leq \phi(x) \ \ \ \forall x \in \mathbb{R}
+\]
+
+Letting \(y = \E(X)\) we have
+
+\[
+a (X-\E X)+\phi(\E X) \leq \phi(X)
+\]
+
+Since expectations preserve inequalities,
+
+\[
+\E[a (X-\E X)+\phi(\E X)] \leq \E \phi(X)
+\]
+
+But
+
+\[
+\E[a(X-\E X)+\phi(\E X)]  = a(\E X - \E X) + \E(\phi(\E X)) = \phi(\E X)
+\]
+
+which yields
+
+\[
+\phi( \E X) \leq \E \phi(X).
+\]
+
+\end{proof}
+
+\begin{corollary}[\textbf{Jensen's Inequality: EE 588 Formulation}]\label{cvx.jensen} \(f\) is convex if and only if
+\[
+f \bigg(\frac{a+b}{2} \bigg) \leq \frac{f(a) + f(b)}{2} 
+\]
+for all \(a, b \in \textbf{dom}(f)\). 
+\end{corollary}
+
+\begin{proof} Follows from Theorem \ref{cvx.jensen.general} if \(X\) is a discrete random variable that equals \(a\) or \(b\) each with probability 1/2 and \(\phi(X) = f(X)\). Note that \(\phi(X)\) is convex.
+
+\end{proof}
+
+\begin{corollary}[\textbf{Triangle Inequality}] Let $X:\Omega\to[-\infty,\infty]$ be a random variable with $\E|X|<\infty$. Then
+$$\|E X|\leq\E|X|.$$
+
+\end{corollary}
+
+\begin{proof}Note that \(\phi(x) = |x|\) is convex by the definition of convexity: for any \(x, y \in \mathbb{R}\) and for any \(t \in (0, 1)\), we have
+
+\[
+\phi(tx+(1-t)y) = |tx + (1-t)y| \leq \ldots =  t|x|+(1-t)|y| =  t\phi(x)+(1-t)\phi(y).
+\]
+
+Then the result follows immediately from Jensen's Inequality (Theorem \ref{cvx.jensen.general}) using \(\phi(X) = |X|\):
+
+\[
+|\E X| \leq \E |X|
+\]
+
+\end{proof}
+
+\begin{theorem}[\textbf{Conditional Jensen Inequality}]\label{cvx.541A.exercise5.89}
+Let $X,Y:\Omega\to\mathbb{R}$ be random variables that are either both discrete or both continuous.  Let $\phi : \mathbb{R} \to \mathbb{R}$ be convex.  Then
+$$\phi(\E( X|Y))\leq \E( \phi(X)|Y).$$
+If $\phi$ is strictly convex, then equality holds only if $X$ is constant on any set where $Y$ is constant.  That is, (by an Exercise from the previous homework) equality holds only if $X$ is a function of $Y$.
+
+\end{theorem}
+
+\begin{proof} 
+
+
+Recall that from Exercise 4 in Homework 2 that since \(\phi\) is convex, for any \(y \in \mathbb{R}\) there exists a constant \(a\) and a function \(L\) such that
+
+\[
+a(x-y)+\phi(y) \leq \phi(x) \ \ \ \forall x \in \mathbb{R}
+\]
+
+Letting \(x = X\) and \(y = \E(X \mid Y)\) we have
+
+\[
+a (X-\E (X \mid Y))+\phi(\E ( X \mid Y)) \leq \phi(X)
+\]
+
+% \iff \phi(\E X) \leq \phi(X) - \phi'(\E X) (X-\E X)
+
+Since by Lemma \ref{prob.cond.expec.pres.ineq} conditional expectations preserve inequalities,
+
+\[
+\E[a (X-\E [X \mid Y])+\phi(\E [X \mid Y]) \mid Y ] \leq \E ( \phi(X) \mid Y)
+\]
+
+But
+
+\[
+\E[a (X-\E [X \mid Y])+\phi(\E [X \mid Y]) \mid Y ]  = a(\E [X \mid Y] -  \E[ \E (X \mid Y) \mid Y] ) + \E[\phi(\E [X \mid Y]) \mid Y].
+\]
+
+By Corollary \ref{prob.cor.cond.exp.on.func} (letting \(h(Y) = \phi(\E [X \mid Y])\)), \( \E[\phi(\E [X \mid Y]) \mid Y] = \phi(\E [X \mid Y])\). By Corollary \ref{prob.cor.cond.exp.cond.exp}, \( \E[ \E (X \mid Y)) \mid Y] = \E(X \mid Y)\). Therefore we have
+
+\[
+ = a(\E [X \mid Y] - \E [X \mid Y]) + \phi(\E [X \mid Y]) = \phi(\E (X \mid Y))
+\]
+
+which yields
+
+\[
+\phi( \E (X \mid Y)) \leq \E( \phi(X) \mid Y).
+\]
+
+
+\end{proof}
+
+
+
+
+
+
+
+\begin{proposition}[\textbf{Convexity of affine functions}]\label{cvx.affine.cvx}
+
+Let $c \in \mathbb{R}^n$ and \(d \in \mathbb{R}\) be fixed. Let \(x \in \mathbb{R}^n\). Then the function \( f(x) = c^Tx + d\) is convex.
+
+\end{proposition}
+
+\begin{proof} We will show that \(f\) satisfies (\ref{cvx.541a.hw6.5a}) for any \(x,y \in \mathbb{R}^n\) and any \(t \in [0,1]\):
+
+\[
+f(tx+(1-t)y) =  c^T(tx+(1-t)y) + d =  c^T(tx+(1-t)y) + d  = t c^Tx+ td +(1-t) c^Ty  + (1-t)d
+\]
+
+\[
+= t[c^Tx + d] +(1-t)[c^Ty + d] = tf(x)+(1-t)f(y).
+\]
+
+In particular, (\ref{cvx.541a.hw6.5a}) is satisfied with equality.
+
+\end{proof}
+
+\begin{proposition}[\textbf{Convexity of quadratic forms}]\label{cvs.quad.form.cvx} Let $A \in \mathbb{R}^{m \times n}$ and \(k > 0\) be fixed. Let \(x \in \mathbb{R}^n\). Then the function  \( f(x) = k x^TA^TAx\) is convex.
+
+\end{proposition}
+
+\begin{proof}
+
+We will show that \(f\) satisfies the definition of convexity. Plugging \( \phi(x) = k x^TA^TAx\) into the left side of (\ref{cvx.541a.hw6.5a}), we have
+
+\[
+k(tx+(1-t)y)^T A^TA(tx+(1-t)y)  = k(tx^T+(1-t)y^T) A^TA(tx+(1-t)y) 
+\]
+
+\[
+= k \big[ tx^T A^TA tx + tx^T A^TA  (1-t)y +   (1-t)y^T A^TAtx + (1-t)y^T A^TA(1-t)y  \big]
+\]
+
+\[
+= k \big[ t^2x^T A^TA x + t(1-t)x^T A^TA  y +   t(1-t)y^T A^TAx + (1-t)^2y^T A^TAy  \big]
+\]
+
+Note that \(x^T A^TA  y \in \mathbb{R} = [x^T A^TA  y ]^T = y^T A^TAx\), so we have
+
+\begin{equation}\label{cvx.541a.hw6.5b}
+= k \big[ t^2x^T A^TA x + 2t(1-t)x^T A^TA  y  + (1-t)^2y^T A^TAy  \big]
+\end{equation}
+
+Plugging \( \phi(x) = k x^TA^TAx\) into the right side of (\ref{cvx.541a.hw6.5a}) yields
+
+\begin{equation}\label{cvx.541a.hw6.5c}
+ k t  x^TA^TAx +k(1-t)  y^TA^TAy
+\end{equation}
+
+We can verify the inequality in (\ref{cvx.541a.hw6.5a}) by subtracting (\ref{cvx.541a.hw6.5c}) from (\ref{cvx.541a.hw6.5b}) to see if a negative number results:
+
+\[
+ k  t^2x^T A^TA x +2k t(1-t)x^T A^TA  y  + k  (1-t)^2y^T A^TAy -k  t  x^TA^TAx - k (1-t) y^TA^TAy
+\]
+
+\[
+= k t (t - 1) x^T A^TA x   +2k t(1-t)x^T A^TA  y  + k (1-t) [1-t - 1] y^T A^TAy
+\]
+
+\[
+= -k t (1 - t) [x^T A^TA x - 2x^T A^TA  y +  y^T A^TAy]  = -k t (1 - t) [x^T A^T - y^T A^T ] [Ax - Ay ]
+\]
+
+\[
+  = -k t (1 - t) [A(x-y) ]^T A(x-y)  \leq 0
+\]
+
+for all \(x, y \in \mathbb{R}^n\) and any \(t \in [0,1]\) since \( -k t (1 - t)  \leq 0\) (with equality only when \(t = 0\) or \(t= 1\)) and \( [A(x-y) ]^T A(x-y)  \geq 0\) (with equality only when \(x= y\)). This verifies the inequality in (\ref{cvx.541a.hw6.5a}), which proves that \( k x^TA^TAx\) is convex.
+
+\end{proof}
+
+\begin{proposition}[\textbf{Sum of convex functions is convex}]\label{cvx.sum.cvx.cvx} Let \(f_1, \ldots, f_n: \mathbb{R}^n \to \mathbb{R}\) be (strictly) convex functions. Then the function \(g(x) := \sum_{i=1}^n f_i(x)\) is (strictly) convex.
+
+\end{proposition}
+
+\begin{proof} Since \(f_i\) is convex for all \(i \in \{1, \ldots, n\}\), \(f_i\) satisfies
+
+\[
+f_i(tx+(1-t)y) \leq t f_i(x)+(1-t)f_i(y), \qquad \forall i \in \{1, \ldots, n \}.
+\]
+
+%Similarly, 
+%
+%\[
+%g(tx+(1-t)y)\leq t g(x)+(1-t)g(y).
+%\]
+
+We make use of these inequalities to show that \(g\) satisfies (\ref{cvx.541a.hw6.5a}) for any \(x,y \in \mathbb{R}^n\) and any \(t \in [0,1]\):
+
+\[
+g(tx+(1-t)y) =\sum_{i=1}^n f_i(tx+(1-t)y)  \leq \sum_{i=1}^n \left[ t f_i(x)+(1-t)f_i(y)\right]
+\]
+\[
+= t \sum_{i=1}^n f_i(x) + (1-t) \sum_{i=1}^n f_i(y) =tg(x)+(1-t)g(y)
+\]
+
+which proves the result. (Note that if the initial inequality is strict then strict convexity follows.)
+
+\end{proof}
+
+\begin{proposition}[\textbf{Exercise 6.43 in Math 541A Lecture Notes}]Let \(f_1, \ldots, f_n: \mathbb{R} \to \mathbb{R}\) be \(n\) strictly convex functions. Define \(g: \mathbb{R}^n \to \mathbb{R}\) by
+
+\[
+g(x_1, \ldots, x_n):= \sum_{i=1}^n f_i(x_i), \qquad \forall (x_1, \ldots, x_n) \in \mathbb{R}^n.
+\]
+
+Then \(g:\mathbb{R}^n \to \mathbb{R}\) is convex.
+
+\end{proposition}
+
+\begin{proof} Since \(f_i\) is strictly convex for all \(i \in \{1,\ldots, n\}\), we have that  for any \(x_i, y_i \in \mathbb{R}\), for all \(t \in (0,1)\)
+
+\[
+ f_i(tx_i + (1-t)y_i)  < t f_i(x_i) + (1-t) f_i(y_i).
+ \]
+
+Therefore for any \(x, y \in \mathbb{R}^n\) (where \(x = (x_1, \ldots, x_n), y= (y_1, \ldots, y_n)\)), for all \(t \in (0,1)\)
+
+\[
+g(tx+(1-t)y) = \sum_{i=1}^n f_i(tx_i + (1-t)y_i)  <  \sum_{i=1}^n \left[ t f_i(x_i) + (1-t) f_i(y_i) \right] = t \sum_{i=1}^n f_i(x_i) + (1-t) \sum_{i=1}^n f_i(y_i)
+\]
+\[
+  = tg(x)+(1-t)g(y).
+\]
+
+\end{proof}
+
+\begin{proposition}[\textbf{Exercise 6.44 from Math 541A lecture notes}]Let \(f: \mathbb{R}^n \to \mathbb{R}\). Suppose that for any fixed \(i \in \{1, \ldots, n\}\) and for any \(x_1, \ldots, x_{i-1}, x_{i+1}, \ldots, x_n\), the function
+
+\[
+x_i \mapsto f(x_1, \ldots, x_n)
+\]
+
+is strictly convex. Then \(f\) has at most one global minimum.
+
+\end{proposition}
+
+\begin{proof}An equivalent statement to our assumption is that for any \(i\), \(f\) is strictly convex in \(x_i\) keeping \\ \((x_1, \ldots, x_{i-1}, x_{i+1}, \ldots, x_n)\) fixed. That is, if we let \(h_i: \mathbb{R} \to \mathbb{R}\) be defined for all \(i \in \{1, \ldots, n\}\) by
+
+\[
+h_i \big(x_i \mid (x_1, \ldots, x_{i-1}, x_{i+1}, \ldots, x_n) \big) := f\big( (x_1, \ldots, x_n) \big) \qquad \forall i \in \{1, \ldots, n\},
+\] 
+
+then \(h_i\) is strictly convex for all \(i \in \{1, \ldots, n\}\). That is, for any \(x_i, y_i \in \mathbb{R}\), for all \(t \in (0,1)\)
+
+\[
+ h_i \big(tx_i + (1-t)y_i  \mid (tx_1 + (1-t)y_1, \ldots, tx_{i-1} + (1-t)y_{i-1}, tx_{i+1} + (1-t)y_{i+1}, \ldots, tx_n + (1-t)y_n) \big) 
+\]
+ 
+\begin{equation}\label{cvx.541a.final.2b}
+  < t h_i \big(x_i  \mid (x_1, \ldots, x_{i-1}, x_{i+1}, \ldots, x_n) \big) + (1-t) h_i \big(y_i \mid  (y_1, \ldots, y_{i-1}, y_{i+1}, \ldots, y_n)  \big).
+\end{equation}
+
+By Theorem \ref{cvx.541a.exercise3.5}(b), there is at most one global minimum of \(f\) if it is strictly convex, so all we need to show is that \(f\) is strictly convex. That is, we must show that for all \((x_1, \ldots, x_n), (y_1, \ldots, y_n) \in \mathbb{R}^n\), for all \(t \in (0,1)\),
+
+\begin{equation}\label{cvx.541a.final.2a}
+f \big(t(x_1, \ldots, x_n) + (1-t)(y_1, \ldots, y_n) \big) < t f \big( (x_1, \ldots, x_n)  \big) + (1-t) f \big( (y_1, \ldots, y_n)  \big).
+\end{equation}
+
+We will argue by contradiction. Suppose that for some \((x_1^*, \ldots, x_n^*) \in \mathbb{R}^n\) and \((y_1^*, \ldots, y_n^*) \in \mathbb{R}^n\), (\ref{cvx.541a.final.2a}) does not hold. That is, 
+
+\[
+f \big(t^*(x_1^*, \ldots, x_n^*) + (1-t^*)(y_1^*, \ldots, y_n^*) \big) \geq t^* f \big( (x_1^*, \ldots, x_n^*)  \big) + (1-t^*) f \big( (y_1^*, \ldots, y_n^*)  \big).
+\]
+
+for some \(t^* \in (0,1)\). This is equivalent to
+
+\[
+ h_1 \big(t^*x_1^* + (1-t^*)y_1^*  \mid (t^*x_2^* + (1-t^*)y_2^*, \ldots,  t^*x_n^* + (1-t^*)y_n^*)  \big) 
+ \]
+ \[
+   \geq t^* h_1 \big(x_1^* \mid (x_2^*, \ldots, x_n^*) \big) + (1-t^*) h_1 \big(y_1^* \mid  (y_2^*, \ldots,  y_n^*)  \big).
+\]
+
+ But this contradicts (\ref{cvx.541a.final.2b}). Therefore (\ref{cvx.541a.final.2a}) holds  for all \((x_1, \ldots, x_n), (y_1, \ldots, y_n) \in \mathbb{R}^n\), for all \(t \in (0,1)\), so \(f\) is strictly convex, which means (by Theorem \ref{cvx.541a.exercise3.5}(b)) that \(f\) has at most one global minimum.
+ 
+
+\end{proof}
+
+
+\begin{proposition}\label{cvx.least.squares.cvx}
+Let $A$ be a real $m\times n$ matrix. Let $x\in\mathbb{R}^{n}$ and let $b\in\mathbb{R}^{m}$. Then the function $f\colon\mathbb{R}^{n}\to\mathbb{R}$ defined by $f(x)=\frac{1}{2}\lVert Ax-b\rVert ^{2}$ is convex.
+
+
+\end{proposition}
+
+\begin{proof}
+
+
+
+We have
+
+\[
+f(x) = \frac{1}{2} \lVert Ax - b \rVert^2 = \frac{1}{2} (Ax - b)^T (Ax -b) = \frac{1}{2} (x^TA^T - b^T)(Ax -b) 
+\]
+
+\[
+= \frac{1}{2} (x^TA^TAx  - b^TAx   - x^TA^Tb + b^T b) = \frac{1}{2} x^TA^TAx  - b^TAx + \frac{1}{2}b^T b
+\]
+
+where the last step follows because \(b^TAx \in \mathbb{R} = (b^TAx)^T =  x^TA^Tb \) since a real number equals its transpose. The affine function \( - b^TAx + \frac{1}{2}b^T b\) is convex by Proposition \ref{cvx.affine.cvx}, and the quadratic form \( \frac{1}{2} x^TA^TAx \) is convex by Proposition \ref{cvs.quad.form.cvx}. Since the sum of convex functions is convex by Proposition \ref{cvx.sum.cvx.cvx}, the result follows.
+
+
+\end{proof}
+
+\begin{remark} Moreover,
+$$\nabla f(x)=A^{T}(Ax-b),\qquad D^{2}f(x)=A^{T}A.$$
+(Here $D^{2}f$ denotes the matrix of second derivatives of $f$.)
+
+So, if $\nabla f(x)=0$, i.e. if $A^{T}Ax=A^{T}b$, then $x$ is the global minimum of $f$.  And if $A$ has full rank, then $A^{T}A$ is invertible, so that $x=(A^{T}A)^{-1}A^{T}b$ is the global minimum of $f$.
+\end{remark}
+
+\begin{proposition}[\textbf{Convexity of norms}]\label{cvx.norm.cvx}Every norm on \(\mathbb{R}^n\) is convex. 
+
+\end{proposition}
+
+\begin{proof}Suppose we have a generic norm \(\lVert \cdot \rVert_*\) in \(\mathbb{R}^n\). Because  \(\lVert \cdot \rVert_*\) is a norm, it satisfies the triangle inequality; that is, for all \(x, y \in \mathbb{R}^n\),\(\lVert x + y \rVert_* \leq \lVert x  \rVert_*  + \lVert  y \rVert_*\). Further, for any \(t \in [0,1]\), we have
+
+
+\[
+\lVert tx + (1-t)y \rVert_* \leq \lVert tx  \rVert_*  + \lVert(1-t)  y \rVert_* =  t\lVert x  \rVert_*  +  (1-t) \lVert y \rVert_*
+\]
+
+where the last step also follows from a property of all norms.
+
+
+\end{proof}
+
+\begin{proposition}[\textbf{Mentioned in in-class 541A review; might have been on HW?}]If \(\phi\) is strictly convex and \(\E(\phi(X)) = \phi(\E(X))\) then \(X\) is almost surely constant.
+
+\end{proposition}
+
+\begin{proposition}[\textbf{2018 DSO Statistics Group In-Class Screening Exam, Question 5}] The function \(f(\theta) = ( \lVert \theta \rVert_1)^2\) is convex.
+
+\end{proposition}
+
+\begin{proof}
+
+
+Note that
+
+\begin{equation}\label{2018.screen.5.d.a}
+\lVert tx+(1-t)y \rVert_1 \leq \lVert tx \rVert_1  + \lVert (1-t)y \rVert_1 = t \lVert x \rVert_1  + (1-t) \lVert y \rVert_1 
+\end{equation}
+
+where the first step follows by the Triangle Inequality (which all norms satisfy, including the \(\ell_1\) norm) and the second step follows by the homogeneity property of norms. Therefore \(\lVert \theta \rVert_1\) is convex. Next, by (\ref{2018.screen.5.d.a}) and the monotonicity of \(g(\theta) = \theta^2\) when \(\theta \geq 0\),
+
+%Note that (\ref{2018.screen.5.d.a}) holds with equality if \(x \succeq \boldsymbol{0}_n\) and \(y \succeq \boldsymbol{0}_n\) or \(x \preceq \boldsymbol{0}_n\) and \(y \preceq \boldsymbol{0}_n\). If either of those conditions are met, we have
+
+\[
+f(tx+(1-t)y) = \left( \lVert tx+(1-t)y \rVert_1 \right)^2 \leq \left(  t \lVert x \rVert_1  + (1-t) \lVert y \rVert_1  \right)^2 
+\]
+
+\[
+= t^2 \lVert x \rVert_1^2 + (1-t)^2 \lVert y \rVert_1^2 +2t(1-t) \lVert x \rVert_1 \lVert y \rVert_1 
+\]
+
+and
+
+\[
+tf(x) + (1-t)f(y) = t \lVert x \rVert_1^2 + (1-t) \lVert y \rVert_1^2
+\]
+
+Taking the difference of these yields
+
+\[
+tf(x) + (1-t)f(y)  - f(tx+(1-t)y)  \geq t \lVert x \rVert_1^2 + (1-t) \lVert y \rVert_1^2 - \left(  t^2 \lVert x \rVert_1^2 + (1-t)^2 \lVert y \rVert_1^2 +2t(1-t) \lVert x \rVert_1 \lVert y \rVert_1  \right)
+\]
+
+\[
+=( t - t^2) \lVert x \rVert_1^2 + [(1-t) - (1-t)^2] \lVert y \rVert_1^2 - 2t(1-t)\lVert x \rVert_1 \lVert y \rVert_1 
+\]
+
+\[
+=(t - t^2)\left( \lVert x \rVert_1^2 + \lVert y \rVert_1^2 - 2\lVert x \rVert_1 \lVert y \rVert_1 \right) = t(1-t)(\lVert x \rVert_1 - \lVert y \rVert_1)^2 \geq 0
+\]
+
+\[
+\iff  tf(x) + (1-t)f(y)  \geq f(tx+(1-t)y)  
+\]
+
+which proves convexity.
+
+\end{proof}
+
+
+
+\subsection{Schur Complement Trick}\label{cvx.schur.sec}
+
+\subsubsection{Definition}
+
+For a matrix \(X \in \boldsymbol{S}^n\) partitioned as 
+
+\[
+X = \begin{bmatrix} A & B \\ B^T & C\end{bmatrix}
+\]
+
+the Schur complement is (if \(\textbf{det}(A) \neq 0\))
+
+\[
+S = C - B^TA^{-1} B
+\]
+
+The Schur complement has two useful properties in convex analysis.
+
+\begin{theorem}\label{cvx.schur.props}
+
+\begin{enumerate}[(a)]
+
+\item \(X \succ 0\) if and only if \(A \succ 0\) and \(S \succ 0\).
+
+\item If \(A \succ 0\), then \(X \succeq 0\) if and only if \(S \succeq 0\).
+
+\end{enumerate}
+
+\end{theorem}
+
+\subsubsection{The Trick}
+
+Suppose we are trying to express a problem as a semidefinite program (SDP); that is, in the form
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & c^T x \\
+& \text{subject to}
+& & x_1F_1 + \ldots + x_n F_n + G \preceq 0 \\
+& & & Ax = b
+\end{aligned}
+\]
+
+where \(G, F_1, \ldots, F_n \in \boldsymbol{S}^k\) and \(A \in \mathbb{R}^{p \times n}\). If we have a constraint of the form \(c^TF(x)^{-1}c  \leq t\) where \(F(x)\) is symmetric and positive definite and \(t \in \mathbb{R}\), by Theorem \ref{cvx.schur.props}(b) we can write
+
+\[
+c^TF(x)^{-1}c  \leq t \iff  \begin{bmatrix}
+    F(x)      & c \\
+    c^T & t
+\end{bmatrix} \succeq 0 
+\]
+
+in order to get our constraint in the form required for an SDP.
+
+\subsubsection{Example 1: Last Year's Final, Question 2(b)}
+
+Suppose we have the constraints
+
+\[
+\begin{aligned}
+Ax + b \geq 0 \\
+\frac{(c^Tx)^2}{d^Tx} \leq t
+\end{aligned}
+\]
+
+which we would like to express in an SDP. By Theorem \ref{cvx.schur.props}(b) we can write
+
+\[
+\frac{(c^Tx)^2}{d^Tx} \leq t \iff d^Tx - (c^Tx)^T t^{-1} c^Tx \geq 0  \iff  \begin{bmatrix}
+    t      & c^Tx \\
+    c^Tx & d^Tx
+\end{bmatrix} \succeq 0 
+\]
+
+Since
+
+\[
+Ax + b \geq 0 \iff \textbf{diag}(Ax + b) \succeq 0
+\]
+
+we can finally write our constraints as 
+
+\[
+\begin{bmatrix}
+    \textbf{diag}(Ax + b) & 0 & 0 \\
+    0 & t      & c^Tx \\
+    0 & c^Tx & d^Tx
+\end{bmatrix} \succeq 0 
+\]
+
+\subsubsection{Example 2: Last Year's Final, Question 4(b)}
+
+Suppose we have the constraints
+
+\[
+\begin{aligned}
+Ax + b \geq 0 \\
+\frac{(c^Tx)^2}{d^Tx} \leq t
+\end{aligned}
+\]
+
+which we would like to express in an SDP. By Theorem \ref{cvx.schur.props}(b) we can write
+
+\[
+\frac{(c^Tx)^2}{d^Tx} \leq t \iff d^Tx - (c^Tx)^T t^{-1} c^Tx \geq 0  \iff  \begin{bmatrix}
+    t      & c^Tx \\
+    c^Tx & d^Tx
+\end{bmatrix} \succeq 0 
+\]
+
+Since
+
+\[
+Ax + b \geq 0 \iff \textbf{diag}(Ax + b) \succeq 0
+\]
+
+we can finally write our constraints as 
+
+\[
+\begin{bmatrix}
+    \textbf{diag}(Ax + b) & 0 & 0 \\
+    0 & t      & c^Tx \\
+    0 & c^Tx & d^Tx
+\end{bmatrix} \succeq 0 
+\]
+
+
+\subsection{Duality}
+
+\begin{theorem} \label{cvx.slater.thm} Slater's condition/constraint qualification: Strong duality holds for a convex problem
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & f_0(x) \\
+& \text{subject to}
+& & f_i(x) \leq 0, i = 1, \ldots, m \\
+& & & Ax = b
+\end{aligned}
+\]
+
+if it is strictly feasible, i.e., there exists at least one \(x\) in the domain of \(f_0\) such that \(f_i(x) < 0, \ i=1,2, \ldots, m\), \(Ax=b\).
+
+\end{theorem}
+
+\subsection{MLE estimates}
+
+For linear estimates with iid noise
+
+\[
+y_i = a_i^T x + v_i, i = 1, \ldots, m
+\]
+
+where \(a\) is observed and \(x \in \mathbb{R}^n\) are the parameters to be estimated, the likelihood function is
+
+\[
+p_x(y) = \prod_{i=1}^m \Pr(v_i = y_i - a_i^Tx \mid x)
+\]
+
+Therefore the log likelihood function is:
+
+\[
+\ell_x (y) = \sum_{i=1}^m \log[ \Pr(v_i = y_i - a_i^Tx \mid x)]
+\]
+
+\subsection{Practice Final (2017 Final)}
+
+\begin{enumerate}[(1)]
+
+% Problem 1
+\item
+%\begin{homeworkProblem}
+
+
+
+\begin{enumerate}[(a)]
+
+% 1 a
+\item Strictly convex. Multiply by \(x/x\) (allowed in this case since \(x >0\)) to get \(\frac{x^2}{x+1}\) which is a quadratic over linear, which is convex in \(\mathbb{R}^{++}\) according to CVX rules.
+
+% 1 b
+\item Not convex, it is convex for \(x \geq -1\), but there is a boundary problem at \(x=-1\). Note that Jensen's inequality (Theorem \ref{cvx.jensen})
+
+\[
+\frac{f(a) + f(b)}{2} \geq f \bigg(\frac{a+b}{2} \bigg)
+\]
+
+is violated because
+
+\[
+\frac{f(-1.3) + f(-0.9)}{2} = \frac{2.3 + 0}{2} = 1.15  \leq 2.2 = f(-1.1) = f\bigg(\frac{-1.3 + -0.9}{2} \bigg) 
+\]
+
+% 1 c
+\item 
+
+%Nonconvex. \(\Tr(X)\) can come out of the determinant, so this can be written as
+%
+%\[
+%-\Tr(X) \cdot \log \bigg( \frac{1}{\Tr(X)^n} \cdot \textbf{det}(X) \bigg) = -\Tr(X) \cdot \big[ \log(\textbf{det}(X)) - n \log(\Tr(X)) \big]
+%\]
+%
+%%\[
+%%=n \Tr(X) \log(\Tr(X)) - \Tr(x) \log(\textbf{det}(X))
+%%\]
+%
+%In the parentheses, \( \log(\textbf{det}(X)) \) is convex and \(- n \log(\Tr(X))  \) is convex since \(\Tr(X)\) is affine and \(-n\log(\cdot)\) is convex. Since \(\Tr(X)\) is affine (and increasing in \(X\)), the expression \(\Tr(X) \cdot \big[ \log(\textbf{det}(X)) - n \log(\Tr(X)) \big]\) is convex, so with the minus sign it is concave.
+
+
+% 1 d
+\item 
+
+\[
+f(x) = \sup \log \bigg( \frac{p(t)}{q(t)} \bigg) = \sup \{ \log p(t) - \log q(t) \} = \sup \{ \log \bigg( \sum_{i=1}^n \exp(x_i \sin(i t)) \bigg) - \sum_{i=1}^n x_i \sin (i t) \}
+\]
+
+% 1 e
+\item The proximal mapping is
+
+\[
+\text{prox}_\mathcal{R}(z) = \underset{y}{\argmin} \frac{1}{2} \Vert z - y\rVert_2^2 + \mathcal{R}(y) = \underset{y}{\argmin} \frac{1}{2}  \sum_{i=1}^n (z_i - y_i)^2  + \sum_{i=1}^n w_i |y_i|
+\]
+
+\[
+= \underset{y}{\argmin} \frac{1}{2}  \sum_{i=1}^n \big[ (z_i - y_i)^2  + w_i |y_i| \big]
+\]
+
+Taking the gradient of the inside quantity with respect to \(y\), we have
+
+\[
+\nabla(y) =  \begin{pmatrix} \frac{1}{2}  \cdot 2 (z_1 - y_1)   + \textbf{sign}(y_1) w_1 \\ 
+ \frac{1}{2}  \cdot 2 (z_2 - y_2)  + \textbf{sign}(y_2) w_2 \\ 
+ \vdots \\
+  \frac{1}{2}  \cdot 2 (z_n - y_n)  + \textbf{sign}(y_n) w_n 
+  \end{pmatrix} = \begin{pmatrix} z_1 - y_1  + \textbf{sign}(y_1) w_1 \\ 
+ z_2 - y_2  + \textbf{sign}(y_2)w_2 \\ 
+ \vdots \\
+  z_n - y_n + \textbf{sign}(y_n) w_n 
+  \end{pmatrix} 
+\]
+
+Setting equal to 0, we have
+
+\[
+y = \begin{pmatrix} z_1 \pm w_1 \\ 
+ z_2   \pm w_2 \\ 
+ \vdots \\
+  z_n  \pm w_n 
+  \end{pmatrix} 
+\]
+
+\end{enumerate}
+
+%\end{homeworkProblem}
+
+% Problem 2
+\item
+%\begin{homeworkProblem}
+
+
+
+\begin{enumerate}[(a)]
+
+% Problem 2 a
+\item The constraint is convex (affine). The denominator is affine. Since \(c^Tx = x^Tc\), the numerator 
+
+\[
+(c^Tx)^2 = (c^T x)( c^T x) = x^T c c^T x = x^T (c c^T) x 
+\]
+
+is convex since \(c c^T\) is positive semidefinite.
+
+%= \bigg( \sum_{i=1}^n c_i x_i \bigg)^2 = \sum_{i=1}^n \sum_{j=1}^n c_i c_j  x_i x_j =  \sum_{i=1}^n c_i^2 x_i^2 + 2 \sum_{1 \leq i < j \leq n}c_i c_j x_i x_j
+%
+%\[
+%= x^t \begin{bmatrix} c_1 & c_2 & \cdots & c_n \\
+%c_
+%\]
+
+%is quadratic, so therefore by CVX rules this is convex (quadratic over positive linear).
+
+%
+
+%
+%\[
+%=\Tr(c^T x c^T x) = \Tr(x c^T x c^T) = \Tr([x c^T]^T [x c^T]^T) = \Tr(cx^T c x^T) 
+%\]
+
+
+
+% Problem 2 b
+\item We start by using the epigraph trick to transform the problem:
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & t \\
+& \text{subject to}
+& & \frac{(c^Tx)^2}{d^Tx} \leq t \\
+& & & Ax + b \geq 0
+\end{aligned}
+\]
+
+We are trying to express this problem as a semidefinite program (SDP); that is, in the form
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & c^T x \\
+& \text{subject to}
+& & x_1F_1 + \ldots + x_n F_n + G \preceq 0 \\
+& & & Ax = b
+\end{aligned}
+\]
+
+where \(G, F_1, \ldots, F_n \in \boldsymbol{S}^k\) and \(A \in \mathbb{R}^{p \times n}\). The first constraint
+
+\[
+\frac{(c^Tx)^2}{d^Tx} \leq t
+\]
+
+can be expressed in the form
+
+\[
+(c^Tx)^2 \leq t d^T x \iff (c^T x c^T - t d^T)x \leq 0
+\]
+
+
+We have a constraint
+
+\[
+Ax + b \geq 0
+\]
+
+which can be expressed in the form
+
+\[
+Ax \geq -b
+\]
+
+\[
+c^TF(x)^{-1}c  \leq t
+\]
+
+where \(F(x)\) is symmetric and positive definite and \(t \in \mathbb{R}\), by Theorem \ref{cvx.schur.props}(b) we can write
+
+\[
+c^TF(x)^{-1}c  \leq t \iff  \begin{bmatrix}
+    F(x)      & c \\
+    c^T & t
+\end{bmatrix} \succeq 0 
+\]
+
+in order to get our constraint in the form required for an SDP.
+
+\end{enumerate}
+
+%\end{homeworkProblem}
+
+% Problem 3
+\item
+%\begin{homeworkProblem}
+
+\begin{enumerate}[(a)]
+
+% Problem 3a
+\item Yes, \(g\) is convex over \(\mathcal{X}\) since it is quadratic over linear.
+
+% Problem 3b
+\item  The only points satisfying the constraint have \(x_1 = 0\). Therefore the primal optimal value (the only feasible value) is \(e^0 = \boxed{1}\). 
+
+% Problem 3 c
+\item Lagrangian:
+
+\[
+L(x, \lambda) = e^{-x_1} + \lambda (x_1^2/x_2)
+\]
+
+The Lagrangian obtains its minimum value of 0 when \(x_2 = x_1^3\) and \(x_1 \to \infty\). Thus, its dual function (\( g(\lambda) = \min_x L(x, \lambda)\)) is
+
+
+\[
+g(\lambda) = 0
+\]
+%\[
+%\nabla_x L(x, \lambda) = \begin{bmatrix} 
+%-\exp(-x_1) + \frac{2 \lambda}{x_2} x_1 \\
+%-\lambda x_1^2 \cdot \frac{1}{x_2^2}
+%\end{bmatrix}
+%\]
+%
+%\[
+%-\exp(-x_1) + \frac{2 \lambda}{x_2} x_1 = 0 \implies 
+%\]
+%
+%\[
+%g(\lambda, \nu) = \begin{cases} 
+%     - \lambda^T h - \nu^T b & \text{if }c + G^T \lambda  + A^T \nu = 0\\
+%     - \infty & \text{otherwise}
+%   \end{cases}
+%\]
+
+The dual problem is then
+
+\[
+\boxed{
+\begin{aligned}
+& {\text{maximize}}
+& & 0 \\
+& \text{subject to}
+& & \lambda \geq 0
+\end{aligned}}
+\]
+
+% Problem 3 d
+\item  The optimal value of the dual problem is 0. Strong duality does not hold since the optimum of the dual problem is less than the optimum of the primal problem. We can also tell this because Slater's Condition (Theorem \ref{cvx.slater.thm}) is violated; that is, there is no \((x_1, x_2)\) that is strictly feasible since \(x_1\) must equal 0, which is on the boundary of the feasible region. 
+
+% Problem 3 e
+\item Now for the primal problem, instead of \(x_1 = 0\), we have
+
+\[
+\frac{x_1^2}{x_2} \leq u \iff x_1^2 \leq u x_2 \implies -\sqrt{u x_2} \leq x_1 \leq \sqrt{u x_2}
+\]
+
+Since \(e^{-x_1}\) is minimized as \(x_1 \to \infty\), our optimal solution is \(x_2 \to \infty, x_1 = \sqrt{u x_2} \to \infty\) yielding a primal optimal value of \(\boxed{0}\). For the dual problem, we have 
+
+\[
+L(x, \lambda) = e^{-x_1} + \lambda \bigg( \frac{x_1^2}{x_2} - u \bigg)
+\]
+
+Dual function (\( g(\lambda) = \min_x L(x, \lambda)\)):
+
+\[
+\frac{x_1^2}{x_2} - u = 0 \implies x_2 = \frac{x_1^2}{u}
+\]
+
+and let \(x_1 \to - \infty\) to yield
+
+\[
+g(\lambda) = 0
+\]
+
+The dual problem is then
+
+\[
+\boxed{
+\begin{aligned}
+& {\text{maximize}}
+& & 0 
+\end{aligned}}
+\]
+
+with optimal value 0, so there is no longer a duality gap. We can also tell this because Slater's Condition (Theorem \ref{cvx.slater.thm}) is satisfied; that is, there exists an \((x_1, x_2)\) which is strictly feasible (say \((x_1, x_2) = (\sqrt{u}, 10)\). 
+
+\end{enumerate}
+
+
+%\end{homeworkProblem}
+
+% Problem 4
+\item
+%\begin{homeworkProblem}
+
+\begin{enumerate}[(a)]
+
+% 4 a
+\item Yes, the set is convex. If \((u_i, v_i) = \boldsymbol{u}_i\), each 
+
+\[
+\sqrt{(x - u_i)^2 + (y- v_i)^2} = \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert_2
+\]
+
+is convex in \(\boldsymbol{x}\). Therefore the function
+
+\[
+\sum_{i=1}^k \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert_2
+\]
+
+is convex. For any fixed \(d\), this set is a sublevel set of this function, which is convex since the function is convex.
+
+%The constraint is equivalent to a probability simplex which is a convex set.
+
+% 4 b
+\item This is a feasibility problem:
+
+\[
+\begin{aligned}
+& {\text{find}}
+& & \boldsymbol{x} \\
+& \text{subject to}
+& & \sum_{i=1}^k \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert \leq d \\
+& & & \sum_{i=1}^j \lVert \boldsymbol{x} - \boldsymbol{v}_i \rVert \leq e 
+\end{aligned}
+\]
+
+or
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & 0 \\
+& \text{subject to}
+& & \sum_{i=1}^k \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert \leq d \\
+& & & \sum_{i=1}^j \lVert \boldsymbol{x} - \boldsymbol{v}_i \rVert \leq e 
+\end{aligned}
+\]
+
+for two sets of points in \(\mathbb{R}^2\) \(\boldsymbol{u}_1, \ldots, \boldsymbol{u}_k\), \(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_j\). We would like to express these constraints as matrix inequalities in order to have an SDP. To do this, first rewrite the problem as 
+
+\[
+\begin{aligned}
+& {\text{minimize}}
+& & 0 \\
+& \text{subject to}
+& & \lVert \boldsymbol{x} - \boldsymbol{u}_i \rVert \leq t_i, i = 1, \ldots, k \\
+& & & \lVert \boldsymbol{x} - \boldsymbol{v}_i \rVert \leq s_i, s = 1, \ldots, j \\
+& & & \boldsymbol{1}^T t \leq d \\
+& & & \boldsymbol{1}^T s \leq e
+\end{aligned}
+\]
+
+Then note that we can use the Schur trick:
+
+\[
+(\boldsymbol{x} - \boldsymbol{u}_i )^T I (\boldsymbol{x} - \boldsymbol{u}_i )  \leq t_i \iff  \begin{bmatrix}
+    I      & \boldsymbol{x} - \boldsymbol{u}_i\\
+    (\boldsymbol{x} - \boldsymbol{u}_i)^T & t_i
+\end{bmatrix} \succeq 0 
+\]
+
+and write the optimization problem as an SDP:
+
+\[
+\boxed{
+\begin{aligned}
+& {\text{minimize}}
+& & 0 \\
+& \text{subject to}
+& & \begin{bmatrix}
+    I      & \boldsymbol{x} - \boldsymbol{u}_i\\
+    (\boldsymbol{x} - \boldsymbol{u}_i)^T & t_i
+\end{bmatrix} \succeq 0  , i = 1, \ldots, k \\
+& & & \begin{bmatrix}
+    I      & \boldsymbol{x} - \boldsymbol{v}_i\\
+    (\boldsymbol{x} - \boldsymbol{v}_i)^T & s_i
+\end{bmatrix} \succeq 0 , s = 1, \ldots, j \\
+& & & \boldsymbol{1}^T t \leq d \\
+& & & \boldsymbol{1}^T s \leq e
+\end{aligned}}
+\]
+
+\end{enumerate}
+
+%\end{homeworkProblem}
+
+% Problem 5
+\item
+%\begin{homeworkProblem}
+
+\begin{enumerate}[(a)]
+
+% 5 a
+\item To minimize the MSE:
+
+\[
+\mathcal{L}(z) = \sum_{r} (y_r - | a_r^T x|^2)^2 
+\]
+
+For MLE estimate:
+
+\[
+p_x(y) = \prod_{r=1}^m \Pr(w_r = y_r - (a_r^Tx)^2 \mid x) = \frac{1}{(y_r - (a_r^Tx)^2)!} \cdot \exp\big(-(a_r^Tx)^2 \big) \cdot (a_r^Tx)^{2 [y_r - (a_r^Tx)^2]}
+\]
+
+Therefore the log likelihood function is:
+
+\[
+\ell_x (y) = \sum_{i=1}^m \log [ \Pr(y_i - a_i^Tx \mid x)] = \sum_{i=1}^m \log \bigg[ \frac{1}{(y_r - (a_r^Tx)^2)!} \cdot \exp\big(-(a_r^Tx)^2 \big) \cdot (a_r^Tx)^{2[y_r - (a_r^Tx)^2]} \bigg]
+\]
+
+\[
+= \sum_{i=1}^m  \log \bigg[\frac{1}{(y_r - (a_r^Tx)^2)!} \bigg]-(a_r^Tx)^2 + 2[y_r - (a_r^Tx)^2] \cdot \log \big[ (a_r^Tx) \big] 
+\]
+
+% 5 b
+\item b
+% 5 c
+\item c
+
+% 5d
+\item d
+
+% 5e
+\item e
+
+\end{enumerate}
+
+\end{enumerate}
+%\end{homeworkProblem}
+
+%
+%
+%
+%
+%
+%
+%
+%
+
+%\bibliographystyle{abbrvnat}
+%\bibliography{mybib2fin}
+%\end{document}

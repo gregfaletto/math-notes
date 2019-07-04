@@ -1,0 +1,23 @@
+\BOOKMARK [1][-]{section.1}{Linear Regression}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Chapter 1: Linear Regression}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Preliminaries}{subsection.1.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Estimation}{subsection.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.2}{Chapter 2: Multiple Regression}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.3}{Chapter 3: Hypothesis testing in regression}{section.1}% 6
+\BOOKMARK [2][-]{subsection.1.4}{Chapter 4: Heteroskedasticity}{section.1}% 7
+\BOOKMARK [2][-]{subsection.1.5}{Chapter 5: Autocorrelated disturbances}{section.1}% 8
+\BOOKMARK [2][-]{subsection.1.6}{DSO 607}{section.1}% 9
+\BOOKMARK [3][-]{subsubsection.1.6.1}{Akaike Information Criterion \(AIC\)}{subsection.1.6}% 10
+\BOOKMARK [3][-]{subsubsection.1.6.2}{Bayesian Information Criterion \(BIC\)}{subsection.1.6}% 11
+\BOOKMARK [2][-]{subsection.1.7}{Ridge Regression}{section.1}% 12
+\BOOKMARK [2][-]{subsection.1.8}{Lasso}{section.1}% 13
+\BOOKMARK [3][-]{subsubsection.1.8.1}{Soft Thresholding}{subsection.1.8}% 14
+\BOOKMARK [3][-]{subsubsection.1.8.2}{Lasso theory}{subsection.1.8}% 15
+\BOOKMARK [3][-]{subsubsection.1.8.3}{Non-Negative Garotte}{subsection.1.8}% 16
+\BOOKMARK [3][-]{subsubsection.1.8.4}{LARS\204Preliminaries and Intuition}{subsection.1.8}% 17
+\BOOKMARK [3][-]{subsubsection.1.8.5}{LARS}{subsection.1.8}% 18
+\BOOKMARK [2][-]{subsection.1.9}{Quadratic Loss}{section.1}% 19
+\BOOKMARK [3][-]{subsubsection.1.9.1}{Feature Selection properties}{subsection.1.9}% 20
+\BOOKMARK [2][-]{subsection.1.10}{Dantzig Selector}{section.1}% 21
+\BOOKMARK [2][-]{subsection.1.11}{Coordinate Descent}{section.1}% 22
+\BOOKMARK [2][-]{subsection.1.12}{Total Variational Distance}{section.1}% 23

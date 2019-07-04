@@ -1,0 +1,325 @@
+
+
+
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage[document]{ragged2e}
+\usepackage{textcomp}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{import}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+
+\usetikzlibrary{automata,positioning}
+
+
+% Basic Document Settings
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\setlength{\parskip}{1em}
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+
+\newcommand{\hmwkTitle}{Math 541A Midterm 1 Cheat Sheet}
+\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+
+
+%%%%% Title Page
+
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{ \hmwkTitle}}\\
+}
+
+\author{Gregory Faletto}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+%%%%% Various Helper Commands
+
+
+%%%%% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+%%%%% For derivatives
+\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+
+%%%%% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+%%%%% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+%%%%% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+%%%%% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\DeclareMathOperator{\Tr}{Tr}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{corollary}{Corollary}[theorem]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+%%%%% Tilde
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+%\tableofcontents
+
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+
+
+
+\newpage
+%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%%
+%%% Probability
+
+
+\section{Review of Probability Theory}
+
+\begin{proposition}[\textbf{Change of Variables}]If \(U\) is a ``nice" subset of \(\mathbb{R}^2\) and \(\phi\) is an injective differentiable function on \(U\), then 
+
+\[
+ \int_{\phi(U)} f(u,v) dudv = \int_U f(\phi(x,y)) | J \phi(x,y) | dx dy
+\]
+
+where \( J \phi(x,y)\) is the Jacobian of \(\phi\) at \((x,y)\).
+
+\end{proposition}
+
+\begin{definition}Random variables \(X_1, X_2, \ldots, X_n\) are independent if for every \(B_1, B_2, \ldots, B_n \subseteq \mathbb{R}\), the events \(\{X_1 \in B_1\}, \{X_2 \in B_2\}, \ldots, \{X_n \in B_n\} \) are independent; that is, 
+
+\[
+\mathbb{P} \bigg( \bigcap_{i=1}^n \{X_i \in B_i\} \bigg) = \prod_{i=1}^n \mathbb{P}(\{X_i \in B_i\})
+\]
+
+\end{definition}
+
+\section{Limit Theorems}
+
+\begin{definition} \textbf{Convergence in probability.} \(\{X_n\}\) is said to \textbf{converge in probability} to \(X\) if
+\begin{itemize}
+
+\item Grimmett and Strizaker definition:
+\[
+\lim_{n \to \infty} \Pr(|X_n -X| > \epsilon) = 0, \text{ for every } \epsilon > 0
+\]
+
+\item More formal (from Math 541A):
+
+\[
+\forall \epsilon > 0, \ \lim_{n \to \infty} \Pr(\{\omega \in \Omega : |X_n(\omega) - X(\omega)| > \epsilon) = 0
+\]
+
+\end{itemize}
+
+\end{definition} 
+
+%%%% Convergence with probability 1 or almost surely
+\begin{definition}
+\textbf{Convergence with probability 1 or almost surely.} The sequence of random variables \(\{X_n\}\) is said to \textbf{converge with probability 1} (or \textbf{almost surely}) to \(X\) if 
+
+
+
+\[
+\Pr\big( \{\omega \in \Omega: \lim_{n \to \infty} X_n(\omega) = X(\omega) \} \big) = 1
+\]
+
+
+
+\begin{remark}This is often written as \(X_n \xrightarrow{w.p.1} X\) or \(X_n \xrightarrow{a.s.} X\). An equivalent condition for convergence with probability 1 is given by
+
+\[
+\lim_{n \to \infty} \Pr( |X_m - X| < \epsilon, \text{ for all } m \geq =n) = 1, \text{ for every } \epsilon > 0
+\]
+
+which shows that convergence in probability is a special case of convergence with probability 1 (obtained by setting \(m = n\)). Convergence with probability 1 is stronger than convergence in probability and is often referred to as ``strong convergence." \end{remark}
+
+\end{definition}
+
+%%%% Convergence in r-th mean
+\begin{definition}
+\textbf{Convergence in \(r\)-th mean} or \textbf{convergence in \(\ell_p\)}. \(X_n \to X\) \textbf{in \(r\)th mean}  (or \textbf{in \(\ell_p\)}) where \(r \geq 1\) (or \(0 < p \leq \infty\)) if \(\E|X_n^r| < \infty\) for all \(n\) and
+
+\[
+\lim_{n \to \infty} \E(|X_n - X|^r) = 0
+\]
+
+or if \(\lVert X \rVert_p < \infty\) and
+
+\[
+\lim_{n \to \infty} \lVert X_n - X \rVert _p = 0
+\]
+
+\begin{remark}
+Recall that \(\lVert X \rVert_p := (\E(X)^p)^{1/p}\) if \(0 < p < \infty\) and \(\lVert X \rVert_\infty := \inf \{c >0: \Pr(|X| \leq c ) = 1\}\). Note that if \(p < 1\), \(\lVert \cdot \rVert_p\) is no longer a norm because it does not satisfy the Triangle Inequality (Corollary \ref{asym.tri.ineq.exp} and Theorem \ref{asym.tri.ineq.norm}), but this property still holds. Convergence in \(r\)th mean is often written \(X_n \xrightarrow{r} X\).
+\end{remark}
+\end{definition}
+
+%%%%%%% Convergence in Distribution
+\begin{definition}
+\textbf{Convergence in Distribution.} Let \(X_1, X_2, \ldots\) have distribution functions \(F_1(\cdot), F_2(\cdot), \ldots \) respectively. Then \(X_n\) is said to \textbf{converge in distribution to \(X\)} if
+
+\[
+\lim_{n \to \infty} \Pr(X_n \leq u) = \Pr(X \leq u)
+\]
+
+for all \(u\) at which \(F_X(x) = \Pr(X \leq x)\) is continuous. 
+
+
+\end{definition}
+
+
+
+\section{Exponential Families}
+
+\begin{definition}\label{prob.defn.exp.fams} Let \(n, k\) be positive integers and let \(\mu\) be a \textit{measure} on \(\mathbb{R}^n\) (that is, a probability law that does not necessarily sum to 1). Let \(t_1, \ldots, t_k : \mathbb{R}^n \to \mathbb{R}\). Let \(h: \mathbb{R}^n \to [0, \infty]\), and assume \(h\) is not identically zero. For any \(w = (w_1, \ldots, w_k) \in \mathbb{R}^k\), define
+
+\[
+a(w) := \log \bigg[ \int_{\mathbb{R}^n} h(x) \exp \bigg( \sum_{i=1}^k w_i t_i(x) \bigg) d \mu(x) \bigg], \ \ \ \forall x \in \mathbb{R}^n
+\]
+
+The set \(\{w \in \mathbb{R}^k\}\) is called the \textbf{natural parameter space}. On this set, the function
+
+\[
+f_w(x) := h(x) \exp \bigg( \sum_{i=1}^k w_i t_i(x) - a(w) \bigg), \ \ \ \forall x \in \mathbb{R}^n
+\]
+
+satisfies \(\int_{\mathbb{R}^n} f_w(x) d \mu(s) = 1\) (by the definition of \(a(w)\)). So, the set of functions (which can be interpreted as probability density functions, or as probability mass functions according to \(\mu\)) \(\{f_w: \theta \in \Theta: a(w(\theta)) < \infty \}\) is called a \textbf{\(k\)-parameter exponential family in canonical form.} 
+ 
+ \
+ 
+ More generally, let \(\Theta \in \mathbb{R}^k\) be any set an let \(w: \Theta \to \mathbb{R}^k\). We define a \textbf{\(k\)-parameter exponential family} to be a set of functions \(\{f_{\theta}: \theta \in \Theta\}\), where
+ 
+ \[
+ f_{\theta}(x) := h(x) \exp \bigg( \sum_{i=1}^k w_i(\theta) t_i(x) - a(w(\theta))\bigg), \ \ \ \ \forall x \in \mathbb{R}^n
+ \]
+ 
+
+\end{definition}
+
+
+\begin{theorem}[\textbf{Theorem 3.4.2 from Casella and Berger}] If \(X\) is a random variable in an exponential family, then
+
+\begin{equation}\label{prob.thm.3.4.2.casella}
+\E \Bigg( \sum_{i=1}^k \pderiv{w_i(\theta)}{\theta_j} t_i(X) \Bigg) =  \pderiv{}{\theta_j}  a(w(\theta)).
+\end{equation}
+
+\end{theorem}
+
+\begin{proposition}[\textbf{Way we did this in class}]
+
+\begin{equation}\label{prob.541a.hw3.6a.f}
+ e^{-a(w(\theta))} \pderiv{}{\theta_2} e^{a(w(\theta))}  = \E_\theta \big( \sum_{i=1}^k \pderiv{w_i}{\theta_2} t_i \big).
+\end{equation}
+
+\end{proposition}
+
+
+\section{Random Samples}
+
+\subsubsection{The Delta Method}
+
+\begin{theorem}[\textbf{Delta Method, Theorem 4.14 in 541A notes, 5.5.24 in Casella and Berger}]\label{mathstats.delta.method.thm} Let \(\theta \in \mathbb{R}\). Let \(Y_1, Y_2, \ldots\) be random variables such that \(\sqrt{n}(Y_n - \theta)\) converges in distribution to a mean zero Gaussian random variable with variance \(\sigma^2 > 0\). Let \(f: \mathbb{R} \to \mathbb{R}\). Assume that \(f'\) exists and is continuous, and \(f'(\theta) \neq 0\). Then
+
+\[
+\sqrt{n}(f(Y_n) - f(\theta)) \xrightarrow{d} \mathcal{N}(0, \sigma^2(f'(\theta))^2).
+\]
+
+%converges in distribution to a mean zero Gaussian random variable with variance \(\sigma^2(f'(\theta))^2\) as \(n \to \infty\).
+
+\end{theorem}
+
+\begin{theorem}[\textbf{Second Order Delta Method, Theorem 4.17 in Math 541A Notes.}]Let \(\theta \in \mathbb{R}\). Let \(Y_1, Y_2, \ldots\) be random variables such that \(\sqrt{n}(Y_n - \theta)\) converges in distribution to a mean zero Gaussian random variable with variance \(\sigma^2 > 0\). Let \(f: \mathbb{R} \to \mathbb{R}\). Assume that \(f''\) exists and is continuous, \(f'(\theta) = 0\) and \(f''(\theta) \neq 0\). Then
+
+\[
+n(f(Y_n) - f(\theta)) \xrightarrow{d} \sigma^2 \frac{1}{2} | f''(\theta)| \cdot \chi_1^2.
+\]
+
+%converges in distribution to a \(\chi_1^2\) random variable multiplied by \(\sigma^2 \frac{1}{2} | f''(\theta)|\) as \(n \to \infty\).
+
+\end{theorem}
+
+
+
+
+
+
+
+
+
+\end{document}

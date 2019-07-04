@@ -1,0 +1,28 @@
+\BOOKMARK [1][-]{section.1}{Stochastic Processes}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Preliminaries}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Poisson Processes}{section.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Poissonization Trick}{subsection.1.2}% 4
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Time Sampling Poisson Processes}{subsection.1.2}% 5
+\BOOKMARK [3][-]{subsubsection.1.2.3}{Nonstationary Poisson Processes}{subsection.1.2}% 6
+\BOOKMARK [3][-]{subsubsection.1.2.4}{Queueing Systems}{subsection.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.3}{Renewal Processes}{section.1}% 8
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Stopping Times}{subsection.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.4}{ISE 620 Midterm Solutions}{section.1}% 10
+\BOOKMARK [2][-]{subsection.1.5}{Renewal Reward Processes \(Section 4.7 in Introduction to Probability Models, 3.6 Stochastic Processes\)}{section.1}% 11
+\BOOKMARK [3][-]{subsubsection.1.5.1}{Alternating Renewal Processes \(Section 7.5.1 in Introduction to Probability Models}{subsection.1.5}% 12
+\BOOKMARK [3][-]{subsubsection.1.5.2}{Equilibrium renewal processes}{subsection.1.5}% 13
+\BOOKMARK [3][-]{subsubsection.1.5.3}{Regenerative Processes}{subsection.1.5}% 14
+\BOOKMARK [3][-]{subsubsection.1.5.4}{Example of Renewal Reward Processes to Patterns}{subsection.1.5}% 15
+\BOOKMARK [2][-]{subsection.1.6}{Markov Chains \(Chapter 4 of Stochastic Processes; Chapter 4 of Introduction to Probability Models\)}{section.1}% 16
+\BOOKMARK [3][-]{subsubsection.1.6.1}{Chapman-Kolmogorov Equations\204section 4.2 of Introduction to Probability Models, section 4.2 of Stochastic Processes \(p. 178 of pdf\)}{subsection.1.6}% 17
+\BOOKMARK [3][-]{subsubsection.1.6.2}{Classification of States \(Section 4.3 of Introduction to Probability Models\)}{subsection.1.6}% 18
+\BOOKMARK [3][-]{subsubsection.1.6.3}{Long-Run Proportions and Limiting Probabilities \(Limit Theorems\) \(4.4 in Introduction to Probability Models, 4.3 in Stochastic Processes}{subsection.1.6}% 19
+\BOOKMARK [3][-]{subsubsection.1.6.4}{Branching Processes \(Section 4.7 of Introduction to Probability Models, Section 4.5 of Stochastic Processes}{subsection.1.6}% 20
+\BOOKMARK [3][-]{subsubsection.1.6.5}{A Markov Chain Model of Algorithmic Efficiency \(Section 4.6.1 of Stochastic Processes\)}{subsection.1.6}% 21
+\BOOKMARK [3][-]{subsubsection.1.6.6}{Time Reversible Markov Chains \(Section 4.8 of Introduction to Probability Models, Section 4.7 of Stochastic Processes}{subsection.1.6}% 22
+\BOOKMARK [3][-]{subsubsection.1.6.7}{Semi-Markov Processes \(Section 4.8 of Stochastic Processes \(p. 224 of pdf\), Section 7.6 of Introduction to Probability Models}{subsection.1.6}% 23
+\BOOKMARK [2][-]{subsection.1.7}{ISE 620}{section.1}% 24
+\BOOKMARK [2][-]{subsection.1.8}{DSO Statistics Group Screening Exam Problems}{section.1}% 25
+\BOOKMARK [2][-]{subsection.1.9}{Simple Random Walk}{section.1}% 26
+\BOOKMARK [2][-]{subsection.1.10}{Martingales}{section.1}% 27
+\BOOKMARK [2][-]{subsection.1.11}{Brownian Motion}{section.1}% 28

@@ -1,0 +1,35 @@
+\contentsline {section}{\numberline {1}Time Series}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Chapter 6: ARDL Models}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{4}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Worked Examples}{6}{subsubsection.1.2.1}
+\contentsline {subsection}{\numberline {1.3}Some time series and their properties}{7}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}White noise process:}{7}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}MA(1) process:}{7}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}MA(\(\infty \)) process:}{8}{subsubsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.4}AR(1) process:}{8}{subsubsection.1.3.4}
+\contentsline {subsubsection}{\numberline {1.3.5}AR(2) process:}{9}{subsubsection.1.3.5}
+\contentsline {subsubsection}{\numberline {1.3.6}AR(\(p\)) process:}{10}{subsubsection.1.3.6}
+\contentsline {subsubsection}{\numberline {1.3.7}ARMA(1, 1) process:}{10}{subsubsection.1.3.7}
+\contentsline {subsection}{\numberline {1.4}Chapter 14: Estimation of Stationary Time Series Processes}{12}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Sufficient conditions for ergodicity of mean. (Book section 14.2.1)}{12}{subsubsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.2}Estimation of autocovariances (Book section 14.2.2).}{13}{subsubsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.3}Worked examples}{14}{subsubsection.1.4.3}
+\contentsline {subsection}{\numberline {1.5}Chapter 15: Unit Root Processes}{20}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Worked Problems}{20}{subsubsection.1.5.1}
+\contentsline {subsection}{\numberline {1.6}Chapter 17: Introduction to Forecasting}{27}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}17.7: Iterated and direct multi-step AR methods}{27}{subsubsection.1.6.1}
+\contentsline {subsubsection}{\numberline {1.6.2}Worked Problems}{28}{subsubsection.1.6.2}
+\contentsline {subsection}{\numberline {1.7}Chapter 18: Measurement and Modeling of Volatility}{31}{subsection.1.7}
+\contentsline {subsubsection}{\numberline {1.7.1}Higher order GARCH models (Pesaran Section 18.4.2)}{31}{subsubsection.1.7.1}
+\contentsline {subsubsection}{\numberline {1.7.2}Testing for GARCH effects (Pesaran Section 18.5.1)}{32}{subsubsection.1.7.2}
+\contentsline {subsubsection}{\numberline {1.7.3}Worked Problems}{32}{subsubsection.1.7.3}
+\contentsline {subsection}{\numberline {1.8}Chapter 21: Vector Autoregressive Models}{35}{subsection.1.8}
+\contentsline {subsubsection}{\numberline {1.8.1}Worked Problems}{35}{subsubsection.1.8.1}
+\contentsline {subsection}{\numberline {1.9}Chapter 22: Cointegration Analysis}{40}{subsection.1.9}
+\contentsline {subsubsection}{\numberline {1.9.1}22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}{41}{subsubsection.1.9.1}
+\contentsline {subsubsection}{\numberline {1.9.2}Worked Problems}{42}{subsubsection.1.9.2}
+\contentsline {subsection}{\numberline {1.10}Chapter 23: VARX Modeling}{42}{subsection.1.10}
+\contentsline {subsubsection}{\numberline {1.10.1}Worked Problems}{42}{subsubsection.1.10.1}
+\contentsline {subsection}{\numberline {1.11}Chapter 24: Impulse Response Analysis}{42}{subsection.1.11}
+\contentsline {subsubsection}{\numberline {1.11.1}Worked Problems}{42}{subsubsection.1.11.1}
+\contentsline {subsection}{\numberline {1.12}Chapter 33: Theory and Practice of GVAR Modeling}{45}{subsection.1.12}

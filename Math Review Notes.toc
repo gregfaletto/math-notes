@@ -141,16 +141,14 @@
 \contentsline {subsection}{\numberline {10.8}Lasso}{338}{subsection.10.8}
 \contentsline {subsubsection}{\numberline {10.8.1}Soft Thresholding}{340}{subsubsection.10.8.1}
 \contentsline {subsubsection}{\numberline {10.8.2}Lasso theory}{341}{subsubsection.10.8.2}
-\contentsline {subsubsection}{\numberline {10.8.3}Non-Negative Garotte}{342}{subsubsection.10.8.3}
-\contentsline {subsubsection}{\numberline {10.8.4}LARS---Preliminaries and Intuition}{343}{subsubsection.10.8.4}
+\contentsline {subsubsection}{\numberline {10.8.3}Non-Negative Garotte}{347}{subsubsection.10.8.3}
+\contentsline {subsubsection}{\numberline {10.8.4}LARS---Preliminaries and Intuition}{347}{subsubsection.10.8.4}
 \contentsline {subsubsection}{\numberline {10.8.5}LARS}{349}{subsubsection.10.8.5}
-\contentsline {subsection}{\numberline {10.9}Quadratic Loss}{350}{subsection.10.9}
+\contentsline {subsection}{\numberline {10.9}Quadratic Loss}{349}{subsection.10.9}
 \contentsline {subsubsection}{\numberline {10.9.1}Feature Selection properties}{351}{subsubsection.10.9.1}
 \contentsline {subsection}{\numberline {10.10}Dantzig Selector}{354}{subsection.10.10}
 \contentsline {subsection}{\numberline {10.11}Coordinate Descent}{355}{subsection.10.11}
-\contentsline {subsection}{\numberline {10.12}Nonconvex Learning}{355}{subsection.10.12}
-\contentsline {subsection}{\numberline {10.13}Yinfei Kong---Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{355}{subsection.10.13}
-\contentsline {subsection}{\numberline {10.14}Total Variational Distance}{355}{subsection.10.14}
+\contentsline {subsection}{\numberline {10.12}Total Variational Distance}{355}{subsection.10.12}
 \contentsline {section}{\numberline {11}Time Series}{356}{section.11}
 \contentsline {subsection}{\numberline {11.1}Chapter 6: ARDL Models}{356}{subsection.11.1}
 \contentsline {subsection}{\numberline {11.2}Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}{356}{subsection.11.2}
