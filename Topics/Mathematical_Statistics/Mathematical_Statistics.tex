@@ -2985,6 +2985,364 @@ In contrast, the UMVU for one sample is \(2X\) by Theorem \ref{mathstats.lehmann
 
 \end{example}
 
+
+%%%%%%%%% 2018 Question 3
+
+\begin{exercise}[\textbf{2018 DSO Statistics Group In-Class Screening Exam, Question 3}] 
+
+Suppose that given the vector \(\mu\), the random vector \(X\) has a normal distribution in \(\mathbb{R}^n\) with mean \(\mu\) and identity covariance matrix. We want to make inference about \(\lVert \mu \rVert^2\).
+
+\begin{enumerate}[(a)]
+
+\item  Find an unbiased estimate of \(\lVert \mu \rVert^2\). Call this estimator \(\hat{\delta}_{\text{unbiased}}\).
+
+\item Suppose that a Bayesian has a proper prior distribution for \(\mu\) that is Gaussian with mean vector 0 and covariance \(kI\), where \(k\) is any fixed positive real number and \(I\) is the identity matrix. He wants to minimize mean squared error (MSE). The estimator minimizing the MSE is the posterior mean of \(\lVert \mu \rVert^2\), i.e., \(\E ( \lVert \mu \rVert^2 \mid X)\). Find this estimator. Call this estimator \(\hat{\delta}_{\text{proper}}\).
+
+\item Suppose now the Bayesian uses the uniform prior (which is also called a ``flat" or ``noninformative" prior) for \(\mu\). Report \(\E(\lVert \mu \rVert^2 \mid X)\) in this case. Call it \(\hat{\delta}_{\text{flat}}\). Report \(\hat{\delta}_{\text{flat}}- \hat{\delta}_{\text{unbiased}}\).
+
+\item Now, if the true distribution of \(\mu\) is indeed Gaussian with mean vector 0 and covariance \(kI\), then show that with respect to the unconditional (i.e. marginal) distribution of \(X\), the Bayes estimator \(\hat{\delta}_{\text{proper}}\) is closer in Euclidean distance to \(\hat{\delta}_{\text{unbiased}}\) than it is to \(\hat{\delta}_{\text{flat}}\) when \(n\) is large. That is, show
+
+\[
+\E \left( \hat{\delta}_{\text{proper}} - \hat{\delta}_{\text{unbiased}}\right)^2 < \E \left( \hat{\delta}_{\text{flat}} - \hat{\delta}_{\text{unbiased}}\right)^2 
+\]
+
+for large \(n\), where the expectation is over the unconditional distribution of \(X\), which is
+
+\[
+\int_{\mathbb{R}^n} f(x \mid \mu) \pi(\mu) \ d \mu
+\]
+
+with \(f(x \mid \mu) = \mathcal{N}_n(\mu, I\) and \(\pi(\mu) = \mathcal{N}_n(0, kI)\). (Hint: let \(\hat{D} = \hat{\delta}_{\text{proper}} - \hat{\delta}_{\text{unbiased}}\). Compute the mean and variance of \(\hat{D}\) under the unconditional distribution of \(X\).)
+
+
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}[(a)]
+
+% 3a
+\item We have
+
+\[
+X \mid \mu \sim \mathcal{N}(\mu, \boldsymbol{I}_n)
+\]
+
+Let \(X = (X_1, \ldots, X_n)^T\) and let \(\mu = (\mu_1, \ldots, \mu_n)^T\). Notice that
+
+\[
+\E(\boldsymbol{X}^T\boldsymbol{X}) = \E[ \E(\boldsymbol{X}^T\boldsymbol{X} \mid \mu)] =  \E \left[ \E \left( X_1^2 + X_2^2 + \ldots + X_n^2 \mid \mu \right)  \right] = \E \left[ \sum_{i=1}^n \E (X_i^2 \mid \mu )  \right] 
+\]
+
+\[
+= \E \left[ \sum_{i=1}^n \Var(X_i \mid \mu) + \E(X_i \mid \mu)^2  \right]  =  \E \left[ \sum_{i=1}^n 1+ \mu_i^2 \right] = n + \E \lVert \mu \rVert_2^2 
+\]
+
+\[
+\implies \E(\boldsymbol{X}^T\boldsymbol{X} - n) =  \E \lVert \mu \rVert_2^2 
+\]
+
+Therefore \(\boxed{ \hat{\delta}_{\text{unbiased}} = \boldsymbol{X}^T\boldsymbol{X} - n}\) is unbiased for \(\E \lVert \mu \rVert_2^2\) (and given \(\mu\) it is unbiased for \(\lVert \mu \rVert_2^2\)).
+
+% 3b
+\item We will begin by finding the posterior distribution of \(\mu\). The prior distribution of \(\mu\) is
+
+\[
+f(\boldsymbol{\mu}) = (2 \pi)^{-n/2} | k\boldsymbol{I}_n|^{-1/2} \cdot \exp \left(- \frac{1}{2} \boldsymbol{\mu} ^T ( k\boldsymbol{I}_n)^{-1} \boldsymbol{\mu} \right) = \frac{1}{\sqrt{(2 \pi k)^n}} \exp \left(- \frac{1}{2k}\boldsymbol{\mu} ^T  \boldsymbol{\mu} \right).
+\]
+
+
+The likelihood is
+
+\[
+f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) = (2 \pi)^{-n/2} | \boldsymbol{I}_n|^{-1/2} \cdot \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T ( \boldsymbol{I}_n)^{-1} (\boldsymbol{x} - \boldsymbol{\mu} ) \right)
+\]
+
+\[
+= (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  (\boldsymbol{x} - \boldsymbol{\mu} ) \right).
+\]
+
+So the unconditional distribution of \(\boldsymbol{X}\) is
+
+\[
+f_{\boldsymbol{X}}(\boldsymbol{x})  = \int_{\mathbb{R}^n} f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) f(\boldsymbol{\mu}) \ d \boldsymbol{\mu} 
+\]
+
+\[
+= \int_{\mathbb{R}^n}  (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  (\boldsymbol{x} - \boldsymbol{\mu} ) \right)  \cdot \frac{1}{\sqrt{(2 \pi k)^n}} \exp \left(- \frac{1}{2k}\boldsymbol{\mu} ^T  \boldsymbol{\mu} \right) \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(- \frac{1}{2}\left[  \boldsymbol{\mu} ^T\boldsymbol{\mu}  + \frac{1}{k}\boldsymbol{\mu} ^T  \boldsymbol{\mu}  - 2 \boldsymbol{x} ^T\boldsymbol{\mu}   + \boldsymbol{x}^T \boldsymbol{x}  \right]  \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(-  \frac{k+1}{2k} \left[  \boldsymbol{\mu} ^T\boldsymbol{\mu}   -  \frac{2k}{k+1} \boldsymbol{x} ^T\boldsymbol{\mu}   \right] - \frac{1}{2}  \boldsymbol{x}^T \boldsymbol{x}   \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(-  \frac{k+1}{2k} \left[  \boldsymbol{\mu} ^T\boldsymbol{\mu}   -  \frac{2k}{k+1} \boldsymbol{x} ^T\boldsymbol{\mu} + \left(\frac{k}{k+1} \right)^2 \boldsymbol{x}^T \boldsymbol{x}    \right] - \left(-  \frac{k+1}{2k} \right) \left(\frac{k}{k+1} \right)^2 \boldsymbol{x}^T \boldsymbol{x} - \frac{1}{2}  \boldsymbol{x}^T \boldsymbol{x}   \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(-  \frac{k+1}{2k} \left[  \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T\left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right) \right] - \frac{1}{2} \left[ -\left(\frac{k}{k+1} \right) \boldsymbol{x}^T \boldsymbol{x}  + \frac{k+1}{k+1}  \boldsymbol{x}^T \boldsymbol{x}   \right] \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{(2 \pi \sqrt{k})^n  } \int_{\mathbb{R}^n}  \exp \left(-  \frac{k+1}{2k} \left[  \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T\left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right) \right] \right) \exp \left(- \frac{1}{2} \frac{1}{k+1}  \boldsymbol{x}^T \boldsymbol{x}   \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= \frac{1}{\sqrt{(2 \pi k )^n}} \exp \left(- \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}   \right)\left( \frac{k}{k+1} \right)^{n/2}
+\]
+
+\[
+\cdot \int_{\mathbb{R}^n}  \frac{1}{\sqrt{(2 \pi)^n}}  \cdot \left( \frac{k}{k+1} \right)^{-n/2}   \exp \left(-  \frac{1}{2}   \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T \left( \frac{k}{k+1}\boldsymbol{I}_n \right)^{-1} \left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right)  \right)   \ d \boldsymbol{\mu}
+\]
+
+The second row is the integral over \(\mathbb{R}^n\) of an \(n\)-dimensional multivariate Gaussian distribution with mean \(k/(k+1) \boldsymbol{x}\) and covariance \(k/(k+1) \boldsymbol{I}_n\), so it equals 1. Then we are left with
+
+\[
+f_{\boldsymbol{X}}(\boldsymbol{x})  =\frac{1}{\sqrt{(2 \pi )^n}}  \frac{1}{k^{n/2}}\exp \left(- \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}   \right)\left( \frac{k}{k+1} \right)^{n/2}
+\]
+
+\begin{equation}\label{2018.screen.3.d.marginal.x.gaussian}
+=\frac{1}{\sqrt{(2 \pi )^n}} \left[ \left( k+1 \right)^n \right]^{-1/2} \exp \left(- \frac{1}{2} \boldsymbol{x}^T \left( (k+1) \boldsymbol{I}_n \right)^{-1} \boldsymbol{x}   \right)
+\end{equation}
+
+which is the density of an \(n\)-dimensional multivariate Gaussian random variable with mean \(\boldsymbol{0}\) and covariance \((k+1)\boldsymbol{I}_n\). Therefore the posterior distribution of \(\boldsymbol{\mu}\) is
+
+\[
+f_{\boldsymbol{\mu} \mid \boldsymbol{X}}(\boldsymbol{\mu} \mid \boldsymbol{x}) = \frac{f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) f(\boldsymbol{\mu})}{f_{\boldsymbol{X}}(\boldsymbol{x})}
+\]
+
+\[
+= \left[   \frac{1}{(2 \pi \sqrt{k})^n  }  \exp \left(- \frac{1}{2}\left[  \boldsymbol{\mu} ^T\boldsymbol{\mu}  + \frac{1}{k}\boldsymbol{\mu} ^T  \boldsymbol{\mu}  - 2 \boldsymbol{x} ^T\boldsymbol{\mu}   + \boldsymbol{x}^T \boldsymbol{x}  \right]  \right)  \Bigg] \middle/  \Bigg[ \frac{1}{\sqrt{(2 \pi )^n}} \left[ \left( k+1 \right)^n \right]^{-1/2} \exp \left(- \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}   \right) \right]
+\]
+
+\[
+=  \frac{1}{\sqrt{(2\pi)^n}} \left( \frac{k+1}{k} \right)^{n/2} \exp  \left(-  \frac{k+1}{2k} \left[  \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T\left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right) \right] - \frac{1}{2} \frac{1}{k+1}  \boldsymbol{x}^T \boldsymbol{x}  + \frac{1}{2} \frac{1}{k+1} \boldsymbol{x}^T \boldsymbol{x}\right)  
+\]
+
+\[
+=  \frac{1}{\sqrt{(2\pi)^n}} \left( \frac{k+1}{k} \right)^{n/2} \exp  \left(-  \frac{k+1}{2k}  \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T\left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right)\right)  
+\]
+
+\[
+=
+ \frac{1}{\sqrt{(2 \pi)^n}}  \cdot \left( \frac{k}{k+1} \right)^{-n/2}   \exp \left(-  \frac{1}{2}   \left( \boldsymbol{\mu} -  \frac{k}{k+1}  \boldsymbol{x} \right) ^T \left( \frac{k}{k+1}\boldsymbol{I}_n \right)^{-1} \left( \boldsymbol{\mu} -  \frac{k}{k+1} \boldsymbol{x} \right)  \right)
+ \]
+ 
+which is an \(n\)-dimensional multivariate Gaussian distribution with mean \(k/(k+1) \boldsymbol{x}\) and covariance \(k/(k+1) \boldsymbol{I}_n\). That is, conditional on \(\boldsymbol{X}\), \(\boldsymbol{\mu} = (\mu_1, \ldots, \mu_n)\), where
+
+\[
+\mu_i \mid \boldsymbol{X}  \overset{i.i.d.}{\sim} \mathcal{N} \left( \frac{k}{k+1} X_i, \frac{k}{k+1}\right).
+\]
+
+\[
+\iff \left( \mu_i - \frac{k}{k+1}  X_i \right) \frac{k+1}{k}  \mid \boldsymbol{X}\overset{i.i.d.}{\sim} \mathcal{N} \left(0, 1\right) \iff \frac{k+1}{k} \mu_i -   X_i  \mid \boldsymbol{X} \overset{i.i.d.}{\sim} \mathcal{N} \left(0, 1\right)
+\]
+
+\begin{equation}
+\implies  \E \left( \left[ \frac{k+1}{k} \mu_i -   X_i \right]^2  \mid \boldsymbol{X}  \right) = 1  \iff   \E \left( \left[ \frac{k+1}{k} \right]^2 \mu_i  ^2  + X_i^2 - 2 \frac{k+1}{k} \mu_i X_i  \mid \boldsymbol{X}  \right) = 1 
+\end{equation}
+
+So,
+
+\[
+\hat{\delta}_{\text{proper}} = \E \left( \lVert \boldsymbol{\mu} \rVert_2^2 \mid \boldsymbol{X} \right) = \E \left( \sum_{i=1}^n \mu_i^2 \mid \boldsymbol{X}  \right) = \left[ \frac{k}{k+1} \right]^2 \E \left( \sum_{i=1}^n \left[ \frac{k+1}{k} \right]^2 \mu_i^2 \mid \boldsymbol{X}  \right)
+\]
+
+\[
+= \left[ \frac{k}{k+1} \right]^2 \E \left( \sum_{i=1}^n \left[ \frac{k+1}{k} \right]^2 \mu_i  ^2  + X_i^2 - 2 \frac{k+1}{k} \mu_i X_i  \mid \boldsymbol{X}  \right)  -  \left[ \frac{k}{k+1} \right]^2 \E \left( \sum_{i=1}^n X_i^2 - 2 \frac{k+1}{k} \mu_i X_i  \mid \boldsymbol{X}  \right) 
+\] 
+
+\[
+= \left[ \frac{k}{k+1} \right]^2  - \left[ \frac{k}{k+1} \right]^2 \sum_{i=1}^n X_i^2 + 2 \frac{k+1}{k} \left[ \frac{k}{k+1} \right]^2   \sum_{i=1}^n X_i   \E \left( \mu_i \mid \boldsymbol{X}  \right) 
+\] 
+
+\[
+= \left[ \frac{k}{k+1} \right]^2  - \left[ \frac{k}{k+1} \right]^2 \sum_{i=1}^n X_i^2 + 2 \frac{k}{k+1} \sum_{i=1}^n    X_i   \cdot \frac{k}{k+1} X_i
+\] 
+
+\[
+= \left[ \frac{k}{k+1} \right]^2   + 2 \left[ \frac{k}{k+1}\right]^2    \sum_{i=1}^n  X_i ^2  - \left[ \frac{k}{k+1} \right]^2 \sum_{i=1}^n X_i^2 = \left[ \frac{k}{k+1} \right]^2 \left(1   +     \boldsymbol{X}^T \boldsymbol{X} \right).  
+\] 
+
+
+% 3c
+\item We will again begin by finding the posterior distribution of \(\mu\). The (improper) prior distribution of \(\mu\) is constant; that is, for some \(c\in \mathbb{R}\),
+
+\[
+f(\boldsymbol{\mu}) = c, \qquad \forall \boldsymbol{\mu} \in \mathbb{R}^n.
+\]
+
+The likelihood is
+
+\[
+f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) = (2 \pi)^{-n/2} | \boldsymbol{I}_n|^{-1/2} \cdot \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T ( \boldsymbol{I}_n)^{-1} (\boldsymbol{x} - \boldsymbol{\mu} ) \right)
+\]
+
+\[
+= (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  (\boldsymbol{x} - \boldsymbol{\mu} ) \right).
+\]
+
+So the unconditional distribution of \(\boldsymbol{X}\) is
+
+\[
+f_{\boldsymbol{X}}(\boldsymbol{x})  = \int_{\mathbb{R}^n} f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) f(\boldsymbol{\mu}) \ d \boldsymbol{\mu} = c \int_{\mathbb{R}^n}  (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{x} - \boldsymbol{\mu}) ^T  (\boldsymbol{x} - \boldsymbol{\mu} ) \right)  \ d \boldsymbol{\mu}
+\]
+
+\[
+= c \int_{\mathbb{R}^n}  (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(  \boldsymbol{\mu} - \boldsymbol{x}) ^T  (\boldsymbol{\mu} - \boldsymbol{x}) \right)  \ d \boldsymbol{\mu}
+\]
+
+The expression inside the integral is the density of a Gaussian random variable with mean \(\boldsymbol{x}\) and covariance \(\boldsymbol{I}_n\), so the integral evaluates to 1. Therefore the unconditional distribution of \(\boldsymbol{X}\) is also flat. Therefore the posterior distribution of \(\boldsymbol{\mu}\) is the same as the likelihood:
+
+\[
+f_{\boldsymbol{\mu} \mid \boldsymbol{X}}(\boldsymbol{\mu} \mid \boldsymbol{x}) = \frac{f_{\boldsymbol{X} \mid \boldsymbol{\mu}}(\boldsymbol{x} \mid \boldsymbol{\mu}) f(\boldsymbol{\mu})}{f_{\boldsymbol{X}}(\boldsymbol{x})} = (2 \pi)^{-n/2} \exp \left(- \frac{1}{2}(\boldsymbol{\mu} - \boldsymbol{x} ) ^T  ( \boldsymbol{\mu} - \boldsymbol{x}) \right);
+\]
+
+that is, conditional on \(\boldsymbol{X}\), \(\boldsymbol{\mu}\) is normally distributed with mean \(\boldsymbol{X}\) and covariance \(\boldsymbol{I}_n\). So  conditional on \(\boldsymbol{X}\), \(\boldsymbol{\mu} = (\mu_1, \ldots, \mu_n)\), where
+
+\[
+\mu_i  \mid \boldsymbol{X} \overset{i.i.d.}{\sim} \mathcal{N} \left(  X_i, 1 \right).
+\]
+
+\begin{equation}
+ \iff  \mu_i -  X_i  \mid \boldsymbol{X} \overset{i.i.d.}{\sim} \mathcal{N} \left(0, 1\right)  \implies  \E \left( \left[ \mu_i -   X_i \right]^2  \mid \boldsymbol{X}  \right) = 1 \iff   \E \left(  \mu_i  ^2  + X_i^2 -  2\mu_i X_i  \mid \boldsymbol{X}  \right) = 1 
+\end{equation}
+
+So,
+
+\[
+\hat{\delta}_{\text{flat}} = \E \left( \lVert \boldsymbol{\mu} \rVert_2^2 \mid \boldsymbol{X} \right) = \E \left( \sum_{i=1}^n \mu_i^2 \mid \boldsymbol{X}  \right) = \E \left( \sum_{i=1}^n  \mu_i  ^2  + X_i^2 -  2\mu_i X_i  \mid \boldsymbol{X}  \right) -  \E \left( \sum_{i=1}^n  X_i^2 - 2 \mu_i X_i  \mid \boldsymbol{X}  \right)
+\]
+
+\[
+= 1 -  \sum_{i=1}^n  X_i^2  + 2 \sum_{i=1}^n  X_i  \E \left( \mu_i  \mid \boldsymbol{X}  \right)  = 1 -  \sum_{i=1}^n  X_i^2  + 2 \sum_{i=1}^n  X_i^2  = 1 + \boldsymbol{X}^T\boldsymbol{X}.  
+\]
+
+So,
+
+\begin{equation}\label{2018.screen.3.c.flat.unbiased.difference}
+\hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} = 1 + \boldsymbol{X}^T\boldsymbol{X} - \left( \boldsymbol{X}^T\boldsymbol{X} - n \right) = 1 + n.
+\end{equation}
+
+
+% 3d
+\item If the true distribution of \(\boldsymbol{\mu}\) is the prior from part (b), then the marginal distribution of \(\boldsymbol{X}\) is (\ref{2018.screen.3.d.marginal.x.gaussian}):
+
+\[
+=\frac{1}{\sqrt{(2 \pi )^n}} \left[ \left( k+1 \right)^n \right]^{-1/2} \exp \left(- \frac{1}{2} \boldsymbol{x}^T \left( (k+1) \boldsymbol{I}_n \right)^{-1} \boldsymbol{x}   \right);
+\]
+
+that is, \(\boldsymbol{X} \sim \mathcal{N} (\boldsymbol{0}, (k+1)\boldsymbol{I}_n)\). (Note that this means \( (k+1)^{-1} X_i \) is standard Gaussian and i.i.d. for all \(i \in \{1, \ldots, n\}\).) Per the suggestion, let 
+
+\[
+\hat{D} = \hat{\delta}_{\text{proper}}  - \hat{\delta}_{\text{unbiased}} =  \left[ \frac{k}{k+1} \right]^2 \left(1   +     \boldsymbol{X}^T \boldsymbol{X} \right) - \left( \boldsymbol{X}^T\boldsymbol{X} - n \right) = \frac{k^2 - (k^2 + 2k + 1)}{(k+1)^2}  \boldsymbol{X}^T\boldsymbol{X} + \left[ \frac{k}{k+1} \right]^2 + n
+\]
+
+\begin{equation}
+= -\frac{2k + 1}{(k+1)^2}  \boldsymbol{X}^T\boldsymbol{X} + \left[ \frac{k}{k+1} \right]^2 + n
+\end{equation}
+
+
+
+Since from  (\ref{2018.screen.3.c.flat.unbiased.difference}) we have
+
+\[
+\E \left( \hat{\delta}_{\text{proper}}  - \hat{\delta}_{\text{unbiased}} \right)^2 = n^2 + 2n + 1,
+\]
+
+we seek
+
+\[
+\E \left( \hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} \right)^2= \E( \hat{D}^2) = \Var(\hat{D}) + \left[\E(\hat{D}) \right]^2.
+\]
+
+Note that since \((k+1)^{-1} X_i \overset{i.i.d.}{\sim} \mathcal{N}(0,1)\) for all \(i \in \{1, \ldots, n\}\), 
+
+\[
+\sum_{i=1}^n \left( (k+1)^{-1} X_i \right)^2 \sim \chi_n^2,
+\]
+
+so
+
+\[
+\E \left[ \sum_{i=1}^n \left( \frac{1}{k+1} X_i \right)^2  \right] = n \iff \frac{1}{(k+1)^2} \E \left[ \sum_{i=1}^n X_i ^2  \right] = n \iff  \E \left[ \sum_{i=1}^n X_i ^2  \right] = n(k+1)^2,
+\]
+
+and
+
+\[
+\Var \left[ \sum_{i=1}^n \left( \frac{1}{k+1} X_i \right)^2  \right] = 2n \iff \frac{1}{(k+1)^4} \Var \left[ \sum_{i=1}^n X_i ^2  \right] = 2n \iff  \Var \left[ \sum_{i=1}^n X_i ^2  \right] = 2n(k+1)^4.
+\]
+
+Under the unconditional distribution of \(\boldsymbol{X}\),
+
+\[
+\E \left(\hat{D} \right) = \E \left( -\frac{2k + 1}{(k+1)^2}  \boldsymbol{X}^T\boldsymbol{X} + \left[ \frac{k}{k+1} \right]^2 + n \right)  =  - \frac{2k +1}{(k+1)^2}\E \left(  \boldsymbol{X}^T\boldsymbol{X}  \right) + \left[ \frac{k}{k+1} \right]^2 + n
+\]
+
+\[
+=  - \frac{2k +1}{(k+1)^2}\E \left(  \sum_{i=1}^n X_i^2  \right) + \left[ \frac{k}{k+1} \right]^2 + n =  - \frac{2k +1}{(k+1)^2} n(k+1)^2 + \left[ \frac{k}{k+1} \right]^2 + n
+\]
+
+\[
+=  -n \frac{(2k +1)(k^2 + 2k + 1) + k^2}{(k+1)^2}   + n =  n \left[ \frac{k^2 + 2k + 1}{(k+1)^2} - \frac{2k^3 + 4k^2 + 2k + k^2 + 2k + 1 + k^2}{(k+1)^2} \right]
+\]
+
+\[
+=  n \left[  \frac{-2k^3 -5k^2-2k }{(k+1)^2} \right] =  -n \left[  \frac{2k^3  + 5k^2 + 2k }{(k+1)^2} \right]
+\]
+
+
+%\[
+%=n \cdot \frac{(k^2 - k - 1)(k^2 + 2k + 1)}{(k+1)^2}  + \left[ \frac{k}{k+1} \right]^2 + n
+%\]
+
+%\[
+%\E \left(\hat{D} \right) =  - \frac{2k +1}{(k+1)^2} \cdot (k+1)^2 + \left[ \frac{k}{k+1} \right]^2 + n = \frac{(k^2 - k - 1)(k^2 + 2k + 1)}{(k+1)^2}  + \left[ \frac{k}{k+1} \right]^2 + n
+%\]
+%\[
+%= k^2 - k - 1  + \left[ \frac{k}{k+1} \right]^2 + n
+%\]
+
+
+%\[
+%= \frac{k^4 + 2k^3 + k^2 - k^3 -2k^2 -k - k^2 -2k - 1 + k^2}{(k+1)^2}  + n = \frac{k^4 + k^3  - k^2    -3k - 1 }{(k+1)^2}  + n
+%\]
+
+Next,
+
+\[
+\Var (\hat{D}) = \Var \left( - \frac{2k +1}{(k+1)^2}  \boldsymbol{X}^T\boldsymbol{X} + \left[ \frac{k}{k+1} \right]^2 + n  \right) = \frac{(2k +1)^2}{(k+1)^4}   \Var \left( \sum_{i=1}^n  X_i ^2   \right)
+\]
+
+\[
+= \frac{(2k +1)^2}{(k+1)^4}   2n(k+1)^4 = 2n (2k+1)^2
+\]
+
+
+So
+
+\[
+\E \left( \hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} \right)^2 =  2n (2k+1)^2 + \left(-n \left[  \frac{2k^3  + 5k^2 + 2k }{(k+1)^2} \right] \right)^2 = n^2  \left[  \frac{2k^3  + 5k^2 + 2k }{(k+1)^2} \right] ^2 + n \cdot 2(2k+1)^2
+\]
+
+\[
+\approx 4k^2 n^2 + 8k^2 n,
+\]
+
+so in general when \(k \geq 1\) and \(n\) is large,, \(\E \left( \hat{\delta}_{\text{flat}}  - \hat{\delta}_{\text{unbiased}} \right)^2 > \E \left( \hat{\delta}_{\text{proper}}  - \hat{\delta}_{\text{unbiased}} \right)^2 \); that is, the flat prior Bayes estimator is further from the unbiased estimator than the proper prior Bayes estimator.
+
+\end{enumerate}
+
+\end{solution}
+
 \subsubsection{Method of Moments}
 
 \begin{definition}[\textbf{Consistency, Definition 6.30 in Math 541A notes}] Let \(\{f_\theta: \theta \in \Theta\}\) be a family of distributions. Let \(Y_1, Y_2, \ldots\) be a sequence of estimators of \(g(\theta)\). We say that \(Y_1, Y_2, \ldots\) is \textbf{consistent} for \(g(\theta)\) if for any \(\theta \in \Theta\), \(Y_1, Y_2, \ldots\) converges in probability to the constant value \(g(\theta)\) with respect to the probability distribution \(f_\theta\). That is, \(Y_n \xrightarrow{p} g(\theta)\). (Typically we will take \(Y_n\) to be a function of a random sample of size \(n\) for all \(n \geq 1\).) 

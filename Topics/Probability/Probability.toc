@@ -15,17 +15,18 @@
 \contentsline {subsubsection}{\numberline {1.2.1}Example Problems That Will Likely Appear on Midterm (and Final)}{28}{subsubsection.1.2.1}
 \contentsline {subsubsection}{\numberline {1.2.2}Problems we did in class that professor mentioned}{33}{subsubsection.1.2.2}
 \contentsline {subsubsection}{\numberline {1.2.3}Problems we did on homework}{38}{subsubsection.1.2.3}
-\contentsline {subsection}{\numberline {1.3}To Know for Math 505A Midterm 2}{57}{subsection.1.3}
-\contentsline {subsubsection}{\numberline {1.3.1}Definitions}{57}{subsubsection.1.3.1}
-\contentsline {subsubsection}{\numberline {1.3.2}Probability-Generating Functions}{59}{subsubsection.1.3.2}
-\contentsline {subsubsection}{\numberline {1.3.3}Moment-Generating Functions}{60}{subsubsection.1.3.3}
-\contentsline {subsubsection}{\numberline {1.3.4}Characteristic Functions}{60}{subsubsection.1.3.4}
-\contentsline {subsubsection}{\numberline {1.3.5}Continuous Random Variable Distributions}{61}{subsubsection.1.3.5}
-\contentsline {subsubsection}{\numberline {1.3.6}More on Exponential Random Variables}{72}{subsubsection.1.3.6}
-\contentsline {subsubsection}{\numberline {1.3.7}Multivariate Gaussian (Normal) Distributions}{75}{subsubsection.1.3.7}
-\contentsline {subsection}{\numberline {1.4}Exponential Families}{78}{subsection.1.4}
-\contentsline {subsubsection}{\numberline {1.4.1}Differential identities (Generalization of Moment-Generating Functions)}{81}{subsubsection.1.4.1}
-\contentsline {subsection}{\numberline {1.5}KL Divergence (DSO 607)}{85}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}Worked problems}{85}{subsection.1.6}
-\contentsline {subsubsection}{\numberline {1.6.1}Example Problems That Will Likely Appear on Midterm (and Final)}{85}{subsubsection.1.6.1}
-\contentsline {subsubsection}{\numberline {1.6.2}More Problems From Homework}{91}{subsubsection.1.6.2}
+\contentsline {subsubsection}{\numberline {1.2.4}DSO Statistics Group Screening Exam Problems}{57}{subsubsection.1.2.4}
+\contentsline {subsection}{\numberline {1.3}To Know for Math 505A Midterm 2}{60}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Definitions}{60}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Probability-Generating Functions}{63}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}Moment-Generating Functions}{63}{subsubsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.4}Characteristic Functions}{64}{subsubsection.1.3.4}
+\contentsline {subsubsection}{\numberline {1.3.5}Continuous Random Variable Distributions}{65}{subsubsection.1.3.5}
+\contentsline {subsubsection}{\numberline {1.3.6}More on Exponential Random Variables}{75}{subsubsection.1.3.6}
+\contentsline {subsubsection}{\numberline {1.3.7}Multivariate Gaussian (Normal) Distributions}{79}{subsubsection.1.3.7}
+\contentsline {subsection}{\numberline {1.4}Exponential Families}{82}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Differential identities (Generalization of Moment-Generating Functions)}{85}{subsubsection.1.4.1}
+\contentsline {subsection}{\numberline {1.5}KL Divergence (DSO 607)}{89}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Worked problems}{89}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Example Problems That Will Likely Appear on Midterm (and Final)}{89}{subsubsection.1.6.1}
+\contentsline {subsubsection}{\numberline {1.6.2}More Problems From Homework}{95}{subsubsection.1.6.2}

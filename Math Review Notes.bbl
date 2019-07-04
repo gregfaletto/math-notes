@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -79,6 +79,16 @@ M.~Loeve.
 \newblock ISBN 9780387902104.
 \newblock URL \url{https://books.google.com/books?id=\_9xWBlvUEuIC}.
 
+\bibitem[Osborne et~al.(2000)Osborne, Presnell, and Turlach]{Osborne2000}
+M.~R. Osborne, B.~Presnell, and B.~A. Turlach.
+\newblock {On the LASSO and its Dual}.
+\newblock \emph{Journal of Computational and Graphical Statistics}, 9\penalty0
+  (2):\penalty0 319--337, 2000.
+\newblock ISSN 1537-2715.
+\newblock \doi{10.1080/10618600.2000.10474883}.
+\newblock URL
+  \url{https://www.tandfonline.com/action/journalInformation?journalCode=ucgs20}.
+
 \bibitem[Pesaran(2015)]{pesaran-2015-text}
 M.~H. Pesaran.
 \newblock \emph{{Time Series and Panel Data Econometrics}}.
@@ -136,5 +146,13 @@ R.~Serfling.
 \newblock ISBN 0471024031.
 \newblock URL
   \url{http://gso.gbv.de/DB=2.1/CMD?ACT=SRCHA&SRT=YOP&IKT=1016&TRM=ppn+024353353&sourceid=fbw_bibsonomy}.
+
+\bibitem[Tibshirani(2013)]{Tibshirani2013}
+R.~J. Tibshirani.
+\newblock {The lasso problem and uniqueness}.
+\newblock \emph{Electronic Journal of Statistics}, 7\penalty0 (1):\penalty0
+  1456--1490, 2013.
+\newblock ISSN 19357524.
+\newblock \doi{10.1214/13-EJS815}.
 
 \end{thebibliography}

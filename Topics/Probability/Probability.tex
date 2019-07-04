@@ -3605,8 +3605,294 @@ Note that all of these possibilities are mutually exclusive. Therefore the total
 
 \end{enumerate}
 
+\subsubsection{DSO Statistics Group Screening Exam Problems}
+
+\begin{exercise}[\textbf{2017 DSO Statistics Group In-Class Screening Exam, Question 1}]
+
+Let \(X_1, X_2, \ldots, X_k\) be independent standard normal random variables and \(\gamma_1(t), \ldots, \gamma_k(t)\) infinitely differentiable functions of a real variable defined on a closed, bounded interval, such that \(\sum_{i=1}^k \gamma_i^2(t) = 1\) for all \(t\). Let \(Z(t) = \sum_{i=1}^k \gamma_i(t) X_i\). Let \(\dot{Z}(t), \ddot{Z}(t),\) etc. denote first, second, etc. derivatives of \(Z(t)\) with respect to \(t\).
+
+\begin{enumerate}[(a)]
+
+\item Show that \(\Cov(Z(t), \dot{Z}(t) ) =0\).
+
+\item Evaluate \(\E(Z(t) \mid \ddot{Z}(t))\) in terms of \(\ddot{Z}(t)\) and expressions of the form
+
+\[
+\sum_{i=1}^k (\gamma_i(t))^a (\delta^m \gamma_i(t)/ \delta t^m)^b,
+\]
+
+for some \(a, b, m\) values.
+
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}[(a)]
+
+% 1a
+\item
+
+\[
+\dot{Z}(t) =  \pderiv{}{t} \sum_{i=1}^k \gamma_i(t) X_i =   \sum_{i=1}^k   \dot{\gamma}_i(t) X_i 
+\]
+
+\[
+\implies \E \left( \dot{Z}(t)  \right) =    \sum_{i=1}^k   \E \left( \dot{\gamma}_i(t) X_i \right) = 0
+\]
+
+\[
+\implies \Cov(Z(t), \dot{Z}(t)) = \E \big[ (Z(t) - \E[ Z(t)])(\dot{Z}(t)  - \E[\dot{Z}(t) ]) \big]  = \E \big[ Z(t) \dot{Z}(t)  \big]  
+\]
+
+\[
+= \E \left[  \left(  \sum_{i=1}^k \gamma_i(t) X_i   \right) \left( \sum_{i=1}^k   \dot{\gamma}_i(t) X_i  \right)  \right] = \sum_{i=1}^k \E \left( \gamma_i(t)  \dot{\gamma}_i(t)  X_i^2 \right) + 0 = \sum_{i=1}^k \gamma_i(t)  \dot{\gamma}_i(t) 
+\]
+
+since \(\E(X_i^2) = 1\). But 
+
+\begin{equation}\label{2017.screen.1.a.deriv.id}
+\sum_{i=1}^k \gamma_i \dot{\gamma}_i(t) = 0 
+\end{equation}
+
+because
+
+\[
+\sum_{i=1}^k \gamma_i^2(t) = 1 \iff  \pderiv{}{t} \left( \sum_{i=1}^k \gamma_i^2(t) \right) = 0 \iff 2 \sum_{i=1}^k \gamma_i(t) \dot{\gamma}_i(t) = 0,
+\]
+
+so the conclusion follows.
+
+% 1b
+\item
+
+\[
+Z(t) =  \sum_{i=1}^k   \gamma_i(t)  X_i \implies Z(t) \sim \mathcal{N} \left(0, \sum_{i=1}^k \gamma_i^2(t)  \right) = \mathcal{N} \left(0,1 \right)
+\]
+
+\[
+\ddot{Z}(t) =  \sum_{i=1}^k   \ddot{\gamma}_i(t)  X_i \implies \ddot{Z}(t) \sim \mathcal{N} \left(0, \sum_{i=1}^k \ddot{\gamma}_i^2(t)  \right)
+\]
+
+Also, we have
+
+%Therefore \(Z(t) \indep \ddot{Z}(t)\), so \(\E(Z(t) \mid \ddot{Z}(t)) = \E(Z(t)) = 0\).
+%
+%\[
+%\vdots
+%\]
+
+%\[
+%\E(\ddot{Z}(t)) = \sum_{i=1}^k \ddot{\gamma}_i(t) \E(X_i) = 0 
+%\]
+
+\[
+\Cov(Z(t), \ddot{Z}(t)) = \E \big[ (Z(t) - \E[ Z(t)])(\ddot{Z}(t)  - \E[\ddot{Z}(t) ]) \big]  = \E \big[ Z(t) \ddot{Z}(t)  \big]  
+\]
+
+\[
+= \E \left[  \left(  \sum_{i=1}^k \gamma_i(t) X_i   \right) \left( \sum_{i=1}^k   \ddot{\gamma}_i(t) X_i  \right)  \right] = \sum_{i=1}^k \E \left( \gamma_i(t)  \ddot{\gamma}_i(t)  X_i^2 \right) + 0 = \sum_{i=1}^k \gamma_i(t)  \ddot{\gamma}_i(t) = -\sum_{i=1}^k \dot{\gamma}_i^2(t) 
+\]
+ 
+because  differentiating (\ref{2017.screen.1.a.deriv.id}) yields
+
+\[
+\pderiv{}{t} \sum_{i=1}^k \gamma_i \dot{\gamma}_i(t) = 0  \iff \sum_{i=1}^k \left( \dot{\gamma}_i^2(t) + \gamma_i(t) \ddot{\gamma}_i(t) \right) = 0 \iff  \sum_{i=1}^k  \gamma_i(t) \ddot{\gamma}_i(t) = -\sum_{i=1}^k \dot{\gamma}_i^2(t) .
+\]
+
+Since both distributions are Gaussian, we have
+
+\[
+ \E(Z(t) \mid \ddot{Z}(t)) =  \E[Z(t)] + \frac{\Cov[ Z(t), \ddot{Z}(t)] }{ \Var[\ddot{Z}(t)]} ( \ddot{Z}(t) - \E[ \ddot{Z}(t)] )  =  \left[ \sum_{i=1}^k \ddot{\gamma}_i^2(t) \right]^{-1} \cdot \left[ -\sum_{i=1}^k \dot{\gamma}_i^2(t) \right]  \ddot{Z}(t).
+ \]
+ 
+% \[
+% = 0 + \left[ \sum_{i=1}^k \ddot{\gamma}_i^2(t) \right]^{-1} \cdot \left[ -\sum_{i=1}^k \dot{\gamma}_i^2(t) \right]  \ddot{Z}(t)
+% \]
+%
+%\[
+%\vdots
+%\]
+%
+%\[
+%\E(Z(t) \mid \ddot{Z}(t) = \ddot{z}) = \int_{-\infty}^\infty z \cdot f_{Z \mid \ddot{Z}}(z \mid \ddot{z}) \ dz
+%\]
+%
+%\[
+%= \int_0^\infty \Pr(Z(t) \geq z \mid \ddot{Z}(t) = \ddot{z}) \ dz
+%\]
+%
+%Note that
+%
+%\[
+% f_{Z \mid \ddot{Z}}(z \mid \ddot{z}) = \frac{f_{Z, \ddot{Z}}(z, \ddot{z}) }{f_{\ddot{Z}}(\ddot{z})}
+% \]
+%
+%Differentiating again, we have
+%
+%\[
+% \pderiv{}{t} \left(   \sum_{i=1}^k\dot{\gamma}_i^2(t) \right) = \pderiv{}{t} \left(  - \sum_{i=1}^k  \gamma_i(t) \ddot{\gamma}_i(t) \right) \iff \sum_{i=1}^k 2 \dot{\gamma}_i(t) \ddot{\gamma}_i(t) = - \sum_{i=1}^k \left( \dot{\gamma}_i(t) \ddot{\gamma}_i(t) + \gamma_i(t) \dddot{\gamma}_i(t) \right)
+%\]
+%
+%\[
+% \iff 3\sum_{i=1}^k  \dot{\gamma}_i(t) \ddot{\gamma}_i(t) = - \sum_{i=1}^k  \gamma_i(t) \dddot{\gamma}_i(t)
+%\]
+
+\end{enumerate}
 
 
+\end{solution}
+
+%%%%%%%%% 2018 Question 1
+
+\begin{exercise}[\textbf{2018 DSO Statistics Group In-Class Screening Exam, Question 1}]
+
+\begin{enumerate}[(a)]
+
+\item For each \(x > 0\), let \(M(x)\) be a real-valued random variable and set \(M(0)= 0\). Assume that the random function \(M(x)\) is monotone non-decreasing on \([0, \infty)\). Define \(T(y) := \inf \{x \geq 0: M(x) \geq y\}\). Suppose that \(e^{-1} T(y) \) converges in distribution to an \(\operatorname{Exponential}(\lambda)\) random variable when \(y \to \infty\). 
+
+\begin{enumerate}[(i)]
+
+\item Find non-random \(a(x)\) and \(b(x) >0\) such that \((M(x) - a(x))/b(x)\) converges in distribution for \(x \to \infty\) to a non-degenerate random variable.
+
+\item Provide the distribution function of the limit random variable. What is the name of this distribution?
+
+\end{enumerate}
+
+\item Let \(X \sim \operatorname{Bin}(n, p)\). Find \(\E(1/(i+X))\), for \(i = 1, 2\). Hint: Recall that \(\int x^\alpha dx = x^{a + 1}/(a+1) + C\) for \(a \neq -1\).
+
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}[(a)]
+
+% 1a
+\item 
+
+\begin{enumerate}[(i)]
+
+% 1(a)i
+\item 
+
+We have
+
+\[
+T(y) = \inf \{x \geq 0 : M(x) \geq y \}; \qquad \lim_{y \to \infty} \Pr \left( e^{-y} T(y) \leq a \right) = 1 - e^{-\lambda a} \qquad \forall a \geq 0.
+\]
+
+Note that
+
+\[
+ \lim_{y \to \infty} \Pr \left( e^{-y} T(y) \leq a \right) = \lim_{y \to \infty} \Pr(T(y) \leq a e^y) 
+\]
+
+Because \(T(y) = \inf \{x \geq 0 : M(x) \geq y \}\) and \(M(\cdot)\) is montonically increasing, we have the inequality \(M(z) \geq y\) for all \(z \geq x\). Therefore \(T(y) \leq ae^y \iff M(ae^y) \geq y\). Let \(z = ae^y \implies y = \log(z/a)\); then we have
+
+\[
+\lim_{y \to \infty} \Pr(T(y) \leq a e^y)  = \lim_{y \to \infty} \Pr( M(ae^y) \geq y)  = \lim_{z \to \infty} \Pr( M(z) \geq \log(z) - \log(a)) 
+\]
+
+Let \(b = -\log a\) to get 
+
+\[
+= \lim_{z \to \infty} \Pr( M(z) - \log(z) \geq   b) = 1 - e^{-\lambda a} \implies  \lim_{z \to \infty} \Pr( M(z) - \log(z) \geq  b)  = 1 - e^{-\lambda e^{-b}}
+\]
+
+\[
+ \iff \lim_{z \to \infty} \Pr( M(z) - \log(z) \leq  b)  = e^{-\lambda e^{-b}}
+\]
+
+
+
+% 1(a)ii
+\item The distribution function is \(F(x) = e^{-\lambda e^{-x}}\), a Gumbel distribution with parameter \(\lambda\). This is a proper cdf because \(\lim_{x \to \infty} F(x) = 1\) and \(\lim_{x \to -\infty} F(x) = 0\).
+
+\end{enumerate}
+
+% 1b
+\item 
+
+%\textbf{Mohammad:}
+
+Using hint:
+
+\[
+\int_0^1 t^x  \ dt = \left[ \frac{t^{x+1}}{x+1} \right]_0^1 =  \frac{1}{x+1}
+\]
+
+\[
+ \iff \E \left[ \int_0^1 t^X  \ dt \right] = \E \left( \frac{1}{X+1} \right)  \iff \int_0^1 \E ( t^X)  \ dt = \E \left( \frac{1}{X+1} \right)
+\]
+
+\[
+\iff \int_0^1 \sum_{i=0}^n t^i \Pr(X = i) \ dt = \E \left( \frac{1}{X+1} \right) \iff \int_0^1 \sum_{i=0}^n t^i \binom{n}{i} p^i (1-p)^{n-i} \ dt = \E \left( \frac{1}{X+1} \right)
+\]
+
+\[
+ \iff (1-p)^n \int_0^1 \sum_{i=0}^n \binom{n}{i} \left( \frac{tp}{1-p} \right) ^i  \ dt = \E \left( \frac{1}{X+1} \right)
+\]
+
+\[
+ \iff (1-p)^n \int_0^1 \left( 1 + \frac{tp}{1-p} \right)^n  \ dt = \E \left( \frac{1}{X+1} \right)
+\]
+
+\[
+ \iff  \int_0^1 \left( 1 - p + tp  \right)^n  \ dt = \E \left( \frac{1}{X+1} \right)
+\]
+
+Let \(u = 1 - p + tp \implies du = p \ dt\). Then we can write
+
+\[
+\frac{1}{p} \int_{1-p}^1 u^n  \ du = \E \left( \frac{1}{X+1} \right) \iff \frac{1}{p} \left[ \frac{u^{n+1}}{n+1} \right]_{1-p}^1= \E \left( \frac{1}{X+1} \right)  \iff \E \left( \frac{1}{X+1} \right) = \frac{1}{p} \left[ \frac{1 - (1-p)^{n+1}}{n+1} \right]
+\]
+
+Now we consider \(\E \left[ \frac{1}{X+2} \right] \). 
+
+\[
+\int_0^1 t^{x+1}  \ dt = \left[ \frac{t^{x+2}}{x+2} \right]_0^1 =  \frac{1}{x+2}
+\]
+
+\[
+ \iff \E \left[ \int_0^1 t^{X+1}  \ dt \right] = \E \left( \frac{1}{X+2} \right)  \iff \int_0^1 \E ( t^{X+1})  \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+\[
+\iff \int_0^1 \sum_{i=0}^n t^{i+1} \Pr(X = i) \ dt = \E \left( \frac{1}{X+2} \right) \iff \int_0^1 \sum_{i=0}^n t^{i+1} \binom{n}{i} p^i (1-p)^{n-i} \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+\[
+ \iff (1-p)^n \int_0^1 t\sum_{i=0}^n \binom{n}{i} \left( \frac{tp}{1-p} \right) ^i  \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+\[
+ \iff (1-p)^n \int_0^1t \left( 1 + \frac{tp}{1-p} \right)^n  \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+\[
+ \iff  \int_0^1 t\left( 1 - p + tp  \right)^n  \ dt = \E \left( \frac{1}{X+2} \right)
+\]
+
+Let \(u = 1 - p + tp \implies du = p \ dt\) and \(t = (u + p - 1)/p\). Then we can write
+
+\[
+\frac{1}{p^2} \int_{1-p}^1 u^n (u + p - 1) \ du = \E \left( \frac{1}{X+2} \right) \iff  \frac{1}{p^2} \int_{1-p}^1 [u^{n+1} + (p - 1)u^n] \ du = \E \left( \frac{1}{X+2} \right) 
+\]
+
+\[
+\iff  \frac{1}{p^2} \left[\frac{u^{n+2}}{n+2} + (p - 1)\frac{u^{n+1}}{n+1} \right]_{1-p}^1 = \E \left( \frac{1}{X+2} \right) 
+\]
+
+\[
+\iff   \E \left( \frac{1}{X+2} \right)  = \frac{1}{p^2} \left[\frac{1 - (1-p)^{n+2}}{n+2} - (1 - p)\frac{1 - (1-p)^{n+1}}{n+1} \right]
+\]
+
+\end{enumerate}
+
+\end{solution}
 %%%%%%%%%%%% To Know for Math 505A Midterm 2 %%%%%%%%%%%
 %
 %

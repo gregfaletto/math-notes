@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  24 MAY 2019 09:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 JUL 2019 18:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1086,27 +1086,36 @@ Overfull \hbox (7.80519pt too wide) in paragraph at lines 4536--4537
 0 , Ex-am-ple 4.7(b) in \OT1/cmr/bx/it/10 Stochas- 
  []
 
-[77] [78] [79] [80] [81] (./Stochastic_Processes.bbl [82]) [83]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4820.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4820.
+[77] [78] [79] [80] [81]
+Overfull \hbox (4.3742pt too wide) in paragraph at lines 4856--4857
+\OT1/cmr/m/n/10 tive ([][]13[][]) is con-tin-u-ous and non-pos-i-tive on $(0\OM
+L/cmm/m/it/10 ; \OT1/cmr/m/n/10 1]$. There-fore the first deriva-tive ([][]12[]
+[]) never ex-ceeds $\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 (0) = 
+ []
 
-(./Stochastic_Processes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4820.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4820.
+[82] [83] (./Stochastic_Processes.bbl [84]) [85]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5001.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5001.
+ (./Stochastic_Processes.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5001.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5001.
 
 Package rerunfilecheck Info: File `Stochastic_Processes.out' has not changed.
-(rerunfilecheck)             Checksum: F0197AD6F1604434125F0DEC37E4036B;2923.
+(rerunfilecheck)             Checksum: A77D18960E597537C8A5AAC67C61E424;3018.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4820.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5001.
  ) 
 Here is how much of TeX's memory you used:
- 18469 strings out of 492649
- 347440 string characters out of 6129622
- 434206 words of memory out of 5000000
- 21632 multiletter control sequences out of 15000+600000
+ 18488 strings out of 492649
+ 347643 string characters out of 6129622
+ 434352 words of memory out of 5000000
+ 21635 multiletter control sequences out of 15000+600000
  15844 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,12n,66p,814b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1130,10 +1139,10 @@ ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
 e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 /2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/
 2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Stochastic_Processes.pdf (83 pages, 493882 bytes).
+Output written on Stochastic_Processes.pdf (85 pages, 502763 bytes).
 PDF statistics:
- 1068 PDF objects out of 1200 (max. 8388607)
- 953 compressed objects within 10 object streams
- 378 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1103 PDF objects out of 1200 (max. 8388607)
+ 986 compressed objects within 10 object streams
+ 394 named destinations out of 1000 (max. 500000)
+ 237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

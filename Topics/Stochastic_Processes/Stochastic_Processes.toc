@@ -22,6 +22,7 @@
 \contentsline {subsubsection}{\numberline {1.6.6}Time Reversible Markov Chains (Section 4.8 of \textit {Introduction to Probability Models}, Section 4.7 of \textit {Stochastic Processes}}{76}{subsubsection.1.6.6}
 \contentsline {subsubsection}{\numberline {1.6.7}Semi-Markov Processes (Section 4.8 of \textit {Stochastic Processes} (p. 224 of pdf), Section 7.6 of \textit {Introduction to Probability Models}}{77}{subsubsection.1.6.7}
 \contentsline {subsection}{\numberline {1.7}ISE 620}{78}{subsection.1.7}
-\contentsline {subsection}{\numberline {1.8}Simple Random Walk}{80}{subsection.1.8}
-\contentsline {subsection}{\numberline {1.9}Martingales}{81}{subsection.1.9}
-\contentsline {subsection}{\numberline {1.10}Brownian Motion}{81}{subsection.1.10}
+\contentsline {subsection}{\numberline {1.8}DSO Statistics Group Screening Exam Problems}{80}{subsection.1.8}
+\contentsline {subsection}{\numberline {1.9}Simple Random Walk}{83}{subsection.1.9}
+\contentsline {subsection}{\numberline {1.10}Martingales}{83}{subsection.1.10}
+\contentsline {subsection}{\numberline {1.11}Brownian Motion}{83}{subsection.1.11}

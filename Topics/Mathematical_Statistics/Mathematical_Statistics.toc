@@ -13,14 +13,14 @@
 \contentsline {subsubsection}{\numberline {1.4.2}Evaluating Estimators}{43}{subsubsection.1.4.2}
 \contentsline {subsubsection}{\numberline {1.4.3}Efficiency of an Estimator}{50}{subsubsection.1.4.3}
 \contentsline {subsubsection}{\numberline {1.4.4}Bayes Estimation}{53}{subsubsection.1.4.4}
-\contentsline {subsubsection}{\numberline {1.4.5}Method of Moments}{55}{subsubsection.1.4.5}
-\contentsline {subsubsection}{\numberline {1.4.6}Maximum likelihood estimator}{56}{subsubsection.1.4.6}
-\contentsline {subsubsection}{\numberline {1.4.7}Bayes estimator}{66}{subsubsection.1.4.7}
-\contentsline {subsubsection}{\numberline {1.4.8}EM Algorithm}{66}{subsubsection.1.4.8}
-\contentsline {subsubsection}{\numberline {1.4.9}Comparison of estimators}{66}{subsubsection.1.4.9}
-\contentsline {subsection}{\numberline {1.5}Resampling and Bias Reduction}{66}{subsection.1.5}
-\contentsline {subsubsection}{\numberline {1.5.1}Jackknife Resampling}{66}{subsubsection.1.5.1}
-\contentsline {subsubsection}{\numberline {1.5.2}Bootstrapping}{67}{subsubsection.1.5.2}
-\contentsline {subsection}{\numberline {1.6}Some Concentration of Measure}{67}{subsection.1.6}
-\contentsline {subsubsection}{\numberline {1.6.1}Concentration for Independent Sums}{67}{subsubsection.1.6.1}
-\contentsline {subsection}{\numberline {1.7}Hypothesis Testing}{68}{subsection.1.7}
+\contentsline {subsubsection}{\numberline {1.4.5}Method of Moments}{61}{subsubsection.1.4.5}
+\contentsline {subsubsection}{\numberline {1.4.6}Maximum likelihood estimator}{61}{subsubsection.1.4.6}
+\contentsline {subsubsection}{\numberline {1.4.7}Bayes estimator}{71}{subsubsection.1.4.7}
+\contentsline {subsubsection}{\numberline {1.4.8}EM Algorithm}{71}{subsubsection.1.4.8}
+\contentsline {subsubsection}{\numberline {1.4.9}Comparison of estimators}{72}{subsubsection.1.4.9}
+\contentsline {subsection}{\numberline {1.5}Resampling and Bias Reduction}{72}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Jackknife Resampling}{72}{subsubsection.1.5.1}
+\contentsline {subsubsection}{\numberline {1.5.2}Bootstrapping}{72}{subsubsection.1.5.2}
+\contentsline {subsection}{\numberline {1.6}Some Concentration of Measure}{72}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Concentration for Independent Sums}{72}{subsubsection.1.6.1}
+\contentsline {subsection}{\numberline {1.7}Hypothesis Testing}{73}{subsection.1.7}

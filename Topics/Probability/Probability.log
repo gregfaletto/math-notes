@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 JUN 2019 11:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 JUL 2019 18:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -979,7 +979,7 @@ mr/m/n/10 from a group of $\OML/cmm/m/it/10 N$ \OT1/cmr/m/n/10 items,
  []
 
 [24]
-<images/prob_hypergeometric.jpg, id=447, 3738.96875pt x 2052.66875pt>
+<images/prob_hypergeometric.jpg, id=453, 3738.96875pt x 2052.66875pt>
 File: images/prob_hypergeometric.jpg Graphic file (type jpg)
 <use images/prob_hypergeometric.jpg>
 Package pdftex.def Info: images/prob_hypergeometric.jpg  used on input line 146
@@ -1023,7 +1023,7 @@ f $\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^X^^Q\OT1/cmr/m/n/10 ) =
  []
 
 [33] [34] [35] [36]
-<images/prob_sp18p2.png, id=550, 745.78625pt x 298.11375pt>
+<images/prob_sp18p2.png, id=556, 745.78625pt x 298.11375pt>
 File: images/prob_sp18p2.png Graphic file (type png)
 <use images/prob_sp18p2.png>
 Package pdftex.def Info: images/prob_sp18p2.png  used on input line 2346.
@@ -1052,19 +1052,33 @@ Overfull \hbox (7.30214pt too wide) detected at line 3315
  \OT1/cmr/m/n/10 4)[]
  []
 
-[52] [53] [54] [55] [56] [57]
+[52] [53] [54] [55]
+Overfull \hbox (11.12265pt too wide) in paragraph at lines 3612--3613
+[][]\OT1/cmr/bx/n/10 Exercise 2 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 2017 DSO Stat
+is-tics Group In---Class Screen-ing Exam, Ques-tion 1\OT1/cmr/m/n/10 )\OT1/cmr/
+bx/n/10 . []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X[]; X[]; [] ; X[]$ 
+ []
 
-LaTeX Warning: Reference `asym.cauchy.schwarz' on page 58 undefined on input li
-ne 3731.
+[56] [57] [58]
+Overfull \hbox (3.7734pt too wide) detected at line 3883
+[] [][] \OML/cmm/m/it/10 u[] du \OT1/cmr/m/n/10 = \U/msb/m/n/10 E []  \OMS/cmsy
+/m/n/10 ([])  [] [][] \OT1/cmr/m/n/10 = \U/msb/m/n/10 E []  \OMS/cmsy/m/n/10 ([
+])  \U/msb/m/n/10 E [] \OT1/cmr/m/n/10 = [] []
+ []
 
-[58] [59]
-Overfull \hbox (10.28822pt too wide) in paragraph at lines 3874--3875
+[59] [60] [61]
+
+LaTeX Warning: Reference `asym.cauchy.schwarz' on page 62 undefined on input li
+ne 4049.
+
+[62] [63]
+Overfull \hbox (10.28822pt too wide) in paragraph at lines 4192--4193
 []\OT1/cmr/bx/n/10 Remark. []Re-la-tion-ship be-tween char-ac-ter-is-tic func-t
 ions and prob-a-bil-ity and moment-generating 
  []
 
-[60] [61] [62] [63] [64] [65] [66] [67] [68] [69]
-Overfull \hbox (8.81168pt too wide) in paragraph at lines 4524--4524
+[64] [65] [66] [67] [68] [69] [70] [71] [72]
+Overfull \hbox (8.81168pt too wide) in paragraph at lines 4842--4842
 \OT1/cmr/m/n/10 chi squared ran-dom vari-able with $\OML/cmm/m/it/10 q$ \OT1/cm
 r/m/n/10 de-grees of free-dom, with $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 and $\
 OML/cmm/m/it/10 Y$ \OT1/cmr/m/n/10 in-de-pen-dent. Then $(\OML/cmm/m/it/10 X=p\
@@ -1072,53 +1086,52 @@ OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y=q\OT1/cmr
 /m/n/10 )$ 
  []
 
-[70] [71] [72] [73]
-Overfull \hbox (8.31526pt too wide) in paragraph at lines 4809--4810
+[73] [74] [75] [76]
+Overfull \hbox (8.31526pt too wide) in paragraph at lines 5127--5128
 \OT1/cmr/m/n/10 ex-pected time is the same as ini-tially be-cause of the mem-o-
 ry-less prop-erty (Propo-si-tion [][]63[][]). Thus $[]\OMS/cmsy/m/n/10 f\OML/cm
 m/m/it/10 X; Y\OMS/cmsy/m/n/10 g$ 
  []
 
-
-Overfull \hbox (0.49577pt too wide) in paragraph at lines 4821--4822
+[77]
+Overfull \hbox (0.49577pt too wide) in paragraph at lines 5139--5140
 []\OT1/cmr/m/n/10 which is not ex-po-nen-tial. In-tu-itively, if we only need o
 ne ma-chine to be work-ing, just be-cause we are work- 
  []
 
 
-Overfull \hbox (2.74576pt too wide) in paragraph at lines 4821--4822
+Overfull \hbox (2.74576pt too wide) in paragraph at lines 5139--5140
 \OT1/cmr/m/n/10 ing at time $\OML/cmm/m/it/10 t$ \OT1/cmr/m/n/10 does not mean 
 we are in the same po-si-tion as we were ini-tially; one ma-chine could have fa
 iled. 
  []
 
-[74] [75]
+[78] [79]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 4934.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 5252.
 
 
-Overfull \hbox (142.4657pt too wide) in paragraph at lines 4961--4962
+Overfull \hbox (142.4657pt too wide) in paragraph at lines 5279--5280
 [][]\OT1/cmr/bx/n/10 Proposition 70 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Generaliz
 ation of Propo-si-tion [][]69[][]; from [][]$\OT1/cmtt/m/n/10 https : / / en . 
 wikipedia . org / wiki / Multivariate _ normal _ distribution$[][]\OT1/cmr/m/n/
 10 )\OT1/cmr/bx/n/10 . 
  []
 
-[76]
 
-LaTeX Warning: Reference `cvx.schur.sec' on page 77 undefined on input line 497
-6.
-
-
-LaTeX Warning: Reference `linalg.mat.decomp' on page 77 undefined on input line
- 4976.
+LaTeX Warning: Reference `cvx.schur.sec' on page 80 undefined on input line 529
+4.
 
 
-LaTeX Warning: Reference `asym.berry.esseen' on page 77 undefined on input line
- 4979.
+LaTeX Warning: Reference `linalg.mat.decomp' on page 80 undefined on input line
+ 5294.
 
-[77] [78]
-Overfull \hbox (20.82428pt too wide) in paragraph at lines 5120--5121
+
+LaTeX Warning: Reference `asym.berry.esseen' on page 80 undefined on input line
+ 5297.
+
+[80] [81] [82]
+Overfull \hbox (20.82428pt too wide) in paragraph at lines 5438--5439
 []\OT1/cmr/bx/n/10 Remark. []\OT1/cmr/m/n/10 (notes re-mark 3.7) \OT1/cmr/bx/n/
 10 (Lo-ca-tion and scale fam-ily.) \OT1/cmr/m/n/10 The fam-ily of den-si-ties $
 \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^[[]f\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 x \
@@ -1126,8 +1139,8 @@ OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^V\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =^^[\OT1
 /cmr/m/n/10 )\OMS/cmsy/m/n/10 g[]$ 
  []
 
-[79] [80] [81]
-Overfull \hbox (30.33614pt too wide) detected at line 5285
+[83] [84] [85]
+Overfull \hbox (30.33614pt too wide) detected at line 5603
 [] \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\O
 T1/cmr/m/n/10 ) [] [] [] \OML/cmm/m/it/10 w[]t[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/
 10 x\OT1/cmr/m/n/10 )[]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 (\
@@ -1137,26 +1150,26 @@ S/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 ^^Ot[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1
 /cmr/m/n/10 )[]
  []
 
-[82] [83] [84]
-Overfull \hbox (31.06885pt too wide) in paragraph at lines 5476--5477
+[86] [87] [88]
+Overfull \hbox (31.06885pt too wide) in paragraph at lines 5794--5795
 []\OT1/cmr/m/n/10 Way we wrote this in DSO 607: KL Di-ver-gence of den-sity $\O
 ML/cmm/m/it/10 f$ \OT1/cmr/m/n/10 (es-ti-mated) from den-sity $\OML/cmm/m/it/10
  g$ \OT1/cmr/m/n/10 (true model/distribution):  
  []
 
 
-LaTeX Warning: Reference `{linreg.aic.bic}' on page 85 undefined on input line 
-5486.
+LaTeX Warning: Reference `{linreg.aic.bic}' on page 89 undefined on input line 
+5804.
 
-[85]
-<images/prob_505a_midterm_1a.jpg, id=971, 3319.40125pt x 2147.02126pt>
+[89]
+<images/prob_505a_midterm_1a.jpg, id=1009, 3319.40125pt x 2147.02126pt>
 File: images/prob_505a_midterm_1a.jpg Graphic file (type jpg)
 <use images/prob_505a_midterm_1a.jpg>
-Package pdftex.def Info: images/prob_505a_midterm_1a.jpg  used on input line 55
-68.
+Package pdftex.def Info: images/prob_505a_midterm_1a.jpg  used on input line 58
+86.
 (pdftex.def)             Requested size: 375.80542pt x 243.05284pt.
 
-Overfull \hbox (27.35664pt too wide) detected at line 5588
+Overfull \hbox (27.35664pt too wide) detected at line 5906
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 tX[
 ] \OMS/cmsy/m/n/10 j \OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 t 
 < \OT1/cmr/m/n/10 5) = [][]1 \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/i
@@ -1166,47 +1179,47 @@ OT1/cmr/m/n/10 = [][]\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1
 [][] = []
  []
 
-[86 <./images/prob_505a_midterm_1a.jpg>]
-Overfull \hbox (17.01724pt too wide) in paragraph at lines 5590--5591
+[90 <./images/prob_505a_midterm_1a.jpg>]
+Overfull \hbox (17.01724pt too wide) in paragraph at lines 5908--5909
 []$\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 5$: In this case, th
 e en-tire rect-an-gle lies be-low the curve. There-fore $[]$.  
  []
 
-<images/prob_505a_midterm_1b.jpg, id=984, 3405.72375pt x 1728.4575pt>
+<images/prob_505a_midterm_1b.jpg, id=1022, 3405.72375pt x 1728.4575pt>
 File: images/prob_505a_midterm_1b.jpg Graphic file (type jpg)
 <use images/prob_505a_midterm_1b.jpg>
-Package pdftex.def Info: images/prob_505a_midterm_1b.jpg  used on input line 56
-39.
+Package pdftex.def Info: images/prob_505a_midterm_1b.jpg  used on input line 59
+57.
 (pdftex.def)             Requested size: 375.80542pt x 190.71114pt.
-[87 <./images/prob_505a_midterm_1b.jpg>]
-Overfull \hbox (24.50954pt too wide) in paragraph at lines 5709--5711
+[91 <./images/prob_505a_midterm_1b.jpg>]
+Overfull \hbox (24.50954pt too wide) in paragraph at lines 6027--6029
 \OT1/cmr/m/n/10 which is the cdf for an ex-po-nen-tial dis-tri-bu-tion with mea
 n 1. There-fore $\OML/cmm/m/it/10 Y \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@ []\O
 T1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^X []\OT1/
 cmr/m/n/10 (1)$, 
  []
 
-[88]
-<images/prob_midterm2_p5.jpg, id=1002, 2661.945pt x 2477.255pt>
+[92]
+<images/prob_midterm2_p5.jpg, id=1040, 2661.945pt x 2477.255pt>
 File: images/prob_midterm2_p5.jpg Graphic file (type jpg)
 <use images/prob_midterm2_p5.jpg>
-Package pdftex.def Info: images/prob_midterm2_p5.jpg  used on input line 5743.
+Package pdftex.def Info: images/prob_midterm2_p5.jpg  used on input line 6061.
 (pdftex.def)             Requested size: 328.82706pt x 305.98953pt.
- [89] [90 <./images/prob_midterm2_p5.jpg>]
+ [93] [94 <./images/prob_midterm2_p5.jpg>]
 
-LaTeX Warning: Reference `stoch.pois.proc.sec' on page 91 undefined on input li
-ne 5799.
-
-
-LaTeX Warning: Reference `stoch.pois.proc.thm.6.8.2' on page 91 undefined on in
-put line 5804.
+LaTeX Warning: Reference `stoch.pois.proc.sec' on page 95 undefined on input li
+ne 6117.
 
 
-LaTeX Warning: Reference `stoch.pois.proc.inter.cor' on page 91 undefined on in
-put line 5821.
+LaTeX Warning: Reference `stoch.pois.proc.thm.6.8.2' on page 95 undefined on in
+put line 6122.
 
-[91]
-Overfull \hbox (14.99474pt too wide) detected at line 5878
+
+LaTeX Warning: Reference `stoch.pois.proc.inter.cor' on page 95 undefined on in
+put line 6139.
+
+[95]
+Overfull \hbox (14.99474pt too wide) detected at line 6196
 \OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \U/m
 sb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 ) = \U/msb/m/n/
 10 E\OT1/cmr/m/n/10 [\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e[] \OMS/
@@ -1219,8 +1232,8 @@ ML/cmm/m/it/10 e[] \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 N \OT1/cmr/m/n/10 = \OML
 m/m/it/10 n\OT1/cmr/m/n/10 )
  []
 
-[92]
-Overfull \hbox (22.56882pt too wide) detected at line 5946
+[96]
+Overfull \hbox (22.56882pt too wide) detected at line 6264
 \OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \U
 /msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 ) = \U/msb/m/
 n/10 E\OT1/cmr/m/n/10 [\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e[] \OM
@@ -1233,33 +1246,33 @@ ML/cmm/m/it/10 n\OT1/cmr/m/n/10 ) [](\OML/cmm/m/it/10 N \OT1/cmr/m/n/10 = \OML/
 cmm/m/it/10 n\OT1/cmr/m/n/10 )
  []
 
-[93] [94]
-<images/prob_hw6p10a.png, id=1041, 815.045pt x 692.5875pt>
+[97] [98]
+<images/prob_hw6p10a.png, id=1079, 815.045pt x 692.5875pt>
 File: images/prob_hw6p10a.png Graphic file (type png)
 <use images/prob_hw6p10a.png>
-Package pdftex.def Info: images/prob_hw6p10a.png  used on input line 6098.
+Package pdftex.def Info: images/prob_hw6p10a.png  used on input line 6416.
 (pdftex.def)             Requested size: 326.01222pt x 277.03009pt.
- [95 <./images/prob_hw6p10a.png>] [96] (./Probability.bbl) [97]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6243.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6243.
+ [99 <./images/prob_hw6p10a.png>] [100] (./Probability.bbl) [101]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6561.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6561.
 
 (./Probability.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6243.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6243.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6561.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6561.
 
 Package rerunfilecheck Info: File `Probability.out' has not changed.
-(rerunfilecheck)             Checksum: 5F1E323BB9395913E33A86F8DC3D60BB;2758.
+(rerunfilecheck)             Checksum: 0E8E8B2773E437A810A172121CAE0E93;2862.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6243.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6561.
  ) 
 Here is how much of TeX's memory you used:
- 18604 strings out of 492649
- 348996 string characters out of 6129622
- 427882 words of memory out of 5000000
- 21678 multiletter control sequences out of 15000+600000
+ 18625 strings out of 492649
+ 349211 string characters out of 6129622
+ 427955 words of memory out of 5000000
+ 21680 multiletter control sequences out of 15000+600000
  15820 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,13n,66p,1036b,623s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1296,10 +1309,10 @@ ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texli
 ve/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/loca
 l/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Probability.pdf (97 pages, 6569045 bytes).
+Output written on Probability.pdf (101 pages, 6581939 bytes).
 PDF statistics:
- 1248 PDF objects out of 1440 (max. 8388607)
- 1098 compressed objects within 11 object streams
- 457 named destinations out of 1000 (max. 500000)
- 291 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1290 PDF objects out of 1440 (max. 8388607)
+ 1135 compressed objects within 12 object streams
+ 476 named destinations out of 1000 (max. 500000)
+ 299 words of extra memory for PDF output out of 10000 (max. 10000000)
 

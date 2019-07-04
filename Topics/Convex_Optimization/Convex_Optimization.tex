@@ -797,6 +797,60 @@ where the last step also follows from a property of all norms.
 
 \end{proposition}
 
+\begin{proposition}[\textbf{2018 DSO Statistics Group In-Class Screening Exam, Question 5}] The function \(f(\theta) = ( \lVert \theta \rVert_1)^2\) is convex.
+
+\end{proposition}
+
+\begin{proof}
+
+
+Note that
+
+\begin{equation}\label{2018.screen.5.d.a}
+\lVert tx+(1-t)y \rVert_1 \leq \lVert tx \rVert_1  + \lVert (1-t)y \rVert_1 = t \lVert x \rVert_1  + (1-t) \lVert y \rVert_1 
+\end{equation}
+
+where the first step follows by the Triangle Inequality (which all norms satisfy, including the \(\ell_1\) norm) and the second step follows by the homogeneity property of norms. Therefore \(\lVert \theta \rVert_1\) is convex. Next, by (\ref{2018.screen.5.d.a}) and the monotonicity of \(g(\theta) = \theta^2\) when \(\theta \geq 0\),
+
+%Note that (\ref{2018.screen.5.d.a}) holds with equality if \(x \succeq \boldsymbol{0}_n\) and \(y \succeq \boldsymbol{0}_n\) or \(x \preceq \boldsymbol{0}_n\) and \(y \preceq \boldsymbol{0}_n\). If either of those conditions are met, we have
+
+\[
+f(tx+(1-t)y) = \left( \lVert tx+(1-t)y \rVert_1 \right)^2 \leq \left(  t \lVert x \rVert_1  + (1-t) \lVert y \rVert_1  \right)^2 
+\]
+
+\[
+= t^2 \lVert x \rVert_1^2 + (1-t)^2 \lVert y \rVert_1^2 +2t(1-t) \lVert x \rVert_1 \lVert y \rVert_1 
+\]
+
+and
+
+\[
+tf(x) + (1-t)f(y) = t \lVert x \rVert_1^2 + (1-t) \lVert y \rVert_1^2
+\]
+
+Taking the difference of these yields
+
+\[
+tf(x) + (1-t)f(y)  - f(tx+(1-t)y)  \geq t \lVert x \rVert_1^2 + (1-t) \lVert y \rVert_1^2 - \left(  t^2 \lVert x \rVert_1^2 + (1-t)^2 \lVert y \rVert_1^2 +2t(1-t) \lVert x \rVert_1 \lVert y \rVert_1  \right)
+\]
+
+\[
+=( t - t^2) \lVert x \rVert_1^2 + [(1-t) - (1-t)^2] \lVert y \rVert_1^2 - 2t(1-t)\lVert x \rVert_1 \lVert y \rVert_1 
+\]
+
+\[
+=(t - t^2)\left( \lVert x \rVert_1^2 + \lVert y \rVert_1^2 - 2\lVert x \rVert_1 \lVert y \rVert_1 \right) = t(1-t)(\lVert x \rVert_1 - \lVert y \rVert_1)^2 \geq 0
+\]
+
+\[
+\iff  tf(x) + (1-t)f(y)  \geq f(tx+(1-t)y)  
+\]
+
+which proves convexity.
+
+\end{proof}
+
+
 
 \subsection{Schur Complement Trick}\label{cvx.schur.sec}
 

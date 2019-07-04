@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -45,6 +45,16 @@ G.~M. James, P.~Radchenko, and J.~Lv.
 \newblock URL
   \url{https://rss-onlinelibrary-wiley-com.libproxy1.usc.edu/doi/pdf/10.1111/j.1467-9868.2008.00668.x}.
 
+\bibitem[Osborne et~al.(2000)Osborne, Presnell, and Turlach]{Osborne2000}
+M.~R. Osborne, B.~Presnell, and B.~A. Turlach.
+\newblock {On the LASSO and its Dual}.
+\newblock \emph{Journal of Computational and Graphical Statistics}, 9\penalty0
+  (2):\penalty0 319--337, 2000.
+\newblock ISSN 1537-2715.
+\newblock \doi{10.1080/10618600.2000.10474883}.
+\newblock URL
+  \url{https://www.tandfonline.com/action/journalInformation?journalCode=ucgs20}.
+
 \bibitem[Pesaran(2015)]{pesaran-2015-text}
 M.~H. Pesaran.
 \newblock \emph{{Time Series and Panel Data Econometrics}}.
@@ -59,5 +69,13 @@ G.~Schwarz.
   1978.
 \newblock URL
   \url{https://www.andrew.cmu.edu/user/kk3n/simplicity/schwarzbic.pdf}.
+
+\bibitem[Tibshirani(2013)]{Tibshirani2013}
+R.~J. Tibshirani.
+\newblock {The lasso problem and uniqueness}.
+\newblock \emph{Electronic Journal of Statistics}, 7\penalty0 (1):\penalty0
+  1456--1490, 2013.
+\newblock ISSN 19357524.
+\newblock \doi{10.1214/13-EJS815}.
 
 \end{thebibliography}

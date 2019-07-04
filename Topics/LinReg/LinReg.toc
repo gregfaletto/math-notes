@@ -15,11 +15,11 @@
 \contentsline {subsubsection}{\numberline {1.8.2}Lasso theory}{25}{subsubsection.1.8.2}
 \contentsline {subsubsection}{\numberline {1.8.3}Non-Negative Garotte}{26}{subsubsection.1.8.3}
 \contentsline {subsubsection}{\numberline {1.8.4}LARS---Preliminaries and Intuition}{27}{subsubsection.1.8.4}
-\contentsline {subsubsection}{\numberline {1.8.5}LARS}{28}{subsubsection.1.8.5}
-\contentsline {subsection}{\numberline {1.9}Quadratic Loss}{30}{subsection.1.9}
-\contentsline {subsubsection}{\numberline {1.9.1}Feature Selection properties}{30}{subsubsection.1.9.1}
-\contentsline {subsection}{\numberline {1.10}Dantzig Selector}{33}{subsection.1.10}
-\contentsline {subsection}{\numberline {1.11}Coordinate Descent}{34}{subsection.1.11}
-\contentsline {subsection}{\numberline {1.12}Nonconvex Learning}{35}{subsection.1.12}
-\contentsline {subsection}{\numberline {1.13}Yinfei Kong---Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{35}{subsection.1.13}
-\contentsline {subsection}{\numberline {1.14}Total Variational Distance}{35}{subsection.1.14}
+\contentsline {subsubsection}{\numberline {1.8.5}LARS}{33}{subsubsection.1.8.5}
+\contentsline {subsection}{\numberline {1.9}Quadratic Loss}{34}{subsection.1.9}
+\contentsline {subsubsection}{\numberline {1.9.1}Feature Selection properties}{35}{subsubsection.1.9.1}
+\contentsline {subsection}{\numberline {1.10}Dantzig Selector}{38}{subsection.1.10}
+\contentsline {subsection}{\numberline {1.11}Coordinate Descent}{39}{subsection.1.11}
+\contentsline {subsection}{\numberline {1.12}Nonconvex Learning}{39}{subsection.1.12}
+\contentsline {subsection}{\numberline {1.13}Yinfei Kong---Innovated Interaction Screening for HIgh-Dimensional Nonlinear Classification}{39}{subsection.1.13}
+\contentsline {subsection}{\numberline {1.14}Total Variational Distance}{39}{subsection.1.14}

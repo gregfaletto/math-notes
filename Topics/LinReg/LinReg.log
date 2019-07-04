@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 JUN 2019 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 JUL 2019 18:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1044,37 +1044,63 @@ File: images/linreg_lasso_level_set.png Graphic file (type png)
 Package pdftex.def Info: images/linreg_lasso_level_set.png  used on input line 
 1488.
 (pdftex.def)             Requested size: 367.47838pt x 229.76181pt.
- [26 <./images/linreg_lasso_level_set.png>] [27]
-<images/linreg_lars_2d.png, id=395, 719.68875pt x 543.02875pt>
+ [26 <./images/linreg_lasso_level_set.png>] [27] [28] [29]
+Overfull \hbox (1.70355pt too wide) in paragraph at lines 1764--1765
+\OT1/cmr/m/n/10 lower bound on the quan-tity we are min-i-miz-ing; oth-er-wise,
+ when $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 is neg-a-tive the in-fi-mum is 0
+. When 
+ []
+
+[30]
+
+Package natbib Warning: Citation `Tibshirani2013' on page 31 undefined on input
+ line 1826.
+
+[31]
+
+Package natbib Warning: Citation `Osborne2000' on page 32 undefined on input li
+ne 1877.
+
+[32]
+<images/linreg_lars_2d.png, id=486, 719.68875pt x 543.02875pt>
 File: images/linreg_lars_2d.png Graphic file (type png)
 <use images/linreg_lars_2d.png>
-Package pdftex.def Info: images/linreg_lars_2d.png  used on input line 1618.
+Package pdftex.def Info: images/linreg_lars_2d.png  used on input line 1986.
 (pdftex.def)             Requested size: 375.80542pt x 283.56145pt.
-<images/linreg_lars_3d.png, id=396, 720.6925pt x 568.1225pt>
+<images/linreg_lars_3d.png, id=487, 720.6925pt x 568.1225pt>
 File: images/linreg_lars_3d.png Graphic file (type png)
 <use images/linreg_lars_3d.png>
-Package pdftex.def Info: images/linreg_lars_3d.png  used on input line 1623.
+Package pdftex.def Info: images/linreg_lars_3d.png  used on input line 1991.
 (pdftex.def)             Requested size: 375.80542pt x 296.24893pt.
 
-Overfull \hbox (1.50441pt too wide) in paragraph at lines 1629--1630
+Overfull \hbox (1.50441pt too wide) in paragraph at lines 1997--1998
 \OT1/cmr/m/n/10 whenever $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 be-comes 0, i
 t is dropped from the cur-rent ac-tive set. A fea-ture's sign can-not change in
  lasso--- 
  []
 
-[28] [29 <./images/linreg_lars_2d.png> <./images/linreg_lars_3d.png>] [30]
-[31] [32] [33]
-Overfull \hbox (7.93813pt too wide) in paragraph at lines 1892--1892
+[33 <./images/linreg_lars_2d.png>] [34 <./images/linreg_lars_3d.png>] [35]
+[36] [37] [38]
+Overfull \hbox (7.93813pt too wide) in paragraph at lines 2260--2260
 []\OT1/cmr/bx/n/12 Yinfei Kong---Innovated In-ter-ac-tion Screen-ing for HIgh-D
 imensional Non- 
  []
 
-(./LinReg.bbl [34]) [35]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1911.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1911.
- (./LinReg.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1911.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1911.
+(./LinReg.bbl [39])
+
+Package natbib Warning: There were undefined citations.
+
+[40]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2279.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2279.
+ (./LinReg.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2279.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2279.
 
 Package rerunfilecheck Info: File `LinReg.out' has not changed.
 (rerunfilecheck)             Checksum: 55DA9330BBFE1D4620C5E838170407F1;1942.
@@ -1082,16 +1108,16 @@ Package rerunfilecheck Info: File `LinReg.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1911.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2279.
  ) 
 Here is how much of TeX's memory you used:
- 18253 strings out of 492649
- 345391 string characters out of 6129622
- 426724 words of memory out of 5000000
- 21644 multiletter control sequences out of 15000+600000
+ 18306 strings out of 492649
+ 346143 string characters out of 6129622
+ 429347 words of memory out of 5000000
+ 21661 multiletter control sequences out of 15000+600000
  17118 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,66p,917b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,66p,1146b,659s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1121,10 +1147,10 @@ xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/201
 8/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/
 2018/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2018/tex
 mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on LinReg.pdf (35 pages, 1336491 bytes).
+Output written on LinReg.pdf (40 pages, 1359341 bytes).
 PDF statistics:
- 594 PDF objects out of 1000 (max. 8388607)
- 517 compressed objects within 6 object streams
- 133 named destinations out of 1000 (max. 500000)
+ 695 PDF objects out of 1000 (max. 8388607)
+ 612 compressed objects within 7 object streams
+ 169 named destinations out of 1000 (max. 500000)
  228 words of extra memory for PDF output out of 10000 (max. 10000000)
 

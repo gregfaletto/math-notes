@@ -1611,6 +1611,374 @@ These two conditions relate to the KKT conditions (first order conditions).
 
 So if we start with \(\lambda\) very large and gradually decrease it, we will let in as the first feature the one that is most highly correlated with \(y\)---that is, the feature with the \textit{least angle} between it and \(y\).
 
+%%%%%%%%% 2018 Question 5
+
+\begin{proposition}[\textbf{2018 DSO Statistics Group In-Class Screening Exam, Question 5}] 
+
+Consider the optimization problem 
+
+\begin{equation}\label{2018.screen.5.a.objective}
+\begin{aligned}
+& \underset{\beta \in \mathbb{R}^p}{\text{minimize}}
+& & \frac{1}{2} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1
+\end{aligned}
+\end{equation}
+
+where \(y \in \mathbb{R}^n, X \in \mathbb{R}^{n \times p}\), and \(\lambda > 0\). 
+
+\begin{enumerate}[(a)]
+
+\item The following problem is a dual of (\ref{2018.screen.5.a.objective}):
+
+\[
+\begin{aligned}
+& \underset{u \in \mathbb{R}^n}{\text{maximize}}
+& & \frac{1}{2} \lVert y  \rVert_2^2 - \frac{1}{2} \lVert y  - u \rVert_2^2 
+& \text{subject to}
+& & \lVert X^T u \rVert_\infty \leq \lambda.
+\end{aligned}
+\]
+
+Also, \(\hat{u} = y - X \hat{\beta}\), where \(\hat{\beta}\) is a solution of (\ref{2018.screen.5.a.objective}) and \(\hat{u}\) is a solution of the dual.
+
+\item \(\hat{\beta}\) is not necessarily unique, but \(\hat{u}\), \(\lVert y - X \hat{\beta} \rVert_2^2\), and \(\lVert \hat{\beta} \rVert_1\) are.
+
+\item Suppose \(y = X \beta^* + \epsilon\), and suppose the tuning parameter \(\lambda\) is chosen to satisfy \(\lambda \geq \lVert X ^T \epsilon \rVert_\infty\). Then
+
+\begin{enumerate}[(i)]
+
+\item 
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \leq \frac{1}{2} \lVert \epsilon \rVert_2^2 + \lambda \lVert \beta^* \rVert_1.
+\]
+
+\item 
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta}\rVert_1 \geq \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \beta^* \rVert_2^2.
+\]
+
+\item 
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \geq \frac{1}{2} \lVert \epsilon \rVert_2^2 - \lambda \lVert \beta^* \rVert_1.
+\]
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item
+
+We can express the original optimization problem (\ref{2018.screen.5.a.objective}) as 
+
+\begin{equation}\label{2018.screen.5.a.objective.alt}
+\begin{aligned}
+& \underset{\beta \in \mathbb{R}^p, z \in \mathbb{R}^n}{\text{minimize}}
+& & \frac{1}{2} \lVert y - z \rVert_2^2 + \lambda \lVert \beta \rVert_1 \\
+& \text{subject to}
+& & z = X \beta.
+\end{aligned}
+\end{equation}
+
+We will also refer to another expression of the lasso optimization problem,
+
+\begin{equation}\label{2018.screen.5.a.objective.orig}
+\begin{aligned}
+& \underset{\beta \in \mathbb{R}^p}{\text{minimize}}
+& & \frac{1}{2} \lVert y - X \beta \rVert_2^2 \\
+& \text{subject to}
+& & \lVert\beta \rVert_1 \leq t
+\end{aligned}
+\end{equation}
+
+for some \(t >0\). The Lagrangian of (\ref{2018.screen.5.a.objective.alt}) is
+
+\[
+\mathcal{L}(\beta, z, u) = \frac{1}{2} \lVert y - z \rVert_2^2 + \lambda \lVert \beta \rVert_1 + u^T(z - X \beta),
+\]
+
+so the Lagrange dual function is
+
+\[
+\inf_{\beta, z} \left\{ \mathcal{L}(x, u)\right\}  = \inf_{\beta, z} \left\{\frac{1}{2} \lVert y - z \rVert_2^2 + \lambda \lVert \beta \rVert_1 + u^T(z - X \beta)  \right\}
+\]
+
+\[
+= \inf_{\beta, z} \left\{\frac{1}{2} (y-z)^T(y-z) + u^T z + \lambda \lVert \beta \rVert_1  - u^T X \beta  \right\} 
+\]
+
+This minimization is separable:
+
+\begin{equation}\label{2018.screen.5.a.a}
+= \inf_{z} \left\{\frac{1}{2} \left(y^Ty - 2 y^Tz + z^Tz \right) + u^T z \right\} + \inf_{\beta} \left\{ \lambda \lVert \beta \rVert_1  - u^T X \beta  \right\}
+\end{equation}
+
+We will handle each part of (\ref{2018.screen.5.a.a}) separately. First, the left side:
+
+\[
+ \inf_{z} \left\{\frac{1}{2} \left(y^Ty - 2 y^Tz + z^Tz \right) + u^T z \right\} = \inf_{z} \left\{\frac{1}{2}z^Tz  + (u - y)^Tz + \frac{1}{2} y^Ty   \right\} 
+\]
+
+Since this is a convex quadratic form, differentiate with respect to \(z\) and set equal to zero:
+
+\begin{equation}\label{2018.screen.5.a.other.part.result}
+z + (u - y) = 0 \implies z = y - u
+\end{equation}
+
+\[
+ \implies \inf_{z} \left\{\frac{1}{2}z^Tz  + (u - y)^Tz + \frac{1}{2} y^Ty   \right\} =  \frac{1}{2}(y - u) ^T(y - u)  + (u - y)^T(y - u) + \frac{1}{2} y^Ty 
+\]
+
+\[
+=  \frac{1}{2}\left(y^Ty -2 u^Ty + u^Tu \right)  + 2u^Ty - y^Ty - u^Tu + \frac{1}{2} y^Ty  = -\frac{1}{2}u^Tu   + u^Ty = \frac{1}{2} y^Ty - \frac{1}{2}y^Ty  + u^Ty - \frac{1}{2} u^Tu 
+\]
+
+\[
+= \frac{1}{2} y^Ty - \frac{1}{2}(y^Ty - 2u^Ty + u^Tu ) = \frac{1}{2} y^Ty - \frac{1}{2}(y - u)^T(y - u)= \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2 
+\]
+
+Next we will minimize the right side of (\ref{2018.screen.5.a.a}):
+
+\[
+ \inf_{\beta} \left\{ \lambda \lVert \beta \rVert_1  - u^T X \beta  \right\} =  \inf_{\beta} \left\{ \lambda \sum_{i=1}^p | \beta_i| - \sum_{i=1}^p \begin{bmatrix} u^T X \end{bmatrix}_i  \beta_i  \right\}  =  \inf_{\beta} \left\{ \sum_{i=1}^p  \left( \lambda  | \beta_i| -  \begin{bmatrix} u^T X \end{bmatrix}_i  \beta_i \right)  \right\} 
+ \]
+ 
+% \[
+% = \begin{cases}
+%   \inf_{\beta} \left\{ \sum_{i=1}^p  \left( \lambda  | \beta_i| -  \begin{bmatrix} u^T X \end{bmatrix}_i  \beta_i \right)  \right\} & \beta_i 
+%   \end{cases}
+% \]
+ 
+ \[
+ =  \inf_{\beta} \left\{ \sum_{i=1}^p  \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right)    \beta_i  \right\}   =  \sum_{i=1}^p  \inf_{\beta_i} \left\{ \left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right)    \beta_i  \right\} .
+ \]
+ 
+Notice that when \(\beta_i\) is negative, if \(\left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right) =  -\left(\lambda+  \begin{bmatrix} u^T X \end{bmatrix}_i  \right)\) is positive there is no lower bound on the quantity we are minimizing; otherwise, when \(\beta_i\) is negative the infimum is 0. When \(\beta_i\) is positive, if  \(\left(\operatorname{sgn}(\beta_i) \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right) =  \left(\lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i  \right)\) is negative there is no lower bound on the quantity we are minimizing; otherwise, when \(\beta_i\) is negative the infimum is 0. That is, the only dual feasible points satisfy for all \(i\)
+
+\[
+  -\left(\lambda+  \begin{bmatrix} u^T X \end{bmatrix}_i  \right) \leq 0, \qquad \lambda-  \begin{bmatrix} u^T X \end{bmatrix}_i   \geq 0 \iff \begin{bmatrix} u^TX\end{bmatrix}_i \geq -\lambda, \qquad \begin{bmatrix} u^TX\end{bmatrix}_i \leq \lambda
+\]
+
+which is equivalent to the condition
+\[
+\lVert u^TX \rVert_\infty \leq \lambda.
+\]
+
+Therefore the Lagrange dual function is
+
+
+\begin{equation}\label{2018.screen.5.a.dual}
+ \inf_{\beta, z} \left\{ \mathcal{L}(x, u)\right\}  = \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2 
+\end{equation}
+
+subject to the constraint \(\lVert u^TX \rVert_\infty \leq \lambda\). This quantity represents a lower bound on the minimum value of the original optimization problem for all \(u \in \mathbb{R}^p\). The dual problem is to find the best lower bound by maximizing over \(u\); that is, the dual problem is
+
+\begin{equation}\label{2018.screen.5.a.dual.ans}
+\begin{aligned}
+& \underset{u \in \mathbb{R}^p}{\text{maximize}}
+& & \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2  \\
+& \text{subject to}
+& & \lVert u^TX \rVert_\infty \leq \lambda.
+\end{aligned}
+\end{equation}
+
+Lastly, suppose \(\hat{\beta}\) and \(\hat{u}\) satisfy
+
+\[
+\hat{\beta} = 
+\begin{aligned}
+& \underset{\beta \in \mathbb{R}^p}{\arg \min}
+& & \frac{1}{2} \lVert y - X \beta \rVert_2^2 + \lambda \lVert \beta \rVert_1
+\end{aligned},
+\]
+
+\[
+ \qquad \hat{u} = 
+\begin{aligned}
+& \underset{u \in \mathbb{R}^p}{\arg \max}
+& & \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2  \\
+& \text{subject to}
+& & \lVert u^TX \rVert_\infty \leq \lambda
+\end{aligned} = 
+\begin{aligned}
+& \underset{u \in \mathbb{R}^p}{\arg \min}
+& & -\frac{1}{2} \lVert y \rVert_2^2 + \frac{1}{2} \lVert y - u \rVert_2^2  \\
+& \text{subject to}
+& & \lVert u^TX \rVert_\infty \leq \lambda
+\end{aligned}
+\]
+
+Then since (\ref{2018.screen.5.a.other.part.result}) is a requirement for dual feasibility of \(u\) and strong duality applies, we have \(\hat{u} = y - X \hat{\beta}\).
+
+\item
+
+\begin{enumerate}[(i)]
+
+% 5(b)i
+\item \textbf{Not necessarily unique.} Per \citet{Tibshirani2013}, if \(\operatorname{rank}(X) < p\), the lasso solution is not necessarily unique. Intuitively, this is because the columns of \(X\) are linearly dependent, so there may exist more than one linear combination of the columns that minimizes (\ref{2018.screen.5.a.objective}). \textbf{Jacob's suggestion: counterexample. X is two columns that are equal; then convex combinations of two solutions are equal as long as same sign (can't be opposite sign because then \(\ell_1\) could be smaller by setting one equal to 0.}
+
+% 5(b)ii
+\item \textbf{Necessarily unique.} The dual problem (\ref{2018.screen.5.a.dual.ans}) is strictly concave, so the value \(\hat{u}\) that maximizes it is unique.
+
+%  \textbf{flesh out more} By a result from part (a), \(\hat{u} = y - X \hat{\beta}\). By part (iii), even though \(\hat{\beta}\) is not unique, \(X \hat{\beta}\) is (see also Lemma 1 in \citet{Tibshirani2013}). Therefore \(\hat{u}\) is unique.
+
+%\textbf{Jacob's solution: strictly convex optimization problem, so argument maximizing is unique. dual is always convex; } 
+
+% 5(b)iii
+\item \textbf{Necessarily unique} (except in the trivial case \(\lambda=0\)). Per part 5(b)(iv), \(\lVert \hat{\beta} \rVert_1\) is unique. (\ref{2018.screen.5.a.objective}) is convex, so the minimum \(\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1\) is unique. Therefore \( \lVert y - X \hat{\beta} \rVert_2^2\) must be unique.
+
+\textbf{Jacob's solution:} Since \(\hat{u}\) is unique and by (\ref{2018.screen.5.a.other.part.result}) \(\hat{u} = y - X \hat{\beta}\), we must have that \(\lVert \hat{u} \rVert = \lVert y - X \hat{\beta} \rVert\) is unique.
+
+%\textbf{Necessarily unique.} The optimization problem is convex in \(\beta\), so it has a unique minimum value \(\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1\). 
+
+% 5(b)iv
+\item \textbf{Necessarily unique} (except in the trivial case \(\lambda=0\)). Whenever \(\lambda > 0\), the lasso objective function (\ref{2018.screen.5.a.objective}) is the Lagrangian of (\ref{2018.screen.5.a.objective.orig}). We will prove a useful lemma about the relationship between these functions.
+
+\begin{lemma}\label{2018.screen.5.b.iv.relation}
+For a given \(\lambda >0\), let \(\hat{\beta}\) minimize (\ref{2018.screen.5.a.objective}). Then there is exactly one \(t = \lVert \hat{\beta} \rVert_1\) such that any \(\hat{\beta}\) minimizing (\ref{2018.screen.5.a.objective}) also minimizes (\ref{2018.screen.5.a.objective.orig}).
+
+\end{lemma}
+
+\begin{proof}
+This must be true by contradiction. First of all, since the objective function of (\ref{2018.screen.5.a.objective.orig}) is continuous and the feasible region \(\lVert \beta \rVert_1 \leq t\) is compact, a minimum of (\ref{2018.screen.5.a.objective.orig}) is guaranteed to exist. Now suppose \(\hat{\beta}\) minimizes (\ref{2018.screen.5.a.objective}) for a fixed \(\lambda\), with \(\lVert \hat{\beta} \rVert_1 = t\), but there is a different solution \(\hat{\beta}^*\) that is feasible for (\ref{2018.screen.5.a.objective.orig}) and achieves a lower value. That is,
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta}^* \rVert_2^2  < \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2.
+\]
+
+and \(\lVert\hat{\beta}^*\rVert_1 \leq \lVert\hat{\beta}\rVert_1 = t\). Since \(\lambda > 0\), \(\lVert\hat{\beta}\rVert_1 < \lVert \hat{\beta}_{global} \rVert_1\), where \(\hat{\beta}_{global}\) is a global minimum for \(\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2\). Since (\ref{2018.screen.5.a.objective.orig}) is convex and all global minima lie outside the feasible region, \(\hat{\beta}^*\) lies on the boundary; that is, \(\lVert \hat{\beta}^* \rVert_1 = \lVert\hat{\beta}\rVert_1 = t\). But then
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta}^* \rVert_2^2  < \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 \iff \frac{1}{2} \lVert y - X \hat{\beta}^* \rVert_2^2 + \lambda \lVert\hat{\beta}^* \rVert_1 < \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 +  \lambda \lVert\hat{\beta} \rVert_1
+\]
+
+which contradicts the fact that \(\hat{\beta}\) minimizes (\ref{2018.screen.5.a.objective}). 
+
+\end{proof}
+
+Now the result follows in a simple way:
+
+\begin{proposition}
+Let \(\mathcal{B}\) be the set of all \(\hat{\beta}\) that minimize (\ref{2018.screen.5.a.objective}) for some fixed \(\lambda > 0\). Then for any two \(\hat{\beta}_1, \hat{\beta}_2 \in \mathcal{B}\), \(\lVert \hat{\beta}_1 \rVert_1 = \lVert \hat{\beta}_2 \rVert_1\). That is, \(\lVert \hat{\beta} \rVert_1\) is unique.
+\end{proposition}
+
+\begin{proof}
+Suppose \(\hat{\beta}_1\) and \(\hat{\beta}_2\) both minimize (\ref{2018.screen.5.a.objective}), and (without loss of generality) \(\lVert \hat{\beta}_1 \rVert_1 < \lVert \hat{\beta}_2 \rVert_1\). By Lemma \ref{2018.screen.5.b.iv.relation}, these values both minimize (\ref{2018.screen.5.a.objective.orig}) with \(t =  \lVert \hat{\beta}_2 \rVert_1\) (we cannot choose \(t =  \lVert \hat{\beta}_1 \rVert_1\) because \(\hat{\beta}_1\) is not feasible for that problem). Because the global minimum of (\ref{2018.screen.5.a.objective.orig}) lies outside the feasible region and  (\ref{2018.screen.5.a.objective.orig}) is convex, all solutions to (\ref{2018.screen.5.a.objective.orig}) lie on the boundary of the feasible region. But \(\lVert\hat{\beta}_1 \rVert_1 < \lVert \hat{\beta}_2 \rVert_1\), so \(\hat{\beta}_1\) is not on the boundary of the feasible region, contradiction. Therefore \(\lVert \hat{\beta}_1 \rVert_1 = \lVert \hat{\beta}_2 \rVert_1\) for all solutions \(\hat{\beta}_1\), \(\hat{\beta}_2\) to (\ref{2018.screen.5.a.objective}); that is,  \(\lVert \hat{\beta} \rVert_1\) is unique.
+\end{proof}
+
+(See \citet{Osborne2000} for more details.)
+
+%for (\ref{2018.screen.5.a.objective.orig}) and therefore for (\ref{2018.screen.5.a.objective}). 
+
+
+%
+
+% \textbf{change this argument: if you solve 1 and take the norm of that and choose that value for \(t\) then you will get the same solution. because if there existed a better solution then it would have made the objective function 1 better.}
+ 
+% Further, they are optimized over the same variable and they are both convex, so the solution set of (\ref{2018.screen.5.a.objective}) is identical to the solution set of (\ref{2018.screen.5.a.objective.orig}).
+
+%(\ref{2018.screen.5.a.objective.orig}) is convex and Slater's condition holds because every point \(\{\beta \in \mathbb{R}^p \mid \lVert \beta \rVert_1 < t\}\) is feasible. Therefore for this dual function, strong duality holds; that is, the optimal values of (\ref{2018.screen.5.a.objective}) and  (\ref{2018.screen.5.a.objective.orig}) are equal. 
+
+\end{enumerate}
+
+% 5c
+\item 
+
+\begin{enumerate}[(i)]
+
+% 5(c)i
+\item Since \(\beta^*\) is clearly feasible for (\ref{2018.screen.5.a.objective}) and \(\hat{\beta}\) achieves the minimum, we have
+
+\[
+\frac{1}{2} \lVert y - X \beta^* \rVert_2^2 + \lambda \lVert \beta^* \rVert_1 \geq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \iff  \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \hat{\beta} \rVert_1 \leq \frac{1}{2} \lVert\epsilon \rVert_2^2 + \lambda \lVert \beta^* \rVert_1
+\]
+
+
+% 5(c)ii
+\item
+
+% \textbf{Jacob's solution: plug in \(\epsilon\) for \(u\) in the lower bound equation, then you get \(X \beta^*\)}
+
+We know that the expression in the dual problem (\ref{2018.screen.5.a.dual.ans}) is a lower bound for the solution of the primal problem (\ref{2018.screen.5.a.objective}) for any \(u\) feasible for (\ref{2018.screen.5.a.dual.ans}) (that is, any \(u\) satisfying \(\lVert u^TX \rVert_\infty \leq \lambda\)). Therefore we have
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 \geq  \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - u \rVert_2^2.
+\]
+
+Since by assumption \(\lambda \geq \lVert X^T \epsilon \rVert_\infty\), \(\epsilon\) is feasible for (\ref{2018.screen.5.a.dual.ans}). Therefore we have
+
+\begin{equation}\label{2018.screen.5.c.ii.result}
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 \geq  \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert y - \epsilon \rVert_2^2 =  \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \beta^* \rVert_2^2
+\end{equation}
+
+as desired.
+
+
+\item 
+
+
+
+We can rewrite the right side of (\ref{2018.screen.5.c.ii.result}) as 
+
+\begin{equation}\label{2018.screen.5.c.ii.result.rewritten}
+\frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \beta^* \rVert_2^2 = \frac{1}{2} \lVert X \beta^* \rVert_2^2 + \frac{1}{2} \lVert \epsilon \rVert_2^2 + \epsilon^T X \beta^* - \frac{1}{2} \lVert X \beta^* \rVert_2^2  =  \frac{1}{2} \lVert \epsilon \rVert_2^2 + \epsilon^T X \beta^*. 
+\end{equation}
+
+By assumption, we have 
+\[
+\lambda \geq \lVert X^T \epsilon \rVert_\infty \iff \lambda \boldsymbol{1}  - X^T \epsilon \succeq 0 \implies \lambda \boldsymbol{1} \beta^*  - X^T \epsilon \beta^* \succeq 0 
+\]
+
+\[
+\iff - \lambda \lVert \beta^* \rVert_1 \leq \epsilon^T X \beta^* \leq \lambda \lVert \beta^* \rVert_1.
+\]
+
+By H\"{o}lder's Inequality, we have for any two vectors \(u, v \in \mathbb{R}^n\), \( | u^Tv | \leq \lVert u \rVert_\infty \lVert v \rVert_1\). Therefore
+
+\[
+| \epsilon^T X \beta^*| = | (X^T \epsilon)^T \beta^* | \leq \lVert X^T \epsilon \rVert_\infty \lVert \beta^* \rVert_1 \leq \lambda \lVert \beta^* \rVert_1
+\]
+
+where the last step used the assumption \(\lVert X^T \epsilon \rVert_\infty \leq \lambda\). So we have 
+
+\[
+ \frac{1}{2} \lVert \epsilon \rVert_2^2 +\lambda \lVert \beta^* \rVert_1 \leq \frac{1}{2} \lVert \epsilon \rVert_2^2 + \epsilon^T X \beta^* .
+\]
+
+Substituting in to (\ref{2018.screen.5.c.ii.result}), using the identity in (\ref{2018.screen.5.c.ii.result.rewritten}), and using the result from part 5(c)(iii) yields
+
+\[
+ \frac{1}{2} \lVert \epsilon \rVert_2^2 +\lambda \lVert \beta^* \rVert_1 \leq \frac{1}{2} \lVert \epsilon \rVert_2^2 + \epsilon^T X \beta^* = \frac{1}{2} \lVert y \rVert_2^2 - \frac{1}{2} \lVert X \beta^* \rVert_2^2  \leq \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 
+\]
+
+as desired.
+
+% 5(c)iv
+\item  We see from parts (i) and (iii) that
+
+\[
+\frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 - \lambda \lVert \beta^* \rVert_1  \leq \frac{1}{2} \lVert \epsilon \rVert_2^2 \leq  \frac{1}{2} \lVert y - X \hat{\beta} \rVert_2^2 + \lambda \lVert \beta \rVert_1 + \lambda \lVert \beta^* \rVert_1 
+\]
+
+\[
+\iff \frac{1}{n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{2}{n} \lambda \lVert \beta \rVert_1 - \frac{2}{n}\lambda \lVert \beta^* \rVert_1  \leq \frac{1}{n} \lVert \epsilon \rVert_2^2 \leq  \frac{1}{n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{2}{n}\lambda \lVert \beta \rVert_1 +\frac{2}{n} \lambda \lVert \beta^* \rVert_1 
+\]
+
+that is, we can lower bound and upper bound \(\frac{1}{n} \lVert \epsilon \rVert_2^2 \) by taking the quantity \(\frac{1}{n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{2}{n} \lambda \lVert \beta \rVert_1\) and adding or subtracting \(\frac{2}{n}\lambda \lVert \beta^* \rVert_1\). Therefore it seems that the quantity in the middle of this interval,  \(\frac{1}{n} \lVert y - X \hat{\beta} \rVert_2^2 + \frac{2}{n} \lambda \lVert \beta \rVert_1\), is a reasonable estimator for \(\sigma^2 = \E \left[ n^{-1} \lVert \epsilon \rVert_2^2 \right]\).
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{proof}
 
 \subsubsection{LARS}
 
