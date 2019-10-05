@@ -98,6 +98,7 @@
 %
 %\theoremstyle{definition}
 %\newtheorem{theorem}{Theorem}
+%\numberwithin{theorem}{subsection}
 %\theoremstyle{definition}
 %\newtheorem{proposition}[theorem]{Proposition}
 %\theoremstyle{definition}
@@ -148,7 +149,7 @@
 
 \section{Probability}
 
-These are my notes from taking Math 505A at USC taught by Sergey Lototsky, Math 541A at USC taught by Steven Heilman, ISE 620 at USC taught by Sheldon Ross (as well as the corresponding textbooks \textit{Introduction to Probability Models} \citep{2014i} and \textit{Stochastic Processes} \citep{ross2008stochastic} by Sheldon Ross) and the textbook \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition \citep{grimmett2001probability}, Statistics 100B at UCLA taught by Nicolas Christou, as well as a few other sources I cite within the text.
+These are my notes from taking Math 505A at USC taught by Sergey Lototsky, Math 541A at USC taught by Steven Heilman, ISE 620 at USC taught by Sheldon Ross (as well as the corresponding textbooks \textit{Introduction to Probability Models} \citep{2014i} and \textit{Stochastic Processes} \citep{ross2008stochastic} by Sheldon Ross) and the textbook \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition \citep{grimmett2001probability}, Math 541B at USC taught by Stanislav Minsker, Statistics 100B at UCLA taught by Nicolas Christou, as well as a few other sources I cite within the text.
 
 \subsection{To Know for Math 505A Midterm 1 (Discrete Random Variables)}
 
@@ -313,6 +314,44 @@ F_{Y\mid X}( y \mid x) = \Pr(Y \leq y \mid X = x)
 f_{Y\mid X}( y \mid x) = \Pr(Y = y \mid X = x)
 \]
 \end{definition}
+
+\begin{definition}[\textbf{Conditional Expectation (Math 541B definition)}] Let \(X, Y\) be random variables, and assume that \(\E |X| < \infty\). Then the conditional expectation of \(X\) given \(Y\), denoted \(\E(X \mid Y)\), is a function of \(Y\): \(g(Y) = \E(X \mid Y)\) such that for any bounded \(f\),
+
+\[
+\E(X f(Y)) = \E(g(Y) f(Y)) 
+\]
+
+Now assume that \(\E X^2 < \infty\), \(\E Y^2 < \infty\). Consider the Hilbert space \(( \mathbb{H}, \langle \cdot, \cdot \rangle)\) consisting of all random variables with finite second moment and \(\langle X, Y \rangle := \E(XY)\). Consider \(L(Y) = \{\text{all random variables of the form } X = \phi(Y) \text{ where } \E Z^2 < \infty\}\)\footnote{clear that this subspace is linear: any linear combination of square integrable functions of \(Y\) is also square integrable. less clear that this is a closed space; that is, that any limit of functions in this space is also in this space. But it turns out that it is, so since this is a closed linear subspace.}. Then \(\E(X \mid Y)\) is the orthogonal projection of \(X\) onto the subspace \(L(Y)\). Indeed,
+
+\[
+\E(X \cdot f(Y)) = \langle X, f(Y) \rangle = \E( \E( X \mid Y) f(Y) )) = \langle E(X \mid Y) , f(Y) \rangle
+\]
+
+\[
+\iff \forall f, \langle X - \E(X \mid Y) , f(Y) \rangle = 0.
+\]
+
+(because \( \E\left[(X - \E(X \mid Y)) \cdot f(Y) \right] = \E \left( \E\left[Xf(Y)  \mid Y  \right]- \E\left[ \E(X \mid Y) f(Y) \mid Y \right]\right)  = \ldots  \).)
+
+(\(f(Y) \in L(Y)\)).
+
+\end{definition}
+
+\begin{remark} Think of expectation as the best summary of a random variable with one value, and conditional expectation as the best summary of one random variable as a function of another random variable.
+
+\end{remark}
+
+\begin{remark}
+
+\end{remark}
+
+\begin{example} Assume \((X, Y)\) has joint pdf \(p(x,y).\) Then \(\E(X \mid Y = y) = \int_{\mathbb{R}} x p_{X \mid Y} (x \mid y) \ dx\), where \(p_{X \mid Y} (x \mid y)\) is the conditional density of \(X\) given \(Y\); that is,
+
+\[
+p_{X \mid Y} (x \mid y) = \left. p(x,y) \middle/ \int_{x \in \mathbb{R}} p(x,y) \ dx. \right.
+\]
+
+\end{example}
 
 \begin{theorem}\textbf{Iterated expectations}: 
 
@@ -896,6 +935,24 @@ Taking expectations of both sides of (\ref{prob.541a.hw1.6.b}) yields
 
 \end{theorem}
 
+\begin{proposition}[\textbf{a nice trick for upper bounding binomial sums, from Math 547}]
+
+For \(d < n\),
+
+\[
+\sum_{i=0}^d \binom{n}{i}  \leq \left( \frac{en}{d} \right)^d.
+\]
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+\sum_{i=0}^d \binom{n}{i} (d/n)^d \leq \sum_{i=0}^d \binom{n}{i} (d/n)^i \leq \sum_{i=0}^n \binom{n}{i} (d/n)^i  = [1 + (d/n)]^n \leq e^d \iff \sum_{i=0}^d \binom{n}{i}  \leq \left( \frac{en}{d} \right)^d.
+\]
+
+\end{proof}
+
 \begin{proposition} \label{prob.ross1.6.1} \textbf{(Proposition 1.6.1 in Sheldon Ross \textit{A First Course in Probability}.)} There are \(\binom{n-1}{r-1}\) distinct positive integer-valued vectors \((x_1, x_2, \ldots, x_r), x_i > 0 \ \forall \ i\) satisfying the equation \(x_1 + x_2 + \ldots + x_r = n\).
 
 \end{proposition}
@@ -1389,6 +1446,37 @@ X \sim \mathcal{N}(\lambda, \lambda)
 
 \begin{proof}
 (Informal justification.) By Proposition \ref{prob.binom.to.poisson}, a Poisson distribution can be thought of as a close approximation of a binomial distribution. Since a binomial distribution can be approximated by a normal distribution for \(n\) large and \(np\) not too large, the same is true of a Poisson distribution.
+\end{proof}
+
+\begin{proposition}\label{prob.prop.poisson.indep.sum} Suppose \(X \sim \operatorname{Poisson}(\mu)\), \(Y \sim \operatorname{Poisson}(\nu)\), with \(X \indep Y\). Then \(\{X + Y\} \sim \operatorname{Poisson}(\mu + \nu)\).
+\end{proposition}
+
+\begin{proof}
+
+(exercise; use characteristic functions.)
+
+\end{proof}
+
+\begin{proposition}
+
+Suppose \(X \sim \operatorname{Poisson}(\mu)\), \(Y \sim \operatorname{Poisson}(\nu)\), with \(X \indep Y\). Then \(\{X \mid X + Y = t\} \sim \operatorname{Bin}(t, \mu/(\mu + \nu))\)
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+\mathbb{P}_{\mu, \nu} (X = x \mid X + Y = t) = \frac{\mathbb{P}_{\mu, \nu} (X = x , Y = t - x) }{\mathbb{P}_{\mu, \nu} (X + Y = t) } = \frac{\mu^x}{x!} e^{-\mu} \cdot \frac{ \nu^{t-x}}{(t-x)!} e^{-\nu} \cdot \frac{t! e^{\mu + \nu} }{(\mu + \nu)^t}
+\]
+
+where we used Proposition \ref{prob.prop.poisson.indep.sum}  to get \(\{X + Y\} \sim \operatorname{Poisson}(\mu + \nu)\).
+
+\[
+= \binom{t}{x} \left( \frac{\mu}{\mu + \nu} \right)^x \left( \frac{\nu}{\mu + \nu} \right)^{t-x}
+\]
+
+so \(\{X \mid T = t\} \sim \operatorname{Bin}(t, \mu/(\mu + \nu))\). 
+
 \end{proof}
 
 \textbf{Geometric}:  \(\operatorname{G}_1(p)\): the number of Bernoulli trials before the first success.
@@ -4618,14 +4706,14 @@ That is,
 
 \end{proposition}
 
-\textbf{\(\chi_n^2\)}: special case of a gamma distribution: \(\Gamma(n/2, 2)\). Also the sum of \(n\) independent standard normally distributed variables.
+\textbf{\(\chi_k^2\) (chi-squared)}: special case of a gamma distribution: \(\Gamma(k/2, 2)\). Also the sum of \(k\) independent standard normally distributed variables.
 
 \begin{itemize}
 
 \item Probability density function: 
 
 \[
-f(x)  = \frac{1}{2^{n/2}\Gamma(n/2)} x^{n/2 - 1} e^{-x/2} = \frac{1}{\Gamma(n/2, 2)} x^{n/2 - 1} e^{-x/2}
+f(x)  = \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2 - 1} e^{-x/2} = \frac{1}{\Gamma(k/2, 2)} x^{k/2 - 1} e^{-x/2}
 \]
 
 For \(\chi_1^2\): \(f(x) = \frac{1}{\sqrt{2\pi}} e^{-x/2}x^{-1/2} \). For \(\chi_2^2\): \(f(x) = \frac{1}{2}e^{-x^2}, x > 0\). 
@@ -4636,13 +4724,13 @@ For \(\chi_1^2\): \(f(x) = \frac{1}{\sqrt{2\pi}} e^{-x/2}x^{-1/2} \). For \(\chi
 
 \item Probability-generating function:
 
-\item Moment-generating function:
+\item Moment-generating function: \((1-2t)^{-k/2}\) for \(t < 1/2\)
 
 \item Characteristic function:
 
-\item Expectation: \(\E(X) = n/2 \cdot 2 = n \)
+\item Expectation: \(\E(X) = k/2 \cdot 2 = k \)
 
-\item Variance: \(\Var(X) = n/2 \cdot 2^2 = 2n\)
+\item Variance: \(\Var(X) = k/2 \cdot 2^2 = 2k\)
 
 \end{itemize}
 
@@ -4755,7 +4843,13 @@ f(x)= \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} (x)^{\alpha-1}
 
 \end{itemize}
 
-\textbf{\(t_n\)}:
+\textbf{Student's \(t_n\)}: can be defined as
+
+\[
+T = \frac{Z}{\sqrt{V/v}} \implies T \sim t_v
+\]
+
+where \(Z \sim \mathcal{N}(0,1)\), \(V \sim \chi_v^2\), and \(Z \indep V\).
 
 \begin{itemize}
 
@@ -4779,7 +4873,13 @@ f(x)  = \frac{\Gamma((n+1)/2)}{\sqrt{n \pi} \cdot \Gamma(n/2)} \bigg( 1 + \frac{
 
 \end{itemize}
 
-\textbf{Snedecor's \(F\)-distribution}: 
+\textbf{Snedecor's \(F\)-distribution}: can be defined as
+
+\[
+X = \frac{U/d_1}{V/d_2} \implies X \sim F_{d_1, d_2}
+\]
+
+where \(U \sim \chi_{d_1}^2\), \(V \sim \chi_{d_2}^2\), and \(U \indep V\).
 
 \begin{itemize}
 
@@ -5209,6 +5309,12 @@ f_{\boldsymbol{\mu}, \boldsymbol{\Sigma}}(\boldsymbol{x}) = (2 \pi)^{-p/2} | \bo
 
 \end{definition}
 
+\begin{definition}[\textbf{Multivariate Normal distribution, Math 541B definition}]
+
+\(Y \in \mathbb{R}^d\) is multivariate normal if and only if there exist \(B \in \mathbb{R}^{d \times k}\) and \(C \in \mathbb{R}^d\) such that \(Y = BX + C\) where \(X = (X_1, \ldots, X_k)\) with \(X_j \sim \mathcal{N}(0,1)\) for all \(j \in [k]\) and \(X_j \indep X_i\) for all \(i, j \in [k], i \neq j\).
+
+\end{definition}
+
 %\begin{remark} For a multivariate normal distribution with IID members \(\mathcal{N}(0, \sigma^2 I_n)\), we have
 %
 %\[
@@ -5319,7 +5425,24 @@ Thus \((\bar{X}, \bar{Y})\) is bivariate normal with mean \(\boldsymbol{\mu}\) a
 
 \end{proof}
 
-\subsection{Exponential Families}
+\begin{example}[\textbf{Example from 541B}]
+
+Let \(X \sim \mathcal{N}(0,1)\). Define
+
+\[
+Y:= \begin{cases}
+X & |X| \leq a \\
+-X & |X| > a
+\end{cases}
+\]
+
+Then (a) for any \(a > 0\), \(Y \sim \mathcal{N}(0,1)\), (b) \(\exists a > 0\) such that \(\E(XY) = 0\). However, \(X\) and \(Y\) are clearly not independent. In particular the joint distribution of \(X \) and \(Y\) is not multivariate normal.
+
+\end{example}
+
+\subsection{Exponential Families}\label{prob.sec.exp.fams}
+
+(For more notes, see Section \ref{linreg.glm} on generalized linear models.)
 
 \begin{definition}\label{prob.defn.exp.fams} Informally, an \textbf{exponential family} is a family of probability distributions that depends on a parameter \(w \in \mathbb{R}^k\). 
 
@@ -5482,6 +5605,25 @@ on the right side which yields
 
 \end{remark}
 
+\begin{example}[\textbf{GSBA 604}] Suppose \(Y \sim \operatorname{Poisson}(\mu)\). Express it as an exponential family.
+
+\end{example}
+
+\begin{solution}
+
+\begin{multline*}
+%\[
+\mathbb{P}_\mu (Y =y) = \frac{ e^{-\mu} \mu^y}{y!}, \qquad y = \in \{0, 1, \ldots\} 
+\\ = \frac{e^{y \log \mu - \mu}}{y!} 
+%\]
+\end{multline*}
+
+So the natural parameter \(\eta\) is \(\log \mu\), the normalizing function \(\psi(\eta) = \mu\), and the carrier density \(c(y) = 1 /y!\).
+
+
+
+\end{solution}
+
 \subsubsection{Differential identities (Generalization of Moment-Generating Functions)} Recall that the moment-generating function for a Gaussian random variable is 
 \[
 \E(e^{tX}) = e^{t^2/2} \ \ \ \forall t \in \mathbb{R}
@@ -5595,6 +5737,56 @@ If both of the expressions in (\ref{prob.541a.lemma.3.8c}) always have finite ex
 \[
 a(w) = \log \int_{\mathbb{R}^n}  e^{w x} d\mathbb{P}(x)
 \]
+
+\end{proof}
+
+\begin{proof}[Proof (GSBA 604 proof, just for first two moments)]
+
+Notation: The density is 
+
+\[
+g_\eta(y) =  c(y) \exp \left\{  \eta y - \psi(\eta) \right\}
+\]
+
+
+where \(c(y)\) is the \textbf{carrier density}, \(\eta\) is the \textbf{natural parameter}, and \(\psi(\cdot)\) is the \textbf{normalizing function}, chosen so that it is a proper density: that is, choose \(\psi(\eta)\) such that
+
+\[
+\int_{\mathbb{R}} g_\eta(y) \ dy = 1,
+\]
+
+so
+
+\[
+e^{- \psi(y)} = \left( \int_{\mathbb{R}} c(y) e^{\eta y} \ dy \right)^{-1} 
+\]
+
+Now
+
+\[
+\int g_\eta(y) dy = 1
+\]
+
+differentiate with respect to \(\eta\):
+
+\begin{multline}
+\int e^{\eta y. - \psi(\eta)} [y - \deriv{\psi(\eta)}{\eta} ] c(y) \ dy = 0 
+\\ \implies \int y g_\eta(y) \ dy -  \deriv{\psi(\eta)}{\eta} \int e^{\eta y - \psi(\eta)} c(y) \ dy = 0
+\end{multline}
+
+so then \(\E(y) - \deriv{\psi(\eta)}{\eta} = 0 \implies \E(y) = \deriv{\psi(\eta)}{\eta}\). 
+
+Next,
+
+\begin{multline*}
+%\[
+\int y \deriv{g_\eta(y)}{\eta} \ dy - \deriv{\psi^2(\eta)}{\eta^2} = 0 
+\\ \implies \int y \cdot e^{\eta y - \psi(\eta)} (y - \deriv{\psi(\eta)}{\eta}) c(y) \ dy - \deriv{\psi^2(\eta)}{\eta^2} = 0 
+\\ \implies \int y^2 g_\eta(y) dy - \deriv{\psi(\eta)}{\eta} \underbrace{ \int y e^{\eta y - \psi(\eta)} c(y) \ dy}_{\deriv{\psi(\eta)}{\eta}} - \deriv{\psi^2(\eta)}{\eta^2} = 0 
+\\ \implies \E(Y^2) - \left[ \deriv{\psi(\eta)}{\eta} \right]^2 - \deriv{\psi^2\eta)}{\eta} = 0 
+\\ \implies \E(Y^2) - [\E(Y)]^2 = \deriv{\psi^2(\eta)}{\eta^2}.
+%\]
+\end{multline*}
 
 \end{proof}
 
@@ -5769,7 +5961,7 @@ I(g; f) = \int[\log g(x) ] g(z) dz - \int [\log f(x)] g(z) dz = \E_g \log(g(z)) 
 
 \
 
-One application of KL Divergence is AIC for model selection; see Section \ref{{linreg.aic.bic}}.
+One application of KL Divergence is AIC for model selection; see Section \ref{linreg.aic.bic}. See also Section \ref{mathstats.sec.mle}.
 
 %
 %
@@ -6514,6 +6706,841 @@ F_U(u)=\int_0^\infty f_Z(z) \int_{-\infty}^{uz} f_W(w) dw dz - \int_{-\infty}^0 
 
 \end{solution}
 
+\subsection{Random Matrix Theory}
+
+\begin{definition}[\textbf{Wigner-type random matrix}]
+
+\(H \in \mathbb{R}^{N \times N}\) is a \textbf{Wigner-type random matrix} if each entry \(H_{ij}\) equals either 1 or \(-1\) with equal probability and \(H\) is symmetric (\(H = H^+\). Other than the symmetry restriction, the entries are independent.
+
+\end{definition}
+
+\begin{remark}
+Because a Wigner-type random matrix is symmetric, the eigenvalues are real.
+\end{remark}
+
+\begin{example}
+
+10 i.i.d. random variables \(X_1, \ldots, X_{10}\), where \(\Pr(X_1 = m) = 1/3\) for \(m \in \{2,3,4\}\). What is the distribution of \(S = \sum_k X_k\)?
+
+\end{example}
+
+This is not an interesting problem since a computer can easily calculate the answer, even if the number of random variables is in the thousands. 
+
+\begin{example}
+
+\(n\) i.i.d. random variables \(X_1, \ldots, X_{n}\), where \(n\) is large. Find \(f(n)\) and \(g(n)\) such that 
+
+\[
+Z_n = \frac{S_n - f(n)}{g(n)} 
+\]
+
+has a nontrivial limiting distribution. 
+
+\end{example}
+
+\begin{solution}
+
+We know if \(\E X_k^2 < \infty\), choosing \(f(n) = n \E X_1\) and \(g(n) = \sqrt{n \Var(X_1)}\) allows convergence to a standard Gaussian random variable under the Central Limit Theorem. Also note that if \(n\) is large, \(S_n \approx n \E X_1\) and \((S_n - n \E X_1) = \mathcal{O} \left(\sqrt{n \Var(X_1)} \right)\). 
+
+\end{solution}
+
+Let \(\hat{S}_n\) be the largest eigenvalue of a Wigner random matrix \(H_n\). It turns out that \(\hat{S}_n \approx 2 \sqrt{n}\) and \(\hat{S} - 2 \sqrt{n} = \mathcal{O}(n^{1/6})\). Lastly,
+
+\[
+\frac{\hat{S} - 2 \sqrt{n} }{n^{1/6}}
+\]
+
+converges in distribution to a Tracy-Widom distribution \citep{Johnstone2001}.
+
+\begin{exercise}
+
+Suppose \(X_1, \ldots, X_n\) are i.i.d. uniform on \([0,1]\). Let \(Y_1, \ldots, Y_n\) be the order statistics \(X_{(1)}, \ldots, X_{(n)}\). Let \(Z_n = Y_{n/2 + 1} - Y_{n/2}\). Find \(f(n)\), \(g(n)\) such that 
+
+\[
+\frac{Z_n - f(n)}{g(n)} \xrightarrow{d} \text{non-trivial distribution.}
+\]
+
+\end{exercise}
+
+\begin{example}
+
+Let \(X_n = \sum_{k=1}^n X_k\) where \(X_k \sim \operatorname{Ber}(1/2)\). We know that 
+
+\[
+\frac{S_n - n/2}{1/2 \sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1).
+\]
+
+However, what is \(\mathbb{P}(S_n > 0.6n)\)? It turns out that \(\mathcal{P}(S_n > 0.6n) \sim e^{-cn}\).
+
+\end{example}
+
+For a Gaussian Orthogonal Ensemble, eigenvalues tend to be between -2 and 2. Difference between adjacent eigenvalues \(\lambda_i - \lambda_{i+1}\) is of interest. Tends to be of order \(1/n\), so after mutliplying by \(n\), tends to be of order 1. 
+
+\[
+n(\lambda_i - \lambda_{i+1}) \xrightarrow{d} \text{Gaudin-Mehta distribution.}
+\]
+
+Approximately given by Wigner's 
+
+\[
+\mathbb{P}(s) = \frac{\pi s}{2}e^{-\frac{\pi}{4} s^2}.
+\]
+
+Bulk Universality Conjecture: Gap distribution for the bulk eigenvalues for a large generic \(d\)-regular graph converges to this distribution.
+
+\textbf{Universality Conjecture (Wigner-Dyson-Mehta):} bulk eigenvalue statistics are universal, depending only on the symmetry class of the matrix ensemble, regardless of the distribution of individual matrix entries. Proven by Erdos, Yau, and Tau and Vu (under 4th moment condition)
+
+\subsubsection{Large Deviation Theory}
+
+
+Wigner-type matrix \(H\). Let the eigenvalues be \(\lambda_1, \ldots, \lambda_n \in \mathbb{R}\). Suppose we normalize \(H\) by dividing it by the square root of \(n\); that is, let \(H_1 = H/\sqrt{n}\). Define a measure
+
+\[
+\mu_n := \frac{1}{n} \sum_{k=1}^n \delta_{\lambda_k} 
+\]
+
+so for \(I \subset \mathbb{R}\), 
+
+\[
+\mu_n(I) = \# \{i : \lambda_i \in I\}.
+\]
+
+Note that \(\mu_n\) is random because \(H\) is random. We will show that
+
+\[
+\mu_n \xrightarrow{a.s.} \mu.
+\]
+
+\begin{proposition}
+For any continuous smooth function \(g\), 
+
+\[
+\int g(t) d \mu_n(t) \xrightarrow{a.s.} \int g(t) d \mu(t).
+\]
+
+We can also write this as 
+
+\[
+\langle \mu_n, g \rangle \xrightarrow{a.s.} \langle \mu, g \rangle.
+\]
+
+In other words, for any interval \([a,b] \subset \mathbb{R}\), 
+
+\[
+\mu_n([a,b]) \xrightarrow{a.s.} \mu([a,b]).
+\]
+
+where
+
+\[
+d \mu = \frac{1}{2\pi} \sqrt{(4-x^2)_+} \ dx
+\]
+
+where
+
+\[
+(4-x^2)_+ = \begin{cases}
+4- x^2 & 4-x^2 \geq 0 \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+Roughly speaking, for a Wigner random matrix where \(\E H_{ij} = 0\) and \(\E H_{ij}^2 =1\) and \(\E H_{ij}^p\) exists and is finite for all \(p\), if \(n\) is large then the number of eigenvalues of \(H_n\) in the interval \([a,b]\) divided by \(n\) is close to the number
+
+\[
+\int_a^b \frac{1}{2\pi} \sqrt{(4-x^2)_+} \ dx.
+\]
+
+\end{proposition}
+
+Let \(\lambda_n^{(n)}\) be the largest eigenvalue of \(H_n\). We have that 
+
+\[
+\frac{\lambda_n^{(n)} - 2 }{n^{2/3}} \xrightarrow{d} \text{Tracy-Widom distribution.}
+\]
+
+\begin{proposition}
+
+Suppose \(k = \lfloor n/2 \rfloor\). Let \(\lambda_k^{(n)}\) be the \(k\)-th smallest eigenvalue of \(H_n\). \(\gamma_k\) is defined as 
+
+\[
+\int_{-2}^{\gamma_k} \frac{1}{2\pi} \sqrt{(4-x^2)_+} = \frac{k}{n}
+\]
+
+Then
+
+\begin{enumerate}[(1)]
+
+\item \(\lambda_k^{(n)} \approx\gamma_k\)
+
+\item \(\lambda_k^{(n)} - \gamma_k = \mathcal{O} \left( \frac{1}{2} \sqrt{\log n} \right)\).
+
+\item
+
+\[
+\frac{\lambda_k^{(n)} - \gamma_k}{n^{-1} \sqrt{ \log n}} \xrightarrow{d} \mathcal{N}(0, 1).
+\]
+
+\end{enumerate}
+
+\end{proposition}
+
+These results hold regardless of the exact distribution of \(H_{ij}\). This property is referred to as \textbf{universality.} (Like the Central Limit Theorem.)
+
+\begin{proposition}
+
+Fix \(a, b \in \mathbb{R}\), \(E_0 \in \mathbb{R}\).. 
+
+\[
+I_{E_0 , a , b} = [ E_0 + a/n, E_0 + b/n].
+\]
+
+Then the number of eigenvalues of \(H\) in \(I\) \(J_{E_0, a, b}\) is \(\mathcal{O}(1)\). (Regardless of the exact distribution of \(H_{ij}\).)
+
+\end{proposition}
+
+\begin{proposition}
+
+Let \(\lambda_k^{(n)}\) be an eigenvalue of \(H_n\). Let \(u_k^{(n)}\) be the corresponding unit-length eigenvector; that is,
+
+\[
+H u_k^{(n)} = \lambda_k^{(n)} u_k^{(n)}, \qquad \lVert u_k^{(n)} \rVert_2 = 1.
+\]
+
+Then 
+
+\begin{enumerate}
+
+\item For all fixed \(w \in \mathbb{R}^n\) such that \(\lVert w rVert_2 =1\),
+
+\[
+\frac{| \langle w, u_k^{(n)} \rangle |^2}{1/n} \xrightarrow{d} \left( \mathcal{N} (0,1) \right)^2.
+\]
+
+\item Let \(g_k^w := | \langle w, u_k^{(n)} \rangle |^2\). Then for \(k \neq \ell\), 
+
+\[
+(g_k^w, g_\ell^w) \xrightarrow{d} \left( \left[ \mathcal{N}(0,1) \right]^2,  \left[ \mathcal{N}(0,1) \right]^2 \right)
+\]
+
+and the two vectors are independent.
+
+\item Let \(w, w'\) be two orthogonal unit vectors (\(\langle w, w' \rangle = 0\)). Then 
+
+\[
+(g_k^w, g_k^{w'}) \xrightarrow{d} \left( \left[ \mathcal{N}(0,1) \right]^2,  \left[ \mathcal{N}(0,1) \right]^2 \right)
+\]
+
+and the two vectors are independent.
+
+
+\end{enumerate}
+
+\end{proposition}
+
+
+
+Let \(X\) have i.i.d. entries but it is not necessarily symmetric. We will investigate the eigenvalues of \(X^TX\), which converge to a Marchenko–Pastur distribution.
+
+Let \(X\) have eigenvalues \(\lambda_k \in \mathbb{C}\). Let \(\mu_n = n^{-1} \sum_{k=1}^n \delta_{\lambda_k}\). Then \( n \mu_n(A)\) is the number of eigenvalues of \(X\) in \(A\) for \(A \subset \mathbb{C}\).
+
+\[
+\mu(A) = \frac{ \text{Area}(A \cap D)}{\pi}, \qquad D:= \{z: |z | \leq 1\}.
+\]
+
+This is called a \textbf{circular law} (density \(1/\pi\) in \(D\), 0 outside of \(D\)). Results exist if \(\E X_i = 0\), \(\E X_{ij}^2 = 1\). 
+
+\begin{proposition}
+
+\(z \in \mathbb{C}\), \(B_n = z^\ell\), \(\ell = N^{-1/2 + \delta}\), then the number of eigenvalues of \(X\) in \(B_n\) is roughly \(\pi^{-1} \ell^2 n\). where \(B_n\) is a box with width \(\ell\).
+
+\end{proposition}
+
+\begin{proposition}
+
+Suppose \(u_k\) is an eigenvector of \(X\) with \(\lVert u_k \rVert_2 = 1\). Let \(u_k(m)\) be the \(m\)th component of \(X\). Note \(\lVert u_k \rVert_2^2 = 1\), \(u_k\) has \(n\) components. With high probability,
+
+\[
+\max_m | u_k(m) |^2 \leq n^{-1 + \epsilon} \qquad \forall \epsilon > 0.
+\]
+
+\end{proposition}
+
+\textbf{Delocalization:} eigenvectors are spread out fairly uniformly over a range of possible values.
+
+Opposite case: Suppose we have a diagonal random matrix \(\tilde{X}_{ij}\). Then the eigenvectors are the unit vectors \(e_i\), so the eigenvectors are very localized. 
+
+Some other Wigner-type random matrices:
+
+\begin{enumerate}[(1)]
+
+\item \(H\), \(\E H_{ij} = 0\), \(\E H_{ij}^2 = \mathcal{O}(1)\), \( \sum \E(H_{ij})^2 = N\).  This is a generalized Wigner random matrix. 
+
+\item Remove the condition that \( \sum \E(H_{ij})^2 = N\). This is a \textbf{universal Wigner matrix.} In this case, the eigenvectors may have some favored direction.
+
+\item \(\E H_{ij}^2 = 1\) but mean is not 0. Then similar results.
+
+\item Suppose \(X\) is Wigner and \(T\) is a fixed matrix. Then there are results for \(TX\). 
+
+\item \(H_{ij}\) does not have order 1 all the time; that is, some entries are on different scales than others (some much larger). Examples:
+
+\begin{enumerate}
+
+\item Sparse matrix, like Erdos-Renyi matrix. E-R graph: line connecting \(V_i\), \(V_j\) if and only iff \(A_{ij} = 1\). \(\mathbb{P}(A_{ij} = 1) = p(n)\), some function of \(n\). All \(A_{ij}\) are independent of each other besides the fact that \(A\) is symmetric. 
+
+\(A = H + A_0\), where \(A_{ij}\) is defined as above, \(\E H_{ij} = 0\), \(\E H_{ij}^2 = p_n (1 - p_n)\). Note that if \(p_n \ll 1\),
+
+\[
+\vdots
+\]
+
+we have 
+
+\[
+\Var \left( \frac{1}{\sqrt{p_n}} A_{ij} \right) \approx 1, \qquad \E \left( \frac{1}{\sqrt{p_n}} A_j \right) \approx 0,
+\]
+
+but  \(\hat{A} = p_n^{-1/2} A\), \(\hat{A}_{ij} \gg 1\); that is, this is a sparse matrix with mostly 0 entries, and the entries that are nonzero are large.
+
+\item \textbf{Band matrix.} \(H_{ij} \cdot f(|i-j|)\), where 
+
+\[
+f(m) = \begin{cases}
+1 & m \leq W \\
+0 & m > W.
+\end{cases}
+\]
+
+The interesting case is when \(W \ll n\).
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+
+Topics:
+
+\begin{itemize}
+
+\item \textbf{Topic 1:} For a matrix \(A\), find optimal \(m\) and \(M\) such that for all \(x\), \(m \lVert x \rVert < \lVert Ax \rVert < M \lVert x \rVert\) (i.e., \(m
+\) is the smallest singular value and \(M\) is the largest). Then the condition number is \(\kappa(A) = M/m\).
+
+Suppose \(A \in \mathbb{R}^{n \times m}\), \(a_{ij} = g_{ij}\), \(g_{ij} \sim \mathcal{N}(0,1)\). Marchenko–Pastur Law:
+
+\[
+\lVert A \rVert \approx \sqrt{n} + \sqrt{m}
+\]
+
+\[
+\sigma_{min}(A) \approx \sqrt{n} - \sqrt{m}
+\]
+
+If \(A\) is a tall matrix, \(n \gg m\), then \(\kappa(A) \) is constant. In square case, \(\sigma_{min}(A) < 0 \iff A \text{ is invertible}\).
+
+\item \textbf{Least Singular Value of square matrices:} Intuition: eigenvector should not have a preference---``uniform on the sphere." True for Gaussian matricies. 
+
+Typical \(X \sim \operatorname{Uniform}(S^{n-1})\): 
+
+\[
+X = \begin{pmatrix} X_1 \\ \vdots \\ X_n \end{pmatrix}
+\]
+
+\[
+\E| X_i|^2 =  \frac{1}{n} \sum_{i=1}^n \E | X_j|^2 = \frac{1}{n}
+\]
+
+where we used the fact that \(X\) is a unit vector. Therefore \(|X_i| \sim n^{-1/2}\). 
+
+\item \(\lVert X \rVert_\infty = \max_j |X_j|\):
+
+%\item
+ \(\mathbb{P}(|X_i| > t /\sqrt{n}) \leq \exp(-C_1 t^2) \) for \(t > C_1\).
+
+%\item 
+
+\[
+\mathbb{P} \left( |X_i| >  \frac{R \sqrt{\log n}}{\sqrt{n}} \right) \leq \exp(-CR^2 \log n)
+\]
+
+%\item
+
+\[
+\mathbb{P}\left( \exists j \text{ such that } |X_j | > \frac{R \sqrt{\log n}}{\sqrt{n}} \right) < n \exp(-CR^2 \log n)
+\]
+
+\[
+\lVert X \rVert_\infty \leq R \sqrt{\frac{\log n}{n}} \text{ with probability } \geq 1 - n^{1 - CR^2}.
+\]
+
+\item \textbf{Topic 2:} \(\ell_\infty\) delocaliztion. Suppose we have \(A\) with \(\E a_{ij} = 0\), \(\E A_{ij}^2 = 1\). Eigenector v, \(\lVert v \rVert_2 = 1 \implies \lVert v \rVert_\infty < \frac{\log C}{\sqrt{n}}\). 
+
+\item \textbf{Topic 3:} No-gap delocalization of eigenvectors. 
+
+\[
+X = \begin{pmatrix} \sqrt{2/n} \\ \vdots \\ \sqrt{2/n} \\ 0 \\ \vdots \\ 0 \end{pmatrix}
+\]
+
+(first \(n/2\) entries are \(\sqrt{2/n}\), rest are 0.)
+
+\
+
+For every \(I \subset \{1, \ldots, n\}\) with \(|I| = \epsilon n\), let \(I\) index over the nonzero entries of an eigenvector. Want to show that \(\lVert V_i \rVert_2 \geq \epsilon^c\). 
+
+\item \textbf{Topic 0:} Subgaussian random matrices
+
+\end{itemize}
+
+Linear algebra: \(A \in \mathbb{R}^{n \times m}\). Singular value decomposition:
+
+\[
+A = U \Sigma V^T
+\]
+
+where \(U U^T = I_n\), \(V V^T = I_m\), and \(\Sigma \) is a diagonal matrix with diagonal entries equal to the singular values. 
+
+\subsubsection{Band Matrix}
+
+\(n \times n\) random matrix with bandwidth \(w\). \(H_{ij} \neq 0 \implies | i - j| \leq w\). Let \(w = n^a\) for \(0 < a < 1\). We have for the nonzero entries, \(H_{ij} = \pm 1\), \(\E H_{ij} = 0, \E H_{ij}^2 = 1\).
+
+Let \(H\) be a Wigner band matrix. Since \(H\) is symmetric, decompose \(H\) as \(H = UDU^+\), where \(D\) is diagonal. Then \(H^m = U D^m U^+\). When \(H\) is a band matrix with reasonably small \(w\), then for any eigenvector \(u\) of \(H\), usually \(|u(k)|^2\) is contained within a narrow range.
+
+Roughly speaking, for each eigenvector \(u_k\) of \(H\) there exists an integer \(a_k\), where \(1 \leq a_k \leq n\), such that \(u(k) \approx 0\) if \(|k \cdot a| \gg w^2\).
+
+From linear algebra: if \(\lambda_\ell\) and \(u_\ell\) are corresponding eigenvalues and eigenvectors of \(H\),
+
+\[
+\begin{bmatrix} H^m \end{bmatrix}_{bc} = \sum_\ell \lambda_\ell^m u_\ell(b) u_\ell^+(c). 
+\]
+
+As you raise the matrix to higher and higher powers, the bandwidth will initially increase but eventually won't.
+
+
+\[
+u_\ell(b) \neq 0, u_\ell(c) \neq 0 \implies |b-c| = o(w^2).
+\]
+
+This is so-called \textbf{localization} of a band matrix. \textbf{Conjecture:} this occurs for \(w = n^a\) when \(a < 1/2\). When \(a > 1/2\) we have delocalization. 
+
+For \(d=3\), a band matrix is delocalized as long as \(a > 0\). 
+
+\begin{enumerate}
+
+\item \textbf{GOE/GUE:} Wigner-type random matrix (e.g., \(\E H_{ij} = 0, \E H_{ij}^2 = 1\)). If \(H_{ij} \sim \mathcal{N}(0,1)\), then it's called GOE (Gaussian orthogonal *). If \(H\) is GOE, then for any orthogonal matrix \(O\) (\(OO^+ = I\)), then \(OHO^+ \) has the same distribution as \(H\). Also, the probability density of \(\lambda_1, \ldots, \lambda_n\) of \(H\) is
+
+\[
+\prod e^{-\sum_k 1/4 \lambda_k^2} \prod_{i < j} |\lambda_i - \lambda_j|.
+\]
+
+this is an \textbf{orthogonal polynomial.} 
+
+Recall important properties of Wigner matrix: independent entries, orthogonal invariance. For a symmetric matrix, the only solution is a GOE matrix. For Hermitian, must be GUE. 
+
+\item \textbf{Comparison Method:} unknown \(X\), known \(\tilde{X}\), for Wigner, \(\E \lambda_n^{(n)} \approx \E_n^{(n)} \).
+
+Look at Central Limit Theorem again: \(X_i\) i.i.d., \(\E X_i = 0\), \(\E X_i^2 = 1\), then 
+
+\[
+\frac{1}{\sqrt{n}} \sum_{i=1}^n x_i \xrightarrow{d} \mathcal{N}(0,1).
+\]
+
+Special case: if \(X_i \sim \mathcal{N}(0,1)\), result holds exactly even in finite samples.
+
+Need to prove:
+
+\[
+\mu_n \to \mathcal{N}(0,1) = \mu
+\]
+
+Need to prove: for all \(f \in C_{b,c}^\infty\) (smooth functions), \(\langle f, \mu_n \rangle \to \langle f, \mu \rangle\). For all \(f\), 
+
+\[
+\E f \left( \frac{ \sum_{i} X_i}{\sqrt{n}} \right) \to \E f(Z),
+\]
+
+where \(Z \sim \mathcal{N}(0,1)\). So need to prove
+
+\begin{equation}\label{prob.rmt.ntp.eqn}
+\E f \left( \frac{ \sum_{i} X_i}{\sqrt{n}} \right) - \E f \left( \frac{ \sum_{i} X_i^G}{\sqrt{n}} \right) = o(1)
+\end{equation}
+
+where \(X_i^G\) is Gaussian. (show the thing we want to study and something we know about (Gaussian R.V.s) are close together)
+
+Let 
+
+\[
+S_n = \sum_{i=1}^n X_i, \qquad S_n^G = \sum_{i=1}^n X_i^G, \qquad \tilde{S}_n^k = \sum_{i=1}^k X_i + \sum_{i=k+1}^n X_i^G.
+\]
+
+Note that \(\tilde{S}_n^n = S_n\) and \(\tilde{S}_n^0 = S_n^G\). We can express the left side of (\ref{prob.rmt.ntp.eqn}) as 
+
+\[
+\sum_k \left[\E f \left( \frac{  \tilde{S}^{k+1}}{\sqrt{n}} \right) - \E f \left( \frac{ \tilde{S}^k}{\sqrt{n}} \right)  \right] 
+\]
+
+\end{enumerate}
+
+\subsubsection{Subgaussian Random Variable}
+
+\(g \sim \mathcal{N}(0,1)\), \(t \to \frac{1}{\sqrt{2 \pi}} \exp(-t^2/2)\). Fact
+
+\begin{enumerate}
+
+\item \[
+\mathbb{P}(|g| > t) \leq 2 \exp(-Ct^2)
+\]
+
+
+\item
+
+\[
+G = \begin{pmatrix}g_1 \\
+\vdots \\
+g_n \end{pmatrix} 
+\]
+
+\(g_i \sim \mathcal{N}(0,1)\), with density function \(x \to (2\pi)^{-n/2} \exp \left (- \sum_i X_i^2 /2 \right)\).
+
+So the density only depends on \(\lVert X \rVert_2\), density is invariant under rotation, which means if \(U\) is an orthogonal matrix, then \(UG \sim G\). 
+\end{enumerate}
+
+\begin{definition}[\textbf{Subgaussian random variable}] A random variable \(X\) is called \textbf{subgaussian} if 
+
+\[
+\lVert X \rVert_{\Psi} = \inf \left\{ s >0: \E F \left(\frac{|X|}{s} \right) \leq 1 \right\} < \infty
+\]
+
+(``find \(s\) such that \(\E F(|X|/s) = 1\).")
+
+\end{definition}
+
+\begin{remark}
+\(\lVert \cdot \rVert_{\Psi} \) is a norm (the \textbf{subgaussian norm}); one can check that it satisfies the triangle inequality, homogeneity, and it is nonnegative. 
+\end{remark}
+
+\begin{proposition}
+
+The following are equivalent:
+
+\begin{enumerate}
+
+\item There exists a \(\kappa\) such that \(\lVert X \rVert_\Psi \leq \kappa\). 
+
+\item There exists a \(\kappa\) such that for all \(t > 0\), \(\mathbb{P}(|X| > t) \leq 2 \exp(-t^2/\kappa^2)\). 
+
+\item There exists a \(\kappa\) such that \(\sup_{p>1} \left\{ \frac{ \E(|X|^p)^{1/p}}{\sqrt{p}} \right\} \leq \kappa.\)
+
+\item There exists a \(\kappa\) such that \(\E \exp(\lambda X) \leq 2 \exp(\lambda^2 \kappa^2)\). 
+
+\item (only when \(\E X = 0\)) \(\E \exp(\lambda X) \leq \exp( C\lambda^2 \kappa^2)\). 
+
+\end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+
+First we show that (1) implies (2). We will use exponential Markov's inequality: if \(Z\) is nonnegative,
+
+\[
+\mathbb{P}(Z < t) \leq \frac{\E Z}{t} 
+\]
+
+\[
+\mathbb{P}(|X| > t) = \mathbb{P}\left (\exp (|X|^2/\kappa^2) > \exp (t^2/\kappa^2) \right) \leq \frac{ \E \exp(|X|^2/\kappa^2)}{\exp (t^2/\kappa^2)} = \frac{ \E [f(|X|/\kappa) + 1]}{\exp (t^2/\kappa^2)}
+\]
+
+\[
+  \leq \frac{2}{\exp(t^2/\kappa^2)} = 2 \exp(- t^2/\kappa^2).
+\]
+
+which implies \(g\) is subgaussian. Now we show that 2 implies 3.
+
+\[
+\E |X|^p = \E \left( \int_0^{|X|^p} 1 \ dt \right) = \int_0^\infty \boldsymbol{1}_{[t, \infty)} (|X|^p) dt = \int_0^\infty \mathbb{P}(|X|^p <M t) \ dt
+\]
+
+Let \(u^p = t\). We will use integration by parts
+
+\[
+= \int_0^\infty pu^{p-1} \mathbb{P}(|X| > u) \ du \leq \int_0^\infty pu^{p - 1} 2 \exp(-u^2/\kappa^2) \ du = \int_0^\infty  \underbrace{pu^{p-2}}_w \cdot \underbrace{u 2 \exp(-u^2/\kappa^2)}_{v'} du
+\]
+
+\[
+= \left[ wv \right]_0^\infty - \int_0^\infty w'v du = pu^{p-2} (-\kappa^2 \exp(-u^2/\kappa^2) ]_0^\infty + \int_0^\infty p(p-2)u^{p-3} \kappa^2 \exp(-u^2/\kappa^2) \ du
+\]
+
+\[
+= p(p-2)(p-4) C^p \kappa^p \leq C^p 9p^{p/2}  \kappa^p 
+\]
+
+\(p\)th root \(\implies \sqrt{p} C \kappa\). 
+
+Next we will show 3 implies 1.
+
+\[
+\vdots
+\]
+
+\end{proof}
+
+\begin{proposition}
+Consider \(a \in S^{n-1}\). Suppose \(X_1, \ldots, X_n\) are mean 0 with \(\lVert X_i \rVert_{\Psi} \leq \kappa\) for all \(i\). Then \(\sum_{i} a_i X_i\) is subgaussian (for all \(n \in \mathbb{Z}_{++}\)).
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+\E \exp \left ( \lambda \sum_i a_i X_i \right) = \E \prod_i \exp(\lambda a_i X_i) = \prod_i \E \exp(\lambda a_i X_i) \leq \prod_i \E \exp(C \lambda^2 a_i^2 \kappa^2) 
+\]
+
+\[
+= \E \exp \left(C \lambda^2 \left( \sum_i a_i^2 \right) \kappa^2 \right )  = \E \exp \left(C_1 \lambda^2 \kappa^2 \right ) .
+\]
+
+Therefore \(\sum_{i} a_i X_i\) is subgaussian (and \( \lVert \sum_i a_i X_i \rVert_\Psi \leq C_1 \kappa\)).
+
+\end{proof}
+
+\textbf{Examples of subgaussian random variables:} Gaussian, Bernoulli, bounded. 
+
+\begin{definition}[\textbf{Hilbert-Schmidt Norm}]
+
+\[
+\lVert A \rVert_{HS} = \sqrt{\sum_{i,j} a_{ij}^2}.
+\]
+
+\end{definition}
+
+\begin{remark}
+
+Note 
+
+\[
+\Tr(A^*A) = \lVert A \rVert_{HS}^2 = \sum_i s_i^2(A)
+\]
+
+(the sum of the squared singular values of \(A\)).
+
+\end{remark}
+
+\begin{proposition}[\textbf{Hanson-Wright Inequality}]
+
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Topic 1: Invertibility of Matrices}
+
+\textbf{Very tall case:} Suppose \(A \in \mathbb{R}^{n \times m}\), with \(n \gg m\). Entries \(a_{ij}\) are independent with \(\E a_{ij} = 0\), \(\E a_{ij}^2 = 1\), and \(\lVert a_{ij} \rVert_\Psi \leq \kappa\). A left inverse of \(A\), \(A^+\) exists if the smallest singular value of \(A\) is positive; that is, \(\delta_m(A) > 0\). Then the columns of \(A\) span \(\mathbb{R}^m\), and there exists a matrix \(A^+\) such that \(A^+A = I_m\).
+
+\begin{proposition}[\textbf{Operator norm of \(A\)}]
+
+\[
+\mathbb{P} \left (\lVert A \rVert \geq R(\sqrt{n} + \sqrt{m}) \right) \leq \exp(- C_2 R^2(\sqrt{n} + \sqrt{m})^2
+\]
+
+for \(R > C_1\).
+
+\end{proposition}
+
+\begin{proof}
+
+\begin{itemize}
+
+\item
+
+\[
+\lVert A \rVert = \max_{x \in S^{n-1}} \lVert A x \rVert_2 = \max_{x \in S^{n-1}} \max_{y \in S^{n-1}} \langle y, Ax \rangle
+\]
+
+\item For fixed \(y \in S^{n-1}\), \(x \in S^{n-1}\),
+
+\[
+\langle y,. Ax \rangle = \sum_{i,j} y_i a_{ij} x_j
+\]
+
+\end{itemize}
+
+Using the subgaussianity of \(a_{ij}\),
+
+\[
+\left\lVert \sum_{i,j} x_i x_j a_{ij} \right\rVert_\Psi \leq C \sqrt{\sum_{i,j} (y_i x_j)^2 \kappa} = CK
+\]
+
+Using the second definition of the subgaussian norm,
+
+\[
+\implies \mathbb{P} \left( | \langle y, Ax \rangle| > t \right) \leq 2 \exp(-C t^2/\kappa^2) 
+\]
+
+We need an upper bound for all \(x \in S^{m-1}, y \in S^{n-1}\). 
+
+\begin{definition}[\textbf{\(\epsilon\)-net}]
+
+\(\mathcal{M} \subseteq S^{m-1}\) is an \textbf{\(\epsilon\)-net} of \(S^{m-1}\), if for all \(x \in S^{m-1}\), there exists an \(x' \in \mathcal{M}\) such that \(\lVert x - x' \rVert_2 \leq \epsilon\).
+
+\end{definition}
+
+Take a \(1/4\)-net in \(S^{m-1}\), called \(\mathcal{M}\). Likewise, take a \(1/4\)-net in \(S^{n-1}\), called \(\mathcal{N}\). 
+
+\[
+\mathbb{P} \left( \exists x \in \mathcal{M}, y \in \mathcal{N} \text{ s.t. } | \langle y, Ax \rangle | > t \right) \leq | \mathcal{M}| | \mathcal{N}| \exp(-Ct^2).
+\]
+
+
+
+Suppose for all \(x \in \mathcal{M}, y \in \mathcal{N}\), we have \(| \langle y, Ax \rangle| \leq t\). Let \(x_0 \in S^{m-1}, y_0 \in S^{n-1}\) such that \(\lVert A \rVert = \langle y_0, Ax_0 \rangle\). Take \(y \in \mathcal{N}, x \in \mathcal{M}\) such that \(\lVert y - y_0 \rVert \leq 1/4, \lVert x - x_0 \rVert \leq 1/4\). Then
+
+\[
+\lVert A \rVert = \langle y, A x_0 \rangle + \langle y_0 - y, Ax_0 \rangle \leq \langle y, Ax_0 \rangle  + \lVert y_0 - y \rVert \lVert A \rVert
+\]
+
+\[
+= \langle y, Ax \rangle + \langle y, A (x_0 - x) \rangle + \frac{1}{4} \lVert A \rVert  \leq \langle y, Ax \rangle +  \lVert y \rVert \lVert A \rVert \lVert x_0 - x \rVert + \frac{1}{4} \lVert A \rVert  
+\]
+
+\[
+\implies \lVert A \rVert \leq \langle y, Ax \rangle + \frac{1}{2} \lVert A \rVert  
+\]
+
+\[
+\iff \lVert A \rVert \leq 2 \langle y, Ax \rangle \leq 2t
+\]
+
+since we already have \(| \langle y, Ax \rangle | \leq t\).
+
+Then
+
+\[
+\mathbb{P} \left( \forall x \in \mathcal{M}, \forall y \in \mathcal{N}, | \langle y, Ax \rangle | \leq t \right) \geq 1 - |\mathcal{M}| | \mathcal{N}| \exp(-Ct^2/\kappa^2) 
+\]
+
+therefore with probability at least \(1 - |\mathcal{M}| | \mathcal{N}| \exp(-Ct^2/\kappa^2) \), we have \(\lVert A \rVert \leq 2 t\).
+
+\
+
+
+
+
+
+\end{proof}
+
+Next, adjust \(t\) according to \(|\mathcal{M}| | \mathcal{N} |\) to maximize the probability. 
+
+\begin{proposition}
+
+For \(\epsilon < 1\), let \(\mathcal{N}\) be an \(\epsilon\)-net of \(S^{n-1}\). Then \(\mathcal{N}\) satisfies \(|\mathcal{N}| < (3/\epsilon)^n\).
+
+\end{proposition}
+
+\begin{proof}
+
+Let \(B_2^n\) denote the Euclidean unit ball in \(\mathbb{R}^n\). Then \(x + \epsilon B_2^n = \{x + \epsilon y: y \in B_2^n\}\). We will show that for all \(x, y \in \mathcal{N}\), 
+
+\[
+(x + \epsilon/2 B_2^n) \bigcap (y + \epsilon/2 B_2^n) = \emptyset.
+\]
+
+Construct \(\mathcal{N}\) be picking a point \(x_1 \in S^{n-1}\), \(x_2\) so that \(|x_1 - x_2| > \epsilon\), keep choosing points until there isn't any more empty space. Once we stop, there are no more points in \(S^{n-1}\) such that its epsilon distance away from all points in \(\mathcal{N}\) which means \(\mathcal{N}\) is an epsilon net. Then
+
+\[
+\bigcup_{x \in \mathcal{N}} (x + \epsilon/2 B_2^n) \subset (1 + \epsilon/2) B_2^n,
+\]
+
+so
+
+\[
+\left| \bigcup_{x \in \mathcal{N}} (x + \epsilon/2 B_2^n) \right| < \left| (1 + \epsilon/2) B_2^n \right| \implies | \mathcal{N} | \cdot | \epsilon/2 Bz_2^n | < | 1 + \epsilon/2 B_2^n|
+\]
+
+\[
+\implies | \mathcal{N} | (\epsilon/2)^n < ( 1 + \epsilon/2)^n \implies | \mathcal{N} | < (2/\epsilon + 1)^n < (3/\epsilon)^n.
+\]
+
+\end{proof}
+
+\begin{proposition}[\textbf{Paley-Zygmund Inequality}]
+
+If \(Z\) is a nonnegative random variable with \(\E Z = 1, \E Z^2 < K\), then for \(\lambda \in (0,1)\), there exists \(p > 0\) such that \(\mathbb{P}(Z > \lambda) > p\).
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+1 = \E Z = \E Z \boldsymbol{1}_{\{Z \in [0, \lambda]\}} + \E Z \boldsymbol{1}_{\{Z \in ( \lambda, \infty)\}} \leq \lambda + \sqrt{ \E Z^2 \E ( \boldsymbol{1}_{\{Z \in ( \lambda, \infty)\}})} \leq \lambda + \sqrt{K \mathbb{P}(Z > \lambda)}
+\]
+
+\[
+\iff \frac{(1-\lambda)^2}{K} \leq \mathbb{P}(Z > \lambda),
+\]
+
+which proves the statement for \(p =  \frac{(1-\lambda)^2}{K} \).
+
+\end{proof}
+
+\subsubsection{Random Graphs}
+
+\begin{enumerate}
+
+\item  \textbf{Erdos-Renyi graph:} \(\mathcal{G}(N, p)\) line connecting \(V_i\), \(V_j\) if and only iff \(A_{ij} = 1\). \(\mathbb{P}(A_{ij} = 1) = p(n)\), some function of \(n\). All \(A_{ij}\) are independent of each other besides the fact that \(A\) is symmetric. connected with probability \(p\).
+
+\item \textbf{Random \(d\)-regular graph model:} \(\mathcal{G}_{n, d}\): set of \(d\)-regular graphs with \(n\) vertices.
+
+\end{enumerate}
+
+These are used for statistical inference, particularly community detection.
+
+\[
+| G_{nd}| = \Pr(G \text{ simple }) \cdot \frac{(nd-1)!!}{(d!)^n}
+\]
+
+\begin{theorem}
+
+
+
+\(\mathbb{P}(G \text{ is simple}) = e^{-(d^2-1)/4}\).
+
+\end{theorem}
+
+\begin{remark}It doesn't go to 0 as \(n \to \infty\).
+
+\begin{enumerate}
+
+\item 
+
+\[
+|G_{nd}| = (1 + o(1)) e^{-(d^2-1)/2} \cdot \frac{(nd-1)!!}{(d!)^n}
+\]
+
+\item efficient way to sample a \(d\)-regular graph. Expected waiting time is \(e^{(d^2-1)/4}\).
+
+\item If you can probe property A is true for the configuration model with probability \(1 - o(1)\), then the same thing is true for the uniform model.
+
+\[
+o(1) = \mathbb{P}(A \text{ is not true}) \geq \mathbb{P}(\mathcal{G} \text{ is simple, } A \text{ is not true for } \mathcal{G})
+\]
+
+\[
+=  \mathbb{P}(A \text{ is not true} \mid \mathcal{G} \text{ is simple} ) \mathbb{P}(\mathcal{G} \text{ simple})
+\]
+
+\[
+\approx \mathbb{P}_{\text{uniform}} (A \text{ is not true}) e^{-(d^2 - 1)/4} 
+\]
+
+\[
+\mathbb{P}_{\text{uniform}} (A \text{ is not true}) = o(1) \text{ as } n \to \infty.
+\]
+
+\end{enumerate}
+
+\end{remark}
 
 %
 %
@@ -6527,6 +7554,6 @@ F_U(u)=\int_0^\infty f_Z(z) \int_{-\infty}^{uz} f_W(w) dw dz - \int_{-\infty}^0 
 %\bibliographystyle{abbrvnat}
 %\bibliography{mybib2fin}
 %\end{document}
-
+%
 
 

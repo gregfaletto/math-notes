@@ -1,0 +1,216 @@
+%\documentclass{article}
+%
+%\usepackage{fancyhdr}
+%\usepackage{extramarks}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{mathrsfs}
+%\usepackage{tikz}
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\graphicspath{ {images/} }
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[document]{ragged2e}
+%\usepackage{textcomp}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{import}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=black,  %choose some color if you want links to stand out
+%}
+%\usepackage{import}
+%\usepackage{natbib}
+%
+%\usetikzlibrary{automata,positioning}
+%
+%
+%% Basic Document Settings
+%
+%
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%\setlength{\parskip}{1em}
+%
+%\linespread{1.1}
+%
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+%
+%\renewcommand\headrulewidth{0.4pt}
+%\renewcommand\footrulewidth{0.4pt}
+%
+%\setlength\parindent{0pt}
+%
+%
+%\newcommand{\hmwkTitle}{Math Review Notes---Statistical Learning}
+%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+%
+%
+%% Title Page
+%
+%
+%\title{
+%    \vspace{2in}
+%    \textmd{\textbf{ \hmwkTitle}}\\
+%}
+%
+%\author{Gregory Faletto}
+%\date{}
+%
+%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%
+%% Various Helper Commands
+%
+%
+%% Useful for algorithms
+%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+%
+%% For derivatives
+%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%
+%% For partial derivatives
+%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+%
+%% Integral dx
+%\newcommand{\dx}{\mathrm{d}x}
+%
+%% Alias for the Solution section header
+%\newcommand{\solution}{\textbf{\large Solution}}
+%
+% %Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\Var}{\mathrm{Var}}
+%\newcommand{\Cov}{\mathrm{Cov}}
+%\newcommand{\Bias}{\mathrm{Bias}}
+%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+%\DeclareMathOperator{\Tr}{Tr}
+%
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+%\numberwithin{theorem}{subsection}
+%\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem*{remark}{Remark}
+%\theoremstyle{definition}
+%\newtheorem{example}{Example}[section]
+%
+% %Tilde
+%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+%
+%\begin{document}
+%
+%\maketitle
+%
+%\pagebreak
+%
+%\tableofcontents
+%
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+%
+%
+%
+%\newpage
+%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%
+%% Statistical Learning
+
+\section{Statistical Learning}
+
+These notes are based on my notes from Math 547 at USC taught by Steven Heilman. I also borrowed from some other sources which I mention when I use them.
+
+%\section{Linear Regression}
+
+
+%%%%%%%%%%% Linear Regression %%%%%%%%%%%%%
+
+\subsection{Math 547}
+
+Exercise 3.16: this inequality talks about the number of misclassifications, not the probability of misclassification under any distribution.
+
+\subsubsection{Perceptron Algorithm}
+
+\begin{remark}
+
+Note that the run times only depends on the \(\ell_2\) norm of the solution loadings \(w\) and the \(\ell_2\) norm of the longest vector in the data set. That sounds good since it doesn't depend on the size of the data, but in the worse case \(\theta\) can grow exponentially in the dimension of the data.
+
+Also, note that the actual run time is at least linear in the size of the data, since on each iteration the algorithm checks some multiple of \(m\) points.
+
+\end{remark}
+
+\subsubsection{Mercer's Theorem}
+
+How is this an infinite-dimensional version of the Exercise? Let \(M\) be a \(k \times k\) real symmetric matrix. By the Spectral Theorem, there exists an orthogonal \(Q\) and a diagonal \(D\) such that \(M = Q^T D Q\). For all \(1 \leq p \leq k\), let \(\lambda_p\) denote the \(p\)th diagonal entry of \(D\). Let \(\psi_i^{p} \in \mathbb{R}^k\) denote the \(i\)th row of \(Q\). Then
+
+\[
+m_{ij} = \sum_{p=1}^k \lambda_p \psi_i^{(p)} \psi_j^{(p)}, \qquad \forall 1 \leq i, j \leq k.
+\]
+
+Also, \(m(x,y)\) is called a \textbf{kernel.}
+
+How to get \(\psi\) from \(m(x,y)\)? Definte 
+
+\[
+\ell_2 := \{ \} 
+\]
+
+Note: if we could write the algorithm in terms of \(m(x,y)\), we don't need to specify this embedding \(\phi\) at all. 
+
+\subsection{Norms}
+
+\begin{proposition}
+
+Let \(C \subseteq \mathbb{R}^n\) be a symmetric (if \(c \in C\) then \(-c \in C\)) convex set containing 0. Define for all \(x \in \mathbb{R}^n\), 
+
+\[
+ \lVert x \rVert_C := \inf \left\{  t > 0: \frac{x}{t} \in C \right\}
+\]
+
+Then \( \lVert x \rVert_C\) is a norm.
+
+\end{proposition}
+
+%
+%
+%
+%
+%
+%
+%
+%
+%
+
+%\bibliographystyle{abbrvnat}
+%\bibliography{mybib2fin}
+%\end{document}

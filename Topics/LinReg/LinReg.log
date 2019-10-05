@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 JUL 2019 08:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 OCT 2019 13:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -937,17 +937,17 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./LinR
-eg.toc)
+eg.toc
+[2])
 \tf@toc=\write5
 \openout5 = `LinReg.toc'.
 
+ [3] [4]
 
-[2] [3]
-
-LaTeX Warning: Reference `prob.cond.bivar.norm.dist' on page 4 undefined on inp
+LaTeX Warning: Reference `prob.cond.bivar.norm.dist' on page 5 undefined on inp
 ut line 254.
 
-[4] [5]
+[5] [6]
 Overfull \hbox (13.82396pt too wide) detected at line 332
 \OT1/cmr/m/n/10 = [](\OML/cmm/m/it/10 y[]; y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/1
 0 ^^@ []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y[]; []\OT1/cmr/m/n/10 ) \OMS/cmsy/m/
@@ -972,31 +972,53 @@ MS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )[](\OML/cmm/m/it/10 y[]; []\OT1/cmr/m/n/1
 mm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )[]
  []
 
-[6] [7] [8] [9]
+[7] [8] [9] [10] [11]
 
-LaTeX Warning: Reference `asym.cheby' on page 10 undefined on input line 706.
+LaTeX Warning: Reference `linalg.prop.inner.prod.psd' on page 12 undefined on i
+nput line 802.
 
-[10] [11] [12] [13]
-Overfull \hbox (0.4123pt too wide) in paragraph at lines 950--951
+[12] [13] [14]
+
+LaTeX Warning: Reference `asym.cheby' on page 15 undefined on input line 1111.
+
+[15] [16] [17] [18] [19]
+<images/linreg_half_space_depth.jpg, id=436, 2171.11125pt x 2240.37pt>
+File: images/linreg_half_space_depth.jpg Graphic file (type jpg)
+<use images/linreg_half_space_depth.jpg>
+Package pdftex.def Info: images/linreg_half_space_depth.jpg  used on input line
+ 1390.
+(pdftex.def)             Requested size: 217.12384pt x 224.05013pt.
+ [20] [21 <./images/linreg_half_space_depth.jpg>]
+[22]
+
+LaTeX Warning: Reference `linalg.sec.pr.comps' on page 23 undefined on input li
+ne 1511.
+
+[23] [24] [25]
+Overfull \hbox (0.4123pt too wide) in paragraph at lines 1654--1655
 []\OT1/cmr/m/n/10 We will try to max-i-miz-ing the KL Di-ver-gence by es-ti-mat
 -ing $\OML/cmm/m/it/10 ^^R[]$ \OT1/cmr/m/n/10 as best as we can by max-i-miz-in
 g the \OT1/cmr/bx/n/10 prob- 
  []
 
-[14] [15]
+[26] [27]
 
-LaTeX Warning: Reference `prob.kl.divergence' on page 16 undefined on input lin
-e 1006.
+LaTeX Warning: Reference `prob.kl.divergence' on page 28 undefined on input lin
+e 1710.
 
 
-Overfull \hbox (17.56691pt too wide) in paragraph at lines 1055--1056
+LaTeX Warning: Reference `mathstats.sec.mle' on page 28 undefined on input line
+ 1710.
+
+
+Overfull \hbox (17.56691pt too wide) in paragraph at lines 1759--1760
 []\OT1/cmr/m/n/10 Note that if the model is cor-rect, $\OML/cmm/m/it/10 A[] \OT
 1/cmr/m/n/10 = \OML/cmm/m/it/10 B[]$ \OT1/cmr/m/n/10 so this re-duces to con-ve
 n-tional asymp-totic MLE the-ory ($[]([]) = 
  []
 
-[16]
-Overfull \hbox (14.73413pt too wide) in paragraph at lines 1069--1070
+[28]
+Overfull \hbox (14.73413pt too wide) in paragraph at lines 1773--1774
 []\OT1/cmr/m/n/10 Note: $[](\OML/cmm/m/it/10 y; []\OT1/cmr/m/n/10 ) \OML/cmm/m/
 it/10 > []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y; ^^L[]\OT1/cmr/m/n/10 )$ be-cause
  $[]$ is by def-i-ni-tion the MLE on the ob-served data. But $\U/msb/m/n/10 E\O
@@ -1004,16 +1026,8 @@ T1/cmr/m/n/10 ([]([]\OML/cmm/m/it/10 ; ^^L[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10
 > 
  []
 
-[17] [18]
-Overfull \hbox (0.72878pt too wide) in paragraph at lines 1187--1188
-[][]\OT1/cmr/bx/n/10 Proposition 7 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Math 541A 
-Home-work Prob-lem\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 The val
-ue of $[] \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 R[]$ \OT1/cmr/m/n/10 that min-i-mize
-s ([][]7[][]) is $[][] = 
- []
-
-[19]
-Overfull \hbox (2.54955pt too wide) detected at line 1259
+[29] [30] [31]
+Overfull \hbox (2.54955pt too wide) detected at line 1966
 [] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 X[]X \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 
 ^^UI[]\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 X[]y \OT1/cmr/m/n/10 = (\OML/cmm/m/it
 /10 X[]X \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^UI[]\OT1/cmr/m/n/10 )[]\OML/cmm/m
@@ -1024,75 +1038,130 @@ L/cmm/m/it/10 X[]X \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^UI[]\OT1/cmr/m/n/10 )[]
 \OML/cmm/m/it/10 X[]^^O
  []
 
-[20] [21] [22]
+[32]
+Overfull \hbox (5.19205pt too wide) in paragraph at lines 2023--2024
+[]\OT1/cmr/m/n/10 where we sub-sti-tute the pseu-doin-verse in-stead of the in-
+verse be-cause since $\OML/cmm/m/it/10 X[]X$ \OT1/cmr/m/n/10 is rank de-fi-cien
+t, $(\OML/cmm/m/it/10 X[]X\OT1/cmr/m/n/10 )[]$ 
+ []
 
-LaTeX Warning: Reference `cvx.least.squares.cvx' on page 23 undefined on input 
-line 1383.
+[33] [34]
+
+LaTeX Warning: Reference `cvx.least.squares.cvx' on page 35 undefined on input 
+line 2137.
 
 
-LaTeX Warning: Reference `cvx.norm.cvx' on page 23 undefined on input line 1383
+LaTeX Warning: Reference `cvx.norm.cvx' on page 35 undefined on input line 2137
 .
 
 
-LaTeX Warning: Reference `cvx.sum.cvx.cvx' on page 23 undefined on input line 1
-383.
+LaTeX Warning: Reference `cvx.sum.cvx.cvx' on page 35 undefined on input line 2
+137.
 
-[23] [24]
-<images/linreg_lasso_level_set.png, id=352, 1049.9225pt x 656.4525pt>
+[35] [36] [37]
+<images/linreg_lasso_level_set.png, id=579, 1049.9225pt x 656.4525pt>
 File: images/linreg_lasso_level_set.png Graphic file (type png)
 <use images/linreg_lasso_level_set.png>
 Package pdftex.def Info: images/linreg_lasso_level_set.png  used on input line 
-1488.
+2242.
 (pdftex.def)             Requested size: 367.47838pt x 229.76181pt.
- [25 <./images/linreg_lasso_level_set.png>] [26] [27]
-Overfull \hbox (1.70355pt too wide) in paragraph at lines 1687--1688
+ [38 <./images/linreg_lasso_level_set.png>] [39] [40]
+Overfull \hbox (1.70355pt too wide) in paragraph at lines 2441--2442
 \OT1/cmr/m/n/10 lower bound on the quan-tity we are min-i-miz-ing; oth-er-wise,
  when $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 is neg-a-tive the in-fi-mum is 0
 . When 
  []
 
-[28] [29] [30] [31]
-<images/linreg_lars_2d.png, id=480, 719.68875pt x 543.02875pt>
+[41] [42] [43] [44]
+<images/linreg_lars_2d.png, id=706, 719.68875pt x 543.02875pt>
 File: images/linreg_lars_2d.png Graphic file (type png)
 <use images/linreg_lars_2d.png>
-Package pdftex.def Info: images/linreg_lars_2d.png  used on input line 1987.
+Package pdftex.def Info: images/linreg_lars_2d.png  used on input line 2771.
 (pdftex.def)             Requested size: 375.80542pt x 283.56145pt.
-<images/linreg_lars_3d.png, id=481, 720.6925pt x 568.1225pt>
+<images/linreg_lars_3d.png, id=707, 720.6925pt x 568.1225pt>
 File: images/linreg_lars_3d.png Graphic file (type png)
 <use images/linreg_lars_3d.png>
-Package pdftex.def Info: images/linreg_lars_3d.png  used on input line 1992.
+Package pdftex.def Info: images/linreg_lars_3d.png  used on input line 2776.
 (pdftex.def)             Requested size: 375.80542pt x 296.24893pt.
 
-Overfull \hbox (1.50441pt too wide) in paragraph at lines 1998--1999
+Overfull \hbox (1.50441pt too wide) in paragraph at lines 2782--2783
 \OT1/cmr/m/n/10 whenever $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 be-comes 0, i
 t is dropped from the cur-rent ac-tive set. A fea-ture's sign can-not change in
  lasso--- 
  []
 
-[32] [33 <./images/linreg_lars_2d.png> <./images/linreg_lars_3d.png>] [34]
-[35] [36] [37] (./LinReg.bbl [38]) [39]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2278.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2278.
+[45] [46 <./images/linreg_lars_2d.png> <./images/linreg_lars_3d.png>] [47]
+[48] [49] [50] [51] [52] [53]
+
+LaTeX Warning: Reference `mathstats.sec.em.alg' on page 54 undefined on input l
+ine 3161.
+
+<images/linreg_spatial_mixture_model_2.jpg, id=783, 2446.13875pt x 1563.8425pt>
+
+File: images/linreg_spatial_mixture_model_2.jpg Graphic file (type jpg)
+<use images/linreg_spatial_mixture_model_2.jpg>
+Package pdftex.def Info: images/linreg_spatial_mixture_model_2.jpg  used on inp
+ut line 3165.
+(pdftex.def)             Requested size: 366.90498pt x 234.56625pt.
+
+LaTeX Warning: Reference `prob.sec.exp.fams' on page 54 undefined on input line
+ 3176.
+
+[54 <./images/linreg_spatial_mixture_model_2.jpg>] [55]
+
+LaTeX Warning: Reference `mathstats.prop.inv.mle' on page 56 undefined on input
+ line 3279.
+
+
+LaTeX Warning: Reference `mathstats.def.fish.inf' on page 56 undefined on input
+ line 3305.
+
+
+LaTeX Warning: Reference `mathstats.eff.est' on page 56 undefined on input line
+ 3305.
+
+
+Overfull \hbox (28.36852pt too wide) detected at line 3309
+\OML/cmm/m/it/10 i[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 ) = \U
+/msb/m/n/10 E [] \OT1/cmr/m/n/10 = [] [] = [](\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/
+10 ) = \OML/cmm/m/it/10 n[][]\OT1/cmr/m/n/10 ([]) = \OML/cmm/m/it/10 n[][][]\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =n \OT1/cmr/m
+/n/10 = \OML/cmm/m/it/10 n[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/1
+0 )
+ []
+
+[56]
+
+LaTeX Warning: Reference `mathstats.prop.inv.mle' on page 57 undefined on input
+ line 3317.
+
+
+LaTeX Warning: Reference `mathstats.cramer.rao' on page 57 undefined on input l
+ine 3330.
+
+(./LinReg.bbl [57]) [58]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3366.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3366.
  (./LinReg.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2278.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2278.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3366.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3366.
 
 Package rerunfilecheck Info: File `LinReg.out' has not changed.
-(rerunfilecheck)             Checksum: AC5D445961EE4AE25702C791A9D91AD2;1730.
+(rerunfilecheck)             Checksum: B7700E5656DFF86182285CD9144FAAF3;3430.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2278.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3366.
  ) 
 Here is how much of TeX's memory you used:
- 18303 strings out of 492649
- 346131 string characters out of 6129622
- 428355 words of memory out of 5000000
- 21661 multiletter control sequences out of 15000+600000
+ 18442 strings out of 492649
+ 348468 string characters out of 6129622
+ 428474 words of memory out of 5000000
+ 21720 multiletter control sequences out of 15000+600000
  17118 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,66p,1190b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,66p,1190b,611s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1122,10 +1191,10 @@ xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/201
 8/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/
 2018/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2018/tex
 mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on LinReg.pdf (39 pages, 1357502 bytes).
+Output written on LinReg.pdf (58 pages, 2274083 bytes).
 PDF statistics:
- 687 PDF objects out of 1000 (max. 8388607)
- 605 compressed objects within 7 object streams
- 166 named destinations out of 1000 (max. 500000)
- 212 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 976 PDF objects out of 1000 (max. 8388607)
+ 871 compressed objects within 9 object streams
+ 243 named destinations out of 1000 (max. 500000)
+ 382 words of extra memory for PDF output out of 10000 (max. 10000000)
 

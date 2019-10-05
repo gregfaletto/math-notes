@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -51,6 +51,11 @@ D.~L. Donoho and I.~M. Johnstone.
 \newblock URL
   \url{https://www-jstor-org.libproxy2.usc.edu/stable/pdf/2337118.pdf?refreqid=excelsior{\%}3Afb36dc2b9ad4d3d57225eebb75e05df2}.
 
+\bibitem[Faraway(2002)]{faraway2002}
+J.~J. Faraway.
+\newblock \emph{Practical Regression and Anova using R}.
+\newblock 2002.
+
 \bibitem[Grimmett and Stirzaker(2001)]{grimmett2001probability}
 G.~Grimmett and D.~Stirzaker.
 \newblock \emph{Probability and random processes}, volume~80.
@@ -65,6 +70,15 @@ G.~M. James, P.~Radchenko, and J.~Lv.
   Methodology}, 71\penalty0 (1):\penalty0 127--142, 2009.
 \newblock URL
   \url{https://rss-onlinelibrary-wiley-com.libproxy1.usc.edu/doi/pdf/10.1111/j.1467-9868.2008.00668.x}.
+
+\bibitem[Johnstone(2001)]{Johnstone2001}
+I.~M. Johnstone.
+\newblock {On The Distribution of the Largest Eigenvalue in Principal
+  Components Analysis}.
+\newblock \emph{The Annals of Statistics}, 29\penalty0 (2):\penalty0 295--327,
+  2001.
+\newblock URL
+  \url{https://projecteuclid.org/download/pdf{\_}1/euclid.aos/1009210544}.
 
 \bibitem[Kingman and Taylor(1966)]{kingman1966introduction}
 J.~Kingman and S.~Taylor.

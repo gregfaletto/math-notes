@@ -1,23 +1,43 @@
-\contentsline {section}{\numberline {1}Linear Regression}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Chapter 1: Linear Regression}{3}{subsection.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1}Preliminaries}{3}{subsubsection.1.1.1}
-\contentsline {subsubsection}{\numberline {1.1.2}Estimation}{3}{subsubsection.1.1.2}
-\contentsline {subsection}{\numberline {1.2}Chapter 2: Multiple Regression}{9}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Chapter 3: Hypothesis testing in regression}{10}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Chapter 4: Heteroskedasticity}{12}{subsection.1.4}
-\contentsline {subsection}{\numberline {1.5}Chapter 5: Autocorrelated disturbances}{13}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}DSO 607}{14}{subsection.1.6}
-\contentsline {subsubsection}{\numberline {1.6.1}Akaike Information Criterion (AIC)}{14}{subsubsection.1.6.1}
-\contentsline {subsubsection}{\numberline {1.6.2}Bayesian Information Criterion (BIC)}{16}{subsubsection.1.6.2}
-\contentsline {subsection}{\numberline {1.7}Ridge Regression}{19}{subsection.1.7}
-\contentsline {subsection}{\numberline {1.8}Lasso}{21}{subsection.1.8}
-\contentsline {subsubsection}{\numberline {1.8.1}Soft Thresholding}{23}{subsubsection.1.8.1}
-\contentsline {subsubsection}{\numberline {1.8.2}Lasso theory}{24}{subsubsection.1.8.2}
-\contentsline {subsubsection}{\numberline {1.8.3}Non-Negative Garotte}{30}{subsubsection.1.8.3}
-\contentsline {subsubsection}{\numberline {1.8.4}LARS---Preliminaries and Intuition}{30}{subsubsection.1.8.4}
-\contentsline {subsubsection}{\numberline {1.8.5}LARS}{32}{subsubsection.1.8.5}
-\contentsline {subsection}{\numberline {1.9}Quadratic Loss}{32}{subsection.1.9}
-\contentsline {subsubsection}{\numberline {1.9.1}Feature Selection properties}{34}{subsubsection.1.9.1}
-\contentsline {subsection}{\numberline {1.10}Dantzig Selector}{37}{subsection.1.10}
-\contentsline {subsection}{\numberline {1.11}Coordinate Descent}{38}{subsection.1.11}
-\contentsline {subsection}{\numberline {1.12}Total Variational Distance}{38}{subsection.1.12}
+\contentsline {section}{\numberline {1}Linear Regression}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Chapter 1: Linear Regression}{4}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Preliminaries}{4}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Estimation}{4}{subsubsection.1.1.2}
+\contentsline {subsection}{\numberline {1.2}Chapter 2: Multiple Regression}{10}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Chapter 3: Hypothesis testing in regression}{15}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}ANOVA}{18}{subsubsection.1.3.1}
+\contentsline {subsection}{\numberline {1.4}Chapter 4: Heteroskedasticity}{18}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Chapter 5: Autocorrelated disturbances}{19}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Quantile Regression}{20}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Detecting outliers in multiple dimensions}{20}{subsubsection.1.6.1}
+\contentsline {subsection}{\numberline {1.7}Transformed Linear Models}{21}{subsection.1.7}
+\contentsline {subsubsection}{\numberline {1.7.1}Transformations of response}{21}{subsubsection.1.7.1}
+\contentsline {subsubsection}{\numberline {1.7.2}Transforming predictor values}{22}{subsubsection.1.7.2}
+\contentsline {subsection}{\numberline {1.8}Segmented regression, local regression, splines}{22}{subsection.1.8}
+\contentsline {subsubsection}{\numberline {1.8.1}Local Regression}{23}{subsubsection.1.8.1}
+\contentsline {subsubsection}{\numberline {1.8.2}Curse of Dimensionality (brief discussion)}{23}{subsubsection.1.8.2}
+\contentsline {subsection}{\numberline {1.9}Dimension Reduction methods}{23}{subsection.1.9}
+\contentsline {subsubsection}{\numberline {1.9.1}Principal components regression}{23}{subsubsection.1.9.1}
+\contentsline {subsubsection}{\numberline {1.9.2}Partial least squares}{24}{subsubsection.1.9.2}
+\contentsline {subsubsection}{\numberline {1.9.3}Dimension reduction by random matrix}{24}{subsubsection.1.9.3}
+\contentsline {subsection}{\numberline {1.10}Goodness of fit, residuals, residual diagnostics, leverage}{25}{subsection.1.10}
+\contentsline {subsubsection}{\numberline {1.10.1}Residual diagnostics}{25}{subsubsection.1.10.1}
+\contentsline {subsection}{\numberline {1.11}DSO 607}{26}{subsection.1.11}
+\contentsline {subsubsection}{\numberline {1.11.1}Akaike Information Criterion (AIC)}{26}{subsubsection.1.11.1}
+\contentsline {subsubsection}{\numberline {1.11.2}Bayesian Information Criterion (BIC)}{28}{subsubsection.1.11.2}
+\contentsline {subsection}{\numberline {1.12}Ridge Regression}{31}{subsection.1.12}
+\contentsline {subsection}{\numberline {1.13}Lasso}{34}{subsection.1.13}
+\contentsline {subsubsection}{\numberline {1.13.1}Soft Thresholding}{36}{subsubsection.1.13.1}
+\contentsline {subsubsection}{\numberline {1.13.2}Lasso theory}{37}{subsubsection.1.13.2}
+\contentsline {subsubsection}{\numberline {1.13.3}Non-Negative Garotte}{43}{subsubsection.1.13.3}
+\contentsline {subsubsection}{\numberline {1.13.4}LARS---Preliminaries and Intuition}{43}{subsubsection.1.13.4}
+\contentsline {subsubsection}{\numberline {1.13.5}LARS}{45}{subsubsection.1.13.5}
+\contentsline {subsection}{\numberline {1.14}Loss Functions}{47}{subsection.1.14}
+\contentsline {subsubsection}{\numberline {1.14.1}Feature Selection properties}{48}{subsubsection.1.14.1}
+\contentsline {subsection}{\numberline {1.15}Dantzig Selector}{52}{subsection.1.15}
+\contentsline {subsection}{\numberline {1.16}Coordinate Descent}{53}{subsection.1.16}
+\contentsline {subsection}{\numberline {1.17}Total Variational Distance}{53}{subsection.1.17}
+\contentsline {subsection}{\numberline {1.18}Non-parametric regression}{53}{subsection.1.18}
+\contentsline {subsubsection}{\numberline {1.18.1}Generalized additive models}{53}{subsubsection.1.18.1}
+\contentsline {subsection}{\numberline {1.19}Mixture regression}{54}{subsection.1.19}
+\contentsline {subsection}{\numberline {1.20}Missing observations}{54}{subsection.1.20}
+\contentsline {subsection}{\numberline {1.21}Generalized linear models}{54}{subsection.1.21}

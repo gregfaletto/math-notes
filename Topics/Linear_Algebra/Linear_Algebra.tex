@@ -96,6 +96,7 @@
 %
 %\theoremstyle{definition}
 %\newtheorem{theorem}{Theorem}
+%\numberwithin{theorem}{subsection}
 %\theoremstyle{definition}
 %\newtheorem{proposition}[theorem]{Proposition}
 %\theoremstyle{definition}
@@ -168,6 +169,40 @@ P = A(A^TA)^{-1}A^T
 \end{enumerate}
 
 Suppose \(A\) is a square nonsingular matrix and \(\lambda\) is an eigenvalue of \(A\). Then \(\lambda^{-1}\) is an eigenvalue of the matrix \(A^{-1}\).
+
+\begin{proposition}
+
+The eigenvalues of an idempotent matrix equal either 0 or 1.
+
+\end{proposition}
+
+\begin{proof}
+
+Let \(A\) be an idempotent matrix and let \(v\) be a unit-length eigenvector of \(H\) with corresponding eigenvalue \(\lambda\). Then
+
+\[
+Av = \lambda v \implies A (Av) = A (\lambda v) .
+\]
+
+Then
+
+\[
+AAv = Av = \lambda v
+\]
+
+and
+
+\[
+\lambda A v = \lambda^2 v
+\]
+
+so we have
+
+\[
+\lambda v = \lambda^2 v \implies \lambda \in \{0, 1\}.
+\]
+
+\end{proof}
 
 The trace of an idempotent matrix with rank \(r\) is \(r\).
 
@@ -254,15 +289,64 @@ A^{-1} = (A^{-1})'
 
 \subsection{Positive Definite Matrices}
 
-For any real invertible matrix \(A\), the product \(A' A\) is a positive definite matrix. (Proof: Let \(z\) be a non-zero vector. We want \(z' A' A z >0 \forall z\). Note that \(z' A' A z = (Az)'(Az)\). Because \(A\) is invertible and \(z \neq 0\), \(Az \neq 0 \), so \((Az)'(Az) > 0\).)
+\begin{proposition}\label{linalg.prop.inner.prod.psd}
+For any real matrix \(A \in \mathbb{R}^{m \times n}\) with \(m \geq n\), the product \(A^T A\) is a positive semidefinite matrix. 
 
-Let \(A \in \mathbb{R}^{m \times n}\) with \(m \geq n\) and let \(\text{rank}(A) = n\) (that is, \(A\) has full column rank). Then \(A' A\) is a positive definite matrix. (Proof: Let \(z\) be a non-zero vector. We want \(z' A' A z >0 \forall z\). Note that \(z' A' A z = (Az)'(Az)\). Because \(A\) has full column rank (and \(n\) linearly independent columns) and \(z \neq 0\), \(Az \neq 0 \), so \((Az)'(Az) > 0\).)
+\end{proposition}
+
+\begin{proof}
+Let \(z\) be a non-zero vector. \(A^TA\) is positive semidefinite if and only if \(z^T A'^TA z \geq 0 \forall z \in \{ \mathbb{R}^n \setminus \{0\}\}\). Note that \(z^T A^T A z = (Az)^T(Az) = \lVert Az \rVert_2^2 \geq 0.\)
+
+\end{proof}
+
+\begin{proposition}
+For any real invertible matrix \(A \in \mathbb{R}^{n \times n}\), the product \(A' A\) is a positive definite matrix. 
+
+\end{proposition}
+
+\begin{proof} Let \(z\) be a non-zero vector. \(A'A\) is positive definite if and only if \(z' A' A z >0 \forall z \in \{\mathbb{R}^n \setminus \{0\}\}\). Note that \(z' A' A z = (Az)'(Az)\). Because \(A\) is invertible and \(z \neq 0\), \(Az \neq 0 \), so \((Az)'(Az) = \lVert Az \rVert_2^2 > 0\).
+\end{proof}
+
+
+
+\begin{proposition}[\textbf{Math 547 Homework Problem}]
+Let $A$ be an $m\times n$ real matrix with $m\geq n$. Then $A$ has rank $n$ if and only if $A^{T}A$ is positive definite.
+\end{proposition}
+
+\begin{proof}
+
+
+By Proposition \ref{linalg.prop.inner.prod.psd}, \(A^TA\) is positive semidefinite. Since \(A^TA\) is not invertible if one of its eigenvalues equals 0, \(A^TA\) is invertible (and therefore full rank) if and only if it is positive definite. But \(A^TA \in \mathbb{R}^{n \times n}\) is full rank if and only if the columns of \(A\) are linearly independent, for the following reason: multiplying \(A^TA\) means taking linear combinations of the rows of \(A^T\) (that is, the columns of \(A\)) one at a time, with weightings according to the columns of \(A\). These linear combinations will themselves be linearly independent if and only if the rows of \(A^T\) (the columns of \(A\)) are linearly independent and for the basis of an \(n\)-dimensional subspace. And \(A^TA\) has linearly independent columns if and only if it is invertible.
+
+So we have shown that \(A^TA\) is positive definite if and only if the columns of \(A\) are linearly independent. That itself is true if and only if \(A\) has rank \(n\). Therefore \(A\) has rank \(n\) if and only if \(A^TA\) is positive definite.
+
+\end{proof}
+
 
 Every positive definite matrix is invertible and its inverse is also positive definite.
 
 \subsection{Matrix Decompositions}\label{linalg.mat.decomp}
 
-\textbf{Schur complement, Schur decomposition}: For information, see Section \ref{cvx.schur.sec}.
+\textbf{Schur complement, Schur decomposition}: 
+
+\begin{proposition}[\textbf{Schur complement formula}]
+
+\[
+\begin{bmatrix}
+A & B \\
+C & D 
+\end{bmatrix}^{-1} = 
+\begin{bmatrix}
+(A - B D^{-1}C)^{-1} & -(A - BD^{-1}C)^{-1}BD^{-1} \\
+-D^{-1}C(A - BD^{-1}C)^{-1} & D^{-1} + D^{-1}C(A - BD^{-1}C)^{-1}BD^{-1}
+\end{bmatrix}
+\]
+
+\end{proposition}
+
+For information, see Section \ref{cvx.schur.sec}.
+
+
 
 \textbf{QR decompositon}
 
@@ -272,11 +356,361 @@ Every positive definite matrix is invertible and its inverse is also positive de
 
 \textbf{Generalized eigenvalue decomposition}
 
-\textbf{Singular value decomposition and Pseudo-inverse}
-
 \textbf{Jordan decomposition}
 
 \textbf{Cholesky decomposition}
+
+\subsubsection{Singular value decomposition and Pseudo-inverse}
+
+Suppose \(X \in \mathbb{R}^{n \times p}\) with \(\operatorname{rank}(X) = r \leq \min\{n, p\}\). Note that \(X^TX\) is positive semi-definite by Proposition \ref{linalg.prop.inner.prod.psd}. Therefore by the Spectral Decomposition Theorem, we can find a factorization
+
+\begin{equation}\label{linalg.svd.1.decomp}
+X^TX = V D V^T
+\end{equation}
+
+where the columns of \(V\) are orthonormal eigenvectors of \(X^TX\) and \(D\) is a diagonal matrix containing the eigenvalues of \(X^TX\) on the diagonal. Since these eigenvalues are nonnegative, let \(D = \Sigma^2\) for the positive semi-definite diagonal matrix \(\Sigma := D^{1/2}\). Note that \(\operatorname{rank}(X^TX) = r \leq p\), so \(D\) contains \( r\) nonzero entries. 
+
+If \(r < p\) then \(X^TX\) will only have \(r < p\) eigenvectors, so \(r\) columns of \(V\) will form an orthonormal basis for the \(r\)-dimensional column space of \(X^TX\). But then there exist \(p - r\) vectors that are orthogonal to each other and the first \(r\) vectors of \(V\), such that if these vectors form the last \(p-r\) columns of \(V\), then \(V\) is still orthogonal and its columns still span \(\mathbb{R}^p\). Further, the factorization (\ref{linalg.svd.1.decomp}) still holds since in this case these columns will be multiplied by the 0 entries in \(D\) anyway. Lastly, since these vectors are orthogonal to a basis for the column space of \(X^TX\), these vectors lie in the null space of \(X^TX\). That is, for any one of these columns \(v_j\),
+
+\[
+X^TX v_j = 0_{p \times 1} \qquad \implies v_j^T X^T X v_j = 0  \iff (X v_j )^T Xv _j = 0 \iff Xv _j  = 0_{p \times 1} 
+\]
+
+so \(v_j\) also lies in the nullspace of \(X\). Next, consider the matrix \(XV \in \mathbb{R}^{n \times p}\). We know that
+
+%\begin{multline*}
+\begin{equation}\label{linalg.svd.2.decomp}
+(\underbrace{X}_{n \times p} \underbrace{V}_{p \times p})^T \underbrace{X}_{n \times p} \underbrace{V}_{p \times p} = \underbrace{V^T}_{p \times p} \underbrace{X^T}_{p \times n}  \underbrace{X}_{n \times p} \underbrace{V}_{p \times p} =  V^T V \Sigma^2 V^TV = \Sigma^2.
+\end{equation}
+
+Let \(\tilde{D} \in \mathbb{R}^{r \times r} \) be a diagonal matrix containing the \(r\) nonzero entries of \(\Sigma\) so that we can write
+
+\[
+\Sigma = \begin{bmatrix} 
+\tilde{D} & 0_{r \times (p - r)} \\
+0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
+\end{bmatrix}
+\]
+
+Then if we define
+
+\[
+\tilde{\Sigma} :=  \begin{bmatrix} 
+\tilde{D}^{-1} & 0_{r \times (p - r)} \\
+0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
+\end{bmatrix}
+\]
+
+we can modify (\ref{linalg.svd.2.decomp}) as
+
+\begin{equation}\label{linalg.svd.3.decomp}
+(XV \tilde{\Sigma})^T XV \tilde{\Sigma} =  \tilde{\Sigma} V^T X^TXV \tilde{\Sigma} = \tilde{\Sigma}  V^T V \Sigma^2 V^TV \tilde{\Sigma} = \tilde{\Sigma} \Sigma^2 \tilde{\Sigma} =  \begin{bmatrix} 
+I_{r \times r} & 0_{r \times (p - r)} \\
+0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
+\end{bmatrix} 
+\end{equation}
+
+since
+
+\[
+\tilde{\Sigma} \Sigma =  \begin{bmatrix} 
+\tilde{D}^{-1} & 0_{r \times (p - r)} \\
+0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
+\end{bmatrix} \begin{bmatrix} 
+\tilde{D} & 0_{r \times (p - r)} \\
+0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
+\end{bmatrix} = 
+ \begin{bmatrix} 
+I_{r \times r} & 0_{r \times (p - r)} \\
+0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
+\end{bmatrix} =  \Sigma \tilde{\Sigma} .
+\]
+
+That is, \(XV \tilde{\Sigma} \in \mathbb{R}^{n \times p}\) contains \(r\) orthogonal columns. By (\ref{linalg.svd.2.decomp}), the \(p - r\) remaining columns of \(XV\) equal 0. Let \(U := XV \tilde{\Sigma}\). Then we have
+
+\begin{equation}\label{linalg.svd.4.decomp}
+U \Sigma = XV \tilde{\Sigma} \Sigma = XV  \begin{bmatrix} 
+I_{r \times r} & 0_{r \times (p - r)} \\
+0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
+\end{bmatrix} = XV
+\end{equation}
+
+where the last step follows because the last \(p -r\) columns of \(V\) lie in the nullspace of \(X\), so they already equaled 0 anyway. Finally, multiply both sides of (\ref{linalg.svd.4.decomp}) by \(V^T\) to obtain the \textbf{singular value decomposition}
+
+\[
+X = U \Sigma V^T.
+\]
+
+% \\
+%\iff 
+%\end{multline*}
+
+Now let's examine the properties of this decomposition. We argued earlier that the last \(p - r\) columns of \(V\) lie in the nullspace of \(X\). It follows that since the first \(p\) columns of \(V\) are orthonormal and orthogonal to the nullspace of \(X\), the first \(r\) columns of \(V\) are orthonormal basis vectors for the row space of \(X\). 
+
+Next, we have already shown that \(U = XV \tilde{\Sigma}\) contains \(r\) orthogonal columns, and of course these columns lie in the column space of \(X\). Therefore the first \(r\) columns of \(U\) form an orthonormal basis for the column space of \(X\).
+
+% and let \(u_1, \ldots, u_r \in \mathbb{R}^n\) be orthonormal basis vectors for the column space of \(X\). Let \(V := \begin{bmatrix}v_1 & \cdots & v_r \end{bmatrix} \in \mathbb{R}^{p \times r}\) be a matrix, and likewise let \(U := \begin{bmatrix}u_1 & \cdots & u_r \end{bmatrix} \in \mathbb{R}^{n \times r}\). 
+ 
+Now identity (\ref{linalg.svd.4.decomp}) yields a useful way of thinking about the singular value decomposition. \(V\) is a special orthonormal basis for the rowspace of \(X\) (perhaps with some extra orthogonal vectors spanning the nullspace of \(X\) if \(X\) does not have full column rank) with the property that when they are linearly transformed by \(X\), \(XV = U \Sigma\) forms \(r\) orthogonal vectors spanning the column space of \(X\) (plus \(p -r\) 0 vectors if \(X\) doesn't have full column rank). 
+
+If we like, we can decompose \(U \Sigma\) into unit vectors \(U\) and a diagonal vector \(\Sigma\) containing the lengths of the orthogonal vectors \(U \Sigma\) on its diagonal. Then \(U\) is an orthonormal basis for the column space of \(X\).
+
+We call the diagonal entries of \(\Sigma\) the \textbf{singular values} of \(X\): \(\sigma_i \in \mathbb{R}, i \in \{1, \ldots, r\}\). 
+
+%That is, it must satisfy
+%
+%\[
+%\underbrace{X}_{n \times p} \underbrace{V}_{p \times r} = \underbrace{U}_{n \times r} \underbrace{\Sigma}_{r \times r} 
+%\]
+%
+%where \(\Sigma := \operatorname{diag}(\sigma_1, \ldots, \sigma_r) \in \mathbb{R}^{r \times r}\). Now if \(r < p\), add columns to \(v_{r+1}, \ldots, v_p\) to \(V\) to complete an orthonormal basis for \(\mathbb{R}^p\). (Note that since these vectors are orthogonal to a basis for the rowspace of \(X\), these vectors lie in the nullspace of \(X\).) Then if \(n \geq p\), add corresponding orthonormal vectors \(u_{r+1}, \ldots, u_p\) to \(U\), \textbf{and if \(n < p\), add \(\max\{0, n -r\}\) orthonormal vectors \(u_{r+1}, u_p\) to \(U\), then add \(p - n\) 0 vectors to \(U\), so that \(U := \begin{bmatrix}u_1 & \cdots & u_r & u_{r+1} & \cdots & u_n & 0 & \cdots & 0 \end{bmatrix} \in \mathbb{R}^{n \times p}\).} (Again, note that since these vectors are orthogonal to a basis for the column space of \(X\), these vectors are in the left nullspace of \(X\).) Finally, simply add \(\max\{0, p-r\}\) 0 values to the diagonal of \(\Sigma\): \(\Sigma := \operatorname{diag}(\sigma_1, \ldots, \sigma_r, 0, \ldots, 0)\). Then we have 
+%
+%\[
+%\underbrace{X}_{n \times p} \underbrace{V}_{p \times p} = \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p}.
+%\]
+%
+%Note that \(V^TV = I_p\) and \( VV^T = I_p\). That is,
+%
+%\[
+%\underbrace{X}_{n \times p}  = \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p}.
+%\]
+%
+% Further, if \(n < p\), \(UU^T = I_n\) and
+% 
+% \[
+%U^TU =  \begin{bmatrix}
+%I_n & 0_{n \times (p-n)} \\
+%0_{(p-n) \times n} & 0_{(p-n) \times p - n}
+%\end{bmatrix}
+%\]
+% 
+%  Otherwise, if \(n \geq p\),  \(U^TU = I_p\) and
+%
+%\[
+%UU^T =  \begin{bmatrix}
+%I_p & 0_{p \times (n-p)} \\
+%0_{(n-p) \times p} & 0_{(n-p) \times n -p}
+%\end{bmatrix}
+%\]
+%
+%In either case, the columns of \(U \in \mathbb{R}^n\) span the column space of \(X\) (perhaps with some extra vectors thrown in), and the columns of \(V \in \mathbb{R}^p\) span the row space of \(X\) (perhaps with some extra vectors thrown in). 
+
+The first \(r\) nonzero columns of \(U \Sigma\) are called the \textbf{principal components} of \(X\). The columns of \(U \in \mathbb{R}^n\) are also called the \textbf{normalized principal components} of \(X\). Sometimes we call the columns of \(V \in \mathbb{R}^p\) the \textbf{principal component directions} of \(X\).
+
+%We seek to find these vectors and singular values. Note that
+%
+%\[
+%X^TX = (\underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p})^T\underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p} = \underbrace{V}_{p \times p} \underbrace{\Sigma}_{p \times p} \underbrace{U^T}_{p \times n} \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p} = V \Sigma^2 V^T.
+%\]
+%
+%(Note: it is clear that this follows if \(n \geq p\), because then \(U^TU = I_p\). However, if \(n < p\) the result still follows, because in that case \(\Sigma\) contains only \(r \leq n < p\) nonzero entries, so we still have that \(\Sigma U^TU \Sigma = \Sigma^2\) because the trailing \(p - r\) entries that are multiplied by the 0 entries in \(U^TU\) already equaled 0 anyway.)
+%
+%Note that this decomposition \(X^TX = V \Sigma^2 V^T\) is guaranteed to exist by the Spectral Decomposition Theorem.
+%
+%Since \(X^TX\) is positive semi-definite, we see that we can find \(\Sigma\) as the square roots of the eigenvalues of \(X^TX\) and \(V\) as the eigenvectors of \(X^TX\). Then we find \(U\) by simply multiplying \(XV\) and dividing the nonzero resulting vectors by their own length (equal to the corresponding entry in \(\Sigma\)).
+%
+%Or, if \(r = p\), one way to find \(U\) is \(U = XV \Sigma^{-1}\), observing that \(\Sigma^{-1}\) is easily computed as
+%
+%\[
+%\Sigma^{-1} = \begin{bmatrix}
+%\sigma_1^{-1} & 0 & \cdots & 0 \\
+%0 & \sigma_2^{-1} & \cdots & 0 \\
+%\vdots & \vdots & \ddots & \vdots \\
+%0 & 0 & \cdots & \sigma_p^{-1}
+%\end{bmatrix}
+%\]
+%
+%However, if \(r < p\) (for example, if \(n < p\)), 
+
+Lastly, although we have already examined the properties of \(X^TX\), consider the decomposition
+
+\begin{equation}\label{linalg.svd.5.decomp}
+XX^T = \hat{U} \hat{D} \hat{U}^T
+\end{equation}
+
+for some positive semidefinite diagonal matrix \(\hat{D} \in \mathbb{R}^{n \times n}\) and some orthonormal matrix \(\hat{U} \in \mathbb{R}^{n \times n}\), which exists by the Spectral Theorem. Now consider expressing this in terms of the singular value decomposition:
+
+\begin{equation}\label{linalg.svd.6.decomp}
+XX^T =  \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p} (\underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p})^T
+=  \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p} \underbrace{V}_{p \times p} \underbrace{\Sigma}_{p \times p}  \underbrace{U^T}_{p \times n} = \underbrace{U}_{n \times p} \underbrace{\Sigma^2}_{p \times p}  \underbrace{U^T}_{p \times n},
+\end{equation}
+
+so we can form 
+
+\[
+\hat{U} = \begin{bmatrix} U & u_{r+1} & \cdots & u_n \end{bmatrix}
+\] 
+
+(where \(u_{r+1}, \ldots, u_n\) are orthonormal vectors completing an orthonormal basis for \(\mathbb{R}^n\) in the columns of \(\hat{U}\)) and
+
+\[
+\hat{D} = \begin{bmatrix}
+\Sigma^2 & 0_{p \times (n-p)} \\
+0_{ (n-p) \times p} & 0_{(n-p) \times (n-p)} 
+\end{bmatrix}
+\]
+
+to yield (\ref{linalg.svd.5.decomp}) from (\ref{linalg.svd.6.decomp}).
+
+
+
+%Suppose \(X \in \mathbb{R}^{n \times p}\) with \(\operatorname{rank}(X) = r \leq \min\{n, p\}\). Let \(v_1, \ldots, v_r \in \mathbb{R}^p\) be orthonormal basis  vectors for the row space of \(X\), and let \(u_1, \ldots, u_r \in \mathbb{R}^n\) be orthonormal basis vectors for the column space of \(X\). Let \(V := \begin{bmatrix}v_1 & \cdots & v_r \end{bmatrix} \in \mathbb{R}^{p \times r}\) be a matrix, and likewise let \(U := \begin{bmatrix}u_1 & \cdots & u_r \end{bmatrix} \in \mathbb{R}^{n \times r}\). We seek a transformation of the basis vectors \(V\) of the rowspace of \(X\) into the basis vectors \(U\) into the column space of \(X\); that is, this transformation must satisfy
+%
+%\[
+%X v_i = \sigma_i u_i, \qquad i \in \{1, \ldots, r\}
+%\]
+%
+%for some \textit{singular values} \(\sigma_i \in \mathbb{R}, i \in \{1, \ldots, r\}\). That is, it must satisfy
+%
+%\[
+%\underbrace{X}_{n \times p} \underbrace{V}_{p \times r} = \underbrace{U}_{n \times r} \underbrace{\Sigma}_{r \times r} 
+%\]
+%
+%where \(\Sigma := \operatorname{diag}(\sigma_1, \ldots, \sigma_r) \in \mathbb{R}^{r \times r}\). Now if \(r < p\), add columns to \(v_{r+1}, \ldots, v_p\) to \(V\) to complete an orthonormal basis for \(\mathbb{R}^p\). (Note that since these vectors are orthogonal to a basis for the rowspace of \(X\), these vectors lie in the nullspace of \(X\).) Then if \(n \geq p\), add corresponding orthonormal vectors \(u_{r+1}, \ldots, u_p\) to \(U\), \textbf{and if \(n < p\), add \(\max\{0, n -r\}\) orthonormal vectors \(u_{r+1}, u_p\) to \(U\), then add \(p - n\) 0 vectors to \(U\), so that \(U := \begin{bmatrix}u_1 & \cdots & u_r & u_{r+1} & \cdots & u_n & 0 & \cdots & 0 \end{bmatrix} \in \mathbb{R}^{n \times p}\).} (Again, note that since these vectors are orthogonal to a basis for the column space of \(X\), these vectors are in the left nullspace of \(X\).) Finally, simply add \(\max\{0, p-r\}\) 0 values to the diagonal of \(\Sigma\): \(\Sigma := \operatorname{diag}(\sigma_1, \ldots, \sigma_r, 0, \ldots, 0)\). Then we have 
+%
+%\[
+%\underbrace{X}_{n \times p} \underbrace{V}_{p \times p} = \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p}.
+%\]
+%
+%Note that \(V^TV = I_p\) and \( VV^T = I_p\). That is,
+%
+%\[
+%\underbrace{X}_{n \times p}  = \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p}.
+%\]
+%
+% Further, if \(n < p\), \(UU^T = I_n\) and
+% 
+% \[
+%U^TU =  \begin{bmatrix}
+%I_n & 0_{n \times (p-n)} \\
+%0_{(p-n) \times n} & 0_{(p-n) \times p - n}
+%\end{bmatrix}
+%\]
+% 
+%  Otherwise, if \(n \geq p\),  \(U^TU = I_p\) and
+%
+%\[
+%UU^T =  \begin{bmatrix}
+%I_p & 0_{p \times (n-p)} \\
+%0_{(n-p) \times p} & 0_{(n-p) \times n -p}
+%\end{bmatrix}
+%\]
+%
+%In either case, the columns of \(U \in \mathbb{R}^n\) span the column space of \(X\) (perhaps with some extra vectors thrown in), and the columns of \(V \in \mathbb{R}^p\) span the row space of \(X\) (perhaps with some extra vectors thrown in). The columns of \(U \in \mathbb{R}^n\) are also called the \textbf{normalized principal components} of \(X\). 
+%
+%We seek to find these vectors and singular values. Note that
+%
+%\[
+%X^TX = (\underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p})^T\underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p} = \underbrace{V}_{p \times p} \underbrace{\Sigma}_{p \times p} \underbrace{U^T}_{p \times n} \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p} = V \Sigma^2 V^T.
+%\]
+%
+%(Note: it is clear that this follows if \(n \geq p\), because then \(U^TU = I_p\). However, if \(n < p\) the result still follows, because in that case \(\Sigma\) contains only \(r \leq n < p\) nonzero entries, so we still have that \(\Sigma U^TU \Sigma = \Sigma^2\) because the trailing \(p - r\) entries that are multiplied by the 0 entries in \(U^TU\) already equaled 0 anyway.)
+%
+%Note that this decomposition \(X^TX = V \Sigma^2 V^T\) is guaranteed to exist by the Spectral Decomposition Theorem.
+%
+%Since \(X^TX\) is positive semi-definite, we see that we can find \(\Sigma\) as the square roots of the eigenvalues of \(X^TX\) and \(V\) as the eigenvectors of \(X^TX\). Then we find \(U\) by simply multiplying \(XV\) and dividing the nonzero resulting vectors by their own length (equal to the corresponding entry in \(\Sigma\)).
+%
+%Or, if \(r = p\), one way to find \(U\) is \(U = XV \Sigma^{-1}\), observing that \(\Sigma^{-1}\) is easily computed as
+%
+%\[
+%\Sigma^{-1} = \begin{bmatrix}
+%\sigma_1^{-1} & 0 & \cdots & 0 \\
+%0 & \sigma_2^{-1} & \cdots & 0 \\
+%\vdots & \vdots & \ddots & \vdots \\
+%0 & 0 & \cdots & \sigma_p^{-1}
+%\end{bmatrix}
+%\]
+%
+%However, if \(r < p\) (for example, if \(n < p\)), consider
+%
+%\[
+%XX^T =  \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p} (\underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p})^T
+%=  \underbrace{U}_{n \times p} \underbrace{\Sigma}_{p \times p} \underbrace{V^T}_{p \times p} \underbrace{V}_{p \times p} \underbrace{\Sigma}_{p \times p}  \underbrace{U^T}_{p \times n} = \underbrace{U}_{n \times p} \underbrace{\Sigma^2}_{p \times p}  \underbrace{U^T}_{p \times n},
+%\]
+%
+%so again, \(U\) are the eigenvectors of \(XX^T\).
+%
+
+
+
+
+\[
+\vdots
+\]
+
+\textbf{Math 547 explanation:} Suppose \(X \in \mathbb{R}^{n \times p}\). Since \(X^TX \in \mathbb{R}^{p \times p}\), by the Spectral Theorem, there exists an orthogonal matrix \(Q \in \mathbb{R}^{p \times p}\) and a real diagonal matrix \(D \in \mathbb{R}^{p \times p}\) such that
+
+\[
+X^TX = Q^TDQ.
+\]
+
+The entries of \(D\) (the eigenvalues of \(X^TX\)) are nonnegative because if \(v \in \mathbb{R}^p\) is an eigenvector of \(X^TX\) with corresponding eigenvalue \(\lambda\),
+
+\[
+\lambda \lVert v \rVert_2^2 = v^T ( \lambda v) = v^T (X^TXv) = (Xv)^T (Xv) = \lVert X v \rVert_2^2 \geq 0.
+\]
+
+Similarly, \(XX^T \in \mathbb{R}^{n \times n}\) and there exists an orthogonal \(R \in \mathbb{R}^{n \times n}\) and a diagonal \(G \in \mathbb{R}^{n \times n}\) such that
+
+\[
+XX^T = R^TGR.
+\]
+
+Since \(D \succeq 0\), we can write
+
+\[
+X = \underbrace{R^T}_{n \times n} \underbrace{\sqrt{D}}_{p \times p} \underbrace{Q}_{p \times p}
+\]
+
+\[
+\vdots
+\]
+
+\[
+X = \underbrace{U}_{N \times p} \underbrace{D}_{p \times p} \underbrace{V^T}_{p \times p}
+\]
+
+since
+
+\[
+\left( R^T \sqrt{D} Q \right)^T R^T \sqrt{D} Q = Q^T \sqrt{D} R R^T \sqrt{D} Q = Q^TDQ = X^TX
+\]
+
+and
+
+\[
+ R^T \sqrt{D} Q \left( R^T \sqrt{D} Q \right)^T = R^T \sqrt{D} Q  Q^T \sqrt{D} R = R^TD R = \ldots = R^T G R =  XX^T.
+\]
+
+\subsubsection{Principal Components}\label{linalg.sec.pr.comps}
+
+Again, the \(p\) columns of \(U\Sigma \in \mathbb{R}^n\) are the \textbf{principal components} of \(X\). The first principal component direction \(v_1 \in \mathbb{R}^p\) satisfies the condition \( z_1 := X v_1 \) has the largest sample variance among all normalized linear combinations of the columns of \(X\). That is, \(v_1\) satisfies
+
+\[
+v_1 = \underset{ v \in \mathbb{R}^p, \lVert v \rVert_2 = 1}{\arg \max}  \Var(Xv) = \underset{ v \in \mathbb{R}^p, \lVert v \rVert_2 = 1}{\arg \max}  v^T(X^TX)v
+\]
+
+Note that \(z_1 = Xv_1 = \sigma_1 u_1\), so \(z_1\) is the first principal component of \(X\) and \(u_1\) is the normalized first principal component.
+
+\subsubsection{Low rank matrix approximation}
+
+Note that using the singular value decomposition we can express \(X\) as a sum of rank 1 matrices:
+
+\[
+X =U \Sigma V^T = \sum_{i=1}^r \sigma_i  u_i v_i^T
+\]
+
+An intuitive ``best" way to approximate \(X\) as a rank \(k < r\) matrix is to take the first \(k\) of these terms:
+
+\[
+X \approx X_k = \sum_{i=1}^k \sigma_i u_i v_i^T = U_k \Sigma_k V_k^T
+\]
+
+where \(U_k \in \mathbb{R}^{n \times k}\) contains only the first \(k\) columns of \(U\) (corresponding to the \(k\) largest singular values), \(\Sigma_k \in \mathbb{R}^{k \times k}\) contains the \(k \times k\) top-left submatrix of \(\Sigma\), and \(V_k \in \mathbb{R}^{p \times k}\) contains the first \(k\) columns of \(V\). It turns out this is the best low-rank approximation of \(X\) in the sense that for any other rank-\(k\) matrix \(B\) of size \(n \times p\),
+
+\[
+\lVert X - X_k \rVert_F^2 \leq \lVert X - B \rVert_F^2 .
+\]
 
 \subsection{Inverting Matrices}
 

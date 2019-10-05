@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 JUL 2019 18:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 OCT 2019 11:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -847,27 +847,27 @@ LaTeX Warning: Label `mathstats.factorization.thm' multiply defined.
 )
 \openout1 = `Mathematical_Statistics.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 118.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 119.
 
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -900,12 +900,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package ragged2e Info: ABD: executing \RaggedRight on input line 118.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 119.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 118.
+LaTeX Info: Redefining \selectfont on input line 119.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring ON on input line 118.
+Package hyperref Info: Link coloring ON on input line 119.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -915,53 +915,53 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count151
 )
-LaTeX Info: Redefining \ref on input line 118.
-LaTeX Info: Redefining \pageref on input line 118.
-LaTeX Info: Redefining \nameref on input line 118.
+LaTeX Info: Redefining \ref on input line 119.
+LaTeX Info: Redefining \pageref on input line 119.
+LaTeX Info: Redefining \nameref on input line 119.
 
 (./Mathematical_Statistics.out) (./Mathematical_Statistics.out)
 \@outlinefile=\write4
 \openout4 = `Mathematical_Statistics.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 121.
+LaTeX Font Info:    Try loading font information for U+msa on input line 122.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 121.
+LaTeX Font Info:    Try loading font information for U+msb on input line 122.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./Mathematical_Statistics.toc)
+(./Mathematical_Statistics.toc [2])
 \tf@toc=\write5
 \openout5 = `Mathematical_Statistics.toc'.
 
- [2] [3] [4] [5]
+ [3] [4] [5]
 
 LaTeX Warning: Reference `prob.ross.multinomial.dist.def' on page 6 undefined o
-n input line 260.
+n input line 261.
 
-[6] [7] [8] [9] [10]
-Overfull \hbox (16.72873pt too wide) in paragraph at lines 592--593
-[][]\OT1/cmr/bx/n/10 Lemma 9. []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X \OT1/cm
-r/m/n/10 := (\OML/cmm/m/it/10 X[]; [] ; X[]\OT1/cmr/m/n/10 )$ be i.i.d. mean ze
-ro, vari-ance 1 Gaus-sian ran-dom vari-ables. Let $\OML/cmm/m/it/10 v[]; [] ; v
-[] \OMS/cmsy/m/n/10 2 
+[6] [7]
+Overfull \hbox (0.2198pt too wide) in paragraph at lines 359--360
+[][]\OT1/cmr/bx/n/10 Proposition 1.2.1. []\OT1/cmr/m/n/10 Sup-pose we have a ra
+n-dom sam-ple of size $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 from an i.i.d. dis-t
+ri-bu-tion $\OML/cmm/m/it/10 X[]; X[]; [] ; X[]$ 
  []
 
+[8] [9] [10]
 
 LaTeX Warning: Reference `prob.thm.sums.gaussian' on page 11 undefined on input
- line 596.
+ line 597.
 
 
 LaTeX Warning: Reference `prob.thm.sums.gaussian' on page 11 undefined on input
- line 596.
+ line 597.
 
 [11]
-Overfull \hbox (6.5536pt too wide) detected at line 623
+Overfull \hbox (6.5536pt too wide) detected at line 624
 \OT1/cmr/m/n/10 = \U/msb/m/n/10 E[] [] \OML/cmm/m/it/10 X[]v[]v[] \OT1/cmr/m/n/
 10 + [] \OML/cmm/m/it/10 X[]X[]v[]v[][] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\
 U/msb/m/n/10 E[] [] \OML/cmm/m/it/10 X[]\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cm
@@ -971,7 +971,7 @@ n/10 )\OML/cmm/m/it/10 v[]v[][]
  []
 
 
-Overfull \hbox (23.48946pt too wide) in paragraph at lines 629--630
+Overfull \hbox (23.48946pt too wide) in paragraph at lines 630--631
 []\OT1/cmr/m/n/10 Recall that $\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  X[]\OT1/cmr/m/n/10 ) = 0$ for all $\OML/cmm/m/it/10 i$\OT1/cmr/m/n/10 . Also, 
 due to in-de-pen-dence of the $\OML/cmm/m/it/10 X[]$\OT1/cmr/m/n/10 , all of th
@@ -981,37 +981,43 @@ OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  a \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =
 
 [12] [13] [14] [15] [16] [17] [18] [19] [20]
 
-LaTeX Warning: Reference `asym.slutsky' on page 21 undefined on input line 1160
+LaTeX Warning: Reference `asym.slutsky' on page 21 undefined on input line 1161
 .
 
 [21]
+Overfull \hbox (9.40376pt too wide) in paragraph at lines 1258--1259
+[][]\OT1/cmr/bx/n/10 Theorem 1.2.13 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Convergen
+ce The-o-rem with Bounded Mo-ment, The-o-rem 4.16 in 541A notes.\OT1/cmr/m/n/10
+ )\OT1/cmr/bx/n/10 . 
+ []
+
 
 LaTeX Warning: Reference `asym.contmappthm' on page 22 undefined on input line 
-1287.
+1288.
 
 
 LaTeX Warning: Reference `asym.contmappthm' on page 22 undefined on input line 
-1293.
+1294.
 
 
-LaTeX Warning: Reference `asym.slutsky' on page 22 undefined on input line 1293
+LaTeX Warning: Reference `asym.slutsky' on page 22 undefined on input line 1294
 .
 
 [22]
-Overfull \hbox (8.84283pt too wide) in paragraph at lines 1327--1328
+Overfull \hbox (8.84283pt too wide) in paragraph at lines 1328--1329
 []\OT1/cmr/m/n/10 Note that since $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 is a cu-
 mu-la-tive dis-tri-bu-tion func-tion, $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 is n
 on-de-creas-ing and $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 is right-continuous. 
  []
 
 [23] [24] [25] [26] [27] [28] [29]
-Overfull \hbox (0.24557pt too wide) in paragraph at lines 1677--1678
+Overfull \hbox (0.24557pt too wide) in paragraph at lines 1688--1689
 []\OT1/cmr/m/n/10 We are only con-sid-er-ing prob-a-bil-ity mass func-tions to 
 make things eas-ier. We first prove suf-fi-ciency. 
  []
 
 [30] [31] [32] [33]
-Overfull \hbox (16.86353pt too wide) in paragraph at lines 1880--1881
+Overfull \hbox (16.86353pt too wide) in paragraph at lines 1891--1892
 \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ))\OML/c
 mm/m/it/10 dx \OT1/cmr/m/n/10 = [][] \OMS/cmsy/m/n/10 j\U/msb/m/n/10 P[]\OT1/cm
 r/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \U/msb/m/n/1
@@ -1022,7 +1028,7 @@ t $[][] \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10
  []
 
 [34]
-Overfull \hbox (19.57915pt too wide) in paragraph at lines 1929--1930
+Overfull \hbox (19.57915pt too wide) in paragraph at lines 1940--1941
 []\OT1/cmr/m/n/10 Since we al-ready have $[][] \U/msb/m/n/10 P[]\OT1/cmr/m/n/10
  (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \U/msb/m/n/10 P[]\OT
 1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) = [][] \OMS/cmsy/m/n/10 j\U/m
@@ -1033,7 +1039,7 @@ P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@
  []
 
 
-Overfull \hbox (11.1449pt too wide) in paragraph at lines 1929--1930
+Overfull \hbox (11.1449pt too wide) in paragraph at lines 1940--1941
 \U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )) = [][] \
 OMS/cmsy/m/n/10 j\U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m
 /n/10 ) \OMS/cmsy/m/n/10 ^^@ \U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
@@ -1043,24 +1049,24 @@ OMS/cmsy/m/n/10 j\U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m
  []
 
 [35]
-Overfull \hbox (13.46664pt too wide) in paragraph at lines 1978--1991
+Overfull \hbox (13.46664pt too wide) in paragraph at lines 2007--2020
 []  
  []
 
 [36] [37]
-Overfull \hbox (0.63022pt too wide) in paragraph at lines 2102--2103
+Overfull \hbox (0.63022pt too wide) in paragraph at lines 2141--2142
 [][]\OT1/cmr/bx/n/10 Exercise 2 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Exercise 5.20
  in Math 541A notes\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 This e
 x-er-cise shows that a com-plete suf-fi-cient statis- 
  []
 
-[38]
-Overfull \hbox (31.24446pt too wide) in paragraph at lines 2182--2193
+[38] [39]
+Overfull \hbox (31.24446pt too wide) in paragraph at lines 2221--2232
 []  
  []
 
 
-Overfull \hbox (3.10796pt too wide) in paragraph at lines 2200--2201
+Overfull \hbox (3.10796pt too wide) in paragraph at lines 2239--2240
 []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 Z[]; [] ; Z[]$ \OT1/cmr/m/n/10 be a ran
 -dom sam-ple of size $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 from the uni-form dis
 -tri-bu-tion on the three points $\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 0\OML/cmm/m
@@ -1068,23 +1074,39 @@ Overfull \hbox (3.10796pt too wide) in paragraph at lines 2200--2201
 g$\OT1/cmr/m/n/10 . 
  []
 
-[39] [40]
+[40] [41]
 
-LaTeX Warning: Reference `prob.541Ahw.condexp.thm' on page 41 undefined on inpu
-t line 2293.
-
-[41] [42] [43]
-
-LaTeX Warning: Reference `cvx.541A.exercise5.89' on page 44 undefined on input 
-line 2421.
-
-[44]
-
-LaTeX Warning: Reference `cvx.defn.strictly.convex' on page 45 undefined on inp
-ut line 2453.
+LaTeX Warning: Reference `prob.541Ahw.condexp.thm' on page 42 undefined on inpu
+t line 2332.
 
 
-Overfull \hbox (15.08186pt too wide) in paragraph at lines 2475--2476
+Overfull \hbox (0.30127pt too wide) in paragraph at lines 2342--2343
+[]\OT1/cmr/m/n/10 By Propo-si-tion [][]1.3.5[][] (Propo-si-tion 5.12 in Math 54
+1A notes), there ex-ists a min-i-mal suf-fi-cient statis- 
+ []
+
+[42] [43] [44]
+
+LaTeX Warning: Reference `cvx.541A.exercise5.89' on page 45 undefined on input 
+line 2514.
+
+[45]
+
+LaTeX Warning: Reference `cvx.defn.strictly.convex' on page 46 undefined on inp
+ut line 2546.
+
+
+Overfull \hbox (2.12793pt too wide) in paragraph at lines 2568--2569
+\OT1/cmr/m/n/10 an es-ti-ma-tor for $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/n/10 us-i
+ng Rao-Blackwell. Let $\OML/cmm/m/it/10 t \OT1/cmr/m/n/10 : \U/msb/m/n/10 R[] \
+OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \OT1/cmr/m/n/10 so that $\OML/cmm/m/it/10 t\
+OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it
+/10 x[]$ \OT1/cmr/m/n/10 for all $\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = (\OML/cm
+m/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 
+ []
+
+
+Overfull \hbox (15.08186pt too wide) in paragraph at lines 2568--2569
 \U/msb/m/n/10 R[]$\OT1/cmr/m/n/10 . Let $\OML/cmm/m/it/10 Y \OT1/cmr/m/n/10 = \
 OML/cmm/m/it/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]; [] ; X[]\OT1/cmr/m/n/10
  ) = \OML/cmm/m/it/10 X[]$\OT1/cmr/m/n/10 . Note that $\OML/cmm/m/it/10 Y$ \OT1
@@ -1092,74 +1114,165 @@ OML/cmm/m/it/10 t\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]; [] ; X[]\OT1/cmr/m/n/10
 \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 X[]; [] ; X[]\OT1/cmr/m/n/10 )$. 
  []
 
-[45]
-Overfull \hbox (0.65747pt too wide) in paragraph at lines 2533--2534
-[]\OT1/cmr/bx/n/10 (Condition method/Rao-Blackwell): \OT1/cmr/m/n/10 Fol-low Th
-e-o-rem [][]35[][]: find an un-bi-ased $\OML/cmm/m/it/10 Y$ \OT1/cmr/m/n/10 and
- let $\OML/cmm/m/it/10 W \OT1/cmr/m/n/10 := \U/msb/m/n/10 E[]\OT1/cmr/m/n/10 (\
-OML/cmm/m/it/10 Y \OMS/cmsy/m/n/10 j 
- []
+[46] [47] [48]
 
-[46] [47]
+LaTeX Warning: Reference `prob.math541a.ex.3.15' on page 49 undefined on input 
+line 2702.
 
-LaTeX Warning: Reference `prob.math541a.ex.3.15' on page 48 undefined on input 
-line 2609.
+[49] [50]
 
-[48] [49] [50] [51] [52] [53] [54] [55]
-Overfull \hbox (36.42pt too wide) detected at line 3087
+LaTeX Warning: Reference `linreg.glm' on page 51 undefined on input line 2799.
+
+[51] [52] [53] [54] [55] [56] [57]
+Overfull \hbox (36.42pt too wide) detected at line 3215
 \OT1/cmr/m/n/10 = [] [][] [] []  \OML/cmm/m/it/10 d[]
  []
 
 
-Overfull \hbox (13.40172pt too wide) detected at line 3091
+Overfull \hbox (13.40172pt too wide) detected at line 3219
 \OT1/cmr/m/n/10 = [] [][] [] []  \OML/cmm/m/it/10 d[]
  []
 
-[56]
-Overfull \hbox (19.39444pt too wide) detected at line 3123
+[58]
+Overfull \hbox (19.39444pt too wide) detected at line 3251
 \OT1/cmr/m/n/10 = []
  []
 
-[57] [58]
-Overfull \hbox (0.99655pt too wide) detected at line 3246
+[59] [60]
+Overfull \hbox (0.99655pt too wide) detected at line 3374
 [] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 ^^@ [] \OT1/cmr/m/n/10 = [][] [] \OMS/
 cmsy/m/n/10 ^^@ [] \OT1/cmr/m/n/10 = [][][][] + [][] + \OML/cmm/m/it/10 n
  []
 
-[59] [60]
+[61]
 
-LaTeX Warning: Reference `asym.wlln' on page 61 undefined on input line 3352.
+LaTeX Warning: Reference `asym.wlln' on page 62 undefined on input line 3480.
+
+[62] [63]
+
+LaTeX Warning: Reference `prob.kl.divergence' on page 64 undefined on input lin
+e 3624.
 
 
-Overfull \hbox (4.03722pt too wide) in paragraph at lines 3392--3393
-[]\OT1/cmr/bx/n/10 Remark. []\OT1/cmr/m/n/10 Un-der some rea-son-able as-sump-t
-ions, the max-i-mum like-li-hood es-ti-ma-tor is con-sis-tent. See Keener 
- []
+LaTeX Warning: Reference `linreg.aic.bic' on page 64 undefined on input line 36
+24.
 
-[61] [62] [63] [64] [65] [66] [67] [68] [69]
-Overfull \hbox (23.66768pt too wide) in paragraph at lines 4021--4022
-[][]\OT1/cmr/bx/n/10 Example 1.17 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Example 6.4
+[64] [65] [66] [67] [68] [69] [70] [71] [72]
+Overfull \hbox (23.66768pt too wide) in paragraph at lines 4253--4254
+[][]\OT1/cmr/bx/n/10 Example 1.22 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Example 6.4
 6, Math 541A notes\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Al-ter-
 na-tive so-lu-tion at [][]$\OT1/cmtt/m/n/10 https : / / math . stackexchange . 
 
  []
 
-[70] [71] [72]
+
+Overfull \hbox (8.04526pt too wide) in paragraph at lines 4257--4258
+[][]\OT1/cmr/bx/n/10 Proposition 1.4.15 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Funct
+ional Equiv-ari-ance of the MLE; Propo-si-tion 6.49 from Lec-ture Notes, 
+ []
+
+[73] [74]
+Overfull \hbox (6.5513pt too wide) in paragraph at lines 4380--4381
+[][]\OT1/cmr/bx/n/10 Theorem 1.6.1 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Theorem 8.
+5 in 541A notes\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Note from 
+proof: use the fact that since $\OML/cmm/m/it/10 f$ \OT1/cmr/m/n/10 is 1-Lipsch
+itz, 
+ []
+
+[75] [76]
+Overfull \hbox (22.14886pt too wide) in paragraph at lines 4469--4470
+[][]\OT1/cmr/bx/n/10 Example 1.23. []\OT1/cmr/m/n/10 Al-ice wants to send a mes
+-sage to Bob. A mes-sage is a se-quence of sym-bols from $\OMS/cmsy/m/n/10 f\OM
+L/cmm/m/it/10 a; b; [] ; z\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 = 
+ []
+
+[77] [78] [79]
+Overfull \hbox (1.71371pt too wide) detected at line 4658
+[] \OMS/cmsy/m/n/10 ^^@ []
+ []
+
+
+Overfull \hbox (8.2035pt too wide) detected at line 4664
+[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 L\OT1/
+cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 > \OT1/cmr/m/n
+/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 )\OML/cmm/m/i
+t/10 =^^Y[]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it
+/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 > \O
+T1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 )\O
+ML/cmm/m/it/10 =^^Y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1 +
+ (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^M\OT1/cmr/m/n/10 ) []
+ []
+
+
+Overfull \hbox (8.2035pt too wide) detected at line 4682
+\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^
+M\OT1/cmr/m/n/10 ) [] = \OML/cmm/m/it/10 Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 L\O
+T1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 > \OT1/cmr/
+m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 )\OML/cmm/
+m/it/10 =^^Y[]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m
+/it/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 >
+ \OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 
+)\OML/cmm/m/it/10 =^^Y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 
+1
+ []
+
+[80] [81] [82] [83]
+<images/mathstats_np_set.jpg, id=939, 4047.12pt x 3035.34pt>
+File: images/mathstats_np_set.jpg Graphic file (type jpg)
+<use images/mathstats_np_set.jpg>
+Package pdftex.def Info: images/mathstats_np_set.jpg  used on input line 4932.
+(pdftex.def)             Requested size: 404.73572pt x 303.55179pt.
+ [84] [85 <./images/mathstats_np_set.jpg>] [86]
+Overfull \hbox (0.25223pt too wide) in paragraph at lines 5071--5072
+[][]\OT1/cmr/bx/n/10 Definition 1.36 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Hellinge
+r Dis-tance and Affin-ity (see Sec-tion 13.1 of Lehmann and Ro-mano)\OT1/cmr/m/
+n/10 )\OT1/cmr/bx/n/10 . 
+ []
+
+[87] [88] [89]
+Overfull \hbox (39.56102pt too wide) in paragraph at lines 5295--5296
+\OT1/cmr/m/n/10 larger fam-ily (and it is a test of size $\OML/cmm/m/it/10 $\O
+T1/cmr/m/n/10 ), then that is also the UMP test for test of size $\OML/cmm/m/it
+/10 $ \OT1/cmr/m/n/10 (sat-is-fy-ing $[][] \OML/cmm/m/it/10 ^^L[]\OT1/cmr/m/n/
+10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T 
+ []
+
+[90] [91] [92]
+<images/mathstats_gnp_ex.jpg, id=1013, 2583.6525pt x 2636.85126pt>
+File: images/mathstats_gnp_ex.jpg Graphic file (type jpg)
+<use images/mathstats_gnp_ex.jpg>
+Package pdftex.def Info: images/mathstats_gnp_ex.jpg  used on input line 5537.
+(pdftex.def)             Requested size: 258.38039pt x 263.70058pt.
+ [93]
+<images/mathstats_gnp_ex_2.jpg, id=1027, 1123.19624pt x 1502.61375pt>
+File: images/mathstats_gnp_ex_2.jpg Graphic file (type jpg)
+<use images/mathstats_gnp_ex_2.jpg>
+Package pdftex.def Info: images/mathstats_gnp_ex_2.jpg  used on input line 5547
+.
+(pdftex.def)             Requested size: 224.63527pt x 300.51743pt.
+<images/mathstats_gnp_ex_3.jpg, id=1030, 1568.86125pt x 1824.8175pt>
+File: images/mathstats_gnp_ex_3.jpg Graphic file (type jpg)
+<use images/mathstats_gnp_ex_3.jpg>
+Package pdftex.def Info: images/mathstats_gnp_ex_3.jpg  used on input line 5570
+.
+(pdftex.def)             Requested size: 235.31903pt x 273.71082pt.
+ [94 <./images/mathstats_gnp_ex.jpg>] [95 <./images/mathstats_gnp_ex_2.jpg>] [9
+6 <./images/mathstats_gnp_ex_3.jpg>] [97] [98] [99] [100]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 4224.
+(amsmath)                 on input line 5884.
 
-[73] (./Mathematical_Statistics.bbl) [74]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4266.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4266.
+(./Mathematical_Statistics.bbl) [101]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5926.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5926.
  (./Mathematical_Statistics.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4266.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4266.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5926.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5926.
 
 Package rerunfilecheck Info: File `Mathematical_Statistics.out' has not changed
 .
-(rerunfilecheck)             Checksum: 0F30290028C2DCC1793FD848760BD86B;2025.
+(rerunfilecheck)             Checksum: 219CA4EA20A63C2A20A23F894EB1A48E;2347.
 
 
 LaTeX Warning: There were undefined references.
@@ -1167,16 +1280,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4266.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5926.
  ) 
 Here is how much of TeX's memory you used:
- 18369 strings out of 492649
- 346146 string characters out of 6129622
- 429787 words of memory out of 5000000
- 21608 multiletter control sequences out of 15000+600000
+ 18561 strings out of 492649
+ 349164 string characters out of 6129622
+ 432157 words of memory out of 5000000
+ 21662 multiletter control sequences out of 15000+600000
  15461 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,66p,994b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,66p,994b,589s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1200,10 +1313,10 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texliv
 e/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
 /texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Mathematical_Statistics.pdf (74 pages, 507029 bytes).
+Output written on Mathematical_Statistics.pdf (101 pages, 2435922 bytes).
 PDF statistics:
- 924 PDF objects out of 1000 (max. 8388607)
- 811 compressed objects within 9 object streams
- 302 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1262 PDF objects out of 1440 (max. 8388607)
+ 1111 compressed objects within 12 object streams
+ 433 named destinations out of 1000 (max. 500000)
+ 273 words of extra memory for PDF output out of 10000 (max. 10000000)
 

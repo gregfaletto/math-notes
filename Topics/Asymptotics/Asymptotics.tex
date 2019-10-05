@@ -97,6 +97,7 @@
 %
 %\theoremstyle{definition}
 %\newtheorem{theorem}{Theorem}
+%\numberwithin{theorem}{subsection}
 %\theoremstyle{definition}
 %\newtheorem{proposition}[theorem]{Proposition}
 %\theoremstyle{definition}
@@ -143,7 +144,7 @@
 %%
 %%
 %%
-
+%
 %%% Chapter 8
 \section{Asymptotics and Convergence}
 
@@ -723,10 +724,9 @@ Note that the random variables are allowed to have different domains.
 
 \end{definition}
 
-\begin{theorem}
-\textbf{(Theorem 7.2.3, Grimmett and Stirzaker.)} The following implications hold:
+\begin{theorem}[\textbf{(Theorem 7.2.3, Grimmett and Stirzaker.)}]\label{asym.convg.implications} The following implications hold:
 
-\begin{itemize}
+\begin{enumerate}[(a)]
 
 \item \( (X_n \xrightarrow{a.s.} X) \implies (X_n \xrightarrow{p} X) \)
 
@@ -734,14 +734,90 @@ Note that the random variables are allowed to have different domains.
 
 \item \( (X_n \xrightarrow{p} X) \implies (X_n \xrightarrow{d} X) \)
 
-\end{itemize}
+\end{enumerate}
 
 Also, if \(r > s \geq 1\), then \((X_n \xrightarrow{r} X) \implies (X_n \xrightarrow{s} X)\). No other implications hold in general.
 \end{theorem}
 
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item By Markov's Inequality (Lemma \ref{asym.markov}),
+
+\[
+\Pr(|X_n - X| > \epsilon) \leq \frac{\E|X_n - X|}{\epsilon} \ \ \text{ for all } \epsilon > 0
+\]
+
+Therefore if \(X_n \xrightarrow{1} X\); that is, \(\lim_{n \to \infty} \E(|X_n - X|) = 0\), then \(\lim_{n \to \infty} \Pr(|X_n -X| > \epsilon) = 0\) for every \(\epsilon > 0\), so \(X_n \xrightarrow{p} X\).
+
+
+
+\item Let \(\epsilon > 0\) and let \(0 < r < \infty\). From Markov's Inequality,
+
+\[
+\Pr(|X_n - X| > \epsilon) = \Pr(|X_n - X|^r > \epsilon^r) \leq \frac{\E|X_n -X|^r}{\epsilon^r}
+\]
+
+The right side converges to zero by assumption. Therefore \(X_1, X_2, \ldots\) converges to \(X\) in probability. The case \(r = \infty\) follows from any case \(r < \infty\), since for example
+
+%\[
+%\phi(\E X)\leq \E \phi(X)
+%\]
+
+\[
+(|\E(X_n) - X|)^2 \leq \E (|X_n - X|^2) \leq \lVert X_n - X \rVert_\infty
+\]
+
+which shows that \(L_\infty\) convergence implies \(L_2\) convergence. So since \(L_2\) convergence implies convergence in probability, \(L_\infty\) convergence does too. We can also see this by simply examining the definition of the \(L_\infty\) norm:
+
+% \(\E(|Y_n - Y|^2) \leq \lVert Y_n - Y \rVert_\infty\).
+ 
+
+\[
+\lVert X_n - X \rVert_\infty := \inf \{c >0: \Pr(|X_n - X| \leq c ) = 1\}.
+\]
+
+Clearly if this number goes to 0, then \(X_n \xrightarrow{p} X\).
+
+% Part (c)
+\item
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{remark}
+
+Here are counterexamples showing that the converses are not always true:
+
+\begin{enumerate}[(a)]
+
+% a
+\item To see the converse fails, define an independent sequence \(\{X_n\}\) by 
+
+\[
+X_n = \begin{cases}
+n^3 & \text{with probability } n^{-2} \\
+0 & \text{with probability } 1 - n^{-2}
+\end{cases}
+\]
+
+Then \(\Pr(|X| > \epsilon) = n^{-2}\) for all large \(n\), and so \(X_n \xrightarrow{p} 0\). However, \(\E|X_n| = n \to \infty\).
+
+% b
+\item To see why the converse is false, fix \(0 < r < \infty\), let \(\Omega:= [0,1]\) with \(\mathbb{P}\) uniform on \(\Omega\) and consider \(X_n := n^{1/r} \boldsymbol{1}_{\{[0,1/n]\}}\). Then \(X_1, X_2, \ldots\) converges in probability to 0 since if \(1 > \epsilon > 0\), then \(\mathbb{P}(|X_n - 0| > \epsilon) \leq \mathbb{P}([0, 1/n]) = 1/n \to 0\) as \(n \to \infty\). However, \(X_1, X_2, \ldots\) does not converge in \(L_r\) to 0 since \(\E|X_n -0|^r =n/n =1\) for all \(n \geq 1\).
+
+% c
+\item
+
+\end{enumerate}
+
+\end{remark}
+
 \begin{theorem}\label{asym.7.2.4}\textbf{Some exceptions (Theorem 7.2.4).}
 
-\begin{itemize}
+\begin{enumerate}[(a)]
 
 \item If \(X_n \xrightarrow{d} c\) where \(c\) is constant, then \(X_n \xrightarrow{p} c\).
 
@@ -749,7 +825,7 @@ Also, if \(r > s \geq 1\), then \((X_n \xrightarrow{r} X) \implies (X_n \xrighta
 
 \item If \(P_n(\epsilon) = \Pr(|X_n - X| > \epsilon)\) satisfies \(\sum_n P_n(\epsilon) < \infty\) for all \(\epsilon > 0\), then \(X_n \xrightarrow{a.s.} X\). 
 
-\end{itemize}
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}(Part (c).) Let \(A_n(\epsilon) = \{|X_n - X| > \epsilon\}\) (so that \(P_n(\epsilon) = \Pr[A_n(\epsilon))]\), and let \(B_m(\epsilon) = \bigcup_{n \geq m} A_n(\epsilon)\). Then
@@ -758,20 +834,6 @@ Also, if \(r > s \geq 1\), then \((X_n \xrightarrow{r} X) \implies (X_n \xrighta
 \Pr(B_m(\epsilon)) \leq \sum_{n=m}^\infty \Pr(A_n(\epsilon))
 \]
 so \(\lim_{m \to \infty} \Pr(B_m(\epsilon)) = 0\) whenever \(\sum_n \Pr(A_n(\epsilon)) < \infty\). See also Lemma \ref{asym.7.2.10} part (b).\end{proof}
-
-%%% Section 7.2
-\subsection{More on convergence (7.2 of Grimmet and Stirzaker)}
-
-\textbf{Other theorems to include:} Fatou's Lemma, Fubini's Theorem, Kolmogorov's Maximal Inequality, Kolmogorov Three-Series Test, Lindeberg Feller Central Limit Theorem, \textbf{this and more at beginning of Mike's 505A qual solutions.}
-
-\begin{definition} \textbf{Cauchy Convergence.} We say that the sequence \(\{X_n: n \geq 1\}\) of random variables on the probability space \((\Omega, \mathcal{F}, \mathbb{P})\) is \textbf{almost surely Cauchy convergent} if
-
-\[
-\Pr \big( \{\omega \in \Omega: X_m(\omega) - X_n(\omega) \to 0 \text{ as } m, n \to \infty \} \big) = 1
-\]
-
-That is, the set of points \(\omega\) of the sample space for which the real sequence \(\{X_n(\omega): n \geq 1\}\) is Cauchy convergent is an event having probability 1.
-\end{definition}
 
 \begin{lemma}\label{asym.7.2.6} \textbf{(Lemma 7.2.6 from Grimmett and Stirzaker)} 
 \begin{enumerate}[(a)]
@@ -802,26 +864,26 @@ n & \text{with probability } n^{(-1/2)(r+s)} \\
 Then \(\E|X_n^s| = n^{(1/2)(s-r)} \to 0\) and \(\E|X_n^r| = n^{(1/2)(r-s)} \to \infty\).
 
 % 7.2.6(b) proof
-\item By Markov's Inequality (Lemma \ref{asym.markov}),
+\item See proof of Theorem \ref{asym.convg.implications}(a).
 
-\[
-\Pr(|X_n - X| > \epsilon) \leq \frac{\E|X_n - X|}{\epsilon} \ \ \text{ for all } \epsilon > 0
-\]
-
-Therefore if \(X_n \xrightarrow{1} X\); that is, \(\lim_{n \to \infty} \E(|X_n - X|) = 0\), then \(\lim_{n \to \infty} \Pr(|X_n -X| > \epsilon) = 0\) for every \(\epsilon > 0\), so \(X_n \xrightarrow{p} X\).
-
-To see the converse fails, define an independent sequence \(\{X_n\}\) by 
-
-\[
-X_n = \begin{cases}
-n^3 & \text{with probability } n^{-2} \\
-0 & \text{with probability } 1 - n^{-2}
-\end{cases}
-\]
-
-Then \(\Pr(|X| > \epsilon) = n^{-2}\) for all large \(n\), and so \(X_n \xrightarrow{p} 0\). However, \(\E|X_n| = n \to \infty\).
 \end{enumerate}
 \end{proof}
+
+
+%%% Section 7.2
+\subsection{More on convergence (7.2 of Grimmet and Stirzaker)}
+
+\textbf{Other theorems to include:} Fatou's Lemma, Fubini's Theorem, Kolmogorov's Maximal Inequality, Kolmogorov Three-Series Test, Lindeberg Feller Central Limit Theorem, \textbf{this and more at beginning of Mike's 505A qual solutions.}
+
+\begin{definition} \textbf{Cauchy Convergence.} We say that the sequence \(\{X_n: n \geq 1\}\) of random variables on the probability space \((\Omega, \mathcal{F}, \mathbb{P})\) is \textbf{almost surely Cauchy convergent} if
+
+\[
+\Pr \big( \{\omega \in \Omega: X_m(\omega) - X_n(\omega) \to 0 \text{ as } m, n \to \infty \} \big) = 1
+\]
+
+That is, the set of points \(\omega\) of the sample space for which the real sequence \(\{X_n(\omega): n \geq 1\}\) is Cauchy convergent is an event having probability 1.
+\end{definition}
+
 
 \begin{lemma}\label{asym.7.2.10}
 \textbf{(Lemma 7.2.10, Grimmett and Stirzaker.)} Let \(A_n(\epsilon) = \{|X_n - X| > \epsilon \}\) and \(B_m(\epsilon) = \cup_{n \geq m} A_n(\epsilon)\). Then:
@@ -930,6 +992,62 @@ Therefore, although \(X_n\) may fail to converge to \(X\) in any mode other than
 
 \end{enumerate}
 \end{theorem}
+
+\begin{proposition}
+
+Almost sure convergence does not imply convergence in $L_{2}$, and convergence in $L_{2}$ does not imply almost sure convergence.  That is, find random variables that converge in $L_{2}$ but not almost surely.  Then, find random variables that converge almost surely but not in $L_{2}$.
+\end{proposition}
+
+%\textbf{Definitely need to study this one more closely.}
+
+\begin{proof}
+
+%\textbf{NEED TO FINISH}
+
+\begin{enumerate}[(a)]
+
+\item \textbf{Almost sure convergence does not imply \(\ell_2\) convergence:} Let \(Z_n := n \boldsymbol{1}_{[0,1/n]}\). Then \(Z_1, Z_2, \ldots\) converges almost surely to 0 since \(\lim_{n \to \infty} Z_n = 0\) for all \(\omega \in (0,1]\), but it does not converge in \(L_2\) since \(\E(Z_n -0)^2 = \E Z_n^2 = n^2 \E \boldsymbol{1}_{[0,1/n]} = n \to \infty\) as \(n \to \infty\).
+
+
+\item \textbf{\(\ell_2\) convergence does not imply almost sure convergence:} Define an independent sequence \(\{X_n\}\) by
+
+\[
+X_n = \begin{cases}
+1 & \text{with probability } n^{-1} \\
+0 & \text{with probability } 1 - n^{-1}
+\end{cases}
+\]
+
+and let \(B_m(\epsilon) = \cup_{n \geq m} \{|X_n - X| > \epsilon\}\). \(X_n \xrightarrow{2} 0\) because
+
+\[
+\lim_{n \to \infty} \lVert X_n - 0 \rVert _2 = 0
+\]
+
+
+However, if \(0 < \epsilon < 1\),
+
+\[
+\Pr(B_m(\epsilon)) = 1 - \lim_{r \to \infty} \Pr(X_n = 0 \text{ for all } n \text{ such that } m \leq n \leq r)
+\]
+
+\[
+=1 - \bigg( 1 - \frac{1}{m} \bigg)\bigg(1 - \frac{1}{m+1} \bigg) \cdots \text{ (by independence)}
+\]
+
+\[
+= 1 - \lim_{M \to \infty}\bigg( \frac{m-1}{m} \cdot \frac{m}{m+1} \cdot \frac{m+1}{m+2} \cdots \frac{M}{M +1} \bigg)
+\]
+
+\[
+= 1 - \lim_{M \to \infty} \frac{m-1}{M +1} = 1
+\]
+
+and so \(\{X_n\}\) does not converge almost surely.
+
+\end{enumerate}
+
+\end{proof}
 
 %%% Borel-Cantelli lemmas 
 \begin{theorem}\textbf{Borel-Cantelli lemmas (Grimmett and Stirzaker Theorem 7.3.10.)} \label{asym.borel} Let \(\{A_n\}\) be an infinite sequence of events from some probability space \((\Omega, \mathcal{F}, \mathbb{P})\). Let \(A = \bigcap_n \bigcup_{m=n}^\infty A_m\ = \limsup_{n \to \infty} A_n = \{A_n \text{ i.o.}\}\) be the event that infinitely many of the \(A_n\) occur. Then:

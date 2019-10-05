@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Statistical Learning}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Math 547}{3}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Perceptron Algorithm}{3}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Mercer's Theorem}{3}{subsubsection.1.1.2}
+\contentsline {subsection}{\numberline {1.2}Norms}{3}{subsection.1.2}

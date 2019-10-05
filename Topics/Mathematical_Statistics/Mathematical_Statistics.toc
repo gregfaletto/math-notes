@@ -7,20 +7,24 @@
 \contentsline {subsubsection}{\numberline {1.3.1}Sufficient Statistics}{25}{subsubsection.1.3.1}
 \contentsline {subsubsection}{\numberline {1.3.2}Minimal Sufficient Statistics}{29}{subsubsection.1.3.2}
 \contentsline {subsubsection}{\numberline {1.3.3}Ancillary Statistics}{35}{subsubsection.1.3.3}
-\contentsline {subsubsection}{\numberline {1.3.4}Complete Statistics}{36}{subsubsection.1.3.4}
+\contentsline {subsubsection}{\numberline {1.3.4}Complete Statistics}{37}{subsubsection.1.3.4}
 \contentsline {subsection}{\numberline {1.4}Point Estimation}{43}{subsection.1.4}
 \contentsline {subsubsection}{\numberline {1.4.1}Heuristic Principles for Finding Good Estimators}{43}{subsubsection.1.4.1}
-\contentsline {subsubsection}{\numberline {1.4.2}Evaluating Estimators}{43}{subsubsection.1.4.2}
-\contentsline {subsubsection}{\numberline {1.4.3}Efficiency of an Estimator}{50}{subsubsection.1.4.3}
-\contentsline {subsubsection}{\numberline {1.4.4}Bayes Estimation}{53}{subsubsection.1.4.4}
-\contentsline {subsubsection}{\numberline {1.4.5}Method of Moments}{61}{subsubsection.1.4.5}
-\contentsline {subsubsection}{\numberline {1.4.6}Maximum likelihood estimator}{61}{subsubsection.1.4.6}
-\contentsline {subsubsection}{\numberline {1.4.7}Bayes estimator}{71}{subsubsection.1.4.7}
-\contentsline {subsubsection}{\numberline {1.4.8}EM Algorithm}{71}{subsubsection.1.4.8}
-\contentsline {subsubsection}{\numberline {1.4.9}Comparison of estimators}{72}{subsubsection.1.4.9}
-\contentsline {subsection}{\numberline {1.5}Resampling and Bias Reduction}{72}{subsection.1.5}
-\contentsline {subsubsection}{\numberline {1.5.1}Jackknife Resampling}{72}{subsubsection.1.5.1}
-\contentsline {subsubsection}{\numberline {1.5.2}Bootstrapping}{72}{subsubsection.1.5.2}
-\contentsline {subsection}{\numberline {1.6}Some Concentration of Measure}{72}{subsection.1.6}
-\contentsline {subsubsection}{\numberline {1.6.1}Concentration for Independent Sums}{72}{subsubsection.1.6.1}
-\contentsline {subsection}{\numberline {1.7}Hypothesis Testing}{73}{subsection.1.7}
+\contentsline {subsubsection}{\numberline {1.4.2}Evaluating Estimators}{44}{subsubsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.3}Efficiency of an Estimator}{51}{subsubsection.1.4.3}
+\contentsline {subsubsection}{\numberline {1.4.4}Bayes Estimation}{55}{subsubsection.1.4.4}
+\contentsline {subsubsection}{\numberline {1.4.5}Method of Moments}{62}{subsubsection.1.4.5}
+\contentsline {subsubsection}{\numberline {1.4.6}Maximum likelihood estimator}{63}{subsubsection.1.4.6}
+\contentsline {subsubsection}{\numberline {1.4.7}Bayes estimator}{74}{subsubsection.1.4.7}
+\contentsline {subsubsection}{\numberline {1.4.8}EM Algorithm}{74}{subsubsection.1.4.8}
+\contentsline {subsubsection}{\numberline {1.4.9}Comparison of estimators}{75}{subsubsection.1.4.9}
+\contentsline {subsection}{\numberline {1.5}Resampling and Bias Reduction}{75}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Jackknife Resampling}{75}{subsubsection.1.5.1}
+\contentsline {subsubsection}{\numberline {1.5.2}Bootstrapping}{75}{subsubsection.1.5.2}
+\contentsline {subsection}{\numberline {1.6}Some Concentration of Measure}{75}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Concentration for Independent Sums}{75}{subsubsection.1.6.1}
+\contentsline {subsection}{\numberline {1.7}Math 541B}{76}{subsection.1.7}
+\contentsline {subsection}{\numberline {1.8}Hypothesis Testing}{77}{subsection.1.8}
+\contentsline {subsubsection}{\numberline {1.8.1}Neyman-Pearson Tests}{80}{subsubsection.1.8.1}
+\contentsline {subsubsection}{\numberline {1.8.2}Consistency of Neyman-Pearson Tests}{86}{subsubsection.1.8.2}
+\contentsline {subsubsection}{\numberline {1.8.3}Composite Hypothesis Testing}{88}{subsubsection.1.8.3}
