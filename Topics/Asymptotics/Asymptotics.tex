@@ -146,14 +146,14 @@
 %%
 %
 %%% Chapter 8
-\section{Asymptotics and Convergence}
+\chapter{Asymptotics and Convergence}
 
 These notes are based on my notes from chapter 8 of \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran \citep{pesaran-2015-text} and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as Math 505A and Math 541A at USC and chapter 7 from \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition \citep{grimmett2001probability}.
 
 %%%% Chapter 8
-%\subsection{Chapter 8: Asymptotic Theory}
+%\section{Chapter 8: Asymptotic Theory}
 
-\subsection{Preliminaries (5.9 and 7.1, Grimmett and Stirzaker)}
+\section{Preliminaries (5.9 and 7.1, Grimmett and Stirzaker)}
 \label{asym.preliminaries}
 
 \begin{definition} \textbf{Definition 7.1.4, Grimmett and Stirzaker.} If for all \(x \in [0, 1]\) the sequence \(\{f_n(x)\}\) of real numbers satisfies \(f_n(x) \to f(x)\) as \(n \to \infty\) then we say \(f_n \to f\) \textbf{pointwise.}
@@ -250,7 +250,7 @@ Then
 
 
 %%% Section 8.6
-\subsection{Inequalities (8.6 of Pesaran)}
+\section{Inequalities (8.6 of Pesaran)}
 \label{sec:tsch8.6}
 
 \textbf{Inequalities}
@@ -289,7 +289,7 @@ Then
 
 \end{proof}
 
-\item \begin{theorem}\label{asym.cheby}\textbf{Chebyshev's Inequality:} (probability p. 319) Let \(X: \Omega \to [-\infty, \infty]\) be an (integrable) random variable with \(\E(X^2) < \infty\).Then for any real number \(k > 0\)
+\item \begin{theorem}[\textbf{Chebyshev's Inequality} (probability p. 319)]\label{asym.cheby} Let \(X: \Omega \to [-\infty, \infty]\) be an (integrable) random variable with \(\E(X^2) < \infty\).Then for any real number \(k > 0\)
 
 \[
 \Pr \big(\left| X - \E(X) \right| \geq k \sqrt{\Var(X)} \big) \leq \frac{1}{k^2}
@@ -600,7 +600,7 @@ $$\mathbb{P}\left( \left|\frac{X_{1}+\cdots+X_{n}}{n}-p \right|>r\right)\leq \fr
 \textbf{Dominated Convergence Theorem} (Theorem \ref{prob.dom.convg.thm}).
 
 %%% Section 8.2
-\subsection{Modes of Convergence (7.2 of Grimmett and Stirzaker, 8.2 and 8.4 of Pesaran)}
+\section{Modes of Convergence (7.2 of Grimmett and Stirzaker, 8.2 and 8.4 of Pesaran)}
 
  Let \(\{X_n\} = \{X_1, X_2, \ldots\}\) and \(X\) be random variables defined on a probability space \((\Omega, \mathcal{F}, \mathbb{P})\).
 
@@ -871,7 +871,7 @@ Then \(\E|X_n^s| = n^{(1/2)(s-r)} \to 0\) and \(\E|X_n^r| = n^{(1/2)(r-s)} \to \
 
 
 %%% Section 7.2
-\subsection{More on convergence (7.2 of Grimmet and Stirzaker)}
+\section{More on convergence (7.2 of Grimmet and Stirzaker)}
 
 \textbf{Other theorems to include:} Fatou's Lemma, Fubini's Theorem, Kolmogorov's Maximal Inequality, Kolmogorov Three-Series Test, Lindeberg Feller Central Limit Theorem, \textbf{this and more at beginning of Mike's 505A qual solutions.}
 
@@ -1054,7 +1054,7 @@ and so \(\{X_n\}\) does not converge almost surely.
 
 \begin{enumerate}[(a)]
 
-\item \(\Pr(A) = 0 \) if \(\sum_n \Pr(A_n) < \infty\)
+\item \(\Pr(A) = 0 \) if \(\sum_n \Pr(A_n) < \infty\). (That is, with probability 1 only finitely many of the events occur. If each event is an indicator, the sum of them is finite.)
 
 \item \(\Pr(A) = 1\) if \(\sum_n \Pr(A_n) = \infty\) and \(A_1, A_2, \ldots\) are independent events.
 
@@ -1071,6 +1071,23 @@ and so \(\{X_n\}\) does not converge almost surely.
 \]
 
 whenever \(\sum_n \Pr(A_n) < \infty\).
+
+\textbf{Proof from 541B:} Let
+
+\[
+I_j(\omega) = \begin{cases}
+1, & \omega \in A_j \\
+0, & \omega \notin A_j.
+\end{cases}
+\]
+
+Then we need to show that \(\sum_{j=1}^\infty I_j(\omega) < \infty\) with probability 1. Observe that 
+
+\[
+\E \left( \sum_{j =1}^\infty I_j \right) =\sum_{j =1}^\infty   \E \left(  I_j \right)  =\sum_{j =1}^\infty   \mathbb{P}(A_j)
+\]
+
+where the last sum is finite by assumption. (Switching of the sum and expectation is allowed by monotone convergence theorem or Fatou's lemma because of monotonicity: \(g_k = \sum_{j=1}^k I_j\) is increasing in \(k\).)
 
 \item One can confirm that 
 
@@ -1105,7 +1122,7 @@ so \(\Pr(A) = 1\).
 \begin{proof}Available on wikipedia, \url{https://en.wikipedia.org/wiki/Kolmogorov\%27s_two-series_theorem}.\end{proof}
 
 %%% Slutsky's convergence theorems
-\subsubsection{Slutsky's Convergence Theorems (8.4.1 of Pesaran, 7.3 of Grimmett and Stirzaker)}
+\subsection{Slutsky's Convergence Theorems (8.4.1 of Pesaran, 7.3 of Grimmett and Stirzaker)}
 
 \begin{theorem}\textbf{Theorem 6 of Pesaran, Section 8.4.1, p. 173.} Let \( \{x_t, y_t\}, t = 1, 2, \ldots\) be a sequence of pairs of random variables with \(y_t \xrightarrow{d} y\) and \(\left| y_t - x_t \right| \xrightarrow{p}  0\). Then \(x_t \xrightarrow{d} y\). \end{theorem}
 
@@ -1233,7 +1250,7 @@ See also:
 \begin{theorem} \label{asym.thm.7.2.18} \textbf{(Theorem 7.2.18, Grimmett and Stirzaker.)} If \(X_n \xrightarrow{d} X\) and \(g: \mathbb{R} \to \mathbb{R}\) is continuous, then \(g(X_n) \xrightarrow{d} g(X)\). \end{theorem}
 
 %%% Section 8.5
-\subsection{Stochastic orders \(\mathcal{O}_p(\cdot)\) and \(o_p(\cdot)\) (Pesaran 8.5)}
+\section{Stochastic orders \(\mathcal{O}_p(\cdot)\) and \(o_p(\cdot)\) (Pesaran 8.5)}
 
 \begin{definition}[\textbf{Pesaran 8.5 Definition 6.}] Let \(\{a_t\}\) be a sequence of positive numbers and \(\{x_t\}\) be a sequence of random variables. Then
 
@@ -1259,7 +1276,7 @@ See also:
 \end{definition}
 
 %%% Section 8.6
-\subsection{Laws of Large Numbers and Central Limit Theorems (Pesaran 8.6; Grimmett and Stirzaker 7.4, 7.5)}
+\section{Laws of Large Numbers and Central Limit Theorems (Pesaran 8.6; Grimmett and Stirzaker 7.4, 7.5)}
 
 \begin{theorem}\label{asym.wlln} \textbf{Weak Law of Large Numbers (Khinchine) (Pesaran 8.6 Theorem 10, Grimmett and Stirzaker Theorem 7.4.7, 541A notes Theorem 2.10).} Suppose that \(\{X_k\}\) is a sequence of (i) independent (ii) identically distributed random variables with (iii) constant means, i.e., \(\E(X_k) = \mu < \infty\). Then
 
@@ -1342,7 +1359,7 @@ a_{ij} = \E\big[(X_i^{(1)} - \E(X_i^{(1)})(X_j^{(1)} - \E(X_j^{(1)}) \big]
 are finite. Let \(\boldsymbol{S}_n = \sum_{i=1}^n X^{(i)}\). Then as \(n \to \infty\), 
 
 \[
-\frac{\boldsymbol{S}_n - n \boldsymbol{\mu}}{\sqrt{n \sigma^2}} \xrightarrow{d} \mathcal{N}(\boldsymbol{\mu},[a_{ij}])
+\frac{\boldsymbol{S}_n - n \boldsymbol{\mu}}{\sqrt{n }} \xrightarrow{d} \mathcal{N}(0,[a_{ij}])
 \]
 \end{theorem}
 
@@ -1376,7 +1393,7 @@ converge in distrbution to \(\mathcal{N}(0, 1)\) as \(n \to \infty\).
 \end{lemma}
 
 %%% Section 8.8
-\subsection{The case of dependent and heterogeneously distributed observations (Pesaran 8.8)}
+\section{The case of dependent and heterogeneously distributed observations (Pesaran 8.8)}
 
 
 \begin{theorem}\label{asym.clt.mart.ds} \textbf{Central limit theorem for martingale difference sequences (Pesaran 8.8 Theorem 28).} Let \(\{x_t\}\) be a martingale difference sequence with respect to the information set \(\Omega_t\). Let \(\overline{\sigma}_T^2 = \Var( \sqrt{T} \overline{x}_T) = T^{-1} \sum_{t=1}^T \sigma_t^2\). If \(\E(|x_t|^r) < K < \infty\) for any \(r > 2\) and for all \(t\), and
@@ -1388,7 +1405,7 @@ converge in distrbution to \(\mathcal{N}(0, 1)\) as \(n \to \infty\).
 then \(\sqrt{T} \overline{x}_T / \overline{\sigma}_T \xrightarrow{d} \mathcal{N}(0, 1)\).
 \end{theorem}
 
-\subsection{Worked Examples from Math 505A Midterm 2}
+\section{Worked Examples from Math 505A Midterm 2}
 
 \begin{enumerate}[(1)]
 
@@ -1737,7 +1754,7 @@ Since \(\E[ \log(Y_n)] \to \infty\) for \(a < e\), we have \(\lim_{n \to \infty}
 
 \end{enumerate}
 
-\subsection{Estimators and Central Limit Theorems (DSO 607)}
+\section{Estimators and Central Limit Theorems (DSO 607)}
 
 Lyapunov (?) condition: can prove central limit theorem if we check 3rd moment. Lindeberg's Condition (Lemma \ref{asym.lindeberg.cond})
 

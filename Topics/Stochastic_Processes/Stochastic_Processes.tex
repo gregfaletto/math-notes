@@ -23,6 +23,8 @@
 %}
 %\usepackage{import}
 %\usepackage{natbib}
+%\usepackage{bbm}
+%\usepackage{bm}
 %
 %\usetikzlibrary{automata,positioning}
 %
@@ -147,11 +149,11 @@
 %%
 %%%%%%%%%%%%%%%%% Stochastic Processes (Random Walks, Martingales, Brownian Motion)
 
-\section{Stochastic Processes}
+\chapter{Stochastic Processes}
 
 These notes are based on my notes from ISE 620 at USC taught by Sheldon Ross (along with the textbooks \textit{Stochastic Processes} \citep{ross2008stochastic} and \textit{Introduction to Probability Models} \citep{2014i} by Sheldon Ross) \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran \citep{pesaran-2015-text} and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as notes from \textit{Probability and Random Processes} by Grimmett and Stirzaker \citep{grimmett2001probability}.
 
-\subsection{Preliminaries}
+\section{Preliminaries}
 
 \begin{definition} A \textbf{stochastic process} is a collection of random variables \(X(t), t\geq 0\) (in the continuous case) or \(X_1, X_2, \ldots\) in the discrete case such that ...
 
@@ -181,7 +183,7 @@ These notes are based on my notes from ISE 620 at USC taught by Sheldon Ross (al
 
 \end{definition}
 
-\subsection{Poisson Processes}\label{stoch.pois.proc.sec}
+\section{Poisson Processes}\label{stoch.pois.proc.sec}
 
 \begin{definition}[\textbf{Poisson Process, Grimmet and Stirzaker definition}]\label{stoch.pois.proc.def.grimmett}A \textbf{Poisson process with intensity \(\lambda\)} is a process \(N=\{N(t): t \geq 0 \}\) taking values in \(S=\{0, 1, 2, \ldots \}\) such that 
 
@@ -563,7 +565,7 @@ but you can't multiply out probabilities because \(N_i\) is not independent.
 
 \end{example}
 
-\subsubsection{Poissonization Trick}
+\subsection{Poissonization Trick}
 
 Suppose we collect coupons at times distributed according to a Poisson process with rate \(\lambda=1\). Let event type \(i\) be the event of collecting a type \(i\) coupon. Let \(T_i\) be the time until collecting a type \(i\) coupon. Note that by Theorem \ref{stoch.coupon.collecting.thm} and Lemma \ref{stoch.ise620.lemma3}, \(T_i \sim \operatorname{Exponential}(\lambda \cdot p_i) =\operatorname{Exponential}( p_i) \). Then the time to collect at least one of every type is \(T = \max_i \{ T_i\}\). And by Theorem \ref{stoch.coupon.collecting.thm}, the \(T_i\) are all independent. Return to the coupon collecting problem:
 
@@ -851,7 +853,7 @@ So finally we have
 
 \end{solution}
 
-\subsubsection{Time Sampling Poisson Processes}
+\subsection{Time Sampling Poisson Processes}
 
 \begin{proposition}[\textbf{Time Sampling (Proposition 5.3 in Introduction to Probability Models)}]\label{stoch.ross.prop.5.3} Suppose we have events that happen as a Poisson process with rate \(\lambda\). Each event is of type \(1, \ldots, r\) independently of what has come before. An event at time \(s\) is type \(i\) with probability \(P_i(s) \). Let \(N_i(t)\) be the number of type \(i\) events by time \(t\). Then \(N_1(t), \ldots, N_r(t)\) are independent Poisson random variables with mean \(\E[N_i(t)] = \lambda \int_0^t P_i(s) ds\).
 
@@ -905,7 +907,7 @@ Y(t) = N_2(t) \sim  \operatorname{Poisson} \bigg( \lambda \int_0^t G(t-s) ds \bi
 which implies the independence of \(X(t)\) and \(Y(t)\).
 \end{example}
 
-\subsubsection{Nonstationary Poisson Processes}
+\subsection{Nonstationary Poisson Processes}
 
 \begin{definition}[\textbf{Nonstationary Poisson process.}]\label{stoch.nonstat.pois.proc.def.ross} The counting process \(\{N(t), t \geq 0\}\) is said to be a \textbf{nonstationary Poisson process} (or \textbf{nonhomoegeneous Poisson process}) with intensity function \(\lambda(t), t \geq 0\) if
 
@@ -1159,7 +1161,7 @@ Note that \(N_i(t)\) is approximately Gaussian for large \(t\) (because Poisson 
 
 \end{example}
 
-\subsubsection{Queueing Systems}
+\subsection{Queueing Systems}
 
 Say we have a \(M/G/1\) queuing process. That is, arrivals are \(PP(\lambda)\), the service time has distribution \(G\), and there is one server. Note that if no one is in line, the waiting time  (length of an ``idle period") until the next arrival is exponential (since it's a Poisson process). Consider the ``busy periods," that is, the time from when a customer arrives until the time the next idle period starts. 
 
@@ -1217,7 +1219,7 @@ Note that \(\Var(B) = \E(B)^2\), etc., then you work out the answer (\textbf{see
 
 \textbf{End of Poisson processes}
 
-\subsection{Renewal Processes}
+\section{Renewal Processes}
 
 \begin{definition}[\textbf{Stieltjes Integral}]
 
@@ -1608,7 +1610,7 @@ Therefore by another application of the Continuous Mapping Theorem (Theorem {asy
 
 \end{proof}
 
-\subsubsection{Stopping Times}
+\subsection{Stopping Times}
 
 \begin{definition}[\textbf{Stopping times}] Let \(X_1, X_2, \ldots\) be independent random variables. We say the non-negative integer valued random variable \(N\) is a \textbf{stopping time} for \(X_1, X_2, \ldots\) if the event \(\{ N = n\}\) is independent of \(X_{n+1}, X_{n+2}, \ldots\). (This definition is more general than saying it must depend on previous times because it could be random and not depend on anything (except the current one) or you could have a finite memory, etc.)
 
@@ -2017,7 +2019,7 @@ so
 
 \end{example}
 
-\subsection{ISE 620 Midterm Solutions}
+\section{ISE 620 Midterm Solutions}
 
 
 \begin{exercise}
@@ -2224,7 +2226,7 @@ where \(\lambda(t-s)\) is the expected number of events between \(s\) and \(t\).
 
 \end{solution}
 
-\subsection{Renewal Reward Processes (Section 4.7 in \textit{Introduction to Probability Models}, 3.6 \textit{Stochastic Processes})}
+\section{Renewal Reward Processes (Section 4.7 in \textit{Introduction to Probability Models}, 3.6 \textit{Stochastic Processes})}
 
 \begin{definition}[\textbf{Renewal reward process}]Suppose we have a renewal process with interarrival times \(X_1, X_2, \ldots\). Suppose we receive a reward \(R_i\) when renewal \(i\) occurs (after time \(X_i\) from the previous renewal). The reward is allowed to depend on what happens during the previous period \(X_i\), but every time renewal happens, process starts again. So we assume the vectors \((X_i, R_i), i \geq 1\) are i.i.d. Let \(R(t)\) be the total reward by time \(t\); that is,
 
@@ -2787,7 +2789,7 @@ W = \lim_{n \to \infty} \frac{W_1 + \ldots + W_n}{n}.
 
 \end{solution}
 
-\subsubsection{Alternating Renewal Processes (Section 7.5.1 in \textit{Introduction to Probability Models}}
+\subsection{Alternating Renewal Processes (Section 7.5.1 in \textit{Introduction to Probability Models}}
 
 \begin{definition}[\textbf{Alternating renewal process}] Suppose we have a process that is on for time \(Y_1\), off for time \(Z_1\), on for time \(Y_2\), off for time \(Z_2\), etc if \((X_i, Y_i)\), \(i \geq 1\) are i.i.d. Call \(\{X(t), t \geq 0\}\) an \textbf{alternating renewal process}, where \(X(t)\) is an indicator variable for the process being on at time \(t\).
 
@@ -3047,7 +3049,7 @@ We have
 
 \end{proposition}
 
-\subsubsection{Equilibrium renewal processes}
+\subsection{Equilibrium renewal processes}
 
 
 \begin{definition}[\textbf{Equilibrium renewal process}]
@@ -3332,7 +3334,7 @@ X_1 + \ldots + X_n \sim \mathcal{N}(n \mu, n \sigma^2) \text{ (approximately)}
 
 \end{proof}
 
-\subsubsection{Regenerative Processes}
+\subsection{Regenerative Processes}
 
 \begin{theorem}[\textbf{Theorem 3.7.1 in \textit{Stochastic Processes}}] Let \(\{X(t), t \geq 0\}\) be a stochastic process with state space \(\{0, 1, 2, \ldots\}\) having the property that there exist time points at which the state restarts itself (with probability 1). Let \(S_1, S_2, \ldots\) constitute the event times of a renewal process. We call \(X(t)\) a \textbf{regenerative process}. So \(\{S_1, S_2, \ldots \}\) constitute the event times of a renewal process. We say a cycle is completed every time a renewal occurs. Let \(N(t) = \max \{n: S_n \leq t\}\) denote the number of cycles by time \(t\).
 
@@ -3346,7 +3348,7 @@ P_j = \lim_{t \to \infty} \Pr(X(t) = j) = \frac{\E(\text{amount of time in state
 
 \end{theorem}
 
-\subsubsection{Example of Renewal Reward Processes to Patterns}
+\subsection{Example of Renewal Reward Processes to Patterns}
 
 \begin{example}[\textbf{Seems to be similar to Section 7.9.2 in \textit{Introduction to Probability Models})}]Suppose we have i.i.d. data. Number \(i\) appears with probability \(p_i\).We want to see the mean time until we see the pattern 1213121. An event is when the pattern appears. The next event is the next time the pattern appears, but we can't use data from the last event. Earn \(\$1\) whenever the last 7 values are 1313121 (so you \textit{are} allowed to use previous values for the reward process). That is, if the cycle is 
 
@@ -3402,7 +3404,7 @@ Note that
 
 \end{example}
 
-\subsection{Markov Chains (Chapter 4 of \textit{Stochastic Processes}; Chapter 4 of \textit{Introduction to Probability Models})}
+\section{Markov Chains (Chapter 4 of \textit{Stochastic Processes}; Chapter 4 of \textit{Introduction to Probability Models})}
 
 Suppose we have \(X_0, X_1, X_2, \ldots\), where \(X_n\) is the state of the system at time \(n\). The set of possible values of states are the nonnegative integers (the number of possible states will be either finite or countable). In a Markov chain, the probability of reaching state \(j\) given that you are currently in state \(i\) is \(P_{ij}\); that is,
 
@@ -3575,7 +3577,7 @@ P_{ij}^n = \Pr(X_n = j \mid X_0 = i)
 
 \end{definition}
 
-\subsubsection{Chapman-Kolmogorov Equations---section 4.2 of \textit{Introduction to Probability Models}, section 4.2 of \textit{Stochastic Processes} (p. 178 of pdf)}
+\subsection{Chapman-Kolmogorov Equations---section 4.2 of \textit{Introduction to Probability Models}, section 4.2 of \textit{Stochastic Processes} (p. 178 of pdf)}
 
 \begin{proposition}[\textbf{Chapman-Kolmogorov Equations}]
 
@@ -3678,7 +3680,7 @@ P_{60} & P_{61} & P_{62}  & P_{63} & P_{64} & P_{65} & P_{66}
 
 In general, if \(T_i\) is the number of transitions to enter state \(i\) even state 0 is 0, we can change state \(i\) into an absorbing state.
 
-\subsubsection{Classification of States (Section 4.3 of \textit{Introduction to Probability Models})}
+\subsection{Classification of States (Section 4.3 of \textit{Introduction to Probability Models})}
 
 We say state \(j\) is \textit{accessible} from state \(i\) if for some \(n \geq 0\) \(P_{ij}^n > 0\). Note that \(P_{ij}^n=\Pr(X_n = j \mid X_0 = i)\). So \(j\) is accessible from \(i\) if and only if starting in \(i\) it is possible that the Markov chain is every in \(j\). So if \(j\) is not accessible from \(i\)
 
@@ -3878,7 +3880,7 @@ So we have the recurrence and transience are class properties (if one element in
 
 Homework problem: If \(R\) is a recurrent class, \(i \in R\), \(j \notin R\), then \(P_{ij}=0\). Why? Suppose \(P_{ij}>0\). But since \(i\) doesn't communicate with \(j\), \(P_{ij}^n=0\) for all \(n\). Contradiction. 
 
-\subsubsection{Long-Run Proportions and Limiting Probabilities (Limit Theorems) (4.4 in \textit{Introduction to Probability Models}, 4.3 in \textit{Stochastic Processes}}
+\subsection{Long-Run Proportions and Limiting Probabilities (Limit Theorems) (4.4 in \textit{Introduction to Probability Models}, 4.3 in \textit{Stochastic Processes}}
 
 Let \(\pi_j\) be the long-run proportion of the time you are in state \(j\). That is,
 
@@ -4289,7 +4291,7 @@ where \(R\) denotes the set of states communicating with \(j\).
 Also discussed drug testing example immediately afterward in section 4.5.1 of \textit{Introduction to Probability Models}, and what happens as \(N \to \infty\) (p. 199 of pdf of \textit{Stochastic Processes}).
 \end{example}
 
-\subsubsection{Branching Processes (Section 4.7 of \textit{Introduction to Probability Models}, Section 4.5 of \textit{Stochastic Processes}}
+\subsection{Branching Processes (Section 4.7 of \textit{Introduction to Probability Models}, Section 4.5 of \textit{Stochastic Processes}}
 
 \begin{proposition}[\textbf{Theorem 4.5.1 in \textit{Stochastic Processes} (p. 203 of pdf)}]\label{stoch.sp.4.5.1}
 (i) If \(\mu \leq 1\), then \(\pi_0 = 1\). (ii) If \(\mu > 1\), \(\pi_0 < 1\). (iii) \(\pi_0\) is the smallest positive number satisfying 
@@ -4359,7 +4361,7 @@ where the second to last step follows by the inductive hypothesis.
 
 \end{proof}
 
-\subsubsection{A Markov Chain Model of Algorithmic Efficiency (Section 4.6.1 of \textit{Stochastic Processes})}
+\subsection{A Markov Chain Model of Algorithmic Efficiency (Section 4.6.1 of \textit{Stochastic Processes})}
 
 \begin{definition}
 
@@ -4449,7 +4451,7 @@ Note that \(\{X_n = 0\} \subset \{X_{n+1} = 0\}\) so
 again matching what we assumed.
 \end{remark}
 
-\subsubsection{Time Reversible Markov Chains (Section 4.8 of \textit{Introduction to Probability Models}, Section 4.7 of \textit{Stochastic Processes}}
+\subsection{Time Reversible Markov Chains (Section 4.8 of \textit{Introduction to Probability Models}, Section 4.7 of \textit{Stochastic Processes}}
 
 \begin{proposition}[\textbf{Unlabeled at beginning of each section}]Given a stationary Markov chain \\ \(X_n, X_{n+1}, X_{n+2}, \ldots\), the reverse process \(X_n, X_{n-1}. X_{n-2}, \ldots\) is a Markov chain with transition probabilities
 
@@ -4537,14 +4539,14 @@ Note the similarity to \textit{Introduction to Probability Models} problem 4.26 
 
 \end{example}
 
-\subsubsection{Semi-Markov Processes (Section 4.8 of \textit{Stochastic Processes} (p. 224 of pdf), Section 7.6 of \textit{Introduction to Probability Models}}
+\subsection{Semi-Markov Processes (Section 4.8 of \textit{Stochastic Processes} (p. 224 of pdf), Section 7.6 of \textit{Introduction to Probability Models}}
 
 \begin{definition}[\textbf{Semi-Markov Process}]Suppose the stochastic process \(\{X(t), t \geq 0\}\) takes on values \(\{0, 1, \ldots, M\}\). Then \(\{X(t), t \geq 0\}\) is called a \textbf{semi-Markov process}. 
 
 \end{definition}
 
 Why semi-Markov? What happens next doesn't just depend on your current state, it also depends on how long you're been there. But it's semi-Markov because just after a transition you know everything.
-\subsection{ISE 620}
+\section{ISE 620}
 
 
 \begin{exercise} \textbf{(``Best Prize" problem.)} There are \(n\) prizes that are presented one at a time in a random order. Each prize has a defined value, and there is a defined ordering of the value of the prizes. Each time you see a prize, you only know the value of that prize relative to the prizes already seen---the value of later prizes remains unknown. Each time a prize is presented, we either accept it or reject it. You only get one prize, so once you accept it, you're done. Once you reject a prize, you can't get it back. Your goal is to maximize the probability of accepting the best prize. What do you do (what is the optimal policy)?
@@ -4700,7 +4702,7 @@ We can argue this solution is unique or we can argue it is true by induction.
 
 \end{solution}
 
-\subsection{DSO Statistics Group Screening Exam Problems}
+\section{DSO Statistics Group Screening Exam Problems}
 
 %%%%%% 2016 Question 1
 \begin{exercise}[\textbf{2016 DSO Statistics Group In-Class Screening Exam, Question 1}]
@@ -4862,7 +4864,7 @@ where we used the assumption \(\E\left(V_1^{-1}\right)  \leq r\) on the second-t
 
 
 
-\subsection{Simple Random Walk}
+\section{Simple Random Walk}
 
 \begin{definition}\label{sp.srw} Let \(\{X_i\}\) be i.i.d. We have
 
@@ -4877,13 +4879,13 @@ Let \(S_k = \sum_{i=1}^k X_i\). Then \(\{S_k\}\) is a \textbf{simple random walk
 
 \end{definition}
 
-\subsection{Martingales}
+\section{Martingales}
 
 \textbf{Definition.} Let \(\{y_t\}_{t=0}^\infty \) be a sequence of random variables, and let \(\Omega_t\) denote the information set available at date \(t\), which at least contains \(\{y_t, y_{t-1}, y_{t-2}, \ldots \}\). If \(\E(y_t \mid \Omega_{t-1}) = y_{t-1}\) holds then \(\{y_t\}\) is a martingale process with respect to \(\Omega_t\).
 
 \textbf{Definition.} Let \(\{y_t\}_{t=1}^\infty \) be a sequence of random variables, and let \(\Omega_t\) denote the information set available at date \(t\), which at least contains \(\{y_t, y_{t-1}, y_{t-2}, \ldots \}\). If \(\E(y_t \mid \Omega_{t-1}) =0\), then \(\{y_t\}\) is a martingale difference process with respect to \(\Omega_t\).
 
-\subsection{Brownian Motion}
+\section{Brownian Motion}
 
 % \textbf{The first distribution is in appendix B.13.1, formula B.52 (p.984 of book). Supposedly the proof is in Phillips and Durlaf (1986), which is now in the Google drive folder.}
 %
@@ -4961,26 +4963,20 @@ f[R_n(a)] \xrightarrow{d} f[w(a)]
 
 \end{theorem}
 
-%\end{enumerate}
+%
+%
+%
+%
+%
+%
+%
+%
 
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
+
+
 
 
 
 %\bibliographystyle{abbrvnat}
 %\bibliography{mybib2fin}
 %\end{document}
-
-
-
-
-

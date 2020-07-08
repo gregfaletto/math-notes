@@ -138,11 +138,11 @@
 %%
 %%
 
-\section{Linear Algebra}
+\chapter{Linear Algebra}\label{sec.lin.alg}
 
-These are my notes from taking EE 588 at USC, Math 541A at USC, and various other sources which I mostly cite within the text.
+These are my notes from taking EE 588 at USC, Math 541A at USC, and various other sources which I mostly cite within the text. (For more notes on linear algebra, see Section \ref{ra.lin.alg.5.1.pugh}.)
 
-\subsection{Properties of Projection Matrices}
+\section{Properties of Projection Matrices}
 
 \begin{enumerate}[i.]
 
@@ -206,7 +206,101 @@ so we have
 
 The trace of an idempotent matrix with rank \(r\) is \(r\).
 
-\subsection{Eigenvalues, Eigenvectors, Diagonalization, Symmetric Matrices}
+\begin{theorem}[\textbf{Math 425b Homework Problem}]
+
+Let \((V, \langle \cdot, \cdot \rangle)\) be a real or complex vector space. Let \(W\) be a finite-dimensional subspace of \(V\) with an orthonormal basis \(\{w_1, \ldots, w_n\}\). For \(v \in V\), define the orthogonal projection of \(v\) onto \(W\) to be
+
+\[
+\operatorname{proj}_W(v) :=  \sum_{i=1}^n \langle w_i, v \rangle w_i.
+\]
+
+Then \(\operatorname{proj}_W(v)  \in W\) and \(v - \operatorname{proj}_W(v) \in W^\perp\), where \(W^\perp\) is the orthogonal complement of \(W\). Further, these properties characterize \(\operatorname{proj}_W(v) \) of uniquely; i.e., if \(v = v_1 + v_2 = v-1' + v_2'\) with \(v_1, v_1' \in W\) and \(v_2, v_2' \in W^\perp\) then \(v_1 = v_1'\) and \(v_2 = v_2'\).
+
+\end{theorem}
+
+\begin{proof}
+
+Since \(\{w_1, \ldots, w_n\}\) is a basis for for \(W\), it holds that \(\operatorname{proj}_W(v) \in W\) if and only if for some \((c_1, \ldots, c_n) \in \mathbb{R}^n\) it holds that \( \operatorname{proj}_W(v) = \sum_{i=1}^n c_i w_i\). But
+
+\[
+ \operatorname{proj}_W(v) =  \sum_{i=1}^n \langle w_i, v \rangle w_i
+\]
+
+so this follows from \(c_i := \langle w_i, v \rangle, i \in [n]\). Next we will show that \(v - \operatorname{proj}_W(v) \in W^\perp\). This is true if and only if \(\langle w, v - \operatorname{proj}_W(v) \rangle = 0\) for all \(w \in W\). Let \(w \in W\) be expressed as \(\sum_{j=1}^n c_j w_j\) for some \((c_1, \ldots, c_n) \in \mathbb{R}^n\). Note that since \(\{w_1, \ldots, w_n\}\) is an orthonormal basis, \(\langle w_j, w_i \rangle = \delta_{j,i}\). Then
+
+\begin{align*}
+\langle w, v - \operatorname{proj}_W(v) \rangle &  = \langle w, v  \rangle - \langle w, \operatorname{proj}_W(v) \rangle 
+\\ & = \left\langle \sum_{j=1}^n c_j w_j,  v \right\rangle - \left\langle \sum_{j=1}^n c_j w_j, \sum_{i=1}^n \langle w_i, v \rangle w_i. \right\rangle
+\\ & = \sum_{j=1}^n  c_j \left\langle  w_j,  v \right\rangle -\sum_{j=1}^n c_j  \left\langle  w_j, \sum_{i=1}^n \langle w_i, v \rangle w_i. \right\rangle
+\\ & = \sum_{j=1}^n  c_j \left\langle  w_j,  v \right\rangle -\sum_{j=1}^n \sum_{i=1}^n c_j  \langle w_i, v \rangle \left\langle  w_j,  w_i. \right\rangle
+\\ & = \sum_{j=1}^n  c_j \left\langle  w_j,  v \right\rangle -\sum_{j=1}^n \sum_{i=1}^n c_j  \langle w_i, v \rangle \delta_{j,i}
+\\ & = \sum_{j=1}^n  c_j \left\langle  w_j,  v \right\rangle - \sum_{j=1}^n c_j  \langle w_j, v \rangle 
+\\ & = 0,
+\end{align*}
+
+where we used elementary properties of inner products. Lastly, we will show that these properties characterize \( \operatorname{proj}_W(v)\) uniquely. Let \(v_1, v_1' \in W\) and \(v_2, v_2' \in W^\perp\). In particular, let \(v_1 = \sum_{i=1}^n c_i w_i\) and \(v_1' = \sum_{i=1}^n c_i' w_i\), and note that \(\langle w_j , v_2 \rangle = \langle w_j, v_2' \rangle = 0\) for all \(j \in [n]\). Suppose \(v_1 + v_2 = v_1' + v_2'\). Then for all \(j \in [n]\),
+
+\begin{align}
+& 0 = v_1 + v_2 - (v_1' + v_2') =  \sum_{i=1}^n \left(  c_i  - c_i'   \right)  w_i + v_2 - v_2' \label{linalg.425b.hw7.e}
+\\ \implies \qquad & \langle w_j, 0 \rangle = \left\langle w_j, \sum_{i=1}^n \left(  c_i  - c_i'   \right)  w_i + v_2 - v_2'  \right \rangle 
+%\\ \qquad & 
+=  \sum_{i=1}^n \left\langle w_j, \left(  c_i  - c_i'   \right)  w_i  \right \rangle +\left\langle w_j, v_2  \right \rangle -  \left\langle w_j, \ v_2'  \right \rangle \nonumber
+\\ \implies \qquad & 0 = c_j - c_j', \nonumber
+\end{align} 
+
+so \(v_1 = v_1'\). Then from (\ref{linalg.425b.hw7.e}) we have
+
+%Further, since by the above \(\langle w_j, v - \operatorname{proj}_W(v)
+%\rangle = 0\) for any \(v \in V\) and all \(j \in [n]\), we have from (\ref{linalg.425b.hw7.e})
+
+\[
+0 = v_2 - v_2' \qquad \iff v_2 = v_2'.
+\]
+
+
+%\begin{align*}
+%&  0 - \operatorname{proj}_W(0) =  \sum_{i=1}^n \left(  c_i  - c_i'   \right)  w_i + v_2 - v_2' - \operatorname{proj}_W \left( \sum_{i=1}^n \left(  c_i  - c_i'   \right)  w_i + v_2 - v_2' \right)
+%\\ \implies \qquad & =
+%\end{align*} 
+
+
+
+\end{proof}
+
+\begin{theorem}[\textbf{Math 425b Homework Problem}]
+
+Let \((V, \langle \cdot, \cdot \rangle)\) be a real or complex vector space. Let \(W\) be a finite-dimensional subspace of \(V\) with an orthonormal basis \(\{w_1, \ldots, w_n\}\). For \(v \in V\), define the orthogonal projection of \(v\) onto \(W\) to be
+
+\[
+\operatorname{proj}_W(v) :=  \sum_{i=1}^n \langle w_i, v \rangle w_i.
+\] 
+
+Then \( \operatorname{proj}_W(v)\) is the closest element of \(W\) to \(v\) (in \(L_2\) norm). That is, for any \(w \in W\) we have \(\lVert v -  \operatorname{proj}_W(v) \rVert_2 \leq  \lVert v - w \rVert_2 \).
+
+\end{theorem}
+
+\begin{proof}
+
+For any \(w \in W\),
+
+%\[
+%v - w = 
+%\]
+%
+\begin{align*}
+& v - w = v - \operatorname{proj}_W(v) + \operatorname{proj}_W(v) - w 
+\\ \implies \qquad & \lVert v - w \rVert_2^2 =  \lVert v - \operatorname{proj}_W(v)  \rVert_2^2 +  \lVert \operatorname{proj}_W(v) - w  \rVert_2^2 + 2 \lVert ( v - \operatorname{proj}_W(v)) ( \operatorname{proj}_W(v) - w ) \rVert_2^2
+\\ \implies \qquad & \lVert v - w \rVert_2^2 \geq  \lVert v - \operatorname{proj}_W(v)  \rVert_2^2 
+\\ \iff \qquad & \lVert v - w \rVert_2 \geq  \lVert v - \operatorname{proj}_W(v)  \rVert_2.
+\end{align*}
+%
+%\[
+% \lVert v - w \rVert_2^2 =  \lVert v - \operatorname{proj}_W(v)  \rVert_2^2 +  \lVert \operatorname{proj}_W(v) - w  \rVert_2^2 + 2 \lVert ( v - \operatorname{proj}_W(v)) ( \operatorname{proj}_W(v) - w ) \rVert_2^2
+% \]
+
+\end{proof}
+
+\section{Eigenvalues, Eigenvectors, Diagonalization, Symmetric Matrices}
 
 \textbf{Notes on Diagonalization}
 
@@ -287,7 +381,7 @@ A^{-1} A A^{-1} = (A^{-1})'A A^{-1}
 A^{-1} = (A^{-1})'
 \]
 
-\subsection{Positive Definite Matrices}
+\section{Positive Definite Matrices}
 
 \begin{proposition}\label{linalg.prop.inner.prod.psd}
 For any real matrix \(A \in \mathbb{R}^{m \times n}\) with \(m \geq n\), the product \(A^T A\) is a positive semidefinite matrix. 
@@ -325,7 +419,7 @@ So we have shown that \(A^TA\) is positive definite if and only if the columns o
 
 Every positive definite matrix is invertible and its inverse is also positive definite.
 
-\subsection{Matrix Decompositions}\label{linalg.mat.decomp}
+\section{Matrix Decompositions}\label{linalg.mat.decomp}
 
 \textbf{Schur complement, Schur decomposition}: 
 
@@ -360,7 +454,47 @@ For information, see Section \ref{cvx.schur.sec}.
 
 \textbf{Cholesky decomposition}
 
-\subsubsection{Singular value decomposition and Pseudo-inverse}
+\begin{theorem}[\textbf{Proof of existence of Cholesky decomposition (Math 547 exercise)}]\label{linalg.cholesky.proof}
+Let $M$ be a $k\times k$ real symmetric matrix.  Then $M$ is positive semidefinite if and only if there exists a real $k\times k$ matrix $R$ such that
+$$M=RR^{T}.$$
+In either case, if $r^{(i)}$ denotes the $i^{th}$ row of $R$, we have
+$$m_{ij}=\langle r^{(i)},r^{(j)}\rangle,\qquad\forall\,1\leq i,j\leq k.$$
+
+\end{theorem}
+
+\begin{proof}
+
+By the Spectral Theorem, we can write \(M = V\Lambda V^T\) where \(V \in \mathbb{R}^{k \times k}\) is orthogonal and \(\Lambda\) is diagonal, with the diagonal entries equal to the eigenvalues of \(M\); that is,
+
+\[
+\Lambda = \begin{bmatrix} \lambda_1 & 0 & \ldots & 0 \\
+0 & \lambda_2 & \ldots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \ldots & \lambda_n
+\end{bmatrix}.
+\]
+
+Since \(M\) is real symmetric, \(M\) is positive semidefinite if and only if its eigenvalues are nonnegative; that is, \(M\) is positive semidefinite if and only if the diagonal entries of \(\Lambda\) are nonnegative. This is true if and only if we can take the square root
+
+\[
+\Lambda^{1/2} = \begin{bmatrix} \sqrt{\lambda_1} & 0 & \ldots & 0 \\
+0 & \sqrt{\lambda_2} & \ldots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \ldots & \sqrt{\lambda_n}
+\end{bmatrix}
+\]
+
+and write
+
+\[
+M = V \Lambda^{1/2} \Lambda^{1/2} V^T =  V \Lambda^{1/2}  \left(  V \Lambda^{1/2}  \right)^T.
+\]
+
+Let \(R :=  V \Lambda^{1/2} \) to complete the proof.
+
+\end{proof}
+
+\subsection{Singular value decomposition and Pseudo-inverse}\label{linalg.sec.svd}
 
 Suppose \(X \in \mathbb{R}^{n \times p}\) with \(\operatorname{rank}(X) = r \leq \min\{n, p\}\). Note that \(X^TX\) is positive semi-definite by Proposition \ref{linalg.prop.inner.prod.psd}. Therefore by the Spectral Decomposition Theorem, we can find a factorization
 
@@ -495,7 +629,13 @@ We call the diagonal entries of \(\Sigma\) the \textbf{singular values} of \(X\)
 %
 %In either case, the columns of \(U \in \mathbb{R}^n\) span the column space of \(X\) (perhaps with some extra vectors thrown in), and the columns of \(V \in \mathbb{R}^p\) span the row space of \(X\) (perhaps with some extra vectors thrown in). 
 
-The first \(r\) nonzero columns of \(U \Sigma\) are called the \textbf{principal components} of \(X\). The columns of \(U \in \mathbb{R}^n\) are also called the \textbf{normalized principal components} of \(X\). Sometimes we call the columns of \(V \in \mathbb{R}^p\) the \textbf{principal component directions} of \(X\).
+The first \(r\) nonzero columns of \(U \Sigma\) are called the \textbf{principal components} of \(X\). The columns of \(U \in \mathbb{R}^n\) are also called the \textbf{normalized principal components} of \(X\). Sometimes we call the columns of \(V \in \mathbb{R}^p\) the \textbf{principal component directions} of \(X\), the \textbf{principal directions}, or the \textbf{principal axes}. Note that 
+
+\[
+X = U \Sigma V^T \implies U \Sigma = XV;
+\]
+
+that is, the principal components \(U \Sigma\) can be seen as the projections of \(X\) onto the principal axes.
 
 %We seek to find these vectors and singular values. Note that
 %
@@ -682,7 +822,7 @@ and
  R^T \sqrt{D} Q \left( R^T \sqrt{D} Q \right)^T = R^T \sqrt{D} Q  Q^T \sqrt{D} R = R^TD R = \ldots = R^T G R =  XX^T.
 \]
 
-\subsubsection{Principal Components}\label{linalg.sec.pr.comps}
+\subsection{Principal Components}\label{linalg.sec.pr.comps}
 
 Again, the \(p\) columns of \(U\Sigma \in \mathbb{R}^n\) are the \textbf{principal components} of \(X\). The first principal component direction \(v_1 \in \mathbb{R}^p\) satisfies the condition \( z_1 := X v_1 \) has the largest sample variance among all normalized linear combinations of the columns of \(X\). That is, \(v_1\) satisfies
 
@@ -690,9 +830,9 @@ Again, the \(p\) columns of \(U\Sigma \in \mathbb{R}^n\) are the \textbf{princip
 v_1 = \underset{ v \in \mathbb{R}^p, \lVert v \rVert_2 = 1}{\arg \max}  \Var(Xv) = \underset{ v \in \mathbb{R}^p, \lVert v \rVert_2 = 1}{\arg \max}  v^T(X^TX)v
 \]
 
-Note that \(z_1 = Xv_1 = \sigma_1 u_1\), so \(z_1\) is the first principal component of \(X\) and \(u_1\) is the normalized first principal component.
+Note that \(z_1 = Xv_1 = \sigma_1 u_1\), so \(z_1\) is the first principal component of \(X\) and \(u_1\) is the normalized first principal component. The singular values are the 
 
-\subsubsection{Low rank matrix approximation}
+\subsection{Low rank matrix approximation}
 
 Note that using the singular value decomposition we can express \(X\) as a sum of rank 1 matrices:
 
@@ -712,7 +852,7 @@ where \(U_k \in \mathbb{R}^{n \times k}\) contains only the first \(k\) columns 
 \lVert X - X_k \rVert_F^2 \leq \lVert X - B \rVert_F^2 .
 \]
 
-\subsection{Inverting Matrices}
+\section{Inverting Matrices}
 
 \begin{theorem}[\textbf{Woodbury Matrix Identity} (or \textbf{Sherman-Morrison-Woodbury formula})] For \(A \in \mathbb{R}^{n \times n}\), \(U \in \mathbb{R}^{n \times k}\), \(C \in \mathbb{R}^{k \times k}\), and \(V \in \mathbb{R}^{v \times n}\),
 
@@ -726,7 +866,7 @@ where \(U_k \in \mathbb{R}^{n \times k}\) contains only the first \(k\) columns 
 
 \end{theorem}
 
-\subsection{Other}
+\section{Other}
 
 \textbf{Frobenius norm}
 
@@ -738,7 +878,7 @@ From appendix of Time Series:
 
 \textbf{Difference Equations}
 
-\subsection{Practice Problems}
+\section{Practice Problems}
 
 [\textbf{The Power Method}]
 This exercise gives an algorithm for finding the eigenvectors and eigenvalues of a symmetric matrix.  In modern statistics, this is often a useful thing to do.  The Power Method described below is not the best algorithm for this task, but it is perhaps the easiest to describe and analyze.

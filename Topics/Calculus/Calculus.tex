@@ -140,12 +140,12 @@
 %%
 %%
 
-\section{Calculus}
+\chapter{Calculus}
 
 These notes include some screenshots from Wikipedia as well as from \textit{Calculus} by Gilbert Strang, available at \url{https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf}. I also used parts from some other resources which I mention when they arise.
 
 % List of common derivatives and integrals to know
-\subsection{Differentiation and common derivatives and integrals to know}
+\section{Differentiation and common derivatives and integrals to know}
 
 \begin{theorem}[\textbf{Clairaut's Theorem}]Let \(z = f(x,y)\) be a two variable real-valued function that is defined on a disk \(\mathcal{D}\) that contains the point \((a,b)\). Then if \(\frac{ \partial^2 z}{\partial x \partial y} \) and \(\frac{ \partial^2 z}{\partial y \partial x} \) are continuous on \(\mathcal{D}\),  \(\frac{ \partial^2 z}{\partial x \partial y} = \frac{ \partial^2 z}{\partial y \partial x} \).
 
@@ -160,9 +160,9 @@ These notes include some screenshots from Wikipedia as well as from \textit{Calc
 \includegraphics[scale=0.65]{integrals2}
 
 % Matrix Differentiation
-\subsection{Matrix Differentiation}
+\section{Matrix Differentiation}\label{calc.mat.diff}
 
-Recommended resource: ``Matrix Differentiation ( and some other stuff )" by Randal J. Barnes (Department of Civil Engineering, University of Minnesota). Available for download at \url{https://atmos.washington.edu/~dennis/MatrixCalculus.pdf}.
+Recommended resource: ``Matrix Differentiation ( and some other stuff )" by Randal J. Barnes (Department of Civil Engineering, University of Minnesota). Available for download at \url{https://atmos.washington.edu/~dennis/MatrixCalculus.pdf}. See also Section \ref{ra.lin.alg.5.2.pugh} of these notes for more on this material.
 
 More information not contained in that pdf (from the appendix of \textit{Convex Optimization} by Stephen Boyd and Lieven Vandenberghe, available for free download at \url{https://web.stanford.edu/~boyd/cvxbook/}):
 
@@ -240,7 +240,7 @@ More generally, suppose  \(f: \mathbb{R}^n \to \mathbb{R}\), \(A \in \mathbb{R}^
 \]
 
 % Some theorems in higher dimensions
-\subsection{Some theorems in higher dimensions}
+\section{Some theorems in higher dimensions}
 
 \begin{proposition}[\textbf{Change of Variables}]If \(U\) is a ``nice" subset of \(\mathbb{R}^2\) and \(\phi\) is an injective differentiable function on \(U\), then 
 
@@ -317,7 +317,7 @@ f(y) = f(x) + \nabla f(x)^T (y - x)  + \frac{1}{2} (y - x)^T \nabla^2 f(x + t(y 
 \end{proof}
 
 % Optimizing functions of several variables
-\subsection{Optimizing functions of several variables}
+\section{Optimizing functions of several variables}
 
 \includegraphics[scale=0.65]{hessian1}
 
@@ -326,10 +326,10 @@ f(y) = f(x) + \nabla f(x)^T (y - x)  + \frac{1}{2} (y - x)^T \nabla^2 f(x + t(y 
 \includegraphics[scale=0.65]{hessian3}
 
 % Lagrange Multipliers
-\subsection{Lagrange Multipliers} \textbf{: to flesh out!} http://tutorial.math.lamar.edu/Classes/CalcIII/LagrangeMultipliers.aspx
+\section{Lagrange Multipliers} \textbf{: to flesh out!} http://tutorial.math.lamar.edu/Classes/CalcIII/LagrangeMultipliers.aspx
 
 % Line Integrals
-\subsection{Line Integrals} (p. 555 of Strang book)
+\section{Line Integrals} (p. 555 of Strang book)
 
 Suppose a force in two-dimensional space is given by \(\boldsymbol{F} = M\boldsymbol{i} + N \boldsymbol{j}\). Then the work done by this force on a particle moving along a curve \(C\) is given by
 
@@ -356,7 +356,7 @@ where the tangent vector \(\boldsymbol{T}\) is given by \[\boldsymbol{T} = \frac
 \textbf{Surface inegrals chapter!} http://tutorial.math.lamar.edu/Classes/CalcIII/SurfaceIntegralsIntro.aspx
 
 % Miscellaneous
-\subsection{Miscellaneous}
+\section{Miscellaneous}
 
 \includegraphics[scale=0.65]{tangent_plane}
 
@@ -371,7 +371,7 @@ D_v f(x, y) = \text{comp}_v \nabla f(x, y) = \frac{\nabla f(x, y) \cdot \boldsym
 \]
 
 % Practice Problems
-\subsection{Practice Problems}
+\section{Practice Problems}
 
 \includegraphics[scale=0.55]{gradient}
 

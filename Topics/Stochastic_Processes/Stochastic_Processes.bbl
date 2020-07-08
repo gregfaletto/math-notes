@@ -1,9 +1,17 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bertsekas(2012)]{v2_bertsekas2012dynamic}
+D.~Bertsekas.
+\newblock \emph{Dynamic Programming and Optimal Control}.
+\newblock Number v. 2 in Athena Scientific optimization and computation series.
+  Athena Scientific, 2012.
+\newblock ISBN 9781886529441.
+\newblock URL \url{https://books.google.com/books?id=H-PSMwEACAAJ}.
 
 \bibitem[Grimmett and Stirzaker(2001)]{grimmett2001probability}
 G.~Grimmett and D.~Stirzaker.

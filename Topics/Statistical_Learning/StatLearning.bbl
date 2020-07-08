@@ -1,0 +1,115 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Akaike(1973)]{Akaike1973}
+H.~Akaike.
+\newblock {Information theory and an extension of the maximum likelihood
+  principle}.
+\newblock In B.~N. Petrov and F.~Cs{\'{a}}ki, editors, \emph{2nd International
+  Symposium on Information Theory}, pages 267--281, Tsahkadsor, Armenia, USSR,
+  1973.
+
+\bibitem[Antoniadis and Fan(2001)]{Antoniadis2001}
+A.~Antoniadis and J.~Fan.
+\newblock {Regularization of Wavelet Approximations}.
+\newblock \emph{Journal of the American Statistical Association}, 96:\penalty0
+  939--967, 2001.
+\newblock ISSN 0162-1459.
+\newblock \doi{10.1198/016214501753208942}.
+\newblock URL
+  \url{https://www.tandfonline.com/action/journalInformation?journalCode=uasa20}.
+
+\bibitem[Bertsekas(2012{\natexlab{a}})]{v1_bertsekas2012dynamic}
+D.~Bertsekas.
+\newblock \emph{Dynamic Programming and Optimal Control}.
+\newblock Number v. 1 in Athena Scientific optimization and computation series.
+  Athena Scientific, 2012{\natexlab{a}}.
+\newblock ISBN 9781886529434.
+\newblock URL \url{https://books.google.com/books?id=REp7swEACAAJ}.
+
+\bibitem[Bertsekas(2012{\natexlab{b}})]{v2_bertsekas2012dynamic}
+D.~Bertsekas.
+\newblock \emph{Dynamic Programming and Optimal Control}.
+\newblock Number v. 2 in Athena Scientific optimization and computation series.
+  Athena Scientific, 2012{\natexlab{b}}.
+\newblock ISBN 9781886529441.
+\newblock URL \url{https://books.google.com/books?id=H-PSMwEACAAJ}.
+
+\bibitem[Breiman(1995)]{Breiman1995}
+L.~Breiman.
+\newblock {Better Subset Regression Using the Nonnegative Garrote}.
+\newblock \emph{Technometrics}, 37\penalty0 (4):\penalty0 373--384, 1995.
+\newblock URL
+  \url{https://www-jstor-org.libproxy2.usc.edu/stable/pdf/1269730.pdf?refreqid=excelsior{\%}3A76eea9bd08301e990d7d6edd86067262}.
+
+\bibitem[Catoni(2012)]{Catoni2012}
+O.~Catoni.
+\newblock {Challenging the empirical mean and empirical variance: A deviation
+  study}.
+\newblock \emph{Annales de l'institut Henri Poincare (B) Probability and
+  Statistics}, 48\penalty0 (4):\penalty0 1148--1185, 2012.
+\newblock ISSN 02460203.
+\newblock \doi{10.1214/11-AIHP454}.
+\newblock URL \url{www.imstat.org/aihpAnnalesdel'}.
+
+\bibitem[Devroye et~al.(2016)Devroye, Lerasle, Lugosi, and
+  Oliveira]{Devroye2016}
+L.~Devroye, M.~Lerasle, G.~Lugosi, and R.~I. Oliveira.
+\newblock {Sub-Gaussian Mean Estimators}.
+\newblock \emph{Annals of Statistics}, 44\penalty0 (6):\penalty0 2695--2725,
+  2016.
+\newblock ISSN 00905364.
+\newblock \doi{10.1214/16-AOS1440}.
+
+\bibitem[Donoho and Johnstone(1994)]{Donoho1994}
+D.~L. Donoho and I.~M. Johnstone.
+\newblock {Ideal Spatial Adaptation by Wavelet Shrinkage}.
+\newblock \emph{Biometrika}, 81\penalty0 (3):\penalty0 425--455, 1994.
+\newblock URL
+  \url{https://www-jstor-org.libproxy2.usc.edu/stable/pdf/2337118.pdf?refreqid=excelsior{\%}3Afb36dc2b9ad4d3d57225eebb75e05df2}.
+
+\bibitem[James et~al.(2009)James, Radchenko, and Lv]{James2009}
+G.~M. James, P.~Radchenko, and J.~Lv.
+\newblock {DASSO: connections between the Dantzig selector and lasso}.
+\newblock \emph{Journal of the Royal Statistical Society. Series B: Statistical
+  Methodology}, 71\penalty0 (1):\penalty0 127--142, 2009.
+\newblock URL
+  \url{https://rss-onlinelibrary-wiley-com.libproxy1.usc.edu/doi/pdf/10.1111/j.1467-9868.2008.00668.x}.
+
+\bibitem[Mathieu and Minsker(2019)]{Mathieu2019}
+T.~Mathieu and S.~Minsker.
+\newblock {Excess risk bounds in robust empirical risk minimization}.
+\newblock 2019.
+\newblock URL \url{https://arxiv.org/abs/1910.07485}.
+
+\bibitem[Osborne et~al.(2000)Osborne, Presnell, and Turlach]{Osborne2000}
+M.~R. Osborne, B.~Presnell, and B.~A. Turlach.
+\newblock {On the LASSO and its Dual}.
+\newblock \emph{Journal of Computational and Graphical Statistics}, 9\penalty0
+  (2):\penalty0 319--337, 2000.
+\newblock ISSN 1537-2715.
+\newblock \doi{10.1080/10618600.2000.10474883}.
+\newblock URL
+  \url{https://www.tandfonline.com/action/journalInformation?journalCode=ucgs20}.
+
+\bibitem[Schwarz(1978)]{Schwarz1978}
+G.~Schwarz.
+\newblock {Estimating the Dimension of a Model}.
+\newblock \emph{The Annals of Statistics}, 6\penalty0 (2):\penalty0 461--464,
+  1978.
+\newblock URL
+  \url{https://www.andrew.cmu.edu/user/kk3n/simplicity/schwarzbic.pdf}.
+
+\bibitem[Tibshirani(2013)]{Tibshirani2013}
+R.~J. Tibshirani.
+\newblock {The lasso problem and uniqueness}.
+\newblock \emph{Electronic Journal of Statistics}, 7\penalty0 (1):\penalty0
+  1456--1490, 2013.
+\newblock ISSN 19357524.
+\newblock \doi{10.1214/13-EJS815}.
+
+\end{thebibliography}

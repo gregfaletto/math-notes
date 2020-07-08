@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 
 \usepackage{fancyhdr}
 \usepackage{extramarks}
@@ -24,6 +24,10 @@
 }
 \usepackage{import}
 \usepackage{natbib}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{esint}
 
 \usetikzlibrary{automata,positioning}
 
@@ -107,11 +111,11 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
-\numberwithin{equation}{section}
+\numberwithin{equation}{chapter}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
-\numberwithin{theorem}{subsection}
+\numberwithin{theorem}{section}
 \theoremstyle{definition}
 \newtheorem{proposition}[theorem]{Proposition}
 %\numberwithin{theorem}{subsection}
@@ -122,13 +126,13 @@
 \newtheorem{corollary}{Corollary}[theorem]
 %\numberwithin{corollary}{subsection}
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
+\newtheorem{definition}{Definition}[chapter]
 %\numberwithin{definition}{subsection}
-\newtheorem*{remark}{Remark}
+\newtheorem{remark}{Remark}
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}
 \theoremstyle{definition}
-\newtheorem{example}{Example}[section]
+\newtheorem{example}{Example}[chapter]
 
 %%%%%% Tilde
 \newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
@@ -137,7 +141,7 @@
 
 \maketitle
 
-\pagebreak
+%\pagebreak
 
 \tableofcontents
 
@@ -150,10 +154,10 @@ Last updated \today
 
 
 
-\newpage
+%\newpage
 
 % Introduction
-\section{Introduction}
+\chapter{Introduction}
 
 These are notes I've collected on various math topics. I originally created this document to prepare for the GRE Math Subject test. Since then I've expanded it as I've reviewed concepts from past classes and reinforced concepts from new classes. This document is very much a work in progress, with many typos, omissions to be filled in, and probably errors. Nonetheless, I share this document in case it's useful to anyone else as a reference.
 
@@ -225,7 +229,7 @@ I use many sources throughout this document, which I either cite at the beginnin
 \pagebreak
 
 % Abstract Algebra
-\import{Topics/}{Abstract_Algebra}
+\import{Topics/Abstract_Algebra/}{Abstract_Algebra}
 
 \pagebreak
 

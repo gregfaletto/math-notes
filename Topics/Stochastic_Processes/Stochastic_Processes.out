@@ -26,3 +26,8 @@
 \BOOKMARK [2][-]{subsection.1.9}{Simple Random Walk}{section.1}% 26
 \BOOKMARK [2][-]{subsection.1.10}{Martingales}{section.1}% 27
 \BOOKMARK [2][-]{subsection.1.11}{Brownian Motion}{section.1}% 28
+\BOOKMARK [2][-]{subsection.1.12}{Dynamic Programming}{section.1}% 29
+\BOOKMARK [3][-]{subsubsection.1.12.1}{Introduction to Dynamic Programming and Principle of Optimality}{subsection.1.12}% 30
+\BOOKMARK [3][-]{subsubsection.1.12.2}{Inventory Control}{subsection.1.12}% 31
+\BOOKMARK [3][-]{subsubsection.1.12.3}{Application of Dynamic Processing in Revenue Management}{subsection.1.12}% 32
+\BOOKMARK [3][-]{subsubsection.1.12.4}{Infinite Horizon \(starts on p. 210 of pdf\)}{subsection.1.12}% 33

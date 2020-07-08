@@ -23,6 +23,11 @@
 \contentsline {subsubsection}{\numberline {1.6.7}Semi-Markov Processes (Section 4.8 of \textit {Stochastic Processes} (p. 224 of pdf), Section 7.6 of \textit {Introduction to Probability Models}}{77}{subsubsection.1.6.7}
 \contentsline {subsection}{\numberline {1.7}ISE 620}{78}{subsection.1.7}
 \contentsline {subsection}{\numberline {1.8}DSO Statistics Group Screening Exam Problems}{80}{subsection.1.8}
-\contentsline {subsection}{\numberline {1.9}Simple Random Walk}{83}{subsection.1.9}
-\contentsline {subsection}{\numberline {1.10}Martingales}{83}{subsection.1.10}
+\contentsline {subsection}{\numberline {1.9}Simple Random Walk}{82}{subsection.1.9}
+\contentsline {subsection}{\numberline {1.10}Martingales}{82}{subsection.1.10}
 \contentsline {subsection}{\numberline {1.11}Brownian Motion}{83}{subsection.1.11}
+\contentsline {subsection}{\numberline {1.12}Dynamic Programming}{84}{subsection.1.12}
+\contentsline {subsubsection}{\numberline {1.12.1}Introduction to Dynamic Programming and Principle of Optimality}{84}{subsubsection.1.12.1}
+\contentsline {subsubsection}{\numberline {1.12.2}Inventory Control}{90}{subsubsection.1.12.2}
+\contentsline {subsubsection}{\numberline {1.12.3}Application of Dynamic Processing in Revenue Management}{97}{subsubsection.1.12.3}
+\contentsline {subsubsection}{\numberline {1.12.4}Infinite Horizon (starts on p. 210 of pdf)}{103}{subsubsection.1.12.4}

@@ -3,9 +3,9 @@
 \contentsline {subsection}{\numberline {1.2}Eigenvalues, Eigenvectors, Diagonalization, Symmetric Matrices}{4}{subsection.1.2}
 \contentsline {subsection}{\numberline {1.3}Positive Definite Matrices}{5}{subsection.1.3}
 \contentsline {subsection}{\numberline {1.4}Matrix Decompositions}{6}{subsection.1.4}
-\contentsline {subsubsection}{\numberline {1.4.1}Singular value decomposition and Pseudo-inverse}{6}{subsubsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.1}Singular value decomposition and Pseudo-inverse}{7}{subsubsection.1.4.1}
 \contentsline {subsubsection}{\numberline {1.4.2}Principal Components}{10}{subsubsection.1.4.2}
-\contentsline {subsubsection}{\numberline {1.4.3}Low rank matrix approximation}{10}{subsubsection.1.4.3}
-\contentsline {subsection}{\numberline {1.5}Inverting Matrices}{10}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}Other}{10}{subsection.1.6}
-\contentsline {subsection}{\numberline {1.7}Practice Problems}{11}{subsection.1.7}
+\contentsline {subsubsection}{\numberline {1.4.3}Low rank matrix approximation}{11}{subsubsection.1.4.3}
+\contentsline {subsection}{\numberline {1.5}Inverting Matrices}{11}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Other}{11}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.7}Practice Problems}{12}{subsection.1.7}

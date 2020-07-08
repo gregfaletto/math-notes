@@ -1,30 +1,46 @@
-\BOOKMARK [1][-]{section.1}{Mathematical Statistics}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Order Statistics}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Random Samples}{section.1}% 3
-\BOOKMARK [3][-]{subsubsection.1.2.1}{The Delta Method}{subsection.1.2}% 4
-\BOOKMARK [3][-]{subsubsection.1.2.2}{Simulation of Random Variables}{subsection.1.2}% 5
-\BOOKMARK [2][-]{subsection.1.3}{Data Reduction}{section.1}% 6
-\BOOKMARK [3][-]{subsubsection.1.3.1}{Sufficient Statistics}{subsection.1.3}% 7
-\BOOKMARK [3][-]{subsubsection.1.3.2}{Minimal Sufficient Statistics}{subsection.1.3}% 8
-\BOOKMARK [3][-]{subsubsection.1.3.3}{Ancillary Statistics}{subsection.1.3}% 9
-\BOOKMARK [3][-]{subsubsection.1.3.4}{Complete Statistics}{subsection.1.3}% 10
-\BOOKMARK [2][-]{subsection.1.4}{Point Estimation}{section.1}% 11
-\BOOKMARK [3][-]{subsubsection.1.4.1}{Heuristic Principles for Finding Good Estimators}{subsection.1.4}% 12
-\BOOKMARK [3][-]{subsubsection.1.4.2}{Evaluating Estimators}{subsection.1.4}% 13
-\BOOKMARK [3][-]{subsubsection.1.4.3}{Efficiency of an Estimator}{subsection.1.4}% 14
-\BOOKMARK [3][-]{subsubsection.1.4.4}{Bayes Estimation}{subsection.1.4}% 15
-\BOOKMARK [3][-]{subsubsection.1.4.5}{Method of Moments}{subsection.1.4}% 16
-\BOOKMARK [3][-]{subsubsection.1.4.6}{Maximum likelihood estimator}{subsection.1.4}% 17
-\BOOKMARK [3][-]{subsubsection.1.4.7}{Bayes estimator}{subsection.1.4}% 18
-\BOOKMARK [3][-]{subsubsection.1.4.8}{EM Algorithm}{subsection.1.4}% 19
-\BOOKMARK [3][-]{subsubsection.1.4.9}{Comparison of estimators}{subsection.1.4}% 20
-\BOOKMARK [2][-]{subsection.1.5}{Resampling and Bias Reduction}{section.1}% 21
-\BOOKMARK [3][-]{subsubsection.1.5.1}{Jackknife Resampling}{subsection.1.5}% 22
-\BOOKMARK [3][-]{subsubsection.1.5.2}{Bootstrapping}{subsection.1.5}% 23
-\BOOKMARK [2][-]{subsection.1.6}{Some Concentration of Measure}{section.1}% 24
-\BOOKMARK [3][-]{subsubsection.1.6.1}{Concentration for Independent Sums}{subsection.1.6}% 25
-\BOOKMARK [2][-]{subsection.1.7}{Math 541B}{section.1}% 26
-\BOOKMARK [2][-]{subsection.1.8}{Hypothesis Testing}{section.1}% 27
-\BOOKMARK [3][-]{subsubsection.1.8.1}{Neyman-Pearson Tests}{subsection.1.8}% 28
-\BOOKMARK [3][-]{subsubsection.1.8.2}{Consistency of Neyman-Pearson Tests}{subsection.1.8}% 29
-\BOOKMARK [3][-]{subsubsection.1.8.3}{Composite Hypothesis Testing}{subsection.1.8}% 30
+\BOOKMARK [0][-]{chapter.1}{Mathematical Statistics}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Order Statistics}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Random Samples}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{The Delta Method}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Simulation of Random Variables}{section.1.2}% 5
+\BOOKMARK [1][-]{section.1.3}{Data Reduction}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.3.1}{Sufficient Statistics}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.2}{Minimal Sufficient Statistics}{section.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.3.3}{Ancillary Statistics}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.4}{Complete Statistics}{section.1.3}% 10
+\BOOKMARK [1][-]{section.1.4}{Point Estimation}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.4.1}{Heuristic Principles for Finding Good Estimators}{section.1.4}% 12
+\BOOKMARK [2][-]{subsection.1.4.2}{Evaluating Estimators}{section.1.4}% 13
+\BOOKMARK [2][-]{subsection.1.4.3}{Efficiency of an Estimator}{section.1.4}% 14
+\BOOKMARK [2][-]{subsection.1.4.4}{Bayes Estimation}{section.1.4}% 15
+\BOOKMARK [2][-]{subsection.1.4.5}{Method of Moments}{section.1.4}% 16
+\BOOKMARK [2][-]{subsection.1.4.6}{Maximum likelihood estimator}{section.1.4}% 17
+\BOOKMARK [2][-]{subsection.1.4.7}{Bayes estimator}{section.1.4}% 18
+\BOOKMARK [2][-]{subsection.1.4.8}{EM Algorithm}{section.1.4}% 19
+\BOOKMARK [2][-]{subsection.1.4.9}{Comparison of estimators}{section.1.4}% 20
+\BOOKMARK [1][-]{section.1.5}{Resampling and Bias Reduction}{chapter.1}% 21
+\BOOKMARK [2][-]{subsection.1.5.1}{Jackknife Resampling}{section.1.5}% 22
+\BOOKMARK [2][-]{subsection.1.5.2}{Bootstrapping}{section.1.5}% 23
+\BOOKMARK [1][-]{section.1.6}{Some Concentration of Measure}{chapter.1}% 24
+\BOOKMARK [2][-]{subsection.1.6.1}{Concentration for Independent Sums}{section.1.6}% 25
+\BOOKMARK [1][-]{section.1.7}{Math 541B}{chapter.1}% 26
+\BOOKMARK [1][-]{section.1.8}{Hypothesis Testing}{chapter.1}% 27
+\BOOKMARK [2][-]{subsection.1.8.1}{Neyman-Pearson Tests}{section.1.8}% 28
+\BOOKMARK [2][-]{subsection.1.8.2}{Consistency of Neyman-Pearson Tests}{section.1.8}% 29
+\BOOKMARK [2][-]{subsection.1.8.3}{Composite Hypothesis Testing}{section.1.8}% 30
+\BOOKMARK [2][-]{subsection.1.8.4}{Locally Most Powerful Tests}{section.1.8}% 31
+\BOOKMARK [2][-]{subsection.1.8.5}{Similarity and Completeness \(Section 4.3 of lehmann2005testing\)}{section.1.8}% 32
+\BOOKMARK [2][-]{subsection.1.8.6}{Permutation Tests \(section 5.8 in lehmann2005testing, p. 188 of pdf\)}{section.1.8}% 33
+\BOOKMARK [2][-]{subsection.1.8.7}{Invariance in Testing \(Chapter 6 of lehmann2005testing\)}{section.1.8}% 34
+\BOOKMARK [2][-]{subsection.1.8.8}{Maximal Invariants \(Section 6.2 of lehmann2005testing\)}{section.1.8}% 35
+\BOOKMARK [2][-]{subsection.1.8.9}{Rank Tests \(Section 6.8 and 6.9 of lehmann2005testing\)}{section.1.8}% 36
+\BOOKMARK [2][-]{subsection.1.8.10}{Likelihood Ratio Tests \(Section 12.4.4 of lehmann2005testing\)}{section.1.8}% 37
+\BOOKMARK [2][-]{subsection.1.8.11}{Bahadur's Relative Efficiency \(Section 10.4 of serfling1980\)}{section.1.8}% 38
+\BOOKMARK [1][-]{section.1.9}{Confidence Intervals}{chapter.1}% 39
+\BOOKMARK [2][-]{subsection.1.9.1}{Connection Between Testing and Confidence Sets}{section.1.9}% 40
+\BOOKMARK [1][-]{section.1.10}{U-Statistics}{chapter.1}% 41
+\BOOKMARK [2][-]{subsection.1.10.1}{Basic Definitions and Properties [Sections 5.1 and 5.2]serfling1980, [Section 15.1]dasgupta2008asymptotic}{section.1.10}% 42
+\BOOKMARK [2][-]{subsection.1.10.2}{Asymptotics [Section 5.3]serfling1980, [Section 15.2]dasgupta2008asymptotic}{section.1.10}% 43
+\BOOKMARK [1][-]{section.1.11}{Influence Functions \(Section 6.6.1 of serfling1980\)}{chapter.1}% 44
+\BOOKMARK [1][-]{section.1.12}{M-Estimators \(Chapter 7 of serfling1980\)}{chapter.1}% 45
+\BOOKMARK [1][-]{section.1.13}{Distance Correlation}{chapter.1}% 46

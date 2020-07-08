@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 OCT 2019 10:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 JUL 2020 12:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,19 +7,20 @@ entering extended mode
 (./StatLearning.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -61,13 +62,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count88
+\inf@bad=\count89
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count89
-\leftroot@=\count90
+\uproot@=\count90
+\leftroot@=\count91
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count91
-\DOTSCASE@=\count92
+\classnum@=\count92
+\DOTSCASE@=\count93
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
@@ -76,15 +77,15 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen105
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count93
-\c@MaxMatrixCols=\count94
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
 \dotsspace@=\muskip10
-\c@parentequation=\count95
-\dspbrk@lvl=\count96
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
 \tag@help=\toks16
-\row@=\count97
-\column@=\count98
-\maxfields@=\count99
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
 \andhelp@=\toks17
 \eqnshift@=\dimen106
 \alignsep@=\dimen107
@@ -188,10 +189,10 @@ ode.tex
 \pgf@yc=\dimen123
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count100
-\c@pgf@countb=\count101
-\c@pgf@countc=\count102
-\c@pgf@countd=\count103
+\c@pgf@counta=\count101
+\c@pgf@countb=\count102
+\c@pgf@countc=\count103
+\c@pgf@countd=\count104
 \t@pgf@toka=\toks31
 \t@pgf@tokb=\toks32
 \t@pgf@tokc=\toks33
@@ -212,8 +213,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count104
-\pgfsyssoftpath@bigbuffer@items=\count105
+\pgfsyssoftpath@smallbuffer@items=\count105
+\pgfsyssoftpath@bigbuffer@items=\count106
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -242,7 +243,7 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen124
-\pgfmath@count=\count106
+\pgfmath@count=\count107
 \pgfmath@box=\box29
 \pgfmath@toks=\toks34
 \pgfmath@stack@operand=\toks35
@@ -267,7 +268,7 @@ code.tex)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
 erarithmetics.code.tex)))
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count107
+\c@pgfmathroundto@lastzeros=\count108
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
@@ -305,7 +306,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box30
 \pgf@hbox=\box31
 \pgf@layerbox@main=\box32
-\pgf@picture@serial@count=\count108
+\pgf@picture@serial@count=\count109
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
@@ -340,7 +341,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 e.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen148
-\pgf@sys@shading@range@num=\count109
+\pgf@sys@shading@range@num=\count110
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -403,7 +404,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count110
+\pgf@plot@mark@count=\count111
 \pgfplotmarksize=\dimen153
 )
 \tikz@lastx=\dimen154
@@ -416,19 +417,19 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box36
 \tikz@tempbox=\box37
 \tikz@tempbox@bg=\box38
-\tikztreelevel=\count111
-\tikznumberofchildren=\count112
-\tikznumberofcurrentchild=\count113
-\tikz@fig@count=\count114
+\tikztreelevel=\count112
+\tikznumberofchildren=\count113
+\tikznumberofcurrentchild=\count114
+\tikz@fig@count=\count115
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count115
-\pgfmatrixcurrentcolumn=\count116
-\pgf@matrix@numberofcolumns=\count117
+\pgfmatrixcurrentrow=\count116
+\pgfmatrixcurrentcolumn=\count117
+\pgf@matrix@numberofcolumns=\count118
 )
-\tikz@expandcount=\count118
+\tikz@expandcount=\count119
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -444,7 +445,7 @@ nment
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count119
+\c@float@type=\count120
 \float@exts=\toks40
 \float@box=\box39
 \@float@everytoks=\toks41
@@ -454,7 +455,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks42
-\c@algorithm=\count120
+\c@algorithm=\count121
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -463,15 +464,15 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count121
-\c@ALG@rem=\count122
-\c@ALG@nested=\count123
+\c@ALG@line=\count122
+\c@ALG@rem=\count123
+\c@ALG@nested=\count124
 \ALG@tlm=\skip58
 \ALG@thistlm=\skip59
-\c@ALG@Lnr=\count124
-\c@ALG@blocknr=\count125
-\c@ALG@storecount=\count126
-\c@ALG@tmpcounter=\count127
+\c@ALG@Lnr=\count125
+\c@ALG@blocknr=\count126
+\c@ALG@storecount=\count127
+\c@ALG@tmpcounter=\count128
 \ALG@tmplength=\skip60
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -489,7 +490,7 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks43
 \footnotemargin=\dimen160
-\c@pp@next@reset=\count128
+\c@pp@next@reset=\count129
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
 Package footmisc Info: Declaring symbol style wiley on input line 872.
@@ -731,15 +732,15 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen161
-\Hy@linkcounter=\count129
-\Hy@pagecounter=\count130
+\Hy@linkcounter=\count130
+\Hy@pagecounter=\count131
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count131
+\Hy@SavedSpaceFactor=\count132
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -751,7 +752,7 @@ Package hyperref Info: Plain pages OFF on input line 4524.
 Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count132
+\c@Hy@tempcnt=\count133
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
@@ -759,7 +760,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5115.
 \XeTeXLinkMargin=\dimen162
-\Fld@menulength=\count133
+\Fld@menulength=\count134
 \Field@Width=\dimen163
 \Fld@charsize=\dimen164
 Package hyperref Info: Hyper figures OFF on input line 6369.
@@ -771,16 +772,16 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6394.
 Package hyperref Info: PDF/A mode OFF on input line 6399.
 LaTeX Info: Redefining \ref on input line 6439.
 LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count134
-\c@Item=\count135
-\c@Hfootnote=\count136
+\Hy@abspage=\count135
+\c@Item=\count136
+\c@Hfootnote=\count137
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count137
-\c@bookmark@seq@number=\count138
+\Fld@listcount=\count138
+\c@bookmark@seq@number=\count139
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -796,7 +797,25 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip76
 \bibsep=\skip77
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count139
+\c@NAT@ctr=\count140
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup7
+\symboldletters=\mathgroup8
+\symboldsymbols=\mathgroup9
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryautomata.code.tex
@@ -836,49 +855,53 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
 s/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
-\c@theorem=\count140
-\c@corollary=\count141
-\c@definition=\count142
-\c@example=\count143
- (./StatLearning.aux)
+\c@theorem=\count141
+\c@corollary=\count142
+\c@definition=\count143
+\c@exercise=\count144
+\c@example=\count145
+ (./StatLearning.aux
+
+LaTeX Warning: Label `dp_k_convexity_fig' multiply defined.
+
+)
 \openout1 = `StatLearning.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 117.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 123.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 123.
 
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count144
+\scratchcounter=\count146
 \scratchdimen=\dimen165
 \scratchbox=\box61
-\nofMPsegments=\count145
-\nofMParguments=\count146
+\nofMPsegments=\count147
+\nofMParguments=\count148
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count147
+\MPscratchCnt=\count149
 \MPscratchDim=\dimen166
-\MPnumerator=\count148
-\makeMPintoPDFobject=\count149
+\MPnumerator=\count150
+\makeMPintoPDFobject=\count151
 \everyMPtoPDFconversion=\toks45
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -897,12 +920,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package ragged2e Info: ABD: executing \RaggedRight on input line 117.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 123.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 117.
+LaTeX Info: Redefining \selectfont on input line 123.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring ON on input line 117.
+Package hyperref Info: Link coloring ON on input line 123.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -910,72 +933,933 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count150
+\c@section@level=\count152
 )
-LaTeX Info: Redefining \ref on input line 117.
-LaTeX Info: Redefining \pageref on input line 117.
-LaTeX Info: Redefining \nameref on input line 117.
+LaTeX Info: Redefining \ref on input line 123.
+LaTeX Info: Redefining \pageref on input line 123.
+LaTeX Info: Redefining \nameref on input line 123.
 
 (./StatLearning.out) (./StatLearning.out)
 \@outlinefile=\write4
 \openout4 = `StatLearning.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 120.
+LaTeX Font Info:    Try loading font information for U+msa on input line 126.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 120.
+LaTeX Font Info:    Try loading font information for U+msb on input line 126.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 120.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 126.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Stat
-Learning.toc)
+
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+]
+(./StatLearning.toc [3]
+Underfull \vbox (badness 1748) has occurred while \output is active []
+
+ [4])
 \tf@toc=\write5
 \openout5 = `StatLearning.toc'.
 
- [2] [3]
-No file StatLearning.bbl.
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 215.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 215.
+
+[5] [6
+
+]
+Chapter 1.
+[7]
+
+LaTeX Warning: Reference `linalg.sec.pr.comps' on page 8 undefined on input lin
+e 217.
+
+[8] [9] [10]
+Overfull \hbox (0.4123pt too wide) in paragraph at lines 360--361
+[]\OT1/cmr/m/n/10 We will try to max-i-miz-ing the KL Di-ver-gence by es-ti-mat
+-ing $\OML/cmm/m/it/10 ^^R[]$ \OT1/cmr/m/n/10 as best as we can by max-i-miz-in
+g the \OT1/cmr/bx/n/10 prob- 
+ []
+
+[11]
+
+LaTeX Warning: Reference `prob.kl.divergence' on page 12 undefined on input lin
+e 416.
+
+
+LaTeX Warning: Reference `mathstats.sec.mle' on page 12 undefined on input line
+ 416.
+
+[12]
+Overfull \hbox (17.56691pt too wide) in paragraph at lines 465--466
+[]\OT1/cmr/m/n/10 Note that if the model is cor-rect, $\OML/cmm/m/it/10 A[] \OT
+1/cmr/m/n/10 = \OML/cmm/m/it/10 B[]$ \OT1/cmr/m/n/10 so this re-duces to con-ve
+n-tional asymp-totic MLE the-ory ($[]([]) = 
+ []
+
+[13]
+Overfull \hbox (14.73413pt too wide) in paragraph at lines 479--480
+[]\OT1/cmr/m/n/10 Note: $[](\OML/cmm/m/it/10 y; []\OT1/cmr/m/n/10 ) \OML/cmm/m/
+it/10 > []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y; ^^L[]\OT1/cmr/m/n/10 )$ be-cause
+ $[]$ is by def-i-ni-tion the MLE on the ob-served data. But $\U/msb/m/n/10 E\O
+T1/cmr/m/n/10 ([]([]\OML/cmm/m/it/10 ; ^^L[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 
+> 
+ []
+
+[14] [15] [16]
+Overfull \hbox (2.54955pt too wide) detected at line 666
+[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 X[]X \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 
+^^UI[]\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 X[]y \OT1/cmr/m/n/10 = (\OML/cmm/m/it
+/10 X[]X \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^UI[]\OT1/cmr/m/n/10 )[]\OML/cmm/m
+/it/10 X[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X^^L \OT1/cmr/m/n/10 + \OML/cmm/m/i
+t/10 ^^O\OT1/cmr/m/n/10 ) = (\OML/cmm/m/it/10 X[]X \OT1/cmr/m/n/10 + \OML/cmm/m
+/it/10 ^^UI[]\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 X[]X^^L \OT1/cmr/m/n/10 + (\OM
+L/cmm/m/it/10 X[]X \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^UI[]\OT1/cmr/m/n/10 )[]
+\OML/cmm/m/it/10 X[]^^O
+ []
+
+[17]
+Overfull \hbox (5.19205pt too wide) in paragraph at lines 717--718
+[]\OT1/cmr/m/n/10 where we sub-sti-tute the pseu-doin-verse in-stead of the in-
+verse be-cause since $\OML/cmm/m/it/10 X[]X$ \OT1/cmr/m/n/10 is rank de-fi-cien
+t, $(\OML/cmm/m/it/10 X[]X\OT1/cmr/m/n/10 )[]$ 
+ []
+
+[18] [19]
+
+LaTeX Warning: Reference `cvx.least.squares.cvx' on page 20 undefined on input 
+line 831.
+
+
+LaTeX Warning: Reference `cvx.norm.cvx' on page 20 undefined on input line 831.
+
+
+
+LaTeX Warning: Reference `cvx.sum.cvx.cvx' on page 20 undefined on input line 8
+31.
+
+[20] [21]
+<images/linreg_lasso_level_set.png, id=584, 1049.9225pt x 656.4525pt>
+File: images/linreg_lasso_level_set.png Graphic file (type png)
+<use images/linreg_lasso_level_set.png>
+Package pdftex.def Info: images/linreg_lasso_level_set.png  used on input line 
+936.
+(pdftex.def)             Requested size: 367.47838pt x 229.76181pt.
+ [22] [23 <./images/linreg_lasso_level_set.png>] [24]
+Overfull \hbox (1.70355pt too wide) in paragraph at lines 1135--1136
+\OT1/cmr/m/n/10 lower bound on the quan-tity we are min-i-miz-ing; oth-er-wise,
+ when $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 is neg-a-tive the in-fi-mum is 0
+. When 
+ []
+
+[25] [26] [27] [28] [29]
+<images/linreg_lars_2d.png, id=716, 719.68875pt x 543.02875pt>
+File: images/linreg_lars_2d.png Graphic file (type png)
+<use images/linreg_lars_2d.png>
+Package pdftex.def Info: images/linreg_lars_2d.png  used on input line 1465.
+(pdftex.def)             Requested size: 375.80542pt x 283.56145pt.
+<images/linreg_lars_3d.png, id=717, 720.6925pt x 568.1225pt>
+File: images/linreg_lars_3d.png Graphic file (type png)
+<use images/linreg_lars_3d.png>
+Package pdftex.def Info: images/linreg_lars_3d.png  used on input line 1470.
+(pdftex.def)             Requested size: 375.80542pt x 296.24893pt.
+ [30 <./images/linreg_lars_2d.png>]
+Overfull \hbox (1.50441pt too wide) in paragraph at lines 1476--1477
+\OT1/cmr/m/n/10 whenever $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 be-comes 0, i
+t is dropped from the cur-rent ac-tive set. A fea-ture's sign can-not change in
+ lasso--- 
+ []
+
+[31 <./images/linreg_lars_3d.png>] [32]
+
+LaTeX Warning: Reference `linreg.sec.quant.reg' on page 33 undefined on input l
+ine 1574.
+
+[33] [34] [35] [36] [37]
+
+LaTeX Warning: Reference `mathstats.sec.em.alg' on page 38 undefined on input l
+ine 1855.
+
+[38]
+<images/linreg_spatial_mixture_model_2.jpg, id=791, 2446.13875pt x 1563.8425pt>
+
+File: images/linreg_spatial_mixture_model_2.jpg Graphic file (type jpg)
+<use images/linreg_spatial_mixture_model_2.jpg>
+Package pdftex.def Info: images/linreg_spatial_mixture_model_2.jpg  used on inp
+ut line 1859.
+(pdftex.def)             Requested size: 366.90498pt x 234.56625pt.
+
+
+LaTeX Warning: Reference `prob.sec.exp.fams' on page 39 undefined on input line
+ 1870.
+
+[39 <./images/linreg_spatial_mixture_model_2.jpg>] [40]
+
+LaTeX Warning: Reference `mathstats.prop.inv.mle' on page 41 undefined on input
+ line 1973.
+
+
+LaTeX Warning: Reference `mathstats.def.fish.inf' on page 41 undefined on input
+ line 1999.
+
+
+LaTeX Warning: Reference `mathstats.eff.est' on page 41 undefined on input line
+ 1999.
+
+
+Overfull \hbox (28.36852pt too wide) detected at line 2003
+\OML/cmm/m/it/10 i[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 ) = \U
+/msb/m/n/10 E [] \OT1/cmr/m/n/10 = [] [] = [](\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/
+10 ) = \OML/cmm/m/it/10 n[][]\OT1/cmr/m/n/10 ([]) = \OML/cmm/m/it/10 n[][][]\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =n \OT1/cmr/m
+/n/10 = \OML/cmm/m/it/10 n[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/1
+0 )
+ []
+
+
+LaTeX Warning: Reference `mathstats.prop.inv.mle' on page 41 undefined on input
+ line 2011.
+
+[41]
+
+LaTeX Warning: Reference `mathstats.cramer.rao' on page 42 undefined on input l
+ine 2024.
+
+[42] [43] [44] [45] [46] [47]
+Overfull \hbox (2.25017pt too wide) detected at line 2364
+\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f; g\OT1/cmr/m/n/10 )[] \
+OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f; g\
+OT1/cmr/m/n/10 )[] = (\U/msb/m/n/10 E[]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f \OM
+S/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 g\OMS/cmsy/m/n/10 j[]\OT1/cmr/m/n/10 )[] \OM
+S/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 (\U/msb/m/n/10 E[]\OMS/cmsy/m/n/10 j\OML/cmm/
+m/it/10 f \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 g\OMS/cmsy/m/n/10 j[]\OT1/cmr/m
+/n/10 )[] = \U/msb/m/n/10 E\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
+X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ [] [] \OML/cmm/m/it/10 h\OT1/cmr/m/n/10
+ (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 ) = [] [] []
+ []
+
+[48] [49]
+Overfull \hbox (15.33821pt too wide) in paragraph at lines 2467--2468
+[]\OT1/cmr/m/n/10 but this is not low-rank.) (Ex-er-cise: cal-cu-late $\U/msb/m
+/n/10 E\OMS/cmsy/m/n/10 k[] ^^@ \OML/cmm/m/it/10 A[]\OMS/cmsy/m/n/10 k[]$\OT1/c
+mr/m/n/10 .) One idea is to im-pose a con-straint that $[](\OML/cmm/m/it/10 S\O
+T1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T 
+ []
+
+[50] [51] [52] [53]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 2723.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 2723.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 2723.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 2723.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 2723.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 2723.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 2723.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 2723.
+
+[54]
+<images/stoch_dp_ic.jpg, id=904, 1926.19624pt x 1325.95375pt>
+File: images/stoch_dp_ic.jpg Graphic file (type jpg)
+<use images/stoch_dp_ic.jpg>
+Package pdftex.def Info: images/stoch_dp_ic.jpg  used on input line 2790.
+(pdftex.def)             Requested size: 385.23242pt x 265.18605pt.
+ [55]
+Overfull \hbox (3.94258pt too wide) detected at line 2809
+[] [] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 :
+ []
+
+[56 <./images/stoch_dp_ic.jpg>] [57]
+Overfull \hbox (5.42584pt too wide) in paragraph at lines 2903--2904
+[][]\OT1/cmr/bx/n/10 Example 1.22.2 \OT1/cmr/m/n/10 (Anal-ogy)\OT1/cmr/bx/n/10 
+. []\OT1/cmr/m/n/10 Con-sider the short-est path from LA to New York. If that p
+ath passes through 
+ []
+
+
+Overfull \hbox (21.71135pt too wide) detected at line 2919
+\OML/cmm/m/it/10 J[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) = []
+ []
+ []
+
+[58]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 2967.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 2967.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 2967.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 2967.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 2967.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 2967.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 2967.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 2967.
+
+
+Overfull \hbox (22.02962pt too wide) in paragraph at lines 2973--2974
+[]\OT1/cmr/bx/n/10 Time lag: \OT1/cmr/m/n/10 Sup-pose that $\OML/cmm/m/it/10 x[
+]$ \OT1/cmr/m/n/10 de-pends on $\OML/cmm/m/it/10 x[]; u[]$\OT1/cmr/m/n/10 , and
+ $\OML/cmm/m/it/10 x[]; w[]$\OT1/cmr/m/n/10 . Then $\OML/cmm/m/it/10 x[] \OT1/c
+mr/m/n/10 = \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; u[]; w[]; 
+x[]; w[]\OT1/cmr/m/n/10 )$. 
+ []
+
+
+Overfull \hbox (34.35558pt too wide) in paragraph at lines 2987--2988
+\OT1/cmr/m/n/10 bil-ity dis-tri-bu-tion of $\OML/cmm/m/it/10 w[]$\OT1/cmr/m/n/1
+0 . In par-tic-u-lar, sup-pose $\OML/cmm/m/it/10 w[]$ \OT1/cmr/m/n/10 can have 
+one of $\OML/cmm/m/it/10 m$ \OT1/cmr/m/n/10 pos-si-ble dis-tri-bu-tions $\OML/c
+mm/m/it/10 Q[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )\OML/cmm/m/
+it/10 ; [] ; Q[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )$. 
+ []
+
+[59]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 3040.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 3040.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 3040.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 3040.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 3040.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 3040.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 3040.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 3040.
+
+[60] [61]
+<images/dp_inventory_control.jpg, id=973, 2620.79124pt x 2584.65625pt>
+File: images/dp_inventory_control.jpg Graphic file (type jpg)
+<use images/dp_inventory_control.jpg>
+Package pdftex.def Info: images/dp_inventory_control.jpg  used on input line 31
+17.
+(pdftex.def)             Requested size: 393.10173pt x 387.68172pt.
+<images/stoch_dp_k_cvx.jpg, id=986, 1885.0425pt x 1722.435pt>
+File: images/stoch_dp_k_cvx.jpg Graphic file (type jpg)
+<use images/stoch_dp_k_cvx.jpg>
+Package pdftex.def Info: images/stoch_dp_k_cvx.jpg  used on input line 3153.
+(pdftex.def)             Requested size: 377.00182pt x 344.4809pt.
+ [62] [63 <./images/dp_inventory_control.jpg>] [64 <./images/stoch_dp_k_cvx.jpg
+>]
+
+LaTeX Warning: Reference `cvx.slope.nondec' on page 65 undefined on input line 
+3172.
+
+<images/stoch_dp_k_cvx_p3.jpg, id=1012, 1632.0975pt x 1121.18875pt>
+File: images/stoch_dp_k_cvx_p3.jpg Graphic file (type jpg)
+<use images/stoch_dp_k_cvx_p3.jpg>
+Package pdftex.def Info: images/stoch_dp_k_cvx_p3.jpg  used on input line 3215.
+
+(pdftex.def)             Requested size: 326.41371pt x 224.23378pt.
+[65] [66 <./images/stoch_dp_k_cvx_p3.jpg>]
+<images/stoch_dp_fixed.jpg, id=1040, 953.5625pt x 471.7625pt>
+File: images/stoch_dp_fixed.jpg Graphic file (type jpg)
+<use images/stoch_dp_fixed.jpg>
+Package pdftex.def Info: images/stoch_dp_fixed.jpg  used on input line 3327.
+(pdftex.def)             Requested size: 286.07095pt x 141.52983pt.
+<images/dp_k_convexity.jpg, id=1046, 2387.92125pt x 1432.35126pt>
+File: images/dp_k_convexity.jpg Graphic file (type jpg)
+<use images/dp_k_convexity.jpg>
+Package pdftex.def Info: images/dp_k_convexity.jpg  used on input line 3352.
+(pdftex.def)             Requested size: 405.94125pt x 243.49649pt.
+ [67] [68 <./images/stoch_dp_fixed.jpg> <./images/dp_k_convexity.jpg>]
+<images/stoch_dp_fixed_thm_proof_1.jpg, id=1076, 1402.23875pt x 687.56876pt>
+File: images/stoch_dp_fixed_thm_proof_1.jpg Graphic file (type jpg)
+<use images/stoch_dp_fixed_thm_proof_1.jpg>
+Package pdftex.def Info: images/stoch_dp_fixed_thm_proof_1.jpg  used on input l
+ine 3437.
+(pdftex.def)             Requested size: 280.44278pt x 137.5113pt.
+ [69]
+Overfull \hbox (41.04774pt too wide) detected at line 3467
+[]
+ []
+
+[70 <./images/stoch_dp_fixed_thm_proof_1.jpg>] [71]
+Overfull \hbox (1.52373pt too wide) in paragraph at lines 3550--3551
+\OT1/cmr/m/n/10 for last minute when you can charge a lot?) cal-cu-late and up-
+date book-ing lim-its (done daily/weekly). 
+ []
+
+
+Overfull \hbox (15.02362pt too wide) in paragraph at lines 3564--3565
+\OT1/cmr/m/n/10 time, bring-ing a carry-on, etc.). Each fare class is a com-bi-
+na-tion of a price and re-stric-tions on what/who 
+ []
+
+[72]
+Overfull \hbox (3.18063pt too wide) in paragraph at lines 3598--3599
+\OT1/cmr/m/n/10 seat. Should we open it to a dis-count pas-sen-ger or should we
+ sell it? Breakeven point is when $\OML/cmm/m/it/10 P[] \OT1/cmr/m/n/10 = \U/ms
+b/m/n/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[] \OMS/cmsy/m/n/10 ^^U 
+ []
+
+LaTeX Font Info:    Try loading font information for U+bbm on input line 3630.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
+<images/stoch_littlewood.jpg, id=1142, 700.6175pt x 489.83pt>
+File: images/stoch_littlewood.jpg Graphic file (type jpg)
+<use images/stoch_littlewood.jpg>
+Package pdftex.def Info: images/stoch_littlewood.jpg  used on input line 3636.
+(pdftex.def)             Requested size: 350.30789pt x 244.9144pt.
+ [73] [74 <./images/stoch_littlewood.jpg>] [75]
+<images/stoch_dp_n_class.jpg, id=1175, 2658.93375pt x 2130.96124pt>
+File: images/stoch_dp_n_class.jpg Graphic file (type jpg)
+<use images/stoch_dp_n_class.jpg>
+Package pdftex.def Info: images/stoch_dp_n_class.jpg  used on input line 3741.
+(pdftex.def)             Requested size: 398.82286pt x 319.6304pt.
+ [76 <./images/stoch_dp_n_class.jpg>]
+<images/stoch_dp_n_class_pf.jpg, id=1189, 1688.3075pt x 1399.2275pt>
+File: images/stoch_dp_n_class_pf.jpg Graphic file (type jpg)
+<use images/stoch_dp_n_class_pf.jpg>
+Package pdftex.def Info: images/stoch_dp_n_class_pf.jpg  used on input line 376
+8.
+(pdftex.def)             Requested size: 337.65552pt x 279.84055pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 3779.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 3779.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 3779.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 3779.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 3779.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 3779.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 3779.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 3779.
+
+[77 <./images/stoch_dp_n_class_pf.jpg>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 3833.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 3833.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 3833.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 3833.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 3833.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 3833.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 3833.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 3833.
+
+[78]
+Overfull \hbox (25.14151pt too wide) in paragraph at lines 3870--3871
+[]\OT1/cmr/m/n/10 Key rea-son to study in-fi-nite hori-zon prob-lems: in most c
+ases, an op-ti-mal pol-icy is sta-tion-ary: $^^E[] = \OMS/cmsy/m/n/10 f\OML/cmm
+/m/it/10 ^^V; ^^V; ^^V; []\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (2.31725pt too wide) in paragraph at lines 3880--3881
+[]\OT1/cmr/m/n/10 The MDP as-sump-tion cor-re-sponds to the clas-si-cal finite-
+state Markov de-ci-sion pro-cess. Let $\OMS/cmsy/m/n/10 X \OT1/cmr/m/n/10 = \OM
+S/cmsy/m/n/10 f\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; [] ; n\OMS/cmsy/m/n/10 g$\OT
+1/cmr/m/n/10 . 
+ []
+
+[79] [80]
+
+LaTeX Warning: Reference `ra.def.contraction' on page 81 undefined on input lin
+e 4005.
+
+
+LaTeX Warning: Reference `ra.contractions.odes' on page 81 undefined on input l
+ine 4005.
+
+[81] [82]
+
+LaTeX Warning: Reference `ra.contractions.odes' on page 83 undefined on input l
+ine 4145.
+
+
+Overfull \hbox (0.30983pt too wide) in paragraph at lines 4165--4166
+[]\OT1/cmr/bx/n/10 notes from re-view on 2/11/10: $\OML/cmm/m/it/10 J[]$ \OT1/c
+mr/m/n/10 is the unique fixed point of $\OML/cmm/m/it/10 T$ \OT1/cmr/m/n/10 and
+ $\OML/cmm/m/it/10 J[]$ \OT1/cmr/m/n/10 is the unique fixed point 
+ []
+
+[83] [84] [85]
+Overfull \hbox (10.87439pt too wide) in paragraph at lines 4318--4319
+[]\OT1/cmr/m/n/10 although this is a bad way to com-pute be-cause if $\OML/cmm/
+m/it/10 $ \OT1/cmr/m/n/10 is large (e.g. 0.9999), ma-trix could be very ill-co
+nditioned 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 4320.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4320.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 4320.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 4320.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 4320.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4320.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 4320.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 4320.
+
+[86]
+Overfull \hbox (0.74709pt too wide) in paragraph at lines 4383--4384
+[]\OT1/cmr/m/n/10 where $\OMS/cmsy/m/n/10 ^^V$ \OT1/cmr/m/n/10 de-notes an elem
+ent-wise vec-tor in-equal-ity. Next re-call from ([][]1.52[][]) that $\OML/cmm/
+m/it/10 TJ \OMS/cmsy/m/n/10 ^^V \OML/cmm/m/it/10 J$\OT1/cmr/m/n/10 , so $\OML/
+cmm/m/it/10 T[][]\OML/cmm/b/it/10 e \OMS/cmsy/m/n/10 ^^V 
+ []
+
+[87]
+Overfull \hbox (3.53757pt too wide) in paragraph at lines 4435--4437
+\OT1/cmr/m/n/10 Note that, by def-i-ni-tion of $[][]$ and $[][]$, prov-ing the 
+above in-equal-ity is equiv-a-lent to show-ing that $\OML/cmm/m/it/10 [][] \OM
+S/cmsy/m/n/10 ^^T 
+ []
+
+[88] [89]
+<images/stoch_dp_vi_vis.jpg, id=1321, 2129.9575pt x 1657.19125pt>
+File: images/stoch_dp_vi_vis.jpg Graphic file (type jpg)
+<use images/stoch_dp_vi_vis.jpg>
+Package pdftex.def Info: images/stoch_dp_vi_vis.jpg  used on input line 4642.
+(pdftex.def)             Requested size: 425.98396pt x 331.43237pt.
+ [90] [91 <./images/stoch_dp_vi_vis.jpg>]
+<images/stoch_dp_pi_vis.jpg, id=1334, 718.685pt x 767.86874pt>
+File: images/stoch_dp_pi_vis.jpg Graphic file (type jpg)
+<use images/stoch_dp_pi_vis.jpg>
+Package pdftex.def Info: images/stoch_dp_pi_vis.jpg  used on input line 4652.
+(pdftex.def)             Requested size: 359.34161pt x 383.93343pt.
+ [92 <./images/stoch_dp_pi_vis.jpg>]
+Overfull \hbox (2.53989pt too wide) in paragraph at lines 4727--4728
+[][]\OT1/cmr/bx/n/10 Definition 1.22.8 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 One-st
+ep look-a-head pol-icy; sec-tion 2.3.4, p. 106 of [][]Bert-sekas[][] [[][]2012b
+[][]]\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . 
+ []
+
+[93]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 4795.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4795.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 4795.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 4795.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 4795.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4795.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 4795.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 4795.
+
+[94] [95]
+<images/dp_fig_1_3_1.jpg, id=1391, 2184.16pt x 1512.65125pt>
+File: images/dp_fig_1_3_1.jpg Graphic file (type jpg)
+<use images/dp_fig_1_3_1.jpg>
+Package pdftex.def Info: images/dp_fig_1_3_1.jpg  used on input line 4867.
+(pdftex.def)             Requested size: 327.60986pt x 226.8879pt.
+ [96 <./images/dp_fig_1_3_1.jpg>]
+Overfull \hbox (20.53003pt too wide) in paragraph at lines 4910--4911
+[][]\OT1/cmr/bx/n/10 Definition 1.22.10 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Proje
+ct-by-Project Re-tire-ment Pol-icy (PPR; pp. 25-26 of [][]Bert-sekas[][] [[][]2
+012b[][]])\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . 
+ []
+
+[97]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 4986.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 4986.
+
+
+LaTeX Warning: Reference `asym.cheby' on page 98 undefined on input line 4998.
+
+[98] [99] [100]
+Overfull \hbox (246.34454pt too wide) detected at line 5159
+[]
+ []
+
+
+Overfull \hbox (292.34862pt too wide) detected at line 5173
+\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 T[]J \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 T
+[][]\OMS/cmsy/m/n/10 k[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/
+10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) [][] = [] \OML/cmm/m/it/10 ^^Y\OT1/cmr/
+m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) [][] = \OML/cmm/m/it/10 [] [] ^^Y\
+OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) [][] = \OML/cmm/m/it/10 []
+\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 J \OMS/cm
+sy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 k[] ^^T []\OML/cmm/m/it/10 [
+]\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 J \OMS/cmsy/m/n/10 ^^@ []k[]
+ []
+
+[101] [102]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 5259.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 5259.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 5259.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 5259.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 5259.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 5259.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 5259.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 5259.
+
+
+Overfull \hbox (15.35033pt too wide) detected at line 5279
+\OML/cmm/m/it/10 Q[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) := \OM
+L/cmm/m/it/10  [] ^^^[]J[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )
+ = []\OML/cmm/m/it/10 ;  J[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 
+) = []\OMS/cmsy/m/n/10 f[]\OML/cmm/m/it/10 ; []\OMS/cmsy/m/n/10 g\OML/cmm/m/it/
+10 :
+ []
+
+[103] [104] [105] [106] [107]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 5592.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 5592.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 5592.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 5592.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 5592.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 5592.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 5592.
+
+[108]
+
+Package natbib Warning: Citation `MATHIEU2019' on page 109 undefined on input l
+ine 5660.
+
+[109] [110]
+
+Package natbib Warning: Citation `MATHIEU2019' on page 111 undefined on input l
+ine 5750.
+
+[111]
+
+LaTeX Warning: Reference `mathstats.sec.u.stats' on page 112 undefined on input
+ line 5772.
+
+
+Overfull \hbox (20.79955pt too wide) in paragraph at lines 5806--5807
+\OT1/cmr/m/n/10 the ex-cess risk of the es-ti-ma-tors $[]$ and $[]$ un-der min-
+i-mal as-sump-tions on the stochas-tic pro-cess $\OMS/cmsy/m/n/10 f\OML/cmm/m/i
+t/10 `\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT
+1/cmr/m/n/10 ))\OML/cmm/m/it/10 ; f \OMS/cmsy/m/n/10 2 
+ []
+
+[112] (./StatLearning.bbl
+
+Package natbib Warning: Citation `MATHIEU2019' on page 113 undefined on input l
+ine 1.
+
+[113] [114
+
+] [115])
+
+Package natbib Warning: There were undefined citations.
+
+[116]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5822.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5822.
  (./StatLearning.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 215.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 215.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5822.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5822.
+
 Package rerunfilecheck Info: File `StatLearning.out' has not changed.
-(rerunfilecheck)             Checksum: 8B71FE64284AD8F7F3618D326C48553C;320.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 215.
+(rerunfilecheck)             Checksum: FBC19164F1F6FBCE129477BD1EF0BDF5;5329.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5822.
  ) 
 Here is how much of TeX's memory you used:
- 18004 strings out of 492649
- 341831 string characters out of 6129622
- 415755 words of memory out of 5000000
- 21536 multiletter control sequences out of 15000+600000
- 13152 words of font info for 53 fonts, out of 8000000 for 9000
+ 19168 strings out of 492649
+ 358831 string characters out of 6129622
+ 436414 words of memory out of 5000000
+ 22174 multiletter control sequences out of 15000+600000
+ 20878 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,66p,415b,422s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on StatLearning.pdf (4 pages, 119006 bytes).
+ 55i,22n,66p,1196b,594s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{theorem.1.22.6.2} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{example.1.22.1} has been referenced but does not ex
+ist, replaced by a fixed one
+
+ </Users/gregfaletto/Library/texlive/2018/texmf-var/fonts/pk/ljfour/public/bbm/
+bbm10.600pk>{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-sup
+er-ts1.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
+x8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxt
+i10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
+10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/
+cmex7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmi
+b7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
+ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive
+/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on StatLearning.pdf (116 pages, 8373921 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1808 PDF objects out of 2073 (max. 8388607)
+ 1597 compressed objects within 16 object streams
+ 482 named destinations out of 1000 (max. 500000)
+ 594 words of extra memory for PDF output out of 10000 (max. 10000000)
 

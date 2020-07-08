@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 JUL 2019 18:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  19 FEB 2020 09:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -794,6 +794,21 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count139
 )
+(/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryautomata.code.tex
 File: tikzlibraryautomata.code.tex 2008/07/14 v3.0.1a (rcs-revision 1.3)
@@ -839,28 +854,28 @@ File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
  (./Stochastic_Processes.aux)
 \openout1 = `Stochastic_Processes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 118.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 120.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -893,12 +908,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package ragged2e Info: ABD: executing \RaggedRight on input line 118.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 120.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 118.
+LaTeX Info: Redefining \selectfont on input line 120.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring ON on input line 118.
+Package hyperref Info: Link coloring ON on input line 120.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -908,20 +923,20 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count150
 )
-LaTeX Info: Redefining \ref on input line 118.
-LaTeX Info: Redefining \pageref on input line 118.
-LaTeX Info: Redefining \nameref on input line 118.
+LaTeX Info: Redefining \ref on input line 120.
+LaTeX Info: Redefining \pageref on input line 120.
+LaTeX Info: Redefining \nameref on input line 120.
 
 (./Stochastic_Processes.out) (./Stochastic_Processes.out)
 \@outlinefile=\write4
 \openout4 = `Stochastic_Processes.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 121.
+LaTeX Font Info:    Try loading font information for U+msa on input line 123.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 121.
+LaTeX Font Info:    Try loading font information for U+msb on input line 123.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -934,17 +949,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [3] [4] [5] [6]
 
-LaTeX Warning: Reference `prob.gammasum' on page 7 undefined on input line 388.
+LaTeX Warning: Reference `prob.gammasum' on page 7 undefined on input line 390.
 
 
 [7] [8] [9] [10]
-Overfull \hbox (0.24582pt too wide) in paragraph at lines 606--607
+Overfull \hbox (0.24582pt too wide) in paragraph at lines 608--609
 \OT1/cmr/m/n/10 Sup-pose we col-lect coupons un-til we have at least one of ev-
 ery type, and that all coupons are equally likely 
  []
 
 [11]
-Overfull \hbox (5.53163pt too wide) in paragraph at lines 652--653
+Overfull \hbox (5.53163pt too wide) in paragraph at lines 654--655
 \OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 S[]$ \OT1/cmr/m/n/10 be the ar-rival time
  of the $\OML/cmm/m/it/10 j$\OT1/cmr/m/n/10 th per-son. (Note that if $\OML/cmm
 /m/it/10 X[]$ \OT1/cmr/m/n/10 are the in-ter-ar-rival times then $\OML/cmm/m/it
@@ -953,10 +968,10 @@ Overfull \hbox (5.53163pt too wide) in paragraph at lines 652--653
 
 
 LaTeX Warning: Reference `mathstats.order.stats.density' on page 12 undefined o
-n input line 685.
+n input line 687.
 
 [12] [13] [14]
-Overfull \hbox (18.63339pt too wide) detected at line 850
+Overfull \hbox (18.63339pt too wide) detected at line 852
 \U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D\OT1/cmr/m/n/10 (\OML/cmm/m/i
 t/10 t\OT1/cmr/m/n/10 )) = \U/msb/m/n/10 E\OT1/cmr/m/n/10 [\U/msb/m/n/10 E\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 D\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/1
@@ -970,7 +985,7 @@ n/10 ^^A []\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 e[]\OT1/cmr
  []
 
 [15] [16] [17]
-Overfull \hbox (31.66425pt too wide) in paragraph at lines 1015--1016
+Overfull \hbox (31.66425pt too wide) in paragraph at lines 1017--1018
 [][]\OT1/cmr/bx/n/10 Theorem 15. []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 N\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$ be the count-ing pro-cess for 
 a non-sta-tion-ary Pois-son pro-cess. Then $\OML/cmm/m/it/10 N\OT1/cmr/m/n/10 (
@@ -979,13 +994,13 @@ L/cmm/m/it/10 m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ))$.
  []
 
 [18] [19] [20] [21]
-Overfull \hbox (7.3567pt too wide) in paragraph at lines 1243--1244
+Overfull \hbox (7.3567pt too wide) in paragraph at lines 1245--1246
 []\OT1/cmr/m/n/10 Generalization of Pois-son pro-cesses. A count-ing pro-cess w
 here the in-ter-ar-rival times are i.i.d. Let $\OML/cmm/m/it/10 X[]; X[]; []$ 
  []
 
 [22]
-Overfull \hbox (6.58383pt too wide) in paragraph at lines 1251--1252
+Overfull \hbox (6.58383pt too wide) in paragraph at lines 1253--1254
 [][]\OT1/cmr/bx/n/10 Definition 1.13 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Renewal 
 pro-cess; Def-i-ni-tion 3.1.1 in \OT1/cmr/bx/it/10 Stochas-tic Pro-cesses\OT1/c
 mr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Let $\OMS/cmsy/m/n/10 f\OML/cmm
@@ -994,7 +1009,7 @@ mr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Let $\OMS/cmsy/m/n/10 f\OML/cmm
  []
 
 [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
-Overfull \hbox (3.2041pt too wide) in paragraph at lines 2081--2082
+Overfull \hbox (3.2041pt too wide) in paragraph at lines 2083--2084
 []$\OML/cmm/m/it/10 A$ \OT1/cmr/m/n/10 serv-ing is a re-newal. Sup-pose $\OML/c
 mm/m/it/10 A$ \OT1/cmr/m/n/10 just won a point. Let $\OML/cmm/m/it/10 X$ \OT1/c
 mr/m/n/10 be the num-ber of games un-til $\OML/cmm/m/it/10 A$ \OT1/cmr/m/n/10 w
@@ -1003,19 +1018,19 @@ ins again.
 
 [36] [37] [38]
 
-LaTeX Warning: Reference `asym.lln2' on page 39 undefined on input line 2274.
+LaTeX Warning: Reference `asym.lln2' on page 39 undefined on input line 2276.
 
 
 LaTeX Warning: Reference `asym.contmappthm' on page 39 undefined on input line 
-2286.
+2288.
 
 [39] [40] [41] [42] [43] [44] [45] [46] [47] [48]
 
 LaTeX Warning: Reference `prob.defn.lattice' on page 49 undefined on input line
- 2842.
+ 2844.
 
 [49] [50] [51] [52] [53] [54] [55] [56] [57]
-Overfull \hbox (7.5717pt too wide) detected at line 3373
+Overfull \hbox (7.5717pt too wide) detected at line 3375
 [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 Y[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 Y[
 ] \OT1/cmr/m/n/10 + 1  =[]\OMS/cmsy/m/n/10 )  \U/msb/m/n/10 E\OT1/cmr/m/n/10 ([
 ]) = \U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y[]\OT1/cmr/m/n/10 ) + \U
@@ -1025,21 +1040,21 @@ cmm/m/it/10 p[]p[]p[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 p[]p[]p[] \OT1/cmr/m/n
  []
 
 [58]
-Overfull \hbox (5.44156pt too wide) in paragraph at lines 3476--3477
+Overfull \hbox (5.44156pt too wide) in paragraph at lines 3478--3479
 [][]\OT1/cmr/bx/n/10 Example 1.29 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Similar to 
 ex-am-ple 4.10 in \OT1/cmr/bx/it/10 In-tro-duc-tion to Prob-a-bil-ity Mod-els\O
 T1/cmr/bx/n/10 , sim-i-lar to home- 
  []
 
 [59]
-Overfull \hbox (4.22046pt too wide) in paragraph at lines 3504--3505
+Overfull \hbox (4.22046pt too wide) in paragraph at lines 3506--3507
 \OT1/cmr/m/n/10 But the num-ber of peo-ple in the sys-tem im-me-di-ately af-ter
  the $\OML/cmm/m/it/10 n$\OT1/cmr/m/n/10 th ser-vice com-ple-tion is Marko-vian
 . (Called 
  []
 
 
-Overfull \hbox (3.22293pt too wide) detected at line 3521
+Overfull \hbox (3.22293pt too wide) detected at line 3523
 \OML/cmm/m/it/10 P[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a[] \OT1/cmr/m/n/10 = [
 ](\OML/cmm/m/it/10 j \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 i \OT1/cmr/m/n/10 + 
 1[]) = [][] [](\OML/cmm/m/it/10 j \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 i \OT1/
@@ -1048,7 +1063,7 @@ m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )
  []
 
 [60] [61] [62] [63] [64] [65] [66] [67]
-Overfull \hbox (9.1783pt too wide) in paragraph at lines 4036--4037
+Overfull \hbox (9.1783pt too wide) in paragraph at lines 4038--4039
 []\OT1/cmr/m/n/10 We will prove this by in-duc-tion on $\OML/cmm/m/it/10 n$ \OT
 1/cmr/m/n/10 for $\OML/cmm/m/it/10 X[]$\OT1/cmr/m/n/10 . The case $\OML/cmm/m/i
 t/10 n \OT1/cmr/m/n/10 = 0$ is true by as-sump-tion. As-sume $[](\OML/cmm/m/it/
@@ -1058,10 +1073,10 @@ t/10 n \OT1/cmr/m/n/10 = 0$ is true by as-sump-tion. As-sume $[](\OML/cmm/m/it/
 [68] [69]
 
 LaTeX Warning: Reference `prob.ex.cont.sum.ex' on page 70 undefined on input li
-ne 4116.
+ne 4118.
 
 [70] [71]
-Overfull \hbox (0.9453pt too wide) in paragraph at lines 4252--4253
+Overfull \hbox (0.9453pt too wide) in paragraph at lines 4254--4255
 [][]\OT1/cmr/bx/n/10 Example 1.40 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Example 4.2
 5 in \OT1/cmr/bx/it/10 In-tro-duc-tion to Prob-a-bil-ity Mod-els\OT1/cmr/m/n/10
  )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Ho-tel, num-ber of new guests 
@@ -1069,80 +1084,244 @@ Overfull \hbox (0.9453pt too wide) in paragraph at lines 4252--4253
 
 [72]
 
-LaTeX Warning: Reference `asym.markov' on page 73 undefined on input line 4322.
+LaTeX Warning: Reference `asym.markov' on page 73 undefined on input line 4324.
 
 
 [73] [74] [75] [76]
-Overfull \hbox (17.44688pt too wide) in paragraph at lines 4502--4503
+Overfull \hbox (17.44688pt too wide) in paragraph at lines 4504--4505
 [][]\OT1/cmr/bx/n/10 Proposition 70 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Propositi
 on 4.9 in \OT1/cmr/bx/it/10 In-tro-duc-tion to Prob-a-bil-ity Mod-els\OT1/cmr/b
 x/n/10 , The-o-rem 4.7.3 in \OT1/cmr/bx/it/10 Stochas- 
  []
 
 
-Overfull \hbox (7.80519pt too wide) in paragraph at lines 4536--4537
+Overfull \hbox (7.80519pt too wide) in paragraph at lines 4538--4539
 [][]\OT1/cmr/bx/n/10 Example 1.44 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Example 4.3
 7 in \OT1/cmr/bx/it/10 In-tro-duc-tion to Prob-a-bil-ity Mod-els\OT1/cmr/bx/n/1
 0 , Ex-am-ple 4.7(b) in \OT1/cmr/bx/it/10 Stochas- 
  []
 
 [77] [78] [79] [80] [81]
-Overfull \hbox (4.3742pt too wide) in paragraph at lines 4856--4857
+Overfull \hbox (4.3742pt too wide) in paragraph at lines 4858--4859
 \OT1/cmr/m/n/10 tive ([][]13[][]) is con-tin-u-ous and non-pos-i-tive on $(0\OM
 L/cmm/m/it/10 ; \OT1/cmr/m/n/10 1]$. There-fore the first deriva-tive ([][]12[]
 []) never ex-ceeds $\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 (0) = 
  []
 
-[82] [83] (./Stochastic_Processes.bbl [84]) [85]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5001.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 5001.
- (./Stochastic_Processes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5001.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5001.
+[82] [83] [84]
+<images/stoch_dp_ic.jpg, id=969, 1926.19624pt x 1325.95375pt>
+File: images/stoch_dp_ic.jpg Graphic file (type jpg)
+<use images/stoch_dp_ic.jpg>
+Package pdftex.def Info: images/stoch_dp_ic.jpg  used on input line 5044.
+(pdftex.def)             Requested size: 385.23242pt x 265.18605pt.
+
+Overfull \hbox (3.94258pt too wide) detected at line 5063
+[] [] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 :
+ []
+
+[85] [86 <./images/stoch_dp_ic.jpg>] [87]
+Overfull \hbox (21.71135pt too wide) detected at line 5171
+\OML/cmm/m/it/10 J[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) = []
+ []
+ []
+
+[88]
+Overfull \hbox (22.02962pt too wide) in paragraph at lines 5223--5224
+[]\OT1/cmr/bx/n/10 Time lag: \OT1/cmr/m/n/10 Sup-pose that $\OML/cmm/m/it/10 x[
+]$ \OT1/cmr/m/n/10 de-pends on $\OML/cmm/m/it/10 x[]; u[]$\OT1/cmr/m/n/10 , and
+ $\OML/cmm/m/it/10 x[]; w[]$\OT1/cmr/m/n/10 . Then $\OML/cmm/m/it/10 x[] \OT1/c
+mr/m/n/10 = \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; u[]; w[]; 
+x[]; w[]\OT1/cmr/m/n/10 )$. 
+ []
+
+
+Overfull \hbox (34.35558pt too wide) in paragraph at lines 5237--5238
+\OT1/cmr/m/n/10 bil-ity dis-tri-bu-tion of $\OML/cmm/m/it/10 w[]$\OT1/cmr/m/n/1
+0 . In par-tic-u-lar, sup-pose $\OML/cmm/m/it/10 w[]$ \OT1/cmr/m/n/10 can have 
+one of $\OML/cmm/m/it/10 m$ \OT1/cmr/m/n/10 pos-si-ble dis-tri-bu-tions $\OML/c
+mm/m/it/10 Q[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )\OML/cmm/m/
+it/10 ; [] ; Q[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )$. 
+ []
+
+[89] [90]
+<images/stoch_dp_fixed.jpg, id=1022, 953.5625pt x 471.7625pt>
+File: images/stoch_dp_fixed.jpg Graphic file (type jpg)
+<use images/stoch_dp_fixed.jpg>
+Package pdftex.def Info: images/stoch_dp_fixed.jpg  used on input line 5381.
+(pdftex.def)             Requested size: 286.07095pt x 141.52983pt.
+<images/stoch_dp_fixed_ncvx.jpg, id=1023, 1705.37125pt x 1613.02625pt>
+File: images/stoch_dp_fixed_ncvx.jpg Graphic file (type jpg)
+<use images/stoch_dp_fixed_ncvx.jpg>
+Package pdftex.def Info: images/stoch_dp_fixed_ncvx.jpg  used on input line 538
+9.
+(pdftex.def)             Requested size: 341.0682pt x 322.59953pt.
+ [91] [92 <./images/stoch_dp_fixed.jpg> <./images/stoch_dp_fixed_ncvx.jpg>]
+<images/stoch_dp_k_cvx.jpg, id=1039, 1885.0425pt x 1722.435pt>
+File: images/stoch_dp_k_cvx.jpg Graphic file (type jpg)
+<use images/stoch_dp_k_cvx.jpg>
+Package pdftex.def Info: images/stoch_dp_k_cvx.jpg  used on input line 5414.
+(pdftex.def)             Requested size: 377.00182pt x 344.4809pt.
+<images/stoch_dp_k_cvx_p3.jpg, id=1043, 1632.0975pt x 1121.18875pt>
+File: images/stoch_dp_k_cvx_p3.jpg Graphic file (type jpg)
+<use images/stoch_dp_k_cvx_p3.jpg>
+Package pdftex.def Info: images/stoch_dp_k_cvx_p3.jpg  used on input line 5448.
+
+(pdftex.def)             Requested size: 326.41371pt x 224.23378pt.
+ [93 <./images/stoch_dp_k_cvx.jpg>] [94 <./images/stoch_dp_k_cvx_p3.jpg>]
+<images/stoch_dp_fixed_thm_proof_1.jpg, id=1079, 1402.23875pt x 687.56876pt>
+File: images/stoch_dp_fixed_thm_proof_1.jpg Graphic file (type jpg)
+<use images/stoch_dp_fixed_thm_proof_1.jpg>
+Package pdftex.def Info: images/stoch_dp_fixed_thm_proof_1.jpg  used on input l
+ine 5543.
+(pdftex.def)             Requested size: 280.44278pt x 137.5113pt.
+
+[95] [96 <./images/stoch_dp_fixed_thm_proof_1.jpg>]
+Overfull \hbox (1.52373pt too wide) in paragraph at lines 5617--5618
+\OT1/cmr/m/n/10 for last minute when you can charge a lot?) cal-cu-late and up-
+date book-ing lim-its (done daily/weekly). 
+ []
+
+
+Overfull \hbox (15.02362pt too wide) in paragraph at lines 5631--5632
+\OT1/cmr/m/n/10 time, bring-ing a carry-on, etc.). Each fare class is a com-bi-
+na-tion of a price and re-stric-tions on what/who 
+ []
+
+[97]
+Overfull \hbox (3.18063pt too wide) in paragraph at lines 5665--5666
+\OT1/cmr/m/n/10 seat. Should we open it to a dis-count pas-sen-ger or should we
+ sell it? Breakeven point is when $\OML/cmm/m/it/10 P[] \OT1/cmr/m/n/10 = \U/ms
+b/m/n/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[] \OMS/cmsy/m/n/10 ^^U 
+ []
+
+LaTeX Font Info:    Try loading font information for U+bbm on input line 5697.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
+<images/stoch_littlewood.jpg, id=1124, 700.6175pt x 489.83pt>
+File: images/stoch_littlewood.jpg Graphic file (type jpg)
+<use images/stoch_littlewood.jpg>
+Package pdftex.def Info: images/stoch_littlewood.jpg  used on input line 5703.
+(pdftex.def)             Requested size: 350.30789pt x 244.9144pt.
+ [98] [99 <./images/stoch_littlewood.jpg>] [100]
+<images/stoch_dp_n_class.jpg, id=1157, 2658.93375pt x 2130.96124pt>
+File: images/stoch_dp_n_class.jpg Graphic file (type jpg)
+<use images/stoch_dp_n_class.jpg>
+Package pdftex.def Info: images/stoch_dp_n_class.jpg  used on input line 5808.
+(pdftex.def)             Requested size: 398.82286pt x 319.6304pt.
+<images/stoch_dp_n_class_pf.jpg, id=1165, 1688.3075pt x 1399.2275pt>
+File: images/stoch_dp_n_class_pf.jpg Graphic file (type jpg)
+<use images/stoch_dp_n_class_pf.jpg>
+Package pdftex.def Info: images/stoch_dp_n_class_pf.jpg  used on input line 583
+5.
+(pdftex.def)             Requested size: 337.65552pt x 279.84055pt.
+ [101 <./images/stoch_dp_n_class.jpg>]
+[102 <./images/stoch_dp_n_class_pf.jpg>] [103]
+Overfull \hbox (25.14151pt too wide) in paragraph at lines 5935--5936
+[]\OT1/cmr/m/n/10 Key rea-son to study in-fi-nite hori-zon prob-lems: in most c
+ases, an op-ti-mal pol-icy is sta-tion-ary: $^^E[] = \OMS/cmsy/m/n/10 f\OML/cmm
+/m/it/10 ^^V; ^^V; ^^V; []\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (2.31725pt too wide) in paragraph at lines 5945--5946
+[]\OT1/cmr/m/n/10 The MDP as-sump-tion cor-re-sponds to the clas-si-cal finite-
+state Markov de-ci-sion pro-cess. Let $\OMS/cmsy/m/n/10 X \OT1/cmr/m/n/10 = \OM
+S/cmsy/m/n/10 f\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; [] ; n\OMS/cmsy/m/n/10 g$\OT
+1/cmr/m/n/10 . 
+ []
+
+[104] [105]
+Overfull \hbox (0.30983pt too wide) in paragraph at lines 6072--6073
+[]\OT1/cmr/bx/n/10 notes from re-view on 2/11/10: $\OML/cmm/m/it/10 J[]$ \OT1/c
+mr/m/n/10 is the unique fixed point of $\OML/cmm/m/it/10 T$ \OT1/cmr/m/n/10 and
+ $\OML/cmm/m/it/10 J[]$ \OT1/cmr/m/n/10 is the unique fixed point 
+ []
+
+[106]
+Missing character: There is no e in font msbm10!
+Missing character: There is no e in font msbm10!
+Missing character: There is no e in font msbm10!
+ [107] [108]
+Overfull \hbox (10.87439pt too wide) in paragraph at lines 6249--6250
+[]\OT1/cmr/m/n/10 although this is a bad way to com-pute be-cause if $\OML/cmm/
+m/it/10 $ \OT1/cmr/m/n/10 is large (e.g. 0.9999), ma-trix could be very ill-co
+nditioned 
+ []
+
+[109] [110]
+Overfull \hbox (3.53757pt too wide) in paragraph at lines 6364--6366
+\OT1/cmr/m/n/10 Note that, by def-i-ni-tion of $[][]$ and $[][]$, prov-ing the 
+above in-equal-ity is equiv-a-lent to show-ing that $\OML/cmm/m/it/10 [][] \OM
+S/cmsy/m/n/10 ^^T 
+ []
+
+[111] [112] [113]
+<images/stoch_dp_vi_vis.jpg, id=1258, 2129.9575pt x 1657.19125pt>
+File: images/stoch_dp_vi_vis.jpg Graphic file (type jpg)
+<use images/stoch_dp_vi_vis.jpg>
+Package pdftex.def Info: images/stoch_dp_vi_vis.jpg  used on input line 6571.
+(pdftex.def)             Requested size: 425.98396pt x 331.43237pt.
+<images/stoch_dp_pi_vis.jpg, id=1260, 718.685pt x 767.86874pt>
+File: images/stoch_dp_pi_vis.jpg Graphic file (type jpg)
+<use images/stoch_dp_pi_vis.jpg>
+Package pdftex.def Info: images/stoch_dp_pi_vis.jpg  used on input line 6581.
+(pdftex.def)             Requested size: 359.34161pt x 383.93343pt.
+ [114 <./images/stoch_dp_vi_vis.jpg>] [115 <./images/stoch_dp_pi_vis.jpg>] [116
+] (./Stochastic_Processes.bbl [117]) [118]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6737.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6737.
+
+(./Stochastic_Processes.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6737.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6737.
 
 Package rerunfilecheck Info: File `Stochastic_Processes.out' has not changed.
-(rerunfilecheck)             Checksum: A77D18960E597537C8A5AAC67C61E424;3018.
+(rerunfilecheck)             Checksum: 0A0006CE3B09005CD221EE07821603BB;3515.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5001.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6737.
  ) 
 Here is how much of TeX's memory you used:
- 18488 strings out of 492649
- 347643 string characters out of 6129622
- 434352 words of memory out of 5000000
- 21635 multiletter control sequences out of 15000+600000
- 15844 words of font info for 59 fonts, out of 8000000 for 9000
+ 18865 strings out of 492649
+ 353657 string characters out of 6129622
+ 438301 words of memory out of 5000000
+ 21823 multiletter control sequences out of 15000+600000
+ 19036 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,66p,814b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.p
-fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
-b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Stochastic_Processes.pdf (85 pages, 502763 bytes).
+ 55i,22n,66p,873b,655s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{example.1.45} has been referenced but does not ex
+ist, replaced by a fixed one
+
+ </Users/gregfaletto/Library/texlive/2018/texmf-var/fonts/pk/ljfour/public/bbm/
+bbm10.600pk>{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-sup
+er-ts1.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
+xti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextr
+a/cmex7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib
+10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Stochastic_Processes.pdf (118 pages, 3336934 bytes).
 PDF statistics:
- 1103 PDF objects out of 1200 (max. 8388607)
- 986 compressed objects within 10 object streams
- 394 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1510 PDF objects out of 1728 (max. 8388607)
+ 1337 compressed objects within 14 object streams
+ 549 named destinations out of 1000 (max. 500000)
+ 332 words of extra memory for PDF output out of 10000 (max. 10000000)
 

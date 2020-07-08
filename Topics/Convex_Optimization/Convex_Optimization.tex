@@ -145,7 +145,7 @@
 %%%
 %%% Convex Optimization
 
-\section{Convex Optimization}
+\chapter{Convex Optimization}
 
 These are my notes from taking EE 588 at USC taught by Mahdi Soltanolkotabi and the textbook \textit{Convex Optimization} (Boyd and Vandenberghe) 7th printing \citep{boyd2004convex}, as well as Math 541A at USC taught by Steven Heilman.
 
@@ -183,7 +183,7 @@ These are my notes from taking EE 588 at USC taught by Mahdi Soltanolkotabi and 
 
 \end{itemize}
 
-\subsection{Convex Functions}\label{cvx.sec.jensen.etc}
+\section{Convex Functions}\label{cvx.sec.jensen.etc}
 
 \begin{definition}[\textbf{Math 541A definition}]\label{cvx.defn.convex} Let $\phi:\mathbb{R}\to\mathbb{R}$.  We say that $\phi$ is \textbf{convex} if, for any $x,y\in\mathbb{R}$ and for any $t\in[0,1]$, we have
 $$\phi(tx+(1-t)y)\leq t\phi(x)+(1-t)\phi(y).$$
@@ -246,6 +246,18 @@ From (\ref{cvx.541.hw2.ex4a}), we have \( x-b = tb + (1-t)c  - b = (t-1)b + (1-t
 \]
 
 But \(t \phi(b) + (1-t) \phi(c) \geq \phi(x)\) since \(\phi\) is convex. Therefore  \(m \geq p\).
+
+\end{proof}
+
+\begin{lemma}
+
+Let \(f\) be a concave function, and let \(\partial f\) denote its subgradient. Then \(\partial f\) is nonincreasing. That is, for any \(x, y \) and for any \(g_y \in \partial f(y)\) and \(g_x \in \partial f(x)\) it holds that \((g_y - g_x)^T(y -x) \leq 0\). 
+
+\end{lemma}
+
+\begin{proof}
+
+By Theorem \ref{cvx.convex.tangent.line}, it holds that \(f(y) \leq f(x) + g_x^T(y-x)\) and that \(f(x) \leq f(y) + g_y^T (x-y)\). Adding these yields \(f(y) + f(x) \geq f(x) + f(y) + g_x^T(y-x) - g_y^T(y-x) \iff (0 \geq (g_x - g_y)^T(y-x)\).
 
 \end{proof}
 
@@ -853,9 +865,9 @@ which proves convexity.
 
 
 
-\subsection{Schur Complement Trick}\label{cvx.schur.sec}
+\section{Schur Complement Trick}\label{cvx.schur.sec}
 
-\subsubsection{Definition}
+\subsection{Definition}
 
 For a matrix \(X \in \boldsymbol{S}^n\) partitioned as 
 
@@ -883,7 +895,7 @@ The Schur complement has two useful properties in convex analysis.
 
 \end{theorem}
 
-\subsubsection{The Trick}
+\subsection{The Trick}
 
 Suppose we are trying to express a problem as a semidefinite program (SDP); that is, in the form
 
@@ -908,7 +920,7 @@ c^TF(x)^{-1}c  \leq t \iff  \begin{bmatrix}
 
 in order to get our constraint in the form required for an SDP.
 
-\subsubsection{Example 1: Last Year's Final, Question 2(b)}
+\subsection{Example 1: Last Year's Final, Question 2(b)}
 
 Suppose we have the constraints
 
@@ -944,7 +956,7 @@ we can finally write our constraints as
 \end{bmatrix} \succeq 0 
 \]
 
-\subsubsection{Example 2: Last Year's Final, Question 4(b)}
+\subsection{Example 2: Last Year's Final, Question 4(b)}
 
 Suppose we have the constraints
 
@@ -981,7 +993,7 @@ we can finally write our constraints as
 \]
 
 
-\subsection{Duality}
+\section{Duality}
 
 \begin{theorem} \label{cvx.slater.thm} Slater's condition/constraint qualification: Strong duality holds for a convex problem
 
@@ -999,7 +1011,7 @@ if it is strictly feasible, i.e., there exists at least one \(x\) in the domain 
 
 \end{theorem}
 
-\subsection{MLE estimates}
+\section{MLE estimates}
 
 For linear estimates with iid noise
 
@@ -1019,7 +1031,7 @@ Therefore the log likelihood function is:
 \ell_x (y) = \sum_{i=1}^m \log[ \Pr(v_i = y_i - a_i^Tx \mid x)]
 \]
 
-\subsection{Practice Final (2017 Final)}
+\section{Practice Final (2017 Final)}
 
 \begin{enumerate}[(1)]
 

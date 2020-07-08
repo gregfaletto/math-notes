@@ -1,4 +1,4 @@
-%\documentclass{article}
+%\documentclass{book}
 %
 %\usepackage{fancyhdr}
 %\usepackage{extramarks}
@@ -14,7 +14,6 @@
 %\usepackage[document]{ragged2e}
 %\usepackage{textcomp}
 %\usepackage{color}   %May be necessary if you want to color links
-%\usepackage{import}
 %\usepackage{hyperref}
 %\hypersetup{
 %    colorlinks=true, %set true if you want colored links
@@ -23,6 +22,8 @@
 %}
 %\usepackage{import}
 %\usepackage{natbib}
+%\usepackage{bbm}
+%\usepackage{amssymb}
 %
 %\usetikzlibrary{automata,positioning}
 %
@@ -107,7 +108,7 @@
 %\newtheorem{corollary}{Corollary}[theorem]
 %\theoremstyle{definition}
 %\newtheorem{definition}{Definition}[section]
-%\newtheorem*{remark}{Remark}
+%\newtheorem{remark}{Remark}
 %\theoremstyle{definition}
 %\newtheorem{exercise}{Exercise}
 %\theoremstyle{definition}
@@ -147,11 +148,11 @@
 %%%%
 %%%% Mathematical Statistics
 
-\section{Mathematical Statistics}
+\chapter{Mathematical Statistics}
 
-These are my notes from taking Math 541A at USC taught by Steven Heilman as well as \textit{Statistical Inference} (2nd edition) by Casella and Berger \citep{CaseBerg:01}, Statistics 100B at UCLA taught by Nicolas Christou, ISE 620 at USC taught by Sheldon Ross, Math 505A at USC taught by Sergey Lototsky, and a few other sources I cite within the text.
+These are my notes from taking Math 541A at USC taught by Steven Heilman as well as \textit{Statistical Inference} (2nd edition) by Casella and Berger \citep{CaseBerg:01}, \textit{Testing Statistical Hypotheses} by Lehmann and Romano \citep{lehmann2005testing}, Statistics 100B at UCLA taught by Nicolas Christou, ISE 620 at USC taught by Sheldon Ross, Math 505A at USC taught by Sergey Lototsky, and a few other sources I cite within the text.
 
-\subsection{Order Statistics}
+\section{Order Statistics}
 
 \begin{definition}[\textbf{Order statistics (from Math 541A, more precise)}] Let \(X:\Omega\to\mathbb{R}\) be a random variable.  Let $X_{1},\ldots,X_{n}$ be a random sample of size $n$ from $X$.  Define $X_{(1)}:=\min_{1\leq i\leq n}X_{i}$, and for any $2\leq i\leq n$, inductively define
 $$X_{i}:=\min\Big\{\{X_{1},\ldots,X_{n}\}\setminus\{X_{(1)},\ldots,X_{(i-1)}\}\Big\},$$
@@ -190,7 +191,7 @@ and using the fact that the \(\{A_k\}\) are disjoint, we have
 
 \end{proof}
 
-\begin{corollary}\label{mathstats.order.stats.density.541a} if $X$ is a continuous random variable with density $f_{X}$ and cumulative distribution function $F_{X}$, then for any $1\leq j\leq n$, $F_{X_{(j)}}$ has density
+\begin{corollary}\label{mathstats.order.stats.density.541a} If $X$ is a continuous random variable with density $f_{X}$ and cumulative distribution function $F_{X}$, then for any $1\leq j\leq n$, $F_{X_{(j)}}$ has density
 $$f_{X_{(j)}}(x):=\frac{n!}{(j-1)!(n-j)!}f_{X}(x)(F_{X}(x))^{j-1}(1-F_{X}(x))^{n-j},\qquad\forall\,x\in\mathbb{R}.$$
 
 \end{corollary}
@@ -338,7 +339,7 @@ Then \(m \in [0, L]\) are medians.
 
 \end{remark}
 
-\subsection{Random Samples}
+\section{Random Samples}
 
 \begin{definition}[\textbf{Random Sample}] Let \(n >0\) be an integer.  A \textbf{random sample} of size \(n\) is a sequence \(X_1, \ldots, X_n\) of independent identically distributed random variables.
 
@@ -590,6 +591,24 @@ Therefore \(S^2\) is a consistent estimator of \(\sigma^2\).
 
 \end{proof}
 
+\begin{proposition}[\textbf{Example 11.2.6 in \citet{lehmann2005testing}}]
+
+\[
+S^2 \xrightarrow{p} \sigma^2.
+\]
+
+\end{proposition}
+
+\begin{proof}
+
+By the Weak Law of Large Numbers, \(\overline{X}_n \xrightarrow{p} \mu\) and \(n^{-1} \sum_{i=1}^n X_i^2 \xrightarrow{p} \E(X_1)^2 = \mu^2 + \sigma^2\). Therefore by one of Slutsky's convergence theorems (Theorem \ref{asym.slutsky}) and the Continuous Mapping Theorem, 
+
+\[
+\frac{1}{n}   \sum_{i=1}^n X_i^2 - (\overline{X}_n)^2 \xrightarrow{p} \sigma^2 \iff \frac{n-1}{n} S^2 \xrightarrow{p} \sigma^2 \iff S^2 \xrightarrow{p} \sigma^2.
+\]
+
+\end{proof}
+
 \begin{lemma}\label{stats.hw3.ex.3.16} Let \(X := (X_1, \ldots, X_n)\) be i.i.d. mean zero, variance 1 Gaussian random variables. Let \(v_1, \ldots, v_n \in \mathbb{R}^n\). Then \(\langle X, v_1 \rangle, \ldots, \langle X, v_n \rangle\) are independent if and only if \(v_1, \ldots, v_m \) are pairwise orthogonal; that is,  \(\langle v_i, v_j \rangle = 0 \ \forall \ 1 \leq i < j \leq m\). 
 
 \end{lemma}
@@ -643,7 +662,7 @@ Since \(\E(X_i^2) \neq 0\), (\ref{prob.541a.hw3.5}) equals 0 for all \( \{(k, \e
 
 \end{proof}
 
-\begin{proposition}[\textbf{Proposition 4.7 in 541A notes}] Let \(n \geq 2\) be an integer. Let \(X_1, \ldots, X_n\) be a random sample from the Gaussian distribution with mean \(\mu \in \mathbb{R}\) and variance \(\sigma^2 > 0\). Let \(\overline{X}\) be the sample mean and let \(S\) be the sample standard deviation. Then
+\begin{proposition}[\textbf{Proposition 4.7 in 541A notes}]\label{mathstats.dist.sampl.var} Let \(n \geq 2\) be an integer. Let \(X_1, \ldots, X_n\) be a random sample from the Gaussian distribution with mean \(\mu \in \mathbb{R}\) and variance \(\sigma^2 > 0\). Let \(\overline{X}\) be the sample mean and let \(S\) be the sample standard deviation. Then
 
 \begin{enumerate}[(i)]
 
@@ -682,6 +701,64 @@ So the proof will be complete if we can write \(S\) as a function of \(X_2 - \ov
 \]
 
 \item Follows from Proposition 1.45, Example 1.108, and Exercise 1.58 in 541A notes (condense later?)
+
+If \(n = 2\), we have
+
+\[
+S^2 =  \frac{1}{2-1} \sum_{i=1}^2 (X_i - \overline{X}_2)^2  =   \left(X_1 - \frac{X_1 + X_2}{2} \right)^2 + \left(X_2 - \frac{X_1 + X_2}{2} \right)^2
+\]
+
+\[
+=    \left( \frac{X_1 - X_2}{2} \right)^2 + \left( \frac{X_2 - X_1}{2} \right)^2 =   2 \cdot \frac{1}{4} \cdot (X_1 - X_2)^2  =   \left[  \frac{1}{\sqrt{2}} (X_1 - X_2) \right]^2 
+\]
+
+Since \(\{X_1 - X_2\} \sim \mathcal{N}(0, 2 \sigma^2)\), we have 
+
+\[
+ \frac{1}{\sqrt{2 \sigma}} (X_1 - X_2)  \sim  \mathcal{N}(0,1),
+\]
+
+so 
+
+\[
+S^2 = \frac{1}{\sigma^2}  \left[  \frac{1}{\sqrt{2}} (X_1 - X_2) \right]^2  \sim \chi_1^2.
+\]
+
+\[
+\frac{(n-1) S^2}{\sigma^2}  = \frac{1}{\sigma^2} \sum_{i=1}^n (X_i - \overline{X}_n)^2 = \frac{1}{\sigma^2} \sum_{i=1}^n \left( X_i - \overline{X}_n \right) ^2
+\]
+
+Next we will induct on \(n\). Some tedious algebra shows that 
+
+\[
+\frac{n S_{n+1}^2}{\sigma^2} = \frac{n-1}{\sigma^2} S_n^2 + \frac{1}{\sigma^2} \frac{n}{n+1} (X_{n+1} - \overline{X}_n)^2, \qquad \forall n \geq 2,
+\]
+
+where \(S_n^2\) is the sample variance for \(n\) independent Gaussian random variables. It can also be shown through simple algebra that
+
+\[
+\{  (X_{n+1} - \overline{X}_n) \} \sim \mathcal{N}(0, \sigma^2(n+1)/n),
+\]
+
+so
+
+\[
+\frac{1}{\sigma^2} \frac{n}{n+1} (X_{n+1} - \overline{X}_n)^2 \sim \chi_1^2.
+\]
+
+It can be shown by first principles (i.e., without Basu's Theorem) that \( \overline{X}_n \indep S_n^2\), and clearly \(X_{n+1} \indep S^2\). Therefore we have shown that if \((n-1) S_n^2 /\sigma^2 \sim \chi_{n-1}^2\), it follows that \(n S_{n+1}^2 /\sigma^2 \sim \chi_n^2\), concluding the proof that 
+
+\[
+\frac{(n-1) S^2}{\sigma^2} \sim \chi_{n-1}^2.
+\]
+
+To show that \(S^2\) is ancillary for \(\mu\), simply observe that 
+
+\[
+S^2 \sim  \frac{\sigma^2} {n-1} \chi_{n-1}^2;
+\]
+
+that is, the distribution of \(S^2\) depends only on \(n\) and \(\sigma^2\), not \(\mu\). Therefore by definition \(S^2\) is ancillary for \(\mu\).
 
 \item Like above, replace \(X_1, \ldots, X_n\) with \(X_1 - \mu, \ldots, X_n - \mu\) so that \(\mu = 0\). Also divide by \(\sigma\) so that \(\sigma=1\). We will prove by induction. Let \(\overline{X}_n:= \frac{1}{n} \sum_{i=1}^n X_i\) and let \(S_n^2 := \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X}_n)^2\). In the case \(n=2\) we have
 
@@ -1130,7 +1207,7 @@ This is the moment generating function of a normal distribution with mean \( \mu
 
 \end{proof}
 
-\subsubsection{The Delta Method}
+\subsection{The Delta Method}
 
 \begin{theorem}[\textbf{Delta Method, Theorem 4.14 in 541A notes, 5.5.24 in \citet{CaseBerg:01},}]\label{mathstats.delta.method.thm} Let \(\theta \in \mathbb{R}\). Let \(Y_1, Y_2, \ldots\) be random variables such that \(\sqrt{n}(Y_n - \theta)\) converges in distribution to a mean zero Gaussian random variable with variance \(\sigma^2 > 0\). Let \(f: \mathbb{R} \to \mathbb{R}\). Assume that \(f'\) exists and is continuous, and \(f'(\theta) \neq 0\). Then
 
@@ -1178,6 +1255,22 @@ which yields the result by (\ref{mathstats.delta.method.new.proof}).
 
 
 \end{proof}
+
+\begin{theorem}[\textbf{Delta Method (GSBA 604 presentation, p. 15 of MLE notes)}]
+
+Let \(X\), \(Y\) be two random variables with \(Y = H(X)\) where \(H\) is smooth. Suppose \(\E(X) = \mu\) and \(\Var(X) = \sigma^2\)). Then \(\E(Y) = H(\mu)\) and \(\Var(Y) = [ H'(\mu)]^2 \sigma^2\). When \(x = \hat{\mu}_{MLE}\) and \(Y = \hat{\Xi}\), 
+
+\[
+\Var_\eta (\hat{\xi}) = \frac{ \left[  \deriv{}{\eta} h(\eta) \right]^2}{n \Var_\eta(\hat{\xi})}. 
+\]
+
+\end{theorem}
+
+\begin{remark}
+
+Note that this follows from the Delta Method (Theorem \ref{mathstats.delta.method.thm}) and functional equivariance of the MLE (Proposition \ref{mathstats.prop.inv.mle}). 
+
+\end{remark}
 
 \begin{lemma} Under the same assumptions and notation as in Theorem \ref{mathstats.delta.method.thm},
 
@@ -1295,7 +1388,7 @@ Note that \(\sqrt{n} (Y_n - \theta)\) converges in distribution to a mean zero G
 
 \end{proof}
 
-\subsubsection{Simulation of Random Variables}
+\subsection{Simulation of Random Variables}
 
 \begin{proposition} If \(X: \Omega \to \mathbb{R}\) is an arbitrary random variable with cumulative distribution function \(F: \mathbb{R} \to [0,1]\), then the function \(F^{-1}\) (if it exists) is a random variable on \([0,1]\) with the uniform probability law on \((0,1)\) that is equal in distribution to \(X\).
 
@@ -1404,11 +1497,11 @@ Then \(X, Y\) are independent standard Gaussian random variables.
 
 \end{proof}
 
-\subsection{Data Reduction}
+\section{Data Reduction}
 
 Suppose we have some data and an exponential family. We would like to find the parameter \(\theta\) among the exponential family that fits the data well. Suppose we have a large data set, maybe so large that you can't store all the data in RAM at once. What is the ``least memory" or ``most efficient" method for finding \(\theta\)? The answer: try to find a statistic that captures all the relevant information about \(\theta\). For example, to find the mean of a Gaussian sample, use the sample mean. You don't have to store all the raw data, you can just store the sample mean. The following is a generalization of this concept:
 
-\subsubsection{Sufficient Statistics}
+\subsection{Sufficient Statistics}
 
 \begin{definition}[\textbf{Sufficient Statistic; definition 5.1 in Math 541A notes}] Suppose \(X_1, \ldots, X_n\) is a sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta \}\) is a family of distributions (such as an exponential family). Let \(g: \mathbb{R}^n \to \mathbb{R}^k\) so that \(Y:= g(X_1, \ldots, X_n) \) is a statistic. We say that \(Y\) is a \textbf{sufficient statistic} for \(\theta\) if for every \(y \in \mathbb{R}^k\) and for every \(\theta \in \Theta\), the conditional distribution of \((X_1, \ldots, X_n)\) given \(Y=y\) (with respect to probabilities given by \(f_\theta\)) does not depend on \(\theta\). That is, \(Y\) provides sufficient information to determine \(\theta\) from \(X_1, \ldots, X_n\).
 
@@ -1517,7 +1610,7 @@ Because \(\mu\) does not appear in this expression, \(Y\) is sufficient for \(\m
 
 \begin{theorem}[\textbf{Neyman-Fisher Factorization Theorem, Theorem 5.4 in 541A notes}]\label{mathstats.factorization.thm} Suppose \(X = (X_1, \ldots, X_n)\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of probability density functions or probability mass functions.  Let \(t: \mathbb{R}^n \to \mathbb{R}^k\), so \(Y:= t(X_1, \ldots, X_n)\) is a statistic. Then \(Y\) is sufficient for \(\theta\) if and only if there exists a nonnegative \(\{g_\theta: \theta \in \Theta\}\), \(h: \mathbb{R}^n \to \mathbb{R}\), \(g_\theta: \mathbb{R}^k \to \mathbb{R}\) such that
 
-\begin{equation}\label{mathstats.factorization.thm}
+\begin{equation}\label{mathstats.factorization.thm.eqn}
 f_\theta(x) = g_\theta(t(x)) h(x), \ \ \ \forall \ x \in \mathbb{R}^n, \ \ \forall \theta \in \Theta.
 \end{equation}
 
@@ -1534,7 +1627,7 @@ Suppose \(Y\) is sufficient. Let \(x \in \mathbb{R}^n\). Note that by definition
 f_\theta(x) = \mathbb{P}_\theta (X = x) = \mathbb{P}_\theta (X = x \cap t(X) = t(x)) = \mathbb{P}_\theta ( Y = t(x))   \mathbb{P}_\theta (X = x \mid Y = t(x)) 
 \]
 
-By sufficiency, \( \mathbb{P}_\theta (X = x \mid Y = t(x)) \) does not depend on \(\theta\). Therefore we can satisfy (\ref{mathstats.factorization.thm}) with \(g_\theta(t(x)) = \mathbb{P}_\theta ( Y = t(x))  \), \(h(x) = \mathbb{P}_\theta (X = x \mid Y = t(x))  \), so the factorization holds.
+By sufficiency, \( \mathbb{P}_\theta (X = x \mid Y = t(x)) \) does not depend on \(\theta\). Therefore we can satisfy (\ref{mathstats.factorization.thm.eqn}) with \(g_\theta(t(x)) = \mathbb{P}_\theta ( Y = t(x))  \), \(h(x) = \mathbb{P}_\theta (X = x \mid Y = t(x))  \), so the factorization holds.
 
 \
 
@@ -1604,7 +1697,7 @@ We can see that \((X_1k \ldots, X_n)\) is sufficient for \(\theta\) if \((t(x_1,
 
 \end{remark}
 
-\subsubsection{Minimal Sufficient Statistics}
+\subsection{Minimal Sufficient Statistics}
 
 \begin{proposition}
 
@@ -1966,7 +2059,7 @@ So by (\ref{prob.541a.hw4.8d}), we have
 
 \end{proof}
 
-\subsubsection{Ancillary Statistics}
+\subsection{Ancillary Statistics}
 
 \begin{definition}[\textbf{Ancillary Statistic}] Suppose \(X_1, \ldots, X_n\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of distributions. A statistic \(Y = t(X_1, \ldots, X_n), t: \mathbb{R}^n \to \mathbb{R}^m\) is \textbf{ancillary} for \(\theta\) if the distribution of \(Y\) does not depend on \(\theta\).
 
@@ -2040,7 +2133,7 @@ Let \(f: \mathbb{R}^n \to \mathbb{R}\), \(f(x_1, \ldots, x_n) = x_n - x_1 - c \ 
 
 \end{example}
 
-\subsubsection{Complete Statistics}
+\subsection{Complete Statistics}
 
 \begin{definition}[\textbf{Complete statistic; definition 5.16 in 541A notes}]Suppose \(X_1, \ldots, X_n\) is a random sample of size \(n\) from a distribution \(f\) where \(f \in \{f_\theta: \theta \in \Theta\}\) is a family of distributions. A statistic \(Y = t(X_1, \ldots, X_n), t: \mathbb{R}^n \to \mathbb{R}^k\) is \textbf{complete} for \(\theta\) if the following holds:
 
@@ -2393,7 +2486,7 @@ as desired.
 
 \end{proof}
 
-\begin{example}[\textbf{Example from 541B}]
+\begin{example}[\textbf{Example from 541B}]\label{mathstats.mean.var.indep}
 
 \(X_1, \ldots, X_n \sim \mathcal{N}(\mu, 1)\), i.i.d. Then \(\overline{X}_n\) is complete sufficient for \(\mu\). Therefore by Basu's Theorem (Theorem \ref{mathstats.thm.basu}) and Example \ref{mathstats.541b.x.minus.indep}, \(\overline{X}_n\) and \(X_1 - \overline{X}_n\) are independent.
 
@@ -2405,13 +2498,33 @@ By Basu's Theorem (Theorem \ref{mathstats.thm.basu}), the sample mean and sample
 
 \end{example}
 
-\subsection{Point Estimation}
+\begin{theorem}[\textbf{Complete statistics in the exponential family; Theorem 6.2.25 in \citet{CaseBerg:01}}]\label{mathstats.thm.comp.exp.fam}
+
+Let \(X_1, \ldots, X_n\) be i.i.d. observations from an exponential family with pdf or pmf of the form
+
+\[
+f(x \mid \theta) = h(x) c(\boldsymbol{\theta}) \exp \left( \sum_{j=1}^k w(\theta_j)t_j(x) \right)
+\]
+
+where \(\boldsymbol{\theta} = (\theta_1, \ldots, \theta_k)\), \(\boldsymbol{\theta} \in \Theta\). Then the statistic
+
+\[
+T(X) = \left(
+\sum_{i=1}^n t_1(X_i), \ldots, \sum_{i=1}^n t_k (X_i)
+ \right)
+\]
+
+is complete as long as the parameter space \(\Theta\) contains an open set in \(\mathbb{R}^k\).
+
+\end{theorem}
+
+\section{Point Estimation}
 
 \begin{definition}[\textbf{Point estimator}] Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) from a family of distribution \(\{f_\theta: \theta \in \Theta\}\). If \(Y\) is a statistic that is used to estimate the parameter \(\theta\) that fits the data at hand, we then refer to \(Y\) as a \textbf{point estimator} or \textbf{estimator}.
 
 \end{definition}
 
-\subsubsection{Heuristic Principles for Finding Good Estimators}
+\subsection{Heuristic Principles for Finding Good Estimators}
 
 \begin{definition}[\textbf{Likelihood, Definition 6.1 in Math 541A notes}]Let \(X_1, \ldots, X_n\) be a random sample of size \(n\) from a family of distributions \(\{f_\theta: \theta \in \Theta\}\). If we have data \(x \in \mathbb{R}^n\), then the function \(L: \Theta \to [0, \infty)\) defined by \(L(\theta):= f_\theta(x)\) is called the \textbf{likelihood function}.
 
@@ -2429,7 +2542,7 @@ By Basu's Theorem (Theorem \ref{mathstats.thm.basu}), the sample mean and sample
 
 \end{itemize}
 
-\subsubsection{Evaluating Estimators}
+\subsection{Evaluating Estimators}
 
 We can enumerate several desirable properties for estimators.
 
@@ -2495,7 +2608,7 @@ More generally, given a family of distributions \(\{f_{\tilde{\theta}}: \tilde{\
 
 The Rao-Blackwell Theorem says that if \(L(\theta, y)\) is convex in \(y\) then we can create an optimal estimator for \(g(\theta)\) from a sufficient statistic and any estimator for \(g(\theta)\) (we can lower the risk of an estimator \(Y\) by conditioning on a sufficient statistic \(Z\).).
 
-\begin{theorem}[\textbf{Rao-Blackwell; Theorem 6.4 in Math 541A notes}] Let \(Z\) be a sufficient statistic for \(\{f_\theta:\theta \in \Theta\}\) and let \(Y\) be an estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). Let \(\theta \in \Theta\). Then
+\begin{theorem}[\textbf{Rao-Blackwell; Theorem 6.4 in Math 541A notes}]\label{mathstats.thm.rao.blackwell} Let \(Z\) be a sufficient statistic for \(\{f_\theta:\theta \in \Theta\}\) and let \(Y\) be an estimator for \(g(\theta)\). Define \(W:= \E_\theta(Y \mid Z)\). Let \(\theta \in \Theta\). Then
 
 
 
@@ -2511,7 +2624,22 @@ r(\theta, W) \leq r(\theta, Y).
 
 \end{theorem}
 
-\begin{proof} Note that since \(Z\) is sufficient, \(W\) does not depend on \(\theta\). By the Conditional Jensen's Inequality (Theorem \ref{cvx.541A.exercise5.89}) and using the convexity of \(\ell(\theta, y)\) in \(y\),
+\begin{proof} 
+
+To get the first statement, note that
+
+\begin{align*}
+\Var_\theta(W) & = \mathbb{E}_\theta\left[W - g(\theta) \right]^2 
+\\ & = \mathbb{E}_\theta\left[ \E_\theta(Y \mid Z) - g(\theta)\right]^2 
+\\ & = \mathbb{E}_\theta\left[ \E_\theta(Y - g(\theta) \mid Z) \right]^2
+\\ &  \leq  \mathbb{E}_\theta\left[ \E_\theta([Y - g(\theta)]^2 \mid Z) \right] 
+\\ & = \mathbb{E}_\theta\left[ (Y - g(\theta))^2\right] 
+\\& = \Var_\theta(Y),
+\end{align*}
+
+where the inequality follows that \(\Var(W) = \E W^2 - (\E W)^2 \geq 0\) for any random variable \(W\) (in this case, \(W = Y - g(\theta) \mid Z\), and there is equality only if \(\Var(W) =0\); that is, \(Y - g(\theta)\) can take just one value for each value of \(T\), so \(Y\) is a deterministic function of \(T\).
+
+To get the second statement, note that since \(Z\) is sufficient, \(W\) does not depend on \(\theta\). By the Conditional Jensen's Inequality (Theorem \ref{cvx.541A.exercise5.89}) and using the convexity of \(\ell(\theta, y)\) in \(y\),
 
 \[
 \ell(\theta, w) = \ell(\theta, \E_{\tilde{\theta}}(Y \mid Z)) \leq \E_{\tilde{\theta}} [ \ell(\theta, Y) \mid Z].
@@ -2784,7 +2912,7 @@ So \(\Var_\theta Y \geq \Var_\theta W\) for all \(\theta \in \Theta\).
 
 \end{remark}
 
-\subsubsection{Efficiency of an Estimator}\label{mathstats.eff.est} Another desirable property of an estimator is high efficiency---``good" with a small number of samples. One way to quantify this notion is to define a notion of ``information" and try to maximize the information content of the estimator.
+\subsection{Efficiency of an Estimator}\label{mathstats.eff.est} Another desirable property of an estimator is high efficiency---``good" with a small number of samples. One way to quantify this notion is to define a notion of ``information" and try to maximize the information content of the estimator.
 
 \begin{definition}[\textbf{Fisher Information, Definition 6.19 in Math 541A notes}]\label{mathstats.def.fish.inf} Let \(f \in \{f_\theta: \theta \in \Theta \}\) be a family of multivariate probability densities or probability mass functions. Assume \(\Theta \subseteq \mathbb{R}\) (this is a one-parameter situation). Let \(X\) be a random variable with distribution \(f_\theta\). Define the \textbf{Fisher information} of the family to be
 
@@ -3017,7 +3145,7 @@ T'(X_1, \ldots, X_n) := \begin{cases}
 
 Claim: \(\sqrt{n}(T' - \theta) \xrightarrow{d} \mathcal{N}(0,1)\) for \(\theta \neq 0\). Moreover, for \(r_n(T' - \theta) \xrightarrow{p} 0\) for any sequence \(r_n\) when \(\mu = 0\).
 
-\subsubsection{Bayes Estimation}
+\subsection{Bayes Estimation}
 
 In Bayes estimation, the parameter \(\theta \in \Theta\) is regarded as a random variable \(\Psi\). The distribution of \(\Psi\) reflects our prior knowledge about the probable values of \(\Psi\). Then, given that \(\Psi = \theta\), the conditional distribution of \(X \mid \Psi= \theta\) is assumed to be \(\{f_\theta: \theta \in \Theta \}\), where \(f_\theta: \mathbb{R}^n \to [0, \infty)\). Suppose \(t: \mathbb{R}^n \to \mathbb{R}^k\) and we have a statistic \(Y := t(X)\) and a loss function \(\ell: \mathbb{R}^k \times \mathbb{R}^k \to \mathbb{R}\). Let \(g: \Theta \to \mathbb{R}^k\).
 
@@ -3471,7 +3599,7 @@ so in general when \(k \geq 1\) and \(n\) is large,, \(\E \left( \hat{\delta}_{\
 
 \end{solution}
 
-\subsubsection{Method of Moments}
+\subsection{Method of Moments}
 
 \begin{definition}[\textbf{Consistency, Definition 6.30 in Math 541A notes}] Let \(\{f_\theta: \theta \in \Theta\}\) be a family of distributions. Let \(Y_1, Y_2, \ldots\) be a sequence of estimators of \(g(\theta)\). We say that \(Y_1, Y_2, \ldots\) is \textbf{consistent} for \(g(\theta)\) if for any \(\theta \in \Theta\), \(Y_1, Y_2, \ldots\) converges in probability to the constant value \(g(\theta)\) with respect to the probability distribution \(f_\theta\). That is, \(Y_n \xrightarrow{p} g(\theta)\). (Typically we will take \(Y_n\) to be a function of a random sample of size \(n\) for all \(n \geq 1\).) 
 
@@ -3515,7 +3643,7 @@ To estimate the standard deviation, we can use \(\Theta = \mathbb{R} \times (0, 
 
 \end{remark}
 
-\subsubsection{Maximum likelihood estimator}\label{mathstats.sec.mle}
+\subsection{Maximum likelihood estimator}\label{mathstats.sec.mle}
 
 \begin{definition}[\textbf{Maximum Likelihood Estimator (Math 541B Definition)}]
 
@@ -3591,7 +3719,7 @@ for Jensen's Inequality, equality holds if and only if
 \item \(KL(p  || q ) \) is not a distance: \(KL(p  || q ) \neq KL(q || p)
 \), and the KL divergence does not satisfy the Triangle Inequality.
 
-\item  \textbf{total variational distance:} (in principal, existence of density is not required, but typically we assume a density exists)
+\item  \textbf{total variational distance (Definition 13.1.2 in \citet{lehmann2005testing}):} (in principal, existence of density is not required, but typically we assume a density exists)
 
 \[
 TV(P, Q) := \sup_{A} | P(A) - Q(A)| = \frac{1}{2} \int |p - q| \ d \mu
@@ -3603,13 +3731,13 @@ TV(P, Q) := \sup_{A} | P(A) - Q(A)| = \frac{1}{2} \int |p - q| \ d \mu
 TV(P, Q) \leq \sqrt{ \frac{KL (P || Q)}{2}}.
 \]
 
-\textbf{Hellinger's Distance:} (need to assume existence of density)
+\textbf{Hellinger's Distance (Definition 13.1.3 in \citet{lehmann2005testing}):} (need to assume existence of density)
 
 \[
 H^2(P,Q) :=  \int ( \sqrt{p} - \sqrt{q} )^2 \ d \mu
 \]
 
-(\(\ell_2\) distance between square roots of densities)
+(\(\ell_2\) distance between square roots of densities. See also Definition \ref{mathstats.def.hel.dist}.)
 
 \textbf{Le Cann's Inequality:}
 
@@ -3963,22 +4091,13 @@ f(X_i; \lambda) = \lambda e^{-\lambda X_i}
 
 Assuming the samples are independent,
 
-\[
+\begin{multline*}
 L = \prod_{i=1}^n \lambda e^{-\lambda X_i} = \lambda^n \exp(-\lambda \sum_{i=1}^n X_i)
-\]
-
-\[
-\log(L) = n \log(\lambda) + -\lambda \sum_{i=1}^n X_i
-\]
-
-\[
-\deriv{\log(L)}{\lambda} = \frac{n}{\lambda} - \sum_{i=1}^n X_i = 0
-\]
-
-\[
-\implies 
+\\ \iff \log(L) = n \log(\lambda) + -\lambda \sum_{i=1}^n X_i
+\\ \iff \deriv{\log(L)}{\lambda} = \frac{n}{\lambda} - \sum_{i=1}^n X_i = 0
+\\ \implies 
 \hat{\lambda} = n / \sum_{i=1}^n X_i = \frac{1}{\bar{X}}
-\]
+\end{multline*}
 
 
 \end{proof}
@@ -4313,9 +4432,9 @@ Notice that if \(n\) is even then the median set as \(\hat{\theta}_{MLE}\) satis
 
 \end{proof}
 
-\subsubsection{Bayes estimator}
+\subsection{Bayes estimator}
 
-\subsubsection{EM Algorithm}\label{mathstats.sec.em.alg}
+\subsection{EM Algorithm}\label{mathstats.sec.em.alg}
 
 \begin{remark}[\textbf{Correction to Remark 6.57}]If \(Y\) is constant, the algorithm just outputs \(\theta_0\) in one step by the Likelihood Inequality (Lemma 6.50 in lecture notes):
 
@@ -4339,21 +4458,384 @@ Y = t(X), \qquad f_{X,Y}(x,.y) = f_X(x) \boldsymbol{1}_{y=t(x)}.
 
 \end{remark}
 
-\subsubsection{Comparison of estimators}
+\subsection{Comparison of estimators}
 
-\subsection{Resampling and Bias Reduction}
+\section{Resampling and Bias Reduction}
 
-\subsubsection{Jackknife Resampling}
+\subsection{Jackknife Resampling}
 
 \[
 Z_n :=  Y_n + (n-1) \bigg(Y_n - \frac{1}{n} \sum_{i=1}^n t_{n-1}(X_1, \ldots, X_{i-1}, X_{i+1}, \ldots, X_n) \bigg) 
 \]
 
-\subsubsection{Bootstrapping}
+\subsection{Bootstrapping}
 
-\subsection{Some Concentration of Measure}
+Suppose \(X_1, \ldots, X_n\) i.i.d. from \(\mathbb{P}_\theta\). \(\hat{\theta} = \hat{\theta}(X_1, \ldots, X_n)\) is an estimator for \(\theta\). Question: what is the distribution of \(\hat{\theta} - \theta\). or 
 
-\subsubsection{Concentration for Independent Sums}
+\begin{equation}\label{mathstats.bs.des.dist}
+\frac{\hat{\theta} - \theta}{\hat{\sigma}}
+\end{equation}
+
+ (where \(\hat{\sigma}\) is an estimator of standard deviation)? Another scenario: \(T_n\) is a test statistic. What is the distribution of \(T_n\) under the null hypothesis?
+
+\begin{definition}[\textbf{Parametric bootstrap}]
+
+Let \(\hat{X}_1, \ldots, \hat{X}_n\) be an i.i.d. sample from \(\mathbb{P}_{\hat{\theta}}\). Consider 
+
+\begin{equation}\label{mathstats.bs.par.form}
+\hat{T}(\hat{X}_1, \ldots, \hat{X}_n, \hat{\theta}) = \frac{\hat{\theta}(\hat{X}_1, \ldots, \hat{X}_n) - \hat{\theta}(X_1, \ldots, X_n)}{\hat{\sigma}(\hat{X}_1, \ldots, \hat{X}_n}.
+\end{equation}
+
+(Unlike in (\ref{mathstats.bs.des.dist}), note that all of the quantities in (\ref{mathstats.bs.par.form}) are known---data dependent, can compute.)
+
+\end{definition}
+
+\begin{example}
+
+ \(\mathcal{N}(\theta, \sigma^2)\). \(\hat{\theta}(X_1, \ldots, X_n)= n^{-1} \sum_{i=1}^n X_i\), \(\hat{\sigma}^2(X_1, \ldots, X_n) = (n-1)^{-1} \sum_{i=1}^n (X_i - \overline{X}_i)^2\). 
+
+
+\end{example}
+
+Question: when are the distributions of \(T\) and \(\hat{T}\) ``close"? Intuition: if \(T(\theta, X_1, \ldots, X_n)\) is continuous with respect to all variables, then bootstrap should work.
+
+\begin{definition}[\textbf{Non-parametric bootstrap}]
+
+Estimate distribution of \(\mathbb{P}\) via empirical distribution:
+
+\[
+\hat{\mathbb{P}}_n := \hat{\mathbb{P}}_n(\mathcal{A})  =  \frac{1}{n} \sum_{i=1}^n \mathbbm{1}\{X_i \in \mathcal{A}\} 
+\]
+
+In other words, \(\hat{\mathbb{P}}_n \) is a uniform distribution on \(\{X_1, \ldots, X_n\}\). Samping from \(\hat{\mathbb{P}}_n \) is easy---corresponds to a multinomial distribution.
+
+\end{definition}
+
+Treats the distribution itself as a parameter. Used when nothing is known about the distribution of the data, or when sampling from \(\mathbb{P}_\theta\) is difficult. Note that \(\mathbb{E}_{\mathbb{P}}  \hat{\mathbb{P}}_n(\mathcal{A})  = \mathbb{P}(\mathcal{A})\).
+
+\begin{example}
+
+\(X_1, \ldots, X_n\) i.i.d. \(\mathbb{P}\), \(Y_1, \ldots, Y_m\) i.i.d. \(\mathbb{Q}\). Let \(\mu_P, \mu_Q\) be the means of \(\mathbb{P}\) and \(\mathbb{Q}\) respectively. \(H_0: \mu_P = \mu_Q\), \(H_a: \mu_P \neq \mu_Q\). Consider the test statistic
+
+\[
+T = \frac{\overline{X} - \overline{Y}}{S_{n+m}}
+\]
+
+where
+
+\[
+S_{n+m} := \frac{n-1}{m+n-2}S_X^2 + \frac{m-1}{m+n-2} S_Y^2
+\]
+
+is the \textbf{pooled variance}. What is the distribution of \(T\) under \(H_0\)? Let 
+
+\[
+\overline{Z} := \frac{1}{n+m} \left( \sum_{i=1}^n X_i + \sum_{i=1}^m Y_i\right),
+\]
+
+and let 
+
+\[
+\tilde{X}_i = X_i - \overline{X}_n + \overline{Z}, \qquad i \in [n], \qquad \tilde{Y}_i = Y_i - \overline{Y}_m + \overline{Z}, \qquad i \in [m].
+\]
+
+Then \(\tilde{X}_1, \ldots, \tilde{X}_n\) and \(\tilde{Y}_1, \ldots, \tilde{Y}_m\) can be used to model the distribution under \(H_0\). For \(i \in [B]\), repeat the following:
+
+\begin{enumerate}
+
+\item Sample \(\hat{X}_1^{(i)}, \ldots, \hat{X}_n^{(i)}\) from \(\hat{\mathbb{P}}_n(\tilde{X}_1, \ldots, \tilde{X}_n)\). 
+
+\item Sample \(\hat{Y}_1^{(i)}, \ldots, \hat{Y}_n^{(i)}\) from \(\hat{\mathbb{P}}_m(\tilde{Y}_1, \ldots, \tilde{Y}_n)\). 
+
+\item Compute \(\hat{T}^{(i)} = T( \hat{X}_1^{(i)}, \ldots \hat{X}_n^{(i)},  \hat{Y}_1^{(i)}, \ldots, \hat{Y}_n^{(i)})\). 
+
+
+
+\end{enumerate}
+
+For each \(C\), compute 
+
+\[
+\hat{\mathbb{P}}(\hat{T} \geq C) = \frac{1}{B} \sum_{i=1}^B \mathbbm{1} \left\{ \hat{T}^{(i)} \geq C \right\}.
+\]
+
+To obtain a test of size \(\alpha\), select \(C\) such that 
+
+\[
+\hat{\mathbb{P}}(\hat{T} \geq C) = \alpha.
+\]
+
+\end{example}
+
+\begin{example}[\textbf{(Non-parametric) Bootstrap failure}]
+
+Let \(X_1, \ldots, X_n\) be i.i.d. \(\operatorname{Uniform}[0, \theta]\). Let \(T_n = n(\theta - \hat{\theta}_n)\), where \(\hat{\theta}_n = \max\{X_1, \ldots, X_n\}= X_{(n)}\), the maximum likelihood estimator of \(\theta\). Let
+
+\[
+\hat{T}_n = n( \hat{\theta}_n(X_1, \ldots, X_n)  - \hat{\theta}_n(\hat{X}_1, \ldots, \hat{X}_n)) = n (\max(X_1, \ldots, X_n) - \max( \hat{X}_1, \ldots, \hat{X}_n)) = n(X_{(n)} - \hat{X}_{(n)}).
+\]
+
+Are the distributions of \(T_n\) and \(\hat{T}_n\) close? Turns out no. Note that \(\mathbb{P}(\hat{X}_1 = X_1) = n^{-1}\) for \(i \in [n]\), and note that \(\hat{X}_{(n)} \leq X_{(n)}\), so \(\hat{T}_n \geq 0\). Fix \( t \geq 0\). 
+
+\begin{multline}\label{mathsthats.bootstrap.counter.bs.dist}
+\mathbb{P}(\hat{T}_n \leq t \mid X_1, \ldots, X_n) \geq \mathbb{P}(\hat{T}_n = 0 \mid X_1, \ldots, X_n)  
+\\ = \mathbb{P}(\text{at least one among } \hat{X}_1, \ldots, \hat{X}_n \text{ is equal to } X_{(n)} \mid X_1, \ldots, X_n)
+\\ = 1 -  \mathbb{P}(\text{none of } \hat{X}_1, \ldots, \hat{X}_n \text{ are equal to } X_{(n)} \mid X_1, \ldots, X_n) = 1 - \left(  \frac{n-1}{n}\right)^n \xrightarrow{n \to \infty} 1 - \frac{1}{e}.
+\end{multline}
+
+At the same time, 
+
+%\[
+%\mathbb{P}_\theta(T_n \leq t) \xrightarrow{n \to \infty} 1 -e^{-t/\theta}
+%\]
+
+\begin{multline}\label{mathstats.hw5.2.a.prob}
+\mathbb{P}_\theta(T_n \leq t) = \mathbb{P} \left(n (\theta - X_{(n)}) \leq t \right) = \mathbb{P} \left( X_{(n)} \geq \theta - \frac{t}{n} \right) = 1 -  \mathbb{P} \left( X_{(n)} \leq \theta - \frac{t}{n} \right) 
+\\ = 1 -  \mathbb{P} \left( \bigcap_{i=1}^n \left\{ X_{i} \leq \theta - \frac{t}{n} \right\} \right) 
+ =  1 - \left[ \mathbb{P} \left( X_{1} \leq \theta - \frac{t}{n} \right) \right]^n = 1 - \left[ 1 + \frac{-t/\theta}{ n} \right]^n
+\end{multline}
+
+\[
+\implies \lim_{n \to \infty} \mathbb{P}_\theta(T_n \leq t) = \lim_{n \to \infty} \mathbb{P} \left(n (\theta - X_{(n)}) \leq t \right) = 1 -  \lim_{n \to \infty} \left[ 1 + \frac{-t/\theta}{ n} \right]^n = 1 - \exp \left( - \frac{t}{\theta} \right).
+\]
+
+Since the lower bound in (\ref{mathsthats.bootstrap.counter.bs.dist}) does not depend on \(t\), bootstrap fails. Exercise: does parametric bootstrap work here?
+
+\end{example}
+
+\begin{theorem}
+
+Assume that \(\E X_1 = \mu\), \(\Var(X_1) = \sigma^2\), \(\E|X_1 - \mu|^3 < \infty\). Let \(\hat{\mu}_n = \overline{X}_n =n^{-1} \sum_{i=1}^n X_i\), \(F_n(t) = \mathbb{P}(\sqrt{n}(\hat{\mu}_n - \mu) \leq t)\). Let \(\hat{X}_1, \ldots, \hat{X}_n\) be i.i.d. from \(\hat{\mathbb{P}}_n\), and let 
+
+\[
+\hat{\mu}^* = \frac{1}{n} \sum_{i=1}^n \hat{X}_i, \qquad \hat{F}_n(t) = \mathbb{P}\left( \sqrt{n}(\hat{\mu}_n^* - \hat{\mu}_n) \leq t(X-1, \ldots, X_n) \right)
+\]
+
+Then
+
+\[
+\sup_{t \in \mathbb{R}} \left| \hat{F}_n(t) - F_n(t) \right| = o_{\mathbb{P}}(1) \text{ as } n \to \infty.
+\]
+
+
+\end{theorem}
+
+\begin{proof}
+
+
+
+Let \(\phi_\sigma(t)\) be the CDF of \(\mathcal{N}(0, \sigma^2)\). We have
+
+\[
+\hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \hat{\mu}_n)^2 = \Var( \hat{X}_n), \qquad \hat{\mu}_n = \frac{1}{n} \sum_{i=1}^n X_j = \E_{\hat{P}_n} \hat{X}_1.
+\]
+
+Note that 
+
+\begin{multline*}
+\sup_{t \in \mathbb{R}} \left|   F_n(t) - \hat{F}_n(t)\right| = \sup_{t \in \mathbb{R}} \left| F_n(t) -  \phi_\sigma(t) + \phi_\sigma(t) - \phi_{\hat{\sigma}}(t) +   \phi_{\hat{\sigma}}(t)  - \hat{F}_n(t) \right| 
+\\  \leq \sup_{t \in \mathbb{R}} \underbrace{\left| F_n(t) -  \phi_\sigma(t) \right|}_{\text{error in normal approximation; close by Berry-Esseen}} + \sup_{t \in \mathbb{R}} \underbrace{\left| \phi_\sigma(t) - \phi_{\hat{\sigma}}(t) \right|}_{\text{close since } \hat{\sigma}^2 \text{ is consistent}} +   \sup_{t \in \mathbb{R}} \underbrace{\left| \phi_{\hat{\sigma}}(t)  - \hat{F}_n(t) \right| }_{\text{close by Berry-Esseen}}
+\end{multline*}
+
+It remains to estimate all three terms. By Berry-Esseen,
+
+\[
+\sup_{t \in \mathbb{R}} \left| F_n(t) -  \phi_\sigma(t) \right| \leq \frac{3 \E |X_1 - \mu|^3}{\sigma^3 \sqrt{n}}.
+\]
+
+By applying Berry-Esseen conditionally on \(X_1, \ldots, X_n\),
+
+\[
+ \sup_{t \in \mathbb{R}} \left|   \hat{F}_n(t)  - \phi_{\hat{\sigma}}(t)  \right| \leq 3 \frac{\hat{\gamma}}{\hat{\sigma}^3 \sqrt{n}}
+\]
+
+where
+
+\[
+\hat{\gamma} := \frac{1}{n} \sum_{i=1}^n |X_i - \overline{X}_n|^3 = \E_{\hat{\mathbb{P}}_n} \left|X - \E_{\hat{\mathbb{P}}_n} X \right|^3.
+\]
+
+By the Strong Law of Large Numbers, \(\overline{X}_n \xrightarrow{a.s.} \mu, \hat{\gamma} \xrightarrow{a.s.} \E|X_1 \mu|^3, \hat{\sigma}^2 \xrightarrow{a.s.} \sigma^2\). Hence 
+
+\[
+\frac{3 \hat{\gamma}}{(\hat{\sigma}^2)^{3/2} \sqrt{n}} = o_{\mathbb{P}}(1).
+\]
+
+Finally, let \(\sigma_1, \sigma_2 > 0\) be fixed. Then
+
+\[
+\sup_{t \in \mathbb{R}} \left| \phi_{\sigma_1}(t) - \phi_{\sigma_2}(t) \right| = \sup_t \left|  \int_{-\infty}^t  \left( \frac{1}{\sqrt{2 \pi} \sigma_1} \exp \left\{ - \frac{ y^2}{2 \sigma_1^2} \right\} - \frac{1}{\sqrt{2 \pi} \sigma_2} \exp \left\{ - \frac{ y^2}{2 \sigma_2^2} \right\} \right) \ dy \right| 
+\]
+
+Note that
+
+\begin{multline*}
+\frac{1}{ \sigma_1} \exp \left\{ - \frac{ y^2}{2 \sigma_1^2} \right\} + \frac{1}{ \sigma_1} \exp \left\{ - \frac{ y^2}{2 \sigma_2^2} \right\}  -  \frac{1}{ \sigma_1} \exp \left\{ - \frac{ y^2}{2 \sigma_2^2} \right\}  - \frac{1}{ \sigma_2} \exp \left\{ - \frac{ y^2}{2 \sigma_2^2} \right\}
+\\ = \underbrace{ \frac{1}{ \sigma_1} \left(  \exp \left\{ - \frac{ y^2}{2 \sigma_1^2} \right\}  -   \exp \left\{ - \frac{ y^2}{2 \sigma_2^2} \right\}  \right)}_{A_1} + \underbrace{ \exp \left\{ - \frac{ y^2}{2 \sigma_2^2} \right\}  \left(  \frac{1}{ \sigma_1}- \frac{1}{ \sigma_2} \right)}_{A_2}
+\end{multline*} 
+
+Then
+
+\[
+A_1 = \frac{1}{\sigma_1} \exp \left\{ - \frac{ y^2}{2 \sigma_1^2} \right\} \left( 1 - \exp \left\{ - \frac{ y^2}{2 } \underbrace{\left[  \frac{1}{\sigma_2^2} - \frac{1}{\sigma_1^2} \right]}_{>0} \right\} \right)
+\]
+
+For \(x > 0\), \(1 - e^{-x} \leq x\). Hence
+
+\[
+A_1 \leq \frac{1}{\sigma_1} \exp \left\{ - \frac{ y^2}{2 \sigma_1^2} \right\}  \cdot  \frac{ y^2}{2 } \left[  \frac{1}{\sigma_2^2} - \frac{1}{\sigma_1^2} \right] = \frac{1}{\sigma_1} \frac{y^2}{2} \exp \left\{ - \frac{ y^2}{2 \sigma_1^2} \right\} \frac{ \sigma_1^2 - \sigma_2^2}{\sigma_1^2 \sigma_2^2}.
+\]
+
+On the other hand,
+
+\[
+A_2 = \exp \left\{ - \frac{ y^2}{2 \sigma_2^2} \right\}  \left(  \frac{1}{ \sigma_1}- \frac{1}{ \sigma_2} \right) = \exp \left\{ - \frac{ y^2}{2 \sigma_2^2} \right\}  \left(\frac{\sigma_2 - \sigma_1}{\sigma_1} \right)
+\]
+
+
+so
+
+\begin{multline*}
+ \sup_{t \in \mathbb{R}} \left| \phi_\sigma(t) - \phi_{\sigma_2}(t) \right| 
+ \leq \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty \frac{y^2}{2 \sigma_1} \exp \left\{- \frac{y^2}{2 \sigma_1^2} \right\} dy \cdot \left|  \frac{\sigma_1^2 - \sigma_2^2}{\sigma_1^2 \sigma_2^2} \right| 
+ + \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty \frac{1}{\sigma_2} \exp \left\{ - \frac{y^2}{2 \sigma_2^2} \right\} dy \frac{ |\sigma_2 - \sigma_1|}{\sigma_1}
+\end{multline*}
+
+Hence \( \sup_{t \in \mathbb{R}} \left| \phi_\sigma(t) - \phi_{\sigma_2}(t) \right| \to 0\) as \(\sigma_1 \to \sigma_2\). Apply this with \(\sigma_1^2 = \sigma_2\), \(\sigma_2^2 = \hat{\sigma}^2\) to yield the result.
+
+
+\end{proof}
+
+\textbf{Bootstrap and Bias Corrections.} Suppose that \(X\) is a random variable with \(\E X = \mu\), \(\Var(X) = \sigma^2\), \(\E |X|^3 < \infty\). Assume that we are interested in estimating \(g(\mu)\) where \(g\) is a smooth function. The \textbf{plug-in estimator} of \(g(\mu)\) is \(g(\hat{\mu}_n)\) where \(\hat{\mu}_n\) is an estimator of \(\mu\). In particular, if nothing is known about \(X\), \(\hat{\mu}_n\) will be the sample mean \(\overline{X}_n\). In general, \(g(\overline{X}_n)\) is a biased estimator of \(g(\mu)\). The bias is 
+
+\[
+\operatorname{bias}(g(\overline{X}_n)) := \E g(\overline{X}_n) - g(\mu).
+\]
+
+The goal is to estimate \(\widehat{\operatorname{bias}}(g(\overline{X}_n))\) using the bootstrap and replace \(g(\overline{X}_n)\) with the bias-corrected estimator \(g(\overline{X}_n) - \widehat{\operatorname{bias}}(g(\overline{X}_n))\). Estimating the bias: For \(i \in [B]\),
+
+\begin{enumerate}
+
+\item Generate the bootstrap sample \(\hat{X}_1^{(i)}, \ldots, \hat{X}_n^{(i)}.\)
+
+\item \(\hat{\Theta}^{(i)} = g \left( \widehat{\overline{X}}_n ^{(i)} \right)\).
+
+\item Let 
+
+\[
+\widehat{\operatorname{bias}}(g(\overline{X}_n)) := \frac{1}{B} \sum_{i=1}^B  g \left( \widehat{\overline{X}}_n ^{(i)} \right) - g( \overline{X}_n).
+\]
+
+\end{enumerate}
+
+Question: what is the bias of \(g(\overline{X}_n) - \widehat{\operatorname{bias}}(g(\overline{X}_n))\)? Observe that
+
+\begin{multline*}
+g(\overline{X}_n) - g(\mu) = g(\mu + \overline{X}_n - \mu) - g(\mu) 
+\\ = g'(\mu) (\overline{X}_n - \mu) + \frac{1}{2} g''(\mu)(\overline{X}_n - \mu)^2 + \underbrace{o(( \overline{X}_n-\mu)^2)}_{o_{\mathbb{P}}((n^{-1/2})^2)} + \frac{g'''(\tau)}{6}(\overline{X}_n - \mu)^3
+\\ \implies \E g(\overline{X}_n) - g(\mu) = \frac{1}{2} g''(\mu) \frac{\sigma^2}{n} + o(n^{-1}).
+\end{multline*}
+
+Similarly,
+
+\[
+g(\widehat{\overline{X}}_n)  - g(\overline{X}_n) = g'(\overline{X}_n) (\widehat{\overline{X}}_n^{(i)} - \overline{X}_n) + \frac{1}{2} g''(\overline{X}_n)( \widehat{\overline{X}}_n^{(i)} - \overline{X}_n)^2 + o_{\mathbb{P}}(1/n).
+\]
+
+Hence
+
+\[
+\E_{\hat{\mathbb{P}}} g \left( \widehat{\overline{X}}_n^{(i)} \right) - g(\overline{X}_n) = \frac{1}{2} g''(\overline{X}_n) \frac{S_n^2}{n} + o(n^{-1})
+\]
+
+where 
+
+\[
+S_n^2 = \frac{1}{n} \sum_{j=1}^n (X_j - \overline{X}_n)^2.
+\]
+
+Look at how close estimate is to actual bias:
+
+\begin{multline*}
+\operatorname{bias}(g(\overline{X}_n)) - \widehat{\operatorname{bias}}(g(\overline{X}_n)) = \frac{1}{2} g''(\mu) \frac{\sigma^2}{n} - \frac{1}{2} g''(\overline{X}_n) \frac{S_n^2}{n} + o_{\mathbb{P}} (n^{-1})
+\\  = \frac{1}{2} g''(\mu) \frac{\sigma^2}{n} - \frac{1}{2} g''(\overline{X}_n)  \frac{S_n^2}{n} + \frac{1}{2} g''(\mu) \frac{S^2}{n} -  \frac{1}{2} g''(\mu) \frac{S^2}{n}   + o_{\mathbb{P}} (n^{-1}) 
+\\  = \frac{1}{2} g''(\mu) \left( \frac{\sigma^2 - S_n^2 }{n} \right)  +  \frac{S^2}{n} \frac{1}{2}\left[  g''(\mu) - g''(\overline{X}_n) \right]  + o_{\mathbb{P}} (n^{-1}) = o_{\mathbb{P}}(n^{-1}) + o_{\mathbb{P}}(n^{-1}) = o_{\mathbb{P}}(n^{-1}) = o_{\mathbb{P}}(n^{-1}).
+\end{multline*}
+
+\begin{example}[\textbf{Trimmed mean}] \(X_1, \ldots, X_n\) i.i.d. Let \(X_{(1)}, \ldots, X_{(n)}\) be the order statistics. Pick \(\alpha \in (0,1/2)\). Define
+
+\[
+\hat{\mu}_\alpha := \frac{1}{  \left| i \in \{ \lfloor n \alpha \rfloor, \ldots, n - \lfloor n \alpha \rfloor\} \right|} \sum_{i \in\{ \lfloor n \alpha \rfloor, \ldots, n - \lfloor n \alpha \rfloor\}} X_{(i)}.
+\]
+
+Exercise: what is the bias of this estimator? (Hint: prove that \(\E X = \int_0^1 F^{-1}(t) \ dt \) where \(F(t) \) is the cdf of \(X\).)
+
+\end{example}
+
+\begin{exercise} \textbf{look carefully at this problem---could be on final.}
+
+
+\(X_1, X_2, X_3\) i.i.d. with cdf \(F\). Let \(X_{(i)}\) be the order statistics, \(i \in [3]\). Let \(\hat{X}_1, \hat{X}_2, \hat{X}_3\) be the bootstrap sample, and \(\hat{X}_{(1)}, \hat{X}_{(2)}, \hat{X}_{(3)}\) be the bootstrap order statistics.
+
+\begin{enumerate}[(a)]
+
+\item Find the distribution of \(\hat{X}_{(2)}\).
+
+\item Find the bootstrap estimate of the bias of the sample median.
+
+\item Find the bootstrap estimate of the variance of the sample median.
+
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}[(a)]
+
+\item 
+
+\[
+\mathbb{P}(\hat{X}_{(2)} \leq X_{(i)}) =  \mathbb{P}(\hat{X}_{(1)} \leq X_{(i)}, \hat{X}_{(2)} \leq X_{(i)}) = \sum_{j=2}^3 \binom{3}{j}  \left( \frac{i}{3}\right)^j \left(1 - \frac{1}{3} \right)^{3-j}.
+\]
+
+because the probability that one of the bootstrap sampled variables is less than or equal to the \(i\)th smallest sample is equal to \(i/3\), so the probability that the two smallest bootstrap sampled variables are less than or equal to the \(i\)th smallest sample is equal to the probability that a binomial random variable with \(n = 3, p = i/3\) equals 2 or 3. For \(i=1\), this equals \(7/27\); for \(i=2\), this equals \(20/27\); for \(i=3\), this equals \(1\). So then
+
+\[
+\mathbb{P}(\hat{X}_{(2)} = X_{(1)}) = 7/27; \qquad  \mathbb{P}(\hat{X}_{(2)} = X_{(2)}) = 13/27;  \qquad  \mathbb{P}(\hat{X}_{(2)} = X_{(3)}) = 7/27.
+\]
+
+\item
+
+\[
+\widehat{\operatorname{bias}} = \E_{\hat{\mathbb{P}}_3}( \hat{X}_2) - X_{(2)} = \frac{7}{27} X_{(1)} + \frac{13}{27} X_{(2)} + \frac{7}{27} X_{(3)} - X_{(2)} = \frac{7}{27} X_{(1)} - \frac{14}{27} X_{(2)} - \frac{7}{22} X_{(3)}.
+\]
+
+\item
+
+Note that
+
+\[
+\E_{\hat{\mathbb{P}}_3 }( \hat{X}_2  \mid X_1, X_2, X_3) = \frac{7}{27} X_{(1)} + \frac{13}{27} X_{(2)} + \frac{7}{27} X_{(3)} ,  \qquad \E_{\hat{\mathbb{P}}_3} \left( \hat{X}_2^2  \mid X_1, X_2, X_3 \right) = \frac{7}{27} X_{(1)}^2 + \frac{13}{27} X_{(2)}^2 + \frac{7}{27} X_{(3)}^2,
+\]
+
+so the bootstrap estimator of the variance is 
+
+\begin{multline*}
+\widehat{\Var} \left(\hat{X}_{(2)}  \mid X_1, X_2, X_3 \right)   = \E_{\hat{\mathbb{P}}_3} \left[ \hat{X}_2^2   \mid X_1, X_2, X_3 \right] - \E_{\hat{\mathbb{P}}_3} \left[ \hat{X}_2   \mid X_1, X_2, X_3 \right] ^2
+\\ =  \frac{7}{27} X_{(1)}^2 + \frac{13}{27} X_{(2)}^2 + \frac{7}{27} X_{(3)}^2 - \left(\frac{1}{27^2} \right) \left( 7 X_{(1)} + 13 X_{(2)} +7 X_{(3)}\right)^2
+\\ =  \frac{7}{27} X_{(1)}^2 + \frac{13}{27} X_{(2)}^2 + \frac{7}{27} X_{(3)}^2 - \frac{1}{27^2}  \left( 49 X_{(1)}^2 + 2 \cdot 91  X_{(1)}X_{(2)} + 2 \cdot 49 X_{(1)} X_{(3)}+ 169 X_{(2)}^2 +2 \cdot 91 X_{(2)} X_{(3)} + 49 X_{(3)}^2\right)
+\\ =  \left( \frac{7}{27} - \frac{49}{27^2}  \right) X_{(1)}^2 + \left( \frac{13}{27} - \frac{169}{27^2} \right) X_{(2)}^2 + \left( \frac{7}{27} - \frac{49}{27^2} \right) X_{(3)}^2 - \frac{1}{27^2}  \left(  2 \cdot 91  X_{(1)}X_{(2)} + 2 \cdot 49 X_{(1)} X_{(3)} +2 \cdot 91 X_{(2)} X_{(3)} \right)
+\\ = \boxed{ \frac{140}{729} X_{(1)}^2 + \frac{182}{729}  X_{(2)}^2 +  \frac{140}{729}X_{(3)}^2 - \frac{182}{729} X_{(1)}X_{(2)} - \frac{98}{729} X_{(1)} X_{(3)}    - \frac{182}{729} X_{(2)} X_{(3)}.}
+\end{multline*}
+
+\end{enumerate}
+
+\end{solution}
+
+\section{Some Concentration of Measure}
+
+\subsection{Concentration for Independent Sums}
 
 Can generate similar results for other random variables---just need different bound on moment-generating function (generally is fine as long as values of random variable are bounded between two real numbers, but more work to prove). However, doesn't work when values aren't bounded (e.g. for Gaussian random variables).
 
@@ -4434,7 +4916,7 @@ Union bound (Boole's Inequality)
 
 \end{theorem}
 
-\subsection{Math 541B}
+\section{Math 541B}
 
 \begin{definition}[\textbf{Statistical model}] A \textbf{statistical model} is a family of probability distributions \(\mathcal{P} = \{ P_{\theta}, \theta \in \Theta\}\). Assume that \(X_1, \ldots, X_n\) are i.i.d. from \(P_{\theta_0}, \theta_0 \in \Theta\).
 
@@ -4496,7 +4978,7 @@ so the roots of MLE are in information theory.
 
 \end{theorem}
 
-\subsection{Hypothesis Testing}
+\section{Hypothesis Testing}
 
 Why is the likelihood ratio useful for hypothesis testing? It is a sufficient statistic. Suppose we have \(H_0: X \sim P\), \(H_1: X \sim Q\), and \(\theta = 1 \implies \mathbb{P}_\theta = Q\), \(\theta = 0 \implies \mathbb{P}_\theta = P\). Then the likelihood function is
 
@@ -4685,7 +5167,7 @@ so we see everything cancels;
 
 \end{proof}
 
-\subsubsection{Neyman-Pearson Tests}
+\subsection{Neyman-Pearson Tests}
 
 \begin{definition}[\textbf{Power function; definition 8.3.1 in \citet{CaseBerg:01}}]
 
@@ -4715,17 +5197,28 @@ Let \(\Phi\) be a set of such tests.
 \(\phi^*\) is \textbf{uniformly most powerful} (UMP) of size \(\alpha \in [0,1]\) if it achieves the maximum value of \(B_\phi\) subject to \(\alpha_\phi \leq \alpha\) over all randomized tests \(\phi \in \Phi\). That is, it is uniformly most powerful if and only if it solves
 
 \[
-\beta_\phi = \E_Q \phi(x) \to \max_{\phi \in \Phi} \text{ s.t. } \alpha_\phi = \E_p \phi(x) \leq \alpha.
+\phi^* = \begin{aligned}
+& \underset{\phi \in \Phi}{\arg \max}
+& & \beta_\phi(\theta_a) \\
+& \text{subject to}
+& & \beta_\phi(\theta_0) \leq \alpha \qquad \forall \theta_0 \in \Theta_0
+\end{aligned} \qquad \forall \theta_a \in \Theta_a.
 \]
 
-or
+
+
+or (given in class, definitely less formal notation)
+
+\[
+\beta_\phi = \E_Q \phi(x) \to \max_{\phi \in \Phi} \text{ s.t. } \alpha_\phi = \E_p \phi(x) \leq \alpha.
+\]
 
 
 \end{definition}
 
 
 
-\begin{lemma}[\textbf{Neyman-Pearson; Theorem 8.3.12, p. 388 in \citet{CaseBerg:01}}]
+\begin{lemma}[\textbf{Neyman-Pearson; Theorem 8.3.12, p. 388 in \citet{CaseBerg:01}, Theorem 3.2.1 in \citet{lehmann2005testing}}]\label{mathstats.np.lem}
 
 
 
@@ -4741,7 +5234,7 @@ Consider testing \(H_0: \theta = \theta_0\) versus \(H_1: \theta = \theta_1\), w
 (recall that \(\phi^*(x) = 1\) when \(x \in R\) and 0 otherwise) for some \(c \geq 0\) and 
 
 \begin{equation}\label{mathstats.np.lm.cond2.}
-\alpha_{\phi_*} = \mathbb{P}_{\theta_0}(x \in R) = \beta^*(\theta_0) = \alpha.
+\alpha_{\phi^*} = \mathbb{P}_{\theta_0}(x \in R) = \beta^*(\theta_0) = \alpha
 \end{equation}
 
 (where \(\beta^*\) is the power test for \(\phi^*\)). Then
@@ -4799,7 +5292,7 @@ On the other hand, we can rewrite (\ref{mathstats.np.pf.a}) as follows:
 \end{equation}
 
 
-(where \(\beta^*\) is the power function for \(\phi^*\) and \(\beta\) is the power function for \(\phi\)) (since \(\phi^*\) and \(\phi\) are indicator functions for being in the rejection region). Note that \(c \left[ \beta^*(\theta_0) - \beta(\theta_0) \right] \geq 0\) since \(c \geq 0\) by assumption, \( \beta^*(\theta_0) = \alpha\) by (\ref{mathstats.np.lm.cond2.}), and \(\beta(\theta_0)  \leq \alpha\) by (\ref{mathstats.np.pf.b}). Therefore by (\ref{mathstats.np.pf.c}),
+(where \(\beta^*\) is the power function for \(\phi^*\) and \(\beta\) is the power function for \(\phi\)). Note that \(c \left[ \beta^*(\theta_0) - \beta(\theta_0) \right] \geq 0\) since \(c \geq 0\) by assumption, \( \beta^*(\theta_0) = \alpha\) by (\ref{mathstats.np.lm.cond2.}), and \(\beta(\theta_0)  \leq \alpha\) by (\ref{mathstats.np.pf.b}). Therefore by (\ref{mathstats.np.pf.c}),
 
 \[
 0 \leq \beta^*(\theta_1) - \beta(\theta_1) - c \left[ \beta^*(\theta_0) - \beta(\theta_0) \right] \leq \beta^*(\theta_1) - \beta(\theta_1);
@@ -4807,19 +5300,19 @@ On the other hand, we can rewrite (\ref{mathstats.np.pf.a}) as follows:
 
 that is, \(\beta^*\) is UMP over all level \(\alpha\) tests.
 
-(Notes from class:)
-
-\[
-= \E_Q \phi^* - \E_Q \phi - c \left( \E_p \phi^* - \E_p \phi \right) = 
-\]
-
-. Since \(\E_P \phi^* = \alpha\) and \(\E_P \phi \leq \alpha\),  \(\E_p \phi^* - \E_p \phi  \geq 0\). But \(\E_Q \phi^* - \E_Q \phi  \geq c \left( \E_p \phi^* - \E_p \phi \right)\) \textbf{(why?)}, so 
-
-\[
-\E_Q \phi^* = \beta_{\phi^*} \geq \E_Q \phi = \beta_\phi
-\]
-
-So the power of \(\phi^*\) is greater than or equal to the power of \(\phi\).
+%(Notes from class:)
+%
+%\[
+%= \E_Q \phi^* - \E_Q \phi - c \left( \E_p \phi^* - \E_p \phi \right) = 
+%\]
+%
+%. Since \(\E_P \phi^* = \alpha\) and \(\E_P \phi \leq \alpha\),  \(\E_p \phi^* - \E_p \phi  \geq 0\). But \(\E_Q \phi^* - \E_Q \phi  \geq c \left( \E_p \phi^* - \E_p \phi \right)\) \textbf{(why?)}, so 
+%
+%\[
+%\E_Q \phi^* = \beta_{\phi^*} \geq \E_Q \phi = \beta_\phi
+%\]
+%
+%So the power of \(\phi^*\) is greater than or equal to the power of \(\phi\).
 
 \item
 
@@ -4835,7 +5328,7 @@ We will use the randomization possible when \(q(x) = c p(x)\) to make the Type I
 for some \(\gamma \in [0,1]\) and some \(c \geq 0\). The size of \(\phi^*\) is 
 
 \[
-\alpha_{\phi^*} = \mathbb{P}_P(x : q(x) > c p(x)) + \gamma  \mathbb{P}(x : q(x) = c p(x))
+\alpha_{\phi^*} = \mathbb{P}_P(x : q(x) > c p(x)) + \gamma  \mathbb{P}_P(x : q(x) = c p(x))
 \]
 
 \[
@@ -4876,7 +5369,102 @@ We can divide by \(p(x)\) because the probability that \(p(x)= 0\) is 0. Now \(H
 1 - H(c)  + \gamma[ H(c) - H(c^-) ] = \alpha.
 \]
 
-(Not a difficult exercise, but requires careful attention to detail.)
+We will show that for any \(0 \leq \alpha \leq 1\) there exist \(c(\alpha)\) and \(\gamma(\alpha)\) such that \(\E_{\mathbb{P}} \Phi^*(X) = \alpha\) (meaning the test \(\Phi^*\) has size \(\alpha\)). We have
+
+\[
+\phi^*(x) = \begin{cases}
+1, & q(x) > c(\alpha) p(x) \\
+\gamma(\alpha), & q(x) = c(\alpha) p(x) \\
+0, & q(x) < c(\alpha) p(x)
+\end{cases}
+\]
+
+We seek \(c(\alpha)\) and \(\gamma(\alpha)\) satisfying
+
+\begin{equation}\label{mathstats.541b.hw2.1.a}
+\alpha = \E_P \phi^*(X) = \mathbb{P}_{P}(\{x: q(x) > c p(x) \}) + \gamma(\alpha)  \mathbb{P}_{P}(\{x: q(x) = c p(x)\})
+%= \int_{-\infty}^{\infty} \phi^*(x) \ p(x) \ dx = \int_{\{x: q(x) > c(\alpha) p(x)\}}  p(x) \ dx + \int_{\{x: q(x) = c(\alpha) p(x) \}}  \gamma(\alpha) \ p(x) \ dx
+\end{equation}
+
+First, simply let
+
+\begin{equation}\label{mathstats.541b.hw2.1.c}
+\boxed{
+c(\alpha) := \inf_{c \in \mathbb{R}} \left\{ c:   \mathbb{P}_{P}(\{x: q(x) > c p(x)\}) \leq \alpha \right\}  = \inf_{c \in \mathbb{R}} \left\{  c: \mathbb{P}_{P}\left( \left\{x: \frac{q(x)}{p(x)} > c \right\} \right)  \leq \alpha \right\}
+}
+\end{equation}
+
+% 
+
+(where we can divide by \(p(x)\) since we are evaluating this probability over \(P\) so we only need to consider \(x\) such that \(p(x) > 0\)). Suppose that 
+
+\begin{equation}\label{mathstats.541b.hw2.1.e}
+\mathbb{P}_P( q(x)/ p(x) = c) = 0 .
+%\iff \alpha(c^-) - \alpha(c) = 0.
+\end{equation}
+
+Then we do not need to find \(\gamma(\alpha)\) because \(\phi^*\) is already fully defined by this \(c(\alpha)\): that is, it holds that the minimum of the set in (\ref{mathstats.541b.hw2.1.c}) exists and is the infimum, so
+
+\[
+\mathbb{P}_{P}\left( \left\{x: \frac{q(x)}{p(x)} > c(\alpha) \right\} \right)  = \alpha
+\]
+
+and we are done with an arbitrary \(\gamma(\alpha)\), say \(\gamma(\alpha) = 0\). The case where (\ref{mathstats.541b.hw2.1.e}) does not hold is more complicated. Let 
+
+%Also, we can express (\ref{mathstats.541b.hw2.1.a}) as
+
+\[
+a(k)  : =
+% \int_{\{x: q(x)  > c(\alpha) p(x)\}}  p(x) \ dx =
+ \mathbb{P}_{P}(\{x: q(x) > k p(x)\})  = \mathbb{P}_{P}\left( \left\{x: \frac{q(x)}{p(x)} > k \right\} \right) 
+\]
+
+(again, the last step is permissible since we are calculating this probability under \(P\)). Then since \(a(k)\) is the probability that the random variable \(q(X)/p(X)\) exceeds \(k\) under \(P\), \(1 -a(k)\) can be considered as the cdf of the random variable \(q(x)/ p(x)\) as a function of \(k\), with \(\lim_{k \to -\infty} ( 1 - a(k)) = 0\) and \(\lim_{c \to \infty} ( 1 - a(k)) = 1\). This means that \(1 - a(k)\) is nondecreasing right-continuous, so \(a(k))\) is nonincreasing and right-continuous. As a consequence,
+
+%\[
+%\mathbb{P}( q(x)/ p(x) = c) = [1 - \alpha(c)] -  \lim_{y \to c^-} [ 1 - \alpha(c)]  = \lim_{y \to c^-} [ \alpha(c)]  - \alpha(c) = \alpha(c^-) - \alpha(c)
+%\]
+
+\[
+\mathbb{P}_P( q(x)/ p(x) = c(\alpha)) = [1 - a(c(\alpha))] -  \lim_{y \to c(\alpha)^-} [ 1 - a(y)]  = \lim_{y \to c(\alpha)^-} a(y)  - a(c(\alpha)) =: a(c(\alpha)^-) - a(c(\alpha)),
+\]
+
+(where the last step simply introduces a simpler notation) and we have
+
+\begin{equation}\label{mathstats.541b.hw2.1.b}
+\mathbb{P}_P( q(x)/ p(x) = c(\alpha)) \neq 0 \iff a(c(\alpha)^-) - a(c(\alpha)) \neq 0.
+\end{equation}
+
+If (\ref{mathstats.541b.hw2.1.b}) holds, \(\mathbb{P}_{P}\left( \left\{x: \frac{q(x)}{p(x)} > c(\alpha) \right\} \right) < \alpha\); in particular, 
+
+\[
+ \mathbb{P}_{P}\left(  \frac{q(x)}{p(x)} > c(\alpha) \right)  =  a(c(\alpha)) < \alpha .
+\]
+
+Therefore in general (without any assumptions about whether \(\mathbb{P}_P(\{x: q(x) = c(\alpha) p(x) \}) = 0\)) the size of \(\phi\) as defined in (\ref{mathstats.541b.hw2.1.a}) is 
+
+\begin{multline*}
+\E_P (\phi^*(X)) =  \mathbb{P}_{P}(\{x: q(x)/p(x) > c(\alpha)\}) + \gamma(\alpha)  \mathbb{P}_{P}(\{x: q(x)/p(x) = c(\alpha)\}) 
+\\ = a(c(\alpha)) + \gamma(\alpha) \left[ a(c(\alpha)^-) - a(c(\alpha))  \right]
+\end{multline*}
+
+Because of this, it is clear that defining 
+
+\begin{multline*}
+\gamma(\alpha) := \begin{cases}
+ \frac{\alpha - a(c(\alpha))}{a(c(\alpha)^-) - a(c(\alpha))}, & \mathbb{P}_P( q(x)/ p(x) = c(\alpha)) \neq 0 \\
+ 0, &  \mathbb{P}_P( q(x)/ p(x) = c(\alpha)) = 0
+ \end{cases} = \begin{cases}
+ \frac{\alpha - a(c(\alpha))}{a(c(\alpha)^-) - a(c(\alpha))}, & a(c(\alpha)^-) - a(c(\alpha)) \neq 0 \\
+ 0, & a(c(\alpha)^-) - a(c(\alpha)) = 0
+ \end{cases}
+ \\ = \begin{cases}
+\frac{\alpha -  \mathbb{P}_{P}(\{x: q(x) > c(\alpha) p(x)\}) }{\mathbb{P}_{P}(\{x: q(x) > c(\alpha)^- p(x)\})   -  \mathbb{P}_{P}(\{x: q(x) > c(\alpha) p(x)\})}  , &  \mathbb{P}_{P}(\{x: q(x) > c(\alpha)^- p(x)\}) -  \mathbb{P}_{P}(\{x: q(x) > c(\alpha)  p(x)\})  \neq 0 \\
+ 0, & \mathbb{P}_{P}(\{x: q(x) > c(\alpha)^- p(x)\}) -  \mathbb{P}_{P}(\{x: q(x) > c(\alpha)  p(x)\}) = 0
+ \end{cases}
+\end{multline*}
+
+leads to (\ref{mathstats.541b.hw2.1.a}) being satisfied.
 
 \item 
 
@@ -4930,7 +5518,7 @@ Geometric illustration (Figure \ref{mathstats.fig.np.sets}): consider the mappin
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=0.1, angle=270]{mathstats_np_set}
-\caption{Sets of possible Neyman-Pearson tests; similar to Figure 3.1 in Lehmann and Romano.}
+\caption{Sets of possible Neyman-Pearson tests; similar to Figure 3.1 in \citet{lehmann2005testing}.}
 \label{mathstats.fig.np.sets}
 \end{center}
 \end{figure}
@@ -4965,7 +5553,7 @@ Similarly,
 p(x_1, \ldots, x_n) = I \{x_1, \ldots, x_n \in [0,1]\}.
 \]
 
-Note that the ratio \(q/p\) only takes on three values. By the Neyman-Pearson Lemma, the most powerful test \(\phi^*\) is either
+Note that the ratio \(q/p\) only takes on three values. By the Neyman-Pearson Lemma (Lemma \ref{mathstats.np.lem}), the most powerful test \(\phi^*\) is either
 
 \[
 \phi_1^*(x_1, \ldots, x_n) = \begin{cases}
@@ -5046,15 +5634,46 @@ Also, \(\phi^*\) of this kind is referred to as a \textit{Neyman-Pearson test.}
 
 \end{remark}
 
+\begin{proposition}[\textbf{Math 541B Midterm Problem 2}]
+
+The uniformly least powerful test of size \(\alpha > 0\) is
+
+\end{proposition}
+
+\begin{proof}
+
+Consider again the mapping \(T: \Phi \to [0,1] \times [0,1]\) where \(\Phi\) is the set of all possible tests where \(T(\phi) = (\alpha_\phi, \beta_\phi)\) (See Figure \ref{mathstats.fig.np.sets}). Observation: \((\alpha, \beta) \in \operatorname{im}(T) \implies (1 - \alpha, 1 - \beta) \in \operatorname{im}(T)\) because if \(T(\phi) = (\alpha, \beta)\), then \( T(1 - \phi) = (1 - \alpha, 1 - \beta)\). So we have symmetry around the point \((1/2, 1/2)\). Because of this, we can see that if we find the UMP test of size \(1-\alpha\) and reverse the rejection and acceptance regions, we obtain the uniformly least powerful test of size \(\alpha\). By the Neyman-Pearson Lemma, the uniformly most powerful test of size \(\alpha\) is
+
+\[
+\phi^*(x) = \begin{cases}
+1, & q(x) > c p(x) \\
+0, & q(x) \leq c p(x)
+\end{cases}
+\]
+
+for \(c\) chosen so that the size of the test is \(1-\alpha\). Then the uniformly least powerful test of size \(\alpha\) is 
+
+\[
+\tilde{\phi}^*(x) = \begin{cases}
+1, & q(x) \leq c p(x) \\
+0, & q(x) > c p(x).
+\end{cases}
+\]
+
+
+
+
+\end{proof}
+
 %######################
-\subsubsection{Consistency of Neyman-Pearson Tests}
+\subsection{Consistency of Neyman-Pearson Tests}
 %######################
 
 We want the test to be consistent---as we collect more data and \(n \to \infty\), errors of both types go to 0. We hope to show the consistency of Neyman-Pearson tests.
 
 \begin{definition}[\textbf{Consistency of a hypothesis test}]
 
-Consider the framework of the Neyman-Pearson lemma (described above). A sequence of tests \(\{\phi_n\}_{n \geq 1}\), where \(\phi_n = \phi_n(x_1, \ldots, x_n)\) is \textit{consistent} if and only if
+Consider the framework of the Neyman-Pearson lemma (Lemma \ref{mathstats.np.lem}, described above). A sequence of tests \(\{\phi_n\}_{n \geq 1}\), where \(\phi_n = \phi_n(x_1, \ldots, x_n)\) is \textit{consistent} if and only if
 
 \[
 \alpha_{\phi_n} = \E_P \phi_n(X_1, \ldots, X_n) \to 0, \qquad \text{and } \beta_{\phi_n} = \E_Q \phi_n(X_1, \ldots, X_n) \to 1 \qquad \text{as } n \to \infty.
@@ -5066,21 +5685,21 @@ It turns out that \(c\) grows with \(n\), and the growth condition of the size o
 
 Recall the following definition:
 
-\begin{definition}[\textbf{Hellinger Distance and Affinity (see Section 13.1 of Lehmann and Romano)}]
+\begin{definition}[\textbf{Hellinger Distance and Affinity (Definition 13.1.3 in \citet{lehmann2005testing})}]\label{mathstats.def.hel.dist}
 
 The \textit{Hellinger distance} between probability laws \(P\) and \(Q\) is defined as 
 
 \[
-H^2(P,Q) := \int_S (\sqrt{p} - \sqrt{q})^2 \ d\mu = 2 \int_S (1 - \sqrt{pq}) d \mu = 2 - 2 \int_@ \sqrt{pq} \ d\mu.
+H^2(P,Q) := \int_S (\sqrt{p} - \sqrt{q})^2 \ d\mu = 2 \int_S (1 - \sqrt{pq}) d \mu = 2 - 2 \int_S \sqrt{pq} \ d\mu.
 \]
 
-Further,
+(See also Section \ref{mathstats.sec.mle}.) Further,
 
 \[
 A(P,Q) := \int \sqrt{pq} \ d\mu
 \]
 
-is known as the \textit{Hellinger affinity.} 
+is known as the \textit{Hellinger affinity.}
 
 %It satisfies a nice property: if one takes the distances the distributions of two random variables \(X_1, Y_1\), \(X_2, Y_2\), \ldots, \(X_n, Y_n\), 
 
@@ -5111,7 +5730,7 @@ A(P^n, Q^n) =  \left[ A(P, Q) \right]^n.
 
 \[
 A(P^n, Q^n) = \int \sqrt{p(x_1, \ldots, x_n)} \sqrt{ q( x_1, \ldots, x_n) } \ d\mu^n 
-= \prod_{j=1}^n \int \sqrt{p(x_j) q(x_j)} \ d\mu=  \left[ A(P, Q) \right]^n.
+= \prod_{j=1}^n \int \sqrt{p(x_j) q(x_j)} \ d\mu_j=  \left[ A(P, Q) \right]^n.
 \]
 
 \end{proof}
@@ -5133,9 +5752,12 @@ Then any sequence \(\{\phi_n\}_{n \geq 1}\) of Neyman-Pearson tests correspondin
 First, we will show that \(\alpha_{\phi_n} \to 0\) under these conditions. Recall the definition of \(\phi\) from (\ref{mathstats.np.test.def}). 
 
 \begin{multline*}
-\alpha_{\phi_n}  = \int \phi(x_1, \ldots, x_n) p(x_1, \ldots, x_n) \ d \mu^n \\
-\leq \int I  \left\{  \frac{ \prod_{i=1}^n q(x_i)}{ \prod_{i=1}^n p(x_i)} \geq c_n \right\} p(x_1) \cdots p(x_n)  \ d\mu^n \\
-\leq \int  \sqrt{\frac{ q(x_1) \cdots q(x_n)}{c_n p(x_1) \cdots p(x_n) } }  p(x_1) \cdots p(x_n) \ d \mu^n \\
+\alpha_{\phi_n}  = \int \phi(x_1, \ldots, x_n) p(x_1, \ldots, x_n) \ d \mu^n
+ \\
+\leq \int I  \left\{  \frac{ \prod_{i=1}^n q(x_i)}{ \prod_{i=1}^n p(x_i)} \geq c_n \right\} p(x_1) \cdots p(x_n)  \ d\mu^n =  \int I  \left\{  \frac{ \prod_{i=1}^n q(x_i)}{c_n \prod_{i=1}^n p(x_i)} \geq 1 \right\} p(x_1) \cdots p(x_n)  \ d\mu^n 
+\\
+\leq \int  \sqrt{\frac{ q(x_1) \cdots q(x_n)}{c_n p(x_1) \cdots p(x_n) } }  p(x_1) \cdots p(x_n) \ d \mu^n 
+\\
 = \frac{1}{\sqrt{c_n}} \int \sqrt{q(x_1) \cdots q(x_n)} \sqrt{ p(x_1) \cdots p(x_n)} d \mu^n = \rho^n c_n^{-1/2}  \to 0 \text{ as } n \to \infty.
 \end{multline*}
 
@@ -5162,8 +5784,62 @@ Basically, this theorem says the Type I and Type II errors converge to 0 geometr
 
 \end{remark}
 
+\begin{proposition}[\textbf{Stats 100B Homework problem}] Let \(Y_1, Y_2, \ldots, Y_n\) be the outcomes of \(n\) independent Bernoulli trials. Then by the Neyman-Pearson lemma (Lemma \ref{mathstats.np.lem}), the best critical region for testing
+
+\[
+H_0: p = p_0 \ \ \ \ \ \ \ H_a: p > p_0
+\]
+
+is
+
+\[
+\frac{y}{n} = \frac{1}{n}\sum Y_i  > \frac{\log(K) + n \log \bigg( \frac{1 - p_a}{1 - p_0} \bigg)}{n\log \bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg)}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+
+\[
+\Pr(\sum Y_i = y) = {n \choose y}p^y(1-p)^{n-y}
+\]
+
+Using the Neyman-Pearson lemma (let \(p_a\) be some particular value of \(p > p_0\)):
+
+\[
+\frac{L(p_0)}{L(p_a)} = \frac{{n \choose y}p_0^y(1-p_0)^{n-y}}{{n \choose y}p_a^y(1-p_a)^{n-y}} < K
+\]
+
+\[
+\bigg( \frac{p_0}{p_a} \bigg) ^y   \bigg( \frac{1 - p_0}{1 - p_a} \bigg)^{n} \bigg( \frac{1 - p_0}{1 - p_a} \bigg)^{-y}  < K
+\]
+
+\[
+\bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg) ^y  < K  \bigg( \frac{1 - p_a}{1 - p_0} \bigg)^{n} 
+\]
+
+\[
+y \log \bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg) < \log(K) + n \log \bigg( \frac{1 - p_a}{1 - p_0} \bigg)
+\]
+
+Aside:
+
+\[
+\frac{p_0(1 - p_a)}{p_a(1 - p_0)} = \frac{p_0 - p_0 p_a}{p_a - p_0 p_a} < 1
+\]
+
+since by assumption \(p_a > p_0\). Therefore \( \log \bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg) < 0 \). So we have
+
+\[
+\frac{y}{n} = \frac{1}{n}\sum Y_i  > \frac{\log(K) + n \log \bigg( \frac{1 - p_a}{1 - p_0} \bigg)}{n\log \bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg)}
+\]
+
+as the form for our critical region.
+
+\end{proof}
+
 %######################
-\subsubsection{Composite Hypothesis Testing}
+\subsection{Composite Hypothesis Testing}
 %######################
 
 % !!Please put ########## above and below the section/subsection name for better readability (as the section name above)
@@ -5196,9 +5872,9 @@ Such a test is a \textit{composite hypothesis test}.
 
 \end{definition}
 
-The Neyman-Pearson Lemma does not directly apply to composite hypothesis tests, but it turns out we can use the Neyman-Pearson lemma to prove some results about some composite hypothesis tests under some circumstances.
+The Neyman-Pearson Lemma (Lemma \ref{mathstats.np.lem}) does not directly apply to composite hypothesis tests, but it turns out we can use the Neyman-Pearson lemma to prove some results about some composite hypothesis tests under some circumstances.
 
-\begin{definition}[\textbf{Power function; definition 8.3.1 in Casella and Berger}]
+\begin{definition}[\textbf{Power function; definition 8.3.1 in \citet{CaseBerg:01}}]
 
 The \textit{power function} of a test \(\phi\) is defined as
 
@@ -5214,7 +5890,7 @@ For \(\theta \in \Theta_0\), \(\beta_\phi(\theta)\) is the probability of a Type
 
 \end{remark}
 
-\begin{definition}[\textbf{Test size; definition 8.3.6 in Casella and Berger}]
+\begin{definition}[\textbf{Test size; definition 8.3.6 in \citet{CaseBerg:01}}]
 
 The test \(\phi\) is of \textit{size} \(\alpha\) if and only if 
 
@@ -5224,7 +5900,7 @@ The test \(\phi\) is of \textit{size} \(\alpha\) if and only if
 
 \end{definition}
 
-\begin{definition}[\textbf{Uniformly most powerful test; definition 8.3.11 in Casella and Berger}]
+\begin{definition}[\textbf{Uniformly most powerful test; definition 8.3.11 in \citet{CaseBerg:01}}]
 
 \(\phi^*\) is the \textit{uniformly most powerful test} of size \(\alpha\) if \(\phi^*\) is of size \(\alpha\) and \(\beta_{\phi^*}(\theta) \geq \beta_\phi(\theta)\) for any other test \(\phi\) of size \(\alpha\) for all \(\theta \in \Theta_1\).
 
@@ -5232,7 +5908,7 @@ The test \(\phi\) is of \textit{size} \(\alpha\) if and only if
 
 We will be interested in families with \textit{monotone likelihood ratios}. (Note: for the rest of the class today, \(\Theta = [a, b] \subseteq \mathbb{R}\) with \(a, b \in [-\infty, \infty]\)). 
 
-\begin{definition}[\textbf{Monotone likelihood ratio; definition 8.3.16 in Casella and Berger}]
+\begin{definition}[\textbf{Monotone likelihood ratio; definition 8.3.16 in \citet{CaseBerg:01}}]
 
 Let \(T(X)\) be a statistic. Consider \(\Theta \subseteq \mathbb{R}\) as a segment on the real line. We say that the family of pdfs \(\{p_\theta, \theta \in \Theta\}\) has a \textit{monotone likelihood ratio (MLR)} with respect to \(T(x)\) if and only if for any \(\theta' > \theta''\), 
 
@@ -5268,9 +5944,9 @@ is non-decreasing.
 
 \end{example}
 
-\begin{theorem}[\textbf{Karlin-Rubin; similar to Theorem 8.3.17 in Casella and Berger, Theorem 3.4.1 in Lehmann and Romano}]\label{mathstasts.thm.karlin.rubin}
+\begin{theorem}[\textbf{Karlin-Rubin; similar to Theorem 8.3.17 in \citet{CaseBerg:01}, Theorem 3.4.1 in \citet{lehmann2005testing}}]\label{mathstasts.thm.karlin.rubin}
 
-Assume \(\{p_\theta, \theta \in[a,b]\}\) has a monotone likelihood ratio with respect to some \(T(x)\). Suppose we want to test
+Assume \(\{p_\theta, \theta \in[a,b]\}\) has a monotone likelihood ratio with respect to some sufficient statistic for \(\theta \in \mathbb{R}\), \(T(x)\). Suppose we want to test
 
 \[
 H_0: \theta \leq \theta_0, \qquad H_a: \theta > \theta_0.
@@ -5314,7 +5990,7 @@ Next, take \(\theta' > \theta_0\) and consider the simple hypothesis test
 H_{0}': \theta = \theta_0, \qquad H_a': \theta = \theta'.
 \]
 
-By the Neyman-Pearson Lemma, the most powerful test for this is 
+By the Neyman-Pearson Lemma (Lemma \ref{mathstats.np.lem}), the most powerful test for this is 
 
 \[
 \phi'(x) = \begin{cases}
@@ -5353,7 +6029,7 @@ The final argument is to show that this test has size \(\alpha\). Namely, we mus
 \sup_{\theta \leq \theta_0} \beta_{\phi^*}(\theta) = \sup_{\theta \leq \theta_0} \E_\theta \phi^*(x) \leq \alpha.
 \]
 
-It is sufficient to show that \(\beta_{\phi^*}(\theta)\) is monotone. Take \(\theta_1 < \theta_2\). Then by the Neyman-Pearson Lemma, we know that \(\phi^*\) is the UMP test for testing
+It is sufficient to show that \(\beta_{\phi^*}(\theta)\) is monotone. Take \(\theta_1 < \theta_2\). Then by the Neyman-Pearson Lemma (Lemma \ref{mathstats.np.lem}), we know that \(\phi^*\) is the UMP test for testing
 
 \[
 H_0'':  \theta = \theta_1 \qquad H_a'':  \theta = \theta_2
@@ -5440,7 +6116,7 @@ Since these tests are not identical, there is no UMP test for our test.
 
 \end{solution}
 
-\begin{theorem}[\textbf{Generalized Neyman-Pearson Lemma, Theorem 3.6.1 in Lehmann and Romano}]
+\begin{theorem}[\textbf{Generalized Neyman-Pearson Lemma, Theorem 3.6.1 in \citet{lehmann2005testing}}]\label{mathstats.lem.np.gen}
 
 Assume that \(f_0, f_1, \ldots, f_n: \mathbb{R}^d \to \mathbb{R}\) such that 
 
@@ -5473,7 +6149,7 @@ satisfies \(\int \phi^* f_j \ d\mu = \alpha_j, j \in \{1, \ldots, N\} \). Then \
 
 \end{theorem}
 
-\begin{example}[\textbf{Like Theorem 3.7.1 in Lehmann and Romano}]\label{mathstats.gnp.ex.prob}
+\begin{example}[\textbf{Like Theorem 3.7.1 in \citet{lehmann2005testing}}]\label{mathstats.gnp.ex.prob}
 
 \(\{P_\theta, \theta \in \Theta\}\). \(H_0: \theta \in [\theta_1, \theta_2]\). \(H_a: \theta \notin [\theta_1, \theta_2]\). We have 
 
@@ -5487,7 +6163,7 @@ p_\theta(x) =  \frac{1}{c(\theta)} e^{\theta T(x)}
 
 \begin{solution}
 
-For the test to be unbiased, the Type I error rate has to be less than or equal to \(\alpha\) (for all \(\theta \in [\theta_1, \theta_2]\)) and the power has to be greater than or equal to \(\alpha\) (for all \(\theta\) in the rejection region). We will use the Generalized Neyman-Pearson Lemma to show the solution is of the form
+For the test to be unbiased, the Type I error rate has to be less than or equal to \(\alpha\) (for all \(\theta \in [\theta_1, \theta_2]\)) and the power has to be greater than or equal to \(\alpha\) (for all \(\theta\) in the rejection region). We will use the Generalized Neyman-Pearson Lemma (Theorem \ref{mathstats.lem.np.gen}) to show the solution is of the form
 
 \[
 \phi^*(x) = \begin{cases}
@@ -5500,21 +6176,20 @@ For the test to be unbiased, the Type I error rate has to be less than or equal 
 
 such that \(\E_{\theta_1} \phi^*(X) = \E_{\theta_2} \phi^*(X) = \alpha\). By the Generalized Neyman-Pearson Lemma, we look for the solution in the form
 
-\[
+\begin{multline}\label{mathstats.np.gen.ex.a}
 \tilde{\phi}(x) = \begin{cases}
 1, & p_{\theta'}(x) > k_1  p_{\theta_1}(x) + k_2 p_{\theta_2}(x) \\
 0, & p_{\theta'}(x) < k_1  p_{\theta_1}(x) + k_2 p_{\theta_2}(x).
 \end{cases}
-\]
-
-This is equivalent to 
-
-\begin{equation}\label{mathstats.np.gen.ex.a}
-\tilde{\phi}(x) = \begin{cases}
+= \begin{cases}
+1, & \frac{1}{c(\theta')} e^{\theta' T(x)}> k_1  \frac{1}{c(\theta_1)} e^{\theta_1 T(x)}+ k_2  \frac{1}{c(\theta_2)} e^{\theta_1 T(x)}\\
+0, & \frac{1}{c(\theta')} e^{\theta' T(x)}< k_1  \frac{1}{c(\theta_1)} e^{\theta_1 T(x)} + k_2 \frac{1}{c(\theta_2)} e^{\theta_1 T(x)}.
+\end{cases}
+\\ = \begin{cases}
 1, & 1 > \tilde{k}_1e^{(\theta_1 - \theta') T(x)} + \tilde{k}_2e^{(\theta_2  - \theta') T(x)} \\
 0, & 1 < \tilde{k}_1e^{(\theta_1 - \theta') T(x)} + \tilde{k}_2e^{(\theta_2  - \theta') T(x)}.
 \end{cases}
-\end{equation}
+\end{multline}
 
 Let's analyze the inequality \(g(t) < 1\) where 
 
@@ -5526,7 +6201,7 @@ with \(a_1 = \theta_1 - \theta' > 0, a_2 = \theta_2 - \theta' > 0, a_1 < a_2\). 
 
 \begin{enumerate}[(a)]
 
-\item \(\tilde{k}_1 > 0, \tilde{k}_2 > 0 \implies g(t)\) is increasing. \(g(t) < 1 \iff t< c\) for some \(c \in \mathbb{R}\). From the Karlin-Rubin Theorem, in this case \(\beta_{\tilde{\phi}}(\theta) \) is monotone. But this is impossible, as \(\beta_{\tilde{\phi}}(\theta_1) =  \beta_{\tilde{\phi}}(\theta_2)\).
+\item \(\tilde{k}_1 > 0, \tilde{k}_2 > 0 \implies g(t)\) is increasing. \(g(t) < 1 \iff t< c\) for some \(c \in \mathbb{R}\). From the Karlin-Rubin Theorem, in this case \(\beta_{\tilde{\phi}}(\theta) \) is monotone. But this is impossible, as we require \(\beta_{\tilde{\phi}}(\theta_1) =  \beta_{\tilde{\phi}}(\theta_2)\).
 
 \item \(\tilde{k}_1 < 0, \tilde{k}_2 < 0 \implies g(t) < 1\). Examining (\ref{mathstats.np.gen.ex.a}) shows that in this case \(\tilde{\phi}(x) = 1\) for all \(x\) (so \(\tilde{\phi}\) always rejects), so we can't have controlled Type I error.
 
@@ -5559,11 +6234,36 @@ It remains to show that \(\beta_{\phi^*}(\theta) \leq \alpha\) for all \(\theta 
 
 \item \(\beta_{\phi^*}'(\theta) = 0\) has a unique solution (then by a similar argument to that used in parts (c) and (d) of the previous part, the power function will have the form we want).
 
-\item Lemma: the test \(\phi^*\) minimizes the power at any \(\theta' \in (\theta_1, \theta_2)\) among all SOB tests. (SOB means "similar on the boundary:" the power function is essentially constant on the boundary) (proof: exercise, similar mechanics to this).
+\item Lemma: the test \(\phi^*\) minimizes the power at any \(\theta' \in (\theta_1, \theta_2)\) among all SOB tests.  (proof: exercise, similar mechanics to this).
 
 \end{enumerate}
 
-We can prove this in a way similar to Theorem 3.6.1 in Lehmann and Romano, although the proof is a little different.
+\begin{remark}
+
+SOB means "similar on the boundary." Recall that the definition of unbiasedness for a hypothesis test is that for a null hypothesis region \(\Omega_H\) and an alternative hypothesis region \(\Omega_k\), we have
+
+\[
+\E_{\theta_0} \phi(X) \leq \alpha \qquad \forall \theta_0 \in \Theta_H, \qquad \E_{\theta_a} \phi(X) \geq \alpha \qquad \forall \theta_a \in \Theta_K.
+\]
+
+If the power function \(\beta_\phi(\theta) := \E_\theta \phi(X)\) is a continuous function of \(\theta\), unbiasedness implies 
+
+\begin{equation}\label{mathstats.sob.cond}
+\beta_\phi(\theta) = \alpha \ \forall \theta \in \Theta_B,
+\end{equation}
+
+ where \(\Theta_B\) is the common boundary of \(\Theta_H\) and \(\Theta_K\); that is, the set of points \(\theta\) that are points or limit points of both \(\Omega_H\) and \(\Omega_K\). See Section 4.1 of \citet{lehmann2005testing} and Lemma \ref{mathstats.lehman.rom.lem.4.1.1.ump.unbiased}.
+ 
+  \end{remark}
+ 
+ 
+ \begin{definition}[\textbf{``Similar on the boundary" tests}]\label{mathstats.def.sob}
+ Tests satisfying (\ref{mathstats.sob.cond}) are said to be \textbf{similar on the boundary}. 
+
+\end{definition}
+
+
+We can prove this in a way similar to Theorem 3.6.1 in \citet{lehmann2005testing}, although the proof is a little different.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -5575,7 +6275,7 @@ We can prove this in a way similar to Theorem 3.6.1 in Lehmann and Romano, altho
 
 \end{solution}
 
-\begin{theorem}[\textbf{Theorem 3.7.1 in Lehmann and Romano}]
+\begin{theorem}[\textbf{Theorem 3.7.1 in \citet{lehmann2005testing}}]
 
 The most powerful unbiased test for a one-parameter exponential family is 
 
@@ -5647,7 +6347,219 @@ For any unbiased test \(\phi\), \(\beta'_{\phi}(\theta) = 0\). (We know the test
 
 \end{proof}
 
+\subsection{Locally Most Powerful Tests}
 
+\begin{definition}[\textbf{Locally most powerful test}]
+
+Assume that \(\{\mathbb{P}_\theta, \theta \in \mathbb{R}\}\) is a statistical model, where \(p_\theta\) is the probability density function corresponding to \(\mathbb{P}_\theta\). Moreover, we will assume the model is ``smooth;" that is, for any test \(\Phi\), the power function \(\beta_\Phi(\theta)\) is differentiable and 
+
+\begin{equation}\label{mathstats.locally.most.powerful.test.cond}
+\deriv{}{\theta} \beta_\Phi(\theta) = \int \deriv{}{\theta} p_\theta (x) \cdot \Phi(x) \ dx.
+\end{equation}
+
+Suppose we want to test \(H_0: \theta \leq \theta_0\) against \(H_a: \theta > \theta_0\). A \textbf{locally most powerful} test of size \(\alpha\) is defined as a solution to the optimization problem
+
+\begin{equation}\label{mathstats.locally.most.powerful.test.def}
+\begin{aligned}
+& \underset{\Phi: \mathbb{R} \to [0,1]}{\arg \max}
+& & \deriv{}{\theta} \beta_\Phi(\theta_0) \\
+& \text{subject to}
+& &\beta_\Phi(\theta_0) = \alpha.
+\end{aligned}
+\end{equation}
+
+\end{definition}
+
+The intuition of the locally most powerful test is that it maximizes the power in a small neighborhood of \(\theta_0\) by maximizing the slope of the power function at \(\theta_0\).
+
+\begin{proposition}[\textbf{Math 541B Homework 2 Problem 5}]
+
+The solution to (\ref{mathstats.locally.most.powerful.test.def}) always exists and is of the form
+
+\[
+\Phi^*(x) = \begin{cases}
+1, & \deriv{}{\theta} p_\theta(x) \big|_{\theta = \theta_0} > k p_{\theta_0}(x), \\
+\gamma, & \deriv{}{\theta} p_\theta(x) \big|_{\theta = \theta_0} = k p_{\theta_0}(x), \\
+0,  & \deriv{}{\theta} p_\theta(x) \big|_{\theta = \theta_0} < k p_{\theta_0}(x), 
+\end{cases}
+\]
+
+where \(\gamma \in [0,1]\) and \(k\) are determined by the size \(\alpha\) of the test.
+
+\end{proposition}
+
+\begin{proof}
+
+First we will show that the suggested test always exists and is a size \(\alpha\) test under appropriate specifications for \(k\) and \(\gamma\). Then we will show that under the Generalized Neyman-Pearson Lemma (Theorem \ref{mathstats.lem.np.gen}), this implies that the suggested test is the solution to (\ref{mathstats.locally.most.powerful.test.def}). Consider the test
+
+%We can express (\ref{mathstats.locally.most.powerful.test.def}) as
+%
+%\begin{equation}\label{mathstats.locally.most.powerful.test.def}
+%\begin{aligned}
+%& \underset{\phi: \mathbb{R} \to [0,1]}{\text{maximize}}
+%& & \int \deriv{}{\theta} p_\theta(x) \cdot \phi(x) \ dx \\
+%& \text{subject to}
+%& & \beta_\phi(\theta_0) = \alpha
+%\end{aligned}
+%\end{equation}
+
+
+
+\begin{equation}\label{mathstats.541b.hw2.5.f}
+\phi^*(x) = \begin{cases}
+1, & \left. \deriv{}{\theta} p_\theta(x) \right|_{\theta = \theta_0} > k p_{\theta_0}(x)  \\
+\gamma, & \left. \deriv{}{\theta} p_\theta(x) \right|_{\theta = \theta_0} = k p_{\theta_0}(x)  \\
+0, & \left. \deriv{}{\theta} p_\theta(x) \right|_{\theta = \theta_0} < k p_{\theta_0}(x) 
+\end{cases}
+\end{equation}
+
+with \(\gamma \in [0,1]\) and \(k \in \mathbb{R}\). Observe that 
+
+\begin{multline}\label{mathstats.541b.hw2.5.e}
+\E_{\theta_0} \phi^*(X) = \mathbb{P}_{\theta_0} \left( \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0} > k p_{\theta_0}(X) \right) + \gamma  \mathbb{P}_{\theta_0} \left( \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0} = k p_{\theta_0}(X) \right)
+\\ = \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k \right) + \gamma  \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) = k \right),
+\end{multline}
+
+where division by \(p_{\theta_0}(X) \) is permissible because we are evaluating this expectation over \(\mathbb{P}_{\theta_0}\) so we only need to include \(x\) such that \(p_{\theta_0}(x) > 0\)\footnote{Another way of thinking about this is that the test will not reject for any \(x\) such that \(p_{\theta_0}(x) = 0\) since with probability 1 these values of \(x\) will not be evaluated by the test in the first place.}. Define
+
+\begin{equation}\label{mathstats.541b.hw2.5.c}
+k := \inf_{c \in \mathbb{R}} \left\{ c:  \mathbb{P}_{\theta_0} \left( \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0} > c p_{\theta_0}(X) \right) \leq \alpha  \right\}  
+= \inf_{c \in \mathbb{R}} \left\{  c: \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > c \right) \leq \alpha \right\}.
+\end{equation}
+
+Suppose that 
+
+\begin{equation}\label{mathstats.541b.hw2.5.b}
+\mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) = k \right) = 0 .
+%\iff \alpha(c^-) - \alpha(c) = 0.
+\end{equation}
+
+Then we do not need to find \(\gamma\) because \(\phi^*\) is already fully defined by this \(c(\alpha)\): that is, it holds that the minimum of the set in (\ref{mathstats.541b.hw2.5.c}) exists and is the infimum, so
+
+\[
+\mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k \right) = \alpha
+\]
+
+and we are done with an arbitrary \(\gamma\), say \(\gamma = 0\). The case where (\ref{mathstats.541b.hw2.5.b}) does not hold is more complicated. Let 
+
+%Also, we can express (\ref{mathstats.541b.hw2.5.e}) as
+
+\[
+a(m)  : =
+% \int_{\{x: q(x)  > c(\alpha) p(x)\}}  p(x) \ dx =
+\mathbb{P}_{\theta_0} \left( \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0} > m p_{\theta_0}(X) \right)
+ =\mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > m \right) .
+\]
+
+Define the random variable
+
+\[
+Y :=  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X)
+\]
+
+Then since \(a(m)\) is the probability that \(Y\) exceeds \(m\) under \(\mathbb{P}_{\theta_0}\), \(1 -a(m)\) can be considered as the cdf of \(Y\) as a function of \(m\), with \(\lim_{m \to -\infty} ( 1 - a(m)) = 0\) and \(\lim_{m \to \infty} ( 1 - a(m)) = 1\). This means that \(1 - a(m)\) is nondecreasing right-continuous, so \(a(m)\) is nonincreasing and right-continuous. As a consequence,
+
+%\[
+%\mathbb{P}( q(x)/ p(x) = c) = [1 - \alpha(c)] -  \lim_{y \to c^-} [ 1 - \alpha(c)]  = \lim_{y \to c^-} [ \alpha(c)]  - \alpha(c) = \alpha(c^-) - \alpha(c)
+%\]
+
+\[
+\mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) = k \right)
+= [1 - a(k)] -  \lim_{y \to k^-} [ 1 - a(y)]  = \lim_{y \to k^-} a(y)  - a(k) =: a(k^-) - a(k),
+\]
+
+(where the last step simply introduces a simpler notation) and we have
+
+\begin{equation}\label{mathstats.541b.hw2.5.d}
+\mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) = k \right) \neq 0 \iff a(k^-) - a(k) \neq 0.
+\end{equation}
+
+If (\ref{mathstats.541b.hw2.5.d}) holds,
+
+\[
+ \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k \right) =  a(k) < \alpha .
+\]
+
+Therefore in general (without any assumptions about whether \(\mathbb{P}_{\theta_0} (Y = k)  = 0\)) the size of \(\phi\) as defined by setting (\ref{mathstats.541b.hw2.5.e}) equal to \(\alpha\) is 
+
+\[
+\E_{\theta_0} (\phi^*(X)) =  \mathbb{P}_{\theta_0}(Y > k) + \gamma  \mathbb{P}_{\theta_0}(Y = k) 
+ = a(k) + \gamma \left[ a(k^-) - a(k)  \right].
+\]
+
+Because of this, it is clear that defining 
+
+\begin{multline}\label{mathstats.541b.hw2.5.g}
+\gamma := \begin{cases}
+ \frac{\alpha - a(k)}{a(k^-) - a(k)}, & \mathbb{P}_{\theta_0} ( Y = k) \neq 0 \\
+ 0, &  \mathbb{P}_{\theta_0}( Y = k) = 0
+ \end{cases} = \begin{cases}
+ \frac{\alpha - a(k)}{a(k^-) - a(k)}, & a(k^-) - a(k) \neq 0 \\
+ 0, & a(k^-) - a(k) = 0
+ \end{cases}
+ \\ =
+%  \begin{cases}
+\frac{\alpha -     \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k \right) }{\mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k^- \right)   -    \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k \right)}
+%  , &  \mathbb{P}_{P}(\{x: q(x) > c(\alpha^-) p(x)\}) -   \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k \right)  \neq 0 \\
+% 0, & \mathbb{P}_{P}(\{x: q(x) > c(\alpha^-) p(x)\}) -    \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k \right)  = 0
+% \end{cases}
+\end{multline}
+
+when \(\mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k^- \right)   -    \mathbb{P}_{\theta_0} \left(  \left. \left.  \deriv{}{\theta} p_\theta(X) \right|_{\theta = \theta_0}  \middle/ \right.  p_{\theta_0}(X) > k \right) \neq 0\) and 0 otherwise leads to (\ref{mathstats.541b.hw2.5.e}) equaling \(\alpha\).
+
+So we have that the test defined in (\ref{mathstats.541b.hw2.5.f}) with \(k\) as defined in (\ref{mathstats.541b.hw2.5.c}) and \(\gamma\) as defined in (\ref{mathstats.541b.hw2.5.g}) always exists and is a size \(\alpha\) test. Finally, note that
+
+\[
+ \phi^*(x)  p_{\theta_0}(x) =  \begin{cases}
+p_{\theta_0}(x) , & \left. \deriv{}{\theta} p_\theta(x) \right|_{\theta = \theta_0} > k p_{\theta_0}(x)  \\
+\gamma p_{\theta_0}(x) , & \left. \deriv{}{\theta} p_\theta(x) \right|_{\theta = \theta_0} = k p_{\theta_0}(x)  \\
+0, & \left. \deriv{}{\theta} p_\theta(x) \right|_{\theta = \theta_0} < k p_{\theta_0}(x) 
+\end{cases}
+ \]
+
+Therefore under this test, the problem we are hoping to solve (\ref{mathstats.locally.most.powerful.test.def}) can be expressed as 
+
+%\begin{equation}\label{mathstats.541b.hw2.5.h}
+%\begin{aligned}
+%& \underset{\phi: \mathbb{R} \to [0,1]}{\text{maximize}}
+%& & \int \deriv{}{\theta} p_\theta(x) \cdot \phi(x) \ dx \\
+%& \text{subject to}
+%& & \int_k^\infty  \phi(x)  p_{\theta_0}(x)  \ d\mu = \alpha
+%\end{aligned}
+%\end{equation}
+
+\begin{equation}\label{mathstats.541b.hw2.5.h}
+\begin{aligned}
+& \underset{\phi: \mathbb{R} \to [0,1]}{\text{maximize}}
+& &  \deriv{}{\theta} \beta_\phi(\theta)   \\
+& \text{subject to}
+& & \E_{\theta_0} \phi(X) = \alpha
+\end{aligned} 
+= \begin{aligned}
+& \underset{\phi: \mathbb{R} \to [0,1]}{\text{maximize}}
+& & \int \deriv{}{\theta} p_\theta(x) \cdot \phi(x) \ dx \\
+& \text{subject to}
+& & \int_{-\infty}^\infty  \phi(x)  p_{\theta_0}(x)  \ d\mu = \alpha,
+\end{aligned}
+\end{equation}
+
+where we used (\ref{mathstats.locally.most.powerful.test.cond}). Therefore, by the generalized Neyman-Pearson Lemma (Theorem \ref{mathstats.lem.np.gen}), (\ref{mathstats.541b.hw2.5.f}) is the solution to (\ref{mathstats.541b.hw2.5.h}) (and, equivalently, (\ref{mathstats.locally.most.powerful.test.def})).
+
+%\[
+%\vdots
+%\]
+%
+%
+%and let \(f_{\theta_0}(y)\) be its pdf. Then we have 
+%
+%\[
+%\E_{\theta_0} \phi^*(X) = \mathbb{P}_{\theta_0} \left(  Y > k \right) + \gamma  \mathbb{P}_{\theta_0} \left( Y = k \right) = \lim_{z \to k^+} \int_{ z}^\infty f_{\theta_0}(y) \ dy +  \gamma  \mathbb{P}_{\theta_0} \left( Y = k \right) 
+%\]
+%
+\end{proof}
+
+
+\subsection{Similarity and Completeness (Section 4.3 of \citet{lehmann2005testing})}
 
 \begin{example}
 
@@ -5693,9 +6605,33 @@ Then
 
 \end{proof}
 
-\begin{definition}[\textbf{Boundably complete}]
+\begin{lemma}[\textbf{Lemma 4.1.1 in \citet{lehmann2005testing}}]\label{mathstats.lehman.rom.lem.4.1.1.ump.unbiased}
 
-\(T(X)\) is \textbf{boundably complete} if and only if for any function \(G\) such that \(|G| \leq 1\) (bounded), 
+If the distributions \(P_\theta\) are such that the power function of every test is continuous, and if \(\phi_0\) is UMP among all tests satisfying (\ref{mathstats.sob.cond}) (restated here:)
+
+\begin{equation}\label{mathstats.lehman.rom.lem.4.1.1.ump.unbiased.eqn}
+\beta_\phi(\theta) = \alpha \qquad \forall \theta \in \omega
+\end{equation}
+
+(where \(\omega\) is the common boundary of the rejection and acceptance regions; that is, the set of points \(\theta\) that are points or limit points of both regions; often called the boundary family) and is a level \(\alpha\) test of \(H\), then \(\phi_0\) is UMP unbiased. \textbf{(short version: if the power function of every test is continuous, then the UMP test among the class of similar on the boundary (SOB) tests of size \(\alpha\) is UMP unbiased of size \(\alpha\).)}
+
+\end{lemma}
+
+\begin{proof}
+
+For distributions such that the power function of every test is continuous, the class of SOB tests of size \(\alpha\) contains the class of unbiased tests (since being SOB of size \(\alpha\) is necessary to be unbiased if the power function of every test is continuous). Therefore the UMP test among the class of SOB tests \(\phi^*\) is at least as powerful as any unbiased test. Further, \(\phi^*\) is unbiased because it is uniformly at least as powerful as \(\phi(x) := \alpha\) (since this is an SOB test).
+
+\end{proof}
+
+\begin{remark}
+
+By Theorem 2.7.1 in \citet{lehmann2005testing}, the power function for a (one-parameter) exponential family is continuous and differentiable.
+
+\end{remark}
+
+\begin{definition}[\textbf{boundedly complete}]
+
+\(T(X)\) is \textbf{boundedly complete} if and only if for any function \(G\) such that \(|G| \leq 1\) (bounded), 
 
 \[
  \left\{ \E_\theta G(T) = 0 \qquad \forall \theta \in \Theta \right\} \implies G(T) = 0 \text{ a.e.}
@@ -5703,7 +6639,7 @@ Then
 
 \end{definition}
 
-So if a statistic is complete, it is boundably complete (if it is complete, the equation holds for all functions \(G\), not just bounded ones). Example: 
+So if a statistic is complete, it is boundedly complete (if it is complete, the equation holds for all functions \(G\), not just bounded ones). Example: 
 
 \[
 X \in \{-1, 0, 1, 2, \ldots \}, \qquad
@@ -5713,7 +6649,7 @@ X \in \{-1, 0, 1, 2, \ldots \}, \qquad
 \end{cases}
 \]
 
-Then \(T(X) = X\) is boundably complete but not complete.
+Then \(T(X) = X\) is boundedly complete but not complete.
 
 We want to be able to work with distributions that are more than one dimensional. We can do this by reducing the family to a one-parameter family. We do this in the following way, with tests with Neyman structure. Assume we have \(X \sim P_\theta, \theta \in \Theta\). The problem is \(H_0: \theta \in \Theta_0, H_a: \theta \in \Theta_a\), where \(\Theta_B := \overline{\Theta}_0 \cap \overline{\Theta}_a\) (the intersection of the closures of these sets). 
 
@@ -5726,7 +6662,7 @@ Example: \(X_1, \ldots, X_n \sim \mathcal{N}(\mu, \sigma^2)\), \(H_0: \mu \leq 0
 Approach: take a complete sufficient statistic for the boundary family. We will condition on it and then find tests of size \(\alpha\). 
 
 
-\begin{definition}
+\begin{definition}[\textbf{Neyman Stucture}]\label{mathstats.def.neyman.structure}
 Let \(T(X)\) be sufficient for the boundary family \(\{p_{\theta}, \theta \in \Theta_B\}\). Test \(\phi\) has \textbf{Neyman structure with respect to \(T\)} if and only if for some \(\alpha \in [0,1]\)
 
 \[
@@ -5736,38 +6672,67 @@ Let \(T(X)\) be sufficient for the boundary family \(\{p_{\theta}, \theta \in \T
 
 \end{definition}
 
-Note that \(\phi\) has Neyman structure implies it is SOB of size \(\alpha\) (SOB means "similar on the boundary:" the power function is essentially constant on the boundary).
+Note that \(\phi\) has Neyman structure implies it is SOB of size \(\alpha\) (SOB means "similar on the boundary:" the power function is essentially constant on the boundary. See Definition \ref{mathstats.def.sob} and section 4.1 of \citet{lehmann2005testing}.).
 
-\begin{theorem}
+\begin{theorem}\label{mathstats.neyman.structure.thm.neym.struc.comp}
 
-All SOB tests of size \(\alpha\) have Neyman structure if and only if \(T\) is boundably complete (and sufficient).
+Suppose \(T\) is a sufficient statistic for the boundary family of a SOB test \(\phi\) of size \(\alpha\). Then \(\phi\) has Neyman structure if and only if \(T\) is boundedly complete.
 
 \end{theorem}
 
 \begin{proof}
 
-First we will prove this direction: suppose that \(T\) is sufficient and boundably complete. Then
+First we will prove this direction: suppose that \(T\) is sufficient and boundedly complete. Because \(\phi\) is similar on the boundary (SOB), we have
 
 \[
 \E_\theta \phi(X) = \alpha \qquad \forall \theta \in \Theta_B.
 \]
 
-But then 
+But then (letting \(G(T) := \E_\theta[\phi(X) \mid T] \) and using what we know about \(T\))
 
 \begin{multline*}
-\alpha = \E_\theta \phi(X) = \E_\theta \E[\phi(X) \mid T(X)] = \E_\theta G(T)  \implies \E_\theta(G(T) - \alpha) = 0 , \qquad \theta \in \Theta_0
-\\ \implies G(T) - \alpha = 0 \text{ a.s.}  \qquad \implies G(T) = \alpha \text { a.s.}
+\alpha = \E_\theta \phi(X) = \E_\theta \E_\theta[\phi(X) \mid T(X)] = \E_\theta G(T)  \implies \E_\theta(G(T) - \alpha) = 0 , \qquad \forall \theta \in \Theta_B
+\\ \implies G(T) - \alpha = 0 \text{ a.s.}  \qquad \implies G(T) = \alpha \text { a.s.} \qquad \forall \theta \in \Theta_B
 \end{multline*}
 
-so the result follows. (Note that we only need boundable completeness since we must have \(0 \leq |G| \leq 1 \forall T\).) Next, assume that all SOB tests of size \(\alpha\) have Neyman structure. We will prove by contradiction that then \(T\) must be boundably complete. Suppose \(T\) is not boundably complete. Then there must exist some function \(\psi\) such that \(|\psi| \leq 1\) and \(\E_\theta \psi(T) = 0 \ \forall \theta \in \Theta_B\) but \(\psi(T)\) is not identically 0. Define \(\phi := \alpha + c \psi(T)\), where we choose \(c \neq 0 \) such that \( 0 \leq |\phi | \leq 1\) so that \(\phi\) is a test. Note that \(\E_\theta \phi = \alpha\) for all \(\theta \in \Theta_B\), so \(\phi\) is SOB of size \(\alpha\) (it is SOB because this result holds for all \(\theta \in \Theta_B\), where \(\Theta_B\) is the boundary family). But
+where the last line followed from the bounded completeness of \(G\). (Recall from Definition \ref{mathstats.def.neyman.structure} that \(\phi\) has Neyman structure precisely if \(\E_\theta[\phi(X) \mid T] = \alpha\) for all \(\theta \in \Theta_B\). Note that we only need bounded completeness since we must have \(0 \leq |G| \leq 1 \forall T\).) 
+
+\
+
+Next, assume an SOB test \(\phi\) of size \(\alpha\) has Neyman structure; that is, for a sufficient statistic \(T\) for the boundary family,
 
 \[
-\E( \phi(x) \mid T(x) ) = \alpha + c \psi(T(x)) \neq \alpha
+\E_\theta[\phi(X) \mid T] = \alpha \qquad \forall \theta \in \Theta_B.
 \]
 
-since \(\psi\) is not identically 0 by assumption.
+We will prove by contradiction that then \(T\) must be boundedly complete. Suppose \(T\) is not boundedly complete. Then there must exist some function \(\psi\) such that \(|\psi| \leq 1\) and \(\E_\theta \psi(T) = 0 \ \forall \theta \in \Theta_B\) but \(\psi(T)\) is not identically 0. Define \(\phi := \alpha + c \psi(T)\), where we choose \(c \neq 0 \) such that \( 0 \leq |\phi | \leq 1\) so that \(\phi\) is a test. Note that \(\E_\theta \phi = \alpha\) for all \(\theta \in \Theta_B\), so \(\phi\) is SOB of size \(\alpha\). But
+
+\[
+\E( \phi(x) \mid T(x) ) = \alpha + c \psi(T(x)) \neq \alpha.
+\]
+
+Therefore by contradiction, we have that \(T\) is boundedly complete.
 
 \end{proof}
+
+\begin{remark}\label{mathstats.neyman.structure.suff.ump.unbiased}
+
+We already know from Lemma \ref{mathstats.lehman.rom.lem.4.1.1.ump.unbiased} that if the power function is continuous for all tests (e.g. one parameter exponential family), then the UMP SOB test of size \(\alpha\) \(\phi^*\) is the UMP unbiased test of size \(\alpha\). That is, the UMP unbiased test of size \(\alpha\) is the solution to the equation
+
+\begin{equation}\label{mathstats.lem.4.1.1.eqn}
+\begin{aligned}
+& \underset{\phi:\mathbb{R} \to [0,1]}{\arg \max}
+& & \E_\theta( \phi \mid T) \qquad \forall \theta \in \Theta_A \\
+& \text{subject to}
+& & \beta_\phi(\theta) = \alpha \qquad  \forall \theta \in \Theta_B
+\end{aligned}
+\end{equation}
+
+where \(T\) is a sufficient statistic for the boundary family, \(\Theta_A\) is the rejection region, and \(\Theta_B\) is the boundary family.
+
+Under Theorem \ref{mathstats.neyman.structure.thm.neym.struc.comp}, if \(T\) is boundedly complete, then any test \(\tilde{\phi}\) is an SOB test of size \(\alpha\) if and only if it has Neyman structure. So if the power function is continuous for all tests (e.g. one parameter exponential family) and \(T\) is a boundedly complete sufficient statistic for the boundary family, then the UMP test in the class of tests with Neyman structure is the UMP unbiased test. That is, the UMP unbiased test is the solution to (\ref{mathstats.lem.4.1.1.eqn}).
+
+\end{remark}
 
 \begin{theorem}\label{mathstats.541a.ex.5.10.thm}
 
@@ -5781,15 +6746,19 @@ p_\theta(x) = \frac{1}{c(\theta)} h(x) \cdot \exp \left\{  \sum_{j=1}^k \theta_j
 
 \end{theorem}
 
+See also Theorem \ref{mathstats.thm.comp.exp.fam} for complete statistics in the exponential family.
+
+
+
 Conditioning method: assume that \(\beta_\phi(\theta)\) is continuous for any test \(\phi\). 
 
 \begin{enumerate}[(1)]
 
-\item \(\phi\) is unbiased, so \(\phi\) is SOB.
+\item The UMP unbiased test \(\phi^*\) must be SOB (because as discussed in the proof of Lemma \ref{mathstats.lehman.rom.lem.4.1.1.ump.unbiased}, SOB is necessary for unbiasedness if \(\beta_\phi(\theta)\) is continuous for all tests).
 
-\item UMP SOB test of size \(\alpha\) is UMP unbiased test of size \(\alpha\). 
+\item UMP SOB test of size \(\alpha\) is UMP unbiased test of size \(\alpha\) (by Lemma \ref{mathstats.lehman.rom.lem.4.1.1.ump.unbiased}). 
 
-\item Neyman structure implies that it suffices to find the test that maximizes the conditional power \(\E_\theta(\phi \mid T) \) for all \(\theta \in \Theta_a\). 
+\item Neyman structure implies that it suffices to find the test that maximizes the conditional power \(\E_\theta(\phi \mid T) \) for all \(\theta \in \Theta_a\) (see Remark \ref{mathstats.neyman.structure.suff.ump.unbiased}).
 
 \end{enumerate}
 
@@ -5852,73 +6821,2379 @@ where \(t = X + Y\) and \(c(t)\) solves (\ref{mathstats.poiss.ex.ump.test}).
 
 \end{solution}
 
+\begin{example}
 
+Let \(X_1, \ldots, X_n \sim \mathcal{N}(\mu, \sigma^2)\), i.i.d. We want to test \(H_0: \sigma^2 \geq \sigma_0^2, H_a: \sigma^2 < \sigma_0^2\). Find the UMP unbiased test.
 
-%
-%
-%
-%
-%
-%
-%
+\end{example}
 
+\begin{solution}
 
-
-\begin{proposition}[\textbf{Stats 100B Homework problem}] Let \(Y_1, Y_2, \ldots, Y_n\) be the outcomes of \(n\) independent Bernoulli trials. Then by the Neyman-Pearson lemma, the best critical region for testing
+We have
 
 \[
-H_0: p = p_0 \ \ \ \ \ \ \ H_a: p > p_0
+p_{\mu, \sigma^2}(x_1, \ldots, x_n) = \frac{1}{\sigma^n (2\pi)^{n/2}} \exp \left(  \frac{\mu}{\sigma^2} \sum_{j=1}^nx_j - \frac{1}{2 \sigma^2} \sum_{j=1}^n x_j^2 \right) \cdot e^{-n\mu/ (2 \sigma^2)}.
 \]
 
-is
+Therefore \(T = (\sum_{j=1}^n X_j, \sum_{j=1}^n X_2^2)\) is a complete sufficient statistic for \((\mu, \sigma^2)\). Let 
 
 \[
-\frac{y}{n} = \frac{1}{n}\sum Y_i  > \frac{\log(K) + n \log \bigg( \frac{1 - p_a}{1 - p_0} \bigg)}{n\log \bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg)}.
+\overline{X}_n := n^{-1} \sum_{j=1}^n X_j, \qquad S^2 := \frac{1}{n-1} \sum_{j=1}^n (X_j - \overline{X}_n)^2.
 \]
 
-\end{proposition}
+Then \((\overline{X}, S^2)\) is in one to one correspondence with \(T\). (Why? Use
+
+\[
+\frac{1}{n} \sum_{j=1}^n(y_j - \overline{y}_j)^2 = \frac{1}{n} \sum_{j=1}^n y_j^2 - (\overline{y}_n)^2
+\]
+
+for any numbers \(y_1, \ldots, y_n\).) So \((\overline{X}_n, S^2)\) is also complete sufficient for \((\mu, \sigma^2)\), so we only need to consider tests that are functions of this complete sufficient statistic. The boundary family in this case \(\Theta_B\) consists of all normal distributions with variance equal to \(\sigma_0^2\); that is, all normal distributions \(\mathcal{N}(\mu, \sigma_0^2)\), \(\mu \in \mathbb{R}\). For this family, \(\overline{X}\) is a complete sufficient statistic, so we can condition everything on \(\overline{X}\). Hence, we need to find the conditional distribution of \(S^2\) given \(\overline{X}\). Since \(\overline{X}\) and \(S^2\) are independent by Basu's Theorem (Theorem \ref{mathstats.thm.basu}; see Proposition \ref{mathstats.dist.sampl.var} and example \ref{mathstats.mean.var.indep}), the problem becomes 
+
+\[
+H_0: \sigma^2 \geq \sigma_0^2; \qquad H_a, \sigma^2 < \sigma_0^2
+\]
+
+based on our observation \(S^2\). We know that 
+
+\[
+\frac{(n-1)S^2}{\sigma^2} \sim \chi_{n-1}^2.
+\]
+
+by Proposition \ref{mathstats.dist.sampl.var}. Let \(\tilde{\sigma}^2 := \sigma^2/(n-1)\). Then the pdf of \(S^2\) is 
+
+\[
+p_{\tilde{\sigma}^2}(x) = \left( \frac{1}{\tilde{\sigma}^2} \right)^{(n-1)/2} x^{(n-1)/2 - 1} e^{- x/(2 \tilde{\sigma}^2)}
+\]
+
+This means that 
+
+\[
+\frac{p_{\tilde{\sigma}_1^2}(x) }{p_{\tilde{\sigma}_2^2}(x) } = \psi_{\tilde{\sigma}_1^2, \tilde{\sigma}_2^2}(x)
+\]
+
+is monotone, so \(\tilde{\sigma}^2\) has a monotone likelihood ratio. Then by Karlin-Rubin (Theorem \ref{mathstasts.thm.karlin.rubin}), the UMP unbiased test is 
+
+\[
+\phi^* = \begin{cases}
+1, & S^2 \leq c \\
+0, & S^2 > c.
+\end{cases}
+\]
+
+To find the test of size \(\alpha\), take \(c := \frac{\sigma_0^2}{n-1} (w_\alpha^{(n-1)}\)  where \(w_\alpha^{(n-1)}\) is the \((1- \alpha)\) quantile of \(\chi_{n-1}^2\). 
+
+\end{solution}
+
+\begin{remark}
+
+This may be UMP in general, although we can't prove it with current tools (??). So it is at least UMP unbiased. 
+
+\end{remark}
+
+\begin{example}
+
+Let \(X_1, \ldots, X_n \sim \mathcal{N}(\mu, \sigma^2)\), i.i.d. We want to test \(H_0: \mu \geq \mu_0, H_a: \mu < \mu_0\) or \(H_0: \mu = \mu_0, H_a: \mu \neq \mu_0\). Find the UMP unbiased tests for each of these cases.
+
+\end{example}
+
+\begin{solution}
+
+Consider tests \(\phi\) that depend on \(T = (\overline{X}, \sum_{j=1}^n X_j^2)\). The boundary family is \(\Theta_B = \{ \mathcal{N}(\mu_0, \sigma^2), \sigma^2 > 0\}\). A complete sufficient statistic for \(\Theta_B\) is then 
+
+\[
+S_{\mu_0}^2 :=  \sum_{j=1}^n (X_j - \mu_0)^2.
+\]
+
+If we consider
+
+\[
+T' = \left( \frac{ \overline{X} - \mu_0}{\sqrt{S_{\mu_0}^2}, S_{\mu_0}^2} \right),
+\]
+
+note that it is one-to-one correspondence with \(T\), so \(T'\) is complete sufficient as well. Observe that
+
+\begin{enumerate}[(1)]
+
+\item
+
+\[
+\frac{\overline{X} - \mu_0}{\sqrt{S_{\mu_0}^2}} \indep S_{\mu_0}^2
+\]
+
+(Why? See proof of Proposition \ref{linreg.dist.beta}.)
+
+\item For 
+
+\[
+W = \frac{\overline{X} - \mu_0}{\sqrt{S_{\mu_0}^2}} , \qquad T'' = \frac{(\overline{X} - \mu_0) }{\sqrt{S^2}} \sqrt{n},
+\]
+
+we have
+
+\[
+T'' = \frac{\sqrt{(n-1)n}}{\sqrt{1 - nW^2}} W
+\]
+
+(exercise). 
+
+\end{enumerate}
+
+Then
+
+\[
+g(w) = \left| \frac{\sqrt{(n-1)n}}{\sqrt{1 - nw^2}} w\right|
+\]
+
+is a monotone function of \(w\). Moreover, by the characterization of a Student's \(t\) distribution
+
+\[
+T = \frac{Z}{\sqrt{V/v}} \implies T \sim t_v
+\]
+
+where \(Z \sim \mathcal{N}(0,1)\), \(V \sim \chi_v^2\), and \(Z \indep V\), \(T''\) has, under the null hypothesis that \(\mu = \mu_0\), a Student's \(t\) distribution with \(n-1\) degrees of freedom. Therefore we can conclude that the UMP unbiased test has the form 
+
+\[
+\phi^* = \begin{cases}
+1, &  |T''| > c\\
+0, & |T''|  < c
+\end{cases}
+\]
+
+where we choose \(c\) to make the test have size \(\alpha\).
+
+\end{solution}
+
+\subsection{Permutation Tests (section 5.8 in \citet{lehmann2005testing}, p. 188 of pdf)}
+
+Suppose we have \(X_1, \ldots, X_1 \sim \mathcal{N}(\mu, \sigma^2)\) i.i.d. and \(Y_1, \ldots, Y_m \sim \mathcal{N}(\eta, \sigma^2)\) i.i.d. We would like to test \(H_0: \mu = \eta\) against \(H_a: \eta - \mu = \Delta > 0\). 
+
+\textbf{Alternatively:} \(H_0: X_1, \ldots, X_n, Y_1, \ldots, Y_m\) i.i.d. with density \(f\), \(H_a:\) the joint density of \(X_1, \ldots, X_n, Y_1, \ldots, Y_m\) has density \(f(x_1) \cdots f(x_n) f(y_1 - \Delta) \cdots f(y_m - \Delta), \Delta > 0\). 
+
+We are looking for a SOB test of size \(\alpha\). Hence, a test \(\phi\) must satisfy \(\E_f \phi = \alpha\) for any \(f\). Define \(\mathbb{Z}_1 = X_1, \ldots, \mathbb{Z}_n = X_n, \mathbb{Z}_{n+1} = Y_1, \ldots, \mathbb{Z}_{n+m} = Y_m\).
+
+\begin{theorem}\label{mathstats.order.stats.comp.suff}
+
+Consider the following statistical model: \(\{p_f: f \text{ is density on } \mathbb{R} \text{ with respect to Lesbegue measure.}\}\) Suppose \(X_1, \ldots, X_n \sim p_f\) i.i.d. Then \((X_{(1)}, \ldots, X_{(n)})\) is a complete sufficient statistic. (That is, for the problem we are considering, the order statistics \((\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)})\) are complete sufficient under \(H_0\).)
+
+\end{theorem}
+
+\begin{proof}
+%[Proof of Theorem \ref{mathstats.order.stats.comp.suff}]
+
+Sufficiency: 
+
+\[
+\mathbb{P}_f \left( (X_1, \ldots, X_n) \in A \mid X_{(1)}, \ldots, X_{(n)} \right) = \frac{1}{n!} \sum_{\sigma \in S_n} I \left\{  X_{\sigma(1)}, \ldots, X_{\sigma(n)} \in A \right\}
+\]
+
+which does not depend on any parameters in \(f\), so this proves sufficiency. Completeness: consider the following parametric family 
+
+\[
+\mathbb{P}_{\Theta_1, \ldots, \Theta_n}(x_1, \ldots, x_n) = c(\Theta_1, \ldots, \Theta_n) \exp \left\{ \theta_1 \sum_{i=1}^n x_j +  \theta_2 \sum_{i=1}^n x_j^2 + \ldots + \theta_n \sum_{i=1}^n x_j^n - \sum_{i=1}^n x_i^{2n}   \right\}.
+\]
+
+From Theorem \ref{mathstats.thm.comp.exp.fam}, we know that 
+
+\[
+Y = \left( \sum_{i=1}^n x_i, \sum_{i=1}^n x_i^2, \ldots, \sum_{i=1}^n x_i^n \right)
+\]
+
+
+is complete. We will establish this intermediate fact: let
+
+\[
+W := \left( \underbrace{\sum_{j=1}^n x_j}_{w_1}, \underbrace{ \sum_{i < j}  x_i x_j}_{w_2}, \sum_{i < j < k} x_i x_j x_k, \ldots, \underbrace{x_1 x_2 \cdots x_n}_{w_n} \right).
+\]
+
+This are symmetric polynomials. We will show that the order statistics \(T\) are in one-to-one correspondence with \(W\). Consider the polynomial \(p(x) = \prod_{j=1}^n (x - x_j)\). (Of course this polynomial is invariant to permutation of the \(x_j\).) Then the coefficients of the polynomial are given by 
+
+\[
+p(x) = \prod_{j=1}^n (x - x_j) = x^n - w_1 x^{n-1}  + w_2 x^{n-2} - \ldots + (-1)^n w_n,
+\]
+
+so \((x_{(1)}, \ldots x_{(n)})\) is in one-to-one correspondence with \(W\). Finally, the fact that \(W\) is in one-to-one correspondence with \(V\) follows from Newton's Identities: you can establish by induction that 
+
+\[
+v_k - w_1 v_k + w_2 v_{k-2} - \ldots + (-1)^k w_{k-1}v_k + (-1)^k w_k = 0
+\]
+
+for \(k = 1, 2, \ldots ,n\). For example, consider \(k=2\):
+
+\[
+W = (x_1 + x_2, x_1 x_2) , \qquad, V = (x_1 + x_2, x_1^2 + x_2^2)
+\]
+
+can always write \(x_1 x_2 =  \left[ (x_1 + x_2)^2 - (x_1 ^2 + x_2^2)\right]/2\), so knowing \(W\) is equivalent to knowing \(V\). Newton's Identities induct on this and show that this is true for any power \(k\).  
+
+\[
+\vdots
+\]
+
+
+(See also Example 4.3.4 in \citet{lehmann2005testing}.)
+
+\end{proof}
+
+Now we will apply the conditioning method by conditioning on \(T = (\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)})\). The new problem is then 
+
+\[
+H_0': (\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)}) \sim f_{\mathbb{Z} \mid T}^{(0)} \text{ are uniform on order statistics)}, \qquad H_a': (\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)}) \sim f_{\mathbb{Z} \mid T}^{(a)}
+\]
+
+Under \(H_0\), \(\mathbb{P}_{H_0} \left(  (\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)}) = (z_1, \ldots, z_{n+m}) \right)  = 1/(n+m)!\) for any specific permutation \( (z_1, \ldots, z_{n+m}) \). Let's fix a specific alternative and find the most powerful test against this alternative. Any alternative is of the form \((\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)})\) has joint density \(h\), where \(h\) is fixed.
+
+so test is
+
+\[
+H_0: X_1, \ldots, X_n, Y_1, \ldots, Y_m \text{ are i.i.d.}; \qquad H_a: X_1, \ldots, X_n, Y_1, \ldots, Y_m \text{ have joint density } h
+\]
+
+It turns out that conditional on the order statistics (so that the only randomness left is the way in which they are permuted), the density is given by (\ref{mathstats.lemma.perm.tests.proof.b}).
+
+\begin{theorem}[\textbf{Theorem 5.8.1 in \citet{lehmann2005testing}}]
+
+\end{theorem}
+
+\begin{lemma}[\textbf{See section 5.9 of \citet{lehmann2005testing}, p. 189 of pdf}]
+
+Let \((\mathbb{Z}_{1}, \ldots, \mathbb{Z}_{n+m})\) have joint density \(h\). Then for any \(f\), 
+
+\begin{equation}\label{mathstats.perm.test.lemma.exp.form}
+\E\left[ f(\mathbb{Z}_{1}, \ldots, \mathbb{Z}_{n+m}) \mid T \right] = 
+\frac{\sum_{\sigma \in S_{n+m}} f( \mathbb{Z}_{\sigma(1)}, \ldots, \mathbb{Z}_{\sigma(m_n)} ) h( \mathbb{Z}_{\sigma(1)}, \ldots, \mathbb{Z}_{\sigma(m_n)} )}
+{\sum_{\sigma \in S_{n+m}} h( \mathbb{Z}_{\sigma(1)}, \ldots, \mathbb{Z})}
+\end{equation}
+
+where \(T = (\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)})\) and \(S_{n+m}\) is a collection of all permutations of \(\{1, \ldots, n_m\}\). 
+
+\end{lemma}
+
+\begin{proof}
+
+Want to show that for any symmetric set \(\mathcal{A}_0\) (meaning that \((z_1, \ldots, z_{n_m}) \in \mathcal{A}_0 \iff (z_{\sigma(1)}, \ldots, z_{\sigma(n_m)}) \in \mathcal{A}_0\)), 
+
+\begin{equation}\label{mathstats.lemma.perm.tests.proof.a}
+\int_{\mathcal{A}_0} f(z_1, \ldots, z_{n_m}) h(z_1, \ldots, z_{n+m}) \ dz = \E f(\mathbb{Z}_1, \ldots, \mathbb{Z}_{n+m}) I \left\{ ( \mathbb{Z}_1, \ldots, \mathbb{Z}_{n+m}) \in \mathcal{A}_0 \right\}
+\end{equation}
+
+Trying to prove:
+
+\[
+g(T) = \E[ f(X) \mid T] \iff \forall h, \E[f(X) h(T)] = \E[g(T) h(T)]. 
+\]
+
+it is always sufficient to prove this for indicator functions because you can approximate any function \(h\) as a sum of indicator functions (fact from measure theory). Any set that is measurable with respect to the permutation statistics must be measure theoretic; any set that belongs to the sigma algebra generated by the order statistics must have the property that any permutation is in \(\mathcal{A}_0\). 
+
+We want to show that (\ref{mathstats.lemma.perm.tests.proof.a}) equals 
+
+\[
+ \E f_0(\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)}) I \left\{ ( \mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)}) \in \mathcal{A}_0 \right\}
+\]
+
+where \(f_0\) is given by the right side of (\ref{mathstats.perm.test.lemma.exp.form}). By permutation invariance, we have 
+
+\[
+\int f_0(z_1, \ldots, z_{m+n} h(z_{\sigma(1)}, \ldots z_{\sigma(m+n)}) dz = \text{ constant}
+\]
+
+So we have \((n+m)!\) values that are all equal. So we can write
+
+\begin{multline*}
+\int_{\mathcal{A}_0} f_0(z_1, \ldots, z_{n+m}) h(z_1, \ldots, z_{n+m}) \ dz
+\\  = \int_{\mathcal{A}_0} f_0(z_1, \ldots, z_{n+m}) \frac{1}{(n+m)!} \sum_{\sigma \in S_{n+m}}  h(z_{\sigma(1)}, \ldots, z_{\sigma(n+m)}) \ dz 
+\\ =  \frac{1}{(n+m)!}    \int_{\mathcal{A}_0} \sum_{\sigma \in S_{n+m}} f_0(z_{\sigma(1)}, \ldots, z_{\sigma(n+m)}) h(z_{\sigma(1)}, \ldots, z_{\sigma(n+m)}) \ dz 
+\\ =     \int_{\mathcal{A}_0} f_0(z_{\sigma(1)}, \ldots, z_{\sigma(n+m)}) h(z_{\sigma(1)}, \ldots, z_{\sigma(n+m)}) \ dz 
+\end{multline*}
+
+since \(\mathcal{A}_0\) is (by assumption) permutation symmetric. So this holds for any permutation. In particular, it holds for the identity permutation, so we can write
+
+\[
+=     \int_{\mathcal{A}_0} f_0(z_{1}, \ldots, z_{n+m}) h(z_{\sigma(1)}, \ldots, z_{\sigma(n+m)}) \ dz 
+\]
+
+We are interested in \(f_{\mathbb{Z} \mid T} ^{(a)}\). Take \(f = I \left\{ \mathbb{Z}_1 = z_1, \ldots, \mathbb{Z}_{n+m} = z_{n+m}\right\}\) for a specific permutation \((z_1, \ldots, z_{n+m})\) of \((\mathbb{Z}_{(1)}, \ldots, \mathbb{Z}_{(n+m)})\). Then 
+
+\begin{equation}\label{mathstats.lemma.perm.tests.proof.b}
+f_{\mathbb{Z} \mid T} ^{(a)} = \frac{h(z_1, \ldots, z_{n+m})}
+{\sum_{\sigma \in S_{n+m}} h(z_{\sigma(1)}, \ldots, z_{\sigma(n+m)})}
+\end{equation}
+
+\end{proof}
+
+\begin{remark}
+
+Note that in case where alternative hypothesis is one particular ordering, (\ref{mathstats.perm.test.lemma.exp.form}) reduces to \(1/(n+m)!\) since \(f\) is an indicator variable for the particular permutation and the denominator is a sum of the number of all of the permutations.
+
+\end{remark}
+
+(next time: apply Neyman-Pearson lemma to (\ref{mathstats.lemma.perm.tests.proof.b}) to show how we finally get the UMP test.) The Neyman-Pearson test:
+
+\begin{equation}\label{mathstats.lemma.perm.tests.test.a}
+\phi = \begin{cases}
+1, &  \left. h_{\mathbb{Z} \mid T} ^{(a)}(x_1, \ldots, x_n, y_1, \ldots, y_m) \middle/  h_{\mathbb{Z} \mid T} ^{(0)}(x_1, \ldots, x_n, y_1, \ldots, y_m)  \right. > c(T)   \\
+\gamma, & \left. h_{\mathbb{Z} \mid T} ^{(a)}(x_1, \ldots, x_n, y_1, \ldots, y_m) \middle/  h_{\mathbb{Z} \mid T} ^{(0)}(x_1, \ldots, x_n, y_1, \ldots, y_m)  \right. = c(T) \\
+0, &  \left. h_{\mathbb{Z} \mid T} ^{(a)}(x_1, \ldots, x_n, y_1, \ldots, y_m) \middle/  h_{\mathbb{Z} \mid T} ^{(0)}(x_1, \ldots, x_n, y_1, \ldots, y_m)  \right. < c(T) 
+\end{cases}
+\end{equation}
+
+(using data in the specific order, seeing if the likelihood of the data in this specific order is large). Note that the denominator of (\ref{mathstats.lemma.perm.tests.proof.b}) is a function of \(T\) (the order statistics) so it can be absorbed into \(c(T)\). Therefore this test (\ref{mathstats.lemma.perm.tests.test.a}) is equivalent to the simpler test 
+
+\begin{equation}\label{mathstats.lemma.perm.tests.test.b}
+\phi = \begin{cases}
+1, &   h_{\mathbb{Z} \mid T} ^{(a)}(z_1, \ldots, z_{n+m}) > c'(T)   \\
+\gamma, &  h_{\mathbb{Z} \mid T} ^{(a)}(z_1, \ldots, z_{n+m}) = c' (T) \\
+0, &  h_{\mathbb{Z} \mid T} ^{(a)}(z_1, \ldots, z_{n+m}) < c'(T)  
+\end{cases}
+\end{equation}
+
+We can control the Type I error rate by setting
+
+\begin{multline}\label{mathstats.lemma.perm.tests.const.det.b}
+\E_{H_0}(\phi) = \alpha \iff  \alpha = \frac{1}{(n+m)!} \sum_{\sigma \in S_{n+m}} I \left\{  h(\mathbb{Z}_{\sigma(1)}, \ldots, \mathbb{Z}_{\sigma(n_m)}) > C \right\} 
+\\ +
+\frac{1}{(n+m)!}  \gamma  \sum_{\sigma \in S_{n+m}} I \left\{  h(\mathbb{Z}_{\sigma(1)}, \ldots, \mathbb{Z}_{\sigma(n_m)}) = C \right\} 
+\end{multline}
+
+
+\begin{example}\label{mathstats.perm.tests.ex}
+
+Testing hypothesis that treatment is different; assume treatment is random so groups are homogeneous. \(H_0: X_1, \ldots, X_n, Y_1, \ldots Y_m\) are i.i.d.; \(H_a: X_1, \ldots, X_n \sim \mathcal{N}(\mu_1, \sigma^2)\) i.i.d., \(Y_1, \ldots, Y_m \sim \mathcal{N}(\mu_2, \sigma^2)\) i.i.d. Find the permutation test for the problem.
+
+\end{example}
+
+\begin{solution}
+
+test rejects when this quantity is large
+
+\begin{multline*}
+f(x_1, \ldots, x_n, y_1, \ldots, y_m) = \frac{1}{(2 \pi \sigma^2)^{(n+m)/2}} \exp \left\{ - \frac{1}{2 \sigma^2} \sum_{i=1}^n (x_i - \mu_1)^2 \right\}\exp \left\{ - \frac{1}{2 \sigma^2} \sum_{i=1}^m (y_i - \mu_2)^2 \right\}
+\\ =  \frac{1}{(2 \pi \sigma^2)^{(n+m)/2}} \exp \left\{ - \frac{1}{2 \sigma^2} \left[ \sum_{i=1}^n (x_i - \mu_1)^2 + \sum_{i=1}^m (y_i - \mu_2)^2  \right] \right\}
+\end{multline*}
+
+note that this is monotone. So test rejects when the sum of squares 
+
+\begin{multline}
+\sum_{i=1}^n (x_i - \mu_1)^2 + \sum_{i=1}^m (y_i - \mu_2)^2 = \sum_{i=1}^n x_i^2 - 2 \mu_1 \sum_{i=1}^n x_i + n \mu_1^2 + \sum_{j=1}^m y_j^2 - 2 \mu_2 \sum_{j=1}^m y_j + n \mu_2
+\\ =  \sum_{i=1}^n x_i^2  + \sum_{j=1}^m y_j^2 + n( \mu_1^2  + \mu_2^2) - \underbrace{2\left[ \mu_1 \sum_{i=1}^n x_i   +  \mu_2 \sum_{j=1}^m y_j  \right]}_{\text{only part that depends on specific ordering}}
+\end{multline}
+
+is small. We can take everything that depends on the sufficient statistic (the order statistics) and shift it to the constant in the hypothesis test. (for example, the sum of squares of all of the numbers depends on the order statistic only, and so does the sum of the constant terms. so everything that does not depend on the specific order of the data can be subsumed into the constant term. So we only need the cross terms in the binomial expansion, and then we determine \(c'\) by the solution to (\ref{mathstats.lemma.perm.tests.const.det.b}).) Note that the sum of squares is small if and only if
+
+\[
+\mu_1 \sum_{i=1}^n x_i + \mu_2 \sum_{j=1}^m y_j 
+\]
+
+is large, if and only if 
+
+\[
+\underbrace{(\mu_1 - \mu_2)}_{>0} \sum_{i=1}^n x_i + \underbrace{\mu_2 \left(\sum_{i=1}^n x_i + \sum_{j=1}^m y_j \right) }_{\text{subsumed into } c \text{ since depends only on order statistics}}
+\]
+
+is large, if and only if \(\sum_{i=1}^n x_i\) is large. So we can write the test (\ref{mathstats.lemma.perm.tests.test.b}) as simply
+
+\[
+\phi = \begin{cases}
+1, & \sum_{i=1}^n x_i > c(T) \\
+\gamma, & \sum_{i=1}^n x_i = c(t) \\
+0, & \sum_{i=1}^n x_i < c(T)
+\end{cases}
+\]
+
+For example, assume \(n = m = 2\). Suppose \(x_1 = 4, x_2 = 1, y_1 = 7, y_2 = 3\). Consider all possible permutations, but we don't care about switching \(x\)s or \(y\) (test statistic is invariant to permutations of \(x\)s only), so that's \(\binom{4}{2} = 6\) possible orderings. The orderings are given in Table \ref{mathstats.np.perm.test.ex}. Then the test will reject if \(X_1 + X_2 \geq 11\). Corresponds to situation when large values in begninning are unusuallly high; if so, unlikely data are i.i.d. because if that were true then the large and small values would be distributed more uniformly. Then the size of this test would be \(\alpha = 1/6\). (If you want smaller \(\alpha\) then you need to use a randomized test. But obviously in real life that makes no sense.) 
+
+\begin{table}[htp]
+\caption{Table for Example \ref{mathstats.perm.tests.ex} in case of \(n=m=2\).}
+\begin{center}
+\begin{tabular}{|c|c|c|c|| c | }
+1 & 3 & 4 & 7 & \(\sum_{i=1}^2 X_i\) \\ \hline
+X & X& Y & Y & 4 \\
+X & Y & X & Y & 5 \\
+X & Y & Y & X & 8 \\
+Y & X & X & Y & 7\\
+Y & X & Y & X & 10 \\
+Y & Y & X & X & 11
+\end{tabular}
+\end{center}
+\label{mathstats.np.perm.test.ex}
+\end{table}%
+
+
+\end{solution}
+
+%\begin{proposition}\label{mathstats.order.stats.comp.suff}
+%
+%Consider the following statistical model: \(\{p_f: f \text{ is density on } \mathbb{R} \text{ with respect to Lesbegue measure.}\}\) Suppose \(X_1, \ldots, X_n \sim p_f\) i.i.d. Then \((X_{(1)}, \ldots, X_{(n)})\) is a complete sufficient statistic.
+%
+%\end{proposition}
+
+
+
+
+\subsection{Invariance in Testing (Chapter 6 of \citet{lehmann2005testing})}
+
+\begin{example}
+
+\(X_1, \ldots, X_n \sim \mathcal{N}(\theta_j, 1), j \in [n]\), independent. Consider testing \(H_0: \theta_1 = \theta_2 = \ldots = \theta_n = 0\) against \(H_1: \exists j : \theta_j \neq 0\).  That is,
+
+\[
+\begin{bmatrix}
+X_1 \\
+\vdots \\
+X_n
+\end{bmatrix} \sim \mathcal{N} \left( 
+\begin{bmatrix}
+\theta_1 \\
+\vdots \\
+\theta_n 
+\end{bmatrix}, I_n\right).
+\]
+
+
+Let \(\mathbb{O} \in \mathbb{R}^{n \times n}\) be an orthogonal matrix; that is, \(\mathbb{O}^T = \mathbb{O}^{-1}\). Then 
+
+\[
+\mathbb{O}\begin{bmatrix}
+X_1 \\
+\vdots \\
+X_n
+\end{bmatrix} \sim \mathcal{N} \left( 
+\mathbb{O} \begin{bmatrix}
+\theta_1 \\
+\vdots \\
+\theta_n 
+\end{bmatrix}, I_n\right) .
+\]
+
+Then the problem becomes  \(H_0: \theta_1' = \theta_2' = \ldots = \theta_n' = 0\) against \(H_1: \exists j : \theta_j' \neq 0\) where 
+
+\[
+\theta_j' = \left\langle \mathbb{O} \begin{bmatrix}
+\theta_1 \\
+\vdots \\
+\theta_n 
+\end{bmatrix}, e_j  \right\rangle.
+\]
+
+Then a ``reasonable" test must satisfy \(\phi(X) = \phi(\mathbb{O}X)\) for any orthogonal \(\mathbb{O}\). For this to be true, we must have \(\phi(X) = \phi(\lVert X \rVert_2^2)\) (because we basically need spherical invariance). For such tests, the problem becomes 
+
+\[
+H_0: \lambda := \sum_{i=1}^n \theta_i^2 = 0  , \qquad H_a: \lambda > 0 .
+\]
+
+Here \(\lVert X \rVert_2^2 = \sum_{i=1}^n X_i^2\) has a non-central \(\chi^2\) distribution with non-centrality parameter \(\lambda\). It turns out that this famly as a monotone likelihood ratio, so the solution is easy to obtain. The UMP is 
+
+\[
+\phi(x) = \begin{cases} 
+1, & \sum_{i=1}^n x_i^2 \geq c \\
+0, &  \sum_{i=1}^n x_i^2 < c.
+\end{cases}
+\]
+
+\end{example}
+
+We will use groups for this (see also Section \ref{abs.alg.grps.sec}).
+
+\begin{definition}
+
+\((G , \cdot)\) is a \textbf{group} if
+
+\begin{enumerate}
+
+\item \(a, b \in G \implies a \cdot b \in G\). 
+
+\item There exists \(e \in G\) such that \(a \cdot e = e \cdot a = a\).
+
+\item For all \(a\), there exists \(a^{-1} \in G\) such that \(a \cdot a^{-1}=  a^{-1} \cdot a = e\). 
+
+\item For all \(a, b , c \in G\), \((a \cdot b) \cdot c = a \cdot (b \cdot c)\). 
+
+\end{enumerate}
+
+\end{definition}
+
+\begin{theorem}
+
+Assume that \(\{\mathbb{P}_\theta \theta \in \Theta\}\) is an identifiable statistical model (\(\theta_1 \neq \theta_2 \implies p_{\theta_1} \neq \mathbb{P}_{\theta_2}\)). Suppose 
+
+\[
+X \sim \mathbb{P}_\theta, \qquad X \in S (S = \mathbb{R}^d, S = \mathbb{Z}^d).
+\]
+
+Let \(G\) be a group of bijections of \(S\) (where the group operation is the composition). Then
+
+\[
+\mathbb{P}_\theta(gX \in A) = \mathbb{P}_\theta(X \in g^{-1}A) = \mathbb{P}_\theta \cdot g^{-1}(A).
+\]
+
+\end{theorem}
+
+Notice that in general \(gX\) doesn't have to be in \(A\) for a general \(g\). So we require the following assumption.
+
+\textbf{Assumption:} for any \(g \in G\) there exists \(\overline{g}: \Theta \to \Theta\) such that \(\mathbb{P}_\theta \cdot g^{-1} = \mathbb{P}_{\overline{g}(\theta)}\).
+
+Setup for today: \(\{p_\theta, \theta \in \Theta\}\). \(X \sim p_\theta, X \in S\). \(H_0: \theta \in \Theta_0, H_a: \theta \in \Theta_a\).  Let \((G, \cdot)\) be a group of bijections on \(S = \mathbb{R}^n, \mathbb{Z}^n\). Note that \(\mathbb{P}_\theta (gX \in A) = \mathbb{P}_\theta (X \in g^{-1}A)\). 
+
+\textbf{Assumption:} The distribution \(\mathbb{P}_\theta \cdot g^{-1}\) coincides with \(\mathbb{P}_{\overline{g}(\theta)}\). True if and only if \(\mathbb{P}_\theta(gX \in A) = \mathbb{P}_{\overline{g}(\theta)} (X \in A)\). 
+
+\begin{example}
+
+\(f\): fixed pdf. \(\{f(\cdot - \theta), \theta \in \mathbb{R}\}\): location family. \(g \in G \iff \exists \tau \in \mathbb{R}: g_\tau(x) = x + \tau\). Then \(\overline{g}_\tau(\theta). = \theta + \tau\). Indeed, 
+
+\[
+\mathbb{P}_\theta(X + \tau < t) = \mathbb{P}_\theta(X < t - \tau) = \int_{-\infty}^{t - \tau} f(x - \theta) \ dx
+\]
+
+Let \(y = x + \tau\), then write this as 
+
+\[
+= \int_{-\infty}^{t} f(y - (\theta + \tau)) \ dy = \mathbb{P}_{\theta + \tau} (X < t).
+\]
+
+\end{example}
+
+\begin{theorem}
+
+\begin{enumerate}
+
+\item For all \(g \in G\), let \(\overline{g}\) be a bijection on \(\Theta\). 
+
+\item \((\overline{G}, \circ)\) is a group (with respect to composition). Here, \(\overline{G} = \{\overline{g}, g \in G\}\). 
+
+\item \(g \in G \implies \overline{g} \in \overline{G}\) is a group homomorphism.
+
+\end{enumerate}
+
+\end{theorem}
+
+\begin{proof} We will show some initial results. (See also Lemma 6.1.1 in \citet{lehmann2005testing}.)
+
+\begin{enumerate}[(a)] 
+
+\item Injectively, if \(\overline{g}(\theta_1) = \overline{g}(\theta_2) \implies \theta_1 = \theta_2\). Assume that \(\overline{g}(\theta_1) = \overline{g}(\theta_2)\). Then
+
+\[
+\mathbb{P}_{\overline{g}(\theta_1)} (X \in A) = \mathbb{P}_{\theta_1}(g(X) \in A) = \mathbb{P}_{\theta_1}(X \in g^{-1}(A)) 
+\]
+
+\[
+\mathbb{P}_{\overline{g}(\theta_2)}(X \in A) = \mathbb{P}_{\theta_2}(g(X) \in A) = \mathbb{P}_{\theta_2}(X \in g^{-1}(A)) = \mathbb{P}_{\theta_1}(X \in g^{-1}(A)) 
+\]
+
+Since \(g\) is a bijection, this means that \(\mathbb{P}_{\theta_1}(X \in B) = \mathbb{P}_{\theta_2}(X \in B) \) for all \(B\). Therefore \(\theta_1 = \theta_2\) by identifiability of the model.
+
+\item 
+
+\[
+\mathbb{P}_\theta(X \in A) = \mathbb{P}_\theta (g(g^{-1}(X)) \in A) = \mathbb{P}_{\overline{g}(\theta)} (g^{-1}(X) \in A) = \mathbb{P}_{\overline{g^{-1}}(\overline{g}(\theta))} (X \in A)
+\]
+
+Therefore \(\overline{g^{-1}}(\overline{g}(\theta)) = \theta \iff (\overline{g})^{-1} = \overline{g^{-1}}\) by identifiability.
+
+\item \textbf{Surjectivity.} Need to show: for all \(\theta\), there exists \(\theta'\) such that \(\overline{g}(\theta') = \theta\). 
+
+By part (b), \(\overline{g}(\overline{g^{-1}}(\theta)) = \theta\) for all \(\theta\). So take \(\theta' = \overline{g^{-1}}(\theta)\), then we have the result.
+
+\end{enumerate}
+
+Now we can use these to prove what we want. (Should follow easily? especially from part (b).) 
+
+\begin{enumerate}
+
+\item
+
+\item
+
+\item \textbf{look if scribe filled in details?} \(g_1 g_2 \to \overline{g}_1 \circ \overline{g}_2\). 
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{definition}[\textbf{invariance of tests with respect to groups}]
+
+The testing problem \(H_0: \theta \in \Theta_0\) against \(H_a: \theta \in \Theta_a\) is invariant with respect to \(\overline{G}\) if and only if for all \(\overline{g} \in \overline{G}\), 
+
+\[
+\overline{g}(\Theta_0) = \Theta_0, \qquad \overline{g}(\Theta_a) = \Theta_a.
+\]
+
+\end{definition}
+
+benefit of this approach: can get tests that are invariant across e.g. rotation (if \(G\) is a group of rotations), reduce problem significantly (only need to worry about e.g. length, or other property that is invariant with respect to group). 
+
+\begin{definition}[\textbf{Orbits}]
+
+We say that \(x_1\) is equivalent to \(x_2\) (\(x_1 \sim x_2\)) if and only if there exists \(g \in G\) such that \(g(x_1) = x_2\). The equivalence classes are called \textbf{orbits} (that is, an orbit contains all elements that are equivalent to one another; the orbit of \(x \in S\) is \(\{g(x): g \in G \}\).  
+
+\end{definition}
+
+\begin{example}
+
+If \(G\) is a set of rotations, then the orbit is the sphere with radius equal to \(\lVert x \rVert\).).
+
+\end{example}
+
+\subsection{Maximal Invariants (Section 6.2 of \citet{lehmann2005testing})}
+
+
+\begin{definition}[\textbf{Invariants}]
+
+A map \(T: S \to \mathbb{R}^d\) is \textbf{invariant with respect to \(G\)} if and only if 
+
+\[
+x_1 \sim x_2 \implies T(x_1) = T(x_2).
+\]
+
+\(T\) is called a \textbf{maximal invariant} if and only if \(T\) is invariant and 
+
+\[
+  T(x_1) = T(x_2) \implies x_1 \sim x_2;
+\]
+
+so
+
+\[
+x_1 \sim x_2 \iff T(x_1) = T(x_2).
+\]
+
+That is, it is constant on the orbits and for each orbit takes on a different value. All maximal invariants are equivalent in the sense that their sets of constancy coincide.
+
+\end{definition}
+
+\begin{definition}
+
+Let \(\phi\) be a test. \(\phi\) is \textbf{invariant} with respect to \(G\) if and only if \(\phi(x) = \phi(g(x))\) for all \(g \in G, x \in S\).
+
+\end{definition}
+
+\begin{definition}[\textbf{Invariance of problems}]
+
+We say that the problem of testing \(H_0: \theta \in \Theta_0\) against \(H_a: \theta \in \Theta_a\) remains invariant under a transformation \(g\) if \(\overline{g}\) preserves both \(\Theta_0\) and \(\Theta_a\), so that both
+
+\[
+\overline{g} \Theta_0 = \Theta_0
+\]
+
+and
+
+\[
+\overline{g} \Theta = \Theta
+\]
+
+hold.
+
+
+\end{definition}
+
+\begin{theorem}[\textbf{Theorem 6.2.1 in \citet{lehmann2005testing}}]
+
+Let \(T\) be a maximal invariant with respect to \(G\). Then test \(\phi\) is \(G\)-invariant if and only if \(\phi(x) = h(T(x))\) for all \(x \in S\) and some function \(h\); that is, \(\phi\) must depend on \(x\) only through \(T(x)\). 
+
+\end{theorem}
+
+\begin{proof}
+
+Assume that \(\phi(x) = h(T(x))\). Take \(g \in G\). Then
+
+\[
+\phi(g(x)) = h(T(g(x)) = h(T(x)) = \phi(x)
+\]
+
+(where the third step used the maximal invariance of \(T\) with respect to \(G\)). Conversely, assume that \(\phi\) is \(G\)-invariant. Suppose that \(x_1, x_2\) are such that \(T(x_1) = T(x_2)\). Then there exists \(g \in G\) such that \(x_2 = g(x_1)\). Then \(\phi(x_2) = \phi(g(x_1)) = \phi(x_1)\), so \(\phi\) is constant on each orbit, so \(\phi = h(T)\) for some function \(h\).
+
+\end{proof}
+
+\begin{example}[\textbf{Location family (like Example 6.2.1(i) in \citet{lehmann2005testing})}]
+
+\(X_1, \ldots, X_n \sim f(\cdot - \theta)\) i.i.d., \(\theta \in \mathbb{R}\). Then the invariance transformation is \(g(x_1, \ldots, x_n) = (x_1 + c, \ldots, x_n +c)\) for some \(c \in \mathbb{R}\). 
+
+\[
+\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix} \sim \begin{bmatrix}
+x_1' \\
+\vdots \\
+x_n'
+\end{bmatrix} \iff \begin{bmatrix}
+x_1' \\
+\vdots \\
+x_n'
+\end{bmatrix} = \begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix} + \begin{bmatrix}
+c \\
+\vdots \\
+c
+\end{bmatrix}.
+\]
+
+One maximal invariant is \(T = (x_1 - x_2, x_2 - x_3, \ldots, x_{n-1} - x_n)\). Another is \(T' = (x_1 - x_n, x_2 - x_n, \ldots, x_n - x_n)\).
+
+
+\end{example}
+
+\begin{example}[\textbf{Scale family (like Example 6.2.1(ii) in \citet{lehmann2005testing})}]
+
+\(X_1, \ldots, X_n \sim \frac{1}{\theta} f( \frac{\cdot}{\theta} )\) i.i.d., \(\theta \in \mathbb{R}\). Then an invariance transformation is \(g \in G \iff \exists c > 0 \) such that \(g(x_1, \ldots, x_n) = (c x_1, \ldots, cx_n) \). (Note that \(\overline{g}(\theta) = c \theta\).) Then a maximal invariant is \(T = (x_1/x_n, \ldots, x_n /x_n)\) (if \(x_n \neq 0\)).
+
+\end{example}
+
+\begin{example}[\textbf{Orthogonal transformation (like Example 6.2.1(iii) in \citet{lehmann2005testing})}]
+
+\(X \sim \mathcal{N}(0, \Sigma)\), \(X \in \mathbb{R}^d\). \(G\) is a group of orthogonal transformations: \(\langle gu, gv \rangle = \langle u , v \rangle\) for all \(g \in G\), \(u, v \in \mathbb{R}^d\). \(G\) corresponds to the 
+group of orthogonal matrices Observe that \(\overline{g}(\Sigma) = g \Sigma g^{-1} = g \Sigma g^T\). Indeed, the covariance matrix of \(gX\) is 
+
+\[
+\E (gX)(gX)^T = \E g X X^T g^T = g \E (X X^T) g^T = g \Sigma g^T.
+\]
+
+A maximal invariant \(T(x)\) in this case is \(\lVert X \rVert_2\). 
+
+\end{example}
+
+\begin{example}[\textbf{Rank tests (like Example 6.2.2(ii) in \citet{lehmann2005testing})}]
+
+Suppose \(X_1, \ldots, X_n\) are i.i.d. with cdf \(F\) that is strictly increasing. Let \(g \in G\) if and only if there exists \(f\) continuous, strictly monotone such that \(g(x_1, \ldots, x_n) = (f(x_1), \ldots, f(x_n))\). (Then the order of the values is always preserved after applying any transformation.) The maximal invariants are then the ranks defined by \(R_j(x_1, \ldots, x_n) = | \left\{  k: x_k \leq x_j\right\}|\). In particular, \(x_j = x_{R_j}\). 
+
+\end{example}
+
+\begin{example}
+
+\(X \sim \mathbb{P}_\theta\), \(\theta \in \Theta\). \(H_0: \theta \in \Theta_0\), \(H_a: \theta \in \Theta_a\). \(G\): a group of bijections. \(\overline{G}\): a corresponding group of bijections on \(\Theta\). The problem is \(G\)-invariant if and only if for all \(g \in G\), \(g(\Theta_0) \subseteq \Theta_0\), \(g(\Theta_a) \subseteq \Theta_a\). Find the UMP \(G\)-invariant test.
+
+\end{example}
+
+\begin{solution}
+
+Know: if \(T(x)\) is the maximal invariant, then any \(G\)-invariant test depends on \(T\) only. Moreover, the power function of a \(G\)-invariant test is \(\overline{G}\)-invariant: indeed, for all \(g \in G\), 
+
+\[
+\beta_\phi(\theta) = \E_\theta \phi(X) = \E_\theta \phi(g(X)) = \E_{\overline{g}(\theta)} \phi(X) = \beta_\phi (\overline{g}(\theta)).
+\]
+
+Let \(\tau(\theta)\) be the maximal invariant with respect to \(\overline{G}\), then the distribution of any \(G\)-invariant test depends only on \(\tau(\theta)\). In many cases, the problem reduces to testing \(H_0': \tau (\theta) \leq \tau_0\) against \(H_a': \tau(\theta) > \tau_0\).
+
+\end{solution}
+
+
+\begin{example}
+
+\(X_1, \ldots, X_n\) i.i.d. \(\mathcal{N}(\mu, \sigma^2)\). \(H_0: \sigma^2 \leq \sigma_0^2\), \(H_a: \sigma^2 > \sigma_0^2\). Take \(G\) to be a group of parallel shifts \((x_1,\ldots, x_n) \sim (x_1 +c, \ldots, x_n +c)\). (Then the problem is \(G\)-invariant, since the variance isn't affected by a shift in the values.) The sufficient statistic is \((\overline{X}, S^2)\), and a maximal invariant is \(S^2\). Recall that 
+
+\[
+S^2 = \frac{\sigma^2}{n-1} Z,
+\]
+
+where \(Z \sim \chi_{n-1}^2\). We have
+
+\[
+\overline{G}: (\mu, \sigma^2) \xrightarrow{\overline{g}} (\mu+c, \sigma^2).
+\]
+
+Note that 
+
+\[
+\left( \frac{1}{n} \sum_{i=1}^n x_i, \frac{1}{n-1} \sum_{i=1}^n \left[ X_j - \frac{1}{n} \sum_{i=1}^n X_j \right]^2 \right) \xrightarrow{g} 
+\left( \frac{1}{n} \sum_{i=1}^n x_i + c, \frac{1}{n-1} \sum_{i=1}^n \left[ X_j - \frac{1}{n} \sum_{i=1}^n X_j \right]^2 \right) 
+\]
+
+The maximal invariant is \(S^2\):
+
+\[
+S^2 =^d \frac{\sigma^2}{n-1} W,
+\]
+
+where \(W \sim \chi_{n-1}^2\). The pdf of \(S^2\) is 
+
+\[
+f_{S^2}(x) = \frac{1}{2^{(n-1)/2} \Gamma((n-1)/2)} \exp \left\{  - \frac{x}{2 \sigma^2} + \left( \frac{n-3}{2}  \right)(\log x - \log \sigma^2) \right\}
+\]
+
+Note that this has an MLR with respect to \(T(X) = X\). Therefore by Karlin-Rubin, the UMP invariant test is 
+
+\[
+\phi^* = \begin{cases}
+1, & S^2 \geq c \\
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+\end{example}
+
+\begin{example}[\textbf{Two-sample } t \textbf{- test}]
+
+\(X_1, \ldots, X_n \sim \mathcal{N}(\mu_1, \sigma^2)\) i.i.d., \(Y_1, \ldots, Y_m \sim \mathcal{N}(\mu_2, \sigma^2)\) i.i.d. \(H_0: \mu_1 \geq \mu_2, H_a: \mu_1 < \mu_2\). Note that the ordering of the data is invariant to multiplication by a non-negative number or adding a constant. Therefore a grouping is 
+
+\[
+G: (x_1, \ldots, x_n) \xrightarrow{g} (a x_1 + c, \ldots, a x_n + c), \qquad a > 0, c \in \mathbb{R}.
+\]
+
+Then the group \(\overline{G}\) that acts on the parameters is 
+
+\[
+\overline{G}(\mu_1, \mu_2, \sigma^2) \xrightarrow{\overline{g}} (a \mu_1 + c, a \mu_2 + c, a^2 \sigma^2).
+\]
+
+Sufficient statistic: \((\overline{X}, \overline{Y}, S^2)\), where \(S^2\) is the pooled variance:
+
+\[
+S^2 = \frac{1}{m+n-2} \left( \sum_{i=1}^n [X_i - \overline{X}_n]^2 + \sum_{i=1}^m[Y_i - \overline{Y}_m]^2 \right)
+\]
+
+Note that 
+
+\[
+(\overline{X}, \overline{Y}, S^2) \xrightarrow{g} (a\overline{X} + c, a\overline{Y} + c, a^2S^2)
+\]
+
+and a maximal invariant with respect to \(G\)
+
+\[
+T = \frac{\overline{X} - \overline{Y}}{\sqrt{S^2}}.
+\]
+
+and for the parameters (maximal invariant with respect to \(\overline{G}\))
+
+\[
+\delta = \frac{\tilde{\mu}_1 - \tilde{\mu}_2}{\tilde{\sigma}}
+\]
+
+So we know the distribution of \(T\) can only depend on \(\delta\). Note that 
+
+\[
+\Var (\overline{X} - \overline{Y}) = \frac{\sigma^2}{n} + \frac{\sigma^2}{m} =  \sigma^2 \frac{n + m}{nm}
+\]
+
+and we can consider
+
+\[
+T' = \frac{ \overline{X} - \overline{Y}}{\sqrt{S^2}} \sqrt{\frac{nm}{n+m}}
+\]
+
+which has a \(t\) distribution. We can also now consider the different test \(H_0': \delta \geq 0\), \(H_a: \delta < 0\). 
+
+Note: if \(\delta \neq 0\), then \(T'\) has a non-central Student's \(t\)-distribution with non-centrality parameter \(\delta\). The pdf is (with \(\nu = n+m-2\))
+
+\[
+f(x) = \nu^{\nu/2} \frac{ \exp \left\{ - \frac{\nu \delta^2}{2(x^2 + \nu)} \right\}}{\sqrt{\pi} \Gamma(\nu/2) 2^{(\nu-1)/2} (x^2 + \nu)^{(\nu+1)/2} (x^2 + \nu)^{(\nu+1)/2}} \int_0^\infty y^\nu \exp \left\{ - \frac{1}{2} \left[ 6 - \frac{\delta x}{\sqrt{x^2 + \nu}} \right] \right\} \ dy
+\]
+
+ But it turns out (not trivial to prove) that \(T'\) has a monotone likelihood ratio in \(\delta\). The UMP invariant test is therefore
+ 
+ \[
+ \phi^* = \begin{cases}
+ 1, & T' \leq c \\
+ 0, T' > c
+ \end{cases}
+ \]
+ 
+ where \(c = t_{\alpha, n+m-2} < 0\) (standard Student's \(t\), because due to Karlin-Rubin we can just go with the distribution when \(\delta =0\). Only need to look at pdf to establish that it has an MLR.).
+
+\end{example}
+
+\subsection{Rank Tests (Section 6.8 and 6.9 of \citet{lehmann2005testing})} 
+
+\begin{example}
+
+\(X_1, \ldots, X_n\) i.i.d. with cdf \(F\), pdf \(f\). \(Y_1, \ldots, Y_m\) i.i.d. with cdf \(G\), pdf \(g\). \(H_0: X_1, \ldots, X_n, Y_1, \ldots, Y_m\) i.i.d. \(\mathcal{N}(\mu, \sigma^2)\), \(H_1: X_1, \ldots, X_n \sim \mathcal{N}(\mu_1, \sigma^2)\) i.i.d., \(Y_1, \ldots, Y_m \sim \mathcal{N}(\mu_2, \sigma^2)\) i.i.d., \(\mu_2 > \mu_1\). A natural ``generalization" is the following: if we think the data come from a roughly normal distribution but not exactly, we might want to use a permutation test instead. That is,
+
+\[
+H_0: F = G, \qquad H_a: F(z) \leq G(z) \qquad \text{for all } z, \qquad \text{and } G \neq F
+\]
+
+that is, the \(Y\)'s are stochastically larger than the \(X\)'s. (The last condition implies that there exists an \(x\) for which the inequality is strict: \(F(x) < G(x)\).) The observations remain invariant under monotonic transformations:
+
+\[
+G:(x_1, \ldots, x_n, y_1, \ldots, y_m) \xrightarrow{g} ( h(x_1), \ldots, h(x_n), h(y_1) \ldots, h(y_m))
+\]
+
+ where \(h\) is continuous and strictly increasing. Then
+
+\[
+\overline{G}: (F, G) \xrightarrow{\overline{g}} (F \circ h^{-1}, G \circ h^{-1})
+\]
+
+where \( (F \circ h^{-1})(x) = F( h^{-1}(x)) = \mathbb{P}(h^{-1}(X) \leq x)\), or \(h(x)\) has cdf \(F \circ h^{-1} = \mathbb{P}(h(x) \leq t)]= \mathbb{P}(X \leq h^{-1}(t)) = F(h^{-1}(t))\). Define
+
+\[
+Z_1 = X_1, \ldots, Z_n = X_n, Z_{n+1} = Y_1, \ldots, Z_{n+m} = Y_m
+\]
+
+and let \(n +m = N\). Let \(Z_{(1)}, \ldots, Z_{(n+m)}\) be the order statistics, and define \(R_j = \operatorname{rank}(Z_j) = |\{k: Z_k \leq Z_j\}|\). (Note the relationship \(Z_{(R_j)} = Z_j\).) Finally, also note that there are \(N!\) orderings possible. Ranks are the maximal invariants. Goal: find the distribution of the ranks, namely find \(\mathbb{P}(R = r)\). We will use the following result:
+
+\begin{theorem}[\textbf{Hoeffding's Formula}]
+
+Assume that \(\xi_1, \ldots, \xi_N\) are independent random variables and \(\xi_j\) has pdf \(f_j\) (that is, they might have different distributions). Choose a pdf \(f_0\) such that \(f_0 = 0 \implies f_1 = \ldots = f_n = 0\). Then
+
+\[
+\mathbb{P}(R = r) = \frac{1}{n!} \E_{f_0} \left[ \frac{ \prod_{i=1}^n f_i(V_{(r_i)}) }{  \prod_{i=1}^n f_0(V_{(r_i)}) }  \right]
+\]
+
+where \(V_1, \ldots, V_n\) are i.i.d. with distribution \(f_0\).
+
+\end{theorem}
+
+In our case, take \(f_0 := f\), then 
+
+\[
+\mathbb{P}(R = r) = \frac{1}{n!} \E_{f_0} \left[ \frac{ \prod_{i=1}^m g_i(V_{(q_i)}) }{  \prod_{i=1}^m f(V_{(q_i)}) }  \right]
+\]
+
+where \(g_1, \ldots, g_m\) are the ranks of \(Y_1, \ldots Y_m\) among \(Z_1, \ldots, Z_N\) (the terms corresponding to \(x\) will cancel out). \textbf{Claim:} Let \(Q = (Q_1 < Q_1 < \ldots < Q_m)\) be the ordered ranks of \(Y_1, \ldots, Y_m\) among \(Z_1, \ldots, Z_n\). Then \(Q\) is sufficient for the distribution of \(R\). 
 
 \begin{proof}
 
 \[
-\Pr(\sum Y_i = y) = {n \choose y}p^y(1-p)^{n-y}
+\mathbb{P}(R = r \mid Q =q) = \frac{\mathbb{P}(R = r , Q = q)}{\mathbb{P}(Q = q)} = \frac{\mathbb{P}(R = r)}{\mathbb{P}(Q = q)}
 \]
 
-Using the Neyman-Pearson lemma (let \(p_a\) be some particular value of \(p > p_0\)):
+and
+
+\begin{multline*}
+\mathbb{P}(Q = q) = \sum_{r: Q(r) =q} \mathbb{P}(R = r) 
+= \frac{1}{N!} \sum_{r: Q(r) =q} \E_{f} \left[ \frac{ \prod_{i=1}^m g_i(V_{(q_i)}) }{  \prod_{i=1}^m f(V_{(q_i)}) }  \right]
+\\ = \frac{1}{N!} | \{ r: Q(r) = q\}|\E_{f} \left[ \frac{ \prod_{i=1}^m g_i(V_{(q_i)}) }{  \prod_{i=1}^m f(V_{(q_i)}) }  \right]  = \frac{1}{N!} n! m! \E_{f} \left[ \frac{ \prod_{i=1}^m g_i(V_{(q_i)}) }{  \prod_{i=1}^m f(V_{(q_i)}) }  \right]
+\end{multline*}
+
+Therefore we have 
 
 \[
-\frac{L(p_0)}{L(p_a)} = \frac{{n \choose y}p_0^y(1-p_0)^{n-y}}{{n \choose y}p_a^y(1-p_a)^{n-y}} < K
+\mathbb{P}(R = r \mid Q =q) = \frac{\mathbb{P}(R = r , Q = q)}{\mathbb{P}(Q = q)} = \frac{\mathbb{P}(R = r)}{\mathbb{P}(Q = q)}  = \frac{1}{n!m!}
+\]
+
+which doesn't depend on any parameters, so \(Q\) is sufficient for \(R\).
+
+\end{proof}
+
+Therefore we can consider tests that depend on \(Q\) only. Let \(U \sim \operatorname{Unif}[0,1]\). Then \(F^{-1}(U)\) has distribution \(F\), since 
+
+\[
+\mathbb{P}(F^{-1}(U) \leq t) = \mathbb{P}(U \leq F(t)) = F(t).
+\]
+
+Hence
+
+\[
+\mathbb{P}(R = r) = \frac{1}{n!} \E_{f} \left[ \frac{ \prod_{i=1}^m g_i(V_{(q_i)}) }{  \prod_{i=1}^m f(V_{(q_i)}) }  \right] = \frac{1}{n!} \E_{f} \left[ \frac{ \prod_{i=1}^m g(F^{-1}(U_{(q_i)}) ) }{  \prod_{i=1}^m f(F^{-1}(U_{(q_i)})) }  \right]
+\]
+
+But this is the derivative of a certain expression. Let \(\tau(x) = (G \circ F^{-1})(x)\). Then 
+
+\[
+\tau'(x) = G'(F^{-1}(x)) (F^{-1})'(x) = \frac{g(F^{-1}(x)) }{f(F^{-1}(x))}
+\]
+
+so
+
+
+\[
+\mathbb{P}(R = r) =  \frac{1}{n!} \E_{f} \prod_{i=1}^m \tau'(U_{(q_i)}) 
+\]
+
+so \(\tau\) is the maximal invariant of \(\overline{G}\) because the distribution of \(Q\) depends only on \(\tau\), so it must be the maximal invariant. 
+
+\end{example}
+
+\begin{theorem}[\textbf{Theorem 6.3.2 in \citet{lehmann2005testing}}]
+
+If \(T(x)\) is invariant under \(G\) and if \(v(\theta)\) is a maximal invariant under the induced group \(\overline{G}\), then the distribution of \(T(X)\) depends only on \(v(\theta)\).
+
+\end{theorem}
+
+\subsection{Likelihood Ratio Tests (Section 12.4.4 of \citet{lehmann2005testing})}
+
+Last time:
+
+\[
+\phi^*(x) = \begin{cases}
+1, & \left. \left(   \left. \pderiv{}{\theta} p_{\theta}(x) \right|_{\theta = \theta_0} \right) \middle/ p_{\theta_0}(x) \right. > c \\
+\gamma, & \left. \left(   \left. \pderiv{}{\theta} p_{\theta}(x) \right|_{\theta = \theta_0} \right) \middle/ p_{\theta_0}(x) \right.  = c \\
+0, & \left. \left(   \left. \pderiv{}{\theta} p_{\theta}(x) \right|_{\theta = \theta_0} \right) \middle/ p_{\theta_0}(x) \right.  <c
+\end{cases}
+\]
+
+We got 
+
+\[
+\pderiv{}{\theta} \mathbb{P}(Q = q) = \frac{1}{\binom{N}{m}} \sum_{j=1}^m \alpha(q_j)
+\]
+
+where
+
+\[
+\alpha(q_j) = \E_\theta \left[  \frac{f'(V_{(q_j)})}{f(V_{(q_j)})}\right]
+\]
+
+Suppose \(X_1, \ldots, X_n\) i.i.d. distributed according to \(P_\theta \in \{P_\theta, \theta \in \Theta\}\). Suppose \(P_\theta\) has either density function or mass function \(p_\theta\). We will test \(H_0: \theta \in \Theta_0\) against \(H_a: \theta \in \Theta_a\). The likelihood ratio is 
+
+\[
+L_n(\theta, x_1, \ldots, x_n) = \prod_{j=1}^n p_\theta(x_j)
+\]
+
+and we will use the log likelihood
+
+\[
+\ell_n(\theta) = \log L_n(\theta) = \sum_{j=1}^n \log p_\theta(x_j).
+\]
+
+Then the maximum likelihood estimator (if it is unique) is 
+
+\[
+\hat{\theta}_n := \underset{\theta \in \Theta}{\arg \max} \l_n (\theta).
+\]
+
+\begin{definition}
+
+Assumption: \(\Theta \subseteq \mathbb{R}^d\). Define
+
+\[
+T_n := \frac{\sup_{\theta \in \Theta_a} L_n(\theta)}{\sup_{\theta \in \Theta_0} L_n(\theta)}
+\]
+
+Note that this quantity is well-defined even if the MLE is not unique. The likelihood ratio test (LRT) is 
+
+\[
+\phi = \begin{cases}
+1, & T_n > c\\
+\gamma, & T_n = c \\
+0, & T_n < c
+\end{cases}
+\]
+
+for some \(c, \gamma > 0\). For simplicity, assume that both
+
+\[
+\hat{\theta}_n^0 := \underset{\theta \in \Theta_0}{\arg \max} L_n (\theta), \qquad \hat{\theta}_n^a := \underset{\theta \in \Theta_a}{\arg \max} L_n (\theta)
+\]
+
+exist. Then 
+
+\[
+T_n := \frac{L_n(\hat{\theta}_n^a)}{L_n(\hat{\theta}_n^0)}.
+\]
+
+\end{definition}
+
+\begin{remark}
+
+In this simplest case,
+
+\[
+\Theta_0 = \{\theta_0\}, \qquad \Theta_a = \{\theta_a\}.
+\]
+
+Then
+
+\[
+T_n = \frac{\prod_{j=1}^n p_{\theta_a}(x_j)}{\prod_{j=1}^n p_{\theta_0}(x_j)},
+\]
+
+and the likelihood ratio test coincides with the Neyman-Pearson test.
+
+\end{remark}
+
+Define
+
+\[
+\tilde{T}_n :=  \frac{\sup_{\theta \in \Theta} L_n(\theta)}{\sup_{\theta \in \Theta_0} L_n(\theta)} = \frac{L_n (\hat{\theta}_n)}{L_n (\theta_0)}  = \max\{T_n, 1\}
+\]
+
+and define
+
+\[
+\Lambda_n := \log \tilde{T}_n \geq 0.
+\]
+
+Then the LRT can be equivalently stated as 
+
+\[
+\phi = \begin{cases}
+1, & \Lambda_n > c\\
+\gamma, & \Lambda_n = c \\
+0, & \Lambda_n < c
+\end{cases}
+\]
+
+\begin{example}[\textbf{Example 12.4.6 in \citet{lehmann2005testing}, p. 524 of pdf}]\label{mathstats.ex.lrt.multinomial}
+
+Let \(X \sim \operatorname{Multinomial}(n, p_1, \ldots, p_k)\). Assume that \(\Theta_0 = \{p_0\}\), where \(p_0 = (p_0^{(1)}, \ldots, p_0^{(k)})\) and \(\Theta_a \in \Delta_k = \{p \neq p_0\}\). (For example, the experiment could be throwing a dice with \(k\) faces \(n\) times.) Then we have
+
+\[
+p_\theta(x_1, \ldots, x_k) = \frac{n!}{x_1! \cdots x_k!} p_1^{x_1} \cdots p_k^{x_k}.
+\]
+
+Then 
+
+\[
+\Lambda_n =  \log \left( \frac{\sup_{\theta \in \Theta} L_n(\theta)}{\sup_{\theta \in \Theta_0} L_n(\theta)} \right) =   \log \left( \frac{L_n (\hat{p}_n)}{L_n (p_0)}  \right).
+\]
+
+The MLE is (exercise)
+
+\[
+\hat{p}_n = \left( \frac{X_1}{n}, \ldots, \frac{X_k}{n} \right) = n \sum_{i=1}^k \frac{X_i}{n} \log \left( \frac{\hat{p}_i}{p_{0,i}} \right) = n \sum_{i=1}^k \hat{p}_i \log \left(  \frac{ \hat{p}_i}{p_{0,i}} \right)
+\]
+
+Therefore
+
+\[
+\Lambda_n = \log \prod_{i=1}^k  \left(  \frac{X_i}{n p_{0,i}} \right)^{x_i}
+\]
+
+(which is exactly \(n\) times the KL divergence between the maximum likelihood estimator and the null hypothesis value.) Now note that
+
+\[
+\hat{p}_n =n \sum_{i=1}^k (\hat{p}_i - p_{0,i} + p_{0,i}) \log \left(  1 + \frac{ \hat{p}_i - p_{0,i}}{p_{0,i}} \right)
+\]
+
+Under \(H_0\), \(\hat{p}_i\) is consistent, so \(\hat{p}_i - p_{0,i} = o_{\mathbb{P}}(1)\), meaning that for every \(\epsilon > 0\) \(\mathbb{P}(|\hat{p}_i - p_{0,i}| > \epsilon) \to 0 \) as \(n \to \infty\). Since \(\log(1 + x) = x - x^2/2 + o(x^2)\), we have
+
+\begin{multline*}
+\Lambda_n = n \sum_{i=1}^k(\hat{p}_i \pm p_{0,i}) \left[  \frac{\hat{p}_i - p_{0,i}}{p_{0,i}} - \frac{(\hat{p}_i -p_{0,i})^2}{2 p_{0,i}^2} + o_{\mathbb{P}}((\hat{p}_i - p_{0,i})^2 \right]
+\\ = n \sum_{i=1}^k \left[  \frac{(\hat{p}_i -p_{0,i})^2}{2 p_{0,i}} + (\hat{p}_i - p_{0,i}) - \underbrace{\frac{1}{2} \frac{(\hat{p}_i -p_{0,i})^3}{2 p_{0,i}^2} }_{o_\mathbb{P}((\hat{p}_i - p_{0,i})^2)} - \frac{1}{2}  \frac{(\hat{p}_i -p_{0,i})^2}{2 p_{0,i}}  +  o_{\mathbb{P}}((\hat{p}_i - p_{0,i})^2 \right]
+\\ = \frac{n}{2}  \sum_{i=1}^k \left[  \frac{(\hat{p}_i -p_{0,i})^2}{ p_{0,i}} + \underbrace{(\hat{p}_i - p_{0,i})}_{\mathcal{O}_{\mathbb{P}}(1/\sqrt{n})}  +  \underbrace{o_{\mathbb{P}}((\hat{p}_i - p_{0,i})^2}_{o_{\mathbb{P}}(1/n)} \right] 
+= \frac{n}{2}  \sum_{i=1}^k \frac{(\hat{p}_i -p_{0,i})^2}{ p_{0,i}}  +  o_{\mathbb{P}}(1) 
+\end{multline*}
+
+Hence
+
+\[
+2\Lambda_n =  n \sum_{i=1}^k \underbrace{\frac{(\hat{p}_i -p_{0,i})^2}{ p_{0,i}} }_{\text{Pearson's } \chi^2 \text{ statistic}} +  o_{\mathbb{P}}(1) 
+\]
+
+Under \(H_0\), \(2 \Lambda_n\) is asymptotically distributed as \(\chi_{k-1}^2\).
+
+(Work related to derivation of asymptotics:) Further, as \( n \to \infty\),
+
+\[
+\sqrt{n} \left( \begin{bmatrix}
+X_1/n \\
+\vdots \\
+X_k/n \end{bmatrix} -   \begin{bmatrix}
+p_1  \\
+\vdots \\
+p_k \end{bmatrix} \right) \xrightarrow{d} \mathcal{N}(0, \Sigma)
+\]
+
+where \(\Sigma_{ii} = p_i(1-p_i)\), \(\Sigma_{ij} = - p_ip_j\), \(i \neq j\) (exercise). \(\Sigma\) can be written as 
+
+\[
+\Sigma = \Gamma^{1/2}(I_k - \sqrt{p} \sqrt{p}^T) \Gamma^{1/2}
+\]
+
+where
+
+\[
+\sqrt{p} = \begin{bmatrix}
+\sqrt{p_1} \\
+\vdots \\
+\sqrt{p_k}
+\end{bmatrix}, \qquad \Gamma = \begin{bmatrix}
+p_1 & 0 & \cdots & 0 \\
+0 & p_2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & p_k
+\end{bmatrix}
+\]
+
+(Notice that \(\lVert \sqrt{p} \rVert = 1\). The representation using \(I_k - \sqrt{p} \sqrt{p}^T\) is very helpful when figuring out the asymptotics.) 
+
+\end{example}
+
+\begin{example}[\textbf{Related to Example 12.4.5 in \citet{lehmann2005testing}, p. 523 of pdf}]
+
+Suppose \(X_1, \ldots, X_n\) are i.i.d. \(\mathcal{N}(\theta, I_d), \theta \in \mathbb{R}^d\). \(H_0: \theta \in L\), where \(L\) is a linear subspace of dimension \(k\), and \(H_a: \theta \notin L\). We have
+
+\[
+L_n(\theta) = \frac{1}{(2 \pi)^{d/2}} \exp \left\{  - \frac{ \sum_{j=1}^n \lVert x_j - \theta \rVert_2^2}{2}\right\}
+\]
+
+so 
+
+\[
+\Lambda_n = \log \left( \frac{ \sup_{\theta \in \mathbb{R}^d} L(\theta)}{\sup_{\theta \in L} L_n (\theta)} \right) = \log \left( \frac{ L_n(\overline{X}_n)}{\sup_{\theta \in L} L_n (\theta)} \right) = \frac{1}{2} \inf_{\theta \in L} \left[  \sum_{j=1}^n \lVert x_j-  \theta \rVert_2^2 - \sum_{j=1}^n \lVert x_j - \overline{X}_n \rVert_2^2 \right]
+\]
+
+Claim: \(2 \Lambda_n\) has \(\chi_{d-k}^2\) distribution. Indeed, let \(\Pi_L\) be the orthogonal projection onto \(L\). For all \(z \in \mathbb{R}^d\), 
+
+\[
+\lVert z \rVert_2^2 = l\Vert \Pi_l z \rVert_2^2 = \lVert \Pi_{L^\perp}  z \rVert_2^2
+\]
+
+where \(L^\perp\) is the orthogonal complement of \(L\). Then
+
+\[
+2 \Lambda_n = \inf_{\theta \in L} \left[  \sum_{j=1}^n \lVert \Pi_L( x_j  - \theta )\rVert_2^2 + \sum_{j=1}^n \lVert \Pi_{L^\perp}( x_j  - \theta )\rVert_2^2 - \sum_{j=1}^n \lVert \Pi_L (x_j - \overline{X}_n )\rVert_2^2   - \sum_{j=1}^n \lVert \Pi_{L^\perp} (x_j - \overline{X}_n )\rVert_2^2 \right]
+\]
+
+Note that \(\Pi_{L^\perp} \theta = 0\) for any \(\theta \in L\). Then 
+
+\[
+ \sum_{j=1}^n \lVert \Pi_L( x_j  - \theta )\rVert_2^2 
+\]
+
+is minimized by \(n^{-1} \sum_{i=1}^n \Pi_L x_j = \Pi_l \overline{X}_n\). Hence
+
+\begin{multline*}
+2 \Lambda_n =  \underbrace{\sum_{j=1}^n \lVert \Pi_L( x_j  - \theta )\rVert_2^2 - \sum_{j=1}^n \lVert \Pi_L (x_j - \overline{X}_n )\rVert_2^2}_{0}  + \sum_{j=1}^n \lVert \Pi_{L^\perp} x_j \rVert_2^2    - \sum_{j=1}^n \lVert \Pi_{L^\perp} (x_j - \overline{X}_n )\rVert_2^2 
+\\ = 2n \sum_{j=1}^n \angle \Pi_{L^\perp} x_j, \Pi_{L^\perp} \overline{X}_n  \rangle   - n \lVert \Pi_{L^\perp} \overline{X}_n \rVert_2^2 = 2n  \lVert \Pi_{L^\perp} \overline{X}_n \rVert_2^2    - n \lVert \Pi_{L^\perp} \overline{X}_n \rVert_2^2  =   n \lVert \Pi_{L^\perp} \overline{X}_n \rVert_2^2 .
+\end{multline*}
+
+Finally, observe that for \(Z = \sqrt{n}(\overline{X}_n - \theta) \sim \mathcal{N}(0, I_d)\) under \(H_0\), 
+
+\[
+  n \lVert \Pi_{L^\perp} \overline{X}_n \rVert_2^2 =    \lVert \Pi_{L^\perp} Z \rVert_2^2
+\]
+
+(since \(\theta \in L\)). \(\Pi_{L^\perp}Z\) is normal, and its covariance has eigenvalues all equal to 1 (since this is a projection matrix). Therefore \( \lVert \Pi_{L^\perp} Z \rVert_2^2 \sim \chi_{d-k}^2\) as claimed. 
+
+\end{example}
+
+\textbf{Heuristic derivation of the asymptotics of the likelihood ratio test:}Suppose \(X_1, \ldots, X_n\) are i.i.d. from \(\mathbb{P}_\theta\), \(\theta \in \Theta \subseteq \mathbb{R}^d\). \(\mathbb{P}_\theta\) has density/pmf \(p_\theta\). The family \(\{p_\theta, \theta \in \Theta\}\) is \textit{regular} (informally: support of \(p_\theta\) does not depend on \(\theta\) and \(\log p_\theta(x)\) is smooth with respect to \(\theta\); can do Taylor expansions, etc. The weakest form of regularity conditions is known as QMD (quadratic mean differentiability)). 
+
+
+
+\begin{theorem}[\textbf{Wilk's Theorem (see Section 12.4.2 of \citet{lehmann2005testing}, p. 518 of pdf)}]\label{mathstats.wilks.thm}
+
+Assume that we are interested in testing \(H_0: \theta \in \Theta_0 = L \), \(H_a: \theta \in \Theta \setminus \Theta_0\), where \(\Theta_0 = L\) is an affine subspace of dimension \(k\). \textbf{note: in 11/11 notes we defined \(L := \Theta_0 - \theta_0\) so that \(\Theta_0\) is an affine subspace and \(L\) is a linear subspace (\(\theta_0\) is the offset). Not sure if this is different from notes on 11/08 or if I misunderstood on that lecture.} Then
+
+\[
+2 \Lambda_n = 2  \log \left( \frac{\sup_{\Theta} L_n(\theta)}{\sup_{\theta \in \Theta_0} L_n (\theta)}  \right) \xrightarrow{d} \chi_{d-k}^2
+\]
+
+under \(H_0\).
+
+\end{theorem}
+
+\begin{proof} Define
+
+\begin{multline*}
+L_n(\theta) = \prod_{j=1}^n p_\theta(x_j), \qquad \hat{\theta}_n = \underset{\theta \in \Theta}{\arg \max} L_n(\theta), \qquad \hat{\theta}_L := \underset{\theta \in \Theta_0}{\arg \max} L_n(\theta), \qquad f_\theta(x) = \log p_\theta(x), 
+\\ f_\theta '(x) = \deriv{}{\theta} \log p_\theta(x) = \nabla \log p_\theta(x), \qquad \hat{u}_n = \sqrt{n}(\hat{\theta}_n - \theta_0), \qquad \hat{u}_{n,L} = \sqrt{n}(\hat{\theta}_L - \theta_0).
+\end{multline*}
+
+Let
+
+\[
+Z_n (u)  := \sum_{j=1}^n \left[f_{\theta_0 + u/\sqrt{n}}(x_j) - f_{\theta_0}(x_j)   \right].
+\]
+
+Note that 
+
+\begin{multline}\label{mathstats.wilk.Lambda.exp}
+\Lambda_n = \log \frac{ \prod_{j=1}^n p_{\hat{\theta}_n} (x_j)}{ \prod_{j=1}^n p_{\hat{\theta}_L (x_j)}} = \sum_{j=1}^n \left[f_{\hat{\theta}_n}(x_j) - f_{\hat{\theta}_L}(x_j) \right] = \sum_{j=1}^n \left[f_{\hat{\theta}_n}(x_j) - f_{\theta_0}(x_j)  \right]  -  \sum_{j=1}^n \left[f_{\hat{\theta}_L}(x_j) - f_{\theta_0}(x_j)  \right] 
+\\ = Z_n(\hat{u}_n) - Z_n(\hat{u}_{n,L})
+\end{multline}
+
+(since \(\hat{\theta}_n = \theta_0 + \hat{u}_n/\sqrt{n}\)).
+
+Then we can write the Taylor expansion as 
+
+\[
+f_{\theta_0 + u/\sqrt{n}}(x)
+ = f_{\theta_0}(x) 
+ +  \left\langle f_{\theta_0}'(x),  \frac{u}{\sqrt{n}} \right\rangle 
++ \frac{1}{2} \left\langle  \underbrace{f_{\theta_0} ''(x)}_{\text{Hessian}} \frac{u}{\sqrt{n}}, \frac{u}{\sqrt{n}} \right\rangle 
++ \underbrace{R_{\theta_0}\left( \frac{u}{\sqrt{n}}, x \right) \frac{ \lVert u \rVert_2^2}{n}}_{\to 0 \text{ as } u/\sqrt{n} \to 0 \text{ (or } n \to \infty \text{)}}
 \]
 
 \[
-\bigg( \frac{p_0}{p_a} \bigg) ^y   \bigg( \frac{1 - p_0}{1 - p_a} \bigg)^{n} \bigg( \frac{1 - p_0}{1 - p_a} \bigg)^{-y}  < K
+Z+n(u) = \left\langle \frac{1}{\sqrt{n}} \sum_{j=1}^n f_{\theta_0}'(x_j), u \right\rangle 
++ \frac{1}{2} \left\langle \frac{1}{n} \sum_{j=1}^n f_{\theta_0}''(x_j)u, u \right\rangle 
++ \underbrace{\left[  \sum_{j=1}^n R_{\theta_0} \left( \frac{u}{\sqrt{n}}, X_j \right)\right] \frac{ \lVert u \rVert_2^2}{n}}_{o_{\mathbb{P}}(1)}
+\]
+
+(randomness comes from fact that \(x_j\) are random variables with distribution \(p_{\theta_0}\)). Note that
+
+\[
+\frac{1}{n} \sum_{j=1}^n f_{\theta} ''(X_j) \to \E f_{\theta}'' (X)
+\]
+
+with probability 1 by the Strong Law of Large Numbers (applied element-wise in the matrix). Moreover,
+
+\begin{equation}\label{mathstats.547.wilks.dist.1}
+\frac{1}{\sqrt{n}} \sum_{j=1}^n f_{\theta_0}'(X_j) \xrightarrow{d} \mathcal{N}(0, I(\Theta_0))
+\end{equation}
+
+where \(I(\theta_0)\) is the Fisher information matrix. Indeed,
+
+\[
+\E f_\theta '(X_j) = 0
 \]
 
 \[
-\bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg) ^y  < K  \bigg( \frac{1 - p_a}{1 - p_0} \bigg)^{n} 
+f_{\theta_0}'(X_j) = \nabla \log p_\theta(x_j) = \begin{pmatrix} \frac{\pderiv{}{\theta_1} p_\theta(X_j)}{p_\theta(X_j)} \\
+\vdots \\
+ \frac{\pderiv{}{\theta_d} p_\theta(X_j)}{p_\theta(X_j)} 
+\end{pmatrix}
+\]
+
+Then (using regularity assumptions)
+
+\[
+\E \left[ \frac{ \pderiv{}{\theta_1} p_\theta(x_1)}{p_\theta(x_1)} \right] = \int_{\mathbb{R}^d}  \frac{ \pderiv{}{\theta_1} p_\theta(y)}{p_\theta(y)} p_\theta(y) \ dy = \pderiv{}{\theta_1} \int_{\mathbb{R}^d}   p_\theta(y) \ dy= \pderiv{}{\theta_1} 1 = 0.
+\] 
+
+By the Central Limit Theorem,
+
+\[
+\frac{1}{\sqrt{n}} \sum_{j=1}^n f_\theta'(X_j)
+\]
+
+is approximately normal with covariance equal to the Fisher information
+
+\[
+\E_{\theta_0} f_\theta'(X) \left( f_\theta'(X) \right)^T = \E_{\theta_0} ( \nabla \log p_{\theta_0}(x)) ( \nabla \log p_{\theta_0}(x)) ^T.
+\]
+
+Hence
+
+\[
+Z_n(u) = \langle A_n, u \rangle + \frac{1}{2} \langle B_nu, u \rangle + o_{\mathbb{P}}(1)
+\]
+
+where
+
+\[
+A_n = \frac{1}{\sqrt{n}} \sum_{j=1}^n f_{\theta_0}'(X_j), \qquad B_n = \frac{1}{n} \sum_{j=1}^n f_{\theta_0}''(X_j).
+\]
+
+Also,
+
+\[
+Z_n(u) = \langle A_n, u \rangle - \frac{1}{2} \langle I(\theta_0)u, u \rangle + o_{\mathbb{P}}(1)
+\]
+
+
+\textbf{above from 11/11 lecture; below are my notes from 11/08 lecture which may be wrong?} 
+
+\[
+Z_n(u) = \langle A_n, u \rangle + \frac{1}{2} \langle I(\theta_0)u, u \rangle + o_{\mathbb{P}}(1)
+\]
+
+where \(I(\theta_0) := \E f_{\theta_0}'(x) ( f_{\theta_0}'(x))^T \) (the Fisher information matrix) since \(\E f_\theta''(X_1) = - I(\theta_0) \) (exercise; can see by integration by parts. Do in one-dimensional case and then can see how it works in general.). 
+
+\begin{center}
+\noindent\fbox{
+\parbox{0.9\textwidth}{
+
+One-dimensional case:
+
+\[
+\int \left( \pderiv{}{\theta} \log p_\theta(x) \right)^2 p_\theta(x) \ dx = \int \frac{[p_\theta'(x)]^2}{p_\theta(x)} \ dx
+\]
+
+We want to show that this equals 
+
+\begin{multline*}
+- \int \pderiv{^2}{\theta^2} \log [p_\theta(x)] p_\theta(x) \ dx = - \int \pderiv{}{\theta} \left[ \frac{ p_\theta'(x)}{p_\theta(x)} \right] p_\theta(x) \ dx = - \int \frac{p_\theta''(x) p_\theta(x) - (p_\theta'(x))^2 }{p_\theta(x)} \ dx 
+\\ \iff \int \frac{p_\theta''(x) p_\theta(x)}{p_\theta(x)} \ dx = 0
+\end{multline*}
+
+By regularity, 
+
+\[
+\pderiv{}{\theta} \underbrace{\int p_\theta (x) \ dx}_{=1} = \int \pderiv{}{\theta} p_\theta(x) \ dx = 0.
+\]
+
+}
+}
+\end{center}
+
+Idea: since \(\hat{u}_n = \sqrt{n}(\hat{\theta}_n - \theta_0)\) maximizes \(Z_n(u)\), it must be close to \(\tilde{u}_n\) that maximizes \(\langle A_n, u \rangle - (1/2) \langle I(\theta_0)u, u \rangle\) (since they only differ by \(o_{\mathbb{P}}(1)\)). (to show formally: need to show that \(o_{\mathbb{P}}(1)\) term is in fact \(o_{\mathbb{P}}(1)\) over all \(u\). takes a lot of work.) Note that \(\tilde{u}_n\) must solve \(A_n = I(\theta_0) \tilde{u}_n\) because \(\langle A_n, u \rangle - (1/2) \langle I(\theta_0)u, u \rangle\) is concave so it is maximized where its gradient equals 0 (exercise). Since \(I(\theta_0)\) is invertible, this is given by \(\tilde{u}_n = I^{-1}(\theta_0) A_n\). By (\ref{mathstats.547.wilks.dist.1}), \(A_n \xrightarrow{d} \mathcal{N}(0, I(\theta_0))\). Let \(Y_n := I^{-1/2}(\theta_0) A_n\); then \(Y_n \xrightarrow{d} \mathcal{N}(0, I_d)\). Similarly, \(\hat{u}_L\) must be close to \(\tilde{u}_L\) that maximizes 
+
+\[
+\langle A_n, u \rangle - \frac{1}{2} \langle I(\theta_0)u, u \rangle
+\]
+
+over all \(u \in L\). Note that 
+
+\begin{multline*}
+\langle A_n, u \rangle - \frac{1}{2} \langle I(\theta_0)u, u \rangle = \langle I^{1/2}(\theta_0) Y_n, u \rangle - \frac{1}{2} \langle I^{1/2}(\theta_0)u, I^{1/2}(\theta_0 u \rangle =  \langle I^{1/2}(\theta_0) Y_n, u \rangle - \frac{1}{2} \lVert I^{1/2}(\theta_0) u \rVert_2^2  
+\\ =  \langle I^{1/2}(\theta_0) u, Y_n \rangle - \frac{1}{2} \lVert I^{1/2}(\theta_0) u \rVert_2^2  - \frac{1}{2} \lVert Y_n \rVert_2^2 + \frac{1}{2} \lVert Y_n \rVert_2^2 = - \frac{1}{2} \lVert I^{1/2}(\theta_0) u - Y_n \rVert_2^2 + \frac{1}{2} \lVert Y_n \rVert_2^2.
+\end{multline*}
+
+Hence \(\tilde{u}_n\) minimizes \( \lVert I^{1/2}(\theta_0) u - Y_n \rVert_2^2 \) over \(u \in L\). Let \(L(\theta_0)\) be the image of \(L\) under \(I^{1/2}(\theta_0)\). \(L(\theta_0)\) is a linear subspace of dimension \(k\). The minimizer of \(\lVert v - Y_n \rVert_2^2\) over \(v \in L(\theta_0)\) is 
+
+\[
+\tilde{v} := \operatorname{proj}_{L(\theta_0)} Y_n = \Pi_{L(\theta_0)} Y_n.
+\]
+
+Hence \(\tilde{u}_{n,L} = I^{-1/2} (\theta_0) \Pi_{L(\theta_0)} Y_n \) and \(\tilde{u}_n = I^{-1}(\theta_0) A_n = I^{-1/2}(\theta_0) Y_n\). Then using (\ref{mathstats.wilk.Lambda.exp}),
+
+\begin{multline*}
+\Lambda_n = Z_n(\hat{u}_n) - Z_n(\hat{u}_{n,L}) =  Z_n(\tilde{u}_n) - Z_n(\tilde{u}_{n,L}) + o_{\mathbb{P}}(1)
+\\  = \langle A_n, \tilde{u}_n \rangle - \frac{1}{2} \langle I(\theta_0) \tilde{u}_n, \tilde{u}_n \rangle - \langle A_n, \tilde{u}_L \rangle + \frac{1}{2} \langle I(\theta_0) \tilde{u}_L, \tilde{u}_L \rangle + o_{\mathbb{P}}(1)
+\end{multline*}
+
+And
+
+\begin{multline*}
+ \langle A_n, \tilde{u}_n \rangle =  \langle I^{1/2} (\theta_0) Y_n ,  I^{-1/2} (\theta_0) Y_n \rangle = \lVert Y_n \rVert_2^2,
+ \\ \frac{1}{2} \langle I(\theta_0) \tilde{u}_l, \tilde{u}_L \rangle = \frac{1}{2} \langle I(\theta_0) I^{-1/2}(\theta_0)Y_n,  I^{-1/2}(\theta_0)Y_n \rangle = \frac{1}{2} \lVert Y_n \rVert_2^2,
+ \\ \langle A_n, \tilde{u}_L \rangle =  \langle I^{1/2} (\theta_0) Y_n , I^{-1/2} (\theta_0) \Pi_{L(\theta_0)} Y_n \rangle = \langle Y_n, \Pi_{L(\theta_0)} Y_n \rangle = \lVert \Pi_{L(\theta_0)} Y_n \rVert_2^2 ,
+ \\ \frac{1}{2} \langle I(\theta_0) \hat{u}_L, \hat{u}_L \rangle = \frac{1}{2} \lVert \Pi_{L(\theta_0)} Y_n \rVert_2^2.
+\end{multline*}
+
+So
+
+\[
+\Lambda_n =  \frac{1}{2} \lVert Y_n \rVert_2^2 - \frac{1}{2} \lVert \Pi_{L(\theta_0)} Y_n \rVert_2^2
+\]
+
+and by (\ref{mathstats.547.wilks.dist.1}) we then have 
+
+\[
+2 \Lambda_n = \lVert \Pi_{L(\theta_0)^{\perp}} Y_n \rVert_2^2 \xrightarrow{d} \chi_{d-\operatorname{dim}(L(\theta_0))}^2 = \chi_{d-k}^2
+\]
+
+where we used the general fact that 
+
+\[
+\langle x, \Pi_L x \rangle = \langle \Pi_L x + \Pi_{L^\perp} x, \Pi_L x \rangle = \lVert \Pi_L x \rVert_2^2.
+\]
+
+\end{proof}
+
+\begin{remark}
+
+Theorem \ref{mathstats.wilks.thm} is often applied in significance tests for the coefficients in logistic regression.
+
+\end{remark}
+
+\begin{remark}
+
+If \(\Theta_0\) is a halfspace and \(\theta_0\) is on the boundary, then the \(\chi^2\) asymptotics don't hold anymore (because no matter how far we ``zoom in", we can't get it to locally ``look like" an affine subspace). That is, we can get this to work for \(H_0: \theta = \theta_0\) but not for \(H_0: \theta \leq \theta_0\). 
+
+\end{remark}
+
+\subsection{Bahadur's Relative Efficiency (Section 10.4 of \citet{serfling1980})}
+
+Setup: \(X_1, \ldots, X_n\) i.i.d. from \(\mathbb{P}_\theta\), \(\theta \in \Theta\). \(\{\phi_n\}_{n \geq 1}\)  is a sequence of tests for testing \(H_0: \theta \in \Theta_0, H_a: \theta \in \Theta_a\). Let \(\theta' \in \Theta_a\). Want to define
+
+\[
+n(\underbrace{\alpha}_{\text{size}}, \underbrace{\gamma}_{\text{power}}, \theta') := \min \left\{ n \geq 1: \sup_{\theta \in \Theta_0} \beta_\theta(\phi_n)  \leq \alpha, \beta_{\theta'}(\phi_n) \geq \gamma \right\},
+\]
+
+the smallest sample size required to achieve size \(\alpha\) and power \(\gamma\) in the case of alternative \(\theta'\). If \(\{\phi_n^{(1)}\}_{n \geq 1}\), \(\{\phi_n^{(2)}\}_{n \geq 1}\) are two sequences of tests, consider the ratio 
+
+\[
+\lim_{\alpha \to 0} \frac{n^{(2)}(\alpha, \gamma, \theta')}{n^{(1)}(\alpha, \gamma, \theta')},
+\]
+
+(if the limit exists), which is called \textbf{Bahadur's relative efficiency}. (Clearly we prefer if \(n\) is smaller, so we will choose sequence (1) if this ratio is greater than 1 and (2) otherwise). We will be interested in tests of the form
+
+\[
+\phi = \begin{cases}
+1, & T_n \geq C_n \\
+0, & T_n < C_n,
+\end{cases}
+\]
+
+where \(T_n = T_n(X_1, \ldots, X_n)\) is a test statistic. (Note that likelihood ratio tests are of this form.) We will make the following assumptions:
+
+\begin{enumerate}
+
+\item Under \(\mathbb{P}_\theta\), \(T_n \xrightarrow{p} \mu(\theta)\). 
+
+\item \(- \frac{2}{n} \log( \mathbb{P}_\theta(T_n \geq t)) \xrightarrow{n \to \infty} \nu(t, \theta) \) and \(\mu(\theta)\), \(\nu(t, \theta)\) are continuous functions.  
+
+\end{enumerate}
+
+Second assumption tells us about the asymptotic behavior of the power function for any \(\theta\). Strict assumption; doesn't hold in many cases, does hold in many problems involving normal distribution. 
+
+\begin{example}
+
+Recall Example \ref{mathstats.ex.lrt.multinomial} with \(X \sim \operatorname{Multinomial}(n, \theta_1, \ldots, \theta_k)\). We got the likelihood ratio statistic \textbf{(this expression below has errors, I couldn't read it)}
+
+\begin{multline*}
+2 \Lambda_n = n \sum_{j=1}^k \hat{\theta}_j \log ( \hat{\theta}_j/ \theta), \qquad \hat{\theta}_j = x_j/n
+\\ \iff \frac{2 \Lambda_n}{n} = \sum_{j=1}^k \hat{\theta}_j \log(\hat{\theta}_j/\theta_{0,j}.
+\end{multline*}
+
+Under \(\mathbb{P}_\theta\), \(\hat{\theta}_j \xrightarrow{p} \theta_j\) by the Law of Large Numbers. 
+
+\[
+\frac{2 \Lambda_n}{n} \xrightarrow{p} \sum_{j=1}^n \theta_j \log(\theta_j/\theta_{n,j}) = KL(\mathbb{P}_\theta || \mathbb{P}_{\theta_0}) = \mu(\theta)
+\]
+
+second assumption is harder to check
+
+\end{example}
+
+\begin{example}
+
+\(X_1, \ldots, X_n \sim \mathcal{N}(\theta, I_d)\). Test \(H_0: \theta \in \Theta_0\) where \(\Theta_0\) is an affine subspace, \(H_a: \theta \notin \Theta_0\). In Theorem \ref{mathstats.wilks.thm}, we obtained 
+
+\[
+2 \Lambda_n =  \lVert \Pi_{L^\perp} \overline{X}_n \rVert_2^2 \cdot n,
+\]
+
+where \(L\) is the linear subspace corresponding to \(\Theta_0\). Then
+
+\[
+\frac{2 \Lambda_n}{n} =   \lVert \Pi_{L^\perp} \overline{X}_n \rVert_2^2 .
+\]
+
+Under \(\mathbb{P}_\theta\), \(\overline{X}_n \xrightarrow{p} \theta\), so 
+
+\[
+  \lVert \Pi_{L^\perp} \overline{X}_n \rVert_2^2 \xrightarrow{p}   \lVert \Pi_{L^\perp} \theta \rVert_2^2 .
+\]
+
+\end{example}
+
+\begin{example}
+
+\(X_1, \ldots, X_n \sim \mathcal{N}(\theta, \sigma^2 I_n)\), \(\sigma^2 > 0\) is known. Want to test \(H_0: \theta = \mu_0, H_a: \theta \neq \mu_0\). Then can see that likelihood ratio test is (for some \(c > 0\))
+
+\[
+\phi(x) = \begin{cases}
+1, & \left| \frac{\sqrt{n} (\overline{x}_n - \mu_0)}{\sigma} \right| \geq c, \\
+0, &  \left| \frac{\sqrt{n} (\overline{x}_n - \mu_0)}{\sigma} \right| < c
+\end{cases}
+\]
+
+Note that using the test statistic
+
+\[
+T_n' = \frac{\overline{X}_n - \mu_0}{\sigma} 
+\]
+
+is equivalent to \(\frac{\sqrt{n} (\overline{x}_n - \mu_0)}{\sigma}\) (after adjusting \(c\) appropriately). Under \(\mathcal{N}(\theta, \sigma^2)\), \(\overline{X}_n \xrightarrow{p} \theta\), hence \(T_n' \xrightarrow{p}(\theta - \mu_0)/\sigma := \mu(\theta)\). Then
+
+\begin{multline*}
+\mathbb{P}_\theta(T_n' \geq t) = \mathbb{P}_\theta \left( \frac{\overline{X}_n - \mu_0}{\sigma} \geq t \right) =   \mathbb{P}_\theta \left( \frac{\overline{X}_n - \theta}{\sigma} \geq t + \frac{\mu_0 - \theta}{\sigma} \right)  =   \mathbb{P}_\theta \left( \underbrace{ \sqrt{n} \frac{(\overline{X}_n - \theta)}{\sigma}}_{\mathcal{N}(0,1)} \geq \sqrt{n} \left[ t + \frac{\mu_0 - \theta}{\sigma} \right] \right) 
+\\ = \exp \left\{ - \frac{1}{2} \left[ \sqrt{n} \left(t + \frac{\mu_0 - \theta}{\sigma} \right) \right]^2 + o(1) \right\} \approx \exp \left\{ - \frac{1}{2} \left[ \sqrt{n} \left(t + \frac{\mu_0 - \theta}{\sigma} \right) \right]^2 \right\}
+\end{multline*}
+
+where the last step used the result of the following exercise (well-known bound): Let \(\phi(t) = \mathbb{P}(\xi \geq t)\) where \(\xi \sim \mathcal{N}(0,1)\). (So \(\phi(t) = \int_t^\infty (2 \pi)^{-1/2} e^{-x^2/2} \ dx\).) Then
+
+\begin{enumerate}
+
+\item \(\phi(t) \leq e^{-t^2/2}\) for any \(t\).
+
+\item \(\phi(t) \geq \frac{1}{\sqrt{2\pi}} \frac{t}{1+t^2} e^{-t^2/2}.\)
+
+\end{enumerate}
+
+In particular, as \(t \to \infty\),
+
+\[
+\frac{t^2}{2} \leq - \log \phi(t) \leq \frac{t^2}{2} - \underbrace{\log \left( \frac{1}{\sqrt{2\pi}} \frac{t}{1 + t^2} \right)}_{o(t) \text{ as } t \to \infty}
+\]
+
+Returning to the problem, 
+
+\[
+- \frac{2}{n} \log \left[ \mathbb{P}_\theta(T_n' \geq t) \right] = \left( t + \frac{\mu_0 - \theta}{\sigma} \right)^2/ \nu(\theta, t) + \underbrace{o(1)}_{\to 0 \text{ as } n \to \infty}.
+\]
+
+(can see how in practice checking second assumption is hard.) Assume that \(\Theta_0 = \{\theta_0\}\). Let \(\hat{\alpha}\) be the \(p\)-value, i.e.
+
+\[
+\hat{\alpha}_n = \sup_{\theta_0 \in \Theta_0} \left\{ \underbrace{\mathbb{P}_{\theta_0} (T_n \geq t)}_{G(t)} \big|_{t = T_n}  \right\} =  \sup_{\theta_0 \in \Theta_0} \left\{ G(T_n) \right\}
+\]
+
+(probability of observing an outcome more extreme than the current one). Note: When \(\Theta_0 = \{\theta_0\}\), \(\hat{\alpha}_n = \mathbb{P}_{\theta_0} (T_n \geq t)|_{t = T_n} \). Also note that the test of size \(\alpha\) rejects if and only if \(\hat{\alpha}_n \leq \alpha\). By our assumption,
+
+\[
+\hat{\alpha}_n = \exp \left\{  - \frac{n}{2} \left[ \nu(T_n, \theta_0) + o(1) \right]\right\} = \exp \left\{  - \frac{n}{2} \left[ \underbrace{\nu(\mu(\theta), \theta_0)}_{\text{``Bahadur's Slope"}} + o_{\mathbb{P}}(1) \right]\right\}
+\]
+
+because \(T_n \xrightarrow{p} \mu(\theta)\). 
+
+
+\end{example}
+
+\textbf{Claim:} for any \(\gamma < 1\),
+
+\[
+\lim_{\alpha \to 0} n(\alpha, \gamma, \theta') = \frac{\log(1/\alpha)}{\nu(\mu(\theta))} + o(1).
 \]
 
 \[
-y \log \bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg) < \log(K) + n \log \bigg( \frac{1 - p_a}{1 - p_0} \bigg)
+n(\alpha, \gamma, \theta') = \frac{\log(1/\alpha)}{\nu(\mu(\theta'), \theta')} + o(1).
 \]
 
-Aside:
+Hence Bahadur's relative efficiency is approximately equal to 
 
 \[
-\frac{p_0(1 - p_a)}{p_a(1 - p_0)} = \frac{p_0 - p_0 p_a}{p_a - p_0 p_a} < 1
+\frac{\nu_1(\mu_1(\theta'), \theta')}{\nu_2(\mu_2(\theta'), \theta')}
 \]
 
-since by assumption \(p_a > p_0\). Therefore \( \log \bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg) < 0 \). So we have
+``the larger the function \(\nu\) is, the smaller the sample size is, so the tests with higher Bahadur relative efficiencies." Likelihood ratio tests achieve the asymptotic highest possible Bahadur relative efficiency. Related at its core to the fact that methods based on maximum likelihood reduce some notion of KL divergence between distributions. So achieve information-theoretic lower limits on best possible solutions (since KL-divergence comes from information theory). Note that if BRE is less than 1, \(\{\phi_n^{(2)}\}\) is more efficient, which is true if \(\nu_2(\mu_2(\theta'), \theta') > \nu_1(\mu_1(\theta'), \theta')\). 
+
+\begin{proof}[Proof of claim]
+
+\(\phi_n\) rejects when \(\hat{\alpha}_n \leq \alpha\). Hence 
 
 \[
-\frac{y}{n} = \frac{1}{n}\sum Y_i  > \frac{\log(K) + n \log \bigg( \frac{1 - p_a}{1 - p_0} \bigg)}{n\log \bigg( \frac{p_0(1 - p_a)}{p_a(1 - p_0)} \bigg)}
+\beta_{\phi_n}(\theta) = \mathbb{P}_\theta(\hat{\alpha}_n \leq \alpha) = \mathbb{P}_\theta \left(  \exp \left\{- \frac{n}{2}( \nu(\mu(\theta_0), \theta_0) + o_{\mathbb{P}}(1) \right\} \leq \alpha \right) 
+= \mathbb{P}_\theta \left( n \geq \frac{2 \log(1/\alpha)}{\nu(\mu(\theta_0),\theta_0) + o_{\mathbb{P}}(1)}\right)
 \]
 
-as the form for our critical region.
+We want to choose \(n\) such that this probability is greater than or equal to \(\gamma\). Take \(\epsilon >0\) and assume that 
+
+\[
+n = (1 + \epsilon) \frac{2 \log(1/\alpha)}{\nu(\mu(\theta_0),\theta_0) }
+\]
+
+Then
+
+\begin{multline*}
+\mathbb{P}_\theta \left( n \geq \frac{2 \log(1/\alpha)}{\nu(\mu(\theta_0),\theta_0) + o_{\mathbb{P}}(1)}\right) = \mathbb{P}_\theta \left( n \geq \frac{2 \log(1/\alpha)}{\nu(\mu(\theta_0),\theta_0) [1 + o_{\mathbb{P}}(1)]}\right) 
+\\ = \mathbb{P}_\theta \left( 1 + \epsilon \geq \frac{1}{1 + o_{\mathbb{P}}(1)}\right) \to 1 \text{ as } \alpha \to 0.
+\end{multline*}
+
+So \(n(\alpha, \gamma, \theta) < (1 + \epsilon) \frac{2 \log(1/\alpha)}{\nu(\mu(\theta_0),\theta_0) }\). Formally,
+
+\[
+\lim_{\alpha \to 0} \frac{n (\alpha, \gamma, \theta)}{ \frac{2 \log(1/\alpha)}{\nu(\mu(\theta_0),\theta_0) }} \leq 1 + \epsilon \qquad \forall \epsilon > 0.
+\]
+
+Now take
+
+\[
+n = (1 - \epsilon) \frac{2 \log(1/\alpha)}{\nu(\mu(\theta_0),\theta_0) }
+\]
+
+Then 
+
+\[
+\mathbb{P}_\theta \left(1 - \epsilon \geq \frac{1}{1 + o_{\mathbb{P}}(1)} \right) \to 0 \text{ as } \alpha \to 0,
+\]
+
+so
+
+\[
+\lim_{\alpha \to 0} \frac{n(\alpha, \gamma, \theta)}{\frac{2 \log(1/\alpha)}{\nu(\mu(\theta_0),\theta_0) }} =1 \qquad \forall \gamma < 1.
+\]
+
+\end{proof}
+
+\begin{exercise}
+
+Assume that \(\Theta_0 = \{\theta_0\}\). Under \(H_0\), \(\mathbb{P}_{\theta_0}(\hat{\alpha}_n \leq t) \leq t\), \(t \in [0,1]\). When \(\mathbb{P}_{\theta_0}\) has density with respect to Lebesgue measure (i.e. \(d \mathbb{P}_{\theta_0}(x) = p_{\theta_0}(x) \ dx\)), then under \(\mathbb{P}_{\theta_0}\) \(\hat{\alpha}_n \sim \operatorname{Uniform}[0,1]\). (Hint: if \(X\) has density function \(F(x)\), then \(F'(x) \sim \operatorname{Uniform}[0,1]\) when \(F\) is continuous.)
+
+\end{exercise}
+
+\begin{theorem}
+
+Let \(\{T_n\}_{n \geq 1}\) be any sequence of test statistics, and \(\{\phi_n\}_{n \geq 1}\) corresponding tests, \(\hat{\alpha}_n\) associated p-values. Then for all \(\theta' \in \Theta_a\), 
+
+\[
+\underset{n \to \infty}{\lim \sup} \left[ - \frac{2}{n} \log (\hat{\alpha}_n) \leq 2 \operatorname{KL}(p_{\theta'} || p_{\theta_0} )\right]
+\]
+
+with probability 1, where \(\operatorname{KL}(p_{\theta'} || p_{\theta_0} )\) is the KL divergence. (Result also holds for composite null and alternative hypotheses.)
+
+\end{theorem}
+
+\begin{proof}
+
+Let 
+
+\[
+\Lambda_n := \sum_{j=1}^n \log \left( \frac{ p_\theta(x_j)}{p_{\theta_0}(x_i)} \right).
+\]
+
+Take \(B > A > 0\). Let
+
+\[
+\mathcal{E}_n = \left\{ \hat{\alpha}_n \leq e^{-n B}, \frac{\Lambda_n}{n} \leq A \right\}.
+\]
+
+Then
+
+\begin{multline*}
+\mathbb{P}_\theta ( \mathcal{E}_n) = \int p_\theta(x_1) \cdots p_\theta(x_n) \mathbbm{1} \left\{  \hat{\alpha}_n \leq e^{-n B}, \Lambda_n \leq n A \right\}\ d\mu_1(x_1) \ldots d \mu_n(x_n)
+\\ =  \int  \underbrace{\frac{p_\theta(x_1) \cdots p_\theta(x_n)}{p_{\theta_0}(x_1) \cdots p_{\theta_0}(x_n)}}_{e^{\Lambda_n}} \mathbbm{1} \left\{  \hat{\alpha}_n \leq e^{-n B}, \Lambda_n \leq n A \right\} p_{\theta_0}(x_1) \cdots p_{\theta_0}(x_n) \ d\mu_1(x_1) \ldots d \mu_n(x_n)
+\\ \leq   e^{nA}  \int   \mathbbm{1} \left\{  \hat{\alpha}_n \leq e^{-n B} \right\} p_{\theta_0}(x_1) \cdots p_{\theta_0}(x_n) \ d\mu_1(x_1) \ldots d \mu_n(x_n)
+ = e^{nA}  \underbrace{\mathbb{P}_{\theta_0} \left (\hat{\alpha}_n \leq e^{-nB} \right)}_{\leq e^{-nB} \text{ (exercise)}} 
+\\ \leq e^{nA} e^{-nB} = e^{-n(\underbrace{B-A}_{>0})}
+\end{multline*}
+
+But
+
+
+\[
+\sum_{n \geq 1} \mathbb{P}(\mathcal{E}_n) \leq \sum_{n \geq 1} e^{-n(B-A)} < \infty
+\]
+
+By Borel-Cantelli lemma, on event \(\Omega_1\) of \(\mathbb{P}_\theta\) probability 1 for \(n\) large enough, \(\overline{\mathcal{E}}_n\) occur, where
+
+\[
+\overline{\mathcal{E}}_n = \left\{ \hat{\alpha}_n > e^{-nB} \right\} \cup \left\{ \Lambda_n > nA \right\}.
+\]
+
+Then by the Strong Law of Large Numbers,
+
+\[
+\frac{1}{n} \sum_{i=1}^n \log \left( \frac{p_\theta(x_j)}{p_{\theta_0}(x_j)} \right) \xrightarrow{n \to \infty} \E_ \theta  \log \left( \frac{p_\theta(x_j)}{p_{\theta_0}(x_j)} \right) = KL(p_\theta || p_{\theta_0})
+\]
+
+with probability 1. If \(A >  KL(p_\theta || p_{\theta_0})\), then there exists an event \(\Omega_2\) such that \(\mathbb{P}_\theta(\Omega_2) = 1\) such that on \(\Omega_2\), 
+
+\[
+\frac{1}{n} \sum_{i=1}^n \log \left( \frac{p_\theta(x_j)}{p_{\theta_0}(x_j)} \right)  < A
+\]
+
+for \(n\) large enough (if and only if \(\Lambda_n < nA\)). On \(\Omega_1 \cap \Omega_2\), for all \(n\) large enough
+
+\[
+\hat{\alpha}_n > e^{-nB} \iff - \frac{2}{n} \log(\hat{\alpha}_n) < 2B
+\]
+
+for \(n\) large enough, and \(\mathbb{P}_\theta(\Omega_1 \cap \Omega_2) = 1\). But \(B\) can be taken arbitrarily close to \( KL(p_\theta || p_{\theta_0})\). Therefore the only possibility is
+
+\[
+\underset{n \to \infty}{\lim \sup} \left[ - \frac{2}{n} \log(\hat{\alpha}_n)  \right] \leq 2 KL(p_\theta || p_{\theta_0}).
+\]
+
+\end{proof}
+
+This upper bound is sharp, as we will show next. In particular, we will show that the upper bound from the previous theorem is achieved by likelihood ratio tests. Assumption: \(\Theta_a\) is finite. Recall that
+
+\[
+\tilde{\Lambda}_n := \log \frac{ \max_{\theta \in \Theta} \prod_{j=1}^n  p_\theta(x_j)}{\prod_{i=1}^n p_{\theta_0}(x_j)} =  \log \frac{ \max_{\theta \in \Theta} L_n(\theta) }{L_n(\theta_0)}.
+\]
+
+\begin{theorem}
+
+Let 
+
+\[
+\hat{\alpha}_n := \mathbb{P}_{\theta_0} \left(  \underbrace{\frac{\tilde{\Lambda}_n}{n}}_{T_n} \geq t \right) \bigg|_{t = \tilde{\Lambda}/n}.
+\]
+
+Then for all \(\theta \in \Theta_a\), 
+
+\[
+- \frac{2}{n} \log(\hat{\alpha}_n) \xrightarrow{a.s.} 2 KL(p_\theta || p_{\theta_0}).
+\]
+
+\end{theorem}
+
+\begin{remark}
+
+The likelihood ratio test achieves the information theoretic upper bound from the previous theorem. So likelihood ratio tests are asymptotically optimal. (Not necessarily UMP, UMP unbiased, UMP invariant, etc.; weaker claim.)
+
+\end{remark}
+
+
+\begin{proof}
+
+\begin{multline*}
+\mathbb{P}_{\theta_0}( \tilde{\Lambda}_n \geq n t) =  \mathbb{P}_{\theta_0}\left( \log \frac{ \max_{\theta \in \Theta} L_n(\theta) }{L_n(\theta_0)} \geq n t \right)
+=  \mathbb{P}_{\theta_0}\left(  \max_{\theta \in \Theta} \sum_{j=1}^n  \left\{ ( \log \frac{p_\theta(x_j) }{p_{\theta_0}(x_j)} \right\} \geq n t \right)
+\\ \leq \text{(by union bound and assumption of finite } \Theta_a \text{)} \sum_{\theta \in \Theta} \mathbb{P}_{\theta_0}\left( \sum_{j=1}^n   \log \frac{p_\theta(x_j) }{p_{\theta_0}(x_j)}\geq n t \right)
+\\ = \sum_{\theta \in \Theta} \mathbb{P}_{\theta_0}\left( \exp \left\{ \sum_{j=1}^n   \log \frac{p_\theta(x_j) }{p_{\theta_0}(x_j)} \right\} \geq e^{n t }\right)
+\\ \leq \text{(by Markov's inequality)}    \sum_{\theta \in \Theta} \underbrace{\E_{\theta_0}\left( \prod_{j=1}^n     \frac{p_\theta(x_j) }{p_{\theta_0}(x_j)}  \right)}_{=1}  e^{-n t }
+=   \sum_{\theta \in \Theta} \underbrace{\int p_\theta(x_j)  p_{\theta_0}(x_j)}  _{=1}  \ d\mu \ e^{-n t } = |\Theta| e^{-n t }.
+\end{multline*}
+
+where \(|\Theta|\) is the cardinality of \(\Theta\). This implies
+
+\[
+- \frac{2}{n} \log \mathbb{P}_{\theta_0}( \tilde{\Lambda}_n \geq n t)  \geq  2t - 2 \frac{\log |\Theta| }{n},
+\]
+
+so by the definition of \(\hat{\alpha}_n\) (plugging in \(t = \tilde{\Lambda}/n\)), 
+
+\[
+- \frac{2}{n} \log \hat{\alpha}_n  \geq  2 \frac{\tilde{\Lambda}_n}{n} - 2 \frac{\log |\Theta| }{n}.
+\]
+
+Note that
+
+\[
+\tilde{\Lambda}_n =  \log \frac{ \max_{\theta \in \Theta} L_n(\theta) }{L_n(\theta_0)} \geq \log \frac{  L_n(\theta') }{L_n(\theta_0)} \qquad \forall \theta' \in \Theta.
+\]
+
+Take \(\theta\) corresponding to the distribution of \(X_1, \ldots, X_n\). Then 
+
+\[
+ 2 \frac{\tilde{\Lambda}_n}{n}  \geq \frac{2}{n} \sum_{i=1}^n \log \frac{p_\theta(x_j)}{p_{\theta_0}(x_j)} \xrightarrow{n \to \infty} KL(p_\theta || p_{\theta_0})
+\]
+
+by the Law of Large Numbers. Hence as \(n \to \infty\)
+
+\[
+\underset{n \to \infty}{\lim \in} \left(- \frac{2}{n} \log(\hat{\alpha}_n \geq 2 KL(p_\theta || p_{\theta_0} \right) \implies \lim_{n \to \infty} - \frac{2}{n} \log(\hat{\alpha}_n) = 2 KL(p_\theta || p_{\theta_0})
+\]
+
+for any \(\theta \in \Theta_a\).
 
 \end{proof}
 
 
+
+
+
+%
+%
+%
+%
+%
+%
+%
+
+
+\section{Confidence Intervals}
+
+\subsection{Connection Between Testing and Confidence Sets}
+
+\begin{definition}
+
+Assume we have a statistical model \(X \sim p_\theta, \theta \in \Theta\). A random set \(C(X)\) is a \(1 - \alpha\) \textbf{confidence set} or \textbf{confidence region} (\(\alpha \in (0,1)\)) if and only if \(\mathbb{P}_\theta (\theta \in C(X)) \geq 1 - \alpha\) \( \forall \theta \in \Theta \).
+
+\end{definition}
+
+\begin{remark}
+
+An acceptance region of a non-randomized test \(\phi\) is the set of all values of the test statistic for which the null hypothesis is not rejected.
+
+\end{remark}
+
+\begin{theorem}
+
+Let \(A(\theta_0)\) be the acceptance region of a non-randomized test for testing \(H_0: \theta = \theta_0\); \(H_a: \theta \in K(\theta_0)\) at level \(\alpha\) (e.g., \(K(\theta_0) = \{ \theta \neq \theta_0\)). Define \(C(x) := \{\theta: x \in A(\theta) \}\). Then \(C(X)\) is a \(1 - \alpha\) confidence set.
+
+\end{theorem}
+
+\begin{proof}
+
+By definition, \(x \in A(\theta) \iff \theta \in C(x)\). Therefore for all \(\theta \in \Theta\) \(\mathbb{P}_\theta (X \in A(\theta) ) = \mathbb{P}_\theta (\theta \in C(X))\). The result follows since by assumption the test is of size \(\alpha\), so \(\mathbb{P}_\theta (X \in A(\theta) ) \geq 1 - \alpha\).
+
+\end{proof}
+
+\begin{example}
+
+Suppose \(X_1, \ldots, X_n \sim \mathcal{N}(\mu, \sigma^2)\) i.i.d. Consider \(H_0: \mu = \mu_0, H_a: \mu \neq \mu_0\). Then (homework problem) the test
+
+\[
+\phi = \begin{cases}
+1, & \left| \frac{ \sqrt{n}(\overline{x}_n - \mu_0) }{\sqrt{S^2}} \right| \geq t_{n - 1, 1-\alpha/2} \\
+0,  \left| \frac{ \sqrt{n}(\overline{x}_n - \mu_0) }{\sqrt{S^2}} \right| < t_{n - 1, 1-\alpha/2} & 
+\end{cases}
+\]
+
+is the UMP test. 
+
+\begin{enumerate}[(a)]
+
+\item
+
+Find the acceptance region.
+
+\end{enumerate}
+\end{example}
+
+\begin{solution}
+
+\begin{enumerate}[(a)]
+
+\item
+
+\[
+A(\mu_0) = \left\{ x: \left| \frac{ \sqrt{n}(\overline{x}_n - \mu_0) }{\sqrt{S^2}} \right| < t_{n - 1,1- \alpha/2}  \right\}
+\]
+
+Note that
+
+\begin{multline*}
+\left| \frac{ \sqrt{n}(\overline{x}_n - \mu_0) }{\sqrt{S^2}} \right| < t_{n - 1,1- \alpha/2}  \iff -  t_{n - 1,1- \alpha/2}  < \frac{ \sqrt{n}(\overline{x}_n - \mu_0) }{\sqrt{S^2}}  <  t_{n - 1,1- \alpha/2} 
+\\ \iff \overline{x}_n - \frac{ \sqrt{s^2}   t_{n - 1,1- \alpha/2}}{\sqrt{n}} < \mu_0 < \overline{x}_n + \frac{ \sqrt{s^2}   t_{n - 1,1- \alpha/2}}{\sqrt{n}}
+\end{multline*}
+
+So
+
+\[
+C(X) = \left[  \overline{X}_n - \frac{ \sqrt{S^2}   t_{n - 1,1- \alpha/2}}{\sqrt{n}} 
+,  \overline{X}_n + \frac{ \sqrt{S^2}   t_{n - 1,1- \alpha/2}}{\sqrt{n}} 
+\right]
+\]
+
+is a \(1 - \alpha\) confidence set.
+
+\end{enumerate}
+
+\end{solution}
+
+\begin{definition}
+
+A \((1 - \alpha)\) confidence set \(C(X)\) is \textbf{unbiased} if and only if \(\mathbb{P}_\theta(\theta' \in C(X)) \leq 1 - \alpha\) for all \(\theta \neq \theta'\).
+
+\end{definition}
+
+An unbiased confidence set can be obtained by inverting an unbiased confidence test. 
+
+\begin{theorem}
+
+For each \(\theta_0\), let \(A^*(\theta_0)\) be the acceptance region of a UMP unbiased test of size \(\alpha\) for testing the null hypothesis \(H_0: \theta = \theta_0\) against the alternative \(H_a: \theta = \theta_0\). Let \(C^*(X)\) be the corresponding confidence set. Then for any other unbiased \((1 - \alpha)\) confidence set \(C(X)\),
+
+\[
+\mathbb{P}_\theta (\theta_0 \in C^*(X)) \leq \mathbb{P}_\theta(\theta_0 \in C(X)) \qquad \forall \theta \in \Theta.
+\] 
+
+\end{theorem}
+
+\begin{proof}
+
+\[
+\mathbb{P}_\theta(\theta_0 \in C^*(X)) = \mathbb{P}_\theta(X \in A^*(\theta_0))
+\]
+
+Note that for all \(\theta \neq \theta_0\), \(\mathbb{P}_\theta(X \in A^*(\theta_0))\) is the probability that the test will accept the null hypothesis given that the alternative hypothesis is true (probability of a Type II error, or 1 - the power). The UMP test minimizes this, so we have for any other rejection region \(A(\theta_0) := \{x: \theta_0 \in C(x)\}\),
+
+\[
+ \mathbb{P}_\theta(X \in A^*(\theta_0)) \leq  \mathbb{P}_\theta(X \in A(\theta_0)) = \mathbb{P}_\theta(\theta_0 \in C(X))
+\]
+
+
+
+\end{proof}
+
+\begin{theorem}[\textbf{Pratt}]\label{mathstats.thm.pratt} 
+
+Suppose \(X \sim p_\theta, \theta \in \Theta\). Assume that \(C(X) = [L(X), U(X)]\) where \(L(x), U(x)\) are increasing functions. Then for all \(\theta_0\),
+
+\[
+\E [U(X) - L(X)] = \E| C(X)| = \int_{\theta \neq \theta_0}  \underbrace{\mathbb{P}_{\theta_0}( \theta \in C(X))}_{\text{probability of a Type II error}} \ d \theta
+\]
+
+That is, if we know that \(C(X)\) is an interval of this form, then in expectation the minimizer of the integral on the right (the interval corresponding to the UMP test) results in the shortest possible confidence region. 
+
+\end{theorem}
+
+\begin{proof}
+
+\begin{multline*}
+\E_{\theta_0}  [U(X) - L(X)]  = \int_{\mathbb{R}}  [U(X) - L(X)]  p_{\theta_0}(x) \ dx = \int_{\mathbb{R}} \int_{L(x)}^{U(x)} dt \ p_{\theta_0}(x) \ dx
+ = \int_{\mathbb{R}} \int_{U^{-1}(t)}^{L^{-1}(t)} p_{\theta_0}(x) \ dx \ dt
+ \\ = \int_{\mathbb{R}} \mathbb{P}_{\theta_0}(U^{-1}(t) \leq x \leq L^{-1}(t)) \ dt = \int_{\mathbb{R}} \mathbb{P}_{\theta_0}(t \in C(x)) \ dt 
+ = \int_{t \neq \theta_0} \mathbb{P}_{\theta_0}(t \in C(x)) \ dt 
+\end{multline*}
+
+See Figure \ref{mathstats.fig.pratt.thm.proof} for an explanation of the change of integrands in the third step (either way finds the probability-weighted area of the whole region between the two curves in all of \(\mathbb{R}^2\)).
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[angle=270,scale=0.1]{mathstats_thm_pratt_img}
+\caption{Visual depiction of change of integrands in proof of Theorem \ref{mathstats.thm.pratt}.}
+\label{mathstats.fig.pratt.thm.proof}
+\end{center}
+\end{figure}
+
+
+\end{proof}
+
+\begin{example}[\textbf{``The Rule of Threes"}]
+
+Suppose \(X_1, \ldots, X_n \sim \operatorname{Ber}(p)\), i.i.d. Assume that \(\sum_{i=1}^n x_i = 0\). Find the \(95\%\) upper confidence bound for \(p\). (it is approximately equal to \(3/n\)). 
+
+\end{example}
+
+\begin{solution}
+
+Consider testing \(H_0: p \geq p_0\) against \(H_a: p < p_0\). We know that \(X = \sum_{i=1}^n X_j\) is a complete sufficient statistic and \(X \sim \operatorname{Binomial}(n, p)\), so \(\mathbb{P}_p (X = x) = \binom{n}{x}p^x(1-p)^{n-x}\), a monotone likelihood ratio with respect to \(T(X) = X\). Therefore the UMP (nonrandomized) test is
+
+\[
+\phi^* = \begin{cases}
+1, & X \leq c \\
+%\gamma, & \\
+0, & X > c
+\end{cases}
+\]
+
+(since this test is nonrandomized, it will only be UMP for specific values of \(\alpha\)) where \(c = c(p_0, \alpha) \in \mathbb{Z}_+\) solves
+
+\[
+\alpha = \mathbb{P}(\text{Type I error}) = \mathbb{P}_{p_0}( X \leq c) = \sum_{j=0}^{ c(p_0, \alpha)} \binom{n}{j} p_0^j (1 - p_0)^{n-j} 
+\]
+
+To find the \(95\%\) upper confidence bound for \(p\), we want to know for which values of \(p_0\) is 0 in the acceptance region (\(0 \in \operatorname{AR}(p_0)\)). Note that for this hypothesis test with null hypothesis \(p \geq p_0\), the acceptance regions are nested, meaning that \(p_1 < p_2 \implies \{ \text{the rejection region for } p_1\} \subseteq \{\text{the rejection region for } p_2 \} \iff \operatorname{AR}(p_2) \subseteq \operatorname{AR}(p_1)\). Hence we need to find the largest \(p\) such that \(0 \in \operatorname{AR}(p)\). This \(p \) must satisfy
+
+\[
+\alpha <  \mathbb{P}_p(X = 0) = \sum_{j=0}^0 \binom{n}{j}p^j(1-p)^{n-j}  \iff (1-p)^n > \alpha \iff p < 1 - \alpha^{1/n}.
+\]
+
+Then \(\alpha\) is small implies \(\alpha^{1/n} = e^{\log(\alpha)/n} \approx 1 + \log(\alpha)/n\). Using this, we get \(p < - \log(\alpha)/n\). When \(\alpha = 0.05\), \(- \log(\alpha) = \log (1/0.05) \approx 3\).
+
+\end{solution}
+
+\begin{exercise}
+
+What if we observe 1 success in \(n\) trials? Find an equation for a \((1-\alpha)\) upper confidence bound for \(p\).
+
+\end{exercise}
+
+\section{\(U\)-Statistics}\label{mathstats.sec.u.stats}
+
+\subsection{Basic Definitions and Properties \cite[Sections 5.1 and 5.2]{serfling1980}, \cite[Section 15.1]{dasgupta2008asymptotic}}
+
+While the limiting distribution of linear statistics is known from the canonical Central Limit Theorem (under suitable moment conditions), limiting distributions of nonlinear statistics are more difficult. However, a class of nonlinear statistics called \textbf{\(U\)-Statistics} have a common CLT.
+
+\begin{definition}[\textbf{\(U\)-Statistics; definition drawing from Section 5.1.1 of \citet[p. 190 of pdf, p. 172 of book]{serfling1980} and \citet[Chapter 15, p. 240 of pdf, p. 225 of book]{dasgupta2008asymptotic}}]\label{mathstats.def.u.stat}
+
+Let \(X_1, X_2, \ldots\) be independent observations on a distribution \(F\). (They may be vector-valued, but usually we will consider the real-valued case.) Consider a parametric function \(\theta = \theta(F)\) for which there is an unbiased estimator. That is, \(\theta(F)\) may be represented as
+
+\[
+\theta(F) = \mathbb{E}_F\left[h \left(X_1, \ldots, X_m\right) \right] = \int \cdots \int h(x_1, \ldots, x_m) dF(x_1) \ldots dF(x_m)
+\]
+
+for some function \(h = h(x_1, \ldots, x_m)\), called a \textbf{kernel}. Without loss of generality, we may assume \(h\) is symmetric\footnote{To see why this is without loss of generality, suppose \(h\) is not symmetric. Then replace \(h\) with the symmetric kernel \((1/m!) \sum_p h(x_{i_1}, \ldots x_{i_m})\) where \(\sum_p\) denotes summation over the \(m!\) permutations \((i_1, \ldots, i_m)\) of \((1, \ldots , m\)).}. Of course, \(h(X_1, \ldots, X_m)\) is an unbiased estimator for \(\theta(F)\), but a better unbiased estimate should exist if \(n > m\) because \(h(X_1, \ldots, X_m)\) does not use all of the sample data.
+
+In particular, for any kernel \(h\), the corresponding \textbf{\(U\)-Statistic of order \(m\) with kernel \(h\)} for estimation of \(\theta\) on the basis of a sample \(X_1, \ldots, X_n\) of size \(n \geq m\) is obtained by averaging the kernel \(h\) symmetrically over the observations:
+
+\[
+U_n = U(X_1, \ldots, X_n) := \frac{1}{\binom{n}{m}} \sum_c h(X_{i_1}, \ldots, X_{i_m}),
+\]
+
+where \(\sum_c\) denotes summation over the \(\binom{n}{m}\) combinations of \(m\) distinct elements \(\{i_1, \ldots, i_m\}\) from \([n]\). Clearly, \(U_n\) is an unbiased estimate of \(\theta\).
+
+\end{definition}
+
+\begin{example}[\textbf{Example 15.2 in \citet{dasgupta2008asymptotic}}]\label{mathstats.ex.15.2.dasgupta}
+
+Let \(m=2\) and \(h(x_1, x_2) = (x_1 -x_2)^2/2\). One can show that
+
+\[
+\frac{1}{\binom{n}{2}} \sum_{i < j} \frac{(X_i -X_j)^2}{2} = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2.
+\]
+
+That is, the sample variance is a \(U\)-statistic.
+
+\end{example}
+
+A \(U\)-statistic may be represented as the result of conditioning the kernel on the order statistic; that is, for \(n \geq m\),
+
+\[
+U_n = \mathbb{E}\left[ h(X_1, \ldots, X_m) \mid \boldsymbol{X}_{(n)} \right]
+\]
+
+where \( \boldsymbol{X}_{(n)}\) denotes the order statistic. This implies that any statistic \(S = S(X_1, \ldots, X_n)\) for unbiased estimation of \(\theta = \theta(F)\) may be improved by the corresponding \(U\)-statistic. 
+
+\begin{theorem}[\textbf{Optimality property of \(U\)-statistics; \citet[Section 5.14, p. 194 of pdf, p. 176 of book]{serfling1980}}]
+
+Let \(S = S(X_1, \ldots, X_n)\) be an unbiased estimator of \(\theta(F)\) based on a sample \(X_1, \ldots, X_n\) from the distribution \(F\). Then the corresponding \(U\)-statistic is also unbiased and
+
+\[
+\Var_F(U) \leq \Var_F(S),
+\]
+
+with equality if and only if \(\mathbb{P}_F(U = S) = 1\).
+
+\end{theorem}
+
+\begin{proof}
+
+The kernel associated with \(S\) is 
+
+\[
+\frac{1}{n!} \sum_p S(x_{i_1}, \ldots, x_{i_n}),
+\]
+
+which in this case \(m=n\) is the \(U\)-statistic associated with itself. That is, the \(U\)-statistic associated with \(S\) may be expressed as \(U = \mathbb{E}(S \mid \boldsymbol{X}_{(n)})\). Therefore
+
+\[
+ \mathbb{E}_F(U^2) = \mathbb{E}_F\left(\left[\mathbb{E}_F \left(S \mid\boldsymbol{X}_{(n)}\right) \right]^2 \right) \leq  \mathbb{E}_F\left(\mathbb{E}_F \left(S^2 \mid\boldsymbol{X}_{(n)}\right)  \right) = \mathbb{E}_F(S^2),
+\]
+
+where the inequality follows from the fact that
+
+\[
+\Var_F\left(S \mid \boldsymbol{X}_{(n)} \right) = \mathbb{E}_F \left(S^2 \mid\boldsymbol{X}_{(n)}\right)  - \left[\mathbb{E}_F \left(S \mid\boldsymbol{X}_{(n)}\right) \right]^2  \geq 0.
+\]
+
+with equality if and only if \(\mathbb{E}_F(S \mid \boldsymbol{X}_{(n)})\) equals \(S\) with probability 1. Since \(\mathbb{E}_F(U) = \mathbb{E}_F(S)\), the proof is complete.
+
+\end{proof}
+
+\begin{remark}
+
+Since \(\boldsymbol{X}_{(n)}\) is sufficient for any family of distributions containing \(F\), the \(U\)-statistic is the result of conditioning on a sufficient statistic. Therefore this result is simply a special case of the Rao-Blackwell theorem (Theorem \ref{mathstats.thm.rao.blackwell}). This further implies that if \(\boldsymbol{X}_{(n)}\) is complete sufficient then the \(U\)-statistic is the MVUE of \(\theta\) by Lehmann-Scheffe (Theorem \ref{mathstats.lehmann.scheffe}). 
+
+\end{remark}
+
+Next we will find the variance of a \(U\)-statistic. In order to do this, we will establish some notation that will be useful.
+
+\begin{definition}[\textbf{Notation from Section 5.1.5 of \citet{serfling1980}}]
+
+
+For a symmetric kernel \(h(x_1, \ldots, x_m)\) satisfying \(\E_F| h(X_1, \ldots, X_m)| < \infty\), we define the associated functions
+
+\[
+h_c(x_1, \ldots, x_c) := \E_F \left[ h(x_1, \ldots, x_c, X_{c+1}, \ldots, X_m) \right] = \E_F \left[ h(X_1, \ldots,  X_m)  \mid (X_1, \ldots, X_c) = (x_1, \ldots, x_c) \right] 
+\]
+
+for each \(c \in [m-1]\), and define \(h_m := h\). Note that for \(1 \leq c \leq m -1\),
+
+\[
+h_c(x_1, \ldots, x_c) = \E_F\left[ h_{c+1}(x_1, \ldots, x_c, X_{c+1}) \right].
+\]
+
+Recall \(\theta(F) = \E_F[h(X_1, \ldots, X_m)]\). Define
+
+\[
+\tilde{h} := h - \theta(F)
+\]
+
+and
+
+\[
+\tilde{h}_c := h_c - \theta(F), \quad c \in [m].
+\]
+
+\end{definition}
+
+
+\begin{remark}
+
+Note that since by Definition \ref{mathstats.def.u.stat}
+
+\[
+U_n = \frac{1}{\binom{n}{m}} \sum_c h(X_{i_1}, \ldots, X_{i_m}),
+\]
+
+it holds that
+
+\begin{align}
+U_n - \theta  & =  \binom{n}{m}^{-1} \sum_c h(X_{i_1}, \ldots, X_{i_m}) - \binom{n}{m}^{-1} \binom{n}{m} \theta \nonumber
+\\  & = \binom{n}{m}^{-1} \sum_c \left[ h(X_{i_1}, \ldots, X_{i_m}) - \theta \right] \nonumber
+\\  & = \binom{n}{m}^{-1} \sum_c \tilde{h}(X_{i_1}, \ldots, X_{i_m}). \label{mathstats.u.id.var}
+\end{align}
+
+\end{remark}
+
+
+\begin{definition}[\textbf{From Section 5.2.1 of \citet{serfling1980}}]
+
+Consider a symmetric kernel satisfying \(E_F[ h^2(X_1, \ldots, X_m)] < \infty\). Note that 
+
+\[
+\E_F \tilde{h}_c(X_1, \ldots, X_c) = \E_F \left( \E_F \left[ h(x_1, \ldots, x_c, X_{c+1}, \ldots, X_m) \right] - \theta \right)  = 0, \qquad \forall c \in [m].
+\]
+
+Define \(\zeta_0 := 0\) and for \(c \in [m]\)
+
+\[
+\zeta_c := \Var_F \left[ h_c(X_1, \ldots, X_c) \right] = \E_F \left[ \tilde{h}_c^2(X_1, \ldots, X_c) \right].
+\]
+
+\end{definition}
+
+\begin{example}[\textbf{Example A in Section 5.2.1 of \citet{serfling1980}; extension of Example \ref{mathstats.ex.15.2.dasgupta}}]
+
+Again, let \(m=2\) and \(h(x_1, x_2) = (x_1 -x_2)^2/2\). We have already shown in Example \ref{mathstats.ex.15.2.dasgupta} that this \(U\)-statistic corresponds to the sample variance; that is, \( \E_F[h(X_1, X_2)] = \sigma^2(F) =: \theta(F)\). We have
+
+\begin{align*}
+\tilde{h}(x_1, x_2) & = h(x_1, x_2) - \sigma^2,
+\\ h_1(x) & = \E_F \left[ h(X_1, X_2 )  \mid X_1 = x \right]= \E_F \left[\frac{1}{2}(x - X_2)^2 \right]  = \frac{1}{2}\E_F \left[x^2 - 2xX_2 + X_2^2 \right] 
+\\ & = \frac{1}{2}\left(x^2 - 2x\mu + \sigma^2 + \mu^2 \right),
+\\ \tilde{h}_1(x) & =\frac{1}{2}\left(x^2 - 2x\mu + \sigma^2 + \mu^2 \right) - \sigma^2 = \frac{1}{2}\left(x^2 - 2x\mu - \sigma^2 + \mu^2 \right) = \frac{1}{2}\left(\left[x - \mu\right]^2 - \sigma^2 \right) ,
+\\ \zeta_1 & =\E_F \left[ \tilde{h}_1^2(X_1) \right] =\E_F \left[ \frac{1}{2}\left(\left[X_1 - \mu\right]^2 - \sigma^2 \right)\right]^2 = \frac{1}{4} \Var_F \left[ \left( X_1 - \mu \right)^2 \right] = \frac{1}{4}\left(\mu_4 - \sigma^4\right),
+\\ \E (h^2) & = \frac{1}{4}\E \left[ \left(X_1- X_2\right)^2 \right]^2  = \frac{1}{4}\E \left[ \left(X_1 - \mu\right) -\left( X_2 - \mu \right) \right]^4
+\\  &= \frac{1}{4}\sum_{j=0}^4 \binom{4}{j} (-1)^{4-j} \E \left[ \left(X_1 - \mu\right)^j \right] \E \left[ \left( X_2 - \mu \right)^{4-j} \right]
+ = \frac{1}{4}\left(2 \mu_4 + 6 \sigma^4 \right),
+\\ \zeta_2 & =  \E_F \left[ \tilde{h}_2^2(X_1, X_2) \right]   =  \E_F \left[ \left(h(X_1, X_2) - \sigma^2 \right)^2 \right] =  \E_F \left[ h^2(X_1, X_2) - 2 \sigma^2 h(X_1, X_2)  + \sigma^4 \right]
+\\&  =  \E_F \left[ h^2(X_1, X_2) \right]  - \sigma^4 =  \frac{1}{4}\left(2 \mu_4 + 6 \sigma^4 \right)  - \sigma^4 = \frac{1}{2} \left( \mu_4 + \sigma^4\right).
+\end{align*} 
+
+\end{example}
+
+\begin{proposition}[\textbf{Problem 5.P.3(i) in \citet{serfling1980}}]
+
+\[
+0 = \zeta_0 \leq \zeta_1 \leq \ldots \leq \zeta_m = \Var_F(h) < \infty.
+\]
+
+\end{proposition}
+
+\begin{proposition}[\textbf{Problem 5.P.4 in \citet{serfling1980}}]\label{mathstats.prop.5.p.4}
+
+Consider two sets \(\{a_1, \ldots, a_m\} \subset [n]\) and \(\{b_1, \ldots, b_m\} \subset [n]\) of distinct integers. Let \(c = \left|\{a_1, \ldots, a_m\} \cap \{b_1, \ldots, b_m\}  \right| \) be the number of integers common to both. Then by symmetry of \(\tilde{h}\) and independence of \(\{X_1, \ldots, X_n\}\),
+
+\[
+\E_F \left[ \tilde{h}(X_{a_1}, \ldots, X_{a_m}) \tilde{h}(X_{b_1}, \ldots, X_{b_m})  \right] = \zeta_c.
+\]
+
+\end{proposition}
+
+\begin{remark}
+
+Note also that the number of distinct choices for two such sets having exactly \(c\) elements in common is \(\binom{n}{m} \binom{m}{c} \binom{n-m}{m-c}\). Also, since \(\E_F \tilde{h} = 0\), we have that
+
+\[
+\zeta_c = \Cov \left( \tilde{h}(X_{a_1}, \ldots, X_{a_m}), \tilde{h}(X_{b_1}, \ldots, X_{b_m}) \right) 
+%\\ & = \Cov \left( \tilde{h}(X_{a_1}, \ldots, X_{a_m}), \tilde{h}(X_{b_1}, \ldots, X_{b_m}) \right)
+%\\ & = \Cov \left( h(X_{a_1}, \ldots, X_{a_m}), h(X_{b_1}, \ldots, X_{b_m}) \right)
+ = \Cov \left( h(X_{a_1}, \ldots, X_{a_m}), h(X_{b_1}, \ldots, X_{b_m}) \right)
+\]
+
+\[
+h_c(x_1, \ldots, x_c) = \E_F\left[ h_{c+1}(x_1, \ldots, x_c, X_{c+1}) \right].
+\]
+
+\end{remark}
+
+Now we can find the variance of a \(U\)-statistic. We have
+
+\begin{align}
+\Var_F(U_n) & = \E_F \left[ (U_n - \theta)^2\right] \nonumber
+\\ \text{(using \eqref{mathstats.u.id.var})} \qquad & = \E_F \left[ \left(  \binom{n}{m}^{-1} \sum_c \tilde{h}(X_{i_1}, \ldots, X_{i_m}) \right)^2\right]  \nonumber
+\\ & =  \binom{n}{m}^{-2}  \sum_c  \sum_c \E_F \left[ \tilde{h}(X_{a_1}, \ldots, X_{a_m}) \tilde{h}(X_{b_1}, \ldots, X_{b_m}) \right]  \nonumber
+\\ \text{(by Proposition \ref{mathstats.prop.5.p.4})} \qquad & =  \binom{n}{m}^{-2}  \sum_{c=0}^n \binom{n}{m} \binom{m}{c} \binom{n-m}{m-c} \zeta_c   \nonumber
+\\ \text{(using \(\zeta_0 = 0\))} \qquad & =  \binom{n}{m}^{-1}  \sum_{c=1}^n \binom{m}{c} \binom{n-m}{m-c} \zeta_c . \label{mathstats.u.var}
+\end{align}
+
+
+\begin{lemma}[\textbf{Lemma A in Section 5.2.1 of \citet{serfling1980}}]
+
+The variance of \(U_n\) is given by \eqref{mathstats.u.var} and satisfies
+
+\begin{enumerate}[(i)]
+
+\item
+
+\[
+\frac{m^2}{n} \zeta_1 \leq \Var_F(U_n) \leq \frac{m}{n} \zeta_m,
+\]
+
+
+\item
+
+\[
+(n+1)\Var_F(U_{n+1}) \leq n \Var_F(U_n), \qquad \text{and}
+\]
+
+\item
+
+\[
+\Var_F(U_n) = \frac{m^2 \zeta_1}{n} + \mathcal{O}(n^{-2}), \qquad n \to \infty.
+\]
+
+\end{enumerate}
+
+\end{lemma}
+
+\subsection{Asymptotics \cite[Section 5.3]{serfling1980}, \cite[Section 15.2]{dasgupta2008asymptotic}}
+
+
+Asymptotic theory for \(U\)-statistics is not straightforward since the summands are in general dependent. Hajek had the idea of projecting \(U\) onto the class of linear statistics of the form \(n^{-1} \sum_{i=1}^n h(X_i)\). It turns out that the projection is the dominant part and determines the limiting distribution of \(U\). 
+
+\begin{definition}[\textbf{Hajek projection; Definition from \citet[Section 5.3.1, p. 206 of pdf, p. 188 of book]{serfling1980} and \citet[Section 3.3]{Wager2018}}]
+
+Assume \(\E_F |h| < \infty\). Then the \textbf{Hajek projection} of the \(U\)-statistic \(U_n\) is defined as 
+
+\[
+\hat{U}_n :=  \theta + \sum_{i=1}^n \left( \E_F[U_n \mid X_i ]  - \theta \right) =\sum_{i=1}^n \E_F\left[ U_n \mid X_i \right] - (n-1) \theta
+\]
+
+Note that it is a sum of i.i.d. random variables. In terms of the function \(\tilde{h}_1\), we have
+
+\[
+\hat{U}_n  = \theta + \frac{m}{n} \sum_{i=1}^n \tilde{h}_1(X_i).
+\]
+
+\end{definition}
+
+\citet{dasgupta2008asymptotic} uses a slightly different convention to define \(U\) statistics (their definition projects \(U - \theta\) rather than \(U\), so their definition equals the above definition minus \(\theta\)).
+
+\begin{definition}[\textbf{Hajek projection; Definition 15.2 in \citet{dasgupta2008asymptotic}}]
+
+The \textbf{Hajek projection} of \(U - \theta\) onto the class of statistics \(\sum_{i=1}^n h(X_i)\) is
+
+\[
+\hat{U} = \hat{U}_n = \sum_{i=1}^n \mathbb{E}_F(U - \theta \mid X_i) .
+\]
+
+
+\end{definition}
+
+\begin{theorem}[\textbf{Theorem 15.1 in \citet{dasgupta2008asymptotic}}]
+
+Suppose the kernel \(h\) is twice integrable; i.e., \(\E h^2 < \infty\). Then
+
+\[
+\sqrt{n}(U - \hat{U}) \xrightarrow{p} 0
+\]
+
+and
+
+\[
+\sqrt{n}(U - \theta) \xrightarrow{D} \mathcal{N}(0, m^2 \zeta_1).
+\]
+
+\end{theorem}
+
+\begin{definition}[\textbf{Definition 6 in \citet{Wager2018}}]
+
+\(U\) is \textbf{\(\nu(s)\)-incremental} if 
+
+\[
+\frac{\Var\left[ \hat{U} \right]}{\Var\left[ U \right]} \gtrsim \nu(s),
+\]
+
+where
+
+\[
+f(s) \gtrsim  g(s) \qquad \iff \qquad \underset{s \to \infty}{\lim \inf} \left( \frac{f(s)}{g(s)} \right) \geq 1.
+\]
+
+(That is, \(U\) is \(\nu(s)\)-incremental if 
+
+\[
+ \underset{s \to \infty}{\lim \inf} \left( \frac{\Var\left[ \hat{U} \right] / \Var\left[ U \right]}{\nu(s)} \right) \geq 1.)
+ \]
+
+\end{definition}
+
+%\begin{remark}
+%It can be shown that \(\hat{U} = \frac{m}{n} \sum_{i=1}^n \tilde{h}_1(X_i)\), where 
+%
+%\[
+%\tilde{h}_1(x) := \mathbb{E}(h(X_1, \ldots, X_m) \mid X_1 = x) - \theta.
+%\]
+%
+%Let
+%
+%\[
+%h_1(x) := \mathbb{E}(h(X_1, \ldots, X_m) \mid X_1 = x)
+%\]
+%
+%so that
+%
+%\[
+%\tilde{h}_1 = h_1 - \theta(F).
+%\]
+%
+%\end{remark}
+
+\section{Influence Functions (Section 6.6.1 of \citet{serfling1980})}
+
+\section{\(M\)-Estimators (Chapter 7 of \citet{serfling1980})}
+
+Many estimation methods are based on minimization of some function of the observations \(\{X_i\}\) and the unknown parameter \(\theta\), e.g. the least squares estimator
+
+\[
+ \hat{\theta} = \underset{\theta}{\arg \min} \left\{ d(\theta; X_1, \ldots, X_n) \right\} = \underset{\theta}{\arg \min} \left\{  \sum_{i=1}^n (X_i - \theta)^2 \right\}.
+\]
+
+Similarly, the least absolute values estimator of \(\theta\) is given by
+
+\[
+ \hat{\theta} = \underset{\theta}{\arg \min} \left\{  \sum_{i=1}^n |X_i - \theta| \right\}.
+\]
+
+Maximum likelihood estimation may be regarded as an approach of this type as well. Typically the problem of minimizing a function of data and a parameter reduces to a problem involving solving a system of equations for an estimator \(\hat{\theta}\). Statistics given as solutions of equations are called \textbf{M-statistics.} 
+
+\section{Distance Correlation}
 
 
 %\bibliographystyle{abbrvnat}

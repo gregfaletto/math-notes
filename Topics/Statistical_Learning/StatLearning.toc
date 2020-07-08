@@ -1,5 +1,63 @@
-\contentsline {section}{\numberline {1}Statistical Learning}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Math 547}{3}{subsection.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1}Perceptron Algorithm}{3}{subsubsection.1.1.1}
-\contentsline {subsubsection}{\numberline {1.1.2}Mercer's Theorem}{3}{subsubsection.1.1.2}
-\contentsline {subsection}{\numberline {1.2}Norms}{3}{subsection.1.2}
+\contentsline {chapter}{\numberline {1}Statistical Learning}{7}{chapter.1}
+\contentsline {section}{\numberline {1.1}Segmented regression, local regression, splines}{7}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Local Regression}{7}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Curse of Dimensionality (brief discussion)}{8}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Dimension Reduction methods}{8}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Principal components regression}{8}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Partial least squares}{9}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Dimension reduction by random matrix}{9}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.3}Goodness of fit, residuals, residual diagnostics, leverage}{9}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Residual diagnostics}{10}{subsection.1.3.1}
+\contentsline {section}{\numberline {1.4}DSO 607}{10}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Akaike Information Criterion (AIC)}{11}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Bayesian Information Criterion (BIC)}{12}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}Ridge Regression}{16}{section.1.5}
+\contentsline {section}{\numberline {1.6}Lasso}{18}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Soft Thresholding}{21}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Lasso theory}{22}{subsection.1.6.2}
+\contentsline {subsection}{\numberline {1.6.3}Non-Negative Garotte}{28}{subsection.1.6.3}
+\contentsline {subsection}{\numberline {1.6.4}LARS---Preliminaries and Intuition}{28}{subsection.1.6.4}
+\contentsline {subsection}{\numberline {1.6.5}LARS}{30}{subsection.1.6.5}
+\contentsline {section}{\numberline {1.7}Loss Functions}{31}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Feature Selection properties}{33}{subsection.1.7.1}
+\contentsline {section}{\numberline {1.8}Dantzig Selector}{36}{section.1.8}
+\contentsline {section}{\numberline {1.9}Coordinate Descent}{37}{section.1.9}
+\contentsline {section}{\numberline {1.10}Total Variational Distance}{38}{section.1.10}
+\contentsline {section}{\numberline {1.11}Non-parametric regression}{38}{section.1.11}
+\contentsline {subsection}{\numberline {1.11.1}Generalized additive models}{38}{subsection.1.11.1}
+\contentsline {section}{\numberline {1.12}Mixture regression}{38}{section.1.12}
+\contentsline {section}{\numberline {1.13}Missing observations}{39}{section.1.13}
+\contentsline {section}{\numberline {1.14}Generalized linear models}{39}{section.1.14}
+\contentsline {subsection}{\numberline {1.14.1}Regression models}{42}{subsection.1.14.1}
+\contentsline {subsection}{\numberline {1.14.2}Applications---Categorical Data}{43}{subsection.1.14.2}
+\contentsline {subsection}{\numberline {1.14.3}Applications---Continuous Data}{43}{subsection.1.14.3}
+\contentsline {section}{\numberline {1.15}Mixed Effects Models}{44}{section.1.15}
+\contentsline {section}{\numberline {1.16}Miscellaneous Topics}{44}{section.1.16}
+\contentsline {subsection}{\numberline {1.16.1}Multinomial Response}{44}{subsection.1.16.1}
+\contentsline {subsection}{\numberline {1.16.2}Zero-inflated response}{44}{subsection.1.16.2}
+\contentsline {subsection}{\numberline {1.16.3}Overdispersion}{45}{subsection.1.16.3}
+\contentsline {section}{\numberline {1.17}Generalized linear mixed models}{46}{section.1.17}
+\contentsline {subsection}{\numberline {1.17.1}Longitudinal data analysis and Generalized Estimating Equations}{47}{subsection.1.17.1}
+\contentsline {section}{\numberline {1.18}Causal Inference}{47}{section.1.18}
+\contentsline {subsection}{\numberline {1.18.1}Factorial Design (see R lab 7)}{47}{subsection.1.18.1}
+\contentsline {section}{\numberline {1.19}Math 547}{48}{section.1.19}
+\contentsline {subsection}{\numberline {1.19.1}Perceptron Algorithm}{48}{subsection.1.19.1}
+\contentsline {subsection}{\numberline {1.19.2}Mercer's Theorem}{48}{subsection.1.19.2}
+\contentsline {section}{\numberline {1.20}Norms}{48}{section.1.20}
+\contentsline {section}{\numberline {1.21}Collaborative Filtering and Trace Regression (Math 541B)}{49}{section.1.21}
+\contentsline {subsection}{\numberline {1.21.1}Trace Regression}{49}{subsection.1.21.1}
+\contentsline {section}{\numberline {1.22}Dynamic Programming}{55}{section.1.22}
+\contentsline {subsection}{\numberline {1.22.1}Introduction to Dynamic Programming and Principle of Optimality (Sections 1.1 - 1.3 of \citep {v1_bertsekas2012dynamic} )}{55}{subsection.1.22.1}
+\contentsline {subsection}{\numberline {1.22.2}State Augmentation and Other Reformulations (Section 1.4 of \citep {v1_bertsekas2012dynamic})}{59}{subsection.1.22.2}
+\contentsline {subsection}{\numberline {1.22.3}Inventory Control (Section 3.2 of \citet {v1_bertsekas2012dynamic} )}{60}{subsection.1.22.3}
+\contentsline {subsection}{\numberline {1.22.4}Capacity Allocation and Revenue Management}{72}{subsection.1.22.4}
+\contentsline {subsection}{\numberline {1.22.5}Optimal Stopping (Section 3.4 of \citet {v1_bertsekas2012dynamic})}{77}{subsection.1.22.5}
+\contentsline {subsection}{\numberline {1.22.6}Infinite Horizon (Sections 1.2, 1.5 and 2.1 of \citet {v2_bertsekas2012dynamic}; starts on p. 210 of pdf for Volume 3)}{78}{subsection.1.22.6}
+\contentsline {subsection}{\numberline {1.22.7}Value Iterations and Policy Iterations (Sections 2.2 and 2.3 of \citet {v2_bertsekas2012dynamic}; starts on p. 210 of pdf for Volume 3)}{86}{subsection.1.22.7}
+\contentsline {subsection}{\numberline {1.22.8}Scheduling and Multiarmed Bandit Problems (Section 1.3 of \citet {v2_bertsekas2012dynamic})}{95}{subsection.1.22.8}
+\contentsline {subsection}{\numberline {1.22.9}Approximate DP: Q-Learning (Section 6.3.3 of \citet {v1_bertsekas2012dynamic}, Sections 2.2.3, 2.5.3, and 6.1 - 6.6.1 of \citep {v2_bertsekas2012dynamic})}{98}{subsection.1.22.9}
+\contentsline {subsection}{\numberline {1.22.10}Optimal Stopping (Section 6.6.4 of \citet {v2_bertsekas2012dynamic}, p. 504)}{103}{subsection.1.22.10}
+\contentsline {section}{\numberline {1.23}Notes on \citet {Mathieu2019}}{109}{section.1.23}
+\contentsline {subsection}{\numberline {1.23.1}Notation}{109}{subsection.1.23.1}
+\contentsline {subsection}{\numberline {1.23.2}Section 1}{110}{subsection.1.23.2}
+\contentsline {subsubsection}{Section 1.4: Overview of Main Results}{113}{section*.2}

@@ -150,18 +150,18 @@
 %%
 %% Time Series
 
-\section{Time Series}
+\chapter{Time Series}
 
 These notes are based on my notes from \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran \citep{pesaran-2015-text} as well as coursework for Economics 613: Economic and Financial Time Series I at USC.
 
 %%% Chapter 6
-\subsection{Chapter 6: ARDL Models}
+\section{Chapter 6: ARDL Models}
 
 In an ARDL model, if the error are serially correlated, then the coefficient estimates are biased (even as \(T \to \infty\)).
 
 
 %%% Chapters 12 and 13
-\subsection{Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}
+\section{Chapters 12 and 13: Intro to Stochastic Processes and Spectral Analysis}
 
 \textbf{Stationarity conditions:} \( \{X_t\} \) is \textbf{strictly stationary} if the joint distribution functions of \( \{ X_{t_1}, X_{t_2}, \ldots, X_{t_k}\} \) and \( \{ X_{t_1+h}, X_{t_2+h}, \ldots, X_{t_k+h}\} \) are identical for all values of \(t_1,  t_2, \ldots, t_k\) and h and all positive integers \(k\). 
 
@@ -241,7 +241,7 @@ f(\omega) = \frac{1}{2\pi}G(e^{i \omega}) = \frac{\sigma^2}{2 \pi} a(e^{i \omega
 
 Linear (time-domain) processes don't have to be stationary, but to write something as a frequency-domain process, it must be stationary.
 
-\subsubsection{Worked Examples}\label{ts.ch13.examples}
+\subsection{Worked Examples}\label{ts.ch13.examples}
 
 % Midterm problem 2 part (2)
 
@@ -373,11 +373,11 @@ Therefore a sufficient condition for consistency is
 %
 %%%%%% Some time series and their properties
 
-\subsection{Some time series and their properties}
+\section{Some time series and their properties}
 
 %%%%%%%%% White Noise Process %%%%%%%%%%%%
 
-\subsubsection{White noise process:}  \(x_t = \epsilon_t\), \(\epsilon_t \sim IID(0, \sigma^2)\)
+\subsection{White noise process:}  \(x_t = \epsilon_t\), \(\epsilon_t \sim IID(0, \sigma^2)\)
 
 \begin{itemize}
 
@@ -401,7 +401,7 @@ f_x(\omega) = \frac{1}{2\pi} \cdot \sigma^2 = \frac{\sigma^2}{2 \pi} \text{ (fla
 
 %%%%%%%%% MA(1) Process %%%%%%%%%%%%
 
-\subsubsection{MA(1) process:} \(x_t = \epsilon_t + \theta \epsilon_{t-1}\) with \(\epsilon_t \sim iid(0, \sigma^2)\), \(|\rho| < 1\). 
+\subsection{MA(1) process:} \(x_t = \epsilon_t + \theta \epsilon_{t-1}\) with \(\epsilon_t \sim iid(0, \sigma^2)\), \(|\rho| < 1\). 
 
 \begin{itemize}
 
@@ -467,7 +467,7 @@ f(\omega) = \frac{\sigma^2}{2\pi} \big[ 1+ 2  \theta \cos( \omega)  + \rho^2  \b
 
 %%%%%%%%% MA(\(\infty\)) process %%%%%%%%%%%%
 
-\subsubsection{MA(\(\infty\)) process:} 
+\subsection{MA(\(\infty\)) process:} 
 
 This process is covariance stationary.
 
@@ -479,7 +479,7 @@ This process is covariance stationary.
 
 %%%%%%%%% AR(1) Process %%%%%%%%%%%%
 
-\subsubsection{AR(1) process:} \label{ts.ar1} \(x_t = \phi x_{t-1} + \epsilon_t\), \(|\phi| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
+\subsection{AR(1) process:} \label{ts.ar1} \(x_t = \phi x_{t-1} + \epsilon_t\), \(|\phi| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
 
 \begin{itemize}
 
@@ -553,7 +553,7 @@ f(\omega) = \frac{1}{2\pi} \sum_{h=-\infty}^\infty \frac{\sigma^2 \phi^{|h|}}{(1
 
 %%%%%%%%% AR(2) Process %%%%%%%%%%%%
 
-\subsubsection{AR(2) process:} \(x_t = \phi_1x_{t-1} + \phi_2x_{t-2} + \epsilon\), \(|\phi_1| < 1\), \(|\phi_2| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
+\subsection{AR(2) process:} \(x_t = \phi_1x_{t-1} + \phi_2x_{t-2} + \epsilon\), \(|\phi_1| < 1\), \(|\phi_2| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
 
 Can be written as 
 
@@ -583,7 +583,7 @@ x_t = \frac{1}{1 - \phi L} \epsilon_t = \epsilon_t + \phi \epsilon_{t-1} + \phi^
 
 %%%%%%%%% AR(p) Process %%%%%%%%%%%%
 
-\subsubsection{AR(\(p\)) process:} \(x_t = \phi_1x_{t-1} + \phi_2x_{t-2} + \ldots + \phi_p x_{t-p} + \epsilon\), \(|\phi_i| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
+\subsection{AR(\(p\)) process:} \(x_t = \phi_1x_{t-1} + \phi_2x_{t-2} + \ldots + \phi_p x_{t-p} + \epsilon\), \(|\phi_i| < 1\), \(\epsilon_t \sim IID(0, \sigma^2)\). 
 
 \begin{itemize}
 
@@ -611,7 +611,7 @@ G(z) = \frac{\sigma^2}{\phi(z) \phi(z^{-1})}
 
 %%%%%%%%% ARMA(1, 1) Process %%%%%%%%%%%%
 
-\subsubsection{ARMA(1, 1) process:} \(x_t = \phi x_{t-1} + \epsilon_t + \theta \epsilon_{t-1}\), with \(|\phi| < 1\) (implying stationarity), \(\E(\epsilon_t^2) = \sigma^2\), \(\E(\epsilon_t \epsilon_s ) = 0 \) for \(t \neq s\).
+\subsection{ARMA(1, 1) process:} \(x_t = \phi x_{t-1} + \epsilon_t + \theta \epsilon_{t-1}\), with \(|\phi| < 1\) (implying stationarity), \(\E(\epsilon_t^2) = \sigma^2\), \(\E(\epsilon_t \epsilon_s ) = 0 \) for \(t \neq s\).
 
 \begin{itemize}
 
@@ -718,9 +718,9 @@ f_x(\omega) = \frac{1}{2\pi} \cdot \sigma^2 = \frac{\sigma^2}{2 \pi}
 %
 %
 %%%%%% Chapter 14: Estimation of Stationary Time Series Processes
-\subsection{Chapter 14: Estimation of Stationary Time Series Processes}
+\section{Chapter 14: Estimation of Stationary Time Series Processes}
 
-\subsubsection{Sufficient conditions for ergodicity of mean. (Book section 14.2.1)} By Chebyshev's Inequality (see section~\ref{sec:tsch8.6}), \(\overline{y}_T\) is a consistent estimator of \(\mu\) as \(T \to \infty\) if \(\lim_{T \to \infty} \E(\overline{y}_T) = \E(y_T) = \mu\) and \(\lim_{T \to \infty} \Var(\overline{y}_T) = 0\). We have
+\subsection{Sufficient conditions for ergodicity of mean. (Book section 14.2.1)} By Chebyshev's Inequality (see section~\ref{sec:tsch8.6}), \(\overline{y}_T\) is a consistent estimator of \(\mu\) as \(T \to \infty\) if \(\lim_{T \to \infty} \E(\overline{y}_T) = \E(y_T) = \mu\) and \(\lim_{T \to \infty} \Var(\overline{y}_T) = 0\). We have
 
 \[
 \E(\overline{y}_T) = \frac{1}{T} \E \bigg( \sum_{t=1}^T y_t \bigg) = \frac{1}{T}  \sum_{t=1}^T \E (y_t) = \mu
@@ -767,7 +767,7 @@ is a sufficient condition for
 \lim_{T \to \infty} \Var(\overline{y}_T) = \lim_{T \to \infty}  \frac{1}{T} \bigg[ \gamma(0) + 2 \sum_{h=1}^{T-1} \bigg(1 - \frac{h}{T} \bigg) \gamma(h) \bigg]  = 0
 \]
 
-\subsubsection{Estimation of autocovariances (Book section 14.2.2).}
+\subsection{Estimation of autocovariances (Book section 14.2.2).}
 \label{sec:tsch14.2.2}
 
 A moment estimator of \(\gamma(h) =  \E[(y_t - \mu)(y_{t-h} - \mu)]\) is
@@ -896,7 +896,7 @@ These conditions hold if \(\E(\epsilon_t^4) < \infty\) and \(\sum_{i=0}^\infty |
 %\Var(\hat{\gamma}(h)) = 
 %\]
 
-\subsubsection{Worked examples}
+\subsection{Worked examples}
 
 % Midterm problem 3 parts (3) and (4)
 \textbf{Midterm Problem 3 parts (3) and (4) (similar to 14.7 and 14.8 material.} Consider the following ARMA(1, 1) model
@@ -1268,11 +1268,11 @@ so if \(\lambda \rho \approx 1\), at very high probability we will reject the nu
 %%%%%% 
 %%%%% Chapter 15: Unit Root Processes
 
-\subsection{Chapter 15: Unit Root Processes}
+\section{Chapter 15: Unit Root Processes}
 
 \textbf{Need to review concepts in this chapter.}
 
-\subsubsection{Worked Problems}
+\subsection{Worked Problems}
 
 %%%% Chapter 15 Problem 3
 \textbf{Problem 3.} Suppose that a time series of interest can be decomposed into a deterministic trend, a random walk component, and stationary errors:
@@ -1748,12 +1748,12 @@ T^{-3/2} \sum_{t=1}^{T-1} t u_t = T^{-1/2} \sum_{t=1}^{T-1} u_t - T^{-3/2}\sum_{
 %%%%%% 
 %%%%% Chapter 17: Introduction to Forecasting
 
-\subsection{Chapter 17: Introduction to Forecasting}
+\section{Chapter 17: Introduction to Forecasting}
 
 \textbf{Feel pretty good on concepts}
 
 % 17.7: Iterated and direct multi-step AR methods
-\subsubsection{17.7: Iterated and direct multi-step AR methods}
+\subsection{17.7: Iterated and direct multi-step AR methods}
 
 Suppose \(y_t\) follows the AR(1) model: 
 
@@ -1794,7 +1794,7 @@ We have two methods for forecasting \(y_{t+h}\) \(h >1\) steps ahead.
 \]
 \end{proposition}
 
-\subsubsection{Worked Problems}
+\subsection{Worked Problems}
 
 \textbf{Problem 4 (Homework 5 Question 3---fine on all but part (c), which even Lidan is hazy on.}
 
@@ -1972,7 +1972,7 @@ Then
 %%%%%%
 %%%%% Chapter 18: Measurement and Modeling of Volatility
 
-\subsection{Chapter 18: Measurement and Modeling of Volatility}
+\section{Chapter 18: Measurement and Modeling of Volatility}
 
 \textbf{Maybe review a little, but feel pretty okay on concepts}
 
@@ -1991,7 +1991,7 @@ h_t^2 = \alpha_0 + \alpha_1 \epsilon_{t-1}^2 + \phi_1 h_{t-1}^2, \ \ \ \alpha_0 
 \end{itemize}
 
 % Higher order GARCH models (Pesaran Section 18.4.2)
-\subsubsection{Higher order GARCH models (Pesaran Section 18.4.2)} The various members of the GARCH and GARCH-M class of models can be written compactly as
+\subsection{Higher order GARCH models (Pesaran Section 18.4.2)} The various members of the GARCH and GARCH-M class of models can be written compactly as
 
 \begin{equation} \label{ts.eq.18.6}
 y_t = \boldsymbol{\beta}' \boldsymbol{x}_{t-1} + \gamma h_t^2 + \epsilon_t
@@ -2028,7 +2028,7 @@ Clearly the necessary condition for (\ref{ts.eq.18.7}) to be covariance stationa
 \]
 
 % Testing for GARCH effects (Pesaran Section 18.5.1)
-\subsubsection{Testing for GARCH effects (Pesaran Section 18.5.1)} \label{ts.pesaran.18.5.1}
+\subsection{Testing for GARCH effects (Pesaran Section 18.5.1)} \label{ts.pesaran.18.5.1}
 
 If we consider \(y_t\) as periodic data defined by \(y_t = r_t - \overline{r}\) with \(r_t\) representing, say, asset return and \(\overline{r}\) representing the unconditional mean, then we have the GARCH(1,1) representation of volatility:
 
@@ -2071,7 +2071,7 @@ H_1: \tilde{\alpha}_1 \neq 0, \tilde{\alpha}_2 \neq 0, \ldots, \tilde{\alpha}_q 
 \]
 
 
-\subsubsection{Worked Problems}
+\subsection{Worked Problems}
 
 
 %%%%%%%%%% Chapter 18 Problem 1
@@ -2220,11 +2220,11 @@ In other words, even though the mean of \(y_t\) remains constant, because \(y_{t
 %%%%%%
 %%%%% Chapter 21: Vector Autoregressive Models
 
-\subsection{Chapter 21: Vector Autoregressive Models}
+\section{Chapter 21: Vector Autoregressive Models}
 
 \textbf{Feel ok on concepts.}
 
-\subsubsection{Worked Problems} \label{ts.ch21.worked.problems}
+\subsection{Worked Problems} \label{ts.ch21.worked.problems}
 
 %%% Ch. 21 Ex. 1 Problem
 \textbf{Problem 1.} Consider the bivariate autoregressive model:
@@ -2653,11 +2653,11 @@ If this restriction is violated, then (\ref{ts.hw6.3b.vecm}) becomes a stationar
 %%%%%%
 %%%%% Chapter 22
 
-\subsection{Chapter 22: Cointegration Analysis}
+\section{Chapter 22: Cointegration Analysis}
 
 \textbf{Feel pretty good except for long run effects, examples we went over in class, the restrictions, and the 5 cases. Don't need to understand SURE.}
 
-\subsubsection{22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}\label{ts.pesaran.22.4}
+\subsection{22.4 Cointegrating VAR: multiple cointegrating relations and 22.5: Identification of long-run effects}\label{ts.pesaran.22.4}
 \begin{definition}\label{ts.ch22.def.cointegrated} We say that the \(m\) variables in \(Y_t\) are \textit{cointegrated} if they are individually integrated (or have a random walk component) but there exist linear combinations of them which are stationary. That is, \(y_{it} \sim I(1) \ \text{ for } i = 1, 2, \ldots, m\), but there exists an \(m \times r\) matrix \(\beta\) such that \(\beta'Y_t = \xi_t \sim I(0)\). 
 \end{definition}
 
@@ -2709,7 +2709,7 @@ However, \(\beta\) as defined above is not uniquely determined. Consider a linea
 
 with \(\tilde{\alpha} = \alpha {Q'}^{-1}\). Therefore \(\beta\) is not uniquely determined without \(r^2\) exact- or just-identifying restrictions, \(r\) restrictions on each of the \(r\) cointegrating relations. 
 
-\subsubsection{Worked Problems}
+\subsection{Worked Problems}
 
 \textbf{Problem 2:} See Chapter 21 Problem 2.
 
@@ -2722,11 +2722,11 @@ with \(\tilde{\alpha} = \alpha {Q'}^{-1}\). Therefore \(\beta\) is not uniquely 
 %%%%%%
 %%%%% Chapter 23
 
-\subsection{Chapter 23: VARX Modeling}
+\section{Chapter 23: VARX Modeling}
 
 \textbf{Lidan says will not be on final.}
 
-\subsubsection{Worked Problems}
+\subsection{Worked Problems}
 
 %
 %
@@ -2737,11 +2737,11 @@ with \(\tilde{\alpha} = \alpha {Q'}^{-1}\). Therefore \(\beta\) is not uniquely 
 %%%%%%
 %%%%% Chapter 24
 
-\subsection{Chapter 24: Impulse Response Analysis}
+\section{Chapter 24: Impulse Response Analysis}
 
 \textbf{Feel ok on concepts, should review and do an example problem.}
 
-\subsubsection{Worked Problems}
+\subsection{Worked Problems}
 
 %%%%%%%%% Chapter 24 Problem 1
 
@@ -2980,7 +2980,7 @@ GI_y(n, \delta_i  = \sqrt{\sigma_{ii}}, \Omega_{t-1}^0) = \frac{e_j'A_n \Sigma e
 %%%%%%
 %%%%% Chapter 33
 
-\subsection{Chapter 33: Theory and Practice of GVAR Modeling}
+\section{Chapter 33: Theory and Practice of GVAR Modeling}
 
 \textbf{Lidan says will not be on final.}
 

@@ -1,4 +1,4 @@
-%\documentclass{article}
+%\documentclass{book}
 %
 %\usepackage{fancyhdr}
 %\usepackage{extramarks}
@@ -147,13 +147,13 @@
 %%%%
 %%%% Probability
 
-\section{Probability}
+\chapter{Probability}
 
 These are my notes from taking Math 505A at USC taught by Sergey Lototsky, Math 541A at USC taught by Steven Heilman, ISE 620 at USC taught by Sheldon Ross (as well as the corresponding textbooks \textit{Introduction to Probability Models} \citep{2014i} and \textit{Stochastic Processes} \citep{ross2008stochastic} by Sheldon Ross) and the textbook \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition \citep{grimmett2001probability}, Math 541B at USC taught by Stanislav Minsker, Statistics 100B at UCLA taught by Nicolas Christou, as well as a few other sources I cite within the text.
 
-\subsection{To Know for Math 505A Midterm 1 (Discrete Random Variables)}
+\section{To Know for Math 505A Midterm 1 (Discrete Random Variables)}
 
-\subsubsection{Definitions}
+\subsection{Definitions}
 
 \begin{definition}The \textbf{probability mass function} of a discrete random variable \(X\) is the function \(f: \mathbb{R} \to [0,1]\) given by \(f(x) = \Pr(X = x)\). \end{definition}
 
@@ -299,7 +299,7 @@ but there are no integers \(n\) and \(m\) such that this is true, since \(\sqrt{
 
 \end{remark}
 
-\subsubsection{Conditioning}
+\subsection{Conditioning}
 
 \begin{definition}The \textbf{conditional distribution function} of \(Y\) given \(X = x\), written \(F_{Y\mid X}( \cdot \mid x)\), is defined by
 
@@ -693,7 +693,7 @@ where the inequality follows since \(X \geq Z\).
 
 %%%%%%%%%% Convolution %%%%%%%%%%
 
-\subsubsection{Convolution}
+\subsection{Convolution}
 
 \begin{theorem}\textbf{Sums of random variables.} If \(X\) and \(Y\) are independent then
 
@@ -791,7 +791,7 @@ Let \(x = y/\sqrt{2}, dx=dy/\sqrt{2}\).
 
 %%%%%%%%%% Compound Random Variables %%%%%%%%%%
 
-\subsubsection{Compound Random Variables}
+\subsection{Compound Random Variables}
 
 \begin{definition}Let \(\{X_i\}\) be i.i.d. random variables. Let \(N\) be a random variable taking on positive integer values. Let
 
@@ -861,7 +861,7 @@ is called a \textbf{compound Poisson random variable.}
 \end{proposition}
 
 %%%%%%% Odds and Ends %%%%%%%%%%
-\subsubsection{Odds and Ends}
+\subsection{Odds and Ends}
 
 \begin{proposition} \label{prob.inex} \textbf{Inclusion-Exclusion Principle:}
 \begin{enumerate}[(a)]
@@ -1044,7 +1044,7 @@ By Proposition \ref{prob.ross1.6.2.most.general}, the number of ways this condit
 \end{proposition}
 
 %%%%%%%%%% Methods for Calculating Quantities %%%%%%%%%
-\subsubsection{Methods for Calculating Quantities}
+\subsection{Methods for Calculating Quantities}
 
 \begin{itemize}
 
@@ -1316,7 +1316,7 @@ Adding together (\ref{prob.ltv.proof.1}) and (\ref{prob.ltv.proof.2}) yields
 
 \end{itemize}
 
-\subsubsection{Discrete Random Variable Distributions}
+\subsection{Discrete Random Variable Distributions}
 
 \textbf{Binomial}: \(\operatorname{Binomial}(n, p)\) (sum of \(n\) Bernoulli random variables)
 
@@ -1331,6 +1331,8 @@ Adding together (\ref{prob.ltv.proof.1}) and (\ref{prob.ltv.proof.2}) yields
 \item Variance: \(\Var(X) = np(1-p) \)
 
 \end{itemize}
+
+For an interesting result relating binomial and Poisson random variables, see Proposition \ref{prob.pois.bin.cond}.
 
 \textbf{Multinomial}: 
 
@@ -1381,16 +1383,89 @@ Therefore the joint probability mass function for \(\boldsymbol{N}\) is
 
 \end{proposition}
 
-\begin{proof} For a Multinoulli random variable, we have 
+\begin{proof} For a Multinoulli random variable (\(\operatorname{Multinomial}(1,p_1, \ldots, p_{r-1})\)) , we have 
 
 \[
-\Cov(N_i, N_j) = \E(N_iN_j) - \E(N_i)\E(N_j) =  0- p_i p_j = \ldots = -p_ip_j
+\Cov(N_i, N_j) = \E(N_iN_j) - \E(N_i)\E(N_j) =  0- p_i p_j  = -p_ip_j
 \]
 
-(where \(\E(N_i)\E(N_j) =0\) because at least one of them must equal 0). Since a multinomial random variable is the sum of \(n\) independent Multinoulli random variables, in the general case we have
+(where \(\E(N_i N_j) =0\) because at least one of them must equal 0). Since a multinomial random variable is the sum of \(n\) independent Multinoulli random variables, in the general case we have
 
 \[
-\Cov(N_i, N_j) = -np_ip_j
+\Cov(N_i, N_j) = -np_ip_j.
+\]
+
+\end{proof}
+
+\begin{proposition} Let \(X= (X_1, \ldots, X_k)\) have multinomial distribution \(\operatorname{Multinomial}(n; \theta_1, \ldots, \theta_k)\). Then the maximum likelihood estimator of \(\theta = (\theta_1, \ldots, \theta_k)\) is 
+
+\[
+ \hat{\theta}^{(mle)} = \begin{bmatrix}
+ \hat{\theta}_1^{(mle)}  \\
+ \vdots \\
+  \hat{\theta}_k^{(mle)} 
+  \end{bmatrix} = \begin{bmatrix}
+x_1/n \\
+  \vdots \\
+ x_k/n
+  \end{bmatrix}.
+\]
+
+\end{proposition}
+
+ \begin{proof} We have for all \(\{X \in \mathbb{Z}_+^k: \sum_{i=1}^k X_i = n\}\)
+
+\[
+\Pr(X = (x_1, \ldots, x_k) ) = \binom{n}{x_1, \ldots,  x_k} \prod_{i=1}^k \theta_i^{x_i} = \frac{n!}{x_1! x_2! \ldots x_k!}\prod_{i=1}^k \theta_i^{x_i} 
+\] 
+
+so the log likelihood is 
+
+\[
+\ell_n(\theta) = \log \left( \frac{n!}{x_1! x_2! \ldots x_k!}\right)  + \sum_{i=1}^k x_i \log(\theta_i) = \log \left( \frac{n!}{x_1! x_2! \ldots x_k!}\right)  + x^T \log(\theta).
+\]
+
+where \(\log(\theta) = (\log(\theta_1), \ldots, \log(\theta_k))\). Then
+
+\[
+\deriv{}{\theta_i} \ell_n(\theta) =  \frac{x_i}{\theta_i}, \qquad i \in [k]
+\]
+
+
+But we have the constraint \(g(\theta) = \sum_{i=1}^k \theta_i = 1\), so we can use Lagrange multipliers to write
+
+\[
+\deriv{}{\theta_i}  g(\theta) = 1 \implies \begin{bmatrix}  
+x_1 / \hat{\theta}_1^{(mle)} \\
+\vdots \\
+x_k / \hat{\theta}_k^{(mle)}
+\end{bmatrix} = \lambda  \begin{bmatrix}  
+1 \\
+\vdots \\
+1
+\end{bmatrix} \iff \begin{bmatrix}
+ \hat{\theta}_1^{(mle)}  \\
+ \vdots \\
+  \hat{\theta}_k^{(mle)} 
+  \end{bmatrix} = \begin{bmatrix}
+  \lambda x_1 \\
+  \vdots \\
+  \lambda x_k
+  \end{bmatrix}
+\]
+
+for some \(\lambda \in \mathbb{R}_+\). Finally, 
+
+\[
+\sum_{i=1}^k \hat{\theta}_i^{(mle)} = 1 \iff \sum_{i=1}^k \lambda x_i = 1 \iff \lambda = \frac{1}{n} \iff  \begin{bmatrix}
+ \hat{\theta}_1^{(mle)}  \\
+ \vdots \\
+  \hat{\theta}_k^{(mle)} 
+  \end{bmatrix} = \begin{bmatrix}
+x_1/n \\
+  \vdots \\
+ x_k/n
+  \end{bmatrix}.
 \]
 
 \end{proof}
@@ -1457,7 +1532,7 @@ X \sim \mathcal{N}(\lambda, \lambda)
 
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prob.pois.bin.cond}
 
 Suppose \(X \sim \operatorname{Poisson}(\mu)\), \(Y \sim \operatorname{Poisson}(\nu)\), with \(X \indep Y\). Then \(\{X \mid X + Y = t\} \sim \operatorname{Bin}(t, \mu/(\mu + \nu))\)
 
@@ -1478,6 +1553,12 @@ where we used Proposition \ref{prob.prop.poisson.indep.sum}  to get \(\{X + Y\} 
 so \(\{X \mid T = t\} \sim \operatorname{Bin}(t, \mu/(\mu + \nu))\). 
 
 \end{proof}
+
+\begin{remark}
+
+A similar result exists when a sum of three or more Poisson random variables is known; the conditional distribution is multinomial.
+
+\end{remark}
 
 \textbf{Geometric}:  \(\operatorname{G}_1(p)\): the number of Bernoulli trials before the first success.
 
@@ -1602,7 +1683,7 @@ Let \(Z_i\) be an indicator variable for the \(i\)th selected item to be special
 \end{proof}
 
 
-\subsubsection{Indicator Method}
+\subsection{Indicator Method}
 
 \begin{proposition} If \(\boldsymbol{1}_{A_k}\) is an indicator then
 
@@ -1629,9 +1710,9 @@ Example problems: 505A Homework 3 problem 9(a)
 
 Worked examples in p. 56 - 59 of Grimmett and Stirzaker 3rd edition.
 
-\subsubsection{Linear transformations of random variables}
+\subsection{Linear transformations of random variables}
 
-\subsubsection{Poisson Paradigm (Poisson approximation for indicator method)}\label{prob.poisson.paradigm}
+\subsection{Poisson Paradigm (Poisson approximation for indicator method)}\label{prob.poisson.paradigm}
 
 \begin{theorem} (Theorem 4.12.9, p. 129 of Grimmett and Stirzaker.) Let \(A_i\) be an event. If \(X = \sum_{i=1}^m \boldsymbol{1}_{A_i}\) where \(\boldsymbol{1}_{A_i}\) is an indicator variable for \(A_i\), and the \(A_i\) are only weakly dependent on each other, then 
 
@@ -1709,7 +1790,7 @@ so again we see that for large \(n\) we approximately have \(P_n \sim \operatorn
 
 \end{solution}
 
-\subsubsection{Asymptotic Distributions}
+\subsection{Asymptotic Distributions}
 
 \begin{proposition}
 \[
@@ -1731,9 +1812,9 @@ That is,
 \end{theorem}
 
 %%%%%%%% Example Problems That Will Likely Appear on Midterm (and Final) %%%%%%%%%%%%%
-\subsection{Worked problems}
+\section{Worked problems}
 
-\subsubsection{Example Problems That Will Likely Appear on Midterm (and Final)}
+\subsection{Example Problems That Will Likely Appear on Midterm (and Final)}
 
 \begin{enumerate}[(1)]
 
@@ -2103,7 +2184,7 @@ Note that \(\E(Y) = \E(X) + \E(\boldsymbol{1}_{\{A_i\}})\) because if the permut
 %%%%%%%%%%% Problems we did in class that professor mentioned %%%%%%%%%%%%
 
 
-\subsubsection{Problems we did in class that professor mentioned}
+\subsection{Problems we did in class that professor mentioned}
 
 \textbf{(Fall 2014 Problem 1) (Variation of Midterm problem 1 above)} Let \(A\) and \(B\) be two events with \(0 < \Pr(A) < 1, \ 0 < \Pr(B) < 1\). Define the random variables \(\xi = \xi(\omega)\) and \(\eta = \eta(\omega)\) by
 
@@ -2471,7 +2552,7 @@ Therefore
 %
 %%%%%%%%%%% Problems we did on homework %%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Problems we did on homework}
+\subsection{Problems we did on homework}
 
 \textbf{Fall 2017 Problem 2 (Homework 3 Problem 6).} An urn contains \(2n\) balls, coming in pairs: two balls are labeled ``1", two balls are labeled ``2", ..., two balls are labeled ``\(n\)". A sample of size \(n\) is taken without replacement. Denote by \(N\) the number of pairs in the sample. Compute the expected value and the variance of \(N\). \textbf{You do not need to simplify the expression for the variance.}
 
@@ -3693,7 +3774,7 @@ Note that all of these possibilities are mutually exclusive. Therefore the total
 
 \end{enumerate}
 
-\subsubsection{DSO Statistics Group Screening Exam Problems}
+\subsection{DSO Statistics Group Screening Exam Problems}
 
 \begin{exercise}[\textbf{2017 DSO Statistics Group In-Class Screening Exam, Question 1}]
 
@@ -3990,10 +4071,10 @@ Let \(u = 1 - p + tp \implies du = p \ dt\) and \(t = (u + p - 1)/p\). Then we c
 %
 %
 
-\subsection{To Know for Math 505A Midterm 2}
+\section{To Know for Math 505A Midterm 2}
 
 %%%%%%%% Definitions 
-\subsubsection{Definitions}
+\subsection{Definitions}
 
 \begin{definition} A random variable \(X\) is \textbf{continuous} if its distribution function \(F(x) = \Pr(X \leq x)\) can be written as 
 
@@ -4114,8 +4195,28 @@ Apply the Cauchy-Schwarz Inequality (Theorem \ref{asym.cauchy.schwarz})  to \(X 
 
 \end{proof}
 
-\begin{theorem} \textbf{(Stein identity.)}\label{prob.stein.id} Let $X$ be a standard Gaussian random variable, so that $X$ has density $x\to e^{-x^{2}/2}/\sqrt{2\pi}$, $\forall$ $x\in\mathbb{R}$.  Let $g : \mathbb{R}\to\mathbb{R}$ be a continuously differentiable function such that $g$ and $g'$ have polynomial volume growth.  That is, $\exists$ $a,b>0$ such that $|{g(x)}|,|g'(x)|\leq a(1+|x|)^{b}$, $\forall$ $x\in\mathbb{R}$. Then 
-$$\E Xg(X)=\E g'(X).$$
+%\begin{theorem} \textbf{(Stein identity or Stein's Lemma.)}\label{prob.stein.id} Let $X$ be a standard Gaussian random variable, so that $X$ has density $x\to e^{-x^{2}/2}/\sqrt{2\pi}$, $\forall$ $x\in\mathbb{R}$.  Let $g : \mathbb{R}\to\mathbb{R}$ be a continuously differentiable function such that $g$ and $g'$ have polynomial volume growth.  That is, $\exists$ $a,b>0$ such that $|{g(x)}|,|g'(x)|\leq a(1+|x|)^{b}$, $\forall$ $x\in\mathbb{R}$. Then 
+%$$\E Xg(X)=\E g'(X).$$
+%
+%\end{theorem}
+%
+%
+%\begin{proof}Examining the left side, we have
+%
+%\[
+%\E(X g(X)) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty x g(x)  e^{-x^2/2} dx
+%\]
+%
+%We will use integration by parts with \(u = g(x) \implies du = g'(x)dx, \ \ dv = xe^{-x^2/2} dx \implies v = -e^{-x^2/2}\) to yield the result:
+%
+%\[
+%\E(X g(X)) = -g(x)e^{-x^2/2} + \int_{-\infty}^\infty g'(x) e^{-x^2/2} dx = \E(g'(X)).
+%\]
+%
+%\end{proof}
+
+\begin{theorem} \textbf{(Stein identity or Stein's Lemma.)}\label{prob.stein.id} Let $X \sim \mathcal{N}(\mu, \sigma^2)$.  Let $g : \mathbb{R}\to\mathbb{R}$ be a continuously differentiable function such that $g$ and $g'$ have polynomial volume growth.  That is, $\exists$ $a,b>0$ such that $|{g(x)}|,|g'(x)|\leq a(1+|x|)^{b}$, $\forall$ $x\in\mathbb{R}$. Then 
+$$\E[ (X - \mu) g(X)] = \sigma^2\E g'(X).$$
 
 \end{theorem}
 
@@ -4123,20 +4224,21 @@ $$\E Xg(X)=\E g'(X).$$
 \begin{proof}Examining the left side, we have
 
 \[
-\E(X g(X)) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty x g(x)  e^{-x^2/2} dx
+\E[ (X - \mu) g(X)]  = \frac{1}{\sqrt{2 \pi \sigma^2}} \int_{-\infty}^\infty (x-\mu) g(x)  e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx
 \]
 
-We will use integration by parts with \(u = g(x) \implies du = g'(x)dx, \ \ dv = xe^{-x^2/2} dx \implies v = -e^{-x^2/2}\) to yield the result:
+We will use integration by parts with \(u = g(x) \implies du = g'(x)dx, \ \ dv = (x-\mu) \exp \left( -\frac{(x-\mu)^2}{2\sigma^2} \right)  dx \implies v = - \sigma^2 \exp \left( -\frac{(x-\mu)^2}{2\sigma^2} \right)\) to yield the result:
 
-\[
-\E(X g(X)) = -g(x)e^{-x^2/2} + \int_{-\infty}^\infty g'(x) e^{-x^2/2} dx = \E(g'(X)).
-\]
+\begin{align*}
+\E[ (X - \mu) g(X)]  & =  \frac{1}{\sqrt{2 \pi \sigma^2}}  \left( \left[ -g(x) \cdot  - \sigma^2 \exp \left( -\frac{(x-\mu)^2}{2\sigma^2} \right) \right]_{-\infty}^\infty + \sigma^2  \int_{-\infty}^\infty g'(x)  \exp \left( -\frac{(x-\mu)^2}{2\sigma^2} \right) dx \right)
+\\ & = 0 + \sigma^2 \E(g'(X)).
+\end{align*}
 
 \end{proof}
 
-\textbf{Example.} Using Theorem \ref{prob.stein.id}, recursively compute $\E X^{k}$ for any positive integer $k$. Alternatively, for any $t>0$, show that $\E e^{tX}=e^{t^{2}/2}$, i.e. compute the \textbf{moment generating function} of $X$.  Then, using $\frac{d^{k}}{dt^{k}}|_{t=0}\E e^{tX}=\E X^{k}$ and using the power series expansion of the exponential, compute $\E X^{k}$ directly from the identity $\E e^{tX}=e^{t^{2}/2}$.
+\begin{example} Using Theorem \ref{prob.stein.id}, recursively compute $\E X^{k}$ for any positive integer $k$. Alternatively, for any $t>0$, show that $\E e^{tX}=e^{t^{2}/2}$, i.e. compute the \textbf{moment generating function} of $X$.  Then, using $\frac{d^{k}}{dt^{k}}|_{t=0}\E e^{tX}=\E X^{k}$ and using the power series expansion of the exponential, compute $\E X^{k}$ directly from the identity $\E e^{tX}=e^{t^{2}/2}$.
 
-\textbf{Solution.} We can use this result to recursively calculate \(\E(X^k)\) for any positive integer \(k\). Suppose we have \(\E(X^{k-1})\). Letting \(g(X) = X^{k-1} \implies g'(X) = (k-1)X^{k-2}\), we have 
+\begin{solution} We can use this result to recursively calculate \(\E(X^k)\) for any positive integer \(k\). Suppose we have \(\E(X^{k-1})\). Letting \(g(X) = X^{k-1} \implies g'(X) = (k-1)X^{k-2}\), we have 
 
 \[
 \E(X^k) = \E(X \cdot X^{k-1}) = \E(X g(X)) = \E(g'(X)) \iff \boxed{\E(X^k) = (k-1)\E(X^{k-2})}.
@@ -4155,9 +4257,12 @@ Since \(X \sim \mathcal{N}(0,1)\), we have \(\E(X)=0, \ \ \E(X^2) = \Var(X) + \E
  \prod_{i=1}^{k/2} (k-(2i-1))  & k \text{ is even} \end{cases}}
 \]
 
+\end{solution}
+
+\end{example}
 
 
-\subsubsection{Probability-Generating Functions}
+\subsection{Probability-Generating Functions}
 
 \begin{definition}
 
@@ -4178,7 +4283,7 @@ G_X(s) = \E(s^X)
 \end{enumerate}
 \end{theorem}
 
-\subsubsection{Moment-Generating Functions}
+\subsection{Moment-Generating Functions}
 
 \begin{definition}
 
@@ -4214,7 +4319,7 @@ M_{X_1 + X_2 + \ldots + X_n}(t)  = \E \exp \bigg(t \sum_{i=1}^n X_i \bigg) =  \E
 \end{enumerate}
 \end{proof}
 
-\subsubsection{Characteristic Functions}
+\subsection{Characteristic Functions}
 
 \begin{definition}
 
@@ -4296,7 +4401,7 @@ f(x) = \frac{1}{2\pi} \int_{-\infty}^\infty \exp(-itx) \phi(t) dt
 \end{enumerate}
 \end{theorem}
 
-\subsubsection{Continuous Random Variable Distributions}
+\subsection{Continuous Random Variable Distributions}
 
 
 %%%%%%%%% Uniform %%%%%%%%%%%%%%
@@ -4377,6 +4482,47 @@ M_X(t) = \E(\exp(tX)) = \int_a^b \frac{1}{b-a} \cdot \exp(tx) dx = \frac{1}{b-a}
 = 1 - e^{- y}
 \]
 which is the cdf for an exponential distribution with mean 1.
+\end{proof}
+
+\begin{proposition}
+
+Let \(X_1, \ldots, X_n\) be i.i.d. random variables with \(X_1 \sim \operatorname{Unif}(0,1)\). Then the pdf of \(Q = \prod_{i=1}^n X_i\) is \(f_Q(y) =  \frac{(- \log y)^{n - 1} }{(n-1)!} \).
+
+\end{proposition}
+
+\begin{proof}
+
+By Proposition \ref{prob.log.unif.exp}, \(- \log(X_i) \sim \operatorname{Exponential}(1)\) for all \(i \in [n]\). By Corollary \ref{prob.gammasum.cor.exp}, 
+
+\begin{align*}
+& \sum_{i=1}^n -\log(X_i) \sim \operatorname{Gamma}(n, 1)
+\\ \iff \qquad &  -\log \left(\prod_{i=1}^nX_i \right ) \sim \operatorname{Gamma}(n, 1)
+\end{align*}
+
+That is, \( -\log \left(\prod_{i=1}^nX_i \right)\) has pdf 
+
+\[
+f(x)  = \frac{1}{1^n\Gamma(n)} x^{n - 1} e^{-x/1}  = \frac{1}{(n-1)!} x^{n - 1} e^{-x}.  
+\]
+
+So for all \(t \geq0\),
+
+\begin{align*}
+\mathbb{P}\left(  -\log \left(\prod_{i=1}^nX_i \right) \geq t\right)  & = \int_t^\infty\frac{1}{(n-1)!} x^{n - 1} e^{-x}dx
+\\ \iff \qquad \mathbb{P}\left(  \log \left(\prod_{i=1}^nX_i \right) \leq -t\right)  & = \int_t^\infty\frac{1}{(n-1)!} x^{n - 1} e^{-x}dx
+\\ \iff \qquad \mathbb{P}\left(  \prod_{i=1}^nX_i  \leq e^{-t}\right)  & = \int_t^\infty\frac{1}{(n-1)!} x^{n - 1} e^{-x}dx
+\\ \iff \qquad \mathbb{P}\left(  Q  \leq y \right)  & = \int_{-\log y}^\infty\frac{1}{(n-1)!} x^{n - 1} e^{-x}dx
+\\ \iff \qquad F_Q(y)  & = 1 - \int_{0}^{-\log y} \frac{1}{(n-1)!} x^{n - 1} e^{-x}dx
+\end{align*}
+
+where \(e^{-t} = y \iff t = -\log(y)\) (so \(y \in (0,1]\)). Finally, the pdf of \(Q\) is
+
+\begin{align*}
+\pderiv{F_Q(y)}{y} & = \pderiv{}{y} \left(  1 - \int_{0}^{-\log y} \frac{1}{(n-1)!} x^{n - 1} e^{-x}dx \right)
+\\ & =   - \left( \frac{1}{(n-1)!} (- \log y)^{n - 1} e^{\log y } \right)\cdot \frac{-1}{y}
+\\ & =   \frac{(- \log y)^{n - 1} }{(n-1)!} 
+\end{align*}
+
 \end{proof}
 
 \textbf{Normal} (or \textbf{Gaussian}): \(\mathcal{N}(\mu, \sigma^2)\)
@@ -4778,6 +4924,26 @@ Then use \(\Var(X) = \E(X^2) - \E(X)^2\) to yield the result.
 
 \end{remark}
 
+\begin{corollary}[\textbf{Corollary to Proposition \ref{prob.gammasum}}]\label{prob.gammasum.cor.exp}
+
+Let \(X_1, \ldots, X_n\) be i.i.d. \(\operatorname{Exponential}(\beta)\). Then 
+
+\[
+\sum_{i=1}^n X_i \sim \operatorname{Gamma} \left(  n, 1/\lambda \right) = \operatorname{Gamma} \left(  n, \beta \right).
+\]
+
+\end{corollary}
+
+\begin{proof}
+
+Since \(X_i \sim \operatorname{Exponential}(\beta) = \operatorname{Gamma}(1, \beta)\), by Proposition \ref{prob.gammasum} we have
+
+\[
+\sum_{i=1}^n X_i \sim \operatorname{Gamma} \left( \sum_{i=1}^n 1, \beta \right) =  \operatorname{Gamma} \left( n, \beta \right).
+\] 
+
+\end{proof}
+
 For much more on exponential random variables, see Section \ref{prob.exp.rand.vars}.
 
 \textbf{Cauchy}: 
@@ -5036,7 +5202,7 @@ f_{(X/p)/(Y/q)}(t) = \frac{p}{q} f_{X/Y}\bigg( \frac{p}{q} t \bigg) =   \frac{p}
 
 \end{itemize}
 
-\subsubsection{More on Exponential Random Variables}\label{prob.exp.rand.vars}
+\subsection{More on Exponential Random Variables}\label{prob.exp.rand.vars}
 
 \begin{remark}
 Recall Proposition \ref{prob.log.unif.exp}: If \(X \sim U(0, 1)\), then \(Y = - \log(X) \sim \operatorname{Exponential}(1)\). 
@@ -5277,7 +5443,7 @@ where \(Z \sim \operatorname{Exponential}(\sum_{j \neq i} \lambda_j\). So by the
 \end{proof}
 
 
-\subsubsection{Multivariate Gaussian (Normal) Distributions}
+\subsection{Multivariate Gaussian (Normal) Distributions}
 
 \begin{definition} From \url{http://pluto.huji.ac.il/~pchiga/teaching/MathStat/SIAnotes2013.pdf} (definition 2b6): A random vector \(X = (X_1, X_2)\) is Gaussian with mean \(\mu = (\mu_1, \mu_2)\) and the covariance matrix
 
@@ -5440,7 +5606,7 @@ Then (a) for any \(a > 0\), \(Y \sim \mathcal{N}(0,1)\), (b) \(\exists a > 0\) s
 
 \end{example}
 
-\subsection{Exponential Families}\label{prob.sec.exp.fams}
+\section{Exponential Families}\label{prob.sec.exp.fams}
 
 (For more notes, see Section \ref{linreg.glm} on generalized linear models.)
 
@@ -5624,7 +5790,7 @@ So the natural parameter \(\eta\) is \(\log \mu\), the normalizing function \(\p
 
 \end{solution}
 
-\subsubsection{Differential identities (Generalization of Moment-Generating Functions)} Recall that the moment-generating function for a Gaussian random variable is 
+\subsection{Differential identities (Generalization of Moment-Generating Functions)} Recall that the moment-generating function for a Gaussian random variable is 
 \[
 \E(e^{tX}) = e^{t^2/2} \ \ \ \forall t \in \mathbb{R}
 \]
@@ -5926,7 +6092,7 @@ Left side:
 
 
 
-\subsection{KL Divergence (DSO 607)}\label{prob.kl.divergence}
+\section{KL Divergence (DSO 607)}\label{prob.kl.divergence}
 
 Let \(f(\cdot \mid \theta): \mathbb{R}^k \to \mathbb{R}^n\) be a family of parameterized probability densities with \(\theta \in \Theta\). Suppose the true model is parameterized by \(\theta_0 \in \mathbb{R}^s\), and we are interested in comparing a different model parameterized by \(\theta \in \mathbb{R}^k\) to this model. The likelihood ratio \(\tau: \mathbb{R}^n \to \mathbb{R}\) defined by \(\tau(x; \theta, \theta_0) := f(x \mid \theta)/f(x \mid \theta_0)\) is a good tool for this comparison. Define the \textbf{discrimination} between \(\theta\) and \(\theta_0\) at \(x\) to be \(\Phi(\tau(x; \theta, \theta_0))\) for some function \(\Phi: \mathbb{R} \to \mathbb{R}\), and define the \textbf{mean discrimination} \(D(\theta; \theta_0): \mathbb{R}^k \to \mathbb{R}\) between \(\theta\) and \(\theta_0\) as
 
@@ -5936,12 +6102,22 @@ D(\theta; \theta_0) := \int_{\mathbb{R}^n} \Phi(\tau(x; \theta, \theta_0)) \cdot
 
 To choose \(\Phi\) so that \(D(\theta; \theta_0)\) behaves like a distance, we would like \(\Phi(1) = 0\) since this covers the case where \(\theta = \theta_0\), because under the assumption that \(f(x \mid \theta) = f(x \mid \theta_0) \ \forall x \in \mathbb{R}^n \iff \theta = \theta_0\), we have \(\tau(x; \theta, \theta_0) = 1 \ \forall x \in \mathbb{R}^n  \iff \theta = \theta_0\). In particular, we would like this to be the minimum of the function; that is, \(\tau''(1; \theta, \theta_0) > 0\). Lastly, we would also like \(\tau'(x; \theta, \theta_0) > 0 \ \forall x \in \mathbb{R}^n\). One such choice is \(\Phi(t) := - 2 \log (t)\). This yields the \textbf{Kullback-Leibler (KL) divergence} \(I(\theta; \theta_0) : \mathbb{R}^k \to \mathbb{R}\)
 
-\[
-I(\theta; \theta_0) := -2\int_{\mathbb{R}^n} \log \left( \frac{f(x \mid \theta)}{f(x \mid \theta_0)} \right) \cdot f(x \mid \theta_0) \ dx = 2\int_{\mathbb{R}^n} \left[ \log \left( f(x \mid \theta_0) \right) - \log \left( f(x \mid \theta) \right) \right]\cdot f(x \mid \theta_0) \ dx \]
+\begin{multline*}
+I(\theta; \theta_0) = D(\theta_0, \theta) := -2\int_{\mathbb{R}^n} \log \left( \frac{f(x \mid \theta)}{f(x \mid \theta_0)} \right) \cdot f(x \mid \theta_0) \ dx 
+\\ = 2\int_{\mathbb{R}^n} \left[ \log \left( f(x \mid \theta_0) \right) - \log \left( f(x \mid \theta) \right) \right]\cdot f(x \mid \theta_0) \ dx  = 2\E_{\theta_0} \left[ \log \left( f(X \mid \theta_0) \right) \right] - 2 \E_{\theta_0} \left[ \log \left( f(X \mid \theta) \right) \right]
+\\  = 2 \E_{\theta_0} \log \left(  \frac{f_{\theta_0}(X) }{f_{\theta}(X)} \right) .
+\end{multline*}
 
-\[
-= 2\E_{\theta_0} \left[ \log \left( f(X \mid \theta_0) \right) \right] - 2 \E_{\theta_0} \left[ \log \left( f(X \mid \theta) \right) \right].
-\]
+Note that it is non-symmetric. It is also non-negative. It equals the expected likelihood ratio. Used in information theory; mutual information relation. 
+
+
+\begin{definition}[\textbf{Mutual information; from GSBA 604}]
+
+Suppose we have two independent variables \(X\) and \(Y\). If they are independent, we have \(P_{(X,Y)} = P_X \cdot P_Y\). Then the \textbf{mutual information} between \(X\) and \(Y\) is \(D(P_{(X, Y)}, P_X \cdot P_Y)\). 
+
+\end{definition}
+
+Also, the \textbf{entropy} of \(X\) with density \(f\) is equal to \(\int f(x) \log f(x) \ dx = \E_X \log (f(x))\). 
 
 Of course, in practice we will estimate \(\theta_0\) as best as we can, by maximizing the \textbf{probabilistic negentropy}
 
@@ -5961,6 +6137,24 @@ I(g; f) = \int[\log g(x) ] g(z) dz - \int [\log f(x)] g(z) dz = \E_g \log(g(z)) 
 
 \
 
+\textbf{GSBA 604:} Notice that for exponential families,
+
+\begin{multline*}
+ \frac{1}{2} D(\theta_0, \theta) = (\theta_0 - \theta) \E_{\theta_0}(X) - [ \psi(\theta_0) - \psi(\theta)] = (\theta_0 - \theta) \deriv{}{\theta_0} \psi(\theta_0)  - [ \psi(\theta_0) - \psi(\theta)] 
+ \\ \implies \psi(\theta_0) + [ \theta - \theta_0]  \deriv{}{\theta_0} \psi(\theta_0) +  \frac{1}{2} D(\theta_0, \theta) = \psi(\theta).
+\end{multline*}
+
+where \( \E_{\theta_0}(X)  = \deriv{}{\theta_0} \psi(\theta_0) = \mu(\theta_0)\). For a visual image of this formula, see Figure \ref{linreg.kl.div.gsba604} (similar figure in p. 16 of exponential family notes).
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.15]{linreg_kl_div_gsba604}
+\caption{Photo of KL divergence (with different notation; \(\theta_0 = \eta_1\), \(\theta = \eta_2\)).}
+\label{linreg.kl.div.gsba604}
+\end{center}
+\end{figure}
+
+
 One application of KL Divergence is AIC for model selection; see Section \ref{linreg.aic.bic}. See also Section \ref{mathstats.sec.mle}.
 
 %
@@ -5971,9 +6165,9 @@ One application of KL Divergence is AIC for model selection; see Section \ref{li
 %
 %
 %%%%%%%%%%%% Example Problems That Will Likely Appear on Midterm (and Final) %%%%%%%%%%%%%
-\subsection{Worked problems}
+\section{Worked problems}
 
-\subsubsection{Example Problems That Will Likely Appear on Midterm (and Final)}
+\subsection{Example Problems That Will Likely Appear on Midterm (and Final)}
 
 %Note: All problems will be from quals from last ten years. Two problems are from homework 4, and three are from homework 6. The stick-breaking problem won't appear. Won't need to come up with counterexamples. All 5 problems will be computations.
 %
@@ -6326,7 +6520,7 @@ T_n \sim \mathcal{N}(404, 1616) \implies \Pr(T_{101} < 365) \approx \Pr \bigg(\m
 %
 %
 %%%%%%%%% More Problems From Homework
-\subsubsection{More Problems From Homework}
+\subsection{More Problems From Homework}
 
 %%%%%%%%%%% HW 5 P 7 %%%%%%%%%%%%%%
 
@@ -6706,7 +6900,7 @@ F_U(u)=\int_0^\infty f_Z(z) \int_{-\infty}^{uz} f_W(w) dw dz - \int_{-\infty}^0 
 
 \end{solution}
 
-\subsection{Random Matrix Theory}
+\section{Random Matrix Theory}
 
 \begin{definition}[\textbf{Wigner-type random matrix}]
 
@@ -6790,7 +6984,7 @@ Bulk Universality Conjecture: Gap distribution for the bulk eigenvalues for a la
 
 \textbf{Universality Conjecture (Wigner-Dyson-Mehta):} bulk eigenvalue statistics are universal, depending only on the symmetry class of the matrix ensemble, regardless of the distribution of individual matrix entries. Proven by Erdos, Yau, and Tau and Vu (under 4th moment condition)
 
-\subsubsection{Large Deviation Theory}
+\subsection{Large Deviation Theory}
 
 
 Wigner-type matrix \(H\). Let the eigenvalues be \(\lambda_1, \ldots, \lambda_n \in \mathbb{R}\). Suppose we normalize \(H\) by dividing it by the square root of \(n\); that is, let \(H_1 = H/\sqrt{n}\). Define a measure
@@ -7100,7 +7294,7 @@ A = U \Sigma V^T
 
 where \(U U^T = I_n\), \(V V^T = I_m\), and \(\Sigma \) is a diagonal matrix with diagonal entries equal to the singular values. 
 
-\subsubsection{Band Matrix}
+\subsection{Band Matrix}
 
 \(n \times n\) random matrix with bandwidth \(w\). \(H_{ij} \neq 0 \implies | i - j| \leq w\). Let \(w = n^a\) for \(0 < a < 1\). We have for the nonzero entries, \(H_{ij} = \pm 1\), \(\E H_{ij} = 0, \E H_{ij}^2 = 1\).
 
@@ -7181,7 +7375,7 @@ Note that \(\tilde{S}_n^n = S_n\) and \(\tilde{S}_n^0 = S_n^G\). We can express 
 
 \end{enumerate}
 
-\subsubsection{Subgaussian Random Variable}
+\subsection{Subgaussian Random Variable}
 
 \(g \sim \mathcal{N}(0,1)\), \(t \to \frac{1}{\sqrt{2 \pi}} \exp(-t^2/2)\). Fact
 
@@ -7334,7 +7528,7 @@ Note
 
 \end{proof}
 
-\subsubsection{Topic 1: Invertibility of Matrices}
+\subsection{Topic 1: Invertibility of Matrices}
 
 \textbf{Very tall case:} Suppose \(A \in \mathbb{R}^{n \times m}\), with \(n \gg m\). Entries \(a_{ij}\) are independent with \(\E a_{ij} = 0\), \(\E a_{ij}^2 = 1\), and \(\lVert a_{ij} \rVert_\Psi \leq \kappa\). A left inverse of \(A\), \(A^+\) exists if the smallest singular value of \(A\) is positive; that is, \(\delta_m(A) > 0\). Then the columns of \(A\) span \(\mathbb{R}^m\), and there exists a matrix \(A^+\) such that \(A^+A = I_m\).
 
@@ -7484,7 +7678,7 @@ which proves the statement for \(p =  \frac{(1-\lambda)^2}{K} \).
 
 \end{proof}
 
-\subsubsection{Random Graphs}
+\subsection{Random Graphs}
 
 \begin{enumerate}
 
@@ -7554,6 +7748,6 @@ o(1) = \mathbb{P}(A \text{ is not true}) \geq \mathbb{P}(\mathcal{G} \text{ is s
 %\bibliographystyle{abbrvnat}
 %\bibliography{mybib2fin}
 %\end{document}
-%
+
 
 

@@ -1,5 +1,62 @@
-\BOOKMARK [1][-]{section.1}{Statistical Learning}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Math 547}{section.1}% 2
-\BOOKMARK [3][-]{subsubsection.1.1.1}{Perceptron Algorithm}{subsection.1.1}% 3
-\BOOKMARK [3][-]{subsubsection.1.1.2}{Mercer's Theorem}{subsection.1.1}% 4
-\BOOKMARK [2][-]{subsection.1.2}{Norms}{section.1}% 5
+\BOOKMARK [0][-]{chapter.1}{Statistical Learning}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Segmented regression, local regression, splines}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{Local Regression}{section.1.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.2}{Curse of Dimensionality \(brief discussion\)}{section.1.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Dimension Reduction methods}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.2.1}{Principal components regression}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.2}{Partial least squares}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.3}{Dimension reduction by random matrix}{section.1.2}% 8
+\BOOKMARK [1][-]{section.1.3}{Goodness of fit, residuals, residual diagnostics, leverage}{chapter.1}% 9
+\BOOKMARK [2][-]{subsection.1.3.1}{Residual diagnostics}{section.1.3}% 10
+\BOOKMARK [1][-]{section.1.4}{DSO 607}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.4.1}{Akaike Information Criterion \(AIC\)}{section.1.4}% 12
+\BOOKMARK [2][-]{subsection.1.4.2}{Bayesian Information Criterion \(BIC\)}{section.1.4}% 13
+\BOOKMARK [1][-]{section.1.5}{Ridge Regression}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.6}{Lasso}{chapter.1}% 15
+\BOOKMARK [2][-]{subsection.1.6.1}{Soft Thresholding}{section.1.6}% 16
+\BOOKMARK [2][-]{subsection.1.6.2}{Lasso theory}{section.1.6}% 17
+\BOOKMARK [2][-]{subsection.1.6.3}{Non-Negative Garotte}{section.1.6}% 18
+\BOOKMARK [2][-]{subsection.1.6.4}{LARS\204Preliminaries and Intuition}{section.1.6}% 19
+\BOOKMARK [2][-]{subsection.1.6.5}{LARS}{section.1.6}% 20
+\BOOKMARK [1][-]{section.1.7}{Loss Functions}{chapter.1}% 21
+\BOOKMARK [2][-]{subsection.1.7.1}{Feature Selection properties}{section.1.7}% 22
+\BOOKMARK [1][-]{section.1.8}{Dantzig Selector}{chapter.1}% 23
+\BOOKMARK [1][-]{section.1.9}{Coordinate Descent}{chapter.1}% 24
+\BOOKMARK [1][-]{section.1.10}{Total Variational Distance}{chapter.1}% 25
+\BOOKMARK [1][-]{section.1.11}{Non-parametric regression}{chapter.1}% 26
+\BOOKMARK [2][-]{subsection.1.11.1}{Generalized additive models}{section.1.11}% 27
+\BOOKMARK [1][-]{section.1.12}{Mixture regression}{chapter.1}% 28
+\BOOKMARK [1][-]{section.1.13}{Missing observations}{chapter.1}% 29
+\BOOKMARK [1][-]{section.1.14}{Generalized linear models}{chapter.1}% 30
+\BOOKMARK [2][-]{subsection.1.14.1}{Regression models}{section.1.14}% 31
+\BOOKMARK [2][-]{subsection.1.14.2}{Applications\204Categorical Data}{section.1.14}% 32
+\BOOKMARK [2][-]{subsection.1.14.3}{Applications\204Continuous Data}{section.1.14}% 33
+\BOOKMARK [1][-]{section.1.15}{Mixed Effects Models}{chapter.1}% 34
+\BOOKMARK [1][-]{section.1.16}{Miscellaneous Topics}{chapter.1}% 35
+\BOOKMARK [2][-]{subsection.1.16.1}{Multinomial Response}{section.1.16}% 36
+\BOOKMARK [2][-]{subsection.1.16.2}{Zero-inflated response}{section.1.16}% 37
+\BOOKMARK [2][-]{subsection.1.16.3}{Overdispersion}{section.1.16}% 38
+\BOOKMARK [1][-]{section.1.17}{Generalized linear mixed models}{chapter.1}% 39
+\BOOKMARK [2][-]{subsection.1.17.1}{Longitudinal data analysis and Generalized Estimating Equations}{section.1.17}% 40
+\BOOKMARK [1][-]{section.1.18}{Causal Inference}{chapter.1}% 41
+\BOOKMARK [2][-]{subsection.1.18.1}{Factorial Design \(see R lab 7\)}{section.1.18}% 42
+\BOOKMARK [1][-]{section.1.19}{Math 547}{chapter.1}% 43
+\BOOKMARK [2][-]{subsection.1.19.1}{Perceptron Algorithm}{section.1.19}% 44
+\BOOKMARK [2][-]{subsection.1.19.2}{Mercer's Theorem}{section.1.19}% 45
+\BOOKMARK [1][-]{section.1.20}{Norms}{chapter.1}% 46
+\BOOKMARK [1][-]{section.1.21}{Collaborative Filtering and Trace Regression \(Math 541B\)}{chapter.1}% 47
+\BOOKMARK [2][-]{subsection.1.21.1}{Trace Regression}{section.1.21}% 48
+\BOOKMARK [1][-]{section.1.22}{Dynamic Programming}{chapter.1}% 49
+\BOOKMARK [2][-]{subsection.1.22.1}{Introduction to Dynamic Programming and Principle of Optimality \(Sections 1.1 - 1.3 of v1bertsekas2012dynamic \)}{section.1.22}% 50
+\BOOKMARK [2][-]{subsection.1.22.2}{State Augmentation and Other Reformulations \(Section 1.4 of v1bertsekas2012dynamic\)}{section.1.22}% 51
+\BOOKMARK [2][-]{subsection.1.22.3}{Inventory Control \(Section 3.2 of v1bertsekas2012dynamic \)}{section.1.22}% 52
+\BOOKMARK [2][-]{subsection.1.22.4}{Capacity Allocation and Revenue Management}{section.1.22}% 53
+\BOOKMARK [2][-]{subsection.1.22.5}{Optimal Stopping \(Section 3.4 of v1bertsekas2012dynamic\)}{section.1.22}% 54
+\BOOKMARK [2][-]{subsection.1.22.6}{Infinite Horizon \(Sections 1.2, 1.5 and 2.1 of v2bertsekas2012dynamic; starts on p. 210 of pdf for Volume 3\)}{section.1.22}% 55
+\BOOKMARK [2][-]{subsection.1.22.7}{Value Iterations and Policy Iterations \(Sections 2.2 and 2.3 of v2bertsekas2012dynamic; starts on p. 210 of pdf for Volume 3\)}{section.1.22}% 56
+\BOOKMARK [2][-]{subsection.1.22.8}{Scheduling and Multiarmed Bandit Problems \(Section 1.3 of v2bertsekas2012dynamic\)}{section.1.22}% 57
+\BOOKMARK [2][-]{subsection.1.22.9}{Approximate DP: Q-Learning \(Section 6.3.3 of v1bertsekas2012dynamic, Sections 2.2.3, 2.5.3, and 6.1 - 6.6.1 of v2bertsekas2012dynamic\)}{section.1.22}% 58
+\BOOKMARK [2][-]{subsection.1.22.10}{Optimal Stopping \(Section 6.6.4 of v2bertsekas2012dynamic, p. 504\)}{section.1.22}% 59
+\BOOKMARK [1][-]{section.1.23}{Notes on Mathieu2019}{chapter.1}% 60
+\BOOKMARK [2][-]{subsection.1.23.1}{Notation}{section.1.23}% 61
+\BOOKMARK [2][-]{subsection.1.23.2}{Section 1}{section.1.23}% 62

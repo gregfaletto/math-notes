@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -23,6 +23,22 @@ A.~Antoniadis and J.~Fan.
 \newblock URL
   \url{https://www.tandfonline.com/action/journalInformation?journalCode=uasa20}.
 
+\bibitem[Bertsekas(2012{\natexlab{a}})]{v1_bertsekas2012dynamic}
+D.~Bertsekas.
+\newblock \emph{Dynamic Programming and Optimal Control}.
+\newblock Number v. 1 in Athena Scientific optimization and computation series.
+  Athena Scientific, 2012{\natexlab{a}}.
+\newblock ISBN 9781886529434.
+\newblock URL \url{https://books.google.com/books?id=REp7swEACAAJ}.
+
+\bibitem[Bertsekas(2012{\natexlab{b}})]{v2_bertsekas2012dynamic}
+D.~Bertsekas.
+\newblock \emph{Dynamic Programming and Optimal Control}.
+\newblock Number v. 2 in Athena Scientific optimization and computation series.
+  Athena Scientific, 2012{\natexlab{b}}.
+\newblock ISBN 9781886529441.
+\newblock URL \url{https://books.google.com/books?id=H-PSMwEACAAJ}.
+
 \bibitem[Boyd et~al.(2004)Boyd, Boyd, Vandenberghe, and Press]{boyd2004convex}
 S.~Boyd, S.~Boyd, L.~Vandenberghe, and C.~U. Press.
 \newblock \emph{Convex Optimization}.
@@ -43,6 +59,32 @@ G.~Casella and R.~Berger.
 \newblock \emph{Statistical Inference}.
 \newblock {Duxbury Resource Center}, June 2001.
 \newblock ISBN 0534243126.
+
+\bibitem[Catoni(2012)]{Catoni2012}
+O.~Catoni.
+\newblock {Challenging the empirical mean and empirical variance: A deviation
+  study}.
+\newblock \emph{Annales de l'institut Henri Poincare (B) Probability and
+  Statistics}, 48\penalty0 (4):\penalty0 1148--1185, 2012.
+\newblock ISSN 02460203.
+\newblock \doi{10.1214/11-AIHP454}.
+\newblock URL \url{www.imstat.org/aihpAnnalesdel'}.
+
+\bibitem[DasGupta(2008)]{dasgupta2008asymptotic}
+A.~DasGupta.
+\newblock \emph{Asymptotic Theory of Statistics and Probability}.
+\newblock Springer Texts in Statistics. Springer New York, 2008.
+\newblock ISBN 9780387759715.
+\newblock URL \url{https://books.google.com/books?id=sX4\_AAAAQBAJ}.
+
+\bibitem[Devroye et~al.(2016)Devroye, Lerasle, Lugosi, and
+  Oliveira]{Devroye2016}
+L.~Devroye, M.~Lerasle, G.~Lugosi, and R.~I. Oliveira.
+\newblock {Sub-Gaussian Mean Estimators}.
+\newblock \emph{Annals of Statistics}, 44\penalty0 (6):\penalty0 2695--2725,
+  2016.
+\newblock ISSN 00905364.
+\newblock \doi{10.1214/16-AOS1440}.
 
 \bibitem[Donoho and Johnstone(1994)]{Donoho1994}
 D.~L. Donoho and I.~M. Johnstone.
@@ -86,12 +128,39 @@ J.~Kingman and S.~Taylor.
 \newblock Cambridge University Press, 1966.
 \newblock URL \url{https://books.google.com/books?id=JbtEAAAAIAAJ}.
 
+\bibitem[Lang(2005)]{lang2005algebra}
+S.~Lang.
+\newblock \emph{Algebra}.
+\newblock Graduate Texts in Mathematics. Springer New York, 2005.
+\newblock ISBN 9780387953854.
+\newblock URL \url{https://books.google.com/books?id=Fge-BwqhqIYC}.
+
+\bibitem[Lee(2012)]{lee2012introduction}
+J.~Lee.
+\newblock \emph{Introduction to Smooth Manifolds}.
+\newblock Graduate Texts in Mathematics. Springer New York, 2012.
+\newblock ISBN 9781441999825.
+\newblock URL \url{https://books.google.com/books?id=xygVcKGPsNwC}.
+
+\bibitem[Lehmann and Romano(2005)]{lehmann2005testing}
+E.~L. Lehmann and J.~P. Romano.
+\newblock \emph{Testing Statistical Hypotheses}.
+\newblock Springer Texts in Statistics. Springer, New York, third edition,
+  2005.
+\newblock ISBN 0-387-98864-5.
+
 \bibitem[Loeve(1977)]{loeve1977probability}
 M.~Loeve.
 \newblock \emph{Probability Theory I}.
 \newblock Comprehensive Manuals of Surgical Specialties. Springer, 1977.
 \newblock ISBN 9780387902104.
 \newblock URL \url{https://books.google.com/books?id=\_9xWBlvUEuIC}.
+
+\bibitem[Mathieu and Minsker(2019)]{Mathieu2019}
+T.~Mathieu and S.~Minsker.
+\newblock {Excess risk bounds in robust empirical risk minimization}.
+\newblock 2019.
+\newblock URL \url{https://arxiv.org/abs/1910.07485}.
 
 \bibitem[Osborne et~al.(2000)Osborne, Presnell, and Turlach]{Osborne2000}
 M.~R. Osborne, B.~Presnell, and B.~A. Turlach.
@@ -118,6 +187,14 @@ P.~C.~B. Phillips and S.~N. Durlauf.
 \newblock ISSN 00346527.
 \newblock \doi{10.2307/2297602}.
 
+\bibitem[Pugh(2015)]{pugh2015real}
+C.~Pugh.
+\newblock \emph{Real Mathematical Analysis}.
+\newblock Undergraduate Texts in Mathematics. Springer International
+  Publishing, 2015.
+\newblock ISBN 9783319177717.
+\newblock URL \url{https://books.google.com/books?id=2NVJCgAAQBAJ}.
+
 \bibitem[Rao(1973)]{rao1973linear}
 C.~Rao.
 \newblock \emph{Linear statistical inference and its applications}.
@@ -143,6 +220,14 @@ S.~Ross.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/B9780124079489000128}.
 
+\bibitem[Rudin(1976)]{rudin1976principles}
+W.~Rudin.
+\newblock \emph{Principles of Mathematical Analysis}.
+\newblock International series in pure and applied mathematics. McGraw-Hill,
+  1976.
+\newblock ISBN 9780070856134.
+\newblock URL \url{https://books.google.com/books?id=kwqzPAAACAAJ}.
+
 \bibitem[Schwarz(1978)]{Schwarz1978}
 G.~Schwarz.
 \newblock {Estimating the Dimension of a Model}.
@@ -161,6 +246,21 @@ R.~Serfling.
 \newblock URL
   \url{http://gso.gbv.de/DB=2.1/CMD?ACT=SRCHA&SRT=YOP&IKT=1016&TRM=ppn+024353353&sourceid=fbw_bibsonomy}.
 
+\bibitem[Spivak(1971)]{spivak1971calculus}
+M.~Spivak.
+\newblock \emph{Calculus On Manifolds: A Modern Approach To Classical Theorems
+  Of Advanced Calculus}.
+\newblock Mathematics monograph series. Avalon Publishing, 1971.
+\newblock ISBN 9780813346120.
+\newblock URL \url{https://books.google.com/books?id=POIJJJcCyUkC}.
+
+\bibitem[Stewart(2015)]{stewart2015calculus}
+J.~Stewart.
+\newblock \emph{Calculus}.
+\newblock Cengage Learning, 2015.
+\newblock ISBN 9781305480513.
+\newblock URL \url{https://books.google.com/books?id=spiaBAAAQBAJ}.
+
 \bibitem[Tibshirani(2013)]{Tibshirani2013}
 R.~J. Tibshirani.
 \newblock {The lasso problem and uniqueness}.
@@ -168,5 +268,16 @@ R.~J. Tibshirani.
   1456--1490, 2013.
 \newblock ISSN 19357524.
 \newblock \doi{10.1214/13-EJS815}.
+
+\bibitem[Wager and Athey(2018)]{Wager2018}
+S.~Wager and S.~Athey.
+\newblock {Estimation and Inference of Heterogeneous Treatment Effects using
+  Random Forests}.
+\newblock \emph{Journal of the American Statistical Association}, 113\penalty0
+  (523):\penalty0 1228--1242, jul 2018.
+\newblock ISSN 0162-1459.
+\newblock \doi{10.1080/01621459.2017.1319839}.
+\newblock URL
+  \url{https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1319839}.
 
 \end{thebibliography}

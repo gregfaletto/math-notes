@@ -41,3 +41,15 @@
 \BOOKMARK [2][-]{subsection.1.19}{Mixture regression}{section.1}% 41
 \BOOKMARK [2][-]{subsection.1.20}{Missing observations}{section.1}% 42
 \BOOKMARK [2][-]{subsection.1.21}{Generalized linear models}{section.1}% 43
+\BOOKMARK [3][-]{subsubsection.1.21.1}{Regression models}{subsection.1.21}% 44
+\BOOKMARK [3][-]{subsubsection.1.21.2}{Applications\204Categorical Data}{subsection.1.21}% 45
+\BOOKMARK [3][-]{subsubsection.1.21.3}{Applications\204Continuous Data}{subsection.1.21}% 46
+\BOOKMARK [2][-]{subsection.1.22}{Mixed Effects Models}{section.1}% 47
+\BOOKMARK [2][-]{subsection.1.23}{Miscellaneous Topics}{section.1}% 48
+\BOOKMARK [3][-]{subsubsection.1.23.1}{Multinomial Response}{subsection.1.23}% 49
+\BOOKMARK [3][-]{subsubsection.1.23.2}{Zero-inflated response}{subsection.1.23}% 50
+\BOOKMARK [3][-]{subsubsection.1.23.3}{Overdispersion}{subsection.1.23}% 51
+\BOOKMARK [2][-]{subsection.1.24}{Generalized linear mixed models}{section.1}% 52
+\BOOKMARK [3][-]{subsubsection.1.24.1}{Longitudinal data analysis and Generalized Estimating Equations}{subsection.1.24}% 53
+\BOOKMARK [2][-]{subsection.1.25}{Causal Inference}{section.1}% 54
+\BOOKMARK [3][-]{subsubsection.1.25.1}{Factorial Design \(see R lab 7\)}{subsection.1.25}% 55
