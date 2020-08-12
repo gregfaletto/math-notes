@@ -21,18 +21,19 @@
 \contentsline {subsection}{\numberline {1.3.2}Probability-Generating Functions}{67}{subsection.1.3.2}
 \contentsline {subsection}{\numberline {1.3.3}Moment-Generating Functions}{67}{subsection.1.3.3}
 \contentsline {subsection}{\numberline {1.3.4}Characteristic Functions}{68}{subsection.1.3.4}
-\contentsline {subsection}{\numberline {1.3.5}Continuous Random Variable Distributions}{69}{subsection.1.3.5}
-\contentsline {subsection}{\numberline {1.3.6}More on Exponential Random Variables}{81}{subsection.1.3.6}
-\contentsline {subsection}{\numberline {1.3.7}Multivariate Gaussian (Normal) Distributions}{84}{subsection.1.3.7}
-\contentsline {section}{\numberline {1.4}Exponential Families}{87}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Differential identities (Generalization of Moment-Generating Functions)}{90}{subsection.1.4.1}
-\contentsline {section}{\numberline {1.5}KL Divergence (DSO 607)}{95}{section.1.5}
-\contentsline {section}{\numberline {1.6}Worked problems}{97}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}Example Problems That Will Likely Appear on Midterm (and Final)}{97}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}More Problems From Homework}{103}{subsection.1.6.2}
-\contentsline {section}{\numberline {1.7}Random Matrix Theory}{109}{section.1.7}
-\contentsline {subsection}{\numberline {1.7.1}Large Deviation Theory}{110}{subsection.1.7.1}
-\contentsline {subsection}{\numberline {1.7.2}Band Matrix}{115}{subsection.1.7.2}
-\contentsline {subsection}{\numberline {1.7.3}Subgaussian Random Variable}{116}{subsection.1.7.3}
-\contentsline {subsection}{\numberline {1.7.4}Topic 1: Invertibility of Matrices}{118}{subsection.1.7.4}
-\contentsline {subsection}{\numberline {1.7.5}Random Graphs}{121}{subsection.1.7.5}
+\contentsline {subsection}{\numberline {1.3.5}Continuous Random Variable Distributions}{70}{subsection.1.3.5}
+\contentsline {subsection}{\numberline {1.3.6}More on Exponential Random Variables}{82}{subsection.1.3.6}
+\contentsline {subsection}{\numberline {1.3.7}Multivariate Gaussian (Normal) Distributions}{86}{subsection.1.3.7}
+\contentsline {section}{\numberline {1.4}Exponential Families}{89}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Differential identities (Generalization of Moment-Generating Functions)}{92}{subsection.1.4.1}
+\contentsline {section}{\numberline {1.5}KL Divergence (DSO 607)}{97}{section.1.5}
+\contentsline {section}{\numberline {1.6}Worked problems}{100}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Example Problems That Will Likely Appear on Midterm (and Final)}{100}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}More Problems From Homework}{106}{subsection.1.6.2}
+\contentsline {section}{\numberline {1.7}Random Matrix Theory}{112}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Large Deviation Theory}{113}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}Band Matrix}{118}{subsection.1.7.2}
+\contentsline {subsection}{\numberline {1.7.3}Subgaussian Random Variable}{119}{subsection.1.7.3}
+\contentsline {subsection}{\numberline {1.7.4}Topic 1: Invertibility of Matrices}{121}{subsection.1.7.4}
+\contentsline {subsection}{\numberline {1.7.5}Random Graphs}{124}{subsection.1.7.5}
+\contentsline {section}{\numberline {1.8}Distance Correlation}{124}{section.1.8}

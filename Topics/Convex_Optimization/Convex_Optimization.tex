@@ -1,4 +1,4 @@
-%\documentclass{article}
+%\documentclass{book}
 %
 %\usepackage{fancyhdr}
 %\usepackage{extramarks}
@@ -569,7 +569,15 @@ which yields
 
 \end{proof}
 
+\begin{theorem}[\textbf{Multivariate Jensen's Inequality (Exercise 1.6.2 in \citet{Durrett2019})}]\label{cvx.multi.jensen}
 
+Suppose \(\phi: \mathbb{R}^n \to \mathbb{R}\) is convex. Let \(X_1, \ldots, X_n\) be random variables with \(\E\left| \phi(X_1, \ldots, X_n)\right| < \infty\) and \(\E|X_i| < \infty\) for all \(i \in [n]\). Then
+
+\[
+\E \phi(X_1, \ldots, X_n) \geq \phi(\E X_1, \ldots, \E X_n).
+\]
+
+\end{theorem}
 
 
 

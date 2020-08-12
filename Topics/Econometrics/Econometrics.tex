@@ -1,0 +1,520 @@
+%\documentclass{book}
+%
+%\usepackage{fancyhdr}
+%\usepackage{extramarks}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{mathrsfs}
+%\usepackage{tikz}
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\graphicspath{ {images/} }
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage[document]{ragged2e}
+%\usepackage{textcomp}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{import}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=black,  %choose some color if you want links to stand out
+%}
+%\usepackage{import}
+%\usepackage{natbib}
+%
+%\usetikzlibrary{automata,positioning}
+%
+%
+%% Basic Document Settings
+%
+%
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%\setlength{\parskip}{1em}
+%
+%\linespread{1.1}
+%
+%\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+%
+%\renewcommand\headrulewidth{0.4pt}
+%\renewcommand\footrulewidth{0.4pt}
+%
+%\setlength\parindent{0pt}
+%
+%
+%\newcommand{\hmwkTitle}{Math Review Notes---Causal Inference and Econometrics}
+%\newcommand{\hmwkAuthorName}{\textbf{G. Faletto} }
+%
+%
+%% Title Page
+%
+%
+%\title{
+%    \vspace{2in}
+%    \textmd{\textbf{ \hmwkTitle}}\\
+%}
+%
+%\author{Gregory Faletto}
+%\date{}
+%
+%\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+%
+%
+%% Various Helper Commands
+%
+%
+%% Useful for algorithms
+%\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+%
+%% For derivatives
+%\newcommand{\deriv}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%
+%% For partial derivatives
+%\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+%
+%% Integral dx
+%\newcommand{\dx}{\mathrm{d}x}
+%
+%% Alias for the Solution section header
+%\newcommand{\solution}{\textbf{\large Solution}}
+%
+% %Probability commands: Expectation, Variance, Covariance, Bias
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\Var}{\mathrm{Var}}
+%\newcommand{\Cov}{\mathrm{Cov}}
+%\newcommand{\Bias}{\mathrm{Bias}}
+%\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+%\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+%\DeclareMathOperator{\Tr}{Tr}
+%
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+%\numberwithin{theorem}{subsection}
+%\theoremstyle{definition}
+%\newtheorem{corollary}{Corollary}[theorem]
+%\theoremstyle{definition}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem*{remark}{Remark}
+%\theoremstyle{definition}
+%\newtheorem{example}{Example}[section]
+%
+% %Tilde
+%\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+%
+%\begin{document}
+%
+%\maketitle
+%
+%\pagebreak
+%
+%\tableofcontents
+%
+%\
+%
+%\
+%
+%\begin{center}
+%Last updated \today
+%\end{center}
+%
+%
+%
+%\newpage
+%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%
+%% Causal Inference and Econometrics
+
+\chapter{Causal Inference and Econometrics}
+
+%These notes are based on my notes from \textit{Time Series and Panel Data Causal Inference and Econometrics} (1st edition) by M. Hashem Pesaran \citep{pesaran-2015-text} and coursework for Economics 613: Economic and Financial Time Series I at USC taught by M. Hashem Pesaran, DSO 607 at USC taught by Jinchi Lv, Statistics 100B at UCLA taught by Nicolas Christou, GSBA 604: Regression and Generalized Linear Models for Business Applications at USC taught by Gourab Mukherjee, and the Coursera MOOC ``Causal Inference and Econometrics: Methods and Applications" from Erasmus University Rotterdam. I also borrowed from some other sources which I mention when I use them.
+
+
+
+%%%%%%%%%%%  Causal Inference and Econometrics %%%%%%%%%%%%%
+
+
+\section{Generalized Method of Moments (Chapter 13 of \citet{hansen2020})}
+
+\subsection{Overidentified Moment Equations (Section 13.4 of \citet{hansen2020})}\label{sec.overid.gmm}
+
+Consider the instrumental variables model (see Section \ref{economet.sec.iv}). The estimator \(\hat{\beta}\) is the solution of the moment condition
+
+\[
+\overline{g}_n(\beta) = \frac{1}{n} \sum_{i=1}^n g_i(\beta) = \frac{1}{n}\sum_{i=1}^n Z_i(Y_i - X_i^\top \beta) = \frac{1}{n} \left( \boldsymbol{Z}^\top \boldsymbol{Y} - \boldsymbol{Z}^\top \boldsymbol{X} \boldsymbol{\beta}\right).
+\]
+ 
+If this model is overidentified (that is, the number of instruments \(\ell\)---and therefore moment conditions to satisfy---exceeds the number of variables \(p\) in \(\boldsymbol{X}\)---and therefore the number of parameters to estimate in \(\boldsymbol{\beta}\)), in general this estimator does not exist, so the method of moments estimator is not defined.
+
+The idea of the generalized method of moments estimator is to make \(\overline{g}_n(\beta)\) as close to zero as possible. Define the vector \(\boldsymbol{\mu} := \boldsymbol{Z}^\top \boldsymbol{Y} \in \mathbb{R}^{\ell}\), the matrix \(\boldsymbol{G} := \boldsymbol{Z}^\top \boldsymbol{X} \in \mathbb{R}^{\ell \times p}\), and the ``error" \(\boldsymbol{\eta} := \boldsymbol{\mu} - \boldsymbol{G} \boldsymbol{\beta}\). Then we can write the finite-sample analogue of the above equation as
+
+\begin{align*}
+\boldsymbol{Z}^\top \boldsymbol{Y}  & = \boldsymbol{Z}^\top \boldsymbol{X} \boldsymbol{\beta} + \boldsymbol{\eta}
+%\\ \iff \qquad  \boldsymbol{\mu}  & = \boldsymbol{G} \boldsymbol{\beta} + \
+%\\ \iff \qquad  \boldsymbol{\mu} + \boldsymbol{\eta}  & = \boldsymbol{G} \boldsymbol{\beta} + \boldsymbol{\eta}
+%%\\ \iff \qquad \boldsymbol{\beta} &=   \left(\boldsymbol{Z}^\top \boldsymbol{X} \right)^{-1}\boldsymbol{Z}^\top \boldsymbol{Y} 
+%%\\ \iff \qquad \boldsymbol{\beta} &=  \boldsymbol{G} ^{-1}\boldsymbol{\mu}
+%\\ \vdots
+\\ \iff \qquad  \boldsymbol{\mu} &= \boldsymbol{G}\boldsymbol{\beta}  +  \boldsymbol{\eta}.
+\end{align*}
+
+Therefore the least squares estimator (if we take all moment conditions to be equally important) is \(\hat{\boldsymbol{\beta}} = \left( \boldsymbol{G}^\top  \boldsymbol{G} \right)^{-1}  \boldsymbol{G}^\top \boldsymbol{\mu}\). In general, we may want to weigh some moment conditions as more important than others (possibly because errors are non-homogeneous, in which case this increases efficiency). Then by analogy to weighted least squares (see Section \ref{linreg.sec.weighted.ls}), for some positive definite weight matrix \(\boldsymbol{W}\) we have the \textbf{generalized method of moments estimator}
+
+\begin{equation}\label{economet.gmm.iv.o}
+\hat{\boldsymbol{\beta}}  := \left( \boldsymbol{G}^\top \boldsymbol{W}  \boldsymbol{G} \right)^{-1}  \boldsymbol{G}^\top \boldsymbol{W} \boldsymbol{\mu} = \left(\boldsymbol{X} ^\top \boldsymbol{Z} \boldsymbol{W}  \boldsymbol{Z}^\top \boldsymbol{X}\right)^{-1}  \boldsymbol{X} ^\top \boldsymbol{Z} \boldsymbol{W} \boldsymbol{Z}^\top \boldsymbol{Y} .
+\end{equation}
+
+This minimizes the weighted sum of squares \(\boldsymbol{\eta}^\top \boldsymbol{W} \boldsymbol{\eta}\).
+
+\begin{definition}[\textbf{Generalized Method of Moments estimator; Definition 13.1 in \citet{hansen2020})}]
+
+For a positive definite square weight matrix \(\boldsymbol{W}\), define the GMM criterion function
+
+\begin{equation}\label{economet.def.gmm.crit}
+J(\boldsymbol{\beta}) := n \overline{g}_n(\boldsymbol{\beta})^\top \boldsymbol{W} \overline{g}_n (\boldsymbol{\beta}).
+\end{equation}
+
+Then the \textbf{generalized method of moments estimator} is 
+
+\[
+\hat{\boldsymbol{\beta}}_{\text{gmm}} := \underset{\beta}{\arg \min} \left\{J_n(\boldsymbol{\beta})\right\}.
+\]
+
+\end{definition}
+
+Note that GMM includes the method of moments estimator as a special case. This implies that all results for GMM apply to any method of moments estimators. In this case \(\boldsymbol{W}\) does not matter. In the overidentified case, the choice of \(\boldsymbol{W}\) is important.
+
+
+\section{Instrumental Variables (Section 4.8 of \citet{cameron_trivedi_2005})}
+
+
+
+\subsection{Inconsistency of OLS and Examples of Endogeneity (Section 4.8.1 of \citet{cameron_trivedi_2005}, Section 12.3 in \citet{hansen2020})}
+
+\begin{itemize}
+
+\item \textbf{Measurement error in the regressor.} Suppose \(\E[Y \mid Z] = Z^\top \beta\), but \(Z\) is not observed; instead, \(X = Z + u\) is observed, where \(u\) is measurement error with \(\E(u) = 0\) and \(u\) is independent of \(e\) and \(Z\). We have
+
+\[
+Y = Z^\top \beta + e = (X - u)^\top \beta + e = X^\top \beta + \nu
+\]
+
+where \(\nu = e - u^\top \beta\). Therefore
+
+\[
+Y = X^\top \beta + \nu,
+\]
+
+but
+
+\[
+\E[X \nu] = \E[(Z +u)(e - u^\top \beta)] = - \E[u u^\top] \beta \neq 0.
+\]
+
+Therefore least squares estimation is inconsistent, and \(X\) is endogenous. The projection coefficient (the quantity least squares is consistent for) is (in the case \(p=1\))
+
+\[
+\beta^* = \beta + \frac{\E[X \nu]}{\E[X^2]} = \beta \left(1 - \frac{\E[u^2]}{\E[X^2]} \right).
+\]
+
+Since \(\E[u^2]/\E[X^2] < 1\), the projection coefficient shrinks the structural parameter \(\beta\) towards zero. This is called \textbf{measurement error bias} or \textbf{attentuation bias}.
+
+\item \textbf{Simultaneous equations bias.} Suppose that quantity \(Q\) and price \(P\) are determined jointly by demand
+
+\[
+Q = - \beta_1 P e_1
+\]
+
+and supply
+
+\[
+Q = \beta_2 P + e_2,
+\]
+
+with (for simplicity) \(e = (e_1, e_2)\) satisfying \(\E[e] = 0\) and \(\E[e e'] = I_2\). In matrix notation, we have
+
+\begin{align*}
+\begin{pmatrix}
+1 & \beta_1 \\
+1 & - \beta_2
+\end{pmatrix}\begin{pmatrix}
+Q \\
+P \end{pmatrix}
+& = \begin{pmatrix}
+e_1 \\
+e_2 \end{pmatrix}
+\\ \iff \qquad  \begin{pmatrix}
+Q \\
+P \end{pmatrix} & = \begin{pmatrix}
+1 & \beta_1 \\
+1 & - \beta_2
+\end{pmatrix}^{-1}  \begin{pmatrix}
+e_1 \\
+e_2 \end{pmatrix}
+\\  & = \frac{1}{\beta_1 + \beta_2} \begin{pmatrix}
+\beta_2 & \beta_1 \\
+1 & -1
+\end{pmatrix}  \begin{pmatrix}
+e_1 \\
+e_2 \end{pmatrix}
+\\  & = \begin{pmatrix}
+(\beta_2e_1 + \beta_1 e_2)/(\beta_1 + \beta_2) \\
+(e_1 - e_2)/(\beta_1 + \beta_2) \end{pmatrix}.
+\end{align*}
+
+The projection of \(Q\) on \(P\) yields \(Q = \beta^* P + e^*\) with \(\E[P e^*] = 0\) and the coefficient defined by projection as 
+
+\[
+\beta^* = \E[ P^2]^{-1} \E[PQ] = \frac{\beta_2 - \beta_1}{2}.
+\]
+
+The projection coefficient \(\beta^*\) equals neither the demand slope \(\beta_1\) nor the supply slope \(\beta_2\), but equals an average of the two. (The fact that it is a simple average is an artifact of the covariance structure.) Hence the OLS estimate satisfies \(\hat{\beta} \xrightarrow{p} \beta^*\), and the limit does not equal \(\beta_1\) or \(\beta_2\). The fact that the limit is neither the supply nor demand slope is called \textbf{simultaneous equations bias}. This occurs generally when \(Y\) and \(X\) are jointly determined, as in market equilibrium. Generally, when both the dependent variable and a regressor are simultaneously determined, the variables should be treated as endogenous.
+
+\item \textbf{Choice variables as regressors.} Suppose we are interested in outcome \(y\), log-earnings, and we have predictor \(x\), years of schooling. We are interested in the causal effect on \(y\) of an \textbf{exogenous} change in \(x\)---a change in amount of schooling that is not the choice of the individual; for example, an increase in the minimum age at which students leave school. The OLS regression model specifies
+
+\[
+y = \beta x + u
+\]
+
+where \(u\) is an error term. Regression of \(y\) on \(x\) yields OLS estimate \(\hat{\beta}\) of \(\beta\). If we assume that \(x\) is uncorrelated with \(u\), OLS yields a consistent estimator for the true causal effect. However, \(u\) (which contains the effects of all variables besides schooling on earnings) could be correlated with \(x\). For example, unobserved \textit{ability} may be correlated with both earnings and increased levels of schooling. In that case, OLS will be consistent for
+
+\[
+\deriv{y}{x} = \beta + \deriv{u}{x} > \beta.
+\]
+
+That is, the positive correlation between \(x\) and \(u\) means that the linear projection coefficient \(\beta^*\) is upwardly biased relative to the structural coefficient \(\beta\). The OLS estimator is therefore biased and inconsistent for \(\beta\), over-estimating the causal effect of education on wages.
+
+This type of endogeneity occurs generally when \(Y\) and \(X\) are both choices made by an economic agent, even if they are made at different points in time. Generally, when both the dependent variable and a regressor are choice variables made by the same agent, the variables should be treated as endogenous.
+
+A more formal treatment of the linear regression model with \(K\) regressors leads to the same conclusion. Under standard assumptions, a necessary condition for consistency of OLS is that \(\frac{1}{n} \boldsymbol{X}^\top \boldsymbol{u} \xrightarrow{p} \boldsymbol{0}\); we can see this because
+
+\begin{align*}
+\hat{\boldsymbol{\beta}} &= \left(\boldsymbol{X}^\top \boldsymbol{X}\right)^{-1} \boldsymbol{X}^\top \boldsymbol{y}
+\\ &= \left( \frac{1}{n} \boldsymbol{X}^\top \boldsymbol{X}\right)^{-1} \frac{1}{n} \boldsymbol{X}^\top \left( \boldsymbol{X}\boldsymbol{\beta} + \boldsymbol{u} \right)
+\\ &= \left( \frac{1}{n} \boldsymbol{X}^\top \boldsymbol{X}\right)^{-1} \frac{1}{n} \boldsymbol{X}^\top \boldsymbol{X}\boldsymbol{\beta} + \left( \frac{1}{n} \boldsymbol{X}^\top \boldsymbol{X}\right)^{-1} \frac{1}{n} \boldsymbol{X}^\top  \boldsymbol{u} 
+\\ &= \boldsymbol{\beta} + \left( \frac{1}{n} \boldsymbol{X}^\top \boldsymbol{X}\right)^{-1} \frac{1}{n} \boldsymbol{X}^\top  \boldsymbol{u} ;
+\end{align*}
+
+we see this converges to \(\boldsymbol{\beta}\) in probability if  \(\frac{1}{n} \boldsymbol{X}^\top \boldsymbol{u} \xrightarrow{p} \boldsymbol{0}\) (see also Section 4.7.1 of \citet{cameron_trivedi_2005}). 
+
+\end{itemize}
+
+
+\subsection{Instrumental Variable}\label{economet.sec.iv}
+
+The inconsistency of OLS is due to the endogeneity of \(x\), meaning that changes in \(x\) are associated not only with changes in \(y\) bu also changes in the error \(u\). What is needed is a method to generate only exogenous variation in \(x\). An obvious way is through a randomized experiment, but for many economic applications such experiments are too expensive, infeasible, or unethical. One alternative approach is using an instrument.
+
+An \textbf{instrument} \(z\) is a variable that is correlated with \(x\) but not with \(u\) or directly with \(y\) (that is, \(z\) is associated with \(y\) only through its effect on \(x\)).
+
+\begin{definition}[\textbf{Instrumental variable; Definition 12.1 in \citet{hansen2020}}]
+
+The random vector \(Z \in \mathbb{R}^\ell\) is an \textbf{instrumental variable} if the following are true:
+
+\begin{align*}
+\E[Z^\top e] & = 0, \\
+\E[Z Z^\top] & = 0, \qquad \text{and} \\
+\operatorname{rank}(\E[Z X^\top]) & = p.
+\end{align*}
+
+\end{definition}
+
+The first component of this definition is that the instruments are uncorrelated with the regression error. Second, we must exclude linearly dependent instruments. The third condition is often called the \textbf{relevance condition} and is essential for the identification of the model. A necessary condition for the relevance condition is \(\ell \geq p\).
+
+\subsection{Instrumental Variables Estimator}
+
+For regression with scalar regressor \(x\) and scalar instrument \(z\), the \textbf{instrumental variables (IV) estimator} is defined as
+
+\[
+\hat{\beta}_{IV} :=  \left( \boldsymbol{z}^\top \boldsymbol{x} \right)^{-1} \boldsymbol{z}^\top \boldsymbol{y}.
+\]
+
+This estimator is consistent for the slope coefficient \(\beta\) in the linear model if \(z\) is correlated with \(x\) and uncorrelated with \(u\).
+
+We will derive this estimator. Note that under our assumptions,
+
+\[
+\E \left[  \boldsymbol{y} - \boldsymbol{x} \boldsymbol{\beta} \mid \boldsymbol{z} \right] = \boldsymbol{0}.
+\]
+
+Using this, we have
+
+\[
+\boldsymbol{0} = \E \left[ \boldsymbol{z}^\top \boldsymbol{0} \right] = \E \left[ \boldsymbol{z}^\top \E \left[  \boldsymbol{y} - \boldsymbol{x} \boldsymbol{\beta} \mid \boldsymbol{z} \right] \right] = \E \left[ \E \left[ \boldsymbol{z}^\top  \left( \boldsymbol{y} - \boldsymbol{x} \boldsymbol{\beta} \right)  \mid \boldsymbol{z} \right] \right] = \E \left[ \boldsymbol{z}^\top  \left( \boldsymbol{y} - \boldsymbol{x} \boldsymbol{\beta} \right)   \right].
+\]
+
+If the number of instruments equals the number of regressors (\(\operatorname{dim}(\boldsymbol{z}) = p\)), the method of moments estimator is then the solution to the corresponding sample moment condition
+
+\begin{align*}
+\frac{1}{n} \sum_{i=1}^n \boldsymbol{z}_i(y_i - \boldsymbol{x}_i^\top \hat{\boldsymbol{\beta}}) & = \boldsymbol{0}
+\\ \iff \qquad  \boldsymbol{z}^\top  \left( \boldsymbol{y} - \boldsymbol{x} \hat{\boldsymbol{\beta}} \right) & = \boldsymbol{0}
+\\ \iff \qquad  \boldsymbol{z}^\top \boldsymbol{y}  & =   \boldsymbol{z}^\top \boldsymbol{x} \hat{\boldsymbol{\beta}}
+\\ \iff \qquad \hat{\boldsymbol{\beta}} & = \left(\boldsymbol{z}^\top \boldsymbol{x}  \right)^{-1}  \boldsymbol{z}^\top \boldsymbol{y} ,
+\end{align*}
+
+as shown in \eqref{economet.inst.est}.
+
+\subsection{Two-Stage Least Squares (Section 8.3.4 of \citet{Greene2003Econometric})}
+
+Suppose there may be more instruments than endogenous variables. Then \(Z^\top X\) is not invertible (it is rank \(p\) but has \(\ell\) rows), and a new analysis is required. Since \(Z\) is uncorrelated with \(e\), we can express an approximation \(\hat{X}\) of \(X\) in the column space of \(Z\) by projection:
+
+\[
+\hat{X} = Z(Z^\top Z)^{-1}Z^\top X.
+\]
+
+Then we can regress \(y\) against \(\hat{X}\) to get a consistent estimator for the endogenous (structural) coefficient:
+
+\begin{align}
+\beta_{\text{IV}} & = \left(\hat{X}^\top \hat{X} \right)^{-1} \hat{X}^\top y \nonumber
+\\ & = \left(\left[Z(Z^\top Z)^{-1}Z^\top X\right]^\top Z(Z^\top Z)^{-1}Z^\top X \right)^{-1} \left[Z(Z^\top Z)^{-1}Z^\top X\right]^\top y \nonumber
+\\ & = \left( X^\top Z (Z^\top Z)^{-1} Z^\top   Z(Z^\top Z)^{-1}Z^\top X \right)^{-1} X^\top Z (Z^\top Z)^{-1} Z^\top y \nonumber
+\\ & = \left(X^\top Z(Z^\top Z)^{-1} Z^\top X \right)^{-1} X^\top Z (Z^\top Z)^{-1} Z^\top y. \label{economet.2sls}
+\end{align}
+
+%\[
+%\vdots
+%\]
+%
+%We will use the notation
+%
+%\[
+%Y_1 = Z_1^\top \beta_1 + Y_2^\top \beta_2 + e,
+%\]
+%
+%where \(Z_1\) is exogenous and \(Y_2\) is endogenous; in particular,
+%
+%\[
+%Y_2 = \Gamma^\top Z = \Gamma_{12}^\top Z_1 + \Gamma_{22}^\top Z_2 + u_2,
+%\]
+%
+%with
+%
+%\[
+%\Gamma = \E[Z Z^\top]^{-1} \E[Z Y_2^\top].
+%\]
+%
+%This implies \(\E [Z u_2^\top] = 0\). We can now write
+%
+%\begin{align*}
+%Y_1 & = Z_1^\top \beta_1 + Y_2^\top \beta_2 + e
+%\\ & = Z_1^\top \beta_1 + \left( \Gamma_{12}^\top Z_1 + \Gamma_{22}^\top Z_2 + u_2\right)^\top \beta_2 + e
+%\\ & = Z_1^\top \left(\beta_1 + \Gamma_{12} \beta_2 \right) + Z_2^\top \Gamma_{22} \beta_2 + u_2^\top \beta_2 + e
+%\\ & = Z_1^\top\lambda_1 + Z_2^\top \lambda_2 + u_1
+%\\ & = Z^\top \lambda + u_1,
+%\\ & = Z  \overline{\Gamma} \beta + u_1
+%\end{align*}
+%
+%with
+%
+%\begin{align*}
+%\lambda_1  &:=\beta_1 + \Gamma_{12} \beta_2 \ ,
+%\\ \lambda_2 & := \Gamma_{22} \beta_2,
+%\\ \lambda & = \begin{bmatrix} \lambda_1 \\ \lambda_2 \end{bmatrix} = \begin{bmatrix} \beta_1 + \Gamma_{12} \beta_2 \\ \Gamma_{22} \beta_2\end{bmatrix}, 
+%\\ u_1 & := u_2^\top \beta_2 + e,
+%\\ \overline{\Gamma}  &:= \begin{bmatrix} I & \Gamma_{12} \\ 0 & \Gamma_{22} \end{bmatrix}, \qquad \text{and note that}
+%\\ \lambda & = \overline{\Gamma} \beta.
+%\end{align*}
+%
+%Note that
+%
+%\[
+%\E[Z u_1] = \E[Z \left(u_2^\top \beta_2 + e \right)] = \E[Z u_2^\top \beta_2 + Z e] = 0 + 0 = 0.
+%\]
+%
+%Let \(W := Z  \overline{\Gamma} \), so we can write
+%
+%\[
+%Y_1 = W^\top \beta + u_1, \qquad \E[W u_1] = 0.
+%\]
+%
+%In this case, \(Z\) is a set of candidate instruments and \(W = Z  \overline{\Gamma} \) is a \(p\)-dimensional set of linear combinations. If \(\overline{\Gamma}\) were known, we could estimate \(\beta\) by least squares regression of \(Y_1\) on \(W\):
+%
+%\[
+%\hat{\beta} = (W^\top W)^{-1} W^\top Y = \left( \overline{\Gamma}^\top Z^\top Z  \overline{\Gamma} \right)^{-1} \overline{\Gamma}^\top Z^\top  Y_1.
+%\]
+%
+%This is infeasible. Instead, estimate \(\overline{\Gamma}\) from reduced form regression. Replacing \(\overline{\Gamma}\) with its estimator \(\hat{\Gamma} = (Z^\top Z)^{-1} Z^\top X\), we obtain the two-stage least squares estimator
+%
+%\begin{align*}
+%\hat{\beta}_{\text{2sls}} & :=   \left( \hat{\Gamma}^\top Z^\top Z  \hat{\Gamma} \right)^{-1} \hat{\Gamma}^\top Z^\top  Y_1
+%\\ & =   \left(  X^\top Z (Z^\top Z)^{-1} Z^\top Z  (Z^\top Z)^{-1}  Z^\top X \right)^{-1}X^\top Z  (Z^\top Z)^{-1} Z^\top  Y_1
+%\\ & =   \left(  X^\top Z   (Z^\top Z)^{-1}  Z^\top X \right)^{-1}X^\top Z  (Z^\top Z)^{-1} Z^\top  Y_1
+%\end{align*}
+
+Similarly, when \(p\) endogenous regressors are in \(X\) and \(p\) (an equal number) of instruments are available, we have
+
+\begin{equation}\label{economet.inst.est}
+\hat{\beta}_{IV} :=  \left( \boldsymbol{Z}^\top \boldsymbol{X} \right)^{-1} \boldsymbol{Z}^\top \boldsymbol{y}.
+\end{equation}
+
+\subsection{GMM Estimator (Section 13.6 of \citet{hansen2020})}
+
+As discussed in Section \ref{sec.overid.gmm}, the moment equations for instrumental variables are 
+
+\[
+\boldsymbol{Z}^\top \boldsymbol{Y} - \boldsymbol{Z}^\top \boldsymbol{X} \boldsymbol{\beta} = 0,
+\]
+
+so the GMM criterion \eqref{economet.def.gmm.crit} can be written as
+
+\[
+J(\beta) = n \left( \boldsymbol{Z}^\top \boldsymbol{Y} - \boldsymbol{Z}^\top \boldsymbol{X} \boldsymbol{\beta}\right)^\top \boldsymbol{W} \left(\boldsymbol{Z}^\top \boldsymbol{Y} - \boldsymbol{Z}^\top \boldsymbol{X} \boldsymbol{\beta}\right).
+\]
+
+The GMM estimator minimizes \(J(\beta)\). The first order conditions are
+
+\begin{align*}
+0 & = \pderiv{}{\beta} J(\hat{\beta})
+\\ & = 2 \pderiv{}{\beta} \overline{g}_n(\hat{\beta})^\top \boldsymbol{W} \overline{g}_n(\hat{\beta})
+\\ & = -2 \left(\frac{1}{n} \boldsymbol{X}^\top \boldsymbol{Z} \right)\boldsymbol{W}  \left( \frac{1}{n} \boldsymbol{Z}^\top (\boldsymbol{Y} - \boldsymbol{X} \hat{\boldsymbol{\beta}} )\right).
+\end{align*}
+
+The solution is the GMM estimator for the overidentified IV model,
+
+\[
+\hat{\boldsymbol{\beta}}_{\text{gmm}} =\left(\boldsymbol{X} ^\top \boldsymbol{Z} \boldsymbol{W}  \boldsymbol{Z}^\top \boldsymbol{X}\right)^{-1}  \boldsymbol{X} ^\top \boldsymbol{Z} \boldsymbol{W} \boldsymbol{Z}^\top \boldsymbol{Y} ,
+\]
+
+the same estimator as in \eqref{economet.gmm.iv.o}. The dependence on the estimator \(\boldsymbol{W}\) is only up to scale; that is, if \(\boldsymbol{W}\) is replaced by \(c \boldsymbol{W}\) for some \(c > 0\), \(\hat{\boldsymbol{\beta}}_{\text{gmm}}\) does not change. When \(\boldsymbol{W}\) is fixed by the user, we call \(\hat{\boldsymbol{\beta}}_{\text{gmm}}\) a \textbf{one-step GMM} estimator. Note that by comparison to \eqref{economet.2sls}, we see that if \(\boldsymbol{W} = \left(  \boldsymbol{Z}^\top  \boldsymbol{Z}\right)^{-1} \) then we have the two stage least squares estimator. Also note that if \(\ell = p\) then \(\boldsymbol{X}^\top \boldsymbol{Z}\) is invertible (as is \(\boldsymbol{W}\) since it is positive definite by assumption) and we have
+
+\begin{align*}
+\hat{\boldsymbol{\beta}}_{\text{gmm}} & =  \left( \boldsymbol{Z}^\top \boldsymbol{X}\right)^{-1}\boldsymbol{W}^{-1}  \left(\boldsymbol{X} ^\top \boldsymbol{Z} \right)^{-1} \boldsymbol{X} ^\top \boldsymbol{Z} \boldsymbol{W} \boldsymbol{Z}^\top \boldsymbol{Y}
+\\ & =  \left( \boldsymbol{Z}^\top \boldsymbol{X}\right)^{-1}\boldsymbol{W}^{-1}   \boldsymbol{W} \boldsymbol{Z}^\top \boldsymbol{Y} 
+\\ & =  \left( \boldsymbol{Z}^\top \boldsymbol{X}\right)^{-1}\boldsymbol{Z}^\top \boldsymbol{Y}   ,
+\end{align*}
+
+which matches the estimator in \eqref{economet.inst.est}.
+
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%%
+%\bibliographystyle{abbrvnat}
+%\bibliography{mybib2fin}
+%\end{document}

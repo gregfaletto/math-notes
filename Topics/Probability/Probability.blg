@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Probability.aux
+The style file: abbrvnat.bst
+Database file #1: mybib2fin.bib
+Warning--can't use both volume and number fields in grimmett2001probability
+You've used 7 entries,
+            2773 wiz_defined-function locations,
+            661 strings with 6163 characters,
+and the built_in function-call counts, 2945 in all, are:
+= -- 280
+> -- 121
+< -- 6
++ -- 43
+- -- 36
+* -- 238
+:= -- 476
+add.period$ -- 35
+call.type$ -- 7
+change.case$ -- 32
+chr.to.int$ -- 7
+cite$ -- 15
+duplicate$ -- 142
+empty$ -- 255
+format.name$ -- 45
+if$ -- 610
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 11
+newline$ -- 56
+num.names$ -- 28
+pop$ -- 54
+preamble$ -- 1
+purify$ -- 26
+quote$ -- 0
+skip$ -- 95
+stack$ -- 0
+substring$ -- 101
+swap$ -- 10
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 57
+warning$ -- 1
+while$ -- 27
+width$ -- 0
+write$ -- 127
+(There was 1 warning)

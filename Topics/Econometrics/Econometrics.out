@@ -1,0 +1,9 @@
+\BOOKMARK [0][-]{chapter.1}{Causal Inference and Econometrics}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Generalized Method of Moments \(Chapter 13 of hansen2020\)}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{Overidentified Moment Equations \(Section 13.4 of hansen2020\)}{section.1.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Instrumental Variables \(Section 4.8 of camerontrivedi2005\)}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.2.1}{Inconsistency of OLS and Examples of Endogeneity \(Section 4.8.1 of camerontrivedi2005, Section 12.3 in hansen2020\)}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.2}{Instrumental Variable}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.3}{Instrumental Variables Estimator}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.4}{Two-Stage Least Squares \(Section 8.3.4 of Greene2003Econometric\)}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.5}{GMM Estimator \(Section 13.6 of hansen2020\)}{section.1.2}% 9

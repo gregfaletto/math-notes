@@ -41,6 +41,5 @@
 \contentsline {section}{\numberline {1.10}\(U\)-Statistics}{155}{section.1.10}
 \contentsline {subsection}{\numberline {1.10.1}Basic Definitions and Properties \cite [Sections 5.1 and 5.2]{serfling1980}, \cite [Section 15.1]{dasgupta2008asymptotic}}{155}{subsection.1.10.1}
 \contentsline {subsection}{\numberline {1.10.2}Asymptotics \cite [Section 5.3]{serfling1980}, \cite [Section 15.2]{dasgupta2008asymptotic}}{160}{subsection.1.10.2}
-\contentsline {section}{\numberline {1.11}Influence Functions (Section 6.6.1 of \citet {serfling1980})}{161}{section.1.11}
-\contentsline {section}{\numberline {1.12}\(M\)-Estimators (Chapter 7 of \citet {serfling1980})}{161}{section.1.12}
-\contentsline {section}{\numberline {1.13}Distance Correlation}{161}{section.1.13}
+\contentsline {section}{\numberline {1.11}Von Mises Differentiable Statistical Functions and Influence Functions (Section 6.6.1 of \citet {serfling1980}, Chapter 9 of \citet {demidenko2013mixed}; Section 1.6 of \citet {koroljuk1994theory}; Section 10.5 of \cite {Efron2016}, \citet {shao2012jackknife}, \citet {Hampel1974}, Section 30.4 of \citet {dasgupta2008asymptotic})}{161}{section.1.11}
+\contentsline {section}{\numberline {1.12}\(M\)-Estimators (Chapter 7 of \citet {serfling1980}, Chapter 17 of \citet {dasgupta2008asymptotic})}{161}{section.1.12}

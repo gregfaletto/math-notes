@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,38 @@ A.~DasGupta.
 \newblock ISBN 9780387759715.
 \newblock URL \url{https://books.google.com/books?id=sX4\_AAAAQBAJ}.
 
+\bibitem[Demidenko(2013)]{demidenko2013mixed}
+E.~Demidenko.
+\newblock \emph{Mixed Models: Theory and Applications with R}.
+\newblock Wiley Series in Probability and Statistics. Wiley, 2013.
+\newblock ISBN 9781118592991.
+\newblock URL \url{https://books.google.com/books?id=uSmRAAAAQBAJ}.
+
+\bibitem[Efron and Hastie(2016)]{Efron2016}
+B.~Efron and T.~Hastie.
+\newblock \emph{{Computer age statistical inference: Algorithms, evidence, and
+  data science}}.
+\newblock 2016.
+\newblock ISBN 9781316576533.
+\newblock \doi{10.1017/CBO9781316576533}.
+
+\bibitem[Hampel(1974)]{Hampel1974}
+F.~R. Hampel.
+\newblock {The influence curve and its role in robust estimation}.
+\newblock \emph{Journal of the American Statistical Association}, 69\penalty0
+  (346):\penalty0 383--393, 1974.
+\newblock ISSN 1537274X.
+\newblock \doi{10.1080/01621459.1974.10482962}.
+
+\bibitem[Koroljuk et~al.(1994)Koroljuk, Korolyuk, Borovskikh, Borovskich,
+  Borovskikh, Borovskikh, and Borovskich]{koroljuk1994theory}
+V.~Koroljuk, V.~Korolyuk, I.~Borovskikh, Y.~Borovskich, I.~Borovskikh,
+  I.~Borovskikh, and J.~Borovskich.
+\newblock \emph{Theory of U-Statistics}.
+\newblock Mathematics and Its Applications. Springer Netherlands, 1994.
+\newblock ISBN 9780792326083.
+\newblock URL \url{https://books.google.com/books?id=bp2DgkDxMdMC}.
+
 \bibitem[Lehmann and Romano(2005)]{lehmann2005testing}
 E.~L. Lehmann and J.~P. Romano.
 \newblock \emph{Testing Statistical Hypotheses}.
@@ -34,6 +66,13 @@ R.~Serfling.
 \newblock ISBN 0471024031.
 \newblock URL
   \url{http://gso.gbv.de/DB=2.1/CMD?ACT=SRCHA&SRT=YOP&IKT=1016&TRM=ppn+024353353&sourceid=fbw_bibsonomy}.
+
+\bibitem[Shao and Tu(2012)]{shao2012jackknife}
+J.~Shao and D.~Tu.
+\newblock \emph{The Jackknife and Bootstrap}.
+\newblock Springer Series in Statistics. Springer New York, 2012.
+\newblock ISBN 9781461207955.
+\newblock URL \url{https://books.google.com/books?id=VO3SBwAAQBAJ}.
 
 \bibitem[Wager and Athey(2018)]{Wager2018}
 S.~Wager and S.~Athey.

@@ -1,9 +1,15 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Durrett(2019)]{Durrett2019}
+R.~Durrett.
+\newblock \emph{Probability: Theory and Examples}.
+\newblock Cambridge University Press, USA, 5th edition, 2019.
+\newblock URL \url{https://services.math.duke.edu/~rtd/PTE/pte.html}.
 
 \bibitem[Grimmett and Stirzaker(2001)]{grimmett2001probability}
 G.~Grimmett and D.~Stirzaker.
@@ -21,6 +27,16 @@ I.~M. Johnstone.
 \newblock URL
   \url{https://projecteuclid.org/download/pdf{\_}1/euclid.aos/1009210544}.
 
+\bibitem[Li et~al.(2012)Li, Zhong, and Zhu]{Li2012}
+R.~Li, W.~Zhong, and L.~Zhu.
+\newblock {Feature screening via distance correlation learning}.
+\newblock \emph{Journal of the American Statistical Association}, 107\penalty0
+  (499):\penalty0 1129--1139, 2012.
+\newblock ISSN 01621459.
+\newblock \doi{10.1080/01621459.2012.695654}.
+\newblock URL
+  \url{https://www.tandfonline.com/action/journalInformation?journalCode=uasa20}.
+
 \bibitem[Ross(2008)]{ross2008stochastic}
 S.~Ross.
 \newblock \emph{Stochastic Processes}.
@@ -37,5 +53,14 @@ S.~Ross.
 \newblock \doi{https://doi.org/10.1016/B978-0-12-407948-9.00012-8}.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/B9780124079489000128}.
+
+\bibitem[Sz{\'{e}}kely et~al.(2007)Sz{\'{e}}kely, Rizzo, and
+  Bakirov]{Szekely2007}
+G.~J. Sz{\'{e}}kely, M.~L. Rizzo, and N.~K. Bakirov.
+\newblock {Measuring and testing dependence by correlation of distances}.
+\newblock \emph{Annals of Statistics}, 35\penalty0 (6):\penalty0 2769--2794,
+  dec 2007.
+\newblock ISSN 00905364.
+\newblock \doi{10.1214/009053607000000505}.
 
 \end{thebibliography}

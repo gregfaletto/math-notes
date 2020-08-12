@@ -1,55 +1,16 @@
-\BOOKMARK [1][-]{section.1}{Linear Regression}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Chapter 1: Linear Regression}{section.1}% 2
-\BOOKMARK [3][-]{subsubsection.1.1.1}{Preliminaries}{subsection.1.1}% 3
-\BOOKMARK [3][-]{subsubsection.1.1.2}{Estimation}{subsection.1.1}% 4
-\BOOKMARK [2][-]{subsection.1.2}{Chapter 2: Multiple Regression}{section.1}% 5
-\BOOKMARK [2][-]{subsection.1.3}{Chapter 3: Hypothesis testing in regression}{section.1}% 6
-\BOOKMARK [3][-]{subsubsection.1.3.1}{ANOVA}{subsection.1.3}% 7
-\BOOKMARK [2][-]{subsection.1.4}{Chapter 4: Heteroskedasticity}{section.1}% 8
-\BOOKMARK [2][-]{subsection.1.5}{Chapter 5: Autocorrelated disturbances}{section.1}% 9
-\BOOKMARK [2][-]{subsection.1.6}{Quantile Regression}{section.1}% 10
-\BOOKMARK [3][-]{subsubsection.1.6.1}{Detecting outliers in multiple dimensions}{subsection.1.6}% 11
-\BOOKMARK [2][-]{subsection.1.7}{Transformed Linear Models}{section.1}% 12
-\BOOKMARK [3][-]{subsubsection.1.7.1}{Transformations of response}{subsection.1.7}% 13
-\BOOKMARK [3][-]{subsubsection.1.7.2}{Transforming predictor values}{subsection.1.7}% 14
-\BOOKMARK [2][-]{subsection.1.8}{Segmented regression, local regression, splines}{section.1}% 15
-\BOOKMARK [3][-]{subsubsection.1.8.1}{Local Regression}{subsection.1.8}% 16
-\BOOKMARK [3][-]{subsubsection.1.8.2}{Curse of Dimensionality \(brief discussion\)}{subsection.1.8}% 17
-\BOOKMARK [2][-]{subsection.1.9}{Dimension Reduction methods}{section.1}% 18
-\BOOKMARK [3][-]{subsubsection.1.9.1}{Principal components regression}{subsection.1.9}% 19
-\BOOKMARK [3][-]{subsubsection.1.9.2}{Partial least squares}{subsection.1.9}% 20
-\BOOKMARK [3][-]{subsubsection.1.9.3}{Dimension reduction by random matrix}{subsection.1.9}% 21
-\BOOKMARK [2][-]{subsection.1.10}{Goodness of fit, residuals, residual diagnostics, leverage}{section.1}% 22
-\BOOKMARK [3][-]{subsubsection.1.10.1}{Residual diagnostics}{subsection.1.10}% 23
-\BOOKMARK [2][-]{subsection.1.11}{DSO 607}{section.1}% 24
-\BOOKMARK [3][-]{subsubsection.1.11.1}{Akaike Information Criterion \(AIC\)}{subsection.1.11}% 25
-\BOOKMARK [3][-]{subsubsection.1.11.2}{Bayesian Information Criterion \(BIC\)}{subsection.1.11}% 26
-\BOOKMARK [2][-]{subsection.1.12}{Ridge Regression}{section.1}% 27
-\BOOKMARK [2][-]{subsection.1.13}{Lasso}{section.1}% 28
-\BOOKMARK [3][-]{subsubsection.1.13.1}{Soft Thresholding}{subsection.1.13}% 29
-\BOOKMARK [3][-]{subsubsection.1.13.2}{Lasso theory}{subsection.1.13}% 30
-\BOOKMARK [3][-]{subsubsection.1.13.3}{Non-Negative Garotte}{subsection.1.13}% 31
-\BOOKMARK [3][-]{subsubsection.1.13.4}{LARS\204Preliminaries and Intuition}{subsection.1.13}% 32
-\BOOKMARK [3][-]{subsubsection.1.13.5}{LARS}{subsection.1.13}% 33
-\BOOKMARK [2][-]{subsection.1.14}{Loss Functions}{section.1}% 34
-\BOOKMARK [3][-]{subsubsection.1.14.1}{Feature Selection properties}{subsection.1.14}% 35
-\BOOKMARK [2][-]{subsection.1.15}{Dantzig Selector}{section.1}% 36
-\BOOKMARK [2][-]{subsection.1.16}{Coordinate Descent}{section.1}% 37
-\BOOKMARK [2][-]{subsection.1.17}{Total Variational Distance}{section.1}% 38
-\BOOKMARK [2][-]{subsection.1.18}{Non-parametric regression}{section.1}% 39
-\BOOKMARK [3][-]{subsubsection.1.18.1}{Generalized additive models}{subsection.1.18}% 40
-\BOOKMARK [2][-]{subsection.1.19}{Mixture regression}{section.1}% 41
-\BOOKMARK [2][-]{subsection.1.20}{Missing observations}{section.1}% 42
-\BOOKMARK [2][-]{subsection.1.21}{Generalized linear models}{section.1}% 43
-\BOOKMARK [3][-]{subsubsection.1.21.1}{Regression models}{subsection.1.21}% 44
-\BOOKMARK [3][-]{subsubsection.1.21.2}{Applications\204Categorical Data}{subsection.1.21}% 45
-\BOOKMARK [3][-]{subsubsection.1.21.3}{Applications\204Continuous Data}{subsection.1.21}% 46
-\BOOKMARK [2][-]{subsection.1.22}{Mixed Effects Models}{section.1}% 47
-\BOOKMARK [2][-]{subsection.1.23}{Miscellaneous Topics}{section.1}% 48
-\BOOKMARK [3][-]{subsubsection.1.23.1}{Multinomial Response}{subsection.1.23}% 49
-\BOOKMARK [3][-]{subsubsection.1.23.2}{Zero-inflated response}{subsection.1.23}% 50
-\BOOKMARK [3][-]{subsubsection.1.23.3}{Overdispersion}{subsection.1.23}% 51
-\BOOKMARK [2][-]{subsection.1.24}{Generalized linear mixed models}{section.1}% 52
-\BOOKMARK [3][-]{subsubsection.1.24.1}{Longitudinal data analysis and Generalized Estimating Equations}{subsection.1.24}% 53
-\BOOKMARK [2][-]{subsection.1.25}{Causal Inference}{section.1}% 54
-\BOOKMARK [3][-]{subsubsection.1.25.1}{Factorial Design \(see R lab 7\)}{subsection.1.25}% 55
+\BOOKMARK [0][-]{chapter.1}{Linear Regression}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Chapter 1: Linear Regression}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{Preliminaries}{section.1.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.2}{Estimation}{section.1.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Chapter 2: Multiple Regression}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{Chapter 3: Hypothesis testing in regression}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.3.1}{ANOVA}{section.1.3}% 7
+\BOOKMARK [1][-]{section.1.4}{Chapter 4: Heteroskedasticity}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.5}{Chapter 5: Autocorrelated disturbances}{chapter.1}% 9
+\BOOKMARK [2][-]{subsection.1.5.1}{Generalized Least Squares}{section.1.5}% 10
+\BOOKMARK [2][-]{subsection.1.5.2}{Weighted Least Squares}{section.1.5}% 11
+\BOOKMARK [1][-]{section.1.6}{Quantile Regression}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.6.1}{Detecting outliers in multiple dimensions}{section.1.6}% 13
+\BOOKMARK [1][-]{section.1.7}{Transformed Linear Models}{chapter.1}% 14
+\BOOKMARK [2][-]{subsection.1.7.1}{Transformations of response}{section.1.7}% 15
+\BOOKMARK [2][-]{subsection.1.7.2}{Transforming predictor values}{section.1.7}% 16

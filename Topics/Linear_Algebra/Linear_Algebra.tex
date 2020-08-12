@@ -1,4 +1,4 @@
-%\documentclass{article}
+%\documentclass{book}
 %
 %\usepackage{fancyhdr}
 %\usepackage{extramarks}
@@ -514,14 +514,14 @@ so \(v_j\) also lies in the nullspace of \(X\). Next, consider the matrix \(XV \
 
 %\begin{multline*}
 \begin{equation}\label{linalg.svd.2.decomp}
-(\underbrace{X}_{n \times p} \underbrace{V}_{p \times p})^T \underbrace{X}_{n \times p} \underbrace{V}_{p \times p} = \underbrace{V^T}_{p \times p} \underbrace{X^T}_{p \times n}  \underbrace{X}_{n \times p} \underbrace{V}_{p \times p} =  V^T V \Sigma^2 V^TV = \Sigma^2.
+(\underbrace{X}_{n \times p} \underbrace{V}_{p \times p})^T \underbrace{X}_{n \times p} \underbrace{V}_{p \times p} = \underbrace{V^T}_{p \times p} \underbrace{X^T}_{p \times n}  \underbrace{X}_{n \times p} \underbrace{V}_{p \times p}= V^TV D V^TV =  V^T V \Sigma^2 V^TV = \Sigma^2.
 \end{equation}
 
-Let \(\tilde{D} \in \mathbb{R}^{r \times r} \) be a diagonal matrix containing the \(r\) nonzero entries of \(\Sigma\) so that we can write
+Let \(\tilde{D}^{1/2} \in \mathbb{R}^{r \times r} \) be a diagonal matrix containing the \(r\) nonzero entries of \(\Sigma\) so that we can write
 
 \[
 \Sigma = \begin{bmatrix} 
-\tilde{D} & 0_{r \times (p - r)} \\
+\tilde{D}^{1/2} & 0_{r \times (p - r)} \\
 0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
 \end{bmatrix}
 \]
@@ -530,12 +530,14 @@ Then if we define
 
 \[
 \tilde{\Sigma} :=  \begin{bmatrix} 
-\tilde{D}^{-1} & 0_{r \times (p - r)} \\
+\tilde{D}^{-1/2} & 0_{r \times (p - r)} \\
 0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
 \end{bmatrix}
 \]
 
-we can modify (\ref{linalg.svd.2.decomp}) as
+we have 
+
+%(\ref{linalg.svd.2.decomp}) as
 
 \begin{equation}\label{linalg.svd.3.decomp}
 (XV \tilde{\Sigma})^T XV \tilde{\Sigma} =  \tilde{\Sigma} V^T X^TXV \tilde{\Sigma} = \tilde{\Sigma}  V^T V \Sigma^2 V^TV \tilde{\Sigma} = \tilde{\Sigma} \Sigma^2 \tilde{\Sigma} =  \begin{bmatrix} 
@@ -548,10 +550,10 @@ since
 
 \[
 \tilde{\Sigma} \Sigma =  \begin{bmatrix} 
-\tilde{D}^{-1} & 0_{r \times (p - r)} \\
+\tilde{D}^{-1/2} & 0_{r \times (p - r)} \\
 0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
 \end{bmatrix} \begin{bmatrix} 
-\tilde{D} & 0_{r \times (p - r)} \\
+\tilde{D}^{1/2} & 0_{r \times (p - r)} \\
 0_{(p-r) \times r}  & 0_{(p-r) \times (p-r)}
 \end{bmatrix} = 
  \begin{bmatrix} 
@@ -569,7 +571,7 @@ I_{r \times r} & 0_{r \times (p - r)} \\
 \end{bmatrix} = XV
 \end{equation}
 
-where the last step follows because the last \(p -r\) columns of \(V\) lie in the nullspace of \(X\), so they already equaled 0 anyway. Finally, multiply both sides of (\ref{linalg.svd.4.decomp}) by \(V^T\) to obtain the \textbf{singular value decomposition}
+where the last step follows because the last \(p -r\) columns of \(V\) lie in the nullspace of \(X\), so they already equaled 0 anyway. Finally, multiply both sides of (\ref{linalg.svd.4.decomp}) by \(V^T\) on the right to obtain the \textbf{singular value decomposition}
 
 \[
 X = U \Sigma V^T.
@@ -579,7 +581,7 @@ X = U \Sigma V^T.
 %\iff 
 %\end{multline*}
 
-Now let's examine the properties of this decomposition. We argued earlier that the last \(p - r\) columns of \(V\) lie in the nullspace of \(X\). It follows that since the first \(p\) columns of \(V\) are orthonormal and orthogonal to the nullspace of \(X\), the first \(r\) columns of \(V\) are orthonormal basis vectors for the row space of \(X\). 
+Now let's examine the properties of this decomposition. We argued earlier that the last \(p - r\) columns of \(V\) lie in the nullspace of \(X\). It follows that since the first \(r\) columns of \(V\) are orthonormal and orthogonal to the nullspace of \(X\), the first \(r\) columns of \(V\) are orthonormal basis vectors for the row space of \(X\). 
 
 Next, we have already shown that \(U = XV \tilde{\Sigma}\) contains \(r\) orthogonal columns, and of course these columns lie in the column space of \(X\). Therefore the first \(r\) columns of \(U\) form an orthonormal basis for the column space of \(X\).
 
@@ -961,15 +963,15 @@ The power method finds the eigenvector $v_{1}$ of $A$, and the size of the $i^{t
 
 \includegraphics[scale=0.65]{1268_51s}
 
-%%\includegraphics[scale=0.65]{1268_59}
-%
-%%\includegraphics[scale=0.65]{1268_59s}
+%\includegraphics[scale=0.65]{1268_59}
 
-%
-%
-%
-%
-%
+%\includegraphics[scale=0.65]{1268_59s}
+
+
+
+
+
+
 
 %\end{document}
 

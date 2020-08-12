@@ -41,6 +41,5 @@
 \BOOKMARK [1][-]{section.1.10}{U-Statistics}{chapter.1}% 41
 \BOOKMARK [2][-]{subsection.1.10.1}{Basic Definitions and Properties [Sections 5.1 and 5.2]serfling1980, [Section 15.1]dasgupta2008asymptotic}{section.1.10}% 42
 \BOOKMARK [2][-]{subsection.1.10.2}{Asymptotics [Section 5.3]serfling1980, [Section 15.2]dasgupta2008asymptotic}{section.1.10}% 43
-\BOOKMARK [1][-]{section.1.11}{Influence Functions \(Section 6.6.1 of serfling1980\)}{chapter.1}% 44
-\BOOKMARK [1][-]{section.1.12}{M-Estimators \(Chapter 7 of serfling1980\)}{chapter.1}% 45
-\BOOKMARK [1][-]{section.1.13}{Distance Correlation}{chapter.1}% 46
+\BOOKMARK [1][-]{section.1.11}{Von Mises Differentiable Statistical Functions and Influence Functions \(Section 6.6.1 of serfling1980, Chapter 9 of demidenko2013mixed; Section 1.6 of koroljuk1994theory; Section 10.5 of Efron2016, shao2012jackknife, Hampel1974, Section 30.4 of dasgupta2008asymptotic\)}{chapter.1}% 44
+\BOOKMARK [1][-]{section.1.12}{M-Estimators \(Chapter 7 of serfling1980, Chapter 17 of dasgupta2008asymptotic\)}{chapter.1}% 45

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 JUL 2020 12:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  31 JUL 2020 09:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -858,8 +858,9 @@ File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 \c@theorem=\count141
 \c@corollary=\count142
 \c@definition=\count143
-\c@exercise=\count144
-\c@example=\count145
+\c@remark=\count144
+\c@exercise=\count145
+\c@example=\count146
  (./StatLearning.aux
 
 LaTeX Warning: Label `dp_k_convexity_fig' multiply defined.
@@ -892,16 +893,16 @@ LaTeX Font Info:    ... okay on input line 123.
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count146
+\scratchcounter=\count147
 \scratchdimen=\dimen165
 \scratchbox=\box61
-\nofMPsegments=\count147
-\nofMParguments=\count148
+\nofMPsegments=\count148
+\nofMParguments=\count149
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count149
+\MPscratchCnt=\count150
 \MPscratchDim=\dimen166
-\MPnumerator=\count150
-\makeMPintoPDFobject=\count151
+\MPnumerator=\count151
+\makeMPintoPDFobject=\count152
 \everyMPtoPDFconversion=\toks45
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -933,7 +934,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count152
+\c@section@level=\count153
 )
 LaTeX Info: Redefining \ref on input line 123.
 LaTeX Info: Redefining \pageref on input line 123.
@@ -1045,7 +1046,7 @@ LaTeX Warning: Reference `cvx.sum.cvx.cvx' on page 20 undefined on input line 8
 31.
 
 [20] [21]
-<images/linreg_lasso_level_set.png, id=584, 1049.9225pt x 656.4525pt>
+<images/linreg_lasso_level_set.png, id=623, 1049.9225pt x 656.4525pt>
 File: images/linreg_lasso_level_set.png Graphic file (type png)
 <use images/linreg_lasso_level_set.png>
 Package pdftex.def Info: images/linreg_lasso_level_set.png  used on input line 
@@ -1059,12 +1060,12 @@ Overfull \hbox (1.70355pt too wide) in paragraph at lines 1135--1136
  []
 
 [25] [26] [27] [28] [29]
-<images/linreg_lars_2d.png, id=716, 719.68875pt x 543.02875pt>
+<images/linreg_lars_2d.png, id=757, 719.68875pt x 543.02875pt>
 File: images/linreg_lars_2d.png Graphic file (type png)
 <use images/linreg_lars_2d.png>
 Package pdftex.def Info: images/linreg_lars_2d.png  used on input line 1465.
 (pdftex.def)             Requested size: 375.80542pt x 283.56145pt.
-<images/linreg_lars_3d.png, id=717, 720.6925pt x 568.1225pt>
+<images/linreg_lars_3d.png, id=758, 720.6925pt x 568.1225pt>
 File: images/linreg_lars_3d.png Graphic file (type png)
 <use images/linreg_lars_3d.png>
 Package pdftex.def Info: images/linreg_lars_3d.png  used on input line 1470.
@@ -1087,7 +1088,7 @@ LaTeX Warning: Reference `mathstats.sec.em.alg' on page 38 undefined on input l
 ine 1855.
 
 [38]
-<images/linreg_spatial_mixture_model_2.jpg, id=791, 2446.13875pt x 1563.8425pt>
+<images/linreg_spatial_mixture_model_2.jpg, id=834, 2446.13875pt x 1563.8425pt>
 
 File: images/linreg_spatial_mixture_model_2.jpg Graphic file (type jpg)
 <use images/linreg_spatial_mixture_model_2.jpg>
@@ -1186,7 +1187,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 2723.
 
 [54]
-<images/stoch_dp_ic.jpg, id=904, 1926.19624pt x 1325.95375pt>
+<images/stoch_dp_ic.jpg, id=948, 1926.19624pt x 1325.95375pt>
 File: images/stoch_dp_ic.jpg Graphic file (type jpg)
 <use images/stoch_dp_ic.jpg>
 Package pdftex.def Info: images/stoch_dp_ic.jpg  used on input line 2790.
@@ -1294,13 +1295,13 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 3040.
 
 [60] [61]
-<images/dp_inventory_control.jpg, id=973, 2620.79124pt x 2584.65625pt>
+<images/dp_inventory_control.jpg, id=1017, 2620.79124pt x 2584.65625pt>
 File: images/dp_inventory_control.jpg Graphic file (type jpg)
 <use images/dp_inventory_control.jpg>
 Package pdftex.def Info: images/dp_inventory_control.jpg  used on input line 31
 17.
 (pdftex.def)             Requested size: 393.10173pt x 387.68172pt.
-<images/stoch_dp_k_cvx.jpg, id=986, 1885.0425pt x 1722.435pt>
+<images/stoch_dp_k_cvx.jpg, id=1030, 1885.0425pt x 1722.435pt>
 File: images/stoch_dp_k_cvx.jpg Graphic file (type jpg)
 <use images/stoch_dp_k_cvx.jpg>
 Package pdftex.def Info: images/stoch_dp_k_cvx.jpg  used on input line 3153.
@@ -1311,25 +1312,25 @@ Package pdftex.def Info: images/stoch_dp_k_cvx.jpg  used on input line 3153.
 LaTeX Warning: Reference `cvx.slope.nondec' on page 65 undefined on input line 
 3172.
 
-<images/stoch_dp_k_cvx_p3.jpg, id=1012, 1632.0975pt x 1121.18875pt>
+<images/stoch_dp_k_cvx_p3.jpg, id=1057, 1632.0975pt x 1121.18875pt>
 File: images/stoch_dp_k_cvx_p3.jpg Graphic file (type jpg)
 <use images/stoch_dp_k_cvx_p3.jpg>
 Package pdftex.def Info: images/stoch_dp_k_cvx_p3.jpg  used on input line 3215.
 
 (pdftex.def)             Requested size: 326.41371pt x 224.23378pt.
 [65] [66 <./images/stoch_dp_k_cvx_p3.jpg>]
-<images/stoch_dp_fixed.jpg, id=1040, 953.5625pt x 471.7625pt>
+<images/stoch_dp_fixed.jpg, id=1084, 953.5625pt x 471.7625pt>
 File: images/stoch_dp_fixed.jpg Graphic file (type jpg)
 <use images/stoch_dp_fixed.jpg>
 Package pdftex.def Info: images/stoch_dp_fixed.jpg  used on input line 3327.
 (pdftex.def)             Requested size: 286.07095pt x 141.52983pt.
-<images/dp_k_convexity.jpg, id=1046, 2387.92125pt x 1432.35126pt>
+<images/dp_k_convexity.jpg, id=1090, 2387.92125pt x 1432.35126pt>
 File: images/dp_k_convexity.jpg Graphic file (type jpg)
 <use images/dp_k_convexity.jpg>
 Package pdftex.def Info: images/dp_k_convexity.jpg  used on input line 3352.
 (pdftex.def)             Requested size: 405.94125pt x 243.49649pt.
  [67] [68 <./images/stoch_dp_fixed.jpg> <./images/dp_k_convexity.jpg>]
-<images/stoch_dp_fixed_thm_proof_1.jpg, id=1076, 1402.23875pt x 687.56876pt>
+<images/stoch_dp_fixed_thm_proof_1.jpg, id=1120, 1402.23875pt x 687.56876pt>
 File: images/stoch_dp_fixed_thm_proof_1.jpg Graphic file (type jpg)
 <use images/stoch_dp_fixed_thm_proof_1.jpg>
 Package pdftex.def Info: images/stoch_dp_fixed_thm_proof_1.jpg  used on input l
@@ -1363,19 +1364,19 @@ LaTeX Font Info:    Try loading font information for U+bbm on input line 3630.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-<images/stoch_littlewood.jpg, id=1142, 700.6175pt x 489.83pt>
+<images/stoch_littlewood.jpg, id=1187, 700.6175pt x 489.83pt>
 File: images/stoch_littlewood.jpg Graphic file (type jpg)
 <use images/stoch_littlewood.jpg>
 Package pdftex.def Info: images/stoch_littlewood.jpg  used on input line 3636.
 (pdftex.def)             Requested size: 350.30789pt x 244.9144pt.
  [73] [74 <./images/stoch_littlewood.jpg>] [75]
-<images/stoch_dp_n_class.jpg, id=1175, 2658.93375pt x 2130.96124pt>
+<images/stoch_dp_n_class.jpg, id=1220, 2658.93375pt x 2130.96124pt>
 File: images/stoch_dp_n_class.jpg Graphic file (type jpg)
 <use images/stoch_dp_n_class.jpg>
 Package pdftex.def Info: images/stoch_dp_n_class.jpg  used on input line 3741.
 (pdftex.def)             Requested size: 398.82286pt x 319.6304pt.
  [76 <./images/stoch_dp_n_class.jpg>]
-<images/stoch_dp_n_class_pf.jpg, id=1189, 1688.3075pt x 1399.2275pt>
+<images/stoch_dp_n_class_pf.jpg, id=1234, 1688.3075pt x 1399.2275pt>
 File: images/stoch_dp_n_class_pf.jpg Graphic file (type jpg)
 <use images/stoch_dp_n_class_pf.jpg>
 Package pdftex.def Info: images/stoch_dp_n_class_pf.jpg  used on input line 376
@@ -1538,13 +1539,13 @@ S/cmsy/m/n/10 ^^T
  []
 
 [88] [89]
-<images/stoch_dp_vi_vis.jpg, id=1321, 2129.9575pt x 1657.19125pt>
+<images/stoch_dp_vi_vis.jpg, id=1367, 2129.9575pt x 1657.19125pt>
 File: images/stoch_dp_vi_vis.jpg Graphic file (type jpg)
 <use images/stoch_dp_vi_vis.jpg>
 Package pdftex.def Info: images/stoch_dp_vi_vis.jpg  used on input line 4642.
 (pdftex.def)             Requested size: 425.98396pt x 331.43237pt.
  [90] [91 <./images/stoch_dp_vi_vis.jpg>]
-<images/stoch_dp_pi_vis.jpg, id=1334, 718.685pt x 767.86874pt>
+<images/stoch_dp_pi_vis.jpg, id=1380, 718.685pt x 767.86874pt>
 File: images/stoch_dp_pi_vis.jpg Graphic file (type jpg)
 <use images/stoch_dp_pi_vis.jpg>
 Package pdftex.def Info: images/stoch_dp_pi_vis.jpg  used on input line 4652.
@@ -1590,7 +1591,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 4795.
 
 [94] [95]
-<images/dp_fig_1_3_1.jpg, id=1391, 2184.16pt x 1512.65125pt>
+<images/dp_fig_1_3_1.jpg, id=1437, 2184.16pt x 1512.65125pt>
 File: images/dp_fig_1_3_1.jpg Graphic file (type jpg)
 <use images/dp_fig_1_3_1.jpg>
 Package pdftex.def Info: images/dp_fig_1_3_1.jpg  used on input line 4867.
@@ -1781,26 +1782,170 @@ t/10 `\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT
 1/cmr/m/n/10 ))\OML/cmm/m/it/10 ; f \OMS/cmsy/m/n/10 2 
  []
 
-[112] (./StatLearning.bbl
+[112]
 
-Package natbib Warning: Citation `MATHIEU2019' on page 113 undefined on input l
-ine 1.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 5817.
 
-[113] [114
 
-] [115])
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 5817.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 5817.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 5817.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 5817.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 5817.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 5817.
+
+
+Package natbib Warning: Citation `CHI2020' on page 113 undefined on input line 
+5862.
+
+[113]
+Overfull \hbox (29.99611pt too wide) in paragraph at lines 5879--5880
+[]\OT1/cmr/m/n/10 Denote by $#\OML/cmm/m/it/10 S$ \OT1/cmr/m/n/10 the num-ber o
+f el-e-ments in a set $\OML/cmm/m/it/10 S$\OT1/cmr/m/n/10 . Let $\OMS/cmsy/m/n/
+10 f\OT1/cmr/m/n/10 (\OML/cmm/b/it/10 x[]\OML/cmm/m/it/10 ; y[]\OT1/cmr/m/n/10 
+)\OMS/cmsy/m/n/10 g[]$ \OT1/cmr/m/n/10 be a given sam-ple with $\OML/cmm/b/it/1
+0 x[] \OT1/cmr/m/n/10 := (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 )[] \OM
+S/cmsy/m/n/10 2 
+ []
+
+[114]
+
+Package natbib Warning: Citation `CHI2020' on page 115 undefined on input line 
+5967.
+
+[115]
+Overfull \hbox (24.95062pt too wide) in paragraph at lines 5990--5991
+\OT1/cmr/m/n/10 func-tion and joint dis-tri-bu-tion of co-vari-ates be given. F
+or each pos-i-tive in-te-ger $\OML/cmm/m/it/10 k$ \OT1/cmr/m/n/10 and fea-ture 
+sub-sets $^^B[]\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 ^^B[]$, 
+ []
+
+[116]
+
+Package natbib Warning: Citation `CHI2020' on page 117 undefined on input line 
+6079.
+
+[117]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 6119.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 6119.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 6119.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 6119.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 6119.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 6119.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 6119.
+
+
+Overfull \hbox (2.30092pt too wide) in paragraph at lines 6125--6126
+[]\OT1/cmr/bx/n/10 Condition 4. \OT1/cmr/m/n/10 As-sume that the dis-tri-bu-tio
+n of co-vari-ates $\OML/cmm/b/it/10 X$ \OT1/cmr/m/n/10 has a den-sity func-tion
+ $\OML/cmm/m/it/10 f$ \OT1/cmr/m/n/10 that is bounded 
+ []
+
+[118]
+
+Package natbib Warning: Citation `CHI2020' on page 119 undefined on input line 
+6182.
+
+[119]
+Overfull \hbox (0.6625pt too wide) in paragraph at lines 6196--6197
+[]\OT1/cmr/m/n/10 This is the first re-sult on the con-sis-tency rate for the o
+rig-i-nal ver-sion of the ran-dom for-est al-go-rithm. With 
+ []
+
+
+Overfull \hbox (47.16026pt too wide) in paragraph at lines 6206--6207
+[]\OT1/cmr/bx/n/10 Condition 6. \OT1/cmr/m/n/10 There ex-ists some con-stant $\
+OML/cmm/m/it/10 ^^S \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 0$ such that for each 
+$\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 1$ and $\OML/cmm/m/it/
+10 j \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 S[]$\OT1/cmr/m/n/10 , $\U/msb/m/n/10 E
+ [] \OMS/cmsy/m/n/10 ^^U 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 6220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 6220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 6220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 6220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 6220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 6220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 6220.
+
+[120] (./StatLearning.bbl
+
+Package natbib Warning: Citation `CHI2020' on page 121 undefined on input line 
+1.
+
+[121] [122
+
+] [123])
 
 Package natbib Warning: There were undefined citations.
 
-[116]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5822.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 5822.
+[124]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6260.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6260.
  (./StatLearning.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5822.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5822.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6260.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6260.
 
 Package rerunfilecheck Info: File `StatLearning.out' has not changed.
-(rerunfilecheck)             Checksum: FBC19164F1F6FBCE129477BD1EF0BDF5;5329.
+(rerunfilecheck)             Checksum: 103FBA89B734303199E149C02B16F58C;5821.
 
 
 LaTeX Warning: There were undefined references.
@@ -1808,13 +1953,13 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5822.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6260.
  ) 
 Here is how much of TeX's memory you used:
- 19168 strings out of 492649
- 358831 string characters out of 6129622
- 436414 words of memory out of 5000000
- 22174 multiletter control sequences out of 15000+600000
+ 19253 strings out of 492649
+ 360120 string characters out of 6129622
+ 437280 words of memory out of 5000000
+ 22199 multiletter control sequences out of 15000+600000
  20878 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,22n,66p,1196b,594s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1856,10 +2001,10 @@ live/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local
 /texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/lo
 cal/texlive/2018/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texl
 ive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on StatLearning.pdf (116 pages, 8373921 bytes).
+Output written on StatLearning.pdf (124 pages, 8417190 bytes).
 PDF statistics:
- 1808 PDF objects out of 2073 (max. 8388607)
- 1597 compressed objects within 16 object streams
- 482 named destinations out of 1000 (max. 500000)
- 594 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1989 PDF objects out of 2073 (max. 8388607)
+ 1768 compressed objects within 18 object streams
+ 542 named destinations out of 1000 (max. 500000)
+ 634 words of extra memory for PDF output out of 10000 (max. 10000000)
 

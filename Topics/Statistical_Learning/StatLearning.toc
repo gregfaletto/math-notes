@@ -60,4 +60,10 @@
 \contentsline {section}{\numberline {1.23}Notes on \citet {Mathieu2019}}{109}{section.1.23}
 \contentsline {subsection}{\numberline {1.23.1}Notation}{109}{subsection.1.23.1}
 \contentsline {subsection}{\numberline {1.23.2}Section 1}{110}{subsection.1.23.2}
-\contentsline {subsubsection}{Section 1.4: Overview of Main Results}{113}{section*.2}
+\contentsline {section}{\numberline {1.24}Random Forests and Notes on \citet {Chi2020}}{113}{section.1.24}
+\contentsline {subsection}{\numberline {1.24.1}Section 2 (Terminology and Review of Random Forest)}{113}{subsection.1.24.1}
+\contentsline {subsection}{\numberline {1.24.2}Section 3: Approximation Accuracy}{116}{subsection.1.24.2}
+\contentsline {subsubsection}{Technical Conditions}{117}{section*.2}
+\contentsline {subsubsection}{Main Results}{118}{section*.3}
+\contentsline {subsection}{\numberline {1.24.3}Consistency Rates (Section 4 of \citet {Chi2020}])}{118}{subsection.1.24.3}
+\contentsline {subsection}{\numberline {1.24.4}A General Estimation Foundation (Section 5 of \citet {Chi2020})}{121}{subsection.1.24.4}

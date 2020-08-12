@@ -9175,9 +9175,40 @@ f(s) \gtrsim  g(s) \qquad \iff \qquad \underset{s \to \infty}{\lim \inf} \left( 
 %
 %\end{remark}
 
-\section{Influence Functions (Section 6.6.1 of \citet{serfling1980})}
+\section{Von Mises Differentiable Statistical Functions and Influence Functions (Section 6.6.1 of \citet{serfling1980}, Chapter 9 of \citet{demidenko2013mixed}; Section 1.6 of \citet{koroljuk1994theory}; Section 10.5 of \cite{Efron2016}, \citet{shao2012jackknife}, \citet{Hampel1974}, Section 30.4 of \citet{dasgupta2008asymptotic})}
 
-\section{\(M\)-Estimators (Chapter 7 of \citet{serfling1980})}
+\textit{Statistical functions} are statistics that are representable as functionals \(T(F_n)\) of the sample distribution \(F_n\). (Examples include the sample mean and variance.) Typically \(T(F_n) - T(F)\) is asymptotically normal.
+
+\begin{definition}[\textbf{Linear statistical function}]
+
+For any function \(h(x)\), the statistic
+
+\[
+T_n = \int h(x) dF_n(x) 
+\]
+
+is a \textbf{linear statistical function} (linear in the increments \(dF_n(x)\). In particular, the sample moments are linear statistical functions. (If the random variable is discrete-valued, we can write this as
+
+\[
+\frac{1}{n} \sum_{i=1}^n h(X_i).)
+\]
+
+\end{definition}
+
+\begin{example}
+
+Linear statistic functions are statistical functions. Other examples of statistical functions are sample central moments and maximum likelihood estimates.
+
+\end{example}
+
+\begin{proposition}[\textbf{Informal}]
+
+The type of asymptotic distribution of a differentiable statistical function \(T_n = T(F_n)\) depends upon which is the nonvanishing term in the Taylor series of the functional \(T(\cdot)\) at the distribution \(F\) of the observations. If it is the linear term, the limit distribution is normal (under the usual restrictions corresponding to the central limit theorem). In other cases, ``higher" types of limit distribution result.
+
+\end{proposition}
+
+
+\section{\(M\)-Estimators (Chapter 7 of \citet{serfling1980}, Chapter 17 of \citet{dasgupta2008asymptotic})}
 
 Many estimation methods are based on minimization of some function of the observations \(\{X_i\}\) and the unknown parameter \(\theta\), e.g. the least squares estimator
 
@@ -9193,7 +9224,6 @@ Similarly, the least absolute values estimator of \(\theta\) is given by
 
 Maximum likelihood estimation may be regarded as an approach of this type as well. Typically the problem of minimizing a function of data and a parameter reduces to a problem involving solving a system of equations for an estimator \(\hat{\theta}\). Statistics given as solutions of equations are called \textbf{M-statistics.} 
 
-\section{Distance Correlation}
 
 
 %\bibliographystyle{abbrvnat}

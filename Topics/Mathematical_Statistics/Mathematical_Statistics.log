@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  6 JUL 2020 09:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  13 JUL 2020 15:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -951,11 +951,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `Mathematical_Statistics.toc'.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-[5] [6
+ [4] [5] [6
 
 ]
 Chapter 1.
@@ -1261,7 +1257,7 @@ Overfull \hbox (43.4128pt too wide) detected at line 5465
  []
 
 [96]
-<images/mathstats_np_set.jpg, id=1210, 4047.12pt x 3035.34pt>
+<images/mathstats_np_set.jpg, id=1228, 4047.12pt x 3035.34pt>
 File: images/mathstats_np_set.jpg Graphic file (type jpg)
 <use images/mathstats_np_set.jpg>
 Package pdftex.def Info: images/mathstats_np_set.jpg  used on input line 5520.
@@ -1302,20 +1298,20 @@ T1/cmr/m/n/10 ), then that is also the UMP test for test of size $\OML/cmm/m/it
  []
 
 [105] [106] [107]
-<images/mathstats_gnp_ex.jpg, id=1330, 2583.6525pt x 2636.85126pt>
+<images/mathstats_gnp_ex.jpg, id=1348, 2583.6525pt x 2636.85126pt>
 File: images/mathstats_gnp_ex.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex.jpg>
 Package pdftex.def Info: images/mathstats_gnp_ex.jpg  used on input line 6212.
 (pdftex.def)             Requested size: 258.38039pt x 263.70058pt.
  [108] [109 <./images/mathstats_gnp_ex.jpg>]
-<images/mathstats_gnp_ex_2.jpg, id=1350, 1123.19624pt x 1502.61375pt>
+<images/mathstats_gnp_ex_2.jpg, id=1368, 1123.19624pt x 1502.61375pt>
 File: images/mathstats_gnp_ex_2.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex_2.jpg>
 Package pdftex.def Info: images/mathstats_gnp_ex_2.jpg  used on input line 6222
 .
 (pdftex.def)             Requested size: 224.63527pt x 300.51743pt.
  [110 <./images/mathstats_gnp_ex_2.jpg>]
-<images/mathstats_gnp_ex_3.jpg, id=1370, 1568.86125pt x 1824.8175pt>
+<images/mathstats_gnp_ex_3.jpg, id=1388, 1568.86125pt x 1824.8175pt>
 File: images/mathstats_gnp_ex_3.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex_3.jpg>
 Package pdftex.def Info: images/mathstats_gnp_ex_3.jpg  used on input line 6270
@@ -1659,7 +1655,7 @@ Overfull \hbox (20.71814pt too wide) in paragraph at lines 8783--8784
 f in-te-grands in the third step (ei-ther way finds the probability- 
  []
 
-<images/mathstats_thm_pratt_img.jpg, id=1775, 4047.12pt x 3035.34pt>
+<images/mathstats_thm_pratt_img.jpg, id=1793, 4047.12pt x 3035.34pt>
 File: images/mathstats_thm_pratt_img.jpg Graphic file (type jpg)
 <use images/mathstats_thm_pratt_img.jpg>
 Package pdftex.def Info: images/mathstats_thm_pratt_img.jpg  used on input line
@@ -1798,6 +1794,11 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 9085.
 
 [159] [160]
+Overfull \hbox (3.45102pt too wide) in paragraph at lines 9178--9178
+\OT1/cmr/bx/n/14.4 Sec-tion 10.5 of [][]Efron and Hastie[][] [[][]2016[][]], []
+[]Shao and Tu[][] [[][]2012[][]], 
+ []
+
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 9178.
@@ -1828,57 +1829,282 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 9180.
+(hyperref)                removing `\begingroup' on input line 9178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9180.
+(hyperref)                removing `\let' on input line 9178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9180.
+(hyperref)                removing `\<let>-command' on input line 9178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9180.
+(hyperref)                removing `\NAT@ctype' on input line 9178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9180.
+(hyperref)                removing `\z@' on input line 9178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9180.
+(hyperref)                removing `\let' on input line 9178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9180.
+(hyperref)                removing `\new@ifnextchar' on input line 9178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9180.
+(hyperref)                removing `\begingroup' on input line 9178.
 
-(./Mathematical_Statistics.bbl
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 9178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 9211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 9211.
+
 
 Package natbib Warning: Citation `SERFLING1980' on page 161 undefined on input 
-line 1.
+line 9221.
 
-[161] [162
 
-])
+Package natbib Warning: Citation `DEMIDENKO2013MIXED' on page 161 undefined on 
+input line 9221.
+
+
+Package natbib Warning: Citation `KOROLJUK1994THEORY' on page 161 undefined on 
+input line 9221.
+
+
+Package natbib Warning: Citation `EFRON2016' on page 161 undefined on input lin
+e 9221.
+
+
+Package natbib Warning: Citation `SHAO2012JACKKNIFE' on page 161 undefined on i
+nput line 9221.
+
+
+Package natbib Warning: Citation `HAMPEL1974' on page 161 undefined on input li
+ne 9221.
+
+
+Package natbib Warning: Citation `DASGUPTA2008ASYMPTOTIC' on page 161 undefined
+ on input line 9221.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.43335pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[161] (./Mathematical_Statistics.bbl [162])
 
 Package natbib Warning: There were undefined citations.
 
-[163]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9201.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 9201.
+[163
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9231.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9231.
  (./Mathematical_Statistics.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 9201.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9201.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 9231.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9231.
 
 Package rerunfilecheck Info: File `Mathematical_Statistics.out' has not changed
 .
-(rerunfilecheck)             Checksum: 8AA7130EA4F9528C0EE557762CD3B1A8;3865.
+(rerunfilecheck)             Checksum: 902577FF5126617ECD940A06B09F1DDF;4052.
 
 
 LaTeX Warning: There were undefined references.
@@ -1886,13 +2112,13 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 9201.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 9231.
  ) 
 Here is how much of TeX's memory you used:
- 19212 strings out of 492649
- 358139 string characters out of 6129622
- 439470 words of memory out of 5000000
- 22018 multiletter control sequences out of 15000+600000
+ 19233 strings out of 492649
+ 358593 string characters out of 6129622
+ 439709 words of memory out of 5000000
+ 22032 multiletter control sequences out of 15000+600000
  18710 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,17n,66p,1012b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1928,10 +2154,10 @@ l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/
 local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></u
 sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Mathematical_Statistics.pdf (163 pages, 3583266 bytes).
+Output written on Mathematical_Statistics.pdf (163 pages, 3589371 bytes).
 PDF statistics:
- 2181 PDF objects out of 2487 (max. 8388607)
- 1936 compressed objects within 20 object streams
- 711 named destinations out of 1000 (max. 500000)
- 406 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2220 PDF objects out of 2487 (max. 8388607)
+ 1975 compressed objects within 20 object streams
+ 718 named destinations out of 1000 (max. 500000)
+ 398 words of extra memory for PDF output out of 10000 (max. 10000000)
 

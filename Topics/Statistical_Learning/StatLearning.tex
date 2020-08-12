@@ -111,7 +111,7 @@
 %\newtheorem{lemma}[theorem]{Lemma}
 %\theoremstyle{definition}
 %\newtheorem{definition}{Definition}[section]
-%\newtheorem*{remark}{Remark}
+%\newtheorem{remark}{Remark}
 %\theoremstyle{definition}
 %\newtheorem{exercise}{Exercise}
 %\theoremstyle{definition}
@@ -5805,7 +5805,445 @@ as well as its permutation-invariant analogue
 
 as alternatives to standard risk minimization \eqref{statlearning.emp.risk.min}. The goal of this paper is to get general bounds for the excess risk of the estimators \(\hat{f}_N\) and \(\hat{f}_N^U\) under minimal assumptions on the stochastic process \(\{\ell(f(X)), f \in \mathcal{F}\}\).
 
-\subsubsection{Section 1.4: Overview of Main Results}
+%
+%
+%
+%
+%
+%
+%
+%
+
+\section{Random Forests and Notes on \citet{Chi2020}}
+
+\begin{definition}
+
+A real- or complex-valued function \(f\) on a \(d\)-dimensional Euclidean space is \textbf{Holder continuous} if there exist nonnegative real constants \(C\) and \(\alpha\) such that 
+
+\[
+|f(x) - f(y)| \leq C \lVert x - y \rVert^\alpha 
+\]
+
+for all \(x\) and \(y\) in the domain of \(f\). (This condition can be formulated for functions between any two metric spaces.) The number \(\alpha\) is called the \textbf{exponent} of the Holder condition. A function on an interval satisfying the condition with \(\alpha > 1\) is constant. Note that if \(\alpha =1\) then the function is Lipschitz continuous, and for \(\alpha \in (0,1)\) Holder continuity is weaker than Lipschitz continuity. For any \(\alpha > 0\) the condition implies the function is uniformly continuous. 
+
+\end{definition}
+
+\subsection{Section 2 (Terminology and Review of Random Forest)}
+
+\begin{definition}
+
+Let \(\mathcal{T}\) be the set of rectangles \(\boldsymbol{t} = \times_{j=1}^p t_j \subset \boldsymbol{t}_0 := [0,1]^p\), where each \(t_j\) is a closed or half-closed interval in \([0,1]\). A \textbf{cell} or \textbf{subcell} is an element of \(\mathcal{T}\). A \textbf{cut} or \textbf{split} is a feature and location pair that can be used for separating the parent cell. That is, for a nonempty cell \(\boldsymbol{t}\), a cut is a pair \((s,c)\) with \(s \in \{1, \ldots, p\}\) and \(c \in t_s\), and the \textbf{daughter cells} obtained by separating \(\boldsymbol{t}\) accordingly are
+
+\[
+\times_{j=1}^{s-1} t_j \times \left( t_s \cap [0, c) \right) \times_{j=s+1}^p t_j
+\]
+
+and
+
+\[
+\times_{j=1}^{s-1} t_j \times \left( t_s \cap [c, 1] \right) \times_{j=s+1}^p t_j.
+\]
+
+\end{definition}
+
+Observe that the daughter cells of an empty cell are two empty cells. In practice, there will be a restriction of available directions (features) on a cut. At an initial level (i.e., level 0), we have a root cell \(\boldsymbol{t}_0 = [0,1]^p\). Then two subcells are obtained at level 1 after a cut for the root cell. Then we cut those two subcells to create 4 subcells, and so on. Thus at each level \(\ell\), when growing a tree there are \(2^\ell\) subcells to be cut.
+
+\begin{definition}[A set of level \(k\) daughter cell paths]
+
+Let \(\mathcal{D} \subset \mathcal{T}^k  \) be a set composed of \(2^k\) \(k\)-tuples (that is, \(\# \mathcal{D} = 2^k\)). \(\mathcal{D}\) is a \textbf{set of level \(k\) daughter cell paths} (also called a \textbf{tree}) if and only if 
+
+\begin{enumerate}
+
+\item For each \((\boldsymbol{t}_1, \ldots, \boldsymbol{t}_k) \in \mathcal{D}\), \(\boldsymbol{t}_\ell \in \mathcal{T}\) is a subset of \([0, 1]^p\) and in particular is one of the daughter cells of \(\boldsymbol{t}_{\ell - 1}\) for each \(\ell \in [k]\), and
+
+\item The set of unique elements in \(\{t_\ell: (\boldsymbol{t}_1, \ldots, \boldsymbol{t}_k) \in \mathcal{D}\}\) is a partition of \(\boldsymbol{t}_0\) for each \(\ell \in [k]\).
+
+(That is, for any \(\ell \in [k]\), the set of unique elements in the \(\ell^{th}\) slot of an element of \(\mathcal{D}\) form a partition of \([0, 1]^p\). So for example, the set of unique first entries of elements of this set are two non-overlapping hyperrectangles whose union is \([0, 1]^p\), and the unique last entries of elements of this set form a partition of \([0, 1]^p\) into \(2^k\) non-overlapping hyperrectangles.) 
+
+Denote by \(\tilde{\mathcal{D}}\) the set of all such sets \(\mathcal{D}\).
+
+\end{enumerate}
+
+\end{definition}
+
+Note that a set of level \(k\) daughter cell paths \(\mathcal{D} \in \tilde{\mathcal{D}}\) has exactly \(2^k\) tuples. Also, as long as there are no empty daughter cells at each level, these \(2^k\) tuples are mutually exclusive.
+
+The random forest algorithm usually puts a restriction on the available feature subset when deciding on the feature for each cut. Denote by \(\Theta_k \in \mathcal{P}\left(\{1, \ldots, p\}\right) = \mathcal{P}\left( [p]\right)\) (where \(\mathcal{P}\left( [p]\right)\) denotes the power set of \([p]\)) the constraint for each of the \(2^{k-1}\) cuts at level \(k\). Given a set of observations, a sequence of constraints \(\{\Theta_i\}_{i=1}^\infty\), and some positive integer \(k\), the random forest algorithm produces a set of level \(k\) daughter cell paths (a tree). Most random forest implementations use the CART-split criterion for growing the tree. Then another tree is created using the same set of observations and the same positive integer \(k\) but a different sequence of constraints. 
+
+\begin{definition}[Tree growing rule]
+
+A \textbf{tree growing rule} denoted as \(T:   \mathbb{N} \times \left( \mathcal{P}\left( [p]\right) \right)^k \to \tilde{\mathcal{D}}\) is a mapping that takes some positive integer \(k\) and \(k\) feature subset constraints as inputs and outputs a set of level \(k\) daughter cell paths (a tree).
+
+\end{definition}
+
+Denote by \(\# S\) the number of elements in a set \(S\). Let \(\{(\boldsymbol{x}_i, y_i) \}_{i=1}^n\) be a given sample with \(\boldsymbol{x}_i := (x_{i1}, \ldots, x_{ip})^\top \in [0, 1]^{p}\) the \(p\)-dimensional random covariate vector and \(y_i \in \mathbb{R}\) the response. We define the summation over an empty set as zero. 
+
+\begin{definition}[Sample CART-split criterion]
+
+Given a cell \(\boldsymbol{t} \in \mathcal{T}\) and a feature subset \(\Theta \in \mathcal{P}\left( [p]\right)\), the sample CART-split criterion is defined as
+
+\[
+(\hat{j}, \hat{c}) := \underset{j \in \Theta, c\in\{x_{ij}: \boldsymbol{x}_i \in \boldsymbol{t}\}}{\arg \min}\left\{ \sum_{i \in \{i: \boldsymbol{x}_i \in \boldsymbol{t}, x_{ij} < c\}} \left( \overline{y}_\ell(\boldsymbol{t}, c) - y_i\right)^2 + \sum_{i \in \{i: \boldsymbol{x}_i \in \boldsymbol{t}, x_{ij} \geq c\}} \left( \overline{y}_r(\boldsymbol{t}, c) - y_i\right)^2  \right\}
+\]
+
+where
+
+\[
+\overline{y}_\ell(\boldsymbol{t}, c) := \sum_{i \in \{i: \boldsymbol{x}_i \in \boldsymbol{t}, x_{ij} < c\}} \frac{y_i}{\# \left\{i: \boldsymbol{x}_i \in \boldsymbol{t}, x_{ij} < c \right\}}, \qquad \overline{y}_r(\boldsymbol{t}, c) := \sum_{i \in \{i: \boldsymbol{x}_i \in \boldsymbol{t}, x_{ij} \geq c\}} \frac{y_i}{\# \left\{i: \boldsymbol{x}_i \in \boldsymbol{t}, x_{ij} \geq c \right\}}
+\]
+
+\end{definition}
+
+The above optimization breaks ties evenly. For a subcell \(\boldsymbol{t} \subset [0,1]^p\) with \(\# \{i: \boldsymbol{x}_i \in \boldsymbol{t}\} = 0\), a random cut is optimal. 
+
+\begin{definition}[Sample tree growing rule; Definition 3 in \citet{Chi2020}]\label{stat.learn.def.sample.tree.grow.rule}
+
+For each positive integer \(k\), a subset of sample indices \(\mathcal{A} \in \mathcal{P}\left([n] \right)\), and feature subsets \(\Theta_1, \ldots, \Theta_k\), the sample tree growing rule 
+
+\[
+\hat{T}_{(n,\mathcal{A})}: \left( \mathcal{P}\left( [p]\right) \right)^k \to \tilde{\mathcal{D}}
+\] 
+
+is such that if \((\boldsymbol{t}_1, \ldots, \boldsymbol{t}_k) \in \hat{T}_{(n,\mathcal{A})} (\Theta_1, \ldots, \Theta_k)\), then for each \(\ell \in [k]\), \(\boldsymbol{t}_\ell\) is one of the daughter cells of \(\boldsymbol{t}_{\ell -1}\) constructed by the sample CART-split criterion with the sample given in \(\mathcal{A}\).
+
+\end{definition}
+
+Next we define a level \(k\) sample forest model; informally, it is the average of many tree models. Denote by \(\mathcal{X}_n := (\boldsymbol{x}_1^\top, y_1, \ldots, \boldsymbol{x}_n^\top, y_n)^\top \in \left\{[0, 1]^p \times \mathbb{R} \right\}^n\).
+
+\begin{definition}[Level \(k\) sample forest model]
+
+Let \(\tilde{\mathcal{A}} \in \mathcal{P}\left([n] \right) \times \ldots \times \mathcal{P}\left([n] \right) \) be a set of sample indices such that the elements in \(\tilde{\mathcal{A}}\) do not repeat and are of the same predetermined size; that is, for each \(\mathcal{A} \in \tilde{\mathcal{A}}\), it holds that \(\left| \mathcal{A} \right| = \lceil bn \rceil\) for some \(b \in (0, 1]\). Denote by \(\hat{m}_{k, T, \mathcal{A}}: \left( \mathcal{P}\left( [p]\right) \right)^k \times [0, 1]^p \times \left\{[0, 1]^p \times \mathbb{R} \right\}^n  \to \mathbb{R}\) the tree model such that for each \((\boldsymbol{t}_1, \ldots, \boldsymbol{t}_k) \in T(\Theta_1, \ldots, \Theta_k)\) and each \(\boldsymbol{c} \in \boldsymbol{t}_k\),
+
+
+\[
+\hat{m}_{k, T, \mathcal{A}}\left(\Theta_1, \ldots, \Theta_k, \boldsymbol{c}, \mathcal{X}_n\right) = \sum_{i \in (\{i: \boldsymbol{x}_i \in \boldsymbol{t}_k\} \cap \mathcal{A})} \frac{y_i}{\# (\{i: \boldsymbol{x}_i \in \boldsymbol{t}_k\} \cap \mathcal{A})}.
+\]
+
+Thus the forest model considering random sampling given \(\boldsymbol{c} \in [0,1]^p\), sample \(\mathcal{X}_n\), and feature constraints is defined as 
+
+\[
+\frac{1}{\# \tilde{\mathcal{A}}} \sum_{\mathcal{A} \in \tilde{\mathcal{A}}} \hat{m}_{k, T, \mathcal{A}}\left(\Theta_1, \ldots, \Theta_k, \boldsymbol{c}, \mathcal{X}_n\right).
+\]
+
+\end{definition}
+
+Since standard random forest packages draw random feature subsets as constraints, denote by \(\{\boldsymbol{\Theta}_i \}_{i=1}^\infty\) a sequence of random constraints (that is, in the notation we have previously used, \(\{\Theta_i \}_{i=1}^\infty\) is a realization of \(\{\boldsymbol{\Theta}_i \}_{i=1}^\infty\)).
+
+\begin{definition}
+
+The forest prediction (using both random feature subsets and random sampling) given \(T\), \(\boldsymbol{X}\) (a random variable taking on values in \([0,1]^p\)), and \(\mathcal{X}_n\) is defined as
+
+\[
+\E \left( \frac{1}{\# \tilde{\mathcal{A}}} \sum_{\mathcal{A} \in \tilde{\mathcal{A}}} \hat{m}_{k, T, \mathcal{A}}\left(\boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X}, \mathcal{X}_n\right) \mid \boldsymbol{X}, \mathcal{X}_n  \right).
+\]
+
+For the special forest model with \(\# \tilde{\mathcal{A}} = 1\) and \(\mathcal{A} \in \tilde{\mathcal{A}}\) the full sample indices, we use the following notation:
+
+\begin{equation}\label{stat.learn.rf.full.inds.spec}
+\hat{m}_{k, T} (\Theta_1, \ldots, \Theta_k, \boldsymbol{c}, \mathcal{X}_n) := \frac{1}{\# \tilde{\mathcal{A}}} \sum_{\mathcal{A} \in \tilde{\mathcal{A}}} \hat{m}_{k, T, \mathcal{A}} (\Theta_1, \ldots, \Theta_k, \boldsymbol{c}, \mathcal{X}_n).
+\end{equation}
+
+We call this model a \textbf{tree model}. It is worth mentioning that both sample forest and tree models are averaged over all possible feature subset constraints. Then the (level \(k\)) random forest prediction of a standard random forest algorithm at the test point \(\boldsymbol{X}\) given \(\mathcal{X}_n\) is defined as 
+
+\begin{equation}\label{stat.learn.rf.pred.full}
+\E \left( \frac{1}{\# \tilde{\mathcal{A}}} \sum_{\mathcal{A} \in \tilde{\mathcal{A}}} \hat{m}_{k, \hat{T}_{(n, \mathcal{A})}, \mathcal{A}}\left(\boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X}, \mathcal{X}_n\right) \mid \boldsymbol{X}, \mathcal{X}_n  \right),
+\end{equation}
+
+where \(\tilde{\mathcal{A}}\) is an arbitrary given set.
+
+\end{definition}
+
+\begin{remark}\label{stat.learn.rmk.rf.params}
+
+There are two layers of randomness in the random forest model: the random feature subsets and random sampling. For the random forest prediction in \eqref{stat.learn.rf.pred.full}, both kinds of randomness are taken into account; in particular, all possible feature subsets are included. For practical implementation, it is not required to consider all possible feature subsets. The standard random forest R package grows \(B \leq \# A\) trees each of which involves random resampling and feature subsets of size \(\lceil \gamma_0 p \rceil\). 
+
+\end{remark}
+
+\subsection{Section 3: Approximation Accuracy}
+
+\begin{definition}\label{statlearn.pop.cart.split.crit.def}
+
+Denote \(\mathbb{P}\left( \cdot \mid \boldsymbol{X} \in \boldsymbol{t} \right)\) as \(\mathbb{P}_{\boldsymbol{t}}(\cdot)\), and similarly denote \(\mathbb{E}\left( \cdot \mid \boldsymbol{X} \in \boldsymbol{t} \right)\) as \(\mathbb{E}_{\boldsymbol{t}}(\cdot)\). Given a nonempty cell \(\boldsymbol{t} \in \mathcal{T}\) and a feature subset \(\Theta \subset \{1, \ldots, p\}\), the \textbf{best cut} according to the \textbf{population CART-split criterion} is defined as
+
+\[
+(j^*, c^*) := \underset{j \in \Theta, c \in \boldsymbol{t}_j}{\arg \inf} \left\{\mathbb{P}_{\boldsymbol{t}}(X_j < c) \Var \left(m \mid \{X_j < c \} \cap \{\boldsymbol{X} \in \boldsymbol{t}\} \right) +  \mathbb{P}_{\boldsymbol{t}}(X_j \geq c) \Var \left(m \mid \{X_j \geq c \} \cap \{\boldsymbol{X} \in \boldsymbol{t}\} \right) \right\}.
+\]
+
+Ties are broken randomly. If \(\boldsymbol{t}\) is empty, both of its daughter cells are empty. We define the \textbf{best constrained (unconstrained) daughter cells} as the daughter cells resulting from the optimal cut when \(\Theta\) is a nontrivial (trivial) constraint.
+
+\end{definition}
+
+\begin{definition}
+
+The \textbf{impurity decrease} of a cut \((j,c)\) given \(\boldsymbol{t}\) is defined to be
+
+\begin{equation}\label{statlearn.rf.imp.dec.def}
+\Var(m \mid \boldsymbol{X} \in \boldsymbol{t}) - \left[ \mathbb{P}_{\boldsymbol{t}}(X_j < c) \Var \left(m \mid \{X_j < c \} \cap \{\boldsymbol{X} \in \boldsymbol{t}\} \right) +  \mathbb{P}_{\boldsymbol{t}}(X_j \geq c) \Var \left(m \mid \{X_j \geq c \} \cap \{\boldsymbol{X} \in \boldsymbol{t}\} \right) \right].
+\end{equation}
+
+Note that the population CART-split criterion from Definition \ref{statlearn.pop.cart.split.crit.def} maximizes the impurity decrease (and can be equivalently defined this way).
+
+\end{definition}
+
+\begin{definition}[Population tree growing rule; Definition 4 in \citet{Chi2020}]\label{stat.learn.pop.tree.grow.rule.def}
+
+Let the regression function and joint distribution of covariates be given. For each positive integer \(k\) and feature subsets \(\Theta_1, \ldots, \Theta_k\), the \textbf{population tree growing rule} \(T^*\) is such that if \((\boldsymbol{t}_1, \ldots, \boldsymbol{t}_k) \in T^*(\Theta_1, \ldots, \Theta_k)\), then for each \(\ell \in [k]\), \(\boldsymbol{t}_\ell\) is one of the daughter cells of \(\boldsymbol{t}_{\ell - 1}\) constructed by the population CART-split criterion.
+
+Given a tree growing rule \(T\), a level \(k\) population tree model is defined as a function \(m_{k, T}^*\) of the feature subset constraints \(\Theta_1, \ldots, \Theta_k\) and a \(p\)-dimensional vector such that for each \(\boldsymbol{c} \in \boldsymbol{t}_k\) and \((\boldsymbol{t}_1, \ldots, \boldsymbol{t}_k) \in T(\Theta_1, \ldots, \Theta_k)\), 
+
+\begin{equation}\label{stat.learn.pop.tree.grow.rule.eq}
+m_{k, T}^*(\Theta_1, \ldots, \Theta_k, \boldsymbol{c}) = \E(m \mid \boldsymbol{X} \in \boldsymbol{t}_k).
+\end{equation}
+
+The prediction at a test point \(\boldsymbol{X}\) is then given by 
+
+\[
+\E \left( m_{k, T}^*(\Theta_1, \ldots, \Theta_k, \boldsymbol{X})  \mid \boldsymbol{X} \right).
+\]
+
+\end{definition}
+
+
+
+
+
+Also, the following variance decomposition formula is useful:
+
+\begin{lemma}[Variance decomposition formula; Lemma 1 in \citet{Chi2020}]
+
+Let \(\boldsymbol{t} \in [0,1]^p\) be a given cell, and let \(\boldsymbol{t}'\) and \(\boldsymbol{t}''\) be two daughter cells of \(\boldsymbol{t}\). The the conditional variance of \(m := m(\boldsymbol{X})\) on \(\boldsymbol{t}\) admits the following decomposition:
+
+\begin{align}
+\Var(m \mid \boldsymbol{X} \in \boldsymbol{t}) = ~& \mathbb{P}_{\boldsymbol{t}}( \boldsymbol{X} \in \boldsymbol{t}') \Var( m \mid \boldsymbol{X} \in \boldsymbol{t}') +  \mathbb{P}_{\boldsymbol{t}}( \boldsymbol{X} \in \boldsymbol{t}'') \Var( m \mid \boldsymbol{X} \in \boldsymbol{t}'') \nonumber
+\\   & + \mathbb{P}_{\boldsymbol{t}}( \boldsymbol{X} \in \boldsymbol{t}')\left(\E_{\boldsymbol{t}'}(m) -  \E_{\boldsymbol{t}}(m)  \right)^2 +    \mathbb{P}_{\boldsymbol{t}}( \boldsymbol{X} \in \boldsymbol{t}'')\left(\E_{\boldsymbol{t}''}(m) -  \E_{\boldsymbol{t}}(m)  \right)^2. \label{lem.var.decomp.rf}
+\end{align}
+
+\end{lemma}
+
+For notational convenience, define
+
+\[
+(I)_{\boldsymbol{t}, \boldsymbol{t}'} := \mathbb{P}_{\boldsymbol{t}}( \boldsymbol{X} \in \boldsymbol{t}') \Var( m \mid \boldsymbol{X} \in \boldsymbol{t}') +  \mathbb{P}_{\boldsymbol{t}}( \boldsymbol{X} \in \boldsymbol{t}'') \Var( m \mid \boldsymbol{X} \in \boldsymbol{t}'') 
+\]
+
+and
+
+\[
+(II)_{\boldsymbol{t}, \boldsymbol{t}'} :=\mathbb{P}_{\boldsymbol{t}}( \boldsymbol{X} \in \boldsymbol{t}')\left(\E_{\boldsymbol{t}'}(m) -  \E_{\boldsymbol{t}}(m)  \right)^2 +    \mathbb{P}_{\boldsymbol{t}}( \boldsymbol{X} \in \boldsymbol{t}'')\left(\E_{\boldsymbol{t}''}(m) -  \E_{\boldsymbol{t}}(m)  \right)^2
+\]
+
+so we can write \eqref{lem.var.decomp.rf} as
+
+\[
+\Var(m \mid \boldsymbol{X} \in \boldsymbol{t}) = (I)_{\boldsymbol{t}, \boldsymbol{t}'}  +(II)_{\boldsymbol{t}, \boldsymbol{t}'}. 
+\]
+
+Note that since \(\boldsymbol{t} = \boldsymbol{t}' \cup \boldsymbol{t}''\), \((I)_{\boldsymbol{t}, \boldsymbol{t}'} = (I)_{\boldsymbol{t}, \boldsymbol{t}''}\) and \((II)_{\boldsymbol{t}, \boldsymbol{t}'}  = (II)_{\boldsymbol{t}, \boldsymbol{t}''} \). Note also that the population CART-split criterion from Definition \ref{statlearn.pop.cart.split.crit.def} minimizes \((I)_{\boldsymbol{t}, \boldsymbol{t}'} \) for the case of axis-aligned cuts. Note also that in the case of axis-aligned cuts, the impurity decrease formula \eqref{statlearn.rf.imp.dec.def} can be written as
+
+\begin{align*}
+& \Var(m \mid \boldsymbol{X} \in \boldsymbol{t}) - \left[ \mathbb{P}_{\boldsymbol{t}}(X_j < c) \Var \left(m \mid \{X_j < c \} \cap \{\boldsymbol{X} \in \boldsymbol{t}\} \right) +  \mathbb{P}_{\boldsymbol{t}}(X_j \geq c) \Var \left(m \mid \{X_j \geq c \} \cap \{\boldsymbol{X} \in \boldsymbol{t}\} \right) \right]
+\\ = ~& \Var(m \mid \boldsymbol{X} \in \boldsymbol{t}) - (I)_{\boldsymbol{t}, \boldsymbol{t}'} 
+\\ =~ & (II)_{\boldsymbol{t}, \boldsymbol{t}'}.
+\end{align*}
+
+Therefore the population CART-split criterion from Definition \ref{statlearn.pop.cart.split.crit.def} maximizes \((II)_{\boldsymbol{t}, \boldsymbol{t}'}\). Also, zero impurity on \(\boldsymbol{t}\) means that the regression function on \(\boldsymbol{t}\) is just an intercept.
+
+\subsubsection{Technical Conditions}
+
+The below conditions are needed for this paper's theoretical results.
+
+\begin{enumerate}
+
+\item \textbf{Condition 1: Sufficient Impurity Decrease (SID).} There exist some \(\alpha_1 \geq 1\) and \(q_1 \geq 1\) such that for each cell \(\boldsymbol{t}\), \(\Var \left(m \mid \boldsymbol{X} \in \boldsymbol{t} \right) < \alpha_1 \left( (II)_{\boldsymbol{t}, \boldsymbol{t}^*} \right)^{1/q_1}\), where \(\boldsymbol{t}^*\) is one of the best unconstrained daughter cells of \(\boldsymbol{t}\) (recall Definition \ref{statlearn.pop.cart.split.crit.def}). 
+
+
+
+\begin{itemize}
+%\item Why \(\alpha_1 \geq 1\) instead of \(\geq 0\)?
+
+\item For the specific case of \(q_1 =1\), Condition 1 requires that there is a minimum impurity decrease rate (i.e., the inverse of \(\alpha_1 - 1\)) for each cell when the cell is cut by the corresponding optimal cut. (Note that since \(\Var \left(m \mid \boldsymbol{X} \in \boldsymbol{t} \right)  =  (I)_{\boldsymbol{t}, \boldsymbol{t}'}  +(II)_{\boldsymbol{t}, \boldsymbol{t}'}\), if \(q_1 = 1\),
+
+\begin{align*}
+\Var \left(m \mid \boldsymbol{X} \in \boldsymbol{t} \right) < \alpha_1  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}  \quad \iff \quad  &  \Var(m \mid \boldsymbol{X} \in \boldsymbol{t}) - (I)_{\boldsymbol{t}, \boldsymbol{t}'} = (II)_{\boldsymbol{t}, \boldsymbol{t}'}  < \alpha_1  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}  - (I)_{\boldsymbol{t}, \boldsymbol{t}'} 
+\\  \iff \quad  & (I)_{\boldsymbol{t}, \boldsymbol{t}'}  < \left(\alpha_1 - 1 \right)  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}  
+\\  \iff \quad  & (II)_{\boldsymbol{t}, \boldsymbol{t}^*}  > \frac{(I)_{\boldsymbol{t}, \boldsymbol{t}'}}{\alpha_1 - 1}  .
+\end{align*}
+
+That is, since \((II)_{\boldsymbol{t}, \boldsymbol{t}^*}\) is the impurity decrease, the impurity decrease has to exceed a certain threshold. If \(q_1 > 1\) and \(\alpha_1 > (II)_{\boldsymbol{t}, \boldsymbol{t}^*}^{\frac{q_1 - 1}{q_1}}\):
+
+\begin{align*}
+\Var \left(m \mid \boldsymbol{X} \in \boldsymbol{t} \right) < \alpha_1  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}^{1/q_1}  \quad \iff \quad  &  \Var(m \mid \boldsymbol{X} \in \boldsymbol{t}) - (I)_{\boldsymbol{t}, \boldsymbol{t}'} = (II)_{\boldsymbol{t}, \boldsymbol{t}'}  < \alpha_1  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}^{1/q_1}  - (I)_{\boldsymbol{t}, \boldsymbol{t}'} 
+\\  \iff \quad  & (I)_{\boldsymbol{t}, \boldsymbol{t}'}  < \left(\alpha_1 -  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}^{\frac{q_1 - 1}{q_1}} \right)  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}^{1/q_1}
+%\\  \iff \quad  & (I)_{\boldsymbol{t}, \boldsymbol{t}'}  < \left(\alpha_1(II)_{\boldsymbol{t}, \boldsymbol{t}^*}^{\frac{1 - q_1}{q_1}}  -  1\right)  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}
+\\  \iff \quad  & (II)_{\boldsymbol{t}, \boldsymbol{t}^*}^{1/q_1}  > \frac{1}{\alpha_1 -  (II)_{\boldsymbol{t}, \boldsymbol{t}^*}^{\frac{q_1 - 1}{q_1}}} (I)_{\boldsymbol{t}, \boldsymbol{t}'}
+\end{align*}
+
+\end{itemize}
+
+\item \textbf{Condition 2.} Assume that \(|m| \leq M_0\) for some \(M_0 > 0\).
+
+\item \textbf{Condition 3.} Consider a tree growing rule \(T\) such that \(T\) depends only on the feature subset constraint and there exists some positive integer \(k\), \(\epsilon > 0\), and \(\alpha_2 \geq 1\) such that for each \(\ell \in [k]\), feature subset constraint \(\Theta_1, \ldots, \Theta_k\), and \((\boldsymbol{t}_1, \ldots, \boldsymbol{t}_k) \in T(\Theta_1, \ldots, \Theta_k)\), 
+
+\begin{enumerate}
+
+\item \((II)_{\boldsymbol{t}_{\ell - 1}, \boldsymbol{t}_\ell} \leq \epsilon\) only if \((II)_{\boldsymbol{t}_{\ell - 1}, \boldsymbol{t}_\ell^*} \leq  \alpha_2\epsilon\) , and
+
+\item If  \((II)_{\boldsymbol{t}_{\ell - 1}, \boldsymbol{t}_\ell} > \epsilon\), then \((II)_{\boldsymbol{t}_{\ell - 1}, \boldsymbol{t}_\ell^*} \leq  \alpha_2(II)_{\boldsymbol{t}_{\ell - 1}, \boldsymbol{t}_\ell}\),
+
+\end{enumerate}
+
+where \(\boldsymbol{t}_\ell^*\) is one of the best daughter cells of \(\boldsymbol{t}_{\ell - 1}\) given the feature subset constraint.
+
+\end{enumerate}
+
+\subsubsection{Main Results}
+
+\begin{theorem}[Approximation accuracy; Theorem 1 in \citet{Chi2020}]\label{stat.learn.thm.rf.approx.acc}
+
+Assume that Conditions 1 - 2 hold and the tree growing rule \(T\) satisfies item 1 of Condition 3 with some positive integer \(k\), \(\epsilon >0\), and \(\alpha_2 \geq 1\). Then
+
+\[
+\E\left[ m(\boldsymbol{X}) - m_{k, T}^*(\boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X}) \right]^2 \leq \alpha_1 \left(\alpha_2 \epsilon\right)^{1/q_1} + \left(1 - \gamma_0 \left( \frac{\epsilon}{\epsilon  + M_0^2}\right) \right)^k M_0^2,
+\]
+
+where \(m_{k, T}^*\) is the level \(k\) population tree model from \eqref{stat.learn.pop.tree.grow.rule.eq} in Definition \ref{stat.learn.pop.tree.grow.rule.def} and \(\gamma_0\) is as described in Remark \ref{stat.learn.rmk.rf.params}. Moreover, when item 2 of Condition 3 is satisfied and \(q_1 = 1\), it holds that
+
+\[
+\E\left[ m(\boldsymbol{X}) - m_{k, T}^*(\boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X}) \right]^2 \leq \alpha_1 \alpha_2 \epsilon  + \left(1 - \frac{\gamma_0}{\alpha_1 \alpha_2}  \right)^k M_0^2.
+\]
+
+\end{theorem}
+
+Theorem \ref{stat.learn.thm.rf.approx.acc} provides a general approximation theory on the rate of convergence for random forest without assuming that the covariates are independent. This is the ``noiseless case."
+
+\subsection{Consistency Rates (Section 4 of \citet{Chi2020}])}
+
+\citeauthor{Chi2020} introduce two additional regularity conditions.
+
+\begin{itemize}
+
+\item \textbf{Condition 4.} Assume that the distribution of covariates \(\boldsymbol{X}\) has a density function \(f\) that is bounded away from 0 and \(\infty\).
+
+\item \textbf{Condition 5.} Assume that \(y_i = m(\boldsymbol{x}_i) + \epsilon_i\) with \(\boldsymbol{x}_i\) i.i.d. realizations from \(\boldsymbol{X}\) and \(\epsilon_i\) i.i.d. with mean zero and a symmetric distribution, and \(p = \mathcal{O}(n^K)\) for some positive constant \(K\).
+
+\end{itemize}
+
+These are some basic assumptions in nonparametric regression models. In particular, this allows for polynomially growing dimension \(p\). Some key lemmas follow.
+
+\begin{lemma}[Estimation error; Lemma 2 in \citet{Chi2020}]
+
+Assume that Conditions 2 and 5 hold, \(0 < \eta < 1/2\), \(0 < c < (\log 2)^{-1}(1/2 - \eta)\), and \(\E |\epsilon_1|^q < \infty\) for sufficiently large \(q\). Then it holds that for all large \(n\) and each \(1 \leq k \leq c \log n\),
+
+\[
+\E \left[  m_{k, \hat{T}_n}^*\left( \boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X} \right)  - \hat{m}_{k, \hat{T}_n}\left( \boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X} \right)  \right]^2 \leq n^{-\eta},
+\]
+
+where the sample tree growing rule \(\hat{T}_n\) is defined in Definition \ref{stat.learn.def.sample.tree.grow.rule} (except with no set of sample indices specified because we are using the special forest model with \(\# \tilde{\mathcal{A}} = 1\)), the population tree model \(m^*\) is defined in \eqref{stat.learn.pop.tree.grow.rule.eq} in Definition \ref{stat.learn.pop.tree.grow.rule.def}, and the tree model \(\hat{m}_{k, \hat{T}_n}\) is defined in \eqref{stat.learn.rf.full.inds.spec}.
+
+\end{lemma}
+
+Given one sample tree growing rule \(\hat{T}_n\), this lemma establishes the consistency rate at which the sample tree model approaches the population tree model with the same rule.
+
+\begin{lemma}[Approximation error; Lemma 3 in \citet{Chi2020}]
+
+Consider a sequence of regression functions \(\{m_n\}\) such that \(m_n\) satisfies Condition 1 with \(\alpha_{1n}\) and \(q_1\). (For notational simplicity, the subscript of \(m_n\) is dropped whenever there is no confusion.) That is, assume that Conditions 1, 2, 4, and 5 hold with \(\alpha_{1n} \geq 1\) and \(q_1 \geq 1\), \(0 < \eta < 1/8\), \(0 < c < \eta/\log 2\), \(0 < \rho < 1\), and \(\E |\epsilon_1|^q < \infty\) for a sufficiently large \(q\). Then it holds that for all large \(n\) and \(k = \lfloor c \log n \rfloor\),
+
+\[
+\E \left[ m(\boldsymbol{X}) - m_{k, \hat{T}_n}^*\left( \boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X} \right)  \right]^2 \leq \alpha_{1n}2^{1/q_1} (\log n)^{-\frac{1-p}{q_1}}.
+\]
+
+Moreover, for the regular case with \(q_1 = 1\) in Condition 1, it holds that for all large \(n\) and \(k = \lfloor c \log n \rfloor\),
+
+\begin{equation}\label{stat.learn.lem.3.approx.bound.2}
+\E \left[ m(\boldsymbol{X}) - m_{k, \hat{T}_n}^*\left( \boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X} \right)  \right]^2 \leq 2\alpha_{1n}n^{-\eta} + \left( \frac{M_0^2}{1 - \gamma_0} \right) n^{c \log \left( 1 - \gamma_0/(2 \alpha_{1n})\right)} .
+\end{equation}
+
+\end{lemma}
+
+Note the similarity of this result to Theorem \ref{stat.learn.thm.rf.approx.acc} (Theorem 1 in \citet{Chi2020}). The authors prove this result by showing that the tree growing rule using the sample CART-split criterion (with some minor manipulation) satisfies Condition 3; then they use Theorem \ref{stat.learn.thm.rf.approx.acc} to complete the analysis. (To verify that Condition 3 is satisfied, they use high-dimensional estimation theory for sample trees from Theorem 5.)
+
+In the regular case with \(q_1 = 1\), if the learning rate is decreasing (i.e. \(\alpha_{1n}\) is increasing), the second term of the approximation bound \eqref{stat.learn.lem.3.approx.bound.2} dominates. Using the asymptotic expansion
+
+\[
+\log \left( 1 - \frac{\gamma_0}{2 \alpha_{1n}} \right) \approx - \frac{\gamma_0}{2 \alpha_{1n}},
+\]
+
+the rate can be simplified as 
+
+\[
+\mathcal{O}\left(n^{- \frac{c \gamma_0}{2 \alpha_{1n}}} \right),
+\]
+
+which means that the approximation error is guaranteed to be controlled when the inverse of impurity decrease rate grows no faster than the order of \(\log n\).
+
+\begin{theorem}[Consistency rates; Theorem 2 in \citet{Chi2020}]\label{stat.learn.cons.rf.rates}
+
+Assume that Conditions 1, 2, 4, and 5 hold with \(\alpha_{1n} \geq 1\) and \(q_1 \geq 1, 0 < \eta < 1/8, 0 < c < \eta/\log(2), 0 < \rho < 1\). and \(\E | \epsilon_1|^q < \infty\) for a sufficiently large \(q\). Assume also that for each \(\mathcal{A} \in \tilde{\mathcal{A}}\) it holds that \(\# \mathcal{A} = \lceil b n \rceil\) for some \(b \in (0,1]\). Then it holds that for all large \(n\) and \(k = \lfloor c \log \lceil b n \rceil \rfloor\),
+
+\[
+\E \left[ m(\boldsymbol{X}) - \E \left( \frac{1}{\# \tilde{\mathcal{A}}} \sum_{\mathcal{A} \in \tilde{\mathcal{A}}} \hat{m}_{k, \hat{T}_{(n, \mathcal{A})}, \mathcal{A}}\left(\boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X}, \mathcal{X}_n\right) \mid \boldsymbol{X}, \mathcal{X}_n  \right) \right]^2 \leq \alpha_{1n} 2^{2 + q_1^{-1}} \left( \log \lceil bn \rceil \right)^{-\frac{1 - \rho}{q_1}}.
+\]
+
+Moreover, for the regular case with \(q_1 = 1\) in Condition 1, it holds that for all large \(n\) and \(k = \lfloor c \log \lceil b n \rceil \lfloor\),
+
+\begin{multline*}
+\E \left[ m(\boldsymbol{X}) - \E \left( \frac{1}{\# \tilde{\mathcal{A}}} \sum_{\mathcal{A} \in \tilde{\mathcal{A}}} \hat{m}_{k, \hat{T}_{(n, \mathcal{A})}, \mathcal{A}}\left(\boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X}, \mathcal{X}_n\right) \mid \boldsymbol{X}, \mathcal{X}_n  \right) \right]^2
+\\ \leq 8\alpha_{1n} \left( \log \lceil bn \rceil \right)^{-\eta} + \left(\frac{4 M_0^2}{1 - \gamma_0} \right)\left(\lceil b n \rceil \right)^{c \log \left(1 - \gamma_0/[2 \alpha_{1n}] \right)} .
+\end{multline*}
+
+\end{theorem}
+
+This is the first result on the consistency rate for the original version of the random forest algorithm. With the consistency rate, a direct application of Jensen's inequality allows extending the technical analysis without subsampling (bagging) to that with subsampling. 
+
+\begin{definition}[Relevant feature; Definition 5 in \citet{Chi2020}]
+
+A feature \(j\) is said to be \textbf{relevant} for \(m(\cdot)\) if and only if \(0 < \E \left[\Var(m \mid X_s, s \in [p]\setminus j ) \right] < \infty\). A feature \(j\) is said to be \textbf{irrelevant} for \(m(\cdot)\) if and only if \(\E \left[\Var(m \mid X_s, s \in [p]\setminus j ) \right] = 0)\).
+
+\end{definition}
+
+The authors denote by \(S^*\) the set of all relevant features. Let \(\{m_n(\cdot)\}\) be a given sequence of regression functions. The authors introduce an additional natural regularity condition to characterize the magnitude of relevance for relevant features defined in Definition 5.
+
+\textbf{Condition 6.} There exists some constant \(\iota \geq 0\) such that for each \(n \geq 1\) and \(j \in S_n^*\), \(\E \left[ \Var(m_n \mid X_s, s \in [p] \setminus \{j\} )\right] \geq n^{-\iota}\), where \(\# S_n^* = s_n\) for a sequence \(\{s_n\}\).
+
+\begin{theorem}[Role of relevance; Theorem 3 in \citet{Chi2020}]
+
+Assume that Conditions 2, 5, and 6 hold and for some \(j \in S^*\) it holds that for each \(\mathcal{A} \in \tilde{\mathcal{A}}\), \(\hat{T}_{(n, \mathcal{A})}\) is such that feature \(j\) is not involved in the sample CART-split. Then we have
+
+\[
+\E \left[ m_n(\boldsymbol{X}) - \E \left( \frac{1}{\# \tilde{\mathcal{A}}} \sum_{\mathcal{A} \in \tilde{\mathcal{A}}} \hat{m}_{k, \hat{T}_{(n, \mathcal{A})}, \mathcal{A}}\left(\boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k, \boldsymbol{X}, \mathcal{X}_n\right) \mid \boldsymbol{X}, \mathcal{X}_n  \right) \right]^2 \geq n^{-\iota}.
+\]
+
+\end{theorem}
+
+This characterizes the precise contribution of each relevant feature toward the consistency of random forest. On the other hand, the consistency result in Theorem \ref{stat.learn.cons.rf.rates} can hold. Therefore if parameter \(\iota\) is appropriately chosen, a feature screening or selection method may be developed on the basis of Condition 6 introduced above.
+
+\subsection{A General Estimation Foundation (Section 5 of \citet{Chi2020})}
+
+\begin{theorem}[Conditional mean estimation; Theorem 4 in \citet{Chi2020}]
+
+Assume that Conditions 2 and 5 hold, \(\E | \epsilon_1|^q < \infty\) for a sufficiently large \( q > 0\), and \(0 < \eta < 1/2\). Then there exists some constant \(c > 0\) such that for all large \(n\) and each \(1 \leq k \leq c \log n\),
+
+\[
+\E \left( \sup_{T} \E \left[m_{k, T^{\#}}^* \left( \boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k , \boldsymbol{X}\right) - \hat{m}_{k, T^{\#}}^* \left( \boldsymbol{\Theta}_1, \ldots, \boldsymbol{\Theta}_k , \boldsymbol{X}, \mathcal{X}_n \right)^2 \mid \boldsymbol{\Theta}, \mathcal{X}_n  \right]  \right) \leq n^{-\eta},
+\]
+
+where the supremum is over all possible deterministic tree growing rules.
+
+\end{theorem}
+
+Theorem 5 below characterizes the quality of the sample tree growing rule by showing that with mild adjustment it satisfies Condition 3. Then its quality is justified by Theorem \ref{stat.learn.thm.rf.approx.acc}. 
+
+\begin{theorem}[Sample tree estimation; Theorem 4 in \citet{Chi2020}]
+
+Assume that Conditions 2 and 5 hold and \(\E(|\epsilon_1|^q) < \infty\) for a sufficiently large \(q\). Let \(0 < \eta < 1/8\), \(c > 0\), and \(\delta\) with \(2 \eta < \delta < 1/4\) be given. Then there exists an \(\mathcal{X}_n\)-measurable event \(\boldsymbol{U}_n\) such that for all large \(n\), each \(1 \leq k \leq c \log n\), each \(\epsilon \geq n^{-\eta}\), and \(\alpha_2 = 2\), we have that conditional on event \(\boldsymbol{U}_n\),
+
+\[
+\hat{T}_{n, k, n^{-\delta}} \text{ satisfies Condition 3 with } k, \epsilon, \alpha_2.
+\]
+
+Moreover, for all large \(n\) it holds that \(\mathbb{P}(\boldsymbol{U}_n^c) \leq  n^{-1}\).
+
+\end{theorem}
 
 %
 %

@@ -1,0 +1,9 @@
+\contentsline {chapter}{\numberline {1}Causal Inference and Econometrics}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Generalized Method of Moments (Chapter 13 of \citet {hansen2020})}{5}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Overidentified Moment Equations (Section 13.4 of \citet {hansen2020})}{5}{subsection.1.1.1}
+\contentsline {section}{\numberline {1.2}Instrumental Variables (Section 4.8 of \citet {cameron_trivedi_2005})}{6}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Inconsistency of OLS and Examples of Endogeneity (Section 4.8.1 of \citet {cameron_trivedi_2005}, Section 12.3 in \citet {hansen2020})}{6}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Instrumental Variable}{8}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Instrumental Variables Estimator}{9}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Two-Stage Least Squares (Section 8.3.4 of \citet {Greene2003Econometric})}{9}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}GMM Estimator (Section 13.6 of \citet {hansen2020})}{10}{subsection.1.2.5}

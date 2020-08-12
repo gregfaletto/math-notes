@@ -4323,9 +4323,135 @@ M_{X_1 + X_2 + \ldots + X_n}(t)  = \E \exp \bigg(t \sum_{i=1}^n X_i \bigg) =  \E
 
 \begin{definition}
 
+The \textbf{characteristic function} \(\phi_X: \mathbb{R} \to \mathbb{C}\) of a random variable \(X\) is defined as
+
 \[
-\phi_X(t) = \E(e^{itX}) 
+\phi_X(t) := \E(e^{itX}) = \int_\mathbb{R} e^{i t x}dF_X(x) = \int_\mathbb{R} e^{i t x} f_X(x) dx = \E \cos(t X) + i \E \sin(tX).
 \]
+
+\end{definition}
+
+Note that this formula suggests how we take the expectation of a complex-valued random variable: if \(Z \in \mathbb{C}\) we define
+
+\[
+\E Z = \E ( \operatorname{Re}(Z)) + i \E ( \operatorname{Im}(Z)) .
+\]
+
+\begin{definition}
+
+The \textbf{modulus} of the complex number \(z = a + bi\) is \(|a + bi| = (a^2 + b^2)^{1/2}\).
+
+\end{definition}
+
+\begin{theorem}[\textbf{Theorem 3.3.1 in \citet{Durrett2019}}]
+
+All characteristic functions have the following properties:
+
+\begin{enumerate}[(a)]
+
+\item \(\phi(0) = 1\),
+
+\item They are Hermitian: \(\phi(-t) = \overline{\phi(t)}\),
+
+\item \(\left| \phi(t) \right| = \left| \E e^{i t X} \right| \leq \E \left| e^{i t X} \right| = 1\),
+
+\item \(\left| \phi(t+h) - \phi(t) \right| \leq \E\left| e^{i hX} - 1 \right|\), so \(\phi(t)\) is uniformly continuous on \((-\infty, \infty)\).
+
+\item \(\E e^{it(aX + b)} = e^{itb} \phi(at)\).
+
+\end{enumerate}
+
+\end{theorem}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item Obvious.
+
+\item
+
+\[
+\phi(-t) =  \E \cos(-t X) + i \E \sin(-tX) =  \E \cos(t X) - i \E \sin(tX) = \overline{\phi(t)}.
+\]
+
+\item The inequality follows from Jensen's inequality. For the last equality, note that
+
+\[
+\E \left| e^{i t X} \right| = \E \left| \cos(t X) + i \sin(tX) \right| = 1.
+\]
+
+\item 
+
+%Follows from Theorem \ref{cvx.multi.jensen} (multivariate Jensen's inequality) since \(\phi(x,y) = (x^2 + y^2)^{1/2}\) is convex.
+
+\begin{align*}
+\left| \phi(t+h) - \phi(t) \right| & = \left| \E\left(e^{i(t+h)X} - e^{itX} \right) \right| 
+\\ & \leq  \E \left| e^{i(t+h)X} - e^{itX} \right| 
+\\ & =  \E \left|e^{itX} \left(e^{ihX} - 1\right) \right| 
+\\ & = \ldots
+\\ & =  \E \left| e^{ihX} - 1 \right| .
+\end{align*}
+
+Then uniform convergence follows from the bounded convergence theorem (Theorem 1.5.3 in \citet{Durrett2019}).
+
+\item 
+
+\[
+\E e^{it(aX + b)} = e^{itb} \E e^{itaX} = e^{itb} \phi(at).
+\]
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{theorem}[\textbf{Theorem 3.3.2 in \citet{Durrett2019}}]
+
+If \(X_1\) and \(X_2\) are independent and have characteristic functions \(\phi_1\) and \(\phi_2\) then \(X_1 + X_2\) has characteristic function \(\phi_1(t) \phi_2(t)\).
+
+\end{theorem}
+
+\begin{proof}
+
+\[
+\E e^{it(X_1 + X_2)} = \E\left[e^{itX_1} e^{itX_2} \right] = \E e^{itX_1} \E e^{itX_2}.
+\]
+
+\end{proof}
+
+\begin{definition}[\textbf{Characteristic function of a random vector}]\label{prob.def.char.multi}
+
+The \textbf{characteristic function} \(\phi: \mathbb{R}^n \to \mathbb{C}\) of a random vector \(\boldsymbol{u} \in \mathbb{R}^n\) is defined as
+
+\[
+\phi_{\boldsymbol{u}}(\boldsymbol{s}) = \E \left[ \exp \left\{ i \boldsymbol{s}^\top \boldsymbol{u}\right\} \right] = \int_\mathbb{R} \ldots \int_\mathbb{R} \exp\left\{ i \boldsymbol{s}^\top \boldsymbol{u} \right\}dF_{u_1}(u_1) \ldots dF_{u_n}(u_n).
+\]
+
+Sometimes we may write the \textbf{joint characteristic function} of two random variables \(X\) and \(Y\) (for example) as
+
+\[
+\phi_{X, Y}(s, t) := \E \exp\left\{ i(sX + tY) \right\};
+\]
+
+note that if and only if \(X\) and \(Y\) we are independent we have
+
+\[
+\phi_{X, Y}(s, t) = \E \left[ \exp\left\{ isX \right\} \exp\left\{ itY \right\}\right] = \E \left[ \exp\left\{ isX \right\}\right] \E\left[ \exp\left\{ itY \right\}\right] = \phi_X(s) \phi_Y(t).
+\]
+
+Similarly, the joint characteristic function of two random vectors \(\boldsymbol{X}\) and \(\boldsymbol{Y}\) is
+
+\[
+\phi_{\boldsymbol{X}, \boldsymbol{Y}}(\boldsymbol{s}, \boldsymbol{t}) = \E \exp\left\{ i(\boldsymbol{s}^\top \boldsymbol{X} + \boldsymbol{t}^\top\boldsymbol{Y}) \right\},
+\]
+
+and if and only if \(\boldsymbol{X}\) and \(\boldsymbol{Y}\) we are independent we have
+
+\[
+\phi_{\boldsymbol{X}, \boldsymbol{Y}}(\boldsymbol{s}, \boldsymbol{t}) = \ \E \left[ \exp\left\{ i\boldsymbol{s}^\top \boldsymbol{X} \right\} \exp\left\{ i\boldsymbol{t}^\top\boldsymbol{Y} \right\}\right] = \E \left[ \exp\left\{ i\boldsymbol{s}^\top \boldsymbol{X} \right\}\right] \E\left[ \exp\left\{ i\boldsymbol{t}^\top \boldsymbol{Y} \right\}\right] = \phi_{\boldsymbol{X}}(\boldsymbol{s}) \phi_{\boldsymbol{Y}}(\boldsymbol{t}).
+\]
+
+(See also Theorem \ref{prob.thm.ch.fxn.props} part (d) below.)
 
 \end{definition}
 
@@ -4358,9 +4484,7 @@ Or, equivalently, or every set of real numbers \(t_1, t_2, \ldots, t_n\), the ma
 
 \end{remark}
 
-\begin{theorem}
-
-\textbf{Some useful properties:}
+\begin{theorem}[\textbf{Some useful properties}]\label{prob.thm.ch.fxn.props}
 
 \begin{enumerate}[(a)]
 
@@ -7735,6 +7859,119 @@ o(1) = \mathbb{P}(A \text{ is not true}) \geq \mathbb{P}(\mathcal{G} \text{ is s
 \end{enumerate}
 
 \end{remark}
+
+\section{Distance Correlation}
+
+\begin{definition}[\textbf{\(\lVert \cdot \rVert_w\)-norm for complex functions; Definition 1 in \citet{Szekely2007}}]
+
+For complex functions \(\gamma\) defined on \(\mathbb{R}^p \times \mathbb{R}^q\), the \(\lVert \cdot \rVert_w\)-norm in the weighted \(L_2\) space of functions on \(\mathbb{R}^{p + q}\) is defined by
+
+\[
+\lVert \gamma(t, s) \rVert_w^2 := \int_{\mathbb{R}^{p+q}} \left| \gamma(t,s)\right|^2 w(t,s) dt \ ds,
+\]
+
+where \(w(t,s)\) is an arbitrary positive weight function for which the integral above exists.
+
+\end{definition}
+
+The distance covariance is the \(\lVert \cdot \rVert_w\) distance between the characteristic functions of two random variables with a suitably chosen weight function. That is, the distance covariance between \(X\) and \(Y\) is
+
+\begin{align*}
+\mathcal{V}^2(X, Y;w ) & := \left \lVert  \phi_{X, Y}(t,s) - \phi_X(t) \phi_Y(s) \right\rVert_w^2
+\\ &  =  \int_{\mathbb{R}^{p+q}} \left|  \phi_{X, Y}(t,s) - \phi_X(t) \phi_Y(s) \right|^2 w(t,s) dt \ ds,
+\end{align*}
+
+where \( \phi_X(t) \) is the characteristic function of \(X\), \(\phi_Y(s)\) is the characteristic function of \(Y\), and \( \phi_{X, Y}(t,s)\) is the joint characteristic function of \(X\) and \(Y\) (see Definition \ref{prob.def.char.multi}). We will also define a kind of distance variance
+
+\[
+\mathcal{V}^2(X;w )  =  \int_{\mathbb{R}^{p+q}} \left|  \phi_{X, Y}(t,s) - \phi_X(t) \phi_Y(s) \right|^2 w(t,s) dt \ ds.
+\]
+
+This distance will be 0 if and only if \(X\) and \(Y\) are independent. Then we will construct distance correlation from distance covariance in an analogous way to how Pearson correlation is defined from covariance.
+
+We want to choose \(w(t,s)\) in a way so that the distance correlation is scale invariant (i.e., doesn't change if the units of the variables change). We will also want the distance correlation to be positive for dependent variables. Finally, we will also want \(w(t,s)\) not to be integrable over \(\mathbb{R}^{p+q}\). The reason why is that if \(w(t,s)\) is integrable and both \(X\) and \(Y\) have finite variance, one can show using Taylor expansions of the underlying characteristic functions that
+
+\[
+\lim_{\epsilon \to 0} \frac{\mathcal{V}^2(\epsilon X, \epsilon Y;w )}{\sqrt{\mathcal{V}^2(\epsilon X;w )\mathcal{V}^2(\epsilon Y;w )}} = \rho^2(X,Y),
+\]
+
+where \(\rho^2(X,Y)\) is the square of the Pearson correlation between \(X\) and \(Y\) (the coefficient of determination). Of course, \(\rho\) may equal 0 even if \(X\) and \(Y\) are dependent. So if \(w\) is integrable, the distance correlation can be arbitrarily close to zero even if \(X\) and \(Y\) are dependent. It turns out the below choice of \(w\) does what we want and yields relatively simple resuls.
+
+\begin{definition}[\textbf{Distance Covariance; Definition 2 in \citet{Szekely2007}}]
+
+Let \(\boldsymbol{X} \in \mathbb{R}^{p}\) and \(\boldsymbol{Y} \in \mathbb{R}^{q}\) be random vectors. The \textbf{distance covariance} \(\mathcal{V}(X, Y )\) between \(\boldsymbol{X}\) and \(\boldsymbol{Y}\) is defined by
+
+\begin{align*}
+\mathcal{V}^2(X, Y) & := \left \lVert  \phi_{\boldsymbol{X}, \boldsymbol{Y}}(\boldsymbol{t}, \boldsymbol{s}) - \phi_{\boldsymbol{X}}(\boldsymbol{t}) \phi_{\boldsymbol{Y}}(\boldsymbol{s})  \right\rVert_w^2
+\\ & = \int_{\mathbb{R}^{p + q}} \left\lVert \phi_{\boldsymbol{X}, \boldsymbol{Y}}(\boldsymbol{t}, \boldsymbol{s}) - \phi_{\boldsymbol{X}}(\boldsymbol{t}) \phi_{\boldsymbol{Y}}(\boldsymbol{s}) \right\rVert^2 w(\boldsymbol{t}, \boldsymbol{s}) d\boldsymbol{t} d\boldsymbol{s}
+\end{align*}
+
+(that is, \(\mathcal{V}(X, Y )\) is the square root of this quantity) where
+
+\[
+w(t,s) := \frac{1}{c_p c_q |t|_p^{1+p} |s|_q^{1+q}}
+\]
+
+where
+
+\[
+c_d := \frac{\pi^{(1+d)/2}}{\Gamma((1+d)/2)}.
+\]
+
+\textbf{Distance variance} is defined as the square root of 
+
+\[
+\mathcal{V}^2(X )  =  \int_{\mathbb{R}^{p+q}} \left|  \phi_{X, Y}(t,s) - \phi_X(t) \phi_Y(s) \right|^2 w(t,s) dt \ ds
+\]
+
+using the same choice of \(w\).
+
+\end{definition}
+
+\begin{definition}[\textbf{Distance correlation; Definition 3 in \citet{Szekely2007}}]
+
+The \textbf{distance correlation} (dCor) between random vectors \(\boldsymbol{X}\) and \(\boldsymbol{Y}\) with finite first moments is the nonnegative number \(\mathcal{R}(\boldsymbol{X}, \boldsymbol{Y})\) defined by
+
+\[
+\mathcal{R}^2(\boldsymbol{X}, \boldsymbol{Y}) = \begin{cases}
+\frac{\mathcal{V}^2(X, Y) }{\sqrt{\mathcal{V}^2(X )\mathcal{V}^2(Y)}} & \mathcal{V}^2(X )\mathcal{V}^2(Y) > 0,\\
+0, & \mathcal{V}^2(X )\mathcal{V}^2(Y) = 0.
+\end{cases}
+\]
+
+\end{definition}
+
+In Remark 3, \citet{Szekely2007} show that if \(\E \lVert \boldsymbol{X}\rVert_p^2 < \infty\) and \(\E \lVert \boldsymbol{Y}\rVert_q^2 < \infty\), 
+
+\[
+\mathcal{V}^2(\boldsymbol{X}, \boldsymbol{Y}) = S_1 
++ S_2
+- 2 S_3,
+\]
+
+where
+
+\begin{align*}
+S_1  &:= \E\left[\lVert \boldsymbol{X}_1 - \boldsymbol{X}_2\rVert_p \lVert \boldsymbol{Y}_1 - \boldsymbol{Y}_2\rVert_q \right],  \\
+S_2 & :=  \E \lVert \boldsymbol{X}_1 - \boldsymbol{X}_2\rVert_p \E \lVert \boldsymbol{Y}_1 - \boldsymbol{Y}_2\rVert_q , \quad \text{and} \\
+S_3 & := \E \left(  \lVert \boldsymbol{X}_1 - \boldsymbol{X}_2 \rVert_p \lVert \boldsymbol{Y}_1 - \boldsymbol{Y}_3 \rVert_q \right),
+\end{align*}
+
+where \(\boldsymbol{X}_1\) and \(\boldsymbol{X}_2\) are two independent draws of \(\boldsymbol{X}\) (and likewise for \(\boldsymbol{Y}\)). Given a random sample \(\{(\boldsymbol{X}_1, \boldsymbol{Y}_1), \ldots,(\boldsymbol{X}_n, \boldsymbol{Y}_n)\}\) , they suggest the moment estimator
+
+\[
+\hat{\mathcal{V}}^2(\boldsymbol{X}, \boldsymbol{Y}) = \hat{S}_1 + \hat{S}_2 - 2 \hat{S}_3
+\]
+
+where
+
+\begin{align*}
+\hat{S}_1  &:= \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n \lVert \boldsymbol{X}_i - \boldsymbol{X}_j\rVert_p \lVert \boldsymbol{Y}_i - \boldsymbol{Y}_j\rVert_q ,  \\
+\hat{S}_2 & :=  \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n  \lVert \boldsymbol{X}_i - \boldsymbol{X}_j\rVert_p  \cdot  \frac{1}{n^2}  \sum_{i=1}^n \sum_{j=1}^n\lVert \boldsymbol{Y}_i - \boldsymbol{Y}_j\rVert_q , \quad \text{and} \\
+\hat{S}_3 & := \frac{1}{n^3} \sum_{i=1}^n \sum_{j=1}^n  \sum_{\ell=1}^n \lVert \boldsymbol{X}_i - \boldsymbol{X}_j \rVert_p  \lVert \boldsymbol{Y}_i - \boldsymbol{Y}_\ell \rVert_q .
+\end{align*}
+
+\citet{Li2012} propose using distance correlation for screening, noting ``it allows for arbitrary regression relationship of \(\boldsymbol{y}\) onto \(\boldsymbol{X}\), regardless of whether it is linear or nonlinear. The distance correlation also permits univariate and multivariate responses, regardless of whether it is continuous, discrete, or categorical. In addition, it allows for groupwise predictors. Thus, this distance correlation-based screening procedure is completely model-free."
 
 %
 %

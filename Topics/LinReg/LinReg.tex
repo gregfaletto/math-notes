@@ -1,4 +1,4 @@
-%\documentclass{article}
+%\documentclass{book}
 %
 %\usepackage{fancyhdr}
 %\usepackage{extramarks}
@@ -144,7 +144,7 @@
 %%
 %%
 %
-%% Econometrics and Linear Regression
+%% Linear Regression
 
 \chapter{Linear Regression}
 
@@ -1628,7 +1628,7 @@ which is different from the OLS estimator of the covariance matrix \(\sigma^2(X'
 
 \section{Chapter 5: Autocorrelated disturbances}
 
-\textbf{Generalized least squares model:}
+\subsection{Generalized Least Squares}
 
 \[
 \boldsymbol{y} = \boldsymbol{X}\boldsymbol{\beta} + \boldsymbol{u}
@@ -1670,6 +1670,112 @@ where \(\tilde{\epsilon} =  \Sigma^{-1/2} \epsilon \sim \mathcal{N}(0,1)\). Now 
 \]
 
 Example application: spatial data. 
+
+\subsection{Weighted Least Squares}\label{linreg.sec.weighted.ls}
+
+A closely related idea to generalized least squares is weighted least squares. In this model, weights \(a_i \in \mathbb{R}_{++}\) are assigned to each observation; higher weights correspond to observations that are more important for model fit, lower weights correspond to observations that are less important for model fit. If all weights equal 1, we recover ordinary least squares. Let \( \boldsymbol{A} := \operatorname{diag}(a_{1}, \ldots, a_n) \in \mathbb{R}^{n \times n}\). Then weighted least squares minimizes the weighted average loss
+
+\begin{equation}\label{linreg.weighted.least.squares}
+\mathcal{L} := \frac{1}{n} \sum_{i=1}^n a_i \left(y_i - \beta ^\top \boldsymbol{x}_i \right)^2
+\end{equation}
+
+where \(\boldsymbol{x}_i  \in \mathbb{R}^p\) and \(\beta \in \mathbb{R}^p\).
+
+\begin{proposition}
+
+If \(\boldsymbol{X}\) is invertible, the weighted least squares estimator (the unique minimizer of \eqref{linreg.weighted.least.squares}) is
+
+\[
+\hat{\boldsymbol{\beta}} = \left( \boldsymbol{X}^\top {\boldsymbol{A}} \boldsymbol{X} \right)^{-1}\boldsymbol{X}^\top \boldsymbol{A} \boldsymbol{y}.
+\]
+
+\end{proposition}
+
+\begin{remark}
+
+Note the relationship between generalized least squares and weighted least squares---generalized least squares is weighted least squares if the disturbances are independent and the weight for observation \(i\) is the inverse of the variance of the disturbance for observation \(i\).
+
+\end{remark}
+
+\begin{proof}
+
+Since all the entries of \(\boldsymbol{A}\) are on the diagonal and positive, \({\boldsymbol{A}}^{1/2}\) exists such that \({\boldsymbol{A}}^{1/2}{\boldsymbol{A}}^{1/2} = \boldsymbol{A}\). Also, since \({\boldsymbol{A}}^{1/2}\) only has diagonal entries, it is symmetric, so  \( \left({\boldsymbol{A}}^{1/2} \right)^\top =  {\boldsymbol{A}}^{1/2}\). We have
+
+\begin{align*}
+\mathcal{L} & =\frac{1}{n}\left(\boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\right)^\top\boldsymbol{A} \left(\boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\right)
+\\  & =\frac{1}{n}\left(\boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\right)^\top{\boldsymbol{A}}^{1/2} {\boldsymbol{A}}^{1/2} \left(\boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}\right)
+\\  & =\frac{1}{n}\left({\boldsymbol{y}}^\top{\boldsymbol{A}}^{1/2} - \boldsymbol{\beta}^\top{\boldsymbol{X}}^\top{\boldsymbol{A}}^{1/2} \right) \left({\boldsymbol{A}}^{1/2} \boldsymbol{y} - {\boldsymbol{A}}^{1/2} \boldsymbol{X}\boldsymbol{\beta}\right)
+\\  & =\frac{1}{n} \left({\boldsymbol{A}}^{1/2} \boldsymbol{y} - {\boldsymbol{A}}^{1/2} \boldsymbol{X}\boldsymbol{\beta}\right)^\top \left({\boldsymbol{A}}^{1/2} \boldsymbol{y} - {\boldsymbol{A}}^{1/2} \boldsymbol{X}\boldsymbol{\beta}\right)
+\end{align*}
+
+Let \({\boldsymbol{y}}^* := {\boldsymbol{A}}^{1/2} \boldsymbol{y} \) and let \({\boldsymbol{X}}^* := {\boldsymbol{A}}^{1/2} \boldsymbol{X}\). Note that since \( {\boldsymbol{A}}^{1/2} \) is full rank (invertible), \({\boldsymbol{X}}^*\) has the same rank as \(\boldsymbol{X}\). Then we can write this as
+
+\begin{align*}
+\mathcal{L}  & =\frac{1}{n} \left({\boldsymbol{y}}^* - {\boldsymbol{X}}^*\boldsymbol{\beta}\right)^\top \left({\boldsymbol{y}}^*- {\boldsymbol{X}}^*\boldsymbol{\beta}\right)
+\\ & =\frac{1}{n} \left(\left[\boldsymbol{y}^*\right]^\top- \boldsymbol{\beta}^\top \left[\boldsymbol{X}^*\right]^\top\right) \left({\boldsymbol{y}}^*- {\boldsymbol{X}}^*\boldsymbol{\beta}\right)
+\\ & =\frac{1}{n} \left(
+\left[\boldsymbol{y}^*\right]^\top {\boldsymbol{y}}^*
+- \left[\boldsymbol{y}^*\right]^\top{\boldsymbol{X}}^*\boldsymbol{\beta}
+- \boldsymbol{\beta}^\top \left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^*
++ \boldsymbol{\beta}^\top \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^*\boldsymbol{\beta}
+ \right)
+ %
+ \\ & =\frac{1}{n} \left(
+\left[\boldsymbol{y}^*\right]^\top {\boldsymbol{y}}^*
+- 2\boldsymbol{\beta}^\top \left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^*
++ \boldsymbol{\beta}^\top \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^*\boldsymbol{\beta}
+ \right)
+\end{align*}
+
+Now we take the gradient.
+
+\begin{align*}
+\pderiv{\mathcal{L}}{\boldsymbol{\beta}} & =  
+\frac{1}{n}\boldsymbol{0}
+- \frac{2}{n}\left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^*
++ \frac{2}{n} \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^*\boldsymbol{\beta}
+\\ & =  
+- \frac{2}{n}\left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^*
++ \frac{2}{n} \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^*\boldsymbol{\beta}
+\\ & =  
+-  \frac{2}{N} \left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^*
++ \frac{2}{N} \left[\boldsymbol{X}^*\right]^\top {\boldsymbol{X}}^*\boldsymbol{\beta}
+%
+\\ & =  
+-  \frac{2}{N} \left[\boldsymbol{A}^{1/2} \boldsymbol{X} \right]^\top  \boldsymbol{A}^{1/2} \boldsymbol{y}
++ \frac{2}{N} \left[\boldsymbol{A}^{1/2} \boldsymbol{X}  \right]^\top \boldsymbol{A}^{1/2} \boldsymbol{X} \boldsymbol{\beta}
+%
+\\ & =  
+-  \frac{2}{N} \boldsymbol{X}^\top \boldsymbol{A}^{1/2} \boldsymbol{A}^{1/2} \boldsymbol{y}
++ \frac{2}{N}\boldsymbol{X}^\top \boldsymbol{A}^{1/2} \boldsymbol{A}^{1/2} \boldsymbol{X} \boldsymbol{\beta}
+%
+\\ & =  
+-  \frac{2}{N} \boldsymbol{X}^\top \boldsymbol{A} \boldsymbol{y}
++ \frac{2}{N}\boldsymbol{X}^\top \boldsymbol{A} \boldsymbol{X} \boldsymbol{\beta}
+\end{align*}
+
+Set the gradient equal to 0 and solve for \(\boldsymbol{\beta}\):
+
+\begin{align*}
+\boldsymbol{0} & =  
+- \frac{2}{n}\left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^*
++ \frac{2}{n} \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^*\boldsymbol{\beta}
+\\ \left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^* & =\left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^*\boldsymbol{\beta}
+\\ \left( \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^* \right)^{-1}\left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^* & =\left( \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^* \right)^{-1} \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^*\boldsymbol{\beta}
+\\ \left( \left[\boldsymbol{X}^*\right]^\top{\boldsymbol{X}}^* \right)^{-1}\left[\boldsymbol{X}^*\right]^\top {\boldsymbol{y}}^* & = \boldsymbol{\beta}
+\end{align*}
+
+Lastly, we substitute back in \({\boldsymbol{y}}^* = {\boldsymbol{A}}^{1/2} \boldsymbol{y} \) and \({\boldsymbol{X}}^* = {\boldsymbol{A}}^{1/2} \boldsymbol{X}\) to get our final answer.
+
+
+\begin{align*}
+ \hat{\boldsymbol{\beta}} & =\left( \left[{\boldsymbol{A}}^{1/2} \boldsymbol{X}\right]^\top{\boldsymbol{A}}^{1/2} \boldsymbol{X} \right)^{-1}\left[{\boldsymbol{A}}^{1/2} \boldsymbol{X}\right]^\top {\boldsymbol{A}}^{1/2} \boldsymbol{y} 
+\\  & =\left( \boldsymbol{X}^\top{\boldsymbol{A}}^{1/2}  {\boldsymbol{A}}^{1/2} \boldsymbol{X} \right)^{-1}\boldsymbol{X}^\top{\boldsymbol{A}}^{1/2}  {\boldsymbol{A}}^{1/2} \boldsymbol{y} 
+\\  & =\left( \boldsymbol{X}^\top{\boldsymbol{A}} \boldsymbol{X} \right)^{-1}\boldsymbol{X}^\top{\boldsymbol{A}} \boldsymbol{y} 
+\\  & =\left( \boldsymbol{X}^\top {\boldsymbol{A}} \boldsymbol{X} \right)^{-1}\boldsymbol{X}^\top \boldsymbol{A} \boldsymbol{y}.
+\end{align*}
+
+\end{proof}
 
 \section{Quantile Regression}\label{linreg.sec.quant.reg}
 
@@ -1783,18 +1889,17 @@ y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \ldots + \beta_d x_i^d + \epsilon.
 
 Want to maintain hierarchy in selecting variables (backward elimination). Advantages: nonlinear curvature. Global: all data have influence on every predicted point.
 
-
  
-%
-%
-%
-%
-%
-%
-%
-%
-%
 %%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%
+%%%
 %\bibliographystyle{abbrvnat}
 %\bibliography{mybib2fin}
 %\end{document}

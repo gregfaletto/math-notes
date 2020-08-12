@@ -1,0 +1,27 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Cameron and Trivedi(2005)]{cameron_trivedi_2005}
+A.~C. Cameron and P.~K. Trivedi.
+\newblock \emph{Microeconometrics: Methods and Applications}.
+\newblock Cambridge University Press, 2005.
+\newblock \doi{10.1017/CBO9780511811241}.
+
+\bibitem[Greene(2003)]{Greene2003Econometric}
+W.~H. Greene.
+\newblock \emph{Econometric Analysis}.
+\newblock Pearson Education, fifth edition, 2003.
+\newblock ISBN 0-13-066189-9.
+\newblock URL
+  \url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}.
+
+\bibitem[Hansen(2020)]{hansen2020}
+B.~E. Hansen.
+\newblock \emph{Econometrics}.
+\newblock August 2020.
+
+\end{thebibliography}
