@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  12 OCT 2021 15:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  12 OCT 2021 15:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -983,29 +983,7 @@ File: uesint.fd
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-(./Math Review Notes.toc [3]
-
-Package natbib Warning: Citation `folland2013real' on page 4 undefined on input
- line 48.
-
-[4]
-
-Package natbib Warning: Citation `folland2013real' on page 5 undefined on input
- line 49.
-
-
-Package natbib Warning: Citation `folland2013real' on page 5 undefined on input
- line 50.
-
-
-Package natbib Warning: Citation `folland2013real' on page 5 undefined on input
- line 51.
-
-
-Package natbib Warning: Citation `folland2013real' on page 5 undefined on input
- line 52.
-
-[5]
+(./Math Review Notes.toc [3] [4] [5]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
@@ -1017,56 +995,16 @@ Underfull \vbox (badness 1748) has occurred while \output is active []
 
  [9]
 [10]
+Underfull \vbox (badness 5133) has occurred while \output is active []
 
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 213.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 214.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 215.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 216.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 217.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 218.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 219.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 220.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 221.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 11 undefined on in
-put line 222.
-
-[11]
-Underfull \vbox (badness 1275) has occurred while \output is active []
+ [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12]
 Underfull \vbox (badness 1748) has occurred while \output is active []
 
  [13]
-Underfull \vbox (badness 7221) has occurred while \output is active []
-
- [14]
+[14]
 Overfull \hbox (3.55565pt too wide) detected at line 316
 \OT1/cmr/m/n/10 14.22.10 
  []
@@ -1075,9 +1013,11 @@ Overfull \hbox (3.55565pt too wide) detected at line 316
 \tf@toc=\write5
 \openout5 = `"Math Review Notes.toc"'.
 
- [15] [16
 
-]
+Underfull \vbox (badness 1048) has occurred while \output is active []
+
+ [15]
+[16]
 Chapter 1.
 
 Overfull \hbox (7.44023pt too wide) in paragraph at lines 166--167
@@ -1088,7 +1028,9 @@ er cite at the be-gin-ning of the sec-tion (for sources
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17]
+ [17
+
+]
 (./Topics/Linear_Algebra/Linear_Algebra.tex [18
 
 ]
@@ -1122,17 +1064,17 @@ peat the above pro-ce-dure, where we start by choos-
  []
 
 [31]
-<images/0568_12.png, id=2395, 928.46875pt x 308.15125pt>
+<images/0568_12.png, id=2431, 928.46875pt x 308.15125pt>
 File: images/0568_12.png Graphic file (type png)
 <use images/0568_12.png>
 Package pdftex.def Info: images/0568_12.png  used on input line 952.
 (pdftex.def)             Requested size: 464.23325pt x 154.07524pt.
-<images/0568_12s.png, id=2397, 879.285pt x 176.66pt>
+<images/0568_12s.png, id=2433, 879.285pt x 176.66pt>
 File: images/0568_12s.png Graphic file (type png)
 <use images/0568_12s.png>
 Package pdftex.def Info: images/0568_12s.png  used on input line 954.
 (pdftex.def)             Requested size: 439.64143pt x 88.32977pt.
-<images/1268_24.png, id=2398, 759.83875pt x 341.275pt>
+<images/1268_24.png, id=2434, 759.83875pt x 341.275pt>
 File: images/1268_24.png Graphic file (type png)
 <use images/1268_24.png>
 Package pdftex.def Info: images/1268_24.png  used on input line 956.
@@ -1142,7 +1084,7 @@ Overfull \hbox (24.13434pt too wide) in paragraph at lines 956--957
 [][]  
  []
 
-<images/1268_24s.png, id=2399, 721.69624pt x 70.2625pt>
+<images/1268_24s.png, id=2435, 721.69624pt x 70.2625pt>
 File: images/1268_24s.png Graphic file (type png)
 <use images/1268_24s.png>
 Package pdftex.def Info: images/1268_24s.png  used on input line 958.
@@ -1151,17 +1093,17 @@ Package pdftex.def Info: images/1268_24s.png  used on input line 958.
 Underfull \vbox (badness 8113) has occurred while \output is active []
 
  [32 <./images/0568_12.png> <./images/0568_12s.png> <./images/1268_24.png>]
-<images/1268_34.png, id=2407, 715.67375pt x 347.2975pt>
+<images/1268_34.png, id=2443, 715.67375pt x 347.2975pt>
 File: images/1268_34.png Graphic file (type png)
 <use images/1268_34.png>
 Package pdftex.def Info: images/1268_34.png  used on input line 960.
 (pdftex.def)             Requested size: 465.18242pt x 225.74069pt.
-<images/1268_34s.png, id=2408, 721.69624pt x 134.5025pt>
+<images/1268_34s.png, id=2444, 721.69624pt x 134.5025pt>
 File: images/1268_34s.png Graphic file (type png)
 <use images/1268_34s.png>
 Package pdftex.def Info: images/1268_34s.png  used on input line 962.
 (pdftex.def)             Requested size: 469.097pt x 87.42557pt.
-<images/1268_37.png, id=2409, 758.835pt x 159.59625pt>
+<images/1268_37.png, id=2445, 758.835pt x 159.59625pt>
 File: images/1268_37.png Graphic file (type png)
 <use images/1268_37.png>
 Package pdftex.def Info: images/1268_37.png  used on input line 964.
@@ -1171,12 +1113,12 @@ Overfull \hbox (23.48192pt too wide) in paragraph at lines 964--965
 [][]  
  []
 
-<images/1268_37s.png, id=2410, 721.69624pt x 92.345pt>
+<images/1268_37s.png, id=2446, 721.69624pt x 92.345pt>
 File: images/1268_37s.png Graphic file (type png)
 <use images/1268_37s.png>
 Package pdftex.def Info: images/1268_37s.png  used on input line 966.
 (pdftex.def)             Requested size: 469.097pt x 60.02351pt.
-<images/0568_50.png, id=2411, 848.16875pt x 189.70876pt>
+<images/0568_50.png, id=2447, 848.16875pt x 189.70876pt>
 File: images/0568_50.png Graphic file (type png)
 <use images/0568_50.png>
 Package pdftex.def Info: images/0568_50.png  used on input line 968.
@@ -1186,12 +1128,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33 <./images/1268_24s.png> <./images/1268_34.png> <./images/1268_34s.png> <./
 images/1268_37.png> <./images/1268_37s.png>]
-<images/0568_50s.png, id=2421, 884.30376pt x 115.43124pt>
+<images/0568_50s.png, id=2457, 884.30376pt x 115.43124pt>
 File: images/0568_50s.png Graphic file (type png)
 <use images/0568_50s.png>
 Package pdftex.def Info: images/0568_50s.png  used on input line 970.
 (pdftex.def)             Requested size: 442.1508pt x 57.71547pt.
-<images/1268_51.png, id=2422, 775.89874pt x 525.965pt>
+<images/1268_51.png, id=2458, 775.89874pt x 525.965pt>
 File: images/1268_51.png Graphic file (type png)
 <use images/1268_51.png>
 Package pdftex.def Info: images/1268_51.png  used on input line 972.
@@ -1201,7 +1143,7 @@ Overfull \hbox (34.57323pt too wide) in paragraph at lines 972--973
 [][]  
  []
 
-<images/1268_51s.png, id=2423, 719.68875pt x 114.4275pt>
+<images/1268_51s.png, id=2459, 719.68875pt x 114.4275pt>
 File: images/1268_51s.png Graphic file (type png)
 <use images/1268_51s.png>
 Package pdftex.def Info: images/1268_51s.png  used on input line 974.
@@ -1218,22 +1160,22 @@ Overfull \hbox (6.22432pt too wide) in paragraph at lines 148--148
 o know  
  []
 
-<images/derivatives.png, id=2433, 641.39626pt x 212.795pt>
+<images/derivatives.png, id=2469, 641.39626pt x 212.795pt>
 File: images/derivatives.png Graphic file (type png)
 <use images/derivatives.png>
 Package pdftex.def Info: images/derivatives.png  used on input line 154.
 (pdftex.def)             Requested size: 288.62564pt x 95.75685pt.
-<images/integrals.png, id=2434, 309.155pt x 203.76125pt>
+<images/integrals.png, id=2470, 309.155pt x 203.76125pt>
 File: images/integrals.png Graphic file (type png)
 <use images/integrals.png>
 Package pdftex.def Info: images/integrals.png  used on input line 156.
 (pdftex.def)             Requested size: 139.11845pt x 91.69171pt.
-<images/integral_ln.png, id=2435, 258.9675pt x 51.19125pt>
+<images/integral_ln.png, id=2471, 258.9675pt x 51.19125pt>
 File: images/integral_ln.png Graphic file (type png)
 <use images/integral_ln.png>
 Package pdftex.def Info: images/integral_ln.png  used on input line 158.
 (pdftex.def)             Requested size: 116.53429pt x 23.03584pt.
-<images/integrals2.png, id=2436, 325.215pt x 35.38219pt>
+<images/integrals2.png, id=2472, 325.215pt x 35.38219pt>
 File: images/integrals2.png Graphic file (type png)
 <use images/integrals2.png>
 Package pdftex.def Info: images/integrals2.png  used on input line 160.
@@ -1249,28 +1191,28 @@ l-able for down-load at [][]$\OT1/cmtt/m/n/10 https : / / atmos . washington .
 
  <./images/derivatives.png> <./images/integrals.png> <./images/integral_ln.png>
  <./images/integrals2.png>] [36] [37] [38]
-<images/hessian1.png, id=2467, 654.445pt x 368.37625pt>
+<images/hessian1.png, id=2504, 654.445pt x 368.37625pt>
 File: images/hessian1.png Graphic file (type png)
 <use images/hessian1.png>
 Package pdftex.def Info: images/hessian1.png  used on input line 322.
 (pdftex.def)             Requested size: 425.38422pt x 239.44171pt.
-<images/hessian2.png, id=2468, 634.37pt x 132.495pt>
+<images/hessian2.png, id=2505, 634.37pt x 132.495pt>
 File: images/hessian2.png Graphic file (type png)
 <use images/hessian2.png>
 Package pdftex.def Info: images/hessian2.png  used on input line 324.
 (pdftex.def)             Requested size: 412.3356pt x 86.12071pt.
-<images/hessian3.png, id=2469, 533.995pt x 140.525pt>
+<images/hessian3.png, id=2506, 533.995pt x 140.525pt>
 File: images/hessian3.png Graphic file (type png)
 <use images/hessian3.png>
 Package pdftex.def Info: images/hessian3.png  used on input line 326.
 (pdftex.def)             Requested size: 347.09264pt x 91.34015pt.
  [39 <./images/hessian1.png> <./images/hessian2.png> <./images/hessian3.png>]
-<images/tangent_plane.png, id=2477, 653.44125pt x 152.57pt>
+<images/tangent_plane.png, id=2514, 653.44125pt x 152.57pt>
 File: images/tangent_plane.png Graphic file (type png)
 <use images/tangent_plane.png>
 Package pdftex.def Info: images/tangent_plane.png  used on input line 361.
 (pdftex.def)             Requested size: 424.73178pt x 99.16931pt.
-<images/tangent_plane2.png, id=2478, 655.44875pt x 157.58875pt>
+<images/tangent_plane2.png, id=2515, 655.44875pt x 157.58875pt>
 File: images/tangent_plane2.png Graphic file (type png)
 <use images/tangent_plane2.png>
 Package pdftex.def Info: images/tangent_plane2.png  used on input line 363.
@@ -1279,28 +1221,28 @@ Package pdftex.def Info: images/tangent_plane2.png  used on input line 363.
 Underfull \vbox (badness 3108) has occurred while \output is active []
 
  [40 <./images/tangent_plane.png>]
-<images/total_differential.png, id=2485, 838.13126pt x 135.50626pt>
+<images/total_differential.png, id=2522, 838.13126pt x 135.50626pt>
 File: images/total_differential.png Graphic file (type png)
 <use images/total_differential.png>
 Package pdftex.def Info: images/total_differential.png  used on input line 365.
 
 (pdftex.def)             Requested size: 460.97362pt x 74.52866pt.
-<images/gradient.png, id=2486, 784.9325pt x 166.6225pt>
+<images/gradient.png, id=2523, 784.9325pt x 166.6225pt>
 File: images/gradient.png Graphic file (type png)
 <use images/gradient.png>
 Package pdftex.def Info: images/gradient.png  used on input line 376.
 (pdftex.def)             Requested size: 431.7142pt x 91.64265pt.
-<images/line_int1.png, id=2487, 558.085pt x 80.3pt>
+<images/line_int1.png, id=2524, 558.085pt x 80.3pt>
 File: images/line_int1.png Graphic file (type png)
 <use images/line_int1.png>
 Package pdftex.def Info: images/line_int1.png  used on input line 378.
 (pdftex.def)             Requested size: 306.94771pt x 44.16512pt.
-<images/line_int2.png, id=2488, 653.44125pt x 120.45pt>
+<images/line_int2.png, id=2525, 653.44125pt x 120.45pt>
 File: images/line_int2.png Graphic file (type png)
 <use images/line_int2.png>
 Package pdftex.def Info: images/line_int2.png  used on input line 380.
 (pdftex.def)             Requested size: 359.3938pt x 66.2477pt.
-<images/0568_19.png, id=2489, 952.55875pt x 272.01625pt>
+<images/0568_19.png, id=2526, 952.55875pt x 272.01625pt>
 File: images/0568_19.png Graphic file (type png)
 <use images/0568_19.png>
 Package pdftex.def Info: images/0568_19.png  used on input line 382.
@@ -1315,27 +1257,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [41 <./images/tangent_plane2.png> <./images/total_differential.png> <./images/
 gradient.png> <./images/line_int1.png> <./images/line_int2.png>]
-<images/0568_19s.png, id=2499, 881.2925pt x 143.53625pt>
+<images/0568_19s.png, id=2536, 881.2925pt x 143.53625pt>
 File: images/0568_19s.png Graphic file (type png)
 <use images/0568_19s.png>
 Package pdftex.def Info: images/0568_19s.png  used on input line 384.
 (pdftex.def)             Requested size: 440.64517pt x 71.76794pt.
-<images/1268_22.png, id=2500, 695.59875pt x 106.3975pt>
+<images/1268_22.png, id=2537, 695.59875pt x 106.3975pt>
 File: images/1268_22.png Graphic file (type png)
 <use images/1268_22.png>
 Package pdftex.def Info: images/1268_22.png  used on input line 386.
 (pdftex.def)             Requested size: 452.13383pt x 69.15755pt.
-<images/1268_22s.png, id=2501, 719.68875pt x 285.065pt>
+<images/1268_22s.png, id=2538, 719.68875pt x 285.065pt>
 File: images/1268_22s.png Graphic file (type png)
 <use images/1268_22s.png>
 Package pdftex.def Info: images/1268_22s.png  used on input line 388.
 (pdftex.def)             Requested size: 467.79214pt x 185.29005pt.
-<images/0568_24.png, id=2502, 764.8575pt x 110.4125pt>
+<images/0568_24.png, id=2539, 764.8575pt x 110.4125pt>
 File: images/0568_24.png Graphic file (type png)
 <use images/0568_24.png>
 Package pdftex.def Info: images/0568_24.png  used on input line 390.
 (pdftex.def)             Requested size: 382.42781pt x 55.2061pt.
-<images/0568_24s.png, id=2503, 880.28876pt x 227.85126pt>
+<images/0568_24s.png, id=2540, 880.28876pt x 227.85126pt>
 File: images/0568_24s.png Graphic file (type png)
 <use images/0568_24s.png>
 Package pdftex.def Info: images/0568_24s.png  used on input line 392.
@@ -1345,22 +1287,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [42 <./images/0568_19.png> <./images/0568_19s.png> <./images/1268_22.png> <./i
 mages/1268_22s.png> <./images/0568_24.png>]
-<images/0568_26.png, id=2513, 713.66624pt x 272.01625pt>
+<images/0568_26.png, id=2550, 713.66624pt x 272.01625pt>
 File: images/0568_26.png Graphic file (type png)
 <use images/0568_26.png>
 Package pdftex.def Info: images/0568_26.png  used on input line 394.
 (pdftex.def)             Requested size: 356.83224pt x 136.00778pt.
-<images/0568_26s.png, id=2514, 877.2775pt x 401.5pt>
+<images/0568_26s.png, id=2551, 877.2775pt x 401.5pt>
 File: images/0568_26s.png Graphic file (type png)
 <use images/0568_26s.png>
 Package pdftex.def Info: images/0568_26s.png  used on input line 396.
 (pdftex.def)             Requested size: 438.63768pt x 200.7495pt.
-<images/0568_27.png, id=2515, 896.34875pt x 260.975pt>
+<images/0568_27.png, id=2552, 896.34875pt x 260.975pt>
 File: images/0568_27.png Graphic file (type png)
 <use images/0568_27.png>
 Package pdftex.def Info: images/0568_27.png  used on input line 398.
 (pdftex.def)             Requested size: 448.17328pt x 130.48718pt.
-<images/0568_27s.png, id=2516, 884.30376pt x 282.05376pt>
+<images/0568_27s.png, id=2553, 884.30376pt x 282.05376pt>
 File: images/0568_27s.png Graphic file (type png)
 <use images/0568_27s.png>
 Package pdftex.def Info: images/0568_27s.png  used on input line 400.
@@ -1370,7 +1312,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [43 <./images/0568_24s.png> <./images/0568_26.png> <./images/0568_26s.png> <./
 images/0568_27.png>]
-<images/1268_32.png, id=2526, 749.80125pt x 136.51pt>
+<images/1268_32.png, id=2563, 749.80125pt x 136.51pt>
 File: images/1268_32.png Graphic file (type png)
 <use images/1268_32.png>
 Package pdftex.def Info: images/1268_32.png  used on input line 402.
@@ -1380,12 +1322,12 @@ Overfull \hbox (17.61005pt too wide) in paragraph at lines 402--403
 [][]  
  []
 
-<images/1268_32s.png, id=2527, 720.6925pt x 280.04625pt>
+<images/1268_32s.png, id=2564, 720.6925pt x 280.04625pt>
 File: images/1268_32s.png Graphic file (type png)
 <use images/1268_32s.png>
 Package pdftex.def Info: images/1268_32s.png  used on input line 404.
 (pdftex.def)             Requested size: 468.44458pt x 182.0279pt.
-<images/1268_41.png, id=2528, 760.8425pt x 208.78pt>
+<images/1268_41.png, id=2565, 760.8425pt x 208.78pt>
 File: images/1268_41.png Graphic file (type png)
 <use images/1268_41.png>
 Package pdftex.def Info: images/1268_41.png  used on input line 406.
@@ -1395,7 +1337,7 @@ Overfull \hbox (24.78677pt too wide) in paragraph at lines 406--407
 [][]  
  []
 
-<images/1268_41s1.png, id=2529, 719.68875pt x 151.56625pt>
+<images/1268_41s1.png, id=2566, 719.68875pt x 151.56625pt>
 File: images/1268_41s1.png Graphic file (type png)
 <use images/1268_41s1.png>
 Package pdftex.def Info: images/1268_41s1.png  used on input line 408.
@@ -1405,7 +1347,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [44 <./images/0568_27s.png> <./images/1268_32.png> <./images/1268_32s.png> <./
 images/1268_41.png>]
-<images/0568_41.png, id=2538, 954.56625pt x 148.555pt>
+<images/0568_41.png, id=2575, 954.56625pt x 148.555pt>
 File: images/0568_41.png Graphic file (type png)
 <use images/0568_41.png>
 Package pdftex.def Info: images/0568_41.png  used on input line 410.
@@ -1415,27 +1357,27 @@ Overfull \hbox (7.52698pt too wide) in paragraph at lines 410--411
 [][]  
  []
 
-<images/0568_41s.png, id=2539, 703.62875pt x 225.84375pt>
+<images/0568_41s.png, id=2576, 703.62875pt x 225.84375pt>
 File: images/0568_41s.png Graphic file (type png)
 <use images/0568_41s.png>
 Package pdftex.def Info: images/0568_41s.png  used on input line 412.
 (pdftex.def)             Requested size: 351.8135pt x 112.92159pt.
-<images/1268_41s2.png, id=2540, 718.685pt x 51.19125pt>
+<images/1268_41s2.png, id=2577, 718.685pt x 51.19125pt>
 File: images/1268_41s2.png Graphic file (type png)
 <use images/1268_41s2.png>
 Package pdftex.def Info: images/1268_41s2.png  used on input line 414.
 (pdftex.def)             Requested size: 467.13971pt x 33.27391pt.
-<images/1268_44.png, id=2541, 711.65875pt x 154.5775pt>
+<images/1268_44.png, id=2578, 711.65875pt x 154.5775pt>
 File: images/1268_44.png Graphic file (type png)
 <use images/1268_44.png>
 Package pdftex.def Info: images/1268_44.png  used on input line 416.
 (pdftex.def)             Requested size: 462.57271pt x 100.47417pt.
-<images/1268_44s.png, id=2542, 717.68124pt x 223.83624pt>
+<images/1268_44s.png, id=2579, 717.68124pt x 223.83624pt>
 File: images/1268_44s.png Graphic file (type png)
 <use images/1268_44s.png>
 Package pdftex.def Info: images/1268_44s.png  used on input line 418.
 (pdftex.def)             Requested size: 466.48727pt x 145.49182pt.
-<images/1268_48.png, id=2543, 728.7225pt x 115.43124pt>
+<images/1268_48.png, id=2580, 728.7225pt x 115.43124pt>
 File: images/1268_48.png Graphic file (type png)
 <use images/1268_48.png>
 Package pdftex.def Info: images/1268_48.png  used on input line 421.
@@ -1450,12 +1392,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45 <./images/1268_41s1.png> <./images/0568_41.png> <./images/0568_41s.png> <.
 /images/1268_41s2.png> <./images/1268_44.png> <./images/1268_44s.png>]
-<images/1268_48s.png, id=2555, 721.69624pt x 189.70876pt>
+<images/1268_48s.png, id=2591, 721.69624pt x 189.70876pt>
 File: images/1268_48s.png Graphic file (type png)
 <use images/1268_48s.png>
 Package pdftex.def Info: images/1268_48s.png  used on input line 423.
 (pdftex.def)             Requested size: 469.097pt x 123.30922pt.
-<images/0568_48.png, id=2556, 962.59625pt x 600.2425pt>
+<images/0568_48.png, id=2592, 962.59625pt x 600.2425pt>
 File: images/0568_48.png Graphic file (type png)
 <use images/0568_48.png>
 Package pdftex.def Info: images/0568_48.png  used on input line 425.
@@ -1465,7 +1407,7 @@ Overfull \hbox (11.54196pt too wide) in paragraph at lines 425--426
 [][]  
  []
 
-<images/0568_48s.png, id=2557, 877.2775pt x 87.32625pt>
+<images/0568_48s.png, id=2593, 877.2775pt x 87.32625pt>
 File: images/0568_48s.png Graphic file (type png)
 <use images/0568_48s.png>
 Package pdftex.def Info: images/0568_48s.png  used on input line 427.
@@ -1476,7 +1418,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [46 <./images/1268_48.png> <./images/1268_48s.png> <./images/0568_48.png> <./i
 mages/0568_48s.png>] (./Topics/Diff_EQ.tex
 Chapter 4.
-<images/1268_61.png, id=2567, 743.77875pt x 140.525pt>
+<images/1268_61.png, id=2603, 743.77875pt x 140.525pt>
 File: images/1268_61.png Graphic file (type png)
 <use images/1268_61.png>
 Package pdftex.def Info: images/1268_61.png  used on input line 6.
@@ -1486,7 +1428,7 @@ Overfull \hbox (13.69547pt too wide) in paragraph at lines 6--7
 [][]  
  []
 
-<images/1268_61s.png, id=2568, 724.7075pt x 283.0575pt>
+<images/1268_61s.png, id=2604, 724.7075pt x 283.0575pt>
 File: images/1268_61s.png Graphic file (type png)
 <use images/1268_61s.png>
 Package pdftex.def Info: images/1268_61s.png  used on input line 8.
@@ -1585,10 +1527,6 @@ Package natbib Warning: Citation `PUGH2015REAL' on page 59 undefined on input l
 ine 789.
 
 [59] [60]
-
-Package natbib Warning: Citation `tao2010epsilon' on page 61 undefined on input
- line 894.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 928.
@@ -1718,7 +1656,7 @@ Package natbib Warning: Citation `PUGH2015REAL' on page 65 undefined on input l
 ine 1202.
 
 [65] [66]
-<images/ra_fig88.png, id=2868, 676.5275pt x 344.28625pt>
+<images/ra_fig88.png, id=2908, 676.5275pt x 344.28625pt>
 File: images/ra_fig88.png Graphic file (type png)
 <use images/ra_fig88.png>
 Package pdftex.def Info: images/ra_fig88.png  used on input line 1270.
@@ -1767,7 +1705,7 @@ Package natbib Warning: Citation `PUGH2015REAL' on page 71 undefined on input l
 ine 1592.
 
 [71] [72]
-<images/ra_sup_norm.png, id=2963, 654.445pt x 403.5075pt>
+<images/ra_sup_norm.png, id=3002, 654.445pt x 403.5075pt>
 File: images/ra_sup_norm.png Graphic file (type png)
 <use images/ra_sup_norm.png>
 Package pdftex.def Info: images/ra_sup_norm.png  used on input line 1675.
@@ -1920,7 +1858,7 @@ Package natbib Warning: Citation `PUGH2015REAL' on page 93 undefined on input l
 ine 2877.
 
 [93]
-<images/ra_conv_ball.jpg, id=3178, 906.38625pt x 978.65625pt>
+<images/ra_conv_ball.jpg, id=3217, 906.38625pt x 978.65625pt>
 File: images/ra_conv_ball.jpg Graphic file (type jpg)
 <use images/ra_conv_ball.jpg>
 Package pdftex.def Info: images/ra_conv_ball.jpg  used on input line 2908.
@@ -2300,7 +2238,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 4721.
 
-<images/ra_manifold_ex.png, id=3684, 440.64626pt x 713.66624pt>
+<images/ra_manifold_ex.png, id=3724, 440.64626pt x 713.66624pt>
 File: images/ra_manifold_ex.png Graphic file (type png)
 <use images/ra_manifold_ex.png>
 Package pdftex.def Info: images/ra_manifold_ex.png  used on input line 4737.
@@ -2310,7 +2248,7 @@ Package natbib Warning: Citation `PUGH2015REAL' on page 127 undefined on input
 line 4763.
 
 [127] [128 <./images/ra_manifold_ex.png>]
-<images/ra_lee_chart.png, id=3720, 522.95375pt x 240.9pt>
+<images/ra_lee_chart.png, id=3759, 522.95375pt x 240.9pt>
 File: images/ra_lee_chart.png Graphic file (type png)
 <use images/ra_lee_chart.png>
 Package pdftex.def Info: images/ra_lee_chart.png  used on input line 4830.
@@ -2321,7 +2259,7 @@ Package natbib Warning: Citation `PUGH2015REAL' on page 129 undefined on input
 line 4845.
 
 [129]
-<images/ra_spivak_5-2.png, id=3739, 728.7225pt x 746.79pt>
+<images/ra_spivak_5-2.png, id=3778, 728.7225pt x 746.79pt>
 File: images/ra_spivak_5-2.png Graphic file (type png)
 <use images/ra_spivak_5-2.png>
 Package pdftex.def Info: images/ra_spivak_5-2.png  used on input line 4855.
@@ -2542,7 +2480,7 @@ Package natbib Warning: Citation `PUGH2015REAL' on page 147 undefined on input
 line 5784.
 
 [147]
-<images/ra_hw11_4.png, id=3985, 198.7425pt x 165.61874pt>
+<images/ra_hw11_4.png, id=4024, 198.7425pt x 165.61874pt>
 File: images/ra_hw11_4.png Graphic file (type png)
 <use images/ra_hw11_4.png>
 Package pdftex.def Info: images/ra_hw11_4.png  used on input line 5821.
@@ -2681,7 +2619,7 @@ OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr
 /m/n/10 ))$ 
  []
 
-<images/ra_fig_1form.png, id=4118, 736.7525pt x 463.7325pt>
+<images/ra_fig_1form.png, id=4157, 736.7525pt x 463.7325pt>
 File: images/ra_fig_1form.png Graphic file (type png)
 <use images/ra_fig_1form.png>
 Package pdftex.def Info: images/ra_fig_1form.png  used on input line 6299.
@@ -2901,8 +2839,10 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 7886.
 
 
-Package natbib Warning: Citation `folland2013real' on page 186 undefined on inp
-ut line 7888.
+Overfull \hbox (14.39108pt too wide) in paragraph at lines 7888--7888
+[]\OT1/cmr/bx/n/14.4 Preliminaries to Mea-sure The-ory (Chap-ter 0 of [][]Fol-l
+and[][] [[][]2013[][]])  
+ []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -2933,10 +2873,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 7888.
 
 
-Package natbib Warning: Citation `folland2013real' on page 186 undefined on inp
-ut line 7917.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 7917.
 
@@ -2964,19 +2900,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 7917.
 
-
-Package natbib Warning: Citation `folland2013real' on page 186 undefined on inp
-ut line 7919.
-
 [186]
-
-Package natbib Warning: Citation `folland2013real' on page 187 undefined on inp
-ut line 7925.
-
-
-Package natbib Warning: Citation `folland2013real' on page 187 undefined on inp
-ut line 7943.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 7943.
@@ -3006,18 +2930,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 7943.
 
 
-Package natbib Warning: Citation `folland2013real' on page 187 undefined on inp
-ut line 7962.
-
-
-Package natbib Warning: Citation `folland2013real' on page 187 undefined on inp
-ut line 7972.
-
-
-Package natbib Warning: Citation `folland2013real' on page 187 undefined on inp
-ut line 7982.
-
-
 Package natbib Warning: Citation `FOLLAND2013REAL' on page 187 undefined on inp
 ut line 8001.
 
@@ -3032,26 +2944,12 @@ Package natbib Warning: Citation `FOLLAND2013REAL' on page 189 undefined on inp
 ut line 8109.
 
 [189] [190]
-
-Package natbib Warning: Citation `folland2013real' on page 191 undefined on inp
-ut line 8182.
-
-
-Package natbib Warning: Citation `folland2013real' on page 191 undefined on inp
-ut line 8201.
-
-
-Overfull \hbox (11.78275pt too wide) in paragraph at lines 8203--8204
+Overfull \hbox (15.29834pt too wide) in paragraph at lines 8203--8204
 [][]\OT1/cmr/bx/n/10 Theorem 5.11.6 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 The Fu-bi
-ni--Tonelli The-o-rem; The-o-rem 2.37 in ?\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . [
-]\OT1/cmr/m/n/10 Sup-pose $(\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 M\OML/cmm/m/it
-/10 ; ^^V\OT1/cmr/m/n/10 )$ and $(\OML/cmm/m/it/10 Y; \OMS/cmsy/m/n/10 N\OML/cm
-m/m/it/10 ; ^^W\OT1/cmr/m/n/10 )$ 
+ni--Tonelli The-o-rem; The-o-rem 2.37 in [][]Fol-land[][] [[][]2013[][]]\OT1/cm
+r/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Sup-pose $(\OML/cmm/m/it/10 X; \
+OMS/cmsy/m/n/10 M\OML/cmm/m/it/10 ; ^^V\OT1/cmr/m/n/10 )$ 
  []
-
-
-Package natbib Warning: Citation `folland2013real' on page 191 undefined on inp
-ut line 8225.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -3082,21 +2980,14 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 8225.
 
 
-Package natbib Warning: Citation `folland2013real' on page 191 undefined on inp
-ut line 8227.
-
-
 Package natbib Warning: Citation `FOLLAND2013REAL' on page 191 undefined on inp
 ut line 8230.
 
 [191]
-
-Package natbib Warning: Citation `folland2013real' on page 192 undefined on inp
-ut line 8251.
-
-
-Package natbib Warning: Citation `folland2013real' on page 192 undefined on inp
-ut line 8263.
+Overfull \hbox (14.73935pt too wide) in paragraph at lines 8263--8263
+[]\OT1/cmr/bx/n/14.4 Elements of Func-tional Anal-y-sis (Chap-ter 5 of [][]Fol-
+land[][] [[][]2013[][]])  
+ []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -3126,7 +3017,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 8263.
 
-<images/0568_38.png, id=4660, 940.51375pt x 209.78375pt>
+<images/0568_38.png, id=4728, 940.51375pt x 209.78375pt>
 File: images/0568_38.png Graphic file (type png)
 <use images/0568_38.png>
 Package pdftex.def Info: images/0568_38.png  used on input line 8272.
@@ -3136,23 +3027,23 @@ Overfull \hbox (0.50073pt too wide) in paragraph at lines 8272--8273
 []  
  []
 
-<images/0568_38s.png, id=4661, 884.30376pt x 202.7575pt>
+<images/0568_38s.png, id=4729, 884.30376pt x 202.7575pt>
 File: images/0568_38s.png Graphic file (type png)
 <use images/0568_38s.png>
 Package pdftex.def Info: images/0568_38s.png  used on input line 8274.
 (pdftex.def)             Requested size: 442.1508pt x 101.3785pt.
 [192 <./images/0568_38.png>]
-<images/1268_47.png, id=4670, 489.83pt x 284.06125pt>
+<images/1268_47.png, id=4738, 489.83pt x 284.06125pt>
 File: images/1268_47.png Graphic file (type png)
 <use images/1268_47.png>
 Package pdftex.def Info: images/1268_47.png  used on input line 8276.
 (pdftex.def)             Requested size: 318.38573pt x 184.6376pt.
-<images/1268_47s.png, id=4671, 718.685pt x 69.25874pt>
+<images/1268_47s.png, id=4739, 718.685pt x 69.25874pt>
 File: images/1268_47s.png Graphic file (type png)
 <use images/1268_47s.png>
 Package pdftex.def Info: images/1268_47s.png  used on input line 8278.
 (pdftex.def)             Requested size: 467.13971pt x 45.01764pt.
-<images/1268_57.png, id=4672, 772.8875pt x 227.85126pt>
+<images/1268_57.png, id=4740, 772.8875pt x 227.85126pt>
 File: images/1268_57.png Graphic file (type png)
 <use images/1268_57.png>
 Package pdftex.def Info: images/1268_57.png  used on input line 8280.
@@ -3162,12 +3053,12 @@ Overfull \hbox (32.61592pt too wide) in paragraph at lines 8280--8281
 [][]  
  []
 
-<images/1268_57s.png, id=4673, 720.6925pt x 115.43124pt>
+<images/1268_57s.png, id=4741, 720.6925pt x 115.43124pt>
 File: images/1268_57s.png Graphic file (type png)
 <use images/1268_57s.png>
 Package pdftex.def Info: images/1268_57s.png  used on input line 8282.
 (pdftex.def)             Requested size: 468.44458pt x 75.0294pt.
-<images/1268_60.png, id=4674, 628.3475pt x 337.26pt>
+<images/1268_60.png, id=4742, 628.3475pt x 337.26pt>
 File: images/1268_60.png Graphic file (type png)
 <use images/1268_60.png>
 Package pdftex.def Info: images/1268_60.png  used on input line 8284.
@@ -3177,17 +3068,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [193 <./images/0568_38s.png> <./images/1268_47.png> <./images/1268_47s.png> <.
 /images/1268_57.png> <./images/1268_57s.png>]
-<images/1268_60s.png, id=4685, 720.6925pt x 95.35625pt>
+<images/1268_60s.png, id=4753, 720.6925pt x 95.35625pt>
 File: images/1268_60s.png Graphic file (type png)
 <use images/1268_60s.png>
 Package pdftex.def Info: images/1268_60s.png  used on input line 8286.
 (pdftex.def)             Requested size: 468.44458pt x 61.98082pt.
-<images/1268_63.png, id=4686, 711.65875pt x 263.98625pt>
+<images/1268_63.png, id=4754, 711.65875pt x 263.98625pt>
 File: images/1268_63.png Graphic file (type png)
 <use images/1268_63.png>
 Package pdftex.def Info: images/1268_63.png  used on input line 8288.
 (pdftex.def)             Requested size: 462.57271pt x 171.58902pt.
-<images/1268_63s.png, id=4687, 722.7pt x 141.52875pt>
+<images/1268_63s.png, id=4755, 722.7pt x 141.52875pt>
 File: images/1268_63s.png Graphic file (type png)
 <use images/1268_63s.png>
 Package pdftex.def Info: images/1268_63s.png  used on input line 8290.
@@ -3248,7 +3139,7 @@ mr/m/n/10 from a group of $\OML/cmm/m/it/10 N$ \OT1/cmr/m/n/10 items,
  []
 
 [218]
-<images/prob_hypergeometric.jpg, id=4954, 3738.96875pt x 2052.66875pt>
+<images/prob_hypergeometric.jpg, id=5022, 3738.96875pt x 2052.66875pt>
 File: images/prob_hypergeometric.jpg Graphic file (type jpg)
 <use images/prob_hypergeometric.jpg>
 Package pdftex.def Info: images/prob_hypergeometric.jpg  used on input line 165
@@ -3292,7 +3183,7 @@ f $\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^X^^Q\OT1/cmr/m/n/10 ) =
  []
 
 [227] [228] [229] [230]
-<images/prob_sp18p2.png, id=5053, 745.78625pt x 298.11375pt>
+<images/prob_sp18p2.png, id=5121, 745.78625pt x 298.11375pt>
 File: images/prob_sp18p2.png Graphic file (type png)
 <use images/prob_sp18p2.png>
 Package pdftex.def Info: images/prob_sp18p2.png  used on input line 2537.
@@ -3417,13 +3308,13 @@ ML/cmm/m/it/10 f$ \OT1/cmr/m/n/10 (es-ti-mated) from den-sity $\OML/cmm/m/it/10
  g$ \OT1/cmr/m/n/10 (true model/distribution):  
  []
 
-<images/linreg_kl_div_gsba604.jpg, id=5592, 2274.4975pt x 2814.515pt>
+<images/linreg_kl_div_gsba604.jpg, id=5660, 2274.4975pt x 2814.515pt>
 File: images/linreg_kl_div_gsba604.jpg Graphic file (type jpg)
 <use images/linreg_kl_div_gsba604.jpg>
 Package pdftex.def Info: images/linreg_kl_div_gsba604.jpg  used on input line 6
 356.
 (pdftex.def)             Requested size: 341.15991pt x 422.15904pt.
-<images/prob_505a_midterm_1a.jpg, id=5595, 3319.40125pt x 2147.02126pt>
+<images/prob_505a_midterm_1a.jpg, id=5663, 3319.40125pt x 2147.02126pt>
 File: images/prob_505a_midterm_1a.jpg Graphic file (type jpg)
 <use images/prob_505a_midterm_1a.jpg>
 Package pdftex.def Info: images/prob_505a_midterm_1a.jpg  used on input line 64
@@ -3447,7 +3338,7 @@ e en-tire rect-an-gle lies be-low the curve. There-fore $[]$.
  []
 
 [291 <./images/prob_505a_midterm_1a.jpg>]
-<images/prob_505a_midterm_1b.jpg, id=5620, 3405.72375pt x 1728.4575pt>
+<images/prob_505a_midterm_1b.jpg, id=5688, 3405.72375pt x 1728.4575pt>
 File: images/prob_505a_midterm_1b.jpg Graphic file (type jpg)
 <use images/prob_505a_midterm_1b.jpg>
 Package pdftex.def Info: images/prob_505a_midterm_1b.jpg  used on input line 65
@@ -3462,7 +3353,7 @@ cmr/m/n/10 (1)$,
  []
 
 [293]
-<images/prob_midterm2_p5.jpg, id=5636, 2661.945pt x 2477.255pt>
+<images/prob_midterm2_p5.jpg, id=5704, 2661.945pt x 2477.255pt>
 File: images/prob_midterm2_p5.jpg Graphic file (type jpg)
 <use images/prob_midterm2_p5.jpg>
 Package pdftex.def Info: images/prob_midterm2_p5.jpg  used on input line 6620.
@@ -3496,7 +3387,7 @@ cmm/m/it/10 n\OT1/cmr/m/n/10 )
  []
 
 [297] [298]
-<images/prob_hw6p10a.png, id=5674, 815.045pt x 692.5875pt>
+<images/prob_hw6p10a.png, id=5741, 815.045pt x 692.5875pt>
 File: images/prob_hw6p10a.png Graphic file (type png)
 <use images/prob_hw6p10a.png>
 Package pdftex.def Info: images/prob_hw6p10a.png  used on input line 6975.
@@ -4077,7 +3968,7 @@ Overfull \hbox (43.4128pt too wide) detected at line 5501
  []
 
 [537]
-<images/mathstats_np_set.jpg, id=7991, 4047.12pt x 3035.34pt>
+<images/mathstats_np_set.jpg, id=8058, 4047.12pt x 3035.34pt>
 File: images/mathstats_np_set.jpg Graphic file (type jpg)
 <use images/mathstats_np_set.jpg>
 Package pdftex.def Info: images/mathstats_np_set.jpg  used on input line 5556.
@@ -4111,12 +4002,12 @@ T1/cmr/m/n/10 ), then that is also the UMP test for test of size $\OML/cmm/m/it
  []
 
 [546] [547] [548]
-<images/mathstats_gnp_ex.jpg, id=8111, 2583.6525pt x 2636.85126pt>
+<images/mathstats_gnp_ex.jpg, id=8178, 2583.6525pt x 2636.85126pt>
 File: images/mathstats_gnp_ex.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex.jpg>
 Package pdftex.def Info: images/mathstats_gnp_ex.jpg  used on input line 6248.
 (pdftex.def)             Requested size: 258.38039pt x 263.70058pt.
-<images/mathstats_gnp_ex_2.jpg, id=8115, 1123.19624pt x 1502.61375pt>
+<images/mathstats_gnp_ex_2.jpg, id=8182, 1123.19624pt x 1502.61375pt>
 File: images/mathstats_gnp_ex_2.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex_2.jpg>
 Package pdftex.def Info: images/mathstats_gnp_ex_2.jpg  used on input line 6258
@@ -4124,7 +4015,7 @@ Package pdftex.def Info: images/mathstats_gnp_ex_2.jpg  used on input line 6258
 (pdftex.def)             Requested size: 224.63527pt x 300.51743pt.
  [549] [550 <./images/mathstats_gnp_ex.jpg>] [551 <./images/mathstats_gnp_ex_2.
 jpg>]
-<images/mathstats_gnp_ex_3.jpg, id=8144, 1568.86125pt x 1824.8175pt>
+<images/mathstats_gnp_ex_3.jpg, id=8211, 1568.86125pt x 1824.8175pt>
 File: images/mathstats_gnp_ex_3.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex_3.jpg>
 Package pdftex.def Info: images/mathstats_gnp_ex_3.jpg  used on input line 6306
@@ -4463,7 +4354,7 @@ Overfull \hbox (25.71815pt too wide) in paragraph at lines 8902--8903
 of in-te-grands in the third step (ei-ther way finds the probability- 
  []
 
-<images/mathstats_thm_pratt_img.jpg, id=8565, 4047.12pt x 3035.34pt>
+<images/mathstats_thm_pratt_img.jpg, id=8632, 4047.12pt x 3035.34pt>
 File: images/mathstats_thm_pratt_img.jpg Graphic file (type jpg)
 <use images/mathstats_thm_pratt_img.jpg>
 Package pdftex.def Info: images/mathstats_thm_pratt_img.jpg  used on input line
@@ -4946,7 +4837,7 @@ tween gen-er-al-ized least squares and weighted least squares---generalized
  []
 
 [628] [629]
-<images/linreg_half_space_depth.jpg, id=8926, 2171.11125pt x 2240.37pt>
+<images/linreg_half_space_depth.jpg, id=8993, 2171.11125pt x 2240.37pt>
 File: images/linreg_half_space_depth.jpg Graphic file (type jpg)
 <use images/linreg_half_space_depth.jpg>
 Package pdftex.def Info: images/linreg_half_space_depth.jpg  used on input line
@@ -5168,11 +5059,6 @@ Package natbib Warning: Citation `CAMERON_TRIVEDI_2005' on page 637 undefined o
 n input line 394.
 
 [637]
-
-Package natbib Warning: Citation `Imbens1994' on page 638 undefined on input li
-ne 474.
-
-
 Underfull \vbox (badness 1436) has occurred while \output is active []
 
  [638]
@@ -5210,10 +5096,6 @@ n input line 551.
 
 [639]
 
-Package natbib Warning: Citation `imbens_rubin_2015' on page 640 undefined on i
-nput line 577.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 577.
 
@@ -5248,10 +5130,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 577.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 640 undefined on i
-nput line 579.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -5291,10 +5169,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 [640]
 
-Package natbib Warning: Citation `imbens_rubin_2015' on page 641 undefined on i
-nput line 618.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 618.
 
@@ -5331,8 +5205,10 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 618.
 
 
-Package natbib Warning: Citation `imbens_rubin_2015' on page 641 undefined on i
-nput line 634.
+Overfull \hbox (10.21284pt too wide) in paragraph at lines 634--634
+[]\OT1/cmr/bx/n/14.4 Regression Meth-ods (Chap-ter 7 of [][]Im-bens and Ru-bin[
+][] [[][]2015[][]])  
+ []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -5376,10 +5252,6 @@ Overfull \hbox (30.28935pt too wide) detected at line 650
  []
 
 
-Package natbib Warning: Citation `imbens_rubin_2015' on page 641 undefined on i
-nput line 662.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 662.
 
@@ -5420,7 +5292,7 @@ Package natbib Warning: Citation `IMBENS_RUBIN_2015' on page 641 undefined on i
 nput line 666.
 
 [641]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 7030) has occurred while \output is active []
 
  [642]
 
@@ -5428,10 +5300,6 @@ Package natbib Warning: Citation `IMBENS_RUBIN_2015' on page 643 undefined on i
 nput line 741.
 
 [643] [644]
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 645 undefined on i
-nput line 830.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 830.
@@ -5474,10 +5342,6 @@ nput line 841.
 
 [645]
 
-Package natbib Warning: Citation `imbens_rubin_2015' on page 646 undefined on i
-nput line 845.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 845.
 
@@ -5512,10 +5376,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 845.
-
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 646 undefined on i
-nput line 847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -5554,10 +5414,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 847.
 
 
-Package natbib Warning: Citation `imbens_rubin_2015' on page 646 undefined on i
-nput line 849.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 849.
 
@@ -5593,14 +5449,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 849.
 
-
-Underfull \vbox (badness 1092) has occurred while \output is active []
-
- [646]
-
-Package natbib Warning: Citation `imbens_rubin_2015' on page 647 undefined on i
-nput line 925.
-
+[646]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\begingroup' on input line 925.
@@ -5797,7 +5646,7 @@ t, $(\OML/cmm/m/it/10 X[]X\OT1/cmr/m/n/10 )[]$
  []
 
 [702] [703] [704] [705]
-<images/linreg_lasso_level_set.png, id=9577, 1049.9225pt x 656.4525pt>
+<images/linreg_lasso_level_set.png, id=9671, 1049.9225pt x 656.4525pt>
 File: images/linreg_lasso_level_set.png Graphic file (type png)
 <use images/linreg_lasso_level_set.png>
 Package pdftex.def Info: images/linreg_lasso_level_set.png  used on input line 
@@ -5819,12 +5668,12 @@ case $\OML/cmm/m/it/10 ^^U \OT1/cmr/m/n/10 = 0$). Per part 5(b)(iv), $\OMS/cmsy
  []
 
 [710] [711] [712] [713]
-<images/linreg_lars_2d.png, id=9706, 719.68875pt x 543.02875pt>
+<images/linreg_lars_2d.png, id=9800, 719.68875pt x 543.02875pt>
 File: images/linreg_lars_2d.png Graphic file (type png)
 <use images/linreg_lars_2d.png>
 Package pdftex.def Info: images/linreg_lars_2d.png  used on input line 1465.
 (pdftex.def)             Requested size: 375.80542pt x 283.56145pt.
-<images/linreg_lars_3d.png, id=9707, 720.6925pt x 568.1225pt>
+<images/linreg_lars_3d.png, id=9801, 720.6925pt x 568.1225pt>
 File: images/linreg_lars_3d.png Graphic file (type png)
 <use images/linreg_lars_3d.png>
 Package pdftex.def Info: images/linreg_lars_3d.png  used on input line 1470.
@@ -5838,7 +5687,7 @@ t is dropped from the cur-rent ac-tive set. A fea-ture's sign can-not change in
 
 [715 <./images/linreg_lars_3d.png>] [716] [717] [718] [719] [720] [721]
 [722]
-<images/linreg_spatial_mixture_model_2.jpg, id=9784, 2446.13875pt x 1563.8425pt
+<images/linreg_spatial_mixture_model_2.jpg, id=9878, 2446.13875pt x 1563.8425pt
 >
 File: images/linreg_spatial_mixture_model_2.jpg Graphic file (type jpg)
 <use images/linreg_spatial_mixture_model_2.jpg>
@@ -5910,7 +5759,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 2723.
 
 [738]
-<images/stoch_dp_ic.jpg, id=9902, 1926.19624pt x 1325.95375pt>
+<images/stoch_dp_ic.jpg, id=9996, 1926.19624pt x 1325.95375pt>
 File: images/stoch_dp_ic.jpg Graphic file (type jpg)
 <use images/stoch_dp_ic.jpg>
 Package pdftex.def Info: images/stoch_dp_ic.jpg  used on input line 2790.
@@ -6017,38 +5866,38 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 3040.
 
 [744] [745]
-<images/dp_inventory_control.jpg, id=9973, 2620.79124pt x 2584.65625pt>
+<images/dp_inventory_control.jpg, id=10067, 2620.79124pt x 2584.65625pt>
 File: images/dp_inventory_control.jpg Graphic file (type jpg)
 <use images/dp_inventory_control.jpg>
 Package pdftex.def Info: images/dp_inventory_control.jpg  used on input line 31
 17.
 (pdftex.def)             Requested size: 393.10173pt x 387.68172pt.
-<images/stoch_dp_k_cvx.jpg, id=9986, 1885.0425pt x 1722.435pt>
+<images/stoch_dp_k_cvx.jpg, id=10080, 1885.0425pt x 1722.435pt>
 File: images/stoch_dp_k_cvx.jpg Graphic file (type jpg)
 <use images/stoch_dp_k_cvx.jpg>
 Package pdftex.def Info: images/stoch_dp_k_cvx.jpg  used on input line 3153.
 (pdftex.def)             Requested size: 377.00182pt x 344.4809pt.
  [746] [747 <./images/dp_inventory_control.jpg>] [748 <./images/stoch_dp_k_cvx.
 jpg>]
-<images/stoch_dp_k_cvx_p3.jpg, id=10013, 1632.0975pt x 1121.18875pt>
+<images/stoch_dp_k_cvx_p3.jpg, id=10107, 1632.0975pt x 1121.18875pt>
 File: images/stoch_dp_k_cvx_p3.jpg Graphic file (type jpg)
 <use images/stoch_dp_k_cvx_p3.jpg>
 Package pdftex.def Info: images/stoch_dp_k_cvx_p3.jpg  used on input line 3215.
 
 (pdftex.def)             Requested size: 326.41371pt x 224.23378pt.
  [749] [750 <./images/stoch_dp_k_cvx_p3.jpg>]
-<images/stoch_dp_fixed.jpg, id=10040, 953.5625pt x 471.7625pt>
+<images/stoch_dp_fixed.jpg, id=10134, 953.5625pt x 471.7625pt>
 File: images/stoch_dp_fixed.jpg Graphic file (type jpg)
 <use images/stoch_dp_fixed.jpg>
 Package pdftex.def Info: images/stoch_dp_fixed.jpg  used on input line 3327.
 (pdftex.def)             Requested size: 286.07095pt x 141.52983pt.
-<images/dp_k_convexity.jpg, id=10046, 2387.92125pt x 1432.35126pt>
+<images/dp_k_convexity.jpg, id=10140, 2387.92125pt x 1432.35126pt>
 File: images/dp_k_convexity.jpg Graphic file (type jpg)
 <use images/dp_k_convexity.jpg>
 Package pdftex.def Info: images/dp_k_convexity.jpg  used on input line 3352.
 (pdftex.def)             Requested size: 405.94125pt x 243.49649pt.
  [751] [752 <./images/stoch_dp_fixed.jpg> <./images/dp_k_convexity.jpg>]
-<images/stoch_dp_fixed_thm_proof_1.jpg, id=10076, 1402.23875pt x 687.56876pt>
+<images/stoch_dp_fixed_thm_proof_1.jpg, id=10170, 1402.23875pt x 687.56876pt>
 File: images/stoch_dp_fixed_thm_proof_1.jpg Graphic file (type jpg)
 <use images/stoch_dp_fixed_thm_proof_1.jpg>
 Package pdftex.def Info: images/stoch_dp_fixed_thm_proof_1.jpg  used on input l
@@ -6078,18 +5927,18 @@ Overfull \hbox (3.18063pt too wide) in paragraph at lines 3598--3599
 b/m/n/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[] \OMS/cmsy/m/n/10 ^^U 
  []
 
-<images/stoch_littlewood.jpg, id=10143, 700.6175pt x 489.83pt>
+<images/stoch_littlewood.jpg, id=10237, 700.6175pt x 489.83pt>
 File: images/stoch_littlewood.jpg Graphic file (type jpg)
 <use images/stoch_littlewood.jpg>
 Package pdftex.def Info: images/stoch_littlewood.jpg  used on input line 3636.
 (pdftex.def)             Requested size: 350.30789pt x 244.9144pt.
 [757] [758 <./images/stoch_littlewood.jpg>] [759]
-<images/stoch_dp_n_class.jpg, id=10176, 2658.93375pt x 2130.96124pt>
+<images/stoch_dp_n_class.jpg, id=10270, 2658.93375pt x 2130.96124pt>
 File: images/stoch_dp_n_class.jpg Graphic file (type jpg)
 <use images/stoch_dp_n_class.jpg>
 Package pdftex.def Info: images/stoch_dp_n_class.jpg  used on input line 3741.
 (pdftex.def)             Requested size: 398.82286pt x 319.6304pt.
-<images/stoch_dp_n_class_pf.jpg, id=10184, 1688.3075pt x 1399.2275pt>
+<images/stoch_dp_n_class_pf.jpg, id=10278, 1688.3075pt x 1399.2275pt>
 File: images/stoch_dp_n_class_pf.jpg Graphic file (type jpg)
 <use images/stoch_dp_n_class_pf.jpg>
 Package pdftex.def Info: images/stoch_dp_n_class_pf.jpg  used on input line 376
@@ -6230,12 +6079,12 @@ S/cmsy/m/n/10 ^^T
  []
 
 [772] [773]
-<images/stoch_dp_vi_vis.jpg, id=10325, 2129.9575pt x 1657.19125pt>
+<images/stoch_dp_vi_vis.jpg, id=10419, 2129.9575pt x 1657.19125pt>
 File: images/stoch_dp_vi_vis.jpg Graphic file (type jpg)
 <use images/stoch_dp_vi_vis.jpg>
 Package pdftex.def Info: images/stoch_dp_vi_vis.jpg  used on input line 4642.
 (pdftex.def)             Requested size: 425.98396pt x 331.43237pt.
-<images/stoch_dp_pi_vis.jpg, id=10327, 718.685pt x 767.86874pt>
+<images/stoch_dp_pi_vis.jpg, id=10421, 718.685pt x 767.86874pt>
 File: images/stoch_dp_pi_vis.jpg Graphic file (type jpg)
 <use images/stoch_dp_pi_vis.jpg>
 Package pdftex.def Info: images/stoch_dp_pi_vis.jpg  used on input line 4652.
@@ -6275,7 +6124,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `subscript' on input line 4795.
 
 [778] [779]
-<images/dp_fig_1_3_1.jpg, id=10395, 2184.16pt x 1512.65125pt>
+<images/dp_fig_1_3_1.jpg, id=10489, 2184.16pt x 1512.65125pt>
 File: images/dp_fig_1_3_1.jpg Graphic file (type jpg)
 <use images/dp_fig_1_3_1.jpg>
 Package pdftex.def Info: images/dp_fig_1_3_1.jpg  used on input line 4867.
@@ -6629,13 +6478,13 @@ Overfull \hbox (1.15063pt too wide) in paragraph at lines 150--151
 wn- 
  []
 
-<images/binary_operation.png, id=10704, 529.98pt x 357.335pt>
+<images/binary_operation.png, id=10798, 529.98pt x 357.335pt>
 File: images/binary_operation.png Graphic file (type png)
 <use images/binary_operation.png>
 Package pdftex.def Info: images/binary_operation.png  used on input line 155.
 (pdftex.def)             Requested size: 344.4829pt x 232.26498pt.
 [807 <./images/binary_operation.png>]
-<images/1268_15.png, id=10710, 748.7975pt x 222.8325pt>
+<images/1268_15.png, id=10804, 748.7975pt x 222.8325pt>
 File: images/1268_15.png Graphic file (type png)
 <use images/1268_15.png>
 Package pdftex.def Info: images/1268_15.png  used on input line 183.
@@ -6645,12 +6494,12 @@ Overfull \hbox (16.95761pt too wide) in paragraph at lines 183--184
 [][]  
  []
 
-<images/1268_15s.png, id=10711, 722.7pt x 73.27374pt>
+<images/1268_15s.png, id=10805, 722.7pt x 73.27374pt>
 File: images/1268_15s.png Graphic file (type png)
 <use images/1268_15s.png>
 Package pdftex.def Info: images/1268_15s.png  used on input line 185.
 (pdftex.def)             Requested size: 469.74944pt x 47.62735pt.
-<images/binary_operation2.png, id=10712, 915.42pt x 854.19125pt>
+<images/binary_operation2.png, id=10806, 915.42pt x 854.19125pt>
 File: images/binary_operation2.png Graphic file (type png)
 <use images/binary_operation2.png>
 Package pdftex.def Info: images/binary_operation2.png  used on input line 189.
@@ -6665,14 +6514,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [810]
-<images/group_properties.png, id=10728, 914.41624pt x 694.595pt>
+<images/group_properties.png, id=10822, 914.41624pt x 694.595pt>
 File: images/group_properties.png Graphic file (type png)
 <use images/group_properties.png>
 Package pdftex.def Info: images/group_properties.png  used on input line 246.
 (pdftex.def)             Requested size: 411.4835pt x 312.56487pt.
 
 [811 <./images/group_properties.png>]
-<images/cycle.png, id=10738, 904.37875pt x 575.14874pt>
+<images/cycle.png, id=10832, 904.37875pt x 575.14874pt>
 File: images/cycle.png Graphic file (type png)
 <use images/cycle.png>
 Package pdftex.def Info: images/cycle.png  used on input line 282.
@@ -6689,7 +6538,7 @@ mm/m/it/10 i[]; i[]; [] ; i[]\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 and $\OMS/cmsy
 /m/n/10 f\OML/cmm/m/it/10 j[]; j[]; [] ; j[]\OMS/cmsy/m/n/10 g$ 
  []
 
-<images/disjoint_cycle_decomp.png, id=10743, 902.37125pt x 298.11375pt>
+<images/disjoint_cycle_decomp.png, id=10837, 902.37125pt x 298.11375pt>
 File: images/disjoint_cycle_decomp.png Graphic file (type png)
 <use images/disjoint_cycle_decomp.png>
 Package pdftex.def Info: images/disjoint_cycle_decomp.png  used on input line 2
@@ -6699,7 +6548,7 @@ Package pdftex.def Info: images/disjoint_cycle_decomp.png  used on input line 2
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [813 <./images/cycle.png> <./images/disjoint_cycle_decomp.png>]
-<images/determinant.png, id=10750, 907.39pt x 325.215pt>
+<images/determinant.png, id=10844, 907.39pt x 325.215pt>
 File: images/determinant.png Graphic file (type png)
 <use images/determinant.png>
 Package pdftex.def Info: images/determinant.png  used on input line 309.
@@ -6708,17 +6557,17 @@ Package pdftex.def Info: images/determinant.png  used on input line 309.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [814 <./images/determinant.png>] [815]
-<images/ch4_proof.png, id=10763, 1037.8775pt x 696.6025pt>
+<images/ch4_proof.png, id=10857, 1037.8775pt x 696.6025pt>
 File: images/ch4_proof.png Graphic file (type png)
 <use images/ch4_proof.png>
 Package pdftex.def Info: images/ch4_proof.png  used on input line 378.
 (pdftex.def)             Requested size: 415.14365pt x 278.63606pt.
-<images/1268_49.png, id=10764, 581.17125pt x 67.25125pt>
+<images/1268_49.png, id=10858, 581.17125pt x 67.25125pt>
 File: images/1268_49.png Graphic file (type png)
 <use images/1268_49.png>
 Package pdftex.def Info: images/1268_49.png  used on input line 382.
 (pdftex.def)             Requested size: 377.75684pt x 43.71277pt.
-<images/1268_49s.png, id=10765, 718.685pt x 50.1875pt>
+<images/1268_49s.png, id=10859, 718.685pt x 50.1875pt>
 File: images/1268_49s.png Graphic file (type png)
 <use images/1268_49s.png>
 Package pdftex.def Info: images/1268_49s.png  used on input line 384.
@@ -6750,7 +6599,7 @@ T1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 )) \OMS/cmsy/m/n/10 8 \OML/cmm
  []
 
 [818]
-<images/1268_66.png, id=10789, 752.8125pt x 179.67125pt>
+<images/1268_66.png, id=10882, 752.8125pt x 179.67125pt>
 File: images/1268_66.png Graphic file (type png)
 <use images/1268_66.png>
 Package pdftex.def Info: images/1268_66.png  used on input line 512.
@@ -6760,7 +6609,7 @@ Overfull \hbox (19.56734pt too wide) in paragraph at lines 512--513
 [][]  
  []
 
-<images/1268_66s.png, id=10790, 723.70375pt x 152.57pt>
+<images/1268_66s.png, id=10883, 723.70375pt x 152.57pt>
 File: images/1268_66s.png Graphic file (type png)
 <use images/1268_66s.png>
 Package pdftex.def Info: images/1268_66s.png  used on input line 514.
@@ -6774,7 +6623,7 @@ Overfull \hbox (0.64687pt too wide) in paragraph at lines 514--515
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [819 <./images/1268_66.png> <./images/1268_66s.png>]
-<images/prime_order.png, id=10800, 1051.93pt x 161.60374pt>
+<images/prime_order.png, id=10894, 1051.93pt x 161.60374pt>
 File: images/prime_order.png Graphic file (type png)
 <use images/prime_order.png>
 Package pdftex.def Info: images/prime_order.png  used on input line 544.
@@ -6792,12 +6641,12 @@ f there are $\OML/cmm/m/it/10 k$ \OT1/cmr/m/n/10 groups $\OML/cmm/m/it/10 G[];
 G[]; [] ; G[]$ 
  []
 
-<images/1268_12.png, id=10801, 714.67pt x 182.6825pt>
+<images/1268_12.png, id=10895, 714.67pt x 182.6825pt>
 File: images/1268_12.png Graphic file (type png)
 <use images/1268_12.png>
 Package pdftex.def Info: images/1268_12.png  used on input line 558.
 (pdftex.def)             Requested size: 464.52998pt x 118.7422pt.
-<images/1268_12s.png, id=10802, 727.71875pt x 74.2775pt>
+<images/1268_12s.png, id=10896, 727.71875pt x 74.2775pt>
 File: images/1268_12s.png Graphic file (type png)
 <use images/1268_12s.png>
 Package pdftex.def Info: images/1268_12s.png  used on input line 560.
@@ -6807,14 +6656,14 @@ Overfull \hbox (3.25659pt too wide) in paragraph at lines 560--561
 [][]  
  []
 
-<images/isomorphism_groups_order.png, id=10803, 1041.8925pt x 351.3125pt>
+<images/isomorphism_groups_order.png, id=10897, 1041.8925pt x 351.3125pt>
 File: images/isomorphism_groups_order.png Graphic file (type png)
 <use images/isomorphism_groups_order.png>
 Package pdftex.def Info: images/isomorphism_groups_order.png  used on input lin
 e 562.
 (pdftex.def)             Requested size: 468.8473pt x 158.08916pt.
 [820 <./images/prime_order.png> <./images/1268_12.png> <./images/1268_12s.png>]
-<images/isomorphism_groups_order2.png, id=10816, 911.405pt x 483.8075pt>
+<images/isomorphism_groups_order2.png, id=10910, 911.405pt x 483.8075pt>
 File: images/isomorphism_groups_order2.png Graphic file (type png)
 <use images/isomorphism_groups_order2.png>
 Package pdftex.def Info: images/isomorphism_groups_order2.png  used on input li
@@ -6822,7 +6671,7 @@ ne 580.
 (pdftex.def)             Requested size: 410.12846pt x 217.71136pt.
 [821 <./images/isomorphism_groups_order.png> <./images/isomorphism_groups_order
 2.png>]
-<images/ring_summary.png, id=10823, 911.405pt x 842.14626pt>
+<images/ring_summary.png, id=10917, 911.405pt x 842.14626pt>
 File: images/ring_summary.png Graphic file (type png)
 <use images/ring_summary.png>
 Package pdftex.def Info: images/ring_summary.png  used on input line 590.
@@ -6841,7 +6690,7 @@ ef-i-ni-tion from Sec-tion 2.1 of [][]Lang[][] [[][]2005[][]], p. 101 of pdf, p
 . 86 of book)\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . 
  []
 
-<images/1268_23.png, id=10840, 776.9025pt x 212.795pt>
+<images/1268_23.png, id=10934, 776.9025pt x 212.795pt>
 File: images/1268_23.png Graphic file (type png)
 <use images/1268_23.png>
 Package pdftex.def Info: images/1268_23.png  used on input line 660.
@@ -6851,13 +6700,13 @@ Overfull \hbox (35.22565pt too wide) in paragraph at lines 660--661
 [][]  
  []
 
-<images/1268_23s.png, id=10841, 722.7pt x 170.6375pt>
+<images/1268_23s.png, id=10935, 722.7pt x 170.6375pt>
 File: images/1268_23s.png Graphic file (type png)
 <use images/1268_23s.png>
 Package pdftex.def Info: images/1268_23s.png  used on input line 662.
 (pdftex.def)             Requested size: 469.74944pt x 110.91304pt.
 [823 <./images/1268_23.png>]
-<images/1268_50.png, id=10851, 786.94pt x 148.555pt>
+<images/1268_50.png, id=10945, 786.94pt x 148.555pt>
 File: images/1268_50.png Graphic file (type png)
 <use images/1268_50.png>
 Package pdftex.def Info: images/1268_50.png  used on input line 664.
@@ -6867,17 +6716,17 @@ Overfull \hbox (41.74995pt too wide) in paragraph at lines 664--665
 [][]  
  []
 
-<images/1268_50s.png, id=10852, 721.69624pt x 176.66pt>
+<images/1268_50s.png, id=10946, 721.69624pt x 176.66pt>
 File: images/1268_50s.png Graphic file (type png)
 <use images/1268_50s.png>
 Package pdftex.def Info: images/1268_50s.png  used on input line 666.
 (pdftex.def)             Requested size: 469.097pt x 114.82762pt.
-<images/0568_18.png, id=10853, 923.45pt x 134.5025pt>
+<images/0568_18.png, id=10947, 923.45pt x 134.5025pt>
 File: images/0568_18.png Graphic file (type png)
 <use images/0568_18.png>
 Package pdftex.def Info: images/0568_18.png  used on input line 668.
 (pdftex.def)             Requested size: 461.72386pt x 67.25107pt.
-<images/0568_18s.png, id=10854, 880.28876pt x 55.20625pt>
+<images/0568_18s.png, id=10948, 880.28876pt x 55.20625pt>
 File: images/0568_18s.png Graphic file (type png)
 <use images/0568_18s.png>
 Package pdftex.def Info: images/0568_18s.png  used on input line 670.
@@ -6889,7 +6738,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 /images/0568_18.png> <./images/0568_18s.png>] (./Topics/Miscellaneous/Miscellan
 eous.tex
 Chapter 16.
-<images/0568_6.png, id=10864, 946.53625pt x 298.11375pt>
+<images/0568_6.png, id=10958, 946.53625pt x 298.11375pt>
 File: images/0568_6.png Graphic file (type png)
 <use images/0568_6.png>
 Package pdftex.def Info: images/0568_6.png  used on input line 181.
@@ -6902,32 +6751,32 @@ Overfull \hbox (3.51198pt too wide) in paragraph at lines 181--182
 [825
 
 ]
-<images/0568_6s.png, id=10871, 888.31876pt x 166.6225pt>
+<images/0568_6s.png, id=10965, 888.31876pt x 166.6225pt>
 File: images/0568_6s.png Graphic file (type png)
 <use images/0568_6s.png>
 Package pdftex.def Info: images/0568_6s.png  used on input line 183.
 (pdftex.def)             Requested size: 444.1583pt x 83.31104pt.
-<images/1268_19.png, id=10872, 640.3925pt x 84.315pt>
+<images/1268_19.png, id=10966, 640.3925pt x 84.315pt>
 File: images/1268_19.png Graphic file (type png)
 <use images/1268_19.png>
 Package pdftex.def Info: images/1268_19.png  used on input line 185.
 (pdftex.def)             Requested size: 416.25018pt x 54.80408pt.
-<images/1268_19s.png, id=10873, 722.7pt x 217.81375pt>
+<images/1268_19s.png, id=10967, 722.7pt x 217.81375pt>
 File: images/1268_19s.png Graphic file (type png)
 <use images/1268_19s.png>
 Package pdftex.def Info: images/1268_19s.png  used on input line 187.
 (pdftex.def)             Requested size: 469.74944pt x 141.57724pt.
-<images/1268_28.png, id=10874, 689.57625pt x 58.2175pt>
+<images/1268_28.png, id=10968, 689.57625pt x 58.2175pt>
 File: images/1268_28.png Graphic file (type png)
 <use images/1268_28.png>
 Package pdftex.def Info: images/1268_28.png  used on input line 189.
 (pdftex.def)             Requested size: 448.21924pt x 37.84091pt.
-<images/1268_28s.png, id=10875, 718.685pt x 116.435pt>
+<images/1268_28s.png, id=10969, 718.685pt x 116.435pt>
 File: images/1268_28s.png Graphic file (type png)
 <use images/1268_28s.png>
 Package pdftex.def Info: images/1268_28s.png  used on input line 191.
 (pdftex.def)             Requested size: 467.13971pt x 75.68184pt.
-<images/1268_28fig.png, id=10876, 263.98625pt x 118.4425pt>
+<images/1268_28fig.png, id=10970, 263.98625pt x 118.4425pt>
 File: images/1268_28fig.png Graphic file (type png)
 <use images/1268_28fig.png>
 Package pdftex.def Info: images/1268_28fig.png  used on input line 194.
@@ -6937,22 +6786,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [826 <./images/0568_6.png> <./images/0568_6s.png> <./images/1268_19.png> <./im
 ages/1268_19s.png> <./images/1268_28.png> <./images/1268_28s.png>]
-<images/1268_38.png, id=10887, 593.21625pt x 61.22874pt>
+<images/1268_38.png, id=10981, 593.21625pt x 61.22874pt>
 File: images/1268_38.png Graphic file (type png)
 <use images/1268_38.png>
 Package pdftex.def Info: images/1268_38.png  used on input line 197.
 (pdftex.def)             Requested size: 385.58598pt x 39.79819pt.
-<images/1268_38s.png, id=10888, 721.69624pt x 111.41624pt>
+<images/1268_38s.png, id=10982, 721.69624pt x 111.41624pt>
 File: images/1268_38s.png Graphic file (type png)
 <use images/1268_38s.png>
 Package pdftex.def Info: images/1268_38s.png  used on input line 199.
 (pdftex.def)             Requested size: 469.097pt x 72.4197pt.
-<images/1268_45.png, id=10889, 492.84125pt x 70.2625pt>
+<images/1268_45.png, id=10983, 492.84125pt x 70.2625pt>
 File: images/1268_45.png Graphic file (type png)
 <use images/1268_45.png>
 Package pdftex.def Info: images/1268_45.png  used on input line 201.
 (pdftex.def)             Requested size: 320.343pt x 45.67007pt.
-<images/1268_45s.png, id=10890, 724.7075pt x 155.58125pt>
+<images/1268_45s.png, id=10984, 724.7075pt x 155.58125pt>
 File: images/1268_45s.png Graphic file (type png)
 <use images/1268_45s.png>
 Package pdftex.def Info: images/1268_45s.png  used on input line 203.
@@ -6988,10 +6837,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 247.
  ) 
 Here is how much of TeX's memory you used:
- 24286 strings out of 492649
- 432946 string characters out of 6129622
- 495194 words of memory out of 5000000
- 23722 multiletter control sequences out of 15000+600000
+ 24302 strings out of 492649
+ 433286 string characters out of 6129622
+ 495815 words of memory out of 5000000
+ 23734 multiletter control sequences out of 15000+600000
  24616 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,22n,66p,1470b,692s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -7066,10 +6915,10 @@ live/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local
 cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr
 /local/texlive/2018/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on "Math Review Notes.pdf" (832 pages, 24946124 bytes).
+Output written on "Math Review Notes.pdf" (832 pages, 24950118 bytes).
 PDF statistics:
- 11917 PDF objects out of 12825 (max. 8388607)
- 10500 compressed objects within 105 object streams
- 3864 named destinations out of 4296 (max. 500000)
+ 12015 PDF objects out of 12825 (max. 8388607)
+ 10597 compressed objects within 106 object streams
+ 3868 named destinations out of 4296 (max. 500000)
  3371 words of extra memory for PDF output out of 10000 (max. 10000000)
 
