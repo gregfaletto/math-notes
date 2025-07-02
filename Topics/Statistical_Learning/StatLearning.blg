@@ -1,0 +1,79 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: StatLearning.aux
+Case mismatch error between cite keys MATHIEU2019 and Mathieu2019
+---line 289 of file StatLearning.aux
+ : \citation{MATHIEU2019
+ :                      }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys MATHIEU2019 and Mathieu2019
+---line 291 of file StatLearning.aux
+ : \citation{MATHIEU2019
+ :                      }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys CHI2020 and Chi2020
+---line 296 of file StatLearning.aux
+ : \citation{CHI2020
+ :                  }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys CHI2020 and Chi2020
+---line 303 of file StatLearning.aux
+ : \citation{CHI2020
+ :                  }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys CHI2020 and Chi2020
+---line 314 of file StatLearning.aux
+ : \citation{CHI2020
+ :                  }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys CHI2020 and Chi2020
+---line 327 of file StatLearning.aux
+ : \citation{CHI2020
+ :                  }
+I'm skipping whatever remains of this command
+The style file: abbrvnat.bst
+Database file #1: mybib2fin.bib
+Warning--empty institution in Chi2020
+Warning--empty note in Mathieu2019
+You've used 15 entries,
+            2773 wiz_defined-function locations,
+            719 strings with 7652 characters,
+and the built_in function-call counts, 6674 in all, are:
+= -- 651
+> -- 289
+< -- 15
++ -- 102
+- -- 86
+* -- 541
+:= -- 1053
+add.period$ -- 69
+call.type$ -- 15
+change.case$ -- 71
+chr.to.int$ -- 14
+cite$ -- 32
+duplicate$ -- 304
+empty$ -- 560
+format.name$ -- 107
+if$ -- 1390
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 16
+newline$ -- 105
+num.names$ -- 62
+pop$ -- 115
+preamble$ -- 1
+purify$ -- 58
+quote$ -- 0
+skip$ -- 216
+stack$ -- 0
+substring$ -- 305
+swap$ -- 27
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 150
+warning$ -- 2
+while$ -- 67
+width$ -- 0
+write$ -- 244
+(There were 6 error messages)

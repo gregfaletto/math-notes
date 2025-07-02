@@ -1,9 +1,26 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Folland(2013)]{folland2013real}
+G.~Folland.
+\newblock \emph{Real Analysis: Modern Techniques and Their Applications}.
+\newblock Pure and Applied Mathematics: A Wiley Series of Texts, Monographs and
+  Tracts. Wiley, 2013.
+\newblock ISBN 9781118626399.
+\newblock URL \url{https://books.google.com/books?id=wI4fAwAAQBAJ}.
+
+\bibitem[Koroljuk et~al.(1994)Koroljuk, Korolyuk, Borovskikh, Borovskich,
+  Borovskikh, Borovskikh, and Borovskich]{koroljuk1994theory}
+V.~Koroljuk, V.~Korolyuk, I.~Borovskikh, Y.~Borovskich, I.~Borovskikh,
+  I.~Borovskikh, and J.~Borovskich.
+\newblock \emph{Theory of U-Statistics}.
+\newblock Mathematics and Its Applications. Springer Netherlands, 1994.
+\newblock ISBN 9780792326083.
+\newblock URL \url{https://books.google.com/books?id=bp2DgkDxMdMC}.
 
 \bibitem[Lang(2005)]{lang2005algebra}
 S.~Lang.
@@ -35,6 +52,16 @@ W.~Rudin.
 \newblock ISBN 9780070856134.
 \newblock URL \url{https://books.google.com/books?id=kwqzPAAACAAJ}.
 
+\bibitem[Serfling(1980)]{serfling1980}
+R.~Serfling.
+\newblock \emph{Approximation theorems of mathematical statistics}.
+\newblock Wiley series in probability and mathematical statistics : Probability
+  and mathematical statistics. Wiley, New York, NY [u.a.], [nachdr.] edition,
+  1980.
+\newblock ISBN 0471024031.
+\newblock URL
+  \url{http://gso.gbv.de/DB=2.1/CMD?ACT=SRCHA&SRT=YOP&IKT=1016&TRM=ppn+024353353&sourceid=fbw_bibsonomy}.
+
 \bibitem[Spivak(1971)]{spivak1971calculus}
 M.~Spivak.
 \newblock \emph{Calculus On Manifolds: A Modern Approach To Classical Theorems
@@ -49,5 +76,12 @@ J.~Stewart.
 \newblock Cengage Learning, 2015.
 \newblock ISBN 9781305480513.
 \newblock URL \url{https://books.google.com/books?id=spiaBAAAQBAJ}.
+
+\bibitem[Tao(2010)]{tao2010epsilon}
+T.~Tao.
+\newblock \emph{An Epsilon of Room, I: Real Analysis}.
+\newblock An Epsilon of Room. American Mathematical Society, 2010.
+\newblock ISBN 9780821852781.
+\newblock URL \url{https://books.google.com/books?id=royDAwAAQBAJ}.
 
 \end{thebibliography}

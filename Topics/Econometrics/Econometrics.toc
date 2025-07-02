@@ -6,4 +6,15 @@
 \contentsline {subsection}{\numberline {1.2.2}Instrumental Variable}{8}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Instrumental Variables Estimator}{9}{subsection.1.2.3}
 \contentsline {subsection}{\numberline {1.2.4}Two-Stage Least Squares (Section 8.3.4 of \citet {Greene2003Econometric})}{9}{subsection.1.2.4}
-\contentsline {subsection}{\numberline {1.2.5}GMM Estimator (Section 13.6 of \citet {hansen2020})}{10}{subsection.1.2.5}
+\contentsline {subsection}{\numberline {1.2.5}LATE/CATE Theorem}{10}{subsection.1.2.5}
+\contentsline {subsection}{\numberline {1.2.6}GMM Estimator (Section 13.6 of \citet {hansen2020})}{11}{subsection.1.2.6}
+\contentsline {section}{\numberline {1.3}DSO 699 \citep {imbens_rubin_2015}}{12}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Causal Estimands (Section 1.20 of \citet {imbens_rubin_2015}, p. 18)}{12}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Assignment Mechanisms (Chapter 4 of \citet {imbens_rubin_2015})}{13}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Regression Methods (Chapter 7 of \citet {imbens_rubin_2015})}{13}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Linear Regression with No Covariates (Section 7.4 of \citet {imbens_rubin_2015})}{14}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Linear Regression with Additional Covariates (Section 7.5 of \citet {imbens_rubin_2015})}{17}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Testing for the Presence of Treatment Effects (Section 7.9 of \citet {imbens_rubin_2015})}{18}{subsection.1.4.3}
+\contentsline {section}{\numberline {1.5}Model-Based Inference for Completely Randomized Experiments (Chapter 8 of \citet {imbens_rubin_2015})}{18}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}A Simple Example: Naive and More Sophisticated Approaches to Estimation (Section 8.3 of \citet {imbens_rubin_2015})}{18}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Bayesian Model-Based Imputation in the Absence of Covariates (Section 8.4 of \citet {imbens_rubin_2015})}{19}{subsection.1.5.2}

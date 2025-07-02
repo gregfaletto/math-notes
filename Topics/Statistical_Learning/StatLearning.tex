@@ -212,6 +212,81 @@ so goes to 0 as \(n \to \infty\) for fixed \(d\). But bad in \(d\); for example,
 
 \section{Dimension Reduction methods}
 
+\subsection{High dimensional correlations}
+The following result shows that in high dimensions (as \(n \to \infty\)), the correlation between two random vectors tends to 0.
+%\begin{proposition}
+%Suppose \(x\) and \(y\) are vectors drawn from the uniform distribution on \(\mathcal{S}^{n-1}\), the unit sphere in \(\mathbb{R}^n\). Then for any \(\epsilon > 0\),
+%\[
+%\mathbb{P} \left(  \left| x^\top y \right| \geq \epsilon \right)  \leq \frac{1}{n\epsilon^2}.
+%\]
+%This implies that \(| x^\top y|\) converges in probability to 0 as \(n \to \infty\). Equivalently, for any \(\delta > 0\) it holds that with probability at least \(1 - \delta\),
+%\begin{align*}
+%%\mathbb{P} \left( 
+% \left| x^\top y \right| < \frac{1}{\sqrt{n \delta}}
+%%  \right)  & \geq 1 -  \delta
+%\end{align*}
+%%\[
+%%\delta = \frac{1}{n \epsilon^2}
+%%\]
+%\end{proposition}
+%
+%\begin{proof}
+%Let \(x = (x_1, \ldots, x_n)\) and \(y = (y_1, \ldots, y_n)\). Without loss of generality, suppose \(x = (1, 0, \ldots, 0)\), so \(x^\top y = \sum_{i=1}^n x_i y_i = y_1\). For any \(i\), \(\E[y_i] = 0\) by symmetry, so  \(\E[ x^\top y] = 0\). Next, using \(\sum_{i=1}^n y_i^2 = 1\) (because \(y\) lies on the unit sphere) and taking expectations of each side, we have
+%\begin{align*}
+%1 & = \E \left[ \sum_{i=1}^n y_i^2 \right] =    \sum_{i=1}^n \E \left[ y_i^2 \right]  = n \E \left[ y_i^2 \right]
+%\end{align*}
+%(where we used exchangeability of all \(y_i\) in the last step). So
+%\[
+%\Var( x^\top y) =  \Var\left( y_1 \right) = \E[y_1^2] - \E[y_1]^2 = 1/n.
+%\]
+%Notice that since \((x^\top y)^2 = y_1^2 \leq 1\) with probability 1, (using the \(\psi_2\) norm from Definition 2.5.6 of \citealt{vershynin2018high})
+%\begin{align*}
+%\lVert x^\top y \rVert_{\psi_2} & = \inf \left\{ t > 0: \E \exp \left\{ \frac{( x^\top y)^2}{t^2} \right\} \leq 2 \right\}
+%\\ & = \inf \left\{ t > 0: \E \exp \left\{ \frac{y_1^2}{t^2} \right\} \leq 2 \right\}
+%\\ & \leq \inf \left\{ t > 0: \exp \left\{ \frac{1}{t^2} \right\} \leq 2 \right\}
+%\\ & = \frac{1}{\sqrt{ \log 2}}.
+%%\\ & =inf \left\{ t > 0: t^2  \leq  \log 2 \right\}
+%\end{align*}
+%%which is given by \(t = 1/\sqrt{\log 2}\).
+%Then by the General Hoeffding's Inequality (Theorem 2.6.2 in \citealt{vershynin2018high}), there exists a finite \(c > 0\) such that
+%\[
+%\mathbb{P} \left(  \left| x^\top y \right| \geq \epsilon \right)  \leq 2 \exp \left\{ - \frac{c \epsilon^2}{\lVert x^\top y \rVert_{\psi_2}^2} \right\} = 2 \exp \left\{ - c  \sqrt{\log 2} \epsilon^2  \right\}
+%\]
+%\end{proof}
+\begin{proposition}
+Suppose \(x\) and \(y\) are vectors drawn from the uniform distribution on \(\mathcal{S}^{n-1}\), the unit sphere in \(\mathbb{R}^n\). Then for any \(\epsilon > 0\),
+\[
+\mathbb{P} \left(  \left| x^\top y \right| \geq \epsilon \right)  \leq \frac{1}{n\epsilon^2}.
+\]
+This implies that \(| x^\top y|\) converges in probability to 0 as \(n \to \infty\). Equivalently, for any \(\delta > 0\) it holds that with probability at least \(1 - \delta\),
+\begin{align*}
+%\mathbb{P} \left( 
+ \left| x^\top y \right| < \frac{1}{\sqrt{n \delta}}
+%  \right)  & \geq 1 -  \delta
+\end{align*}
+%\[
+%\delta = \frac{1}{n \epsilon^2}
+%\]
+\end{proposition}
+
+\begin{proof}
+Let \(x = (x_1, \ldots, x_n)\) and \(y = (y_1, \ldots, y_n)\). Without loss of generality, suppose \(x = (1, 0, \ldots, 0)\), so \(x^\top y = \sum_{i=1}^n x_i y_i = y_1\). For any \(i\), \(\E[y_i] = 0\) by symmetry, so  \(\E[ x^\top y] = 0\). Next, using \(\sum_{i=1}^n y_i^2 = 1\) (because \(y\) lies on the unit sphere) and taking expectations of each side, we have
+\begin{align*}
+1 & = \E \left[ \sum_{i=1}^n y_i^2 \right] =    \sum_{i=1}^n \E \left[ y_i^2 \right]  = n \E \left[ y_1^2 \right]
+\end{align*}
+(where we used exchangeability of all \(y_i\) in the last step). So
+\[
+\Var( x^\top y) =  \Var\left( y_1 \right) = \E[y_1^2] - \E[y_1]^2 = 1/n.
+\]
+Then the result follows by Chebyshev's inequality.
+\end{proof}
+%
+%\begin{proof}
+%\[
+%\E \left[  \left| x^\top y \right| \right] = \sum_{i=1}^n \E \left[ x_i y_i \right] \leq   \sum_{i=1}^n  \sqrt{\E \left[ x_i^2 \right] \E \left[ y_i^2 \right] } = n \sqrt{\E \left[ x_1^2 \right] \E \left[ y_1^2 \right] } = n \cdot \sqrt{ \frac{1}{n} \cdot \frac{1}{n} }= 1.
+%\]
+%\end{proof}
+
 \subsection{Principal components regression}
 
 (See Section \ref{linalg.sec.pr.comps} for more details on principal components.) Given data \((y, X)\), don't look at \(y\) for now. Look for maximum variability direction of \(X\):
@@ -615,7 +690,12 @@ where \(\boldsymbol{y}^T\boldsymbol{X}\boldsymbol{\beta} =\boldsymbol{\beta}^T\b
 \\ \iff (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p) \boldsymbol{\beta}=  \boldsymbol{X}^T\boldsymbol{y} \iff \hat{\boldsymbol{\beta}}_{\text{ridge}} = (\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p)^{-1}\boldsymbol{X}^T\boldsymbol{y}
  \end{multline*}
  
- where \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) is invertible by the following argument. \(\boldsymbol{X}^T\boldsymbol{X}\) must be positive semidefinite. In fact, it is positive definite because \( \boldsymbol{X} \in \mathbb{R}^{n \times p}\) has full rank; that is, \(\operatorname{rank}(\boldsymbol{X}) = p\), so \(\boldsymbol{X}^T\boldsymbol{X} \in \mathbb{R}^{p \times p}\) has rank \(p\) (full rank) and is invertible. So \(\boldsymbol{X}^T\boldsymbol{X}\) is positive definite (all positive eigenvalues). Then since \(\Tr(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p) > \Tr(\boldsymbol{X}^T\boldsymbol{X})\), the eigenvalues of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) are also all positive, which means the determinant of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) is nonzero, which means it is invertible.
+ where \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) is invertible by the following argument. It suffices to show that the only solution \(v\) to \(\left( \boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\right)  v = 0\) is \(v = 0\); that is, \(\left( \boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\right)  v  \neq 0\) for any \(v \in \mathbb{R}^p \setminus \{0\}\). To show this, it is in turn sufficient to show that for any \(v \in \mathbb{R}^p \setminus \{0\}\), \( \langle \left( \boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\right) v, v \rangle > 0\). We have
+ \begin{align*}
+ \langle \left( \boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\right) v, v \rangle & = \lambda \langle v, v \rangle + \langle  \boldsymbol{X}^T\boldsymbol{X}  v , v \rangle = \lambda \langle v, v \rangle + \langle  \boldsymbol{X}  v , \boldsymbol{X} v \rangle \geq   \lambda \langle v, v \rangle > 0.
+ \end{align*}
+ 
+%  \(\boldsymbol{X}^T\boldsymbol{X}\) must be positive semidefinite. In fact, it is positive definite because \( \boldsymbol{X} \in \mathbb{R}^{n \times p}\) has full rank; that is, \(\operatorname{rank}(\boldsymbol{X}) = p\), so \(\boldsymbol{X}^T\boldsymbol{X} \in \mathbb{R}^{p \times p}\) has rank \(p\) (full rank) and is invertible. So \(\boldsymbol{X}^T\boldsymbol{X}\) is positive definite (all positive eigenvalues). Then since \(\Tr(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p) > \Tr(\boldsymbol{X}^T\boldsymbol{X})\), the eigenvalues of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) are also all positive, which means the determinant of \(\boldsymbol{X}^T\boldsymbol{X} + \lambda \boldsymbol{I}_p\) is nonzero, which means it is invertible.
 
 \end{proof}
 

@@ -1,0 +1,83 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Econometrics.aux
+Case mismatch error between cite keys CAMERON_TRIVEDI_2005 and cameron_trivedi_2005
+---line 52 of file Econometrics.aux
+ : \citation{CAMERON_TRIVEDI_2005
+ :                               }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys CAMERON_TRIVEDI_2005 and cameron_trivedi_2005
+---line 58 of file Econometrics.aux
+ : \citation{CAMERON_TRIVEDI_2005
+ :                               }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys CAMERON_TRIVEDI_2005 and cameron_trivedi_2005
+---line 66 of file Econometrics.aux
+ : \citation{CAMERON_TRIVEDI_2005
+ :                               }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys IMBENS_RUBIN_2015 and imbens_rubin_2015
+---line 76 of file Econometrics.aux
+ : \citation{IMBENS_RUBIN_2015
+ :                            }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys IMBENS_RUBIN_2015 and imbens_rubin_2015
+---line 79 of file Econometrics.aux
+ : \citation{IMBENS_RUBIN_2015
+ :                            }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys IMBENS_RUBIN_2015 and imbens_rubin_2015
+---line 81 of file Econometrics.aux
+ : \citation{IMBENS_RUBIN_2015
+ :                            }
+I'm skipping whatever remains of this command
+The style file: abbrvnat.bst
+Case mismatch error between cite keys IMBENS_RUBIN_2015 and imbens_rubin_2015
+---line 92 of file Econometrics.aux
+ : \citation{IMBENS_RUBIN_2015
+ :                            }
+I'm skipping whatever remains of this command
+Database file #1: mybib2fin.bib
+Warning--empty publisher in hansen2020
+You've used 5 entries,
+            2773 wiz_defined-function locations,
+            625 strings with 5239 characters,
+and the built_in function-call counts, 1817 in all, are:
+= -- 152
+> -- 83
+< -- 5
++ -- 29
+- -- 24
+* -- 124
+:= -- 298
+add.period$ -- 20
+call.type$ -- 5
+change.case$ -- 20
+chr.to.int$ -- 5
+cite$ -- 11
+duplicate$ -- 100
+empty$ -- 165
+format.name$ -- 35
+if$ -- 375
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 9
+newline$ -- 38
+num.names$ -- 20
+pop$ -- 53
+preamble$ -- 1
+purify$ -- 18
+quote$ -- 0
+skip$ -- 70
+stack$ -- 0
+substring$ -- 19
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 35
+warning$ -- 1
+while$ -- 16
+width$ -- 0
+write$ -- 78
+(There were 7 error messages)

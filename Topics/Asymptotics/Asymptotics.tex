@@ -144,14 +144,12 @@
 %%
 %%
 %%
-%
-%%% Chapter 8
+
+% Chapter 8
 \chapter{Asymptotics and Convergence}
 
 These notes are based on my notes from chapter 8 of \textit{Time Series and Panel Data Econometrics} (1st edition) by M. Hashem Pesaran \citep{pesaran-2015-text} and coursework for Economics 613: Economic and Financial Time Series I at USC, as well as Math 505A and Math 541A at USC and chapter 7 from \textit{Probability and Random Processes} (Grimmett and Stirzaker) 3rd edition \citep{grimmett2001probability}.
 
-%%%% Chapter 8
-%\section{Chapter 8: Asymptotic Theory}
 
 \section{Preliminaries (5.9 and 7.1, Grimmett and Stirzaker)}
 \label{asym.preliminaries}
@@ -355,8 +353,7 @@ which implies that \(f_Y(x) = 0\) for all \(x > 0\). Again, since \(\Pr(Y < 0) =
 
 We are now ready to prove the Cauchy-Schwarz Inequality.
 
-\begin{proof}
-if \(\E(X^2) = 0\) or \(\E(Y^2)=0\), the Cauchy-Schwarz Inequality follows immediately. To see why, suppose without loss of generality that \(\E(X^2) = 0\). Then the right side is 0. Also, \(0 \leq \Var(X) = \E(X^2) - \E(X)^2 = - \E(X)^2\). Since \(\E(X)^2 \geq 0\), we must have \(E(X)^2 =0\) and therefore \(\Var(X) = 0\). Therefore by Lemma \ref{asym.cauchy.lemma}, \(X\) is almost surely constant, which means that \(\Cov(X,Y) = 0\).
+\begin{proof} First we consider the case where \(\E(X^2) = 0\) or \(\E(Y^2)=0\) so the right side of the inequality is 0. Suppose without loss of generality that \(\E(X^2) = 0\). Then \(0 \leq \Var(X) = \E(X^2) - \E(X)^2 = - \E(X)^2\). Since \(\E(X)^2 \geq 0\), we must have \(\E(X)^2 =0\) and therefore \(\E[X] = 0\) and \(\Var(X) = 0\). Therefore by Lemma \ref{asym.cauchy.lemma}, \(X\) is almost surely constant, which means that \(0 = \Cov(X,Y) = \E[XY] - \E[X] \E[Y] = \E[XY] \), proving the result.
 
 \
 
@@ -366,12 +363,10 @@ if \(\E(X^2) = 0\) or \(\E(Y^2)=0\), the Cauchy-Schwarz Inequality follows immed
 0 \leq \E(Z^2) = a^2 \E(X^2) - 2ab \E(XY) + b^2 \E(Y^2)
 \end{equation}
 
-The right side of (\ref{asym.cauchyschwarz.1}) is quadratic in \(a\). Because it is greater than or equal to zero, it has at most one real root, which means its discriminant must be non-positive. That is, if \(b \neq 0\),
-
+The right side of (\ref{asym.cauchyschwarz.1}) is quadratic in \(a\). Because it is greater than or equal to zero for all \(a\), it has at most one real root, which means its discriminant must be non-positive. That is, if \(b \neq 0\),
 \[
 (-2b \E(XY))^2 - 4 b^2\E(X^2)\E(Y^2) \leq 0 \iff \E(XY)^2 - \E(X^2)\E(Y^2) \leq 0
 \]
-
 which yields the result. Note that equality holds if and only if \(\Pr(aX = bY) = 1\) because the discriminant is zero if and only if the quadratic has a real root, which occurs if and only if 
 
 \[
@@ -484,7 +479,7 @@ For some corollaries, see section \ref{cvx.sec.jensen.etc}.
 \item \begin{theorem}\label{asym.thm.holder.ineq}[\textbf{H\"{o}lder (Grimmett and Stirzaker p. p. 143, 319; Theorem 1.99 in Math 541A lecture notes) Generalization of Cauchy-Schwarz}] Let \(X, Y : \Omega \to \mathbb{R}\) be random variables. For \(p, q \geq 1\) satisfying \(1/p + 1/q =1\) we have
 
 \[
-\E(|XY|) \leq (\E(|X^p|))^{1/p}(\E(|X^q|))^{1/q} = \lVert X \rVert_p \lVert Y \rVert_q.
+\E(|XY|) \leq (\E(|X|^p))^{1/p}(\E(|Y|^q))^{1/q} = \lVert X \rVert_p \lVert Y \rVert_q.
 \]
 
 The equality case happens only if \(X\) is a constant multiple of \(Y\) with probability 1. Note that the case \(p=q=2\) recovers the Cauchy-Schwarz Inequality (Theorem \ref{asym.cauchy.schwarz}).
@@ -595,9 +590,7 @@ $$\mathbb{P}\left( \left|\frac{X_{1}+\cdots+X_{n}}{n}-p \right|>r\right)\leq \fr
 \quad\mathbb{P}\left(\left|\frac{X_{1}+\cdots+X_{n}}{n}-p \right|>r\right)\leq \frac{p(1-p)}{nr^{2}}.$$ % var(X-p)= E(X-p)^2 = p(1-p)^2+(1-p)p^2= p(1-p)[1-p+p]=p(1-p)
 \end{remark}
 
-\textbf{Monotone convergence theorem.}
 
-\textbf{Dominated Convergence Theorem} (Theorem \ref{prob.dom.convg.thm}).
 
 %%% Section 8.2
 \section{Modes of Convergence (7.2 of Grimmett and Stirzaker, 8.2 and 8.4 of Pesaran)}
@@ -873,7 +866,7 @@ Then \(\E|X_n^s| = n^{(1/2)(s-r)} \to 0\) and \(\E|X_n^r| = n^{(1/2)(r-s)} \to \
 %%% Section 7.2
 \section{More on convergence (7.2 of Grimmet and Stirzaker)}
 
-\textbf{Other theorems to include:} Fatou's Lemma, Fubini's Theorem, Kolmogorov's Maximal Inequality, Kolmogorov Three-Series Test, Lindeberg Feller Central Limit Theorem, \textbf{this and more at beginning of Mike's 505A qual solutions.}
+\textbf{Other theorems to include:} Kolmogorov's Maximal Inequality, Kolmogorov Three-Series Test, Lindeberg Feller Central Limit Theorem, \textbf{this and more at beginning of Mike's 505A qual solutions.}
 
 \begin{definition} \textbf{Cauchy Convergence.} We say that the sequence \(\{X_n: n \geq 1\}\) of random variables on the probability space \((\Omega, \mathcal{F}, \mathbb{P})\) is \textbf{almost surely Cauchy convergent} if
 
@@ -1087,7 +1080,7 @@ Then we need to show that \(\sum_{j=1}^\infty I_j(\omega) < \infty\) with probab
 \E \left( \sum_{j =1}^\infty I_j \right) =\sum_{j =1}^\infty   \E \left(  I_j \right)  =\sum_{j =1}^\infty   \mathbb{P}(A_j)
 \]
 
-where the last sum is finite by assumption. (Switching of the sum and expectation is allowed by monotone convergence theorem or Fatou's lemma because of monotonicity: \(g_k = \sum_{j=1}^k I_j\) is increasing in \(k\).)
+where the last sum is finite by assumption. (Switching of the sum and expectation is allowed by Monotone Convergence Theorem (Theorem \ref{ra.monotone.ct}) or Fatou's Lemma (Theorem \ref{ra.fatou}) because of monotonicity: \(g_k = \sum_{j=1}^k I_j\) is increasing in \(k\).)
 
 \item One can confirm that 
 

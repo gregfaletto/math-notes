@@ -196,7 +196,17 @@ $$f_{X_{(j)}}(x):=\frac{n!}{(j-1)!(n-j)!}f_{X}(x)(F_{X}(x))^{j-1}(1-F_{X}(x))^{n
 
 \end{corollary}
 
-\begin{proof} This follows by differentiating the identity from Proposition \ref{mathstats.order.stats.dist} for the cumulative distribution function.
+\begin{proof} 
+
+In order for \(X_{(j)}\) to be in the interval \([x, x + \epsilon]\) for small \(\epsilon\), it must be that \(j - 1\) of the observed \(U_i\) to be less than \(x\) and \( n - j \) of them to be greater than \(x\). That is,
+
+\begin{align*}
+\mathbb{P}\left(X_{(j)} \in [x, x + \epsilon] \right) & = \mathbb{P} \left(X_i \in [x, x+ \epsilon] \text{ for some } i \right) \mathbb{P} \left(j - 1 \text{ of the other } X_i \text{ are less than } x, \text{ rest are greater} \right)
+\\ & = n \mathbb{P} \left(X_1 \in [x, x+ \epsilon] \right) \mathbb{P} \left(j - 1 \text{ of the other } X_i \text{ are less than } x, \text{ rest are greater} \right)
+\\ & \approx n f_X(x) \epsilon \left[ \binom{n-1}{j-1}F_X(x)^{j-1} \left( 1 - F_X(x) \right)^{n-j} \right] 
+\\ \implies \qquad f_{X_{(j)}}(x) & =  n f_X(x) \left[ \binom{n-1}{j-1}F_X(x)^{j-1} \left( 1 - F_X(x) \right)^{n-j} \right] .
+\end{align*}
+%This follows by differentiating the identity from Proposition \ref{mathstats.order.stats.dist} for the cumulative distribution function.
 
 \end{proof}
 
@@ -529,7 +539,7 @@ The \textbf{sample standard deviation} of a random sample of size \(n\) is \(\sq
 
 \end{definition}
 
-\begin{proposition}[\textbf{Unbiasedness of sample variance}] Suppose we have a random sample of size \(n\) from an i.i.d. distribution \(X_1, X_2, \ldots, X_n\) with \(\E(X_1) = \mu \ in \mathbb{R}\), \(\Var(X_1) = \sigma^2 < \infty\). Then \(\E(S^2) = \sigma^2\). Further, \(S^2\) is a consistent estimator of \(\sigma^2\).
+\begin{proposition}[\textbf{Unbiasedness of sample variance}] Suppose we have a random sample of size \(n\) from an i.i.d. distribution \(X_1, X_2, \ldots, X_n\) with \(\E(X_1) = \mu \in \mathbb{R}\), \(\Var(X_1) = \sigma^2 < \infty\). Then \(\E(S^2) = \sigma^2\). Further, \(S^2\) is a consistent estimator of \(\sigma^2\).
 
 \end{proposition}
 
@@ -1219,38 +1229,32 @@ This is the moment generating function of a normal distribution with mean \( \mu
 
 \end{theorem}
 
-\begin{proof}[Proof from new class notes] Since \(f'(\theta)\) exists, \(\lim_{y \to \theta} \frac{f(y) - f(\theta)}{y - \theta}\) exists. That is, there exists \(h: \mathbb{R} \to \mathbb{R}\) such that \(\lim_{z \to 0} \frac{h(z)}{z} = 0\) and for all \(y \in \mathbb{R}\),
-
-\[
-f'(\theta)  = \frac{f(y) - f(\theta)}{(y - \theta)}  + h(y-\theta)
-\]
-
-\[
- \iff f(y) = f(\theta) + f'(\theta) (y - \theta) + h(y-\theta).
-\]
-
-In particular,
-
+\begin{proof}[Proof from new class notes] Since \(f'(\theta)\) exists, we have that for all \(y \in \mathbb{R}\),
+% \(\lim_{y \to \theta} \frac{f(y) - f(\theta)}{y - \theta}\) exists. That is, 
+%there exists \(h: \mathbb{R} \to \mathbb{R}\) such that \(\lim_{z \to 0} \frac{h(z)}{z} = 0\) and for all \(y \in \mathbb{R}\),
+\begin{align*}
+%f'(\theta)  & = \frac{f(y) - f(\theta)}{y - \theta}  + \frac{h(y-\theta)}{y - \theta}
+%\\ \iff \qquad
+ f(y) & = f(\theta) + f'(\theta) (y - \theta) + R(y-\theta),
+\end{align*}
+where \(R(y) = o(|y|)\) as \(|y| \to 0\). In particular,
 \begin{equation}\label{mathstats.delta.method.new.proof}
-\sqrt{n}[f(Y_n) - f(\theta)]  =  \underbrace{f'(\theta)}_{\text{(constant)}} \underbrace{\sqrt{n} (Y_n - \theta)}_{\implies \mathcal{N}(0,\sigma^2)} + \underbrace{\sqrt{n}h(Y_n-\theta)}_{\text{?}}.
+\sqrt{n}[f(Y_n) - f(\theta)]  =  \underbrace{f'(\theta)}_{\text{(constant)}} \underbrace{\sqrt{n} (Y_n - \theta)}_{\implies \mathcal{N}(0,\sigma^2)} + \underbrace{\sqrt{n}R(Y_n-\theta)}_{\text{?}}.
 \end{equation}
-
-where we note that \( \sqrt{n} (Y_n - \theta) \xrightarrow{d} \mathcal{N}(0,\sigma^2)\) by assumption. Since it is multiplied by \(f'(\theta) \in \mathbb{R}\), the product of these two terms converges to \(\mathcal{N}(0, \sigma^2 [f'(\theta)]^2)\) by Slutsky's Theorem (Theorem \ref{asym.slutsky}(b)).  We seek to show what happens to the third term of (\ref{mathstats.delta.method.new.proof}) as \(n \to \infty\) (the result follows if the term converges in probability to 0). Note that for any \(n \geq 1\) and for any \(t >0\),
-
+where we note that \( \sqrt{n} (Y_n - \theta) \xrightarrow{d} \mathcal{N}(0,\sigma^2)\) by assumption. Since it is multiplied by \(f'(\theta) \in \mathbb{R}\), the product of these two terms converges to \(\mathcal{N}(0, \sigma^2 [f'(\theta)]^2)\) by Slutsky's Theorem (Theorem \ref{asym.slutsky}(b)).  We seek to show what happens to the third term of (\ref{mathstats.delta.method.new.proof}) as \(n \to \infty\) (the result follows if the term converges in probability to 0). Note that for any \(n \geq 1\) and for any \(s, t >0\),
+\begin{align}
+\Pr(\sqrt{n}|R(Y_n - \theta )| > t)  = ~ & \Pr \bigg(\sqrt{n}|R(Y_n - \theta)| > t \cap |Y_n - \theta | > \frac{st}{\sqrt{n}} \bigg) \nonumber
+\\ & + \Pr \bigg(\sqrt{n}|R(Y_n - \theta )| > t \cap |Y_n - \theta | \leq \frac{st}{\sqrt{n}} \bigg) \nonumber
+\\  \leq  ~ & \Pr( |Y_n - \theta | > st/\sqrt{n}) + \Pr(\sqrt{n}|R(Y_n - \theta )| > t \cap |Y_n - \theta | \leq st/\sqrt{n}). \label{mathstats.delta.method.new.proof.b}
+\end{align}
+Since we already have by assumption \( \sqrt{n} (Y_n - \theta) \xrightarrow{d} \mathcal{N}(0,\sigma^2)\), it follows that as \(n \to \infty\), the first term goes to
 \[
-\Pr(\sqrt{n}|h(Y_n - \theta )| > t) = \Pr \bigg(\sqrt{n}|h(Y_n - \theta)| > t \cap |Y_n - \theta | > \frac{t}{\sqrt{n}} \bigg) + \Pr \bigg(\sqrt{n}|h(Y_n - \theta )| > t \cap |Y_n - \theta | \leq \frac{t}{\sqrt{n}} \bigg)
+2 \int_{st}^{\infty} \frac{1}{\sqrt{2 \pi}} e^{-y^2/2} \ dy.
 \]
-
-\begin{equation}\label{mathstats.delta.method.new.proof.b}
-\iff \Pr(\sqrt{n}|h(Y_n - \theta )| > t)  \leq \Pr( |Y_n - \theta | > t/\sqrt{n}) + \Pr(\sqrt{n}|h(Y_n - \theta )| > t \cap |Y_n - \theta | \leq t/\sqrt{n}).
-\end{equation}
-
-Since we already have by assumption \( \sqrt{n} (Y_n - \theta) \xrightarrow{d} \mathcal{N}(0,\sigma^2)\), it follows that \(|Y_n - \theta |  \xrightarrow{p} 0 \). (For completeness, a detailed argument is included in the below lemma.) It then follows that the second term converges in probability to 0 if \(\lim_{n \to \infty} \Pr(|Y_n - \theta| > t/\sqrt{n}) = 0\) because \(\lim_{z \to 0} h(z)/z = 0\). Therefore for any \(t > 0\),
-
+\(|Y_n - \theta |  \xrightarrow{p} 0 \). (For completeness, a detailed argument is included in the below lemma.) It then follows that the second term converges in probability to 0 if \(\lim_{n \to \infty} \Pr(|Y_n - \theta| > t/\sqrt{n}) = 0\) because \(\lim_{z \to 0} h(z)/z = 0\). Therefore for any \(t > 0\),
 \[
 \lim_{n \to \infty} \Pr(\sqrt{n}|h(Y_n - \theta )| > t)  = 0 \iff \sqrt{n}|h(Y_n - \theta )|  \xrightarrow{p}0
 \]
-
 which yields the result by (\ref{mathstats.delta.method.new.proof}).
 
 
@@ -3802,92 +3806,57 @@ which explains the applicability of the Weak Law of Large Numbers.
 \begin{enumerate}[a.]
 
 % 1a
-\item Bernoulli random variable:
-
+\item Bernoulli random variable: we have
 \[
-P(X_i = x) = p^x(1-p)^{1-x}
+P(X_i = x) = p^x(1-p)^{1-x}.
 \]
-
-Assuming independent samples,
-
-\[
-L = \prod_{i=1}^n p^{X_i}(1-p)^{1-X_i} = p^{\sum_{i=1}^nX_i}(1-p)^{\sum_{i=1}^n1 - X_i}
-\]
-
-\[
-\log(L) = \sum_{i=1}^nX_i \log(p) + \bigg( \sum_{i=1}^n1 - X_i \bigg) \log(1-p)
-\]
-
-\[
-\deriv{\log(L)}{p} = \frac{1}{p}\sum_{i=1}^nX_i - \frac{1}{1-p} \sum_{i=1}^n (1 - X_i) = 0
-\]
-
-\[
-\frac{1}{\hat{p}}\sum_{i=1}^nX_i  = \frac{1}{1-\hat{p}} \sum_{i=1}^n (1 - X_i)
-\]
-
-\[
-(1-\hat{p})\sum_{i=1}^nX_i = \hat{p} \sum_{i=1}^n (1 - X_i)
-\]
-
-\[
-\sum_{i=1}^n X_i  = \hat{p}\sum_{i=1}^n (X_i + 1 - X_i)
-\]
-
-\[
-\sum_{i=1}^n X_i  = n \hat{p}
-\]
-
-\[
-\boxed{
-\hat{p} = \frac{1}{n} \sum_{i=1}^n X_i}
-\]
+Assuming independent samples, we have
+\begin{align*}
+L & = \prod_{i=1}^n p^{X_i}(1-p)^{1-X_i} = p^{\sum_{i=1}^nX_i}(1-p)^{\sum_{i=1}^n1 - X_i}
+\\ \iff \qquad \log(L) & = \sum_{i=1}^nX_i \log(p) + \bigg( \sum_{i=1}^n1 - X_i \bigg) \log(1-p).
+\end{align*}
+Then the MLE \(\hat{p}\) is the solution to
+\begin{align*}
+\\  \deriv{\log(L)}{\hat{p}} & = \frac{1}{\hat{p}}\sum_{i=1}^nX_i - \frac{1}{1- \hat{p}} \sum_{i=1}^n (1 - X_i) = 0
+\\ \iff \qquad \frac{1}{\hat{p}}\sum_{i=1}^nX_i  & = \frac{1}{1-\hat{p}} \sum_{i=1}^n (1 - X_i)
+\\ \iff \qquad (1-\hat{p})\sum_{i=1}^nX_i & = \hat{p} \sum_{i=1}^n (1 - X_i)
+\\ \iff \qquad \sum_{i=1}^n X_i  & = \hat{p}\sum_{i=1}^n (X_i + 1 - X_i)
+\\ \iff \qquad \sum_{i=1}^n X_i  &= n \hat{p}
+\\ \iff \qquad 
+\hat{p} & = \frac{1}{n} \sum_{i=1}^n X_i.
+\end{align*}
 
 %1b
 \item 
 
+We have
 \[
-\Var(\hat{p}) = \frac{1}{n^2} \Var\bigg( \sum_{i=1}^n X_i\bigg)
+\Var(\hat{p}) = \frac{1}{n^2} \Var\left( \sum_{i=1}^n X_i\right) = \frac{1}{n^2} \sum_{i=1}^n \Var(X_i) = \frac{1}{n^2} \sum_{i=1}^n p(1-p) = \frac{1}{n^2} n p(1-p) = \frac{p(1-p)}{n}
 \]
-
-Since \(X_i\) are independent, we can write this as
-
+The Cramer-Rao lower bound is
 \[
-\frac{1}{n^2} \sum_{i=1}^n \Var(X_i)
+\Var(\hat{\theta}) \geq \left(-n \E \left[ \frac{\partial^2 \log(f(X; \theta))}{\partial \theta^2} \right] \right)^{-1}.
 \]
-
-And since \(X_i\) is Bernoulli, \(\Var(X_i) = p(1-p)\).
-
+We will calculate this quantity. First,
 \[
-= \frac{1}{n^2} \sum_{i=1}^n p(1-p) = \frac{1}{n^2} n p(1-p) = \boxed{\frac{p(1-p)}{n}}
+\pderiv{}{p} \log(p^x(1-p)^{1-x}) = \pderiv{}{p} (x\log(p) + (1-x)\log(1-p)) = \frac{x}{p} - \frac{1-x}{1-p}.
 \]
-
-
-Cramer-Rao lower bound:
-
+Then
 \[
-\Var(\hat{\theta}) \geq 1/\bigg(-n \E \bigg[ \frac{\partial^2 \log(f(X; \theta))}{\partial \theta^2} \bigg] \bigg)
+ \frac{\partial^2 \log(f(X; \theta))}{\partial \theta^2} = \pderiv{}{p} \left(\frac{x}{p} - \frac{1-x}{1-p} \right) = -\frac{x}{p^2} - \frac{1-x}{(1-p)^2},
 \]
-
+so
+\begin{align*}
+\E \left[  \frac{\partial^2 \log(f(X; \theta^2))}{\partial \theta}  \right] & = \E\left(-\frac{x}{p^2} - \frac{1-x}{(1-p)^2} \right) 
+\\ & =  -\frac{1}{p^2} \E(x) - \frac{1}{(1-p)^2} \E(1-x) 
+\\ & = -\frac{1}{p^2}p - \frac{1}{(1-p)^2}(1 - p)
+\\ & = -\frac{1}{p} - \frac{1}{1-p}
+\\ &  = -\frac{1-p}{p(1-p)} - \frac{p}{p(1-p)} 
+\\ & = \frac{-1}{p(1-p)} 
+\end{align*}
+This yields
 \[
-\pderiv{}{p} \log(p^x(1-p)^{1-x}) = \pderiv{}{p} (x\log(p) + (1-x)\log(1-p)) = \frac{x}{p} - \frac{1-x}{1-p}
-\]
-
-\[
- \frac{\partial^2 \log(f(X; \theta))}{\partial \theta^2} = \pderiv{}{p}(\frac{x}{p} - \frac{1-x}{1-p}) = -\frac{x}{p^2} - \frac{1-x}{(1-p)^2}
-\]
-
-\[
-\E \bigg[  \frac{\partial^2 \log(f(X; \theta^2))}{\partial \theta}  \bigg] = \E(-\frac{x}{p^2} - \frac{1-x}{(1-p)^2}) =  -\frac{1}{p^2} \E(x) - \frac{1}{(1-p)^2} \E(1-x) = -\frac{1}{p^2}p - \frac{1}{(1-p)^2}(1 - p)
-\]
-
-\[
-= -\frac{1}{p} - \frac{1}{1-p} = -\frac{1-p}{p(1-p)} - \frac{p}{p(1-p)} = \frac{-1}{p(1-p)} 
-\]
-
-
-\[
-\implies \Var(\hat{p}) \geq 1 / \bigg( -n( \frac{-1}{p(1-p)}) \bigg) = \frac{p(1-p)}{n} = \Var(\hat{p})
+\Var(\hat{p}) \geq 1 / \left( -n( \frac{-1}{p(1-p)}) \right) = \frac{p(1-p)}{n} = \Var(\hat{p}).
 \]
 
 \item \begin{enumerate}[(1)]
@@ -4083,22 +4052,20 @@ Therefore \(\hat{\lambda}\) is a consistent estimator of \(\lambda\).
 
 \end{proposition}
 
-\begin{proof}
-
+\begin{proof} We have
 \[
 f(X_i; \lambda) = \lambda e^{-\lambda X_i}
 \]
-
 Assuming the samples are independent,
-
-\begin{multline*}
-L = \prod_{i=1}^n \lambda e^{-\lambda X_i} = \lambda^n \exp(-\lambda \sum_{i=1}^n X_i)
-\\ \iff \log(L) = n \log(\lambda) + -\lambda \sum_{i=1}^n X_i
-\\ \iff \deriv{\log(L)}{\lambda} = \frac{n}{\lambda} - \sum_{i=1}^n X_i = 0
-\\ \implies 
-\hat{\lambda} = n / \sum_{i=1}^n X_i = \frac{1}{\bar{X}}
-\end{multline*}
-
+\begin{align*}
+L & = \prod_{i=1}^n \lambda e^{-\lambda X_i} = \lambda^n \exp(-\lambda \sum_{i=1}^n X_i)
+\\ \iff \qquad  \log(L) & = n \log(\lambda) + -\lambda \sum_{i=1}^n X_i.
+\end{align*}
+Then the MLE \(\hat{\lambda}\) is the solution to
+\begin{align*}
+ \deriv{\log(L)}{\lambda} & = \frac{n}{\lambda} - \sum_{i=1}^n X_i  = 0
+\\ \iff  \qquad \hat{\lambda} & = \left. n \middle/ \sum_{i=1}^n X_i  \right.= \frac{1}{\bar{X}}.
+\end{align*}
 
 \end{proof}
 
@@ -4459,6 +4426,24 @@ Y = t(X), \qquad f_{X,Y}(x,.y) = f_X(x) \boldsymbol{1}_{y=t(x)}.
 \end{remark}
 
 \subsection{Comparison of estimators}
+
+\begin{proposition}
+Suppose \(X\) has mean \(\mu\), (finite) variance \(\sigma^2\), and median \(m\). Then
+\[
+| \mu - m | \leq \sigma.
+\]
+\end{proposition}
+
+\begin{proof}
+\begin{align*}
+|\mu - m| & = | \E[X - m] |
+\\ &  \E[ |X - m| ]
+\\ &  \stackrel{(a)}{\leq}  \E [ |X - \mu | ]
+\\ & \stackrel{(b)}{\leq}  \sqrt{ \E [ (X - \mu)^2]}
+\\ & = \sigma,
+\end{align*}
+where \((a)\) follows because \(m = \underset{c \in \mathbb{R}}{\arg \min} \{\E [ | X - c| ]\}\) and (b) follows from \(|X - \mu| = \sqrt{(X - \mu)^2}\) and Jensen's inequality.
+\end{proof}
 
 \section{Resampling and Bias Reduction}
 
@@ -4834,6 +4819,38 @@ so the bootstrap estimator of the variance is
 \end{solution}
 
 \section{Some Concentration of Measure}
+
+\begin{lemma}[DSO 699 Spring 2021]
+
+Let \(X_i \sim \mathcal{N}()0, \sigma^2)\), \(i \in [n]\). (not necessarily independent!) Let \(Z = \max_{i \in [n]} |X_i|\). Then
+
+\[
+\E[Z] \leq \sigma \sqrt{2 \log(2n)}.
+\]
+
+\end{lemma}
+
+\begin{proof}
+
+\begin{align*}
+\E[Z] & = \E \left[ \max_{i \in [n]} |X_i| \right]
+\\ & = \frac{1}{\theta} \log \left[  \exp \left\{ \E \left[ \theta \max_{i \in [n]} |X_i| \right]  \right\} \right]
+\\ & \stackrel{(*)}{\leq} \frac{1}{\theta} \log \left[  \E \left[ \exp \left\{ \theta \max_{i \in [n]} X_i \right\} \right]  \right]  
+\\ & =  \frac{1}{\theta} \log \left[  \E \left[  \max_{i \in [n]} \exp \left\{ \theta X_i \right\} \right]  \right] 
+\\ & \leq  \frac{1}{\theta} \log \left[  \E \left[  \sum_{i \in [n]} \exp \left\{ \theta X_i \right\} \right]  \right] 
+\\ & = \frac{1}{\theta} \log \left[  2ne^{\theta^2 \sigma^2/2} \right] 
+\\ & = \frac{1}{\theta} \log \left[  2n \right]  + \theta \sigma^2/2
+\end{align*}
+
+where \((*)\) follows from Jensen's inequality. Optimize over \(\theta \geq 0\) to get \(\theta^* = \sqrt{2 \log (2n)}/\sigma \). Then the result follows.
+
+\end{proof}
+
+\begin{remark}
+
+Using the union bound, you can use this result to bound \(\mathbb{P}(Z > \E Z + t)\).
+
+\end{remark}
 
 \subsection{Concentration for Independent Sums}
 
@@ -8632,7 +8649,101 @@ for any \(\theta \in \Theta_a\).
 \end{proof}
 
 
+\begin{proof}[Proof of Validity of Holm-Bonferroni]
 
+Let \(P_{(1)} \leq \ldots \leq P_{(n)}\) be the sorted \(p\)-values. Suppose \(n_0\) of the null hypotheses are true. Let \(i_0\) be the index of the smallest \(p\)-value corresponding to a true null hypothesis. By the structure of the method, we have at least one false rejection if and only if \(P_{i_0}\) is rejected. This is true i and only if
+\[
+P_{i_0} \leq \frac{\alpha}{n + 1 - i_0}.
+\]
+Note that at most \(n_0 - 1\) of the \(p\)-values larger than \(P_{i_0}\) are true, so we have the inequality \(i_0 + n_0 - 1 \leq n\), which leads to \(\frac{1}{n + 1 - i_0} \leq \frac{1}{n_0}\). So
+\[
+\mathbb{P} \left( P_{i_0} \leq \frac{\alpha}{n + 1 - i_0} \right) \leq  \mathbb{P} \left( P_{i_0} \leq \frac{\alpha}{n_0} \right) \leq \sum_{\{i: H_i \text{ is true}\}} \mathbb{P} \left( p_i \leq \frac{\alpha}{n_0} \right) = n_0 \frac{\alpha}{n_0} = \alpha.
+\]
+
+\end{proof}
+
+\begin{proof}[Elaboration of work on slide 19 of week 3]
+
+%We are proving this by induction. In particular, let \(A_n(\alpha) = \mathbb{P} \left( p_{(j)} > \frac{j \alpha}{n} \right)\) for \(j \in [n]\) and \(0 \leq \alpha \leq 1\). 
+
+We will prove that \(\mathbb{P} \left( p_{(j)} > \frac{j \alpha}{n} \right) = 1 - \alpha\) by induction on \(n\). Clearly this is true for \( n = 1\). Now assume that \(\mathbb{P} \left( p_{(j)} > \frac{j \alpha}{n - 1} \right) = 1 - \alpha\). We will use this to show that \(\mathbb{P} \left( p_{(j)} > \frac{j \alpha}{n} \right)\), and then the result is proven.
+
+
+%For \(n > 1\), note that \(p_{(1)}/p_{(n)}, \ldots, p_{(n-1)}/p_{(n)}\) are the order statistics of \(n-1\) independent uniform random variables on \((0,1)\), independent of \(p_{(n)}\). So
+%\[
+%A_n(\alpha) = \int_\alpha^1 A_{n-1} \left( \frac{\alpha(n-1)}{t n} \right)nt^{n-1} \ dt.
+%\]
+%If \(A_{n-1} (\alpha) =  1 -\alpha\) then it follows that \(A_n(\alpha)  = 1 - \alpha\).
+%
+%\[
+%\vdots
+%\]
+
+Denoting \(f_{p_{(n)}} = nt^{n-1}\) as the density of \(p_{(n)}\), we have
+\begin{align*}
+\mathbb{P} \left( T_n \leq \alpha, p_{(n)} > \alpha \right) & = \int_\alpha^1 \mathbb{P} \left( T_n \leq \alpha \mid p_{(n)} = t \right)f_{p_{(n)}}(t) \ dt
+\\ & = \int_\alpha^1 \mathbb{P} \left(  \min_{1 \leq i \leq n - 1} \left\{ p_{(i)} \frac{n}{i} \right\} \leq \alpha \mid p_{(n)} = t \right)  nt^{n-1} \ dt
+\\ & = \int_\alpha^1 \mathbb{P} \left(  \min_{1 \leq i \leq n - 1} \left\{ \frac{p_{(i)}}{t} \frac{n - 1}{i} \right\} \leq \frac{\alpha}{t} \frac{n-1}{n} \mid p_{(n)} = t \right)  nt^{n-1} \ dt
+\\ \vdots
+\\ & \stackrel{(*)}{=} \int_\alpha^1 \frac{\alpha}{t} \frac{n-1}{n}  nt^{n-1} \ dt
+\\ & = \alpha \int_\alpha^1  (n-1) t^{n-2} \ dt
+\\ & = \alpha \left[ t^{n-1} \right]_\alpha^1  
+\\ & = \alpha \left[ 1 - \alpha^{n-1} \right]
+\\ & = \alpha - \alpha^n,
+\end{align*}
+where we used the inductive hypothesis in \((*)\).
+
+\end{proof}
+
+\begin{proof}[Proof of Validity of closure principle]
+
+We hope to show that under all configurations of true and false hypothesis, \(\mathbb{P}(V \geq 1) \leq \alpha\). Let \(N = \{j \in [n]: H_j \text{ is null}\}\) be the set of null hypotheses. Note that \(N \subseteq I\) and \(\{i\} \subseteq N\). Let \(H_n = \bigcap_{i \in N} H_i\), and let \(T_i = \min_{I \supseteq \{i\}} \phi_I \). If \(T_i = 1\), then \(\phi_{H_N} = 1\). Then
+\[
+\mathbb{P}(T_i = 1 \mid H_i \text{ true}) \leq \mathbb{P}(\phi_{H_N} = 1 \mid H_N \text{ is true}) \leq \alpha.
+\]
+
+\end{proof}
+
+\begin{proof}[Proof of Validity of Benjamini-Yekuteli]
+
+Let \(h_n := 1 + 1/2 + \ldots + 1/n \approx \log n\).
+\begin{align*}
+\operatorname{FDP} & = \frac{V}{\max \{R, 1\}} 
+\\ & = \sum_{i \in H_0} \frac{V_i}{\max \{R, 1\}} 
+\\ & = \sum_{i \in H_0}  \sum_{k=1}^n \frac{\mathbbm{1} \left\{ p_i \leq \alpha k/n \right\}  \mathbbm{1}\{R = k\}}{k} 
+\\ & = \sum_{i \in H_0}  \sum_{k=1}^n \sum_{\ell =1 }^k \frac{\mathbbm{1} \left\{ p_i \in [\alpha_{\ell - 1}, \alpha_\ell] \right\} }{k}  \mathbbm{1}\{R = k\}
+\\ & = \sum_{i \in H_0}  \sum_{\ell =1 }^n \sum_{k=\ell}^n \frac{\mathbbm{1} \left\{ p_i \in [\alpha_{\ell - 1}, \alpha_\ell] \right\} }{k}  \mathbbm{1}\{R = k\}
+\\ & \leq \sum_{i \in H_0}  \sum_{\ell =1 }^n \sum_{k=\ell}^n \frac{\mathbbm{1} \left\{ p_i \in [\alpha_{\ell - 1}, \alpha_\ell] \right\} }{\ell}  \mathbbm{1}\{R = k\}
+\\ & = \sum_{i \in H_0}  \sum_{\ell =1 }^n  \frac{\mathbbm{1} \left\{ p_i \in [\alpha_{\ell - 1}, \alpha_\ell] \right\} }{\ell}  \sum_{k=\ell}^n \mathbbm{1}\{R = k\}
+\\ & = \sum_{i \in H_0}  \sum_{\ell =1 }^n  \frac{\mathbbm{1} \left\{ p_i \in [\alpha_{\ell - 1}, \alpha_\ell] \right\} }{\ell}  \mathbbm{1}\{R \geq \ell \}
+\\ & \leq  \sum_{i \in H_0}  \sum_{\ell =1 }^n  \frac{\mathbbm{1} \left\{ p_i \in [\alpha_{\ell - 1}, \alpha_\ell] \right\} }{\ell} 
+%\\ & \leq  \sum_{i \in H_0}  \sum_{\ell =1 }^n  \frac{\alpha / n }{\ell} 
+\end{align*}
+where \(\alpha_k := \alpha k/n\). Now we take the expectation to get the FDR:
+\begin{align*}
+\E \left[ \operatorname{FDP}\right] & \leq  \E \left[  \sum_{i \in H_0}  \sum_{\ell =1 }^n  \frac{\mathbbm{1} \left\{ p_i \in [\alpha_{\ell - 1}, \alpha_\ell] \right\} }{\ell} \right]
+\\ & =\sum_{i \in H_0}  \sum_{\ell =1 }^n   \frac{ \E \left[ \mathbbm{1} \left\{ p_i \in [\alpha_{\ell - 1}, \alpha_\ell] \right\}  \right]}{\ell}
+\\ & = \sum_{i \in H_0}  \sum_{\ell =1 }^n   \frac{ \alpha/n}{\ell}
+\\ & = \sum_{i \in H_0} \frac{\alpha}{n}  \sum_{\ell =1 }^n   \frac{ 1}{\ell}
+\\ & =   h_n \sum_{i \in H_0} \frac{\alpha}{n}  
+\\ & =   h_n \frac{n_0}{n}  \alpha
+\\ & \leq \alpha h_n.
+\end{align*}
+
+
+
+\end{proof}
+
+\begin{proof}[Week 9 slides, fall 2021 DSO 699, details on slide 21]
+\begin{align*}
+& \frac{\sum_{\sigma: \sigma(n+1) = i} f(z_{\sigma(1)}, \ldots, z_{\sigma(n+1)})}{\sum_{\sigma} f(z_{\sigma(1)}, \ldots, z_{\sigma(n+1)})}
+\\ = ~ & \frac{\sum_{\sigma: \sigma(n+1) = i} \prod_{j=1}^{n+1} w_j(z_{\sigma(j)}}{\sum_{\sigma}  \prod_{j=1}^{n+1} w_j(z_{\sigma(j)}}
+\\ \vdots
+\\ = ~ & \frac{w(x_i)}{\sum_{\ell = 1}^n w(x_\ell) + w(x)}
+\\ = ~ & p_i^w(x)
+\end{align*}
+
+\end{proof}
 
 
 %

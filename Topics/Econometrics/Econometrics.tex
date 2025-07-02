@@ -134,17 +134,17 @@
 %
 %
 %\newpage
-%
 %%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
 %%
-%%
-%%
-%%
-%%
-%%
-%%
-%
-%% Causal Inference and Econometrics
+%%% Causal Inference and Econometrics
 
 \chapter{Causal Inference and Econometrics}
 
@@ -374,6 +374,8 @@ If the number of instruments equals the number of regressors (\(\operatorname{di
 
 as shown in \eqref{economet.inst.est}.
 
+
+
 \subsection{Two-Stage Least Squares (Section 8.3.4 of \citet{Greene2003Econometric})}
 
 Suppose there may be more instruments than endogenous variables. Then \(Z^\top X\) is not invertible (it is rank \(p\) but has \(\ell\) rows), and a new analysis is required. Since \(Z\) is uncorrelated with \(e\), we can express an approximation \(\hat{X}\) of \(X\) in the column space of \(Z\) by projection:
@@ -467,6 +469,73 @@ Similarly, when \(p\) endogenous regressors are in \(X\) and \(p\) (an equal num
 \hat{\beta}_{IV} :=  \left( \boldsymbol{Z}^\top \boldsymbol{X} \right)^{-1} \boldsymbol{Z}^\top \boldsymbol{y}.
 \end{equation}
 
+\subsection{LATE/CATE Theorem}
+
+\begin{theorem}[LATE Theorem (Special case of Theorem 2 in \citet{Imbens1994})]
+
+\[
+\frac{\E[Y_i \mid Z_i = 1] - \E[Y_i \mid Z_i = 0]}{\E[A_i \mid Z_i = 1] - \E[A_i \mid Z_i = 0]} = \E[Y_i(1) - Y_i(0) \mid A_i(1) > A_i(0)].
+\]
+
+\end{theorem}
+
+\begin{proof}
+
+\begin{align*}
+\E[Y_i \mid Z_i = 1] & = \E \left[  \underbrace{Y_i(0) + A_i(Y_i(1) - Y_i(0))}_{Y_i} \mid Z_i  = 1 \right]
+\\ & = \E \left[  Y_i(0) \mid Z_i  = 1 \right] +  \E \left[   A_i(Y_i(1) - Y_i(0))  \mid Z_i  = 1 \right]
+\\ & \stackrel{(*)}{=} \E \left[  Y_i(0)  \right] +  \E \left[   A_i(Y_i(1) - Y_i(0))   \right] 
+\end{align*}
+
+where \((*)\) follows from the randomization assumption. Similarly,
+
+\begin{align*}
+\E[Y_i \mid Z_i = 0] & = \E \left[  \underbrace{Y_i(0) + A_i(Y_i(1) - Y_i(0))}_{Y_i} \mid Z_i = 0 \right]
+\\ & = \E \left[  Y_i(0) \mid Z_i = 0 \right] +  \E \left[   A_i(Y_i(1) - Y_i(0))  \mid Z_i = 0 \right]
+\\ & \stackrel{(*)}{=} \E \left[  Y_i(0)  \right] +  \E \left[   A_i(Y_i(1) - Y_i(0))   \right] ,
+\end{align*}
+
+so
+
+\begin{align*}
+\E[Y_i \mid Z_i = 1] - \E[Y_i \mid Z_i = 0]  =~ & \E\left[(A_i(1) - A_i(0))(Y_i(1) - Y_i(0)) \right]
+\\ = ~& \E\left[(A_i(1) - A_i(0))(Y_i(1) - Y_i(0)) \mid \underbrace{A_i(1) > A_i(0)}_{\text{(compliers)}} \right] \mathbb{P}(A_i(1) > A_i(0)) 
+\\ & +  \E\left[(A_i(1) - A_i(0))(Y_i(1) - Y_i(0)) \mid \underbrace{A_i(1) < A_i(0)}_{\text{(defiers)}} \right] \mathbb{P}(A_i(1) < A_i(0))
+\\  \stackrel{(**)}{=}  ~& \E\left[(A_i(1) - A_i(0))(Y_i(1) - Y_i(0)) \mid A_i(1) > A_i(0) \right] \mathbb{P}(A_i(1) > A_i(0)) 
+\end{align*}
+
+where \((**)\) follows from the monotonicity assumption (\(\mathbb{P}(A_i(1) < A_i(0)) = 0\)). Can get denominator (easier)
+
+\[
+\E[A_i \mid Z_i = 1] - \E[A_i \mid Z_i = 0]  = \E[A_i(1) - A_i(0)] = \mathbb{P}(A_i(1) > A_i(0))
+\]
+
+\end{proof}
+
+\begin{lemma}
+
+\[
+\frac{\E[Y_i \mid Z_i =1] - \E[Y_i \mid Z_i = 0]}{\E[A_i \mid Z_i  =1] - \E[A_i \mid Z_i = 0]} = \E[Y_i(1) - Y_i(0) \mid A_i = 1].
+\]
+
+\end{lemma}
+
+\begin{proof}
+
+We have \(Y_i = Y_i(0) + A_i(Y_i(1) - Y_i(0))\). Also, \(\mathbb{P}(A_i = 1 \mid Z_i = 0) = 0\) by the assumption of no defiers. That is, \(\E[ A_i(Y_i(1) - Y_i(0)) \mid Z_i = 0] = 0\). Then
+
+\begin{align*}
+\E[Y_i \mid Z_i = 1] - \E[Y_i \mid Z_i = 0] & = \E[Y_i(0) + A_i(Y_i(1) - Y_i(0)) \mid Z_i = 1] - \E[Y_i(0) + A_i(Y_i(1) - Y_i(0)) \mid Z_i = 0] 
+\\ & = \E[ A_i(Y_i(1) - Y_i(0)) \mid Z_i = 1] - \E[ A_i(Y_i(1) - Y_i(0)) \mid Z_i = 0] 
+\\ & = \E[ A_i(Y_i(1) - Y_i(0)) \mid Z_i = 1]
+\\ & = \E[ A_i(Y_i(1) - Y_i(0)) \mid Z_i = 1, A_i = 1] \cdot \mathbb{P}(A_i = 1 \mid Z_i = 1)
+\\ & = \E[ A_i(Y_i(1) - Y_i(0)) \mid  A_i = 1] \cdot \mathbb{P}(A_i = 1 \mid Z_i = 1)
+\end{align*}
+
+so this is the numerator.
+
+\end{proof}
+
 \subsection{GMM Estimator (Section 13.6 of \citet{hansen2020})}
 
 As discussed in Section \ref{sec.overid.gmm}, the moment equations for instrumental variables are 
@@ -504,6 +573,356 @@ the same estimator as in \eqref{economet.gmm.iv.o}. The dependence on the estima
 \end{align*}
 
 which matches the estimator in \eqref{economet.inst.est}.
+
+\section{DSO 699 \citep{imbens_rubin_2015}}
+
+\subsection{Causal Estimands (Section 1.20 of \citet{imbens_rubin_2015}, p. 18)}
+
+Different treatment effects:
+
+\begin{enumerate}
+
+\item
+
+\[
+\operatorname{Ave}(Y_i(\text{Asp}) - Y_i(\text{No})) = \frac{1}{N} \sum_{i=1}^N (Y_i(\text{Asp}) - Y_i(\text{No})) 
+\]
+
+\[
+\operatorname{Ave}(Y_i(\text{Asp}) - Y_i(\text{No})) = \E (Y_i(\text{Asp}) - Y_i(\text{No})) 
+\]
+
+\item 
+
+\[
+\operatorname{Median}(Y_i(\text{Asp}) - Y_i(\text{No})) 
+\]
+
+\item 
+
+\[
+\operatorname{Median}(Y_i(\text{Asp})) - \operatorname{Median}(Y_i(\text{No})) 
+\]
+
+\item (Subpopulations, or heterogeneous treatment effects [HTE])
+
+\[
+\tau_{fs}(f) = \operatorname{Ave}_{X_i = \text{female}}(Y_i(\text{Asp}) - Y_i(\text{No})) = \frac{1}{N(f)} \sum_{i:X_i = \text{female}} (Y_i(\text{Asp}) - Y_i(\text{No})) 
+\]
+
+
+\end{enumerate}
+
+Third one is easier to study than second.
+
+\subsection{Assignment Mechanisms (Chapter 4 of \citet{imbens_rubin_2015})}
+
+\begin{itemize}
+
+\item Completely randomized design
+
+\item Bernoulli assignment
+
+\item Bernoulli assignment within blocks
+
+\item Probability of treatment depending on covariates
+
+\item Randomized within matched pairs
+
+\end{itemize}
+
+\section{Regression Methods (Chapter 7 of \citet{imbens_rubin_2015})}
+
+Selection bias problem: we have
+
+\begin{align*}
+Y_i^{\text{obs}} & = \begin{cases}Y_i(1), & W_i = 1, \\ Y_i(0), & W_i = 0 \end{cases}
+\\ & = Y_i(1) W_i + Y_i(0) (1 - W_i) 
+\\ & = Y_i(0) + (Y_i(1) - Y_i(0)) W_i.
+\end{align*}
+
+Note that
+
+\begin{align*}
+\E[Y_i^{\text{obs}} \mid W_i = 1] -  \E[Y_i^{\text{obs}} \mid W_i = 0] &  =   \E[Y_i(1)  \mid W_i = 1] -  \E[Y_i(0) \mid W_i = 0] 
+\\ &  =   \E[Y_i(1)  \mid W_i = 1] - \E[Y_i(0)  \mid W_i = 1]  + \E[Y_i(0)  \mid W_i = 1]  -  \E[Y_i(0) \mid W_i = 0] 
+\\ &  =  \underbrace{\E[Y_i(1) - Y_i(0) \mid W_i = 1] }_{\text{average treatment effect on treated}} +  \underbrace{ \E[Y_i(0) \mid W_i = 1]  -  \E[Y_i(0) \mid W_i = 0]}_{\text{selection bias}} 
+\end{align*}
+
+Random assignment solves the selection bias issue:
+
+\[
+\mathbb{P}(W_i = 1 \mid Y_i(0), Y_i(1)) = \mathbb{P}(W_i = 1)
+\]
+
+\[
+W_i \indep (Y_i(0), Y_i(1))
+\]
+
+\subsection{Linear Regression with No Covariates (Section 7.4 of \citet{imbens_rubin_2015})}
+
+Regression approach: Let \(\alpha = \E[Y_i(0)]\). Define
+
+\[
+\epsilon_i = \begin{cases}
+Y_i^{\text{obs}} - \alpha, & W_i = 0\\
+Y_i^{\text{obs}} - \alpha - \tau, & W_i = 1.
+\end{cases}
+\]
+
+(Note that \(Y_i^{\text{obs}}\) is random due to (1) random sampling of which observational units are included in the sample and (2) (possibly) randomized treatment assignment. We have
+
+\[
+Y_i^{\text{obs}} = \alpha + \tau W_i + \epsilon_i.
+\]
+
+In order for least squares to be consistent, we need to verify whether \(\E[\epsilon_i \mid W_i = 1] = \E[\epsilon_i \mid W_i = 0]\). Under the assumption that \(W_i \indep (Y_i(0), Y_i(1))\),
+
+\begin{align*}
+\E[\epsilon_i \mid W_i = 1] & = \E \left[ Y_i^{\text{obs}} - \alpha - \tau \mid W_i = 1\right]
+\\ & = \E \left[ Y_i(1) - \alpha - \tau \mid W_i = 1\right]
+\\ & = \E \left[ Y_i(1) \right] - \alpha - \tau
+\\ & = \E \left[ Y_i(1) \right] - \E[Y_i(0)]  -(\E[Y_i(1)] - \E[y_i(0)])
+\\ & = 0.
+\end{align*}
+
+Similarly, under this assumption \(\E[\epsilon_i \mid W_i = 0] = 0\). We can estimate \(\tau\) usingOLS:
+
+\[
+\hat{\tau}^{\text{obs}} = \frac{1}{\sum_{i=1}^N (W_i - \overline{W})^2} \sum_{i=1}^N(Y_i^{\text{obs}} - \overline{Y}^{\text{obs}})(W_i - \overline{W}) = \frac{1}{\sum_{i=1}^N (W_i - \overline{W})^2} \sum_{i=1}^N(Y_i^{\text{obs}} - \overline{Y}^{\text{obs}})W_i
+\]
+
+We have
+
+\[
+\sum_{i=1}^N(W_i - \overline{W})^2 = \sum_{i=1}^N W_i^2 - N \overline{W}^2 = N_t - N \left( \frac{N_t}{N} \right)^2 = \frac{N N_t - N_t^2}{N} = \frac{N_t N_c}{N}.
+\]
+
+In the numerator,
+
+\begin{align*}
+ \sum_{i=1}^N(Y_i^{\text{obs}} - \overline{Y}^{\text{obs}})(W_i - \overline{W}) & = \sum_{i=1}^N(Y_i^{\text{obs}} - \overline{Y}^{\text{obs}})W_i
+ \\ & = \sum_{i=1}^N Y_i^{\text{obs}} W_i  -   \sum_{i=1}^N \overline{Y}^{\text{obs}}W_i
+  \\ & = \sum_{W_i=1} Y_i(1)   -    \overline{Y}^{\text{obs}}N_t
+    \\ & =N_t \overline{Y}^{\text{obs}}(1)   -    \overline{Y}^{\text{obs}}N_t
+\\ & =N_t \left( \overline{Y}^{\text{obs}}(1)   -    \overline{Y}^{\text{obs}}\right)
+\\ & =N_t \left( \overline{Y}^{\text{obs}}(1)   -     \frac{1}{N} \sum_{W_i = 1} Y_i(1) - \frac{1}{N} \sum_{W_i = 0} Y_i(0) \right)
+\\ & =N_t \left( \overline{Y}^{\text{obs}}(1)   -     \frac{N_t}{N}  
+\overline{Y}_i^{\text{obs}}(1) - \frac{N_c}{N} \overline{Y}_i^{\text{obs}}(0) \right)
+\\ & = \frac{N_t N_c}{N} \left( \overline{Y}_t^{\text{obs}} - \overline{Y}_c^{\text{obs}} \right)
+ \\ \vdots
+ \\ & = \sum_{W_i =1}(Y_i(1) - \overline{Y}^{\text{obs}})W_i +   \sum_{W_0 =1}(Y_i(0) - \overline{Y}^{\text{obs}})W_i 
+  \\ & = \sum_{W_i =1}(Y_i(1) - \overline{Y}^{\text{obs}})
+\end{align*}
+
+Therefore
+
+\[
+\hat{\tau}^{\text{obs}} =\left. \frac{N_t N_c}{N} \left( \overline{Y}_t^{\text{obs}} - \overline{Y}_c^{\text{obs}} \right)  \middle/ \frac{N_t N_c}{N} \right. = \overline{Y}_t^{\text{obs}} - \overline{Y}_c^{\text{obs}},
+\]
+
+which is the same as Neyman's estimator. Now consider the variance estimator. 
+
+\begin{align*}
+\Var(\hat{\tau}^{\text{obs}}) & = \frac{\hat{\sigma}^2_{Y| W}}{\sum_{i=1}^N(W_i - \overline{W}})^2.
+\end{align*}
+
+\begin{align*}
+\hat{\sigma}^2_{Y |X} & = \frac{1}{N-2} \sum_{i=1}^N (Y_i^{\text{obs}} - \hat{Y}_I^{\text{obs}})^2
+\\ & = \frac{1}{N-2} \left[ \left(\sum_{W_i = 1}Y_I^{\text{obs}} - \overline{Y}_t^{\text{obs}} \right)^2 + \left(\sum_{W_i = 0}Y_I^{\text{obs}} - \overline{Y}_c^{\text{obs}} \right)^2   \right]
+\end{align*}
+
+\begin{align*}
+\hat{V} & = \left.  \frac{1}{N-2} \left[ \left(\sum_{W_i = 1}Y_I^{\text{obs}} - \overline{Y}_t^{\text{obs}} \right)^2 + \left(\sum_{W_i = 0}Y_I^{\text{obs}} - \overline{Y}_c^{\text{obs}} \right)^2   \right]\middle/ \right. \frac{N_t N_c}{N}
+\end{align*}
+
+\[
+N \hat{V} \to \frac{S_t^2}{\rho} + \frac{S_c^2}{1 - \rho}
+\]
+
+Variance estimator (p. 121):
+
+\[
+\hat{V}^{\text{homosk}}  = \left( \frac{1}{N_c} + \frac{1}{N_t} \right) \hat{\sigma}_{Y\mid w}^2
+\]
+
+Calculations for heteroskedastic robust variance estimator (p. 121): 
+
+
+
+\[
+\left( \sum_{i=1}^N \left( W_i - \overline{W} \right)^2 \right) = \frac{N_t N_c}{N}.
+\]
+
+\begin{align*}
+\hat{\epsilon}_i & = Y_i^{\text{obs}} - \hat{Y}_i^{\text{obs}} = Y_i^{\text{obs}} - \hat{\alpha} - \hat{\tau} W_i
+\\ & =  \begin{cases}
+Y_i^{\text{obs}} - \hat{\alpha} , & W_i = 0, \\
+ Y_i^{\text{obs}} - \hat{\alpha} - \hat{\tau} , & W_i = 1
+\end{cases} 
+\\ & =  \begin{cases}
+Y_i(0)  -  \left( \overline{Y} - \hat{\tau} \overline{W} \right)  , & W_i = 0, \\
+Y_i(1)  - \left( \overline{Y} - \hat{\tau} \overline{W} \right) - \hat{\tau} , & W_i = 1
+\end{cases} 
+\end{align*}
+
+where \(\hat{\alpha} = \overline{Y} - \hat{\tau} \overline{W}\). Consider \(W_i = 0\).
+
+\begin{align*}
+Y_i(0)  -  \left( \overline{Y} - \hat{\tau} \overline{W} \right)  & =  Y_i(0)  -  \overline{Y} - \left( \overline{Y}_t^{\text{obs}} - \overline{Y}_c^{\text{obs}} \right) \frac{N_t}{N}
+\\ & =  Y_i(0)  -  \frac{1}{N} \sum_{i=1}^N Y_i^{\text{obs}} - \frac{1}{N}\sum_{W_i = 1} Y_i^{\text{obs}}  + \frac{N_t}{N_c N }\sum_{W_i = 0} Y_i^{\text{obs}} 
+\\ & =  Y_i(0)  -  \frac{N_t}{N_c N} \left(  \frac{N_c}{N_t} \sum_{i=1}^N Y_i^{\text{obs}}   - \sum_{W_i = 0} Y_i^{\text{obs}}  \right) - \frac{1}{N} \sum_{W_i = 1} Y_i^{\text{obs}}
+\\ & =  Y_i(0)  -  \frac{N_t}{N_c N} \left(  \frac{N_c}{N_t} \sum_{i=1}^N Y_i^{\text{obs}}   - \sum_{W_i = 0} Y_i^{\text{obs}} \right) - \frac{1}{N} \sum_{W_i = 1} Y_i^{\text{obs}} 
+\\ & =  Y_i(0)  -  \frac{N_t}{N_c N} \left(  \frac{N_c}{N_t} \sum_{W_i=1} Y_i^{\text{obs}}  + \frac{N_c}{N_t} \sum_{W_i=0} Y_i^{\text{obs}}  - \sum_{W_i = 0} Y_i^{\text{obs}} \right) - \frac{1}{N} \sum_{W_i = 1} Y_i^{\text{obs}} 
+\\ \vdots
+\\ & = Y_i(0) - \overline{Y}_c^{\text{obs}}
+\end{align*}
+
+Similarly, for \(W_i = 1\)
+
+\[
+Y_i(1) - (\overline{Y} - \hat{\tau}^{\text{obs}} \overline{W} ) - \hat{\tau}^{\text{ols}} = Y_i(1) - \overline{Y}_t^{\text{obs}}.
+\]
+
+We have
+
+\[
+\hat{\epsilon}_i = \begin{cases}
+Y_i(0) - \overline{Y}_c^{\text{obs}}, & W_i = 0 \\
+Y_i(1) - \overline{Y}_t^{\text{obs}}, & W_i = 1
+\end{cases}
+\]
+
+\begin{align*}
+\sum_{i=1}^N \hat{\epsilon}_i^2(W_i - \overline{W})^2 &  = \sum_{W_i = 1} \hat{\epsilon}_i^2 (1 - \frac{N_t}{N} ) ^2 + \sum_{W_i = 0} \hat{\epsilon}_i^2(0 - \frac{N_t}{N})^2
+\\ \vdots
+\\  &  =  \frac{N_c^2}{N^2} \sum_{W_i = 1}(Y_i(1) - \overline{Y}_t^{\text{obs}} )^2 + \frac{N_t^2}{N^2} \sum_{W_i = 0} (Y_i(0) - \overline{Y}_c^{\text{obs}})^2
+\end{align*}
+
+Then
+
+\begin{align*}
+\hat{V}^{\text{hetero}}  & = \frac{1}{N_t^2} \sum_{W_i = 1} (Y_i(10 - \overline{Y}_t^{\text{obs}})^2 + \frac{1}{N_c^2} \sum_{W_i = 0} (Y_i(0) - \overline{Y}_c^{\text{obs}})^2
+\\ & \approx \frac{1}{N_t} S_t^2 + \frac{1}{N_c}S_c^2
+\end{align*}
+
+where 
+
+\[
+S_t^2 = \frac{1}{N_t - 1} \sum_{W_i = 1} (Y_i(1) - \overline{Y}_t^{\text{obs}} )^2
+\]
+
+We can also use weighted least squares if we think the errors are heteroskedastic. The estimator is
+
+\[
+\hat{\tau}_{wls} = \sum_{i=1}^N \frac{1}{\sigma_i^2} (y_i - \alpha - \beta^\top w_i)^2
+\]
+
+with \(\sigma_i^2 = \Var(\epsilon_i)\). Then
+
+\[
+N  \hat{V}^{\text{hetero}}   \approx  \frac{1}{N_t/N} S_t^2 + \frac{1}{N_c/N}S_c^2 \xrightarrow{p} \frac{1}{\rho} \sigma_t^2 + \frac{1}{1 - \rho} \sigma_c^2
+\]
+
+where \(\sigma_t^2\) is the population variance of \(Y_i(1)\) and \(\sigma_c^2\) is the population variance of \(Y_i(0)\).
+
+
+\subsection{Linear Regression with Additional Covariates (Section 7.5 of \citet{imbens_rubin_2015})}
+
+Notes on Theorem 7.1(i):
+
+\begin{align*}
+\tau^* & = \frac{\Cov(Y_i^{\text{obs}}, W_i)}{\Var(Y_i^{\text{obs}})} 
+\\ & = \frac{\E[Y_i^{\text{obs}} W_i] - \E[Y_i^{\text{obs}}] \E[ W_i]  }{p(1-p)}
+\\ & = \frac{\E[Y_i (1) W_i] - \E[W_i Y_i(1) + (1 - W_i) Y_i(0)] p }{p(1-p)}
+\\ & = \frac{p \mu_t - p[p \mu_t  + (1-p) \mu_c] }{p(1-p)}
+\\ & = \mu_t - \mu_c
+\\ & = \tau.
+\end{align*}
+
+where \(p\) is the probability of treatment.
+
+\subsection{Testing for the Presence of Treatment Effects (Section 7.9 of \citet{imbens_rubin_2015})}
+
+\section{Model-Based Inference for Completely Randomized Experiments (Chapter 8 of \citet{imbens_rubin_2015})}
+
+\subsection{A Simple Example: Naive and More Sophisticated Approaches to Estimation (Section 8.3 of \citet{imbens_rubin_2015})}
+
+\begin{theorem}
+
+For the mean imputation method,
+
+\[
+\hat{\tau}_{\text{impute}} = \hat{\tau}^{\text{dif}} = \overline{Y}_t^{\text{obs}} -  \overline{Y}_c^{\text{obs}}
+\]
+
+For the sampling imputation method,
+
+\[
+\E\left[ \hat{\tau}_{\text{impute}} \mid \boldsymbol{Y}^{\text{obs}}, \boldsymbol{W} \right] = \hat{\tau}^{\text{dif}} = \overline{Y}_t^{\text{obs}} -  \overline{Y}_c^{\text{obs}}.
+\]
+
+\end{theorem}
+
+\begin{proof}
+
+\begin{enumerate}[(a)]
+
+\item
+
+For mean imputation, we impute the missing observation for observation \(i\) by taking the mean among all observations \(j\) with \(W_j = 1 - W_i\). That is,
+
+%\[
+%\hat{Y}_i^{\text{mis}} = \frac{1}{N_t^{1 - W_i} N_c^{W_i}} \sum_{j: W_j = 1 - W_i} Y_j^{\text{obs}} = \frac{1}{N_t^{1 - W_i} N_c^{W_i}} \sum_{j=1}^n (W_i - W_j)^2 Y_j^{\text{obs}}
+%\]
+
+%\[
+%\hat{Y}_i^{\text{mis}} =  \left( \overline{Y}_t^{\text{obs}} \right)^{1-W_i}  \left( \overline{Y}_c^{\text{obs}} \right)^{W_i}.
+%\]
+
+\[
+\hat{Y}_i^{\text{mis}} =  \left(1-W_i \right) \overline{Y}_t^{\text{obs}}  + W_i \overline{Y}_c^{\text{obs}} .
+\]
+
+Then (using \(W_i(1 - W_i) = 0\), \(W_i^2 = W_i\), and \((1 - W_i)^2 = (1 - W_i)\) for all \(i\))
+%where we used that \((W_i - W_j)^2 = \mathbbm{1}(W_j = 1 - W_i)\).
+
+\begin{align*}
+\hat{\tau}^{\text{impute}} = ~ &  \frac{1}{N} \sum_{i=1}^N (2W_i - 1)(Y_i^{\text{obs}} - \hat{Y}_i^{\text{mis}})
+\\ = ~ &  \frac{1}{N} \sum_{i=1}^N \left( W_i Y_i^{\text{obs}} + (1 - W_i) \hat{Y}_i^{\text{mis}}  - \left[ (1 - W_i) Y_i^{\text{obs}} + W_i \hat{Y}_i^{\text{mis}} \right] \right)
+\\ = ~ &  \frac{1}{N} \sum_{i=1}^N \Big( W_i Y_i^{\text{obs}} + (1 - W_i) \left[  \left(1-W_i \right) \overline{Y}_t^{\text{obs}}  + W_i \overline{Y}_c^{\text{obs}} \right]  
+\\ & - \left[ (1 - W_i) Y_i^{\text{obs}} + W_i \left[  \left(1-W_i \right) \overline{Y}_t^{\text{obs}}  + W_i \overline{Y}_c^{\text{obs}} \right] \right] \Big)
+\\ = ~ &  \frac{1}{N} \sum_{i=1}^N \Big( W_i Y_i^{\text{obs}} + (1 - W_i)^2  \overline{Y}_t^{\text{obs}}  
+ - \left[ (1 - W_i) Y_i^{\text{obs}} + W_i^2 \overline{Y}_c^{\text{obs}}  \right] \Big)
+ \\ = ~ &  \frac{1}{N} \sum_{i=1}^N  W_i \left[ Y_i^{\text{obs}} -  \overline{Y}_c^{\text{obs}} \right] + \frac{1}{N} \sum_{i=1}^N (1 - W_i)  \left[ \overline{Y}_t^{\text{obs}}   - Y_i^{\text{obs}} \right] 
+  \\ = ~ &  \frac{1}{N} \cdot N_t \left( \overline{Y}_t^{\text{obs}}  -   \overline{Y}_c^{\text{obs}} \right)  + \frac{1}{N} \cdot N_c  \left( \overline{Y}_t^{\text{obs}}   -  \overline{Y}_c^{\text{obs}}  \right)
+\\ = ~ &  \frac{N_t + N_c }{N} \left( \overline{Y}_t^{\text{obs}}  -   \overline{Y}_c^{\text{obs}} \right) 
+\\ = ~ &  \overline{Y}_t^{\text{obs}} - \overline{Y}_c^{\text{obs}} 
+\\ = ~ & \hat{\tau}^{\text{dif}}.
+\end{align*}
+
+
+\item For the second imputation method, observe that \( \hat{Y}_i^{\text{mis}}\) is a random variable, with 
+
+\[
+\E \left[ \hat{Y}_i^{\text{mis}}  \mid \{Y_i^{\text{obs}}, W_i\}_{i=1}^N \right]  =  \left(1-W_i \right) \overline{Y}_t^{\text{obs}}  + W_i \overline{Y}_c^{\text{obs}} .
+\]
+
+\begin{align*}
+\E \left[ \hat{\tau}^{\text{impute}}  \mid \{Y_i^{\text{obs}}, W_i\}_{i=1}^N \right] = ~ &  \E \left[  \frac{1}{N} \sum_{i=1}^N (2W_i - 1)(Y_i^{\text{obs}} - \hat{Y}_i^{\text{mis}})  \mid \{Y_i^{\text{obs}}, W_i\}_{i=1}^N \right]
+\\ = ~ &  \frac{1}{N} \sum_{i=1}^N (2W_i - 1) \left(Y_i^{\text{obs}} -    \E \left[ \hat{Y}_i^{\text{mis}}  \mid \{Y_i^{\text{obs}}, W_i\}_{i=1}^N \right] \right) 
+\\ = ~ &  \frac{1}{N} \sum_{i=1}^N (2W_i - 1) \left(Y_i^{\text{obs}} -    \left[ \left(1-W_i \right) \overline{Y}_t^{\text{obs}}  + W_i \overline{Y}_c^{\text{obs}} \right] \right) 
+\\ = ~ &  \frac{1}{N} \sum_{i=1}^N \left( W_i Y_i^{\text{obs}} + (1 - W_i) \hat{Y}_i^{\text{mis}}  - \left[ (1 - W_i) Y_i^{\text{obs}} + W_i \hat{Y}_i^{\text{mis}} \right] \right).
+\end{align*}
+
+Then the rest follows from the proof of part (a).
+
+\end{enumerate}
+
+\end{proof}
+
+
+\subsection{Bayesian Model-Based Imputation in the Absence of Covariates (Section 8.4 of \citet{imbens_rubin_2015})}
 
 %%
 %%

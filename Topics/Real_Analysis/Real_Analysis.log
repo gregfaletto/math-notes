@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  11 MAY 2020 13:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 NOV 2020 12:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -799,6 +799,13 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 25.
 
+(/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryautomata.code.tex
 File: tikzlibraryautomata.code.tex 2008/07/14 v3.0.1a (rcs-revision 1.3)
@@ -850,27 +857,27 @@ LaTeX Warning: Label `ra.hw5.4a' multiply defined.
 )
 \openout1 = `Real_Analysis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 118.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 119.
 
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -903,12 +910,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package ragged2e Info: ABD: executing \RaggedRight on input line 118.
+Package ragged2e Info: ABD: executing \RaggedRight on input line 119.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 118.
+LaTeX Info: Redefining \selectfont on input line 119.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring ON on input line 118.
+Package hyperref Info: Link coloring ON on input line 119.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -918,26 +925,26 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count153
 )
-LaTeX Info: Redefining \ref on input line 118.
-LaTeX Info: Redefining \pageref on input line 118.
-LaTeX Info: Redefining \nameref on input line 118.
+LaTeX Info: Redefining \ref on input line 119.
+LaTeX Info: Redefining \pageref on input line 119.
+LaTeX Info: Redefining \nameref on input line 119.
 
 (./Real_Analysis.out) (./Real_Analysis.out)
 \@outlinefile=\write4
 \openout4 = `Real_Analysis.out'.
 
-LaTeX Font Info:    Try loading font information for U+esint on input line 121.
+LaTeX Font Info:    Try loading font information for U+esint on input line 122.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 121.
+LaTeX Font Info:    Try loading font information for U+msa on input line 122.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 121.
+LaTeX Font Info:    Try loading font information for U+msb on input line 122.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -962,69 +969,69 @@ Chapter 1.
 ]
 
 LaTeX Warning: Reference `asym.tri.ineq.norm' on page 6 undefined on input line
- 246.
+ 247.
 
 [6] [7] [8] [9] [10] [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 619.
+(hyperref)                removing `\begingroup' on input line 620.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 619.
+(hyperref)                removing `\let' on input line 620.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 619.
+(hyperref)                removing `\<let>-command' on input line 620.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 619.
+(hyperref)                removing `\NAT@ctype' on input line 620.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 619.
+(hyperref)                removing `\z@' on input line 620.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 619.
+(hyperref)                removing `\let' on input line 620.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 619.
+(hyperref)                removing `\new@ifnextchar' on input line 620.
 
 [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 663.
+(hyperref)                removing `\begingroup' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 663.
+(hyperref)                removing `\let' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 663.
+(hyperref)                removing `\<let>-command' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 663.
+(hyperref)                removing `\NAT@ctype' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 663.
+(hyperref)                removing `\z@' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 663.
+(hyperref)                removing `\let' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 663.
+(hyperref)                removing `\new@ifnextchar' on input line 664.
 
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 13 undefined on input l
-ine 713.
+ine 714.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1035,108 +1042,108 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [13] [14]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 15 undefined on input l
-ine 788.
+ine 789.
 
 [15] [16]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 911.
+(hyperref)                removing `\begingroup' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 911.
+(hyperref)                removing `\let' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 911.
+(hyperref)                removing `\<let>-command' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 911.
+(hyperref)                removing `\NAT@ctype' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 911.
+(hyperref)                removing `\z@' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 911.
+(hyperref)                removing `\let' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 911.
+(hyperref)                removing `\new@ifnextchar' on input line 928.
 
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 17 undefined on input l
-ine 917.
+ine 933.
 
 [17]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 919.
+(hyperref)                removing `\begingroup' on input line 936.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 919.
+(hyperref)                removing `\let' on input line 936.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 919.
+(hyperref)                removing `\<let>-command' on input line 936.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 919.
+(hyperref)                removing `\NAT@ctype' on input line 936.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 919.
+(hyperref)                removing `\z@' on input line 936.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 919.
+(hyperref)                removing `\let' on input line 936.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 919.
+(hyperref)                removing `\new@ifnextchar' on input line 936.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 921.
+(hyperref)                removing `math shift' on input line 938.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 921.
+(hyperref)                removing `superscript' on input line 938.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 921.
+(hyperref)                removing `\begingroup' on input line 938.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 921.
+(hyperref)                removing `\let' on input line 938.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 921.
+(hyperref)                removing `\<let>-command' on input line 938.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 921.
+(hyperref)                removing `\NAT@ctype' on input line 938.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 921.
+(hyperref)                removing `\z@' on input line 938.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 921.
+(hyperref)                removing `\let' on input line 938.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 921.
+(hyperref)                removing `\new@ifnextchar' on input line 938.
 
 [18]
-Overfull \hbox (2.32945pt too wide) in paragraph at lines 1045--1046
+Overfull \hbox (2.32945pt too wide) in paragraph at lines 1062--1063
 []\OT1/cmr/bx/n/10 Transitivity: \OT1/cmr/m/n/10 Sup-pose we have $(\OML/cmm/m/
 it/10 P[]; T[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\OML/cmm/m/i
 t/10 P[]; T[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\OML/cmm/m/it
@@ -1148,26 +1155,26 @@ T1/cmr/m/n/10 (\OML/cmm/m/it/10 P[]; T[]\OT1/cmr/m/n/10 )$ and $(\OML/cmm/m/it/
 
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 19 undefined on input l
-ine 1072.
+ine 1080.
 
 [19] [20]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 21 undefined on input l
-ine 1192.
+ine 1202.
 
-[21]
-<images/ra_fig88.png, id=506, 676.5275pt x 344.28625pt>
+[21] [22]
+<images/ra_fig88.png, id=570, 676.5275pt x 344.28625pt>
 File: images/ra_fig88.png Graphic file (type png)
 <use images/ra_fig88.png>
-Package pdftex.def Info: images/ra_fig88.png  used on input line 1253.
+Package pdftex.def Info: images/ra_fig88.png  used on input line 1270.
 (pdftex.def)             Requested size: 338.26291pt x 172.1427pt.
- [22]
+
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 23 undefined on input l
-ine 1318.
+ine 1313.
 
-[23 <./images/ra_fig88.png>]
-Overfull \hbox (1.79718pt too wide) in paragraph at lines 1367--1368
+[23 <./images/ra_fig88.png>] [24]
+Overfull \hbox (1.79718pt too wide) in paragraph at lines 1410--1411
 \OT1/cmr/m/n/10 have $\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]\O
 T1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; f\OT1/cmr/
 m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 < \OT1/cmr/m/n/10
@@ -1178,8 +1185,8 @@ r/m/n/10 )\OML/cmm/m/it/10 ; f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m
 /n/10 )) \OMS/cmsy/m/n/10 ^^T 
  []
 
-[24]
-Overfull \hbox (10.79044pt too wide) in paragraph at lines 1391--1392
+
+Overfull \hbox (10.79044pt too wide) in paragraph at lines 1434--1435
 []\OT1/cmr/m/n/10 If all $\OML/cmm/m/it/10 f[]$ \OT1/cmr/m/n/10 are bounded, th
 en a se-quence is uni-formly Cauchy if and only if the se-quence is Cauchy in $
 \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr/m/n/10 )$.  
@@ -1187,7 +1194,7 @@ en a se-quence is uni-formly Cauchy if and only if the se-quence is Cauchy in $
  []
 
 
-Overfull \hbox (2.95601pt too wide) in paragraph at lines 1413--1414
+Overfull \hbox (2.95601pt too wide) in paragraph at lines 1456--1457
 []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 ^^O > \OT1/cmr/m/n/10 0$. By the uni-fo
 rm Cauchy con-di-tion, there ex-ists $\OML/cmm/m/it/10 N \OMS/cmsy/m/n/10 2 \U/
 msb/m/n/10 N$ \OT1/cmr/m/n/10 such that if $\OML/cmm/m/it/10 n; m \OMS/cmsy/m/n
@@ -1197,112 +1204,114 @@ msb/m/n/10 N$ \OT1/cmr/m/n/10 such that if $\OML/cmm/m/it/10 n; m \OMS/cmsy/m/n
 
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 25 undefined on input l
-ine 1457.
+ine 1460.
 
 [25] [26]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 27 undefined on input l
-ine 1582.
+ine 1592.
 
-[27]
-<images/ra_sup_norm.png, id=594, 654.445pt x 403.5075pt>
+[27] [28]
+<images/ra_sup_norm.png, id=666, 654.445pt x 403.5075pt>
 File: images/ra_sup_norm.png Graphic file (type png)
 <use images/ra_sup_norm.png>
-Package pdftex.def Info: images/ra_sup_norm.png  used on input line 1632.
+Package pdftex.def Info: images/ra_sup_norm.png  used on input line 1675.
 (pdftex.def)             Requested size: 392.67003pt x 242.10637pt.
- [28]
+
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 29 undefined on input l
-ine 1698.
+ine 1709.
 
 [29 <./images/ra_sup_norm.png>] [30]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 31 undefined on input l
-ine 1827.
+ine 1838.
 
 [31] [32]
-Overfull \hbox (1.81758pt too wide) in paragraph at lines 1906--1907
-[][]\OT1/cmr/bx/n/10 Theorem 54 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Weierstrass M
+Overfull \hbox (1.81758pt too wide) in paragraph at lines 1949--1950
+[][]\OT1/cmr/bx/n/10 Theorem 56 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Weierstrass M
 -test; The-o-rem 4.5 in [][]Pugh[][] [[][]2015[][]], The-o-rem 7.10 in [][]Rudi
 n[][] [[][]1976[][]], 
  []
 
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 33 undefined on input l
-ine 1940.
+ine 1953.
 
-[33]
-Overfull \hbox (2.1068pt too wide) in paragraph at lines 1970--1971
+[33] [34]
+Overfull \hbox (2.1068pt too wide) in paragraph at lines 2013--2014
 []\OT1/cmr/m/n/10 The Weier-strass M-test can be used to de-duce uni-form con-v
 er-gence prop-er-ties for se-ries (par-tic-u-larly power 
  []
 
 
-Overfull \hbox (4.60399pt too wide) in paragraph at lines 1974--1975
+Overfull \hbox (4.60399pt too wide) in paragraph at lines 2017--2018
 \OT1/cmr/m/n/10 call that (prop-erly) Rie-mann in-te-grable func-tions are boun
 ded (The-o-rem 3.16 in [][]Pugh[][] [[][]2015[][]]). So, $\OMS/cmsy/m/n/10 R\OT
 1/cmr/m/n/10 [\OML/cmm/m/it/10 a; b\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^R 
  []
 
-[34]
-Overfull \hbox (16.50006pt too wide) in paragraph at lines 2045--2046
-[]\OT1/cmr/m/n/10 By Propo-si-tion [][]42[][], since each func-tion $\OML/cmm/m
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 35 undefined on input l
+ine 2064.
+
+[35]
+Overfull \hbox (16.50006pt too wide) in paragraph at lines 2088--2089
+[]\OT1/cmr/m/n/10 By Propo-si-tion [][]43[][], since each func-tion $\OML/cmm/m
 /it/10 f[] \OT1/cmr/m/n/10 : [\OML/cmm/m/it/10 a; b\OT1/cmr/m/n/10 ] \OMS/cmsy/
 m/n/10 ! \U/msb/m/n/10 R$ \OT1/cmr/m/n/10 is Rie-mann in-te-grable, each net $(
 \OML/cmm/m/it/10 P[]; T[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 7! \OML/cmm/m/it/10
  R\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]; P[]; T[]\OT1/cmr/m/n/10 )$ 
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 35 undefined on input l
-ine 2046.
-
-[35] [36]
+[36]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 37 undefined on input l
-ine 2184.
+ine 2196.
 
 [37] [38]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 39 undefined on input l
-ine 2288.
+ine 2301.
 
 [39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 2332.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 2332.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 2332.
+(hyperref)                removing `\begingroup' on input line 2375.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 2332.
+(hyperref)                removing `\let' on input line 2375.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 2332.
+(hyperref)                removing `\<let>-command' on input line 2375.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 2332.
+(hyperref)                removing `\NAT@ctype' on input line 2375.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 2332.
+(hyperref)                removing `\z@' on input line 2375.
 
-[40]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 2375.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 2375.
+
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 41 undefined on input l
-ine 2401.
+ine 2399.
 
 [41] [42]
-Overfull \hbox (31.09657pt too wide) in paragraph at lines 2473--2474
+Overfull \hbox (31.09657pt too wide) in paragraph at lines 2516--2517
 \OT1/cmr/m/n/10 we need to con-sider are if one or both of the suprema equal in
 -fin-ity. But if this is true, then $[][]\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 a[]
 \OMS/cmsy/m/n/10 g [][]f\OML/cmm/m/it/10 b[]\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 
@@ -1311,95 +1320,94 @@ Overfull \hbox (31.09657pt too wide) in paragraph at lines 2473--2474
 
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 43 undefined on input l
-ine 2541.
+ine 2519.
 
 [43] [44]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 45 undefined on input l
-ine 2668.
+ine 2648.
 
-[45]
-Overfull \hbox (16.997pt too wide) in paragraph at lines 2679--2680
+[45] [46]
+Overfull \hbox (16.997pt too wide) in paragraph at lines 2722--2723
 []\OT1/cmr/m/n/10 where we ap-plied L'Hopital's Rule, ver-i-fy-ing ([][]1.10[][
 ]). We will con-clude by ver-i-fy-ing ([][]1.11[][]). Let $[] [] \OMS/cmsy/m/n/
 10 j\OML/cmm/m/it/10 c[]\OMS/cmsy/m/n/10 j[] \OT1/cmr/m/n/10 := 
  []
 
 
-Overfull \hbox (3.66245pt too wide) in paragraph at lines 2703--2704
+Overfull \hbox (3.66245pt too wide) in paragraph at lines 2746--2747
 []\OT1/cmr/m/n/10 Assume it holds that the ra-dius is un-changed when we pass f
 rom the orig-i-nal se-ries to the deriva-tive. With- 
  []
 
-[46]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 47 undefined on input l
-ine 2779.
+ine 2752.
 
-[47]
-Overfull \hbox (0.88477pt too wide) in paragraph at lines 2789--2790
+[47] [48]
+Overfull \hbox (0.88477pt too wide) in paragraph at lines 2832--2833
 []\OT1/cmr/m/n/10 can prove term-by-term that ex-po-nen-tial is dif-fer-en-tiab
 le (even smooth on $\U/msb/m/n/10 R$\OT1/cmr/m/n/10 ) and that its deriva-tive 
 equals 
  []
 
-[48]
-<images/ra_conv_ball.jpg, id=815, 906.38625pt x 978.65625pt>
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 49 undefined on input l
+ine 2877.
+
+[49]
+<images/ra_conv_ball.jpg, id=882, 906.38625pt x 978.65625pt>
 File: images/ra_conv_ball.jpg Graphic file (type jpg)
 <use images/ra_conv_ball.jpg>
-Package pdftex.def Info: images/ra_conv_ball.jpg  used on input line 2865.
+Package pdftex.def Info: images/ra_conv_ball.jpg  used on input line 2908.
 (pdftex.def)             Requested size: 226.59601pt x 244.66347pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2878.
+(hyperref)                removing `math shift' on input line 2921.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 2878.
+(hyperref)                removing `superscript' on input line 2921.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 2878.
+(hyperref)                removing `\begingroup' on input line 2921.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 2878.
+(hyperref)                removing `\let' on input line 2921.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 2878.
+(hyperref)                removing `\<let>-command' on input line 2921.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 2878.
+(hyperref)                removing `\NAT@ctype' on input line 2921.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 2878.
+(hyperref)                removing `\z@' on input line 2921.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 2878.
+(hyperref)                removing `\let' on input line 2921.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 2878.
+(hyperref)                removing `\new@ifnextchar' on input line 2921.
 
 
-Overfull \hbox (2.70108pt too wide) in paragraph at lines 2880--2881
+Overfull \hbox (2.70108pt too wide) in paragraph at lines 2923--2924
 \OT1/cmr/m/n/10 Recall: $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 set, $\OML/cmm/m/i
 t/10 Y$ \OT1/cmr/m/n/10 com-plete met-ric space, then $\OML/cmm/m/it/10 C[]\OT1
 /cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr/m/n/10 )$ is com-plete (Corol-lary [
-][]49.1[][]). If $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 is a met-ric space, 
+][]51.1[][]). If $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 is a met-ric space, 
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 49 undefined on input l
-ine 2883.
-
-[49 <./images/ra_conv_ball.jpg>]
-Overfull \hbox (35.34517pt too wide) in paragraph at lines 2888--2889
+[50 <./images/ra_conv_ball.jpg>]
+Overfull \hbox (35.34517pt too wide) in paragraph at lines 2931--2932
 []$\OT1/cmr/m/n/10 . Ex-er-cise; there does not ex-ist a uni-formly con-ver-gen
 t sub-se-quence for this se-quence. So $\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\U
 /msb/m/n/10 N\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m
@@ -1407,111 +1415,114 @@ t sub-se-quence for this se-quence. So $\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\U
  []
 
 
-Overfull \hbox (4.81201pt too wide) in paragraph at lines 2896--2897
+Overfull \hbox (4.81201pt too wide) in paragraph at lines 2939--2940
 [][]\OT1/cmr/bx/n/10 Definition 1.6.26 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Equico
 ntinuity; def-i-ni-tion 7.22 in [][]Rudin[][] [[][]1976[][]], p.165 of pdf, p.1
 56 of book\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . 
  []
 
-[50]
-Overfull \hbox (10.96492pt too wide) in paragraph at lines 2984--2985
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 51 undefined on input l
+ine 2962.
+
+[51]
+Overfull \hbox (10.96492pt too wide) in paragraph at lines 3027--3028
 []\OT1/cmr/m/n/10 By the Mean Value The-o-rem, $\OML/cmm/m/it/10 M$ \OT1/cmr/m/
 n/10 is a uni-form Lip-s-chitz con-stant for $\OMS/cmsy/m/n/10 E$\OT1/cmr/m/n/1
 0 . This im-plies that $\OMS/cmsy/m/n/10 E$ \OT1/cmr/m/n/10 is equicon- 
  []
 
+[52]
 
-Package natbib Warning: Citation `PUGH2015REAL' on page 51 undefined on input l
-ine 2986.
+Package natbib Warning: Citation `PUGH2015REAL' on page 53 undefined on input l
+ine 3093.
 
-[51] [52]
-Overfull \hbox (5.84753pt too wide) in paragraph at lines 3075--3076
+[53]
+Overfull \hbox (5.84753pt too wide) in paragraph at lines 3118--3119
 \OT1/cmr/m/n/10 the sum of two equicon-tin-u-ous se-quences is equicon-tin-u-ou
 s, $[][]$ is equicon-tin-u-ous. By Propo- 
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 53 undefined on input l
-ine 3092.
-
-[53]
-Overfull \hbox (2.19774pt too wide) in paragraph at lines 3171--3172
-[][]\OT1/cmr/bx/n/10 Lemma 80. []\OT1/cmr/m/n/10 If $\OML/cmm/m/it/10 X$ \OT1/c
+[54]
+Overfull \hbox (2.19774pt too wide) in paragraph at lines 3214--3215
+[][]\OT1/cmr/bx/n/10 Lemma 82. []\OT1/cmr/m/n/10 If $\OML/cmm/m/it/10 X$ \OT1/c
 mr/m/n/10 is a com-pact met-ric space then $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10
  has a count-able dense sub-set $\OML/cmm/m/it/10 A$\OT1/cmr/m/n/10 . (That is,
  $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 is \OT1/cmr/bx/n/10 seper- 
  []
 
-[54]
-Overfull \hbox (9.62212pt too wide) in paragraph at lines 3220--3221
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 55 undefined on input l
+ine 3227.
+
+[55]
+Overfull \hbox (9.62212pt too wide) in paragraph at lines 3263--3264
 \OT1/cmr/m/n/10 cause $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 is com-pact, Lemma [
-][]81[][] guar-an-tees that for some $\OML/cmm/m/it/10 J \OMS/cmsy/m/n/10 2 \U/
+][]83[][] guar-an-tees that for some $\OML/cmm/m/it/10 J \OMS/cmsy/m/n/10 2 \U/
 msb/m/n/10 N$\OT1/cmr/m/n/10 , for all $\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 \
 OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 there ex-ists $\OML/cmm/m/it/10 j \OMS/cmsy/
 m/n/10 2 f\OML/cmm/m/it/10 n[]; [] ; n[]\OMS/cmsy/m/n/10 g ^^Z 
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 55 undefined on input l
-ine 3236.
-
-[55] [56]
+[56]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 57 undefined on input l
-ine 3372.
+ine 3347.
 
 [57] [58]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 3450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 3450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 3450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 3450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 3450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 3450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 3450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 3450.
-
-
 Package natbib Warning: Citation `PUGH2015REAL' on page 59 undefined on input l
-ine 3491.
+ine 3473.
 
-[59] [60]
+[59]
 
-LaTeX Warning: Reference `abs.alg.def.ring' on page 61 undefined on input line 
-3571.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3493.
 
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 3493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 3493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 3493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 3493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 3493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 3493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 3493.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 3493.
+
+[60]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 61 undefined on input l
-ine 3579.
+ine 3580.
 
 [61]
-Overfull \hbox (3.64975pt too wide) in paragraph at lines 3602--3603
+
+LaTeX Warning: Reference `abs.alg.def.ring' on page 62 undefined on input line 
+3614.
+
+[62]
+Overfull \hbox (3.64975pt too wide) in paragraph at lines 3645--3646
 [][]\OT1/cmr/bx/n/10 Rudin[][] [[][]1976[][]], p. 171 of pdf, p.162\OT1/cmr/m/n
 /10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n
 /10 be a com-pact met-ric space. Let $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^Z \
@@ -1521,19 +1532,18 @@ m/n/10 C\OT1/cmr/m/n/10 )$.
  []
 
 
-Overfull \hbox (19.17589pt too wide) in paragraph at lines 3610--3611
+Overfull \hbox (19.17589pt too wide) in paragraph at lines 3653--3654
 [][]\OT1/cmr/bx/n/10 Remark 10. []\OT1/cmr/m/n/10 The Weier-strass Ap-prox-i-ma
--tion The-o-rem (The-o-rem [][]90[][]) is a spe-cial case of the Stone-Weierstr
+-tion The-o-rem (The-o-rem [][]92[][]) is a spe-cial case of the Stone-Weierstr
 ass 
  []
 
-[62]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 63 undefined on input l
-ine 3695.
+ine 3687.
 
-[63]
-Overfull \hbox (18.84265pt too wide) detected at line 3712
+[63] [64]
+Overfull \hbox (18.84265pt too wide) detected at line 3755
 \OT1/cmr/m/n/10 ^^H(\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 g\OT1
 /cmr/m/n/10 ) = ((\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 g\OT1/c
 mr/m/n/10 )(\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/
@@ -1550,62 +1560,62 @@ m/n/10 )) = ^^H(\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ) + ^^H(\OML/cmm/m/it/10 g\OT
 1/cmr/m/n/10 )\OML/cmm/m/it/10 :
  []
 
-[64]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 65 undefined on input l
-ine 3782.
+ine 3786.
 
-[65]
+[65] [66]
 
-LaTeX Warning: Reference `abs.alg.def.ring' on page 66 undefined on input line 
-3802.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 3812.
+LaTeX Warning: Reference `abs.alg.def.ring' on page 67 undefined on input line 
+3845.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 3812.
+(hyperref)                removing `\begingroup' on input line 3855.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 3812.
+(hyperref)                removing `\let' on input line 3855.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 3812.
+(hyperref)                removing `\<let>-command' on input line 3855.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 3812.
+(hyperref)                removing `\NAT@ctype' on input line 3855.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 3812.
+(hyperref)                removing `\z@' on input line 3855.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 3812.
+(hyperref)                removing `\let' on input line 3855.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 3855.
 
 
 Underfull \vbox (badness 3343) has occurred while \output is active []
 
- [66]
-
-LaTeX Warning: Reference `statlearning.def.contraction' on page 67 undefined on
- input line 3828.
-
-
-LaTeX Warning: Reference `statlearning.inf.horizon' on page 67 undefined on inp
-ut line 3828.
 
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 67 undefined on input l
-ine 3870.
+ine 3861.
 
 [67]
-Overfull \hbox (1.68625pt too wide) in paragraph at lines 3871--3872
+
+LaTeX Warning: Reference `statlearning.def.contraction' on page 68 undefined on
+ input line 3871.
+
+
+LaTeX Warning: Reference `statlearning.inf.horizon' on page 68 undefined on inp
+ut line 3871.
+
+[68]
+Overfull \hbox (1.68625pt too wide) in paragraph at lines 3914--3915
 []\OT1/cmr/m/n/10 If $\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = 
 \OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 and
  $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) = \O
@@ -1618,28 +1628,27 @@ OML/cmm/m/it/10 d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m
  []
 
 
-LaTeX Warning: Reference `diffeq.sec' on page 68 undefined on input line 3889.
+LaTeX Warning: Reference `diffeq.sec' on page 69 undefined on input line 3932.
 
 
-Overfull \hbox (27.78276pt too wide) in paragraph at lines 3909--3910
+Overfull \hbox (27.78276pt too wide) in paragraph at lines 3952--3953
 []\OT1/cmr/m/n/10 Conversely, given $(\OML/cmm/m/it/10 u; v\OT1/cmr/m/n/10 )$ s
 olv-ing this sys-tem, then $\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  t\OT1/cmr/m/n/10 ) := \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT
 1/cmr/m/n/10 )$ solves the orig-i-nal sys-tem. So, ex-is-tence/uniqueness 
  []
 
-[68]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 69 undefined on input l
-ine 3988.
+ine 3953.
 
 [69] [70]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 71 undefined on input l
-ine 4111.
+ine 4079.
 
-[71]
-Overfull \hbox (9.70691pt too wide) in paragraph at lines 4120--4121
+[71] [72]
+Overfull \hbox (9.70691pt too wide) in paragraph at lines 4163--4164
 \OT1/cmr/m/n/10 neigh-bor-hood $\OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 of $\OML/cm
 m/m/it/10 y[]$ \OT1/cmr/m/n/10 in $\OML/cmm/m/it/10 U$ \OT1/cmr/m/n/10 on which
  $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 is Lip-s-chitz). Let $\OML/cmm/m/it/10 L$
@@ -1649,92 +1658,98 @@ m/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n
 /10 ^^@ 
  []
 
-[72]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 73 undefined on input l
-ine 4178.
+ine 4187.
 
 [73] [74]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 4242.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 4242.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 4242.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 4242.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 4242.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 4242.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 4242.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 4244.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 4244.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 4244.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 4244.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 4244.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 4244.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 4244.
-
-
-LaTeX Warning: Reference `sec.lin.alg' on page 75 undefined on input line 4246.
-
-
-
 Package natbib Warning: Citation `PUGH2015REAL' on page 75 undefined on input l
-ine 4292.
+ine 4273.
 
-[75] [76]
+[75]
 
-LaTeX Warning: Reference `abs.alg.def.ring' on page 77 undefined on input line 
-4380.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 4285.
 
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4285.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 4285.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 4285.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 4285.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4285.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 4285.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 4287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 4287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 4287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 4287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 4287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 4287.
+
+
+LaTeX Warning: Reference `sec.lin.alg' on page 76 undefined on input line 4289.
+
+
+[76]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 77 undefined on input l
-ine 4410.
+ine 4392.
 
-[77] [78]
+[77]
+
+LaTeX Warning: Reference `abs.alg.def.ring' on page 78 undefined on input line 
+4423.
+
+[78]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 79 undefined on input l
-ine 4530.
+ine 4528.
 
 [79] [80]
-Overfull \hbox (13.2311pt too wide) in paragraph at lines 4610--4611
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 81 undefined on input l
+ine 4628.
+
+[81]
+Overfull \hbox (13.2311pt too wide) in paragraph at lines 4653--4654
 []\OT1/cmr/m/n/10 each en-try of $\OML/cmm/m/it/10 A$ \OT1/cmr/m/n/10 is a con-
 tin-u-ous func-tion from $\OML/cmm/m/it/10 U$ \OT1/cmr/m/n/10 to $\U/msb/m/n/10
  R$ \OT1/cmr/m/n/10 (``$\OML/cmm/m/it/10 A$ \OT1/cmr/m/n/10 is con-tin-u-ous gi
@@ -1743,175 +1758,176 @@ r/m/n/10 )$")
  []
 
 
-LaTeX Warning: Reference `linalg.sec.svd' on page 81 undefined on input line 46
-50.
+LaTeX Warning: Reference `linalg.sec.svd' on page 82 undefined on input line 46
+93.
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 81 undefined on input l
-ine 4651.
-
-[81]
+[82]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 4678.
+(hyperref)                removing `\begingroup' on input line 4721.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 4678.
+(hyperref)                removing `\let' on input line 4721.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 4678.
+(hyperref)                removing `\<let>-command' on input line 4721.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 4678.
+(hyperref)                removing `\NAT@ctype' on input line 4721.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 4678.
+(hyperref)                removing `\z@' on input line 4721.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 4678.
+(hyperref)                removing `\let' on input line 4721.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 4678.
+(hyperref)                removing `\new@ifnextchar' on input line 4721.
 
-<images/ra_manifold_ex.png, id=1314, 440.64626pt x 713.66624pt>
+<images/ra_manifold_ex.png, id=1379, 440.64626pt x 713.66624pt>
 File: images/ra_manifold_ex.png Graphic file (type png)
 <use images/ra_manifold_ex.png>
-Package pdftex.def Info: images/ra_manifold_ex.png  used on input line 4694.
+Package pdftex.def Info: images/ra_manifold_ex.png  used on input line 4737.
 (pdftex.def)             Requested size: 308.45027pt x 499.56296pt.
 
-Overfull \hbox (4.77032pt too wide) in paragraph at lines 4702--4703
+Overfull \hbox (4.77032pt too wide) in paragraph at lines 4745--4746
 [][]\OT1/cmr/bx/n/10 Definition 1.7.11 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Topolo
 gical man-i-fold; def-i-ni-tion from [][]Lee[][] [[][]2012[][]], p. 17 of pdf, 
 p. 2 of book\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . 
  []
 
-[82]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 83 undefined on input l
-ine 4720.
+ine 4763.
 
-[83 <./images/ra_manifold_ex.png>]
-<images/ra_lee_chart.png, id=1348, 522.95375pt x 240.9pt>
+[83] [84 <./images/ra_manifold_ex.png>]
+<images/ra_lee_chart.png, id=1413, 522.95375pt x 240.9pt>
 File: images/ra_lee_chart.png Graphic file (type png)
 <use images/ra_lee_chart.png>
-Package pdftex.def Info: images/ra_lee_chart.png  used on input line 4787.
+Package pdftex.def Info: images/ra_lee_chart.png  used on input line 4830.
 (pdftex.def)             Requested size: 366.06512pt x 168.62883pt.
- [84]
-<images/ra_spivak_5-2.png, id=1367, 728.7225pt x 746.79pt>
+
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 85 undefined on input l
+ine 4845.
+
+[85]
+<images/ra_spivak_5-2.png, id=1434, 728.7225pt x 746.79pt>
 File: images/ra_spivak_5-2.png Graphic file (type png)
 <use images/ra_spivak_5-2.png>
-Package pdftex.def Info: images/ra_spivak_5-2.png  used on input line 4812.
+Package pdftex.def Info: images/ra_spivak_5-2.png  used on input line 4855.
 (pdftex.def)             Requested size: 364.36035pt x 373.39407pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4819.
+(hyperref)                removing `math shift' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 4819.
+(hyperref)                removing `superscript' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\to' on input line 4819.
+(hyperref)                removing `\to' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 4819.
+(hyperref)                removing `superscript' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 4819.
+(hyperref)                removing `\begingroup' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 4819.
+(hyperref)                removing `\let' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 4819.
+(hyperref)                removing `\<let>-command' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 4819.
+(hyperref)                removing `\NAT@ctype' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 4819.
+(hyperref)                removing `\z@' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 4819.
+(hyperref)                removing `\let' on input line 4862.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 4819.
+(hyperref)                removing `\new@ifnextchar' on input line 4862.
 
 
-LaTeX Warning: Reference `calc.mat.diff' on page 85 undefined on input line 482
-1.
+LaTeX Warning: Reference `calc.mat.diff' on page 86 undefined on input line 486
+4.
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 85 undefined on input l
-ine 4847.
-
-[85 <./images/ra_lee_chart.png>] [86 <./images/ra_spivak_5-2.png>]
+[86 <./images/ra_lee_chart.png>]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 87 undefined on input l
-ine 4905.
+ine 4890.
 
-[87] [88]
+[87 <./images/ra_spivak_5-2.png>] [88]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 89 undefined on input l
-ine 5012.
+ine 5004.
 
 [89] [90]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 91 undefined on input l
-ine 5164.
+ine 5131.
 
 [91] [92]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 93 undefined on input l
-ine 5262.
+ine 5242.
 
 [93] [94]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 5352.
+Package natbib Warning: Citation `PUGH2015REAL' on page 95 undefined on input l
+ine 5355.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 5352.
-
+[95]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 5352.
+(hyperref)                removing `\begingroup' on input line 5395.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 5352.
+(hyperref)                removing `\let' on input line 5395.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 5352.
+(hyperref)                removing `\<let>-command' on input line 5395.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 5352.
+(hyperref)                removing `\NAT@ctype' on input line 5395.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 5352.
+(hyperref)                removing `\z@' on input line 5395.
 
 
-Overfull \hbox (23.54181pt too wide) in paragraph at lines 5362--5363
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 5395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 5395.
+
+
+Overfull \hbox (23.54181pt too wide) in paragraph at lines 5405--5406
 \OT1/cmr/m/n/10 tion of $\OML/cmm/m/it/10 x$\OT1/cmr/m/n/10 , namely $\OML/cmm/
 m/it/10 y \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^F[]$ \OT1/cmr/m/n/10 (pick which
  one de-pend-ing on sign of $\OML/cmm/m/it/10 y[]$\OT1/cmr/m/n/10 ). How-ever i
@@ -1921,12 +1937,13 @@ f $(\OML/cmm/m/it/10 x[]; y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 f\OT1/cmr/m/n
 cmsy/m/n/10 g$\OT1/cmr/m/n/10 , 
  []
 
+[96]
 
-Package natbib Warning: Citation `PUGH2015REAL' on page 95 undefined on input l
-ine 5375.
+Package natbib Warning: Citation `PUGH2015REAL' on page 97 undefined on input l
+ine 5464.
 
-[95] [96]
-Overfull \hbox (11.27385pt too wide) in paragraph at lines 5422--5423
+[97]
+Overfull \hbox (11.27385pt too wide) in paragraph at lines 5465--5466
 []\OT1/cmr/m/n/10 Let $[](\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 )$ be the ``par-
 tial Ja-co-bian" of $\OML/cmm/m/it/10 R$\OT1/cmr/m/n/10 , us-ing only the par-t
 ial deriva-tives from $\OML/cmm/m/it/10 y$ \OT1/cmr/m/n/10 (so it has $\OML/cmm
@@ -1934,86 +1951,85 @@ ial deriva-tives from $\OML/cmm/m/it/10 y$ \OT1/cmr/m/n/10 (so it has $\OML/cmm
  []
 
 
-Overfull \hbox (0.15921pt too wide) in paragraph at lines 5422--5423
-\OT1/cmr/m/n/10 Corol-lary [][]112.3[][], we have that $[](\OML/cmm/m/it/10 x; 
+Overfull \hbox (0.15921pt too wide) in paragraph at lines 5465--5466
+\OT1/cmr/m/n/10 Corol-lary [][]114.3[][], we have that $[](\OML/cmm/m/it/10 x; 
 y\OT1/cmr/m/n/10 )$ is con-tin-u-ous if we use the op-er-a-tor norm to as the m
 et-ric in $\U/msb/m/n/10 R[]$ 
  []
 
 
-Overfull \hbox (4.57819pt too wide) in paragraph at lines 5422--5423
-\OT1/cmr/m/n/10 (see the sec-ond part of Corol-lary [][]112.3[][] for the for-m
+Overfull \hbox (4.57819pt too wide) in paragraph at lines 5465--5466
+\OT1/cmr/m/n/10 (see the sec-ond part of Corol-lary [][]114.3[][] for the for-m
 al state-ment; writ-ten in short-hand no-ta-tion as $[](\OML/cmm/m/it/10 x; y\O
 T1/cmr/m/n/10 ) : 
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 97 undefined on input l
-ine 5453.
-
-[97] [98]
+[98]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 99 undefined on input l
-ine 5547.
+ine 5536.
 
-[99]
-Overfull \hbox (1.71802pt too wide) in paragraph at lines 5589--5590
+[99] [100]
+Overfull \hbox (1.71802pt too wide) in paragraph at lines 5632--5633
 []\OT1/cmr/m/n/10 The fol-low-ing is a use-ful re-sult for man-i-folds (see The
--o-rem [][]116[][]) that is closely re-lated to the Im-plicit Func- 
+-o-rem [][]118[][]) that is closely re-lated to the Im-plicit Func- 
  []
 
-[100]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 101 undefined on input 
-line 5642.
+line 5634.
 
-[101]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 5716.
-
+[101] [102]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 5716.
+(hyperref)                removing `\begingroup' on input line 5759.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 5716.
+(hyperref)                removing `\let' on input line 5759.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 5716.
+(hyperref)                removing `\<let>-command' on input line 5759.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 5716.
+(hyperref)                removing `\NAT@ctype' on input line 5759.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 5716.
+(hyperref)                removing `\z@' on input line 5759.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 5716.
+(hyperref)                removing `\let' on input line 5759.
 
 
-LaTeX Warning: Reference `abs.alg.group.abelian' on page 102 undefined on input
- line 5734.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 5759.
 
-[102]
-<images/ra_hw11_4.png, id=1610, 198.7425pt x 165.61874pt>
+
+LaTeX Warning: Reference `abs.alg.group.abelian' on page 103 undefined on input
+ line 5777.
+
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 103 undefined on input 
+line 5784.
+
+[103]
+<images/ra_hw11_4.png, id=1676, 198.7425pt x 165.61874pt>
 File: images/ra_hw11_4.png Graphic file (type png)
 <use images/ra_hw11_4.png>
-Package pdftex.def Info: images/ra_hw11_4.png  used on input line 5778.
+Package pdftex.def Info: images/ra_hw11_4.png  used on input line 5821.
 (pdftex.def)             Requested size: 99.371pt x 82.80916pt.
 
-Overfull \hbox (0.32893pt too wide) in paragraph at lines 5789--5790
+Overfull \hbox (0.32893pt too wide) in paragraph at lines 5832--5833
 []\OT1/cmr/m/n/10 We will check that sums and scalar mul-ti-ples pre-serve the 
 qual-ity of van-ish-ing at all but finitely 
  []
 
 
-Overfull \hbox (16.65755pt too wide) in paragraph at lines 5795--5796
+Overfull \hbox (16.65755pt too wide) in paragraph at lines 5838--5839
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 v; w\OT1/cmr/m/n/10 )$. Ob-serve that this ma
 p is lin-ear be-cause $\OML/cmm/m/it/10 cf \OMS/cmsy/m/n/10 7! \OT1/cmr/m/n/10 
 ((\OML/cmm/m/it/10 cf\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )\OML/
@@ -2026,103 +2042,100 @@ it/10 t\OT1/cmr/m/n/10 )) = (\OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
 mm/m/it/10 t\OT1/cmr/m/n/10 )) = 
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 103 undefined on input 
-line 5797.
-
-[103 <./images/ra_hw11_4.png>] [104]
+[104 <./images/ra_hw11_4.png>]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 105 undefined on input 
-line 5886.
+line 5882.
 
 [105] [106]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 107 undefined on input 
-line 5999.
+line 5993.
 
 [107] [108]
-Overfull \hbox (21.23917pt too wide) in paragraph at lines 6070--6071
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 109 undefined on input 
+line 6108.
+
+[109]
+Overfull \hbox (21.23917pt too wide) in paragraph at lines 6113--6114
 \OT1/cmr/bx/n/10 [[][]1971[][]], p. 89 of pdf, p. 76 of book, also Propo-si-tio
 n 11.1 in [][]Lee[][] [[][]2012[][]]\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/
 cmr/m/n/10 Let $\OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 be a finite-dimensional 
  []
 
 
-Overfull \hbox (5.96054pt too wide) in paragraph at lines 6093--6094
+Overfull \hbox (5.96054pt too wide) in paragraph at lines 6136--6137
 []\OT1/cmr/m/n/10 (where the third equal-ity fol-lows from the fact that $\OML/
 cmm/m/it/10 e[]$ \OT1/cmr/m/n/10 is lin-ear and the fourth equal-ity fol-lows f
 rom $\OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 )
  = 
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 109 undefined on input 
-line 6103.
-
-[109]
-Overfull \hbox (17.62561pt too wide) in paragraph at lines 6122--6122
+[110]
+Overfull \hbox (17.62561pt too wide) in paragraph at lines 6165--6165
 []\OT1/cmr/bx/n/12 Differential Forms (Sec-tion 5.8 of [][]Pugh[][] [[][]2015[]
 []]; Chap-ter 10 of [][]Rudin[][] [[][]1976[][]])  
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 6122.
+(hyperref)                removing `\begingroup' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 6122.
+(hyperref)                removing `\let' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 6122.
+(hyperref)                removing `\<let>-command' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 6122.
+(hyperref)                removing `\NAT@ctype' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 6122.
+(hyperref)                removing `\z@' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 6122.
+(hyperref)                removing `\let' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 6122.
+(hyperref)                removing `\new@ifnextchar' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 6122.
+(hyperref)                removing `\begingroup' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 6122.
+(hyperref)                removing `\let' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 6122.
+(hyperref)                removing `\<let>-command' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 6122.
+(hyperref)                removing `\NAT@ctype' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 6122.
+(hyperref)                removing `\z@' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 6122.
+(hyperref)                removing `\let' on input line 6165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 6122.
+(hyperref)                removing `\new@ifnextchar' on input line 6165.
 
 
-Overfull \hbox (7.50937pt too wide) in paragraph at lines 6126--6127
+Overfull \hbox (7.50937pt too wide) in paragraph at lines 6169--6170
 [][]\OT1/cmr/bx/n/10 Definition 1.7.33 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Multil
 inear func-tion-als; Sec-tion 5.9 of [][]Pugh[][] [[][]2015[][]]\OT1/cmr/m/n/10
  )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 A map $\OML/cmm/m/it/10 ^^L \OT1/cmr/m/n
@@ -2130,16 +2143,15 @@ inear func-tion-als; Sec-tion 5.9 of [][]Pugh[][] [[][]2015[][]]\OT1/cmr/m/n/10
  []
 
 
-LaTeX Warning: Reference `abs.alg.sec.sym' on page 110 undefined on input line 
-6140.
+LaTeX Warning: Reference `abs.alg.sec.sym' on page 111 undefined on input line 
+6183.
 
-[110]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 111 undefined on input 
-line 6218.
+line 6196.
 
-[111]
-Overfull \hbox (12.91269pt too wide) in paragraph at lines 6242--6243
+[111] [112]
+Overfull \hbox (12.91269pt too wide) in paragraph at lines 6285--6286
 []\OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 f$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it
 /10 g$ \OT1/cmr/m/n/10 are smooth real-valued func-tions of $(\OML/cmm/m/it/10 
 x; y\OT1/cmr/m/n/10 )$ and $\OML/cmm/m/it/10 C$ \OT1/cmr/m/n/10 is a smooth pat
@@ -2148,28 +2160,27 @@ OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr
 /m/n/10 ))$ 
  []
 
-<images/ra_fig_1form.png, id=1743, 736.7525pt x 463.7325pt>
+<images/ra_fig_1form.png, id=1809, 736.7525pt x 463.7325pt>
 File: images/ra_fig_1form.png Graphic file (type png)
 <use images/ra_fig_1form.png>
-Package pdftex.def Info: images/ra_fig_1form.png  used on input line 6256.
+Package pdftex.def Info: images/ra_fig_1form.png  used on input line 6299.
 (pdftex.def)             Requested size: 368.37535pt x 231.86568pt.
-[112]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 113 undefined on input 
-line 6308.
+line 6319.
 
-[113 <./images/ra_fig_1form.png>] [114]
+[113] [114 <./images/ra_fig_1form.png>]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 115 undefined on input 
-line 6420.
+line 6398.
 
 [115] [116]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 117 undefined on input 
-line 6547.
+line 6531.
 
-[117]
-Overfull \hbox (7.21413pt too wide) in paragraph at lines 6593--6594
+[117] [118]
+Overfull \hbox (7.21413pt too wide) in paragraph at lines 6636--6637
 [][]\OT1/cmr/bx/n/10 Remark 20. []\OT1/cmr/m/n/10 See-ing that $(\OML/cmm/m/it/
 10 a[]; \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 a[]; a[]\OT1/cmr/m/n/10 )$ is the 
 nat-u-ral vec-tor in $\U/msb/m/n/10 R[]$ \OT1/cmr/m/n/10 to de-fine a given el-
@@ -2177,84 +2188,111 @@ e-ment of $[][](\U/msb/m/n/10 R[]\OML/cmm/m/it/10 ; \U/msb/m/n/10 R\OT1/cmr/m/n
 /10 )$ 
  []
 
-[118]
-Overfull \hbox (5.31073pt too wide) detected at line 6666
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 119 undefined on input 
+line 6657.
+
+[119]
+Overfull \hbox (5.31073pt too wide) detected at line 6709
 []\OML/cmm/m/it/10 ^^^[] \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 ^^^[] \OMS/cmsy/m/
 n/10 ^ \OML/cmm/m/it/10 ^^^[] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 :
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 119 undefined on input 
-line 6678.
-
-[119] [120]
+[120]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 121 undefined on input 
-line 6787.
+line 6785.
 
 [121]
-Overfull \hbox (4.69037pt too wide) in paragraph at lines 6812--6813
+Overfull \hbox (8.11249pt too wide) detected at line 6809
+[]
+ []
+
+[122]
+Overfull \hbox (11.61032pt too wide) in paragraph at lines 6851--6852
+\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 !$ \OT1/cmr/m/n/10 be the 2-form cor-re-s
+pond-ing to the vec-tor field $[]$ in the usual way. Then $\OML/cmm/m/it/10 d! 
+\OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 dx \OMS/cmsy/m/n/10 ^ 
+ []
+
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 123 undefined on input 
+line 6889.
+
+[123]
+Overfull \hbox (4.69037pt too wide) in paragraph at lines 6892--6893
 \OT1/cmr/m/n/10 of func-tions are typ-i-cally infinite-dimensional. One rea-son
  why this is is that func-tions have val-ues at points 
  []
 
 
-Overfull \hbox (2.47151pt too wide) in paragraph at lines 6812--6813
+Overfull \hbox (2.47151pt too wide) in paragraph at lines 6892--6893
 \OT1/cmr/m/n/10 far away from $\OML/cmm/m/it/10 p$\OT1/cmr/m/n/10 , but these v
 al-ues should be ir-rel-e-vant for di-rec-tional deriva-tives, so to work to-wa
 rd a finite- 
  []
 
-[122]
-Overfull \hbox (8.41249pt too wide) in paragraph at lines 6854--6855
+
+Overfull \hbox (8.41249pt too wide) in paragraph at lines 6934--6935
 []\OT1/cmr/m/n/10 Now we will con-sider line in-te-grals and in-te-grals of 1-f
 orms on curves and 1-manifolds (see Def-i-ni-tion [][]1.7.10[][]). 
  []
 
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 123 undefined on input 
-line 6890.
-
-[123] [124]
+[124]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 125 undefined on input 
-line 6997.
+line 6984.
 
 [125] [126]
+Underfull \vbox (badness 2221) has occurred while \output is active []
+
+
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 127 undefined on input 
-line 7099.
+line 7093.
 
 [127] [128]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 129 undefined on input 
-line 7205.
+line 7175.
 
 [129]
+Underfull \vbox (badness 2096) has occurred while \output is active []
 
-LaTeX Warning: Reference `abs.alg.def.ring' on page 130 undefined on input line
- 7222.
-
-
-LaTeX Warning: Reference `abs.alg.def.ring' on page 130 undefined on input line
- 7234.
-
-
-LaTeX Warning: Reference `abs.alg.def.ring.ideal' on page 130 undefined on inpu
-t line 7234.
-
-
-LaTeX Warning: Reference `abs.alg.def.ring.generator' on page 130 undefined on 
-input line 7236.
-
-[130]
+ [130]
 
 Package natbib Warning: Citation `PUGH2015REAL' on page 131 undefined on input 
-line 7325.
+line 7284.
 
 [131] [132]
-Overfull \hbox (22.72247pt too wide) in paragraph at lines 7372--7373
-[][]\OT1/cmr/bx/n/10 Theorem 159 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Fubini's The
+
+LaTeX Warning: Reference `abs.alg.def.ring' on page 133 undefined on input line
+ 7350.
+
+
+LaTeX Warning: Reference `abs.alg.def.ring' on page 133 undefined on input line
+ 7362.
+
+
+LaTeX Warning: Reference `abs.alg.def.ring.ideal' on page 133 undefined on inpu
+t line 7362.
+
+
+LaTeX Warning: Reference `abs.alg.def.ring.generator' on page 133 undefined on 
+input line 7364.
+
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 133 undefined on input 
+line 7398.
+
+[133] [134]
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 135 undefined on input 
+line 7489.
+
+[135]
+Overfull \hbox (22.72247pt too wide) in paragraph at lines 7500--7501
+[][]\OT1/cmr/bx/n/10 Theorem 163 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Fubini's The
 -o-rem \OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it
 /10 h \OT1/cmr/m/n/10 : \U/msb/m/n/10 R[] \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \
 OT1/cmr/m/n/10 be a con-tin-u-ous func-tion such that $[] [][] \OMS/cmsy/m/n/10
@@ -2262,122 +2300,357 @@ OT1/cmr/m/n/10 be a con-tin-u-ous func-tion such that $[] [][] \OMS/cmsy/m/n/10
 /cmsy/m/n/10 j\OML/cmm/m/it/10 dxdy < 
  []
 
+[136]
 
-Package natbib Warning: Citation `PUGH2015REAL' on page 133 undefined on input 
-line 7420.
+Package natbib Warning: Citation `PUGH2015REAL' on page 137 undefined on input 
+line 7619.
 
-[133] [134]
-
-Package natbib Warning: Citation `PUGH2015REAL' on page 135 undefined on input 
-line 7541.
-
-[135]
-Overfull \hbox (17.65495pt too wide) detected at line 7583
+[137] [138]
+Overfull \hbox (17.65495pt too wide) detected at line 7711
 [][] [] \OT1/cmr/m/n/10 := [][] [][](\OML/cmm/m/it/10 fdA\OT1/cmr/m/n/10 ) = []
 [] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ([]) [] \OML/cmm/m/it/10 du \OMS/cmsy/m/n/
 10 ^ \OML/cmm/m/it/10 dv \OT1/cmr/m/n/10 = [] [][] \OML/cmm/m/it/10 f\OT1/cmr/m
 /n/10 ([](\OML/cmm/m/it/10 u; v\OT1/cmr/m/n/10 )) [] \OML/cmm/m/it/10 dudv:
  []
 
-[136]
 
-Package natbib Warning: Citation `PUGH2015REAL' on page 137 undefined on input 
-line 7674.
+Package natbib Warning: Citation `PUGH2015REAL' on page 139 undefined on input 
+line 7737.
 
-[137]
-Overfull \hbox (9.87755pt too wide) detected at line 7717
+[139] [140]
+Overfull \hbox (9.87755pt too wide) detected at line 7845
 [][]\OT1/cmr/m/n/10 ([] \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 )\OML/cmm/m/it/1
 0 ds \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10  \OT1/cmr/m/n/10 = [] [][] \OML/c
 mm/m/it/10 d \OT1/cmr/m/n/10 = [] [] [][]((\OMS/cmsy/m/n/10 r ^^B []\OT1/cmr/m
 /n/10 ) \OMS/cmsy/m/n/10 ^^A []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 dA:
  []
 
-[138]
-<images/0568_38.png, id=2127, 940.51375pt x 209.78375pt>
+
+Package natbib Warning: Citation `PUGH2015REAL' on page 141 undefined on input 
+line 7871.
+
+[141]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7886.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 7886.
+
+
+Overfull \hbox (14.39108pt too wide) in paragraph at lines 7888--7888
+[]\OT1/cmr/bx/n/14.4 Preliminaries to Mea-sure The-ory (Chap-ter 0 of [][]Fol-l
+and[][] [[][]2013[][]])  
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 7888.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7888.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 7888.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 7888.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 7888.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7888.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 7888.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 7917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 7917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 7917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 7917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 7917.
+
+[142]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 7943.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7943.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 7943.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 7943.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 7943.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7943.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 7943.
+
+
+LaTeX Warning: Reference `prob.dom.convg.thm' on page 143 undefined on input li
+ne 7990.
+
+
+Package natbib Warning: Citation `FOLLAND2013REAL' on page 143 undefined on inp
+ut line 8001.
+
+[143]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 8050.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
+[144]
+
+Package natbib Warning: Citation `FOLLAND2013REAL' on page 145 undefined on inp
+ut line 8109.
+
+[145] [146]
+Overfull \hbox (3.15952pt too wide) in paragraph at lines 8203--8204
+[][]\OT1/cmr/bx/n/10 Theorem 180 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 The Fu-bini-
+-Tonelli The-o-rem; The-o-rem 2.37 in [][]Fol-land[][] [[][]2013[][]]\OT1/cmr/m
+/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Sup-pose $(\OML/cmm/m/it/10 X; \OMS
+/cmsy/m/n/10 M\OML/cmm/m/it/10 ; ^^V\OT1/cmr/m/n/10 )$ 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 8225.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 8225.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 8225.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 8225.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 8225.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 8225.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 8225.
+
+
+Package natbib Warning: Citation `FOLLAND2013REAL' on page 147 undefined on inp
+ut line 8230.
+
+[147]
+Overfull \hbox (14.73935pt too wide) in paragraph at lines 8263--8263
+[]\OT1/cmr/bx/n/14.4 Elements of Func-tional Anal-y-sis (Chap-ter 5 of [][]Fol-
+land[][] [[][]2013[][]])  
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 8263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 8263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 8263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 8263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 8263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 8263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 8263.
+
+<images/0568_38.png, id=2371, 940.51375pt x 209.78375pt>
 File: images/0568_38.png Graphic file (type png)
 <use images/0568_38.png>
-Package pdftex.def Info: images/0568_38.png  used on input line 7765.
+Package pdftex.def Info: images/0568_38.png  used on input line 8272.
 (pdftex.def)             Requested size: 470.25572pt x 104.8916pt.
 
-Overfull \hbox (0.50073pt too wide) in paragraph at lines 7765--7766
+Overfull \hbox (0.50073pt too wide) in paragraph at lines 8272--8273
 []  
  []
 
-<images/0568_38s.png, id=2128, 884.30376pt x 202.7575pt>
+<images/0568_38s.png, id=2372, 884.30376pt x 202.7575pt>
 File: images/0568_38s.png Graphic file (type png)
 <use images/0568_38s.png>
-Package pdftex.def Info: images/0568_38s.png  used on input line 7767.
+Package pdftex.def Info: images/0568_38s.png  used on input line 8274.
 (pdftex.def)             Requested size: 442.1508pt x 101.3785pt.
-<images/1268_47.png, id=2129, 489.83pt x 284.06125pt>
+[148 <./images/0568_38.png>]
+<images/1268_47.png, id=2381, 489.83pt x 284.06125pt>
 File: images/1268_47.png Graphic file (type png)
 <use images/1268_47.png>
-Package pdftex.def Info: images/1268_47.png  used on input line 7769.
+Package pdftex.def Info: images/1268_47.png  used on input line 8276.
 (pdftex.def)             Requested size: 318.38573pt x 184.6376pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [139 <./images/0568_38.png> <./images/0568_38s.png>]
-<images/1268_47s.png, id=2137, 718.685pt x 69.25874pt>
+<images/1268_47s.png, id=2382, 718.685pt x 69.25874pt>
 File: images/1268_47s.png Graphic file (type png)
 <use images/1268_47s.png>
-Package pdftex.def Info: images/1268_47s.png  used on input line 7771.
+Package pdftex.def Info: images/1268_47s.png  used on input line 8278.
 (pdftex.def)             Requested size: 467.13971pt x 45.01764pt.
-<images/1268_57.png, id=2138, 772.8875pt x 227.85126pt>
+<images/1268_57.png, id=2383, 772.8875pt x 227.85126pt>
 File: images/1268_57.png Graphic file (type png)
 <use images/1268_57.png>
-Package pdftex.def Info: images/1268_57.png  used on input line 7773.
+Package pdftex.def Info: images/1268_57.png  used on input line 8280.
 (pdftex.def)             Requested size: 502.37091pt x 148.10155pt.
 
-Overfull \hbox (32.61592pt too wide) in paragraph at lines 7773--7774
+Overfull \hbox (32.61592pt too wide) in paragraph at lines 8280--8281
 [][]  
  []
 
-<images/1268_57s.png, id=2139, 720.6925pt x 115.43124pt>
+<images/1268_57s.png, id=2384, 720.6925pt x 115.43124pt>
 File: images/1268_57s.png Graphic file (type png)
 <use images/1268_57s.png>
-Package pdftex.def Info: images/1268_57s.png  used on input line 7775.
+Package pdftex.def Info: images/1268_57s.png  used on input line 8282.
 (pdftex.def)             Requested size: 468.44458pt x 75.0294pt.
-<images/1268_60.png, id=2140, 628.3475pt x 337.26pt>
+<images/1268_60.png, id=2385, 628.3475pt x 337.26pt>
 File: images/1268_60.png Graphic file (type png)
 <use images/1268_60.png>
-Package pdftex.def Info: images/1268_60.png  used on input line 7777.
+Package pdftex.def Info: images/1268_60.png  used on input line 8284.
 (pdftex.def)             Requested size: 408.42104pt x 219.2164pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [140 <./images/1268_47.png> <./images/1268_47s.png> <./images/1268_57.png> <./
-images/1268_57s.png>]
-<images/1268_60s.png, id=2149, 720.6925pt x 95.35625pt>
+ [149 <./images/0568_38s.png> <./images/1268_47.png> <./images/1268_47s.png> <.
+/images/1268_57.png> <./images/1268_57s.png>]
+<images/1268_60s.png, id=2395, 720.6925pt x 95.35625pt>
 File: images/1268_60s.png Graphic file (type png)
 <use images/1268_60s.png>
-Package pdftex.def Info: images/1268_60s.png  used on input line 7779.
+Package pdftex.def Info: images/1268_60s.png  used on input line 8286.
 (pdftex.def)             Requested size: 468.44458pt x 61.98082pt.
-<images/1268_63.png, id=2150, 711.65875pt x 263.98625pt>
+<images/1268_63.png, id=2396, 711.65875pt x 263.98625pt>
 File: images/1268_63.png Graphic file (type png)
 <use images/1268_63.png>
-Package pdftex.def Info: images/1268_63.png  used on input line 7781.
+Package pdftex.def Info: images/1268_63.png  used on input line 8288.
 (pdftex.def)             Requested size: 462.57271pt x 171.58902pt.
-<images/1268_63s.png, id=2151, 722.7pt x 141.52875pt>
+<images/1268_63s.png, id=2397, 722.7pt x 141.52875pt>
 File: images/1268_63s.png Graphic file (type png)
 <use images/1268_63s.png>
-Package pdftex.def Info: images/1268_63s.png  used on input line 7783.
+Package pdftex.def Info: images/1268_63s.png  used on input line 8290.
 (pdftex.def)             Requested size: 469.74944pt x 91.99258pt.
- (./Real_Analysis.bbl [141 <./images/1268_60.png> <./images/1268_60s.png> <./im
-ages/1268_63.png> <./images/1268_63s.png>] [142
-
-])
+ (./Real_Analysis.bbl [150 <./images/1268_60.png> <./images/1268_60s.png> <./im
+ages/1268_63.png> <./images/1268_63s.png>])
 
 Package natbib Warning: There were undefined citations.
 
-[143]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7788.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7788.
+[151
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8304.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 8304.
  (./Real_Analysis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 7788.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 7788.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 8304.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 8304.
 
 Package rerunfilecheck Info: File `Real_Analysis.out' has not changed.
-(rerunfilecheck)             Checksum: 002E046BA108A00D3E657915C1B952D3;2402.
+(rerunfilecheck)             Checksum: 3E45DFDCE555B5BE4D2E88A4B49C1B5A;3056.
 
 
 LaTeX Warning: There were undefined references.
@@ -2385,65 +2658,66 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7788.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 8304.
  ) 
 Here is how much of TeX's memory you used:
- 19138 strings out of 492649
- 357606 string characters out of 6129622
- 441808 words of memory out of 5000000
- 21933 multiletter control sequences out of 15000+600000
- 17434 words of font info for 69 fonts, out of 8000000 for 9000
+ 19259 strings out of 492649
+ 359712 string characters out of 6129622
+ 441937 words of memory out of 5000000
+ 21991 multiletter control sequences out of 15000+600000
+ 17829 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,66p,1418b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{theorem.145} has been referenced but does not exi
+pdfTeX warning (dest): name{theorem.147} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{definition.1.7.46} has been referenced but does not
  exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{theorem.150} has been referenced but does not exist
+pdfTeX warning (dest): name{theorem.152} has been referenced but does not exist
 , replaced by a fixed one
 
-pdfTeX warning (dest): name{theorem.135} has been referenced but does not exist
+pdfTeX warning (dest): name{theorem.137} has been referenced but does not exist
 , replaced by a fixed one
 
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
-sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
-018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2018/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2018/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2018/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/
-fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/2018/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2018/texm
-f-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Real_Analysis.pdf (143 pages, 2418849 bytes).
+ </Users/gregfaletto/Library/texlive/2018/texmf-var/fonts/pk/ljfour/public/bbm/
+bbm10.600pk>{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-sup
+er-ts1.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
+x7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxt
+i10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
+10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/
+cmex8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.
+pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
+b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.
+pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
+texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
+2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
+8/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018
+/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/2018
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/
+2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texli
+ve/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Real_Analysis.pdf (151 pages, 2457136 bytes).
 PDF statistics:
- 2433 PDF objects out of 2487 (max. 8388607)
- 2126 compressed objects within 22 object streams
- 716 named destinations out of 1000 (max. 500000)
- 295 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2698 PDF objects out of 2984 (max. 8388607)
+ 2317 compressed objects within 24 object streams
+ 769 named destinations out of 1000 (max. 500000)
+ 343 words of extra memory for PDF output out of 10000 (max. 10000000)
 

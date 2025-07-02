@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  13 JUL 2020 15:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 OCT 2021 10:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -955,34 +955,38 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-[7] [8]
+[7]
+Overfull \hbox (4.4121pt too wide) detected at line 208
+[]
+ []
+
+[8]
 
 LaTeX Warning: Reference `prob.ross.multinomial.dist.def' on page 9 undefined o
-n input line 262.
+n input line 272.
 
 [9] [10]
-Overfull \hbox (9.1642pt too wide) in paragraph at lines 360--361
+Overfull \hbox (9.1642pt too wide) in paragraph at lines 370--371
 [][]\OT1/cmr/bx/n/10 Proposition 1.2.0.1. []\OT1/cmr/m/n/10 Sup-pose we have a 
 ran-dom sam-ple of size $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 from an i.i.d. dis
 -tri-bu-tion $\OML/cmm/m/it/10 X[]; X[]; [] ; X[]$ 
  []
 
-[11] [12] [13]
+[11] [12] [13] [14]
 
-LaTeX Warning: Reference `asym.slutsky' on page 14 undefined on input line 604.
+LaTeX Warning: Reference `asym.slutsky' on page 15 undefined on input line 614.
 
-
-[14]
-
-LaTeX Warning: Reference `prob.thm.sums.gaussian' on page 15 undefined on input
- line 616.
 
 
 LaTeX Warning: Reference `prob.thm.sums.gaussian' on page 15 undefined on input
- line 616.
+ line 626.
 
 
-Overfull \hbox (6.5536pt too wide) detected at line 643
+LaTeX Warning: Reference `prob.thm.sums.gaussian' on page 15 undefined on input
+ line 626.
+
+
+Overfull \hbox (6.5536pt too wide) detected at line 653
 \OT1/cmr/m/n/10 = \U/msb/m/n/10 E[] [] \OML/cmm/m/it/10 X[]v[]v[] \OT1/cmr/m/n/
 10 + [] \OML/cmm/m/it/10 X[]X[]v[]v[][] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\
 U/msb/m/n/10 E[] [] \OML/cmm/m/it/10 X[]\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cm
@@ -992,7 +996,7 @@ n/10 )\OML/cmm/m/it/10 v[]v[][]
  []
 
 
-Overfull \hbox (23.48946pt too wide) in paragraph at lines 649--650
+Overfull \hbox (23.48946pt too wide) in paragraph at lines 659--660
 []\OT1/cmr/m/n/10 Recall that $\U/msb/m/n/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  X[]\OT1/cmr/m/n/10 ) = 0$ for all $\OML/cmm/m/it/10 i$\OT1/cmr/m/n/10 . Also, 
 due to in-de-pen-dence of the $\OML/cmm/m/it/10 X[]$\OT1/cmr/m/n/10 , all of th
@@ -1002,44 +1006,43 @@ OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  a \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =
 
 [15] [16] [17] [18] [19] [20] [21] [22] [23] [24]
 
-LaTeX Warning: Reference `asym.slutsky' on page 25 undefined on input line 1238
+LaTeX Warning: Reference `asym.slutsky' on page 25 undefined on input line 1244
 .
 
-[25]
-Overfull \hbox (12.59819pt too wide) in paragraph at lines 1351--1352
+[25] [26]
+Overfull \hbox (12.59819pt too wide) in paragraph at lines 1355--1356
 [][]\OT1/cmr/bx/n/10 Theorem 1.2.1.4 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Converge
 nce The-o-rem with Bounded Mo-ment, The-o-rem 4.16 in 541A notes.\OT1/cmr/m/n/1
 0 )\OT1/cmr/bx/n/10 . 
  []
 
-[26]
 
 LaTeX Warning: Reference `asym.contmappthm' on page 27 undefined on input line 
-1381.
+1385.
 
 
 LaTeX Warning: Reference `asym.contmappthm' on page 27 undefined on input line 
-1387.
+1391.
 
 
-LaTeX Warning: Reference `asym.slutsky' on page 27 undefined on input line 1387
+LaTeX Warning: Reference `asym.slutsky' on page 27 undefined on input line 1391
 .
 
 [27]
-Overfull \hbox (8.84283pt too wide) in paragraph at lines 1421--1422
+Overfull \hbox (8.84283pt too wide) in paragraph at lines 1425--1426
 []\OT1/cmr/m/n/10 Note that since $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 is a cu-
 mu-la-tive dis-tri-bu-tion func-tion, $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 is n
 on-de-creas-ing and $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 is right-continuous. 
  []
 
 [28] [29] [30] [31] [32] [33] [34]
-Overfull \hbox (0.24557pt too wide) in paragraph at lines 1781--1782
+Overfull \hbox (0.24557pt too wide) in paragraph at lines 1785--1786
 []\OT1/cmr/m/n/10 We are only con-sid-er-ing prob-a-bil-ity mass func-tions to 
 make things eas-ier. We first prove suf-fi-ciency. 
  []
 
-[35] [36] [37] [38]
-Overfull \hbox (19.57915pt too wide) in paragraph at lines 2033--2034
+[35] [36] [37] [38] [39]
+Overfull \hbox (19.57915pt too wide) in paragraph at lines 2037--2038
 []\OT1/cmr/m/n/10 Since we al-ready have $[][] \U/msb/m/n/10 P[]\OT1/cmr/m/n/10
  (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \U/msb/m/n/10 P[]\OT
 1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) = [][] \OMS/cmsy/m/n/10 j\U/m
@@ -1050,7 +1053,7 @@ P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@
  []
 
 
-Overfull \hbox (18.9227pt too wide) in paragraph at lines 2033--2034
+Overfull \hbox (18.9227pt too wide) in paragraph at lines 2037--2038
 \U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )) = [][] \
 OMS/cmsy/m/n/10 j\U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m
 /n/10 ) \OMS/cmsy/m/n/10 ^^@ \U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
@@ -1059,25 +1062,25 @@ OMS/cmsy/m/n/10 j\U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m
 n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) = 
  []
 
-[39] [40]
-Overfull \hbox (13.46664pt too wide) in paragraph at lines 2100--2113
+[40]
+Overfull \hbox (13.46664pt too wide) in paragraph at lines 2104--2117
 []  
  []
 
 [41] [42]
-Overfull \hbox (0.63022pt too wide) in paragraph at lines 2234--2235
+Overfull \hbox (0.63022pt too wide) in paragraph at lines 2238--2239
 [][]\OT1/cmr/bx/n/10 Exercise 2 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Exercise 5.20
  in Math 541A notes\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 This e
 x-er-cise shows that a com-plete suf-fi-cient statis- 
  []
 
 [43] [44]
-Overfull \hbox (31.24446pt too wide) in paragraph at lines 2314--2325
+Overfull \hbox (31.24446pt too wide) in paragraph at lines 2318--2329
 []  
  []
 
 
-Overfull \hbox (3.10796pt too wide) in paragraph at lines 2332--2333
+Overfull \hbox (3.10796pt too wide) in paragraph at lines 2336--2337
 []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 Z[]; [] ; Z[]$ \OT1/cmr/m/n/10 be a ran
 -dom sam-ple of size $\OML/cmm/m/it/10 n$ \OT1/cmr/m/n/10 from the uni-form dis
 -tri-bu-tion on the three points $\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 0\OML/cmm/m
@@ -1088,19 +1091,19 @@ g$\OT1/cmr/m/n/10 .
 [45] [46]
 
 LaTeX Warning: Reference `prob.541Ahw.condexp.thm' on page 47 undefined on inpu
-t line 2425.
+t line 2429.
 
 [47] [48] [49] [50]
 
 LaTeX Warning: Reference `cvx.541A.exercise5.89' on page 51 undefined on input 
-line 2642.
+line 2646.
 
 
 LaTeX Warning: Reference `cvx.defn.strictly.convex' on page 51 undefined on inp
-ut line 2674.
+ut line 2678.
 
 [51] [52]
-Overfull \hbox (2.64973pt too wide) in paragraph at lines 2746--2747
+Overfull \hbox (2.64973pt too wide) in paragraph at lines 2750--2751
 []\OT1/cmr/m/n/10 Therefore by The-o-rem [][]1.4.2.3[][], $\OML/cmm/m/it/10 h\O
 T1/cmr/m/n/10 (\OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 )$ is UMVU for $\OML/cmm/m/it/
 10 g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )$. That is, any func-
@@ -1108,7 +1111,7 @@ tion of a com-plete suf-fi-cient statis-
  []
 
 [53]
-Overfull \hbox (1.76532pt too wide) detected at line 2808
+Overfull \hbox (1.76532pt too wide) detected at line 2812
 [] \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 j\OT1/cmr/m/n/10 )[]\OML
 /cmm/m/it/10 a[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a\OT1/cmr/m/n/10 (1 + \OML/
 cmm/m/it/10 a\OT1/cmr/m/n/10 )[] = []\OML/cmm/m/it/10 a [] []a[] \OT1/cmr/m/n/1
@@ -1118,48 +1121,48 @@ cmm/m/it/10 a\OT1/cmr/m/n/10 )[] = []\OML/cmm/m/it/10 a [] []a[] \OT1/cmr/m/n/1
 [54]
 
 LaTeX Warning: Reference `prob.math541a.ex.3.15' on page 55 undefined on input 
-line 2830.
+line 2834.
 
 [55] [56]
 
-LaTeX Warning: Reference `linreg.glm' on page 57 undefined on input line 2927.
+LaTeX Warning: Reference `linreg.glm' on page 57 undefined on input line 2931.
 
 [57] [58] [59] [60] [61] [62] [63]
-Overfull \hbox (36.42pt too wide) detected at line 3343
+Overfull \hbox (36.42pt too wide) detected at line 3347
 \OT1/cmr/m/n/10 = [] [][] [] []  \OML/cmm/m/it/10 d[]
  []
 
 
-Overfull \hbox (13.40172pt too wide) detected at line 3347
+Overfull \hbox (13.40172pt too wide) detected at line 3351
 \OT1/cmr/m/n/10 = [] [][] [] []  \OML/cmm/m/it/10 d[]
  []
 
 
-Overfull \hbox (19.39444pt too wide) detected at line 3379
+Overfull \hbox (19.39444pt too wide) detected at line 3383
 \OT1/cmr/m/n/10 = []
  []
 
 [64] [65]
-Overfull \hbox (0.99655pt too wide) detected at line 3502
+Overfull \hbox (0.99655pt too wide) detected at line 3506
 [] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 ^^@ [] \OT1/cmr/m/n/10 = [][] [] \OMS/
 cmsy/m/n/10 ^^@ [] \OT1/cmr/m/n/10 = [][][][] + [][] + \OML/cmm/m/it/10 n
  []
 
 [66] [67]
 
-LaTeX Warning: Reference `asym.wlln' on page 68 undefined on input line 3608.
+LaTeX Warning: Reference `asym.wlln' on page 68 undefined on input line 3612.
 
 [68] [69]
 
 LaTeX Warning: Reference `prob.kl.divergence' on page 70 undefined on input lin
-e 3752.
+e 3756.
 
 
 LaTeX Warning: Reference `linreg.aic.bic' on page 70 undefined on input line 37
-52.
+56.
 
 [70] [71] [72] [73] [74] [75] [76] [77] [78]
-Overfull \hbox (32.61208pt too wide) in paragraph at lines 4372--4373
+Overfull \hbox (32.61208pt too wide) in paragraph at lines 4376--4377
 [][]\OT1/cmr/bx/n/10 Example 1.4.12 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Example 6
 .46, Math 541A notes\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Al-te
 r-na-tive so-lu-tion at [][]$\OT1/cmtt/m/n/10 https : / / math . stackexchange 
@@ -1167,18 +1170,18 @@ r-na-tive so-lu-tion at [][]$\OT1/cmtt/m/n/10 https : / / math . stackexchange
  []
 
 [79] [80]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 4507.
+LaTeX Font Info:    Try loading font information for U+bbm on input line 4511.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 [81] [82] [83] [84]
-Overfull \hbox (6.37143pt too wide) detected at line 4702
+Overfull \hbox (6.37143pt too wide) detected at line 4706
  []$[]   [] [] \OMS/cmsy/m/n/10 ^^T [] [][] [] [] [] \OML/cmm/m/it/10 dy \OMS/c
 msy/m/n/10 ^^A [] \OT1/cmr/m/n/10 + [] [][] [] [] [] \OML/cmm/m/it/10 dy[]  $ 
  []
 
 [85] [86]
-Overfull \hbox (11.02722pt too wide) detected at line 4820
+Overfull \hbox (11.02722pt too wide) detected at line 4824
 \U/msb/m/n/10 E[]\OT1/cmr/m/n/10 ([] \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 X[]; X
 []; X[]\OT1/cmr/m/n/10 ) = []\OML/cmm/m/it/10 X[] \OT1/cmr/m/n/10 + []\OML/cmm/
 m/it/10 X[] \OT1/cmr/m/n/10 + []\OML/cmm/m/it/10 X[];  \U/msb/m/n/10 E[] [] \OT
@@ -1187,33 +1190,37 @@ m/it/10 X[] \OT1/cmr/m/n/10 + []\OML/cmm/m/it/10 X[];  \U/msb/m/n/10 E[] [] \OT
  []
 
 
-Overfull \hbox (43.41473pt too wide) detected at line 4830
+Overfull \hbox (43.41473pt too wide) detected at line 4834
  []$[] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 X[] \OT1/cmr/m/n/10 + []\OML/cmm/m/
 it/10 X[] \OT1/cmr/m/n/10 + []\OML/cmm/m/it/10 X[] \OMS/cmsy/m/n/10 ^^@ [] []$ 
 
  []
 
 
-Overfull \hbox (48.91331pt too wide) detected at line 4830
+Overfull \hbox (48.91331pt too wide) detected at line 4834
  []$[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 X[] \OT1/cmr/m/n/10 + [] \OML/cmm/
 m/it/10 X[] \OT1/cmr/m/n/10 + [] \OML/cmm/m/it/10 X[] \OMS/cmsy/m/n/10 ^^@ [] [
 ]$ 
  []
 
-[87] [88]
-Overfull \hbox (25.34329pt too wide) in paragraph at lines 4951--4952
+
+Underfull \vbox (badness 5008) has occurred while \output is active []
+
+ [87]
+[88] [89]
+Overfull \hbox (25.34329pt too wide) in paragraph at lines 4987--4988
 [][]\OT1/cmr/bx/n/10 Example 1.7.1. []\OT1/cmr/m/n/10 Al-ice wants to send a me
 s-sage to Bob. A mes-sage is a se-quence of sym-bols from $\OMS/cmsy/m/n/10 f\O
 ML/cmm/m/it/10 a; b; [] ; z\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 = 
  []
 
-[89] [90] [91]
-Overfull \hbox (1.71371pt too wide) detected at line 5140
+[90] [91] [92]
+Overfull \hbox (1.71371pt too wide) detected at line 5176
 [] \OMS/cmsy/m/n/10 ^^@ []
  []
 
 
-Overfull \hbox (8.2035pt too wide) detected at line 5146
+Overfull \hbox (8.2035pt too wide) detected at line 5182
 [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 L\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 > \OT1/cmr/m/n
 /10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 )\OML/cmm/m/i
@@ -1225,7 +1232,7 @@ ML/cmm/m/it/10 =^^Y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1 +
  []
 
 
-Overfull \hbox (8.2035pt too wide) detected at line 5164
+Overfull \hbox (8.2035pt too wide) detected at line 5200
 \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^
 M\OT1/cmr/m/n/10 ) [] = \OML/cmm/m/it/10 Q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 L\O
 T1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 > \OT1/cmr/
@@ -1237,164 +1244,163 @@ m/it/10 =^^Y[]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m
 1
  []
 
-[92] [93]
-Overfull \hbox (15.01752pt too wide) in paragraph at lines 5295--5296
+[93] [94]
+Overfull \hbox (15.01752pt too wide) in paragraph at lines 5331--5332
 []\OT1/cmr/m/n/10 (where $\OML/cmm/m/it/10 ^^L[]$ \OT1/cmr/m/n/10 is the power 
 func-tion for $\OML/cmm/m/it/10 ^^^[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 ^^
 L$ \OT1/cmr/m/n/10 is the power func-tion for $\OML/cmm/m/it/10 ^^^$\OT1/cmr/m/
 n/10 ). Note that $\OML/cmm/m/it/10 c [] \OMS/cmsy/m/n/10 ^^U 
  []
 
-[94] [95]
-Overfull \hbox (3.38943pt too wide) detected at line 5465
+[95] [96]
+Overfull \hbox (3.38943pt too wide) detected at line 5501
  []$[]  \OML/cmm/m/it/10 ^^M\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 
 ) := [] = []$ 
  []
 
 
-Overfull \hbox (43.4128pt too wide) detected at line 5465
+Overfull \hbox (43.4128pt too wide) detected at line 5501
  []$[] \OT1/cmr/m/n/10 = []  $ 
  []
 
-[96]
-<images/mathstats_np_set.jpg, id=1228, 4047.12pt x 3035.34pt>
+[97]
+<images/mathstats_np_set.jpg, id=1235, 4047.12pt x 3035.34pt>
 File: images/mathstats_np_set.jpg Graphic file (type jpg)
 <use images/mathstats_np_set.jpg>
-Package pdftex.def Info: images/mathstats_np_set.jpg  used on input line 5520.
+Package pdftex.def Info: images/mathstats_np_set.jpg  used on input line 5556.
 (pdftex.def)             Requested size: 404.73572pt x 303.55179pt.
- [97] [98 <./images/mathstats_np_set.jpg>]
-Overfull \hbox (1.46117pt too wide) in paragraph at lines 5556--5557
+
+Overfull \hbox (1.46117pt too wide) in paragraph at lines 5592--5593
 []\OT1/cmr/m/n/10 Note that the ra-tio $\OML/cmm/m/it/10 q=p$ \OT1/cmr/m/n/10 o
 nly takes on three val-ues. By the Neyman-Pearson Lemma (Lemma [][]1.8.1.1[][])
 , 
  []
 
-[99] [100] [101]
+[98] [99 <./images/mathstats_np_set.jpg>] [100] [101] [102]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 5804.
+(amsmath)                 on input line 5840.
 
-[102] [103]
-Overfull \hbox (5.3092pt too wide) in paragraph at lines 5905--5906
+[103]
+Overfull \hbox (5.3092pt too wide) in paragraph at lines 5941--5942
 [][]\OT1/cmr/bx/n/10 Definition 1.8.8 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Uniform
 ly most pow-er-ful test; def-i-ni-tion 8.3.11 in [][]Casella and Berger[][] [[]
 []2001[][]]\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . 
  []
 
-
-Overfull \hbox (0.14114pt too wide) in paragraph at lines 5949--5950
+[104]
+Overfull \hbox (0.14114pt too wide) in paragraph at lines 5985--5986
 [][]\OT1/cmr/bx/n/10 Theorem 1.8.3.1 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Karlin-R
 ubin; sim-i-lar to The-o-rem 8.3.17 in [][]Casella and Berger[][] [[][]2001[][]
 ], The- 
  []
 
-[104]
-Overfull \hbox (39.56102pt too wide) in paragraph at lines 5971--5972
+[105]
+Overfull \hbox (39.56102pt too wide) in paragraph at lines 6007--6008
 \OT1/cmr/m/n/10 larger fam-ily (and it is a test of size $\OML/cmm/m/it/10 $\O
 T1/cmr/m/n/10 ), then that is also the UMP test for test of size $\OML/cmm/m/it
 /10 $ \OT1/cmr/m/n/10 (sat-is-fy-ing $[][] \OML/cmm/m/it/10 ^^L[]\OT1/cmr/m/n/
 10 (\OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T 
  []
 
-[105] [106] [107]
-<images/mathstats_gnp_ex.jpg, id=1348, 2583.6525pt x 2636.85126pt>
+[106] [107] [108]
+<images/mathstats_gnp_ex.jpg, id=1355, 2583.6525pt x 2636.85126pt>
 File: images/mathstats_gnp_ex.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex.jpg>
-Package pdftex.def Info: images/mathstats_gnp_ex.jpg  used on input line 6212.
+Package pdftex.def Info: images/mathstats_gnp_ex.jpg  used on input line 6248.
 (pdftex.def)             Requested size: 258.38039pt x 263.70058pt.
- [108] [109 <./images/mathstats_gnp_ex.jpg>]
-<images/mathstats_gnp_ex_2.jpg, id=1368, 1123.19624pt x 1502.61375pt>
+<images/mathstats_gnp_ex_2.jpg, id=1359, 1123.19624pt x 1502.61375pt>
 File: images/mathstats_gnp_ex_2.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex_2.jpg>
-Package pdftex.def Info: images/mathstats_gnp_ex_2.jpg  used on input line 6222
+Package pdftex.def Info: images/mathstats_gnp_ex_2.jpg  used on input line 6258
 .
 (pdftex.def)             Requested size: 224.63527pt x 300.51743pt.
- [110 <./images/mathstats_gnp_ex_2.jpg>]
-<images/mathstats_gnp_ex_3.jpg, id=1388, 1568.86125pt x 1824.8175pt>
+ [109] [110 <./images/mathstats_gnp_ex.jpg>] [111 <./images/mathstats_gnp_ex_2.
+jpg>]
+<images/mathstats_gnp_ex_3.jpg, id=1389, 1568.86125pt x 1824.8175pt>
 File: images/mathstats_gnp_ex_3.jpg Graphic file (type jpg)
 <use images/mathstats_gnp_ex_3.jpg>
-Package pdftex.def Info: images/mathstats_gnp_ex_3.jpg  used on input line 6270
+Package pdftex.def Info: images/mathstats_gnp_ex_3.jpg  used on input line 6306
 .
 (pdftex.def)             Requested size: 235.31903pt x 273.71082pt.
- [111 <./images/mathstats_gnp_ex_3.jpg>] [112] [113]
-[114]
-Overfull \hbox (13.32558pt too wide) in paragraph at lines 6562--6562
+ [112 <./images/mathstats_gnp_ex_3.jpg>] [113] [114]
+[115] [116]
+Overfull \hbox (13.32558pt too wide) in paragraph at lines 6598--6598
 []\OT1/cmr/bx/n/12 Similarity and Com-plete-ness (Sec-tion 4.3 of [][]Lehmann a
 nd Ro-mano[][] [[][]2005[][]])  
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 6562.
+(hyperref)                removing `\begingroup' on input line 6598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 6562.
+(hyperref)                removing `\let' on input line 6598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 6562.
+(hyperref)                removing `\<let>-command' on input line 6598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 6562.
+(hyperref)                removing `\NAT@ctype' on input line 6598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 6562.
+(hyperref)                removing `\z@' on input line 6598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 6562.
+(hyperref)                removing `\let' on input line 6598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 6562.
+(hyperref)                removing `\new@ifnextchar' on input line 6598.
 
-[115]
-Overfull \hbox (0.70386pt too wide) in paragraph at lines 6628--6629
-[][]\OT1/cmr/bx/n/10 Remark 40. []\OT1/cmr/m/n/10 By The-o-rem 2.7.1 in [][]Leh
+[117]
+Overfull \hbox (0.70386pt too wide) in paragraph at lines 6664--6665
+[][]\OT1/cmr/bx/n/10 Remark 41. []\OT1/cmr/m/n/10 By The-o-rem 2.7.1 in [][]Leh
 mann and Ro-mano[][] [[][]2005[][]], the power func-tion for a (one-parameter) 
 
  []
 
-[116] [117] [118] [119] [120]
+[118] [119] [120] [121] [122]
 
-LaTeX Warning: Reference `linreg.dist.beta' on page 121 undefined on input line
- 6923.
-
-[121]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 6966.
+LaTeX Warning: Reference `linreg.dist.beta' on page 123 undefined on input line
+ 6959.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 6966.
+(hyperref)                removing `\begingroup' on input line 7002.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 6966.
+(hyperref)                removing `\let' on input line 7002.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 6966.
+(hyperref)                removing `\<let>-command' on input line 7002.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 6966.
+(hyperref)                removing `\NAT@ctype' on input line 7002.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 6966.
+(hyperref)                removing `\z@' on input line 7002.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 6966.
+(hyperref)                removing `\let' on input line 7002.
 
 
-Overfull \hbox (28.54271pt too wide) in paragraph at lines 6970--6971
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 7002.
+
+[123]
+Overfull \hbox (28.54271pt too wide) in paragraph at lines 7006--7007
 []\OT1/cmr/bx/n/10 Alternatively: $\OML/cmm/m/it/10 H[] \OT1/cmr/m/n/10 : \OML/
 cmm/m/it/10 X[]; [] ; X[]; Y[]; [] ; Y[]$ \OT1/cmr/m/n/10 i.i.d. with den-sity 
 $\OML/cmm/m/it/10 f$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 H[] \OT1/cmr/m/n/10 :$ 
@@ -1402,14 +1408,14 @@ the joint den-sity of $\OML/cmm/m/it/10 X[]; [] ; X[]; Y[]; [] ; Y[]$
  []
 
 
-Overfull \hbox (57.0994pt too wide) in paragraph at lines 6976--6977
+Overfull \hbox (57.0994pt too wide) in paragraph at lines 7012--7013
 [][]\OT1/cmr/bx/n/10 Theorem 1.8.6.1. []\OT1/cmr/m/n/10 Con-sider the fol-low-i
 ng sta-tis-ti-cal model: $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 p[] \OT1/cmr/m/n/1
 0 : \OML/cmm/m/it/10 f[]\U/msb/m/n/10 R[]\OMS/cmsy/m/n/10 g$ 
  []
 
-[122] [123]
-Overfull \hbox (13.40141pt too wide) in paragraph at lines 7043--7044
+[124]
+Overfull \hbox (13.40141pt too wide) in paragraph at lines 7079--7080
 []\OT1/cmr/m/n/10 Under $\OML/cmm/m/it/10 H[]$\OT1/cmr/m/n/10 , $\U/msb/m/n/10 
 P[] [] \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n
  \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 m\OT1/cmr/m/n/10 )!$ for any spe-cific per-
@@ -1417,7 +1423,7 @@ mu-ta-tion $(\OML/cmm/m/it/10 z[]; [] ; z[]\OT1/cmr/m/n/10 )$.
  []
 
 
-Overfull \hbox (18.84616pt too wide) in paragraph at lines 7059--7060
+Overfull \hbox (18.84616pt too wide) in paragraph at lines 7095--7096
 [][]\OT1/cmr/bx/n/10 Lemma 1.8.6.3 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 See sec-ti
 on 5.9 of [][]Lehmann and Ro-mano[][] [[][]2005[][]], p. 189 of pdf\OT1/cmr/m/n
 /10 )\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Let $(\U/msb/m/n/10 Z[]\OML/cmm/m/it/
@@ -1425,137 +1431,137 @@ on 5.9 of [][]Lehmann and Ro-mano[][] [[][]2005[][]], p. 189 of pdf\OT1/cmr/m/n
  []
 
 
-Overfull \hbox (24.64221pt too wide) in paragraph at lines 7073--7074
+Overfull \hbox (24.64221pt too wide) in paragraph at lines 7109--7110
 []\OT1/cmr/m/n/10 Want to show that for any sym-met-ric set $\OMS/cmsy/m/n/10 A
 []$ \OT1/cmr/m/n/10 (mean-ing that $(\OML/cmm/m/it/10 z[]; [] ; z[]\OT1/cmr/m/n
 /10 ) \OMS/cmsy/m/n/10 2 A[]  ([])  \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z[]; [] ;
  z[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 
  []
 
-[124]
-Overfull \hbox (6.84125pt too wide) in paragraph at lines 7114--7115
+[125]
+Overfull \hbox (6.84125pt too wide) in paragraph at lines 7150--7151
 []\OT1/cmr/m/n/10 We are in-ter-ested in $\OML/cmm/m/it/10 f[]$\OT1/cmr/m/n/10 
 . Take $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 I []$ \OT1/cmr/m/
 n/10 for a spe-cific per-mu-ta-tion $(\OML/cmm/m/it/10 z[]; [] ; z[]\OT1/cmr/m/
 n/10 )$ 
  []
 
-
-Overfull \hbox (12.107pt too wide) in paragraph at lines 7129--7130
+[126]
+Overfull \hbox (12.107pt too wide) in paragraph at lines 7165--7166
 []\OT1/cmr/m/n/10 (next time: ap-ply Neyman-Pearson lemma to ([][]1.58[][]) to 
 show how we fi-nally get the UMP test.) The Neyman- 
  []
 
-[125] [126]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 7232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 7232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 7232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 7232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 7232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 7232.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 7232.
-
 [127]
 
-LaTeX Warning: Reference `abs.alg.grps.sec' on page 128 undefined on input line
- 7294.
-
-[128] [129]
-
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 7436.
+(hyperref)                removing `\begingroup' on input line 7268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 7436.
+(hyperref)                removing `\let' on input line 7268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 7436.
+(hyperref)                removing `\<let>-command' on input line 7268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 7436.
+(hyperref)                removing `\NAT@ctype' on input line 7268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 7436.
+(hyperref)                removing `\z@' on input line 7268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 7436.
+(hyperref)                removing `\let' on input line 7268.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 7436.
+(hyperref)                removing `\new@ifnextchar' on input line 7268.
 
-[130]
-Overfull \hbox (30.93578pt too wide) in paragraph at lines 7541--7542
+[128]
+
+LaTeX Warning: Reference `abs.alg.grps.sec' on page 129 undefined on input line
+ 7330.
+
+[129] [130]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 7472.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7472.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 7472.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\NAT@ctype' on input line 7472.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 7472.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\let' on input line 7472.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 7472.
+
+[131]
+Overfull \hbox (30.93578pt too wide) in paragraph at lines 7577--7578
 [][]\OT1/cmr/bx/n/10 Example 1.8.14 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Scale fam
 -ily (like Ex-am-ple 6.2.1(ii) in [][]Lehmann and Ro-mano[][] [[][]2005[][]])\O
 T1/cmr/m/n/10 )\OT1/cmr/bx/n/10 . []$\OML/cmm/m/it/10 X[]; [] ; X[] \OMS/cmsy/m
 /n/10 ^^X 
  []
 
-[131]
-Overfull \hbox (1.09444pt too wide) in paragraph at lines 7572--7573
+[132]
+Overfull \hbox (1.09444pt too wide) in paragraph at lines 7608--7609
 []\OT1/cmr/m/n/10 Know: if $\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  x\OT1/cmr/m/n/10 )$ is the max-i-mal in-vari-ant, then any $\OML/cmm/m/it/10 G
 $\OT1/cmr/m/n/10 -invariant test de-pends on $\OML/cmm/m/it/10 T$ \OT1/cmr/m/n/
 10 only. More-over, the power 
  []
 
-[132] [133]
+[133] [134]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 7698.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 7698.
+(hyperref)                removing `\begingroup' on input line 7734.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 7698.
+(hyperref)                removing `\let' on input line 7734.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 7698.
+(hyperref)                removing `\<let>-command' on input line 7734.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 7698.
+(hyperref)                removing `\NAT@ctype' on input line 7734.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 7698.
+(hyperref)                removing `\z@' on input line 7734.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 7698.
+(hyperref)                removing `\let' on input line 7734.
 
 
-Overfull \hbox (50.94609pt too wide) in paragraph at lines 7702--7703
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 7734.
+
+
+Overfull \hbox (50.94609pt too wide) in paragraph at lines 7738--7739
 [][]\OT1/cmr/bx/n/10 Example 1.8.20. []$\OML/cmm/m/it/10 X[]; [] ; X[]$ \OT1/cm
 r/m/n/10 i.i.d. with cdf $\OML/cmm/m/it/10 F$\OT1/cmr/m/n/10 , pdf $\OML/cmm/m/
 it/10 f$\OT1/cmr/m/n/10 . $\OML/cmm/m/it/10 Y[]; [] ; Y[]$ \OT1/cmr/m/n/10 i.i.
@@ -1564,46 +1570,49 @@ cmr/m/n/10 . $\OML/cmm/m/it/10 H[] \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 X[]; [] ;
  X[]; Y[]; [] ; Y[]$ 
  []
 
-[134] [135]
-Overfull \hbox (1.2839pt too wide) in paragraph at lines 7807--7807
+[135] [136]
+Overfull \hbox (1.2839pt too wide) in paragraph at lines 7843--7843
 []\OT1/cmr/bx/n/12 Likelihood Ra-tio Tests (Sec-tion 12.4.4 of [][]Lehmann and 
 Ro-mano[][] [[][]2005[][]])  
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 7807.
+(hyperref)                removing `\begingroup' on input line 7843.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 7807.
+(hyperref)                removing `\let' on input line 7843.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 7807.
+(hyperref)                removing `\<let>-command' on input line 7843.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 7807.
+(hyperref)                removing `\NAT@ctype' on input line 7843.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 7807.
+(hyperref)                removing `\z@' on input line 7843.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 7807.
+(hyperref)                removing `\let' on input line 7843.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 7807.
+(hyperref)                removing `\new@ifnextchar' on input line 7843.
 
-[136]
+[137]
 
-LaTeX Warning: Command \l invalid in math mode on input line 7846.
+LaTeX Warning: Command \l invalid in math mode on input line 7882.
 
-[137] [138] [139] [140] [141] [142]
-Overfull \hbox (14.81895pt too wide) in paragraph at lines 8207--8208
+[138] [139] [140] [141] [142] [143]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [144]
+Overfull \hbox (14.81895pt too wide) in paragraph at lines 8243--8244
 []\OT1/cmr/m/n/10 Idea: since $[] = []([] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10
  ^^R[]\OT1/cmr/m/n/10 )$ max-i-mizes $\OML/cmm/m/it/10 Z[]\OT1/cmr/m/n/10 (\OML
 /cmm/m/it/10 u\OT1/cmr/m/n/10 )$, it must be close to $[]$ that max-i-mizes $\O
@@ -1613,56 +1622,60 @@ mr/m/n/10 (\OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 u; u\OMS/cms
 y/m/n/10 i$ 
  []
 
-[143]
+[145]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 8274.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 8274.
+(hyperref)                removing `\begingroup' on input line 8310.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 8274.
+(hyperref)                removing `\let' on input line 8310.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 8274.
+(hyperref)                removing `\<let>-command' on input line 8310.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 8274.
+(hyperref)                removing `\NAT@ctype' on input line 8310.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 8274.
+(hyperref)                removing `\z@' on input line 8310.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 8274.
+(hyperref)                removing `\let' on input line 8310.
 
-[144] [145]
-Overfull \hbox (2.76135pt too wide) detected at line 8372
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 8310.
+
+[146] [147]
+Overfull \hbox (2.76135pt too wide) detected at line 8408
  []$[]  \U/msb/m/n/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[] \OMS/cmsy/m/n/10
  ^^U \OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = \U/msb/m/n/10 P[] [] \OT1/cmr/m/n/10
  = \U/msb/m/n/10 P[] [] \OT1/cmr/m/n/10 = \U/msb/m/n/10 P[] []$ 
  []
 
-[146] [147] [148] [149] [150] [151] [152]
-Overfull \hbox (20.71814pt too wide) in paragraph at lines 8783--8784
+[148] [149] [150] [151] [152] [153]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [154]
+[155]
+Overfull \hbox (20.71814pt too wide) in paragraph at lines 8869--8870
 []\OT1/cmr/m/n/10 See Fig-ure [][]1.5[][] for an ex-pla-na-tion of the change o
 f in-te-grands in the third step (ei-ther way finds the probability- 
  []
 
-<images/mathstats_thm_pratt_img.jpg, id=1793, 4047.12pt x 3035.34pt>
+<images/mathstats_thm_pratt_img.jpg, id=1807, 4047.12pt x 3035.34pt>
 File: images/mathstats_thm_pratt_img.jpg Graphic file (type jpg)
 <use images/mathstats_thm_pratt_img.jpg>
 Package pdftex.def Info: images/mathstats_thm_pratt_img.jpg  used on input line
- 8787.
+ 8873.
 (pdftex.def)             Requested size: 4047.11017pt x 3035.33263pt.
-[153] [154 <./images/mathstats_thm_pratt_img.jpg>]
-Overfull \hbox (19.2036pt too wide) in paragraph at lines 8820--8821
+[156] [157 <./images/mathstats_thm_pratt_img.jpg>]
+Overfull \hbox (19.2036pt too wide) in paragraph at lines 8906--8907
 \OT1/cmr/m/n/10 re-gions are nested, mean-ing that $\OML/cmm/m/it/10 p[] < p[] 
  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  f[]\OML/cmm/m/it/10 p[]\OMS/cmsy/m/n/10
  g ^^R f[]\OML/cmm/m/it/10 p[]\OMS/cmsy/m/n/10 g  ([]) 
@@ -1670,437 +1683,412 @@ Overfull \hbox (19.2036pt too wide) in paragraph at lines 8820--8821
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 8836.
+(hyperref)                removing `math shift' on input line 8922.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 8838.
+(hyperref)                removing `\begingroup' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 8838.
+(hyperref)                removing `\<let>-command' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 8838.
+(hyperref)                removing `\NAT@ctype' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 8838.
+(hyperref)                removing `\z@' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 8838.
+(hyperref)                removing `\let' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 8838.
+(hyperref)                removing `\let' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 8838.
+(hyperref)                removing `\new@ifnextchar' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 8838.
+(hyperref)                removing `\begingroup' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 8838.
+(hyperref)                removing `\<let>-command' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 8838.
+(hyperref)                removing `\NAT@ctype' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 8838.
+(hyperref)                removing `\z@' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 8838.
+(hyperref)                removing `\let' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 8838.
+(hyperref)                removing `\let' on input line 8924.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 8838.
+(hyperref)                removing `\new@ifnextchar' on input line 8924.
 
-[155] [156]
-Overfull \hbox (24.04555pt too wide) in paragraph at lines 8929--8930
+[158] [159]
+Overfull \hbox (24.04555pt too wide) in paragraph at lines 9015--9016
 [][]\OT1/cmr/bx/n/10 Definition 1.10.2 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 Notati
 on from Sec-tion 5.1.5 of [][]Ser-fling[][] [[][]1980[][]]\OT1/cmr/m/n/10 )\OT1
 /cmr/bx/n/10 . []\OT1/cmr/m/n/10 For a sym-met-ric ker-nel $\OML/cmm/m/it/10 h\
 OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 )$ 
  []
 
-[157] [158]
+[160] [161]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9085.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9085.
+(hyperref)                removing `\begingroup' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9085.
+(hyperref)                removing `\<let>-command' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9085.
+(hyperref)                removing `\NAT@ctype' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9085.
+(hyperref)                removing `\z@' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9085.
+(hyperref)                removing `\let' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9085.
+(hyperref)                removing `\let' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9085.
+(hyperref)                removing `\new@ifnextchar' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9085.
+(hyperref)                removing `\begingroup' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9085.
+(hyperref)                removing `\<let>-command' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9085.
+(hyperref)                removing `\NAT@ctype' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9085.
+(hyperref)                removing `\z@' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9085.
+(hyperref)                removing `\let' on input line 9171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9085.
+(hyperref)                removing `\let' on input line 9171.
 
-[159] [160]
-Overfull \hbox (3.45102pt too wide) in paragraph at lines 9178--9178
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\new@ifnextchar' on input line 9171.
+
+[162] [163]
+Overfull \hbox (3.45102pt too wide) in paragraph at lines 9264--9264
 \OT1/cmr/bx/n/14.4 Sec-tion 10.5 of [][]Efron and Hastie[][] [[][]2016[][]], []
 []Shao and Tu[][] [[][]2012[][]], 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9178.
+(hyperref)                removing `\begingroup' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9178.
+(hyperref)                removing `\<let>-command' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9178.
+(hyperref)                removing `\NAT@ctype' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9178.
+(hyperref)                removing `\z@' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9178.
+(hyperref)                removing `\new@ifnextchar' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9178.
+(hyperref)                removing `\begingroup' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9178.
+(hyperref)                removing `\<let>-command' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9178.
+(hyperref)                removing `\NAT@ctype' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9178.
+(hyperref)                removing `\z@' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9178.
+(hyperref)                removing `\new@ifnextchar' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9178.
+(hyperref)                removing `\begingroup' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9178.
+(hyperref)                removing `\<let>-command' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9178.
+(hyperref)                removing `\NAT@ctype' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9178.
+(hyperref)                removing `\z@' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9178.
+(hyperref)                removing `\new@ifnextchar' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9178.
+(hyperref)                removing `\begingroup' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9178.
+(hyperref)                removing `\<let>-command' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9178.
+(hyperref)                removing `\NAT@ctype' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9178.
+(hyperref)                removing `\z@' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9178.
+(hyperref)                removing `\new@ifnextchar' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9178.
+(hyperref)                removing `\begingroup' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9178.
+(hyperref)                removing `\<let>-command' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9178.
+(hyperref)                removing `\NAT@ctype' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9178.
+(hyperref)                removing `\z@' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9178.
+(hyperref)                removing `\new@ifnextchar' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9178.
+(hyperref)                removing `\begingroup' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9178.
+(hyperref)                removing `\<let>-command' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9178.
+(hyperref)                removing `\NAT@ctype' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9178.
+(hyperref)                removing `\z@' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9178.
+(hyperref)                removing `\new@ifnextchar' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9178.
+(hyperref)                removing `\begingroup' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9178.
+(hyperref)                removing `\<let>-command' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9178.
+(hyperref)                removing `\NAT@ctype' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9178.
+(hyperref)                removing `\z@' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9178.
+(hyperref)                removing `\let' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9178.
+(hyperref)                removing `\new@ifnextchar' on input line 9264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 9211.
+(hyperref)                removing `math shift' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9211.
+(hyperref)                removing `\begingroup' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9211.
+(hyperref)                removing `\let' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9211.
+(hyperref)                removing `\<let>-command' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9211.
+(hyperref)                removing `\NAT@ctype' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9211.
+(hyperref)                removing `\z@' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9211.
+(hyperref)                removing `\let' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9211.
+(hyperref)                removing `\new@ifnextchar' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 9211.
+(hyperref)                removing `\begingroup' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9211.
+(hyperref)                removing `\let' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 9211.
+(hyperref)                removing `\<let>-command' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\NAT@ctype' on input line 9211.
+(hyperref)                removing `\NAT@ctype' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 9211.
+(hyperref)                removing `\z@' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\let' on input line 9211.
+(hyperref)                removing `\let' on input line 9297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 9211.
+(hyperref)                removing `\new@ifnextchar' on input line 9297.
+
+[164] (./Mathematical_Statistics.bbl
+
+Package natbib Warning: Citation `SERFLING1980' on page 165 undefined on input 
+line 1.
 
 
-Package natbib Warning: Citation `SERFLING1980' on page 161 undefined on input 
-line 9221.
+Package natbib Warning: Citation `DASGUPTA2008ASYMPTOTIC' on page 165 undefined
+ on input line 1.
 
+[165] [166
 
-Package natbib Warning: Citation `DEMIDENKO2013MIXED' on page 161 undefined on 
-input line 9221.
-
-
-Package natbib Warning: Citation `KOROLJUK1994THEORY' on page 161 undefined on 
-input line 9221.
-
-
-Package natbib Warning: Citation `EFRON2016' on page 161 undefined on input lin
-e 9221.
-
-
-Package natbib Warning: Citation `SHAO2012JACKKNIFE' on page 161 undefined on i
-nput line 9221.
-
-
-Package natbib Warning: Citation `HAMPEL1974' on page 161 undefined on input li
-ne 9221.
-
-
-Package natbib Warning: Citation `DASGUPTA2008ASYMPTOTIC' on page 161 undefined
- on input line 9221.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 34.43335pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[161] (./Mathematical_Statistics.bbl [162])
+])
 
 Package natbib Warning: There were undefined citations.
 
-[163
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9231.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 9231.
+[167]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9317.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9317.
  (./Mathematical_Statistics.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 9231.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9231.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 9317.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9317.
 
 Package rerunfilecheck Info: File `Mathematical_Statistics.out' has not changed
 .
@@ -2112,16 +2100,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 9231.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 9317.
  ) 
 Here is how much of TeX's memory you used:
- 19233 strings out of 492649
- 358593 string characters out of 6129622
+ 19239 strings out of 492649
+ 358649 string characters out of 6129622
  439709 words of memory out of 5000000
  22032 multiletter control sequences out of 15000+600000
  18710 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,17n,66p,1012b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,17n,66p,1012b,575s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Users/gregfaletto/Library/texlive/2018/texmf-var/fonts/pk/ljfour/public/bb
 m/bbm10.600pk>{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-s
 uper-ts1.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -2154,10 +2142,10 @@ l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/
 local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></u
 sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Mathematical_Statistics.pdf (163 pages, 3589371 bytes).
+Output written on Mathematical_Statistics.pdf (167 pages, 3597685 bytes).
 PDF statistics:
- 2220 PDF objects out of 2487 (max. 8388607)
- 1975 compressed objects within 20 object streams
- 718 named destinations out of 1000 (max. 500000)
+ 2239 PDF objects out of 2487 (max. 8388607)
+ 1990 compressed objects within 20 object streams
+ 724 named destinations out of 1000 (max. 500000)
  398 words of extra memory for PDF output out of 10000 (max. 10000000)
 

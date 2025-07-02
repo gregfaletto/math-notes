@@ -1560,6 +1560,61 @@ A similar result exists when a sum of three or more Poisson random variables is 
 
 \end{remark}
 
+\begin{proposition}[Stein-Chen identity; characterizing operator for Poisson distribution] A random variable \(Y\) has distribution \(\operatorname{Poisson}(\lambda)\) if and only if for any \(f: \mathbb{N} \to \mathbb{R}\) it holds that
+\[
+\E[\lambda f(Y) - Yf(Y-1)] = 0
+.
+\]
+\end{proposition}
+
+\begin{proof}
+\begin{align*}
+\mathbb{E}[\lambda f(Y) - Y f(Y-1)] = ~ & \sum_{k=0}^\infty \lambda f(k) e^{-\lambda} \frac{\lambda^k}{k!} - \sum_{k=0}^\infty kf(k-1) e^{-\lambda} \frac{\lambda^k}{k!}
+%
+\\ = ~ &  \sum_{k=0}^\infty f(k) e^{-\lambda} \frac{\lambda^{k+1}}{k!} - \sum_{k=0}^\infty kf(k-1) e^{-\lambda} \frac{\lambda^k}{k!}
+%
+\\ = ~ &  \sum_{k'=1}^\infty f(k'-1) e^{-\lambda} \frac{\lambda^{k'}}{(k'-1)!} - \sum_{k=0}^\infty f(k-1) e^{-\lambda} \frac{\lambda^k}{(k-1)!}
+%
+\\ = ~ & 0
+.
+\end{align*}
+\end{proof}
+
+\begin{proposition}
+
+If \(X \sim \operatorname{Poisson}(\lambda)\), then \(\mathbb{E}|X-\lambda| = 2 \lambda \mathbb{P}(X = \lfloor \lambda \rfloor)\).
+
+\end{proposition}
+
+\begin{proof}
+
+Let $m = \lfloor \lambda \rfloor$. We can write the expectation of $|X-\lambda|$ as:
+$$\mathbb{E}|X-\lambda| = \sum_{k=0}^{\infty} |k-\lambda| \mathbb{P}(X=k)$$
+We can split this sum into two parts: one for $k \le m$ (where $k-\lambda \le 0$) and one for $k > m$ (where $k-\lambda > 0$).
+$$\mathbb{E}|X-\lambda| = \sum_{k=0}^{m} (\lambda-k) \mathbb{P}(X=k) + \sum_{k=m+1}^{\infty} (k-\lambda) \mathbb{P}(X=k)$$
+Let's expand both sums:
+$$\mathbb{E}|X-\lambda| = \left( \lambda \sum_{k=0}^{m} \mathbb{P}(X=k) - \sum_{k=0}^{m} k \mathbb{P}(X=k) \right) + \left( \sum_{k=m+1}^{\infty} k \mathbb{P}(X=k) - \lambda \sum_{k=m+1}^{\infty} \mathbb{P}(X=k) \right)$$
+This can be expressed using cumulative probabilities:
+$$\mathbb{E}|X-\lambda| = \lambda \mathbb{P}(X \le m) - \sum_{k=0}^{m} k \mathbb{P}(X=k) + \sum_{k=m+1}^{\infty} k \mathbb{P}(X=k) - \lambda \mathbb{P}(X > m)$$
+A key property of the Poisson distribution is that for an integer $n \ge 1$:
+$$\sum_{k=n}^{\infty} k \mathbb{P}(X=k) = \sum_{k=n}^{\infty} k \frac{e^{-\lambda}\lambda^k}{k!} = \lambda \sum_{k=n}^{\infty} \frac{e^{-\lambda}\lambda^{k-1}}{(k-1)!} = \lambda \sum_{j=n-1}^{\infty} \frac{e^{-\lambda}\lambda^j}{j!} = \lambda \mathbb{P}(X \ge n-1)$$
+Using this property, we can find expressions for the partial sums involving $k\mathbb{P}(X=k)$:
+$$\sum_{k=m+1}^{\infty} k \mathbb{P}(X=k) = \lambda \mathbb{P}(X \ge m)$$
+And for the other sum:
+$$\sum_{k=0}^{m} k \mathbb{P}(X=k) = \mathbb{E}[X] - \sum_{k=m+1}^{\infty} k \mathbb{P}(X=k) = \lambda - \lambda \mathbb{P}(X \ge m) = \lambda (1 - \mathbb{P}(X \ge m)) = \lambda \mathbb{P}(X < m) = \lambda \mathbb{P}(X \le m-1)$$
+Now, substitute these back into the equation for $\mathbb{E}|X-\lambda|$:
+$$\mathbb{E}|X-\lambda| = \lambda \mathbb{P}(X \le m) - \lambda \mathbb{P}(X \le m-1) + \lambda \mathbb{P}(X \ge m) - \lambda \mathbb{P}(X > m)$$
+Group the terms:
+$$\mathbb{E}|X-\lambda| = \lambda \left( \mathbb{P}(X \le m) - \mathbb{P}(X \le m-1) \right) + \lambda \left( \mathbb{P}(X \ge m) - \mathbb{P}(X > m) \right)$$
+By the definition of probability mass functions:
+$$\mathbb{P}(X \le m) - \mathbb{P}(X \le m-1) = \mathbb{P}(X=m)$$
+$$\mathbb{P}(X \ge m) - \mathbb{P}(X > m) = \mathbb{P}(X=m)$$
+Substituting these gives:
+$$\mathbb{E}|X-\lambda| = \lambda \mathbb{P}(X=m) + \lambda \mathbb{P}(X=m) = 2\lambda \mathbb{P}(X=m)$$
+Since we defined $m = \lfloor \lambda \rfloor$, we have proven the proposition:
+$$\mathbb{E}|X-\lambda| = 2 \lambda \mathbb{P}(X = \lfloor \lambda \rfloor)$$
+\end{proof}
+
 \textbf{Geometric}:  \(\operatorname{G}_1(p)\): the number of Bernoulli trials before the first success.
 
 \begin{itemize}
@@ -7985,6 +8040,7 @@ where
 %\bibliographystyle{abbrvnat}
 %\bibliography{mybib2fin}
 %\end{document}
+
 
 
 
